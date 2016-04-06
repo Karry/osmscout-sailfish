@@ -22,7 +22,7 @@ set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCO
 
 # ==================================================================================================
 
-set(CMAKE_MIN_VERSION    "2.8.12")
+set(CMAKE_MIN_VERSION    "2.8.11")
 set(QT_MIN_VERSION       "5.2.0")
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
@@ -146,6 +146,7 @@ set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
 
 include_directories(
   ${OSMSCOUT_BASE_DIR_BUILD}/include/
+  ${MARISA_ROOT}/lib
 )
 
 # following code is c++
@@ -191,8 +192,9 @@ set(SOURCE_FILES
 set(RESOURCE_FILES
     res.qrc
 )
+QT5_ADD_RESOURCES(RESOURCE_SRCS ${RESOURCE_FILES})
 
-add_executable(osmscout-sailfish ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
+add_executable(osmscout-sailfish ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_SRCS})
 
 target_include_directories(osmscout-sailfish PRIVATE 
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
