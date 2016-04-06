@@ -50,6 +50,11 @@
 **/.project
 **/.settings
 **/.classpath
+/nbproject
 
 # Backup
 **/*~
+
+# dependencies dir
+/dependencies
+/build/
