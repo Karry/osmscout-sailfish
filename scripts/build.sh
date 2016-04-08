@@ -9,4 +9,5 @@ if [ $# -lt 1 ] ; then
 fi
 
 TARGET=$1
-sb2 -t $TARGET -m sdk-build cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr .. && sb2 -t $TARGET -m sdk-build make
+NPROC=`cat /proc/cpuinfo | grep -c "^processor"`
+sb2 -t $TARGET -m sdk-build cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr .. && sb2 -t $TARGET -m sdk-build make -j $NPROC
