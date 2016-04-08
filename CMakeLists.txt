@@ -106,6 +106,25 @@ message(STATUS "----------------------------------------------------------------
 message(STATUS "")
 
 # ==================================================================================================
+
+if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
+
+  add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
+
+  # QT5 definitions
+  add_definitions(${QT_DEFINITIONS})
+  add_definitions(${Qt5Core_DEFINITIONS})
+
+  add_definitions(${LIBXML2_DEFINITIONS})
+
+  # OpenMP definitions
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+
+endif()
+
+# ==================================================================================================
 # libmarisa
 
 # marisa is pure C code
@@ -152,8 +171,6 @@ include_directories(
 # following code is c++
 remove_definitions(-std=c11)
 add_definitions(-std=c++11)
-
-add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
 
 # QT5 definitions
 add_definitions(${QT_DEFINITIONS})
