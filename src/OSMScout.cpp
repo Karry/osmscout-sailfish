@@ -22,6 +22,12 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 
+#ifdef QT_QML_DEBUG
+#include <QtQuick>
+#endif
+
+#include <sailfishapp.h>
+
 // Custom QML objects
 #include "MapWidget.h"
 #include "SearchLocationModel.h"
@@ -53,13 +59,15 @@ int main(int argc, char* argv[])
   QCoreApplication::setAttribute(Qt::AA_X11InitThreads);
 #endif
 
-  QGuiApplication app(argc,argv);
+  QGuiApplication *app = SailfishApp::application(argc, argv);
+  QScopedPointer<QQuickView> view(SailfishApp::createView());  
+  
   SettingsRef     settings;
   int             result;
 
-  app.setOrganizationName("libosmscout");
-  app.setOrganizationDomain("libosmscout.sf.net");
-  app.setApplicationName("OSMScout");
+  app->setOrganizationName("libosmscout");
+  app->setOrganizationDomain("libosmscout.sf.net");
+  app->setApplicationName("OSMScout");
 
   qRegisterMetaType<RenderMapRequest>();
   qRegisterMetaType<DatabaseLoadedResponse>();
@@ -91,11 +99,13 @@ int main(int argc, char* argv[])
 
   dbThread->moveToThread(&thread);
 
-  QQmlApplicationEngine window(QUrl("qrc:/qml/main.qml"));
 
   thread.start();
 
-  result=app.exec();
+  view->setSource(SailfishApp::pathTo("qml/main.qml"));
+  view->showFullScreen();
+    
+  result=app->exec();
 
   thread.quit();
   thread.wait();

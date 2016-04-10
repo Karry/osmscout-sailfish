@@ -3,10 +3,10 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=osmscout-sailfish
 Exec=osmscout-sailfish
-Name=osmscout-sailfish
+Name=OSMScout
 # translation example:
 # your app name in German locale (de)
 #
 # Remember to comment out the following line, if you do not want to use
 # a different app name in German locale (de).
-Name[de]=osmscout-sailfish
+Name[de]=OSMScout
