@@ -5,7 +5,7 @@ import "pages"
 
 ApplicationWindow {
     id: mainWindow
-    initialPage: Qt.resolvedUrl("pages/MainPage.qml")
+    initialPage: Qt.resolvedUrl("pages/Map.qml")
     cover: Qt.resolvedUrl("pages/Cover.qml")
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All

@@ -225,7 +225,6 @@ set(SOURCE_FILES
     qml/custom/ScrollIndicator.qml
     qml/pages/Map.qml
     qml/pages/Cover.qml
-    qml/pages/MainPage.qml
     qml/main.qml
 )
 

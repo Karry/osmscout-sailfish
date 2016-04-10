@@ -1,48 +1,15 @@
-import QtQuick 2.2
 
-import QtQuick.Controls 1.1
-import QtQuick.Layouts 1.1
-import QtQuick.Controls.Styles 1.1
-import QtQuick.Window 2.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 import QtPositioning 5.2
 
 import net.sf.libosmscout.map 1.0
 
-import "custom"
+import "../custom"
 
-Window {
-    id: mainWindow
-    objectName: "main"
-    title: "OSMScout"
-    visible: true
-    width: 480
-    height: 800
-
-    function openAboutDialog() {
-        var component = Qt.createComponent("AboutDialog.qml")
-        var dialog = component.createObject(mainWindow, {})
-
-        dialog.opened.connect(onDialogOpened)
-        dialog.closed.connect(onDialogClosed)
-        dialog.open()
-    }
-
-    function showLocation(location) {
-        map.showLocation(location)
-    }
-
-    function onDialogOpened() {
-        info.visible = false
-        navigation.visible = false
-    }
-
-    function onDialogClosed() {
-        info.visible = true
-        navigation.visible = true
-
-        map.focus = true
-    }
+Page {
+    id: mapPage
 
     PositionSource {
         id: positionSource
@@ -156,6 +123,7 @@ Window {
 
             // Use PinchArea for multipoint zoom in/out?
 
+            /*
             SearchDialog {
                 id: searchDialog
 
@@ -197,8 +165,10 @@ Window {
                     }
                 }
             }
+            */
 
             // Bottom right column
+            /*
             ColumnLayout {
                 id: navigation
 
@@ -225,6 +195,7 @@ Window {
                     }
                 }
             }
+            */
         }
     }
 }
