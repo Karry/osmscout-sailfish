@@ -6,6 +6,7 @@
 Name:       osmscout-sailfish
 
 # >> macros
+%define _unpackaged_files_terminate_build 0
 # << macros
 
 Summary:    OSMScout for Sailfish
@@ -17,12 +18,14 @@ URL:        https://github.com/Karry/osmscout-sailfish
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  osmscout-sailfish.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires:   qt5-qtpositioning >= 5.2.0
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Positioning)
 BuildRequires:  cmake
 BuildRequires:  desktop-file-utils
 
@@ -70,7 +73,6 @@ desktop-file-install --delete-original       \
 %postun -p /sbin/ldconfig
 
 %files
-%define _unpackaged_files_terminate_build 0 
 %defattr(-,root,root,-)
 %{_bindir}
 %{_datadir}/%{name}

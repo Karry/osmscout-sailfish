@@ -26,10 +26,12 @@ PkgConfigBR:
   - Qt5Core
   - Qt5Qml
   - Qt5Quick
+  - Qt5Positioning
 
 # Runtime dependencies which are not automatically detected
 Requires:
   - sailfishsilica-qt5 >= 0.10.9 
+  - qt5-qtpositioning >= 5.2.0
 
 # All installed files
 Files:
