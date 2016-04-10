@@ -1,4 +1,4 @@
-Name: osmscout-sailfish
+Name: harbour-osmscout
 Summary: OSMScout for Sailfish
 Version: 0.1
 Release: 1
@@ -37,10 +37,10 @@ Requires:
 Files:
   - '%{_bindir}'
   - '%{_datadir}/%{name}'
-  - '%{_libdir}/libmarisa.so'
-  - '%{_libdir}/liblibosmscout.so'
-  - '%{_libdir}/liblibosmscout_map.so'
-  - '%{_libdir}/liblibosmscout_map_qt.so'
+  - '%{_datadir}/%{name}/lib/libmarisa.so'
+  - '%{_datadir}/%{name}/lib/liblibosmscout.so'
+  - '%{_datadir}/%{name}/lib/liblibosmscout_map.so'
+  - '%{_datadir}/%{name}/lib/liblibosmscout_map_qt.so'
   - '%{_datadir}/applications/%{name}.desktop'
   - '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
 
