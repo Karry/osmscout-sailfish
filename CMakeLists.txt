@@ -1,7 +1,7 @@
 #
 # Copyright (c) 2016 Lukas Karas <lukas.karas@centrum.cz>
 #
-# Structure of MoNav cmake scripts was inspired by DigiKam project
+# Structure of OSMScout-Sailfish cmake scripts was inspired by DigiKam project
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -63,6 +63,7 @@ find_package( Qt5 ${QT_MIN_VERSION}
 find_package(OpenMP REQUIRED)
 find_package(LibXml2)
 find_package(BZip2)
+find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp 
 
 # ==================================================================================================
 # Dependencies Rules
@@ -87,13 +88,15 @@ message(STATUS "OSMScout-Sailfish ${OSMSCOUT_SAILFISH_VERSION_STRING} build conf
 message(STATUS "")
 message(STATUS "Requiered dependencies:")
 
-PRINT_LIBRARY_STATUS("Qt5"                    "http://www.qtsoftware.com"             "(version >= ${QT_MIN_VERSION})"     Qt5_FOUND)
-#PRINT_LIBRARY_STATUS("libprotobuf"            "https://github.com/google/protobuf"    ""      PROTOBUF_FOUND)
-PRINT_LIBRARY_STATUS("OpenMP compiler support" "http://openmp.org/wp/openmp-compilers/" ""    OPENMP_FOUND)
+PRINT_LIBRARY_STATUS("Qt5"                    "http://www.qtsoftware.com"                       "(version >= ${QT_MIN_VERSION})"     Qt5_FOUND)
+#PRINT_LIBRARY_STATUS("libprotobuf"            "https://github.com/google/protobuf"             ""      PROTOBUF_FOUND)
+PRINT_LIBRARY_STATUS("OpenMP compiler support" "http://openmp.org/wp/openmp-compilers/"         ""      OPENMP_FOUND)
+PRINT_LIBRARY_STATUS("SailfishApp library"     "https://github.com/sailfish-sdk/libsailfishapp" ""      LIBSAILFISHAPP_FOUND)
 
 message(STATUS "")
 
-if(Qt5_FOUND   
+if(Qt5_FOUND AND
+  LIBSAILFISHAPP_FOUND
   )
     message(STATUS      " OSMScout-Sailfish can be compiled........ YES")
     set(OSMSCOUT_SAILFISH_CAN_BE_COMPILED true)
@@ -116,6 +119,7 @@ if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
   add_definitions(${Qt5Core_DEFINITIONS})
 
   add_definitions(${LIBXML2_DEFINITIONS})
+  add_definitions(${LIBSAILFISHAPP_DEFINITIONS})
 
   # OpenMP definitions
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
@@ -204,6 +208,16 @@ set(SOURCE_FILES
     src/SearchLocationModel.cpp
     src/Settings.cpp
     src/Theme.cpp
+
+    qml/main.qml
+    qml/AboutDialog.qml
+    qml/SearchDialog.qml
+    qml/custom/DialogActionButton.qml
+    qml/custom/LineEdit.qml
+    qml/custom/LocationSearch.qml
+    qml/custom/MapButton.qml
+    qml/custom/MapDialog.qml
+    qml/custom/ScrollIndicator.qml
 )
 
 set(RESOURCE_FILES
@@ -216,7 +230,9 @@ add_executable(osmscout-sailfish ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_SRCS
 target_include_directories(osmscout-sailfish PRIVATE 
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include)
+		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+    ${LIBSAILFISHAPP_INCLUDE_DIRS}
+)
 
 target_link_libraries(osmscout-sailfish
         libosmscout
@@ -228,6 +244,25 @@ target_link_libraries(osmscout-sailfish
         Qt5::Quick
         Qt5::Svg
         Qt5::Positioning
-        libosmscout_map_qt)
+        libosmscout_map_qt
+        ${LIBSAILFISHAPP_LIBRARIES}
+)
 
 set_property(TARGET osmscout-sailfish PROPERTY CXX_STANDARD 11)
+
+# https://github.com/sailfish-sdk/cmakesample/blob/master/CMakeLists.txt
+install(TARGETS osmscout-sailfish
+RUNTIME DESTINATION bin)
+
+install(DIRECTORY qml
+DESTINATION share/osmscout-sailfish)
+
+install(DIRECTORY translations
+DESTINATION share/osmscout-sailfish
+FILES_MATCHING PATTERN "*.qm")
+
+install(FILES osmscout-sailfish.desktop
+DESTINATION share/applications)
+
+install(FILES osmscout-sailfish.png
+DESTINATION share/icons/hicolor/86x86/apps)
