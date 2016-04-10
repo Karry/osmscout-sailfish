@@ -160,6 +160,10 @@ set(MARISA_SRC
 add_library(marisa SHARED 
     ${MARISA_SRC}
 )
+install(TARGETS marisa
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
 
 set(MARISA_FOUND TRUE)
 set(MARISA_LIBRARIES marisa)
@@ -240,8 +244,6 @@ target_include_directories(osmscout-sailfish PRIVATE
 )
 
 target_link_libraries(osmscout-sailfish
-        libosmscout
-        libosmscout_map
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
@@ -249,6 +251,10 @@ target_link_libraries(osmscout-sailfish
         Qt5::Quick
         Qt5::Svg
         Qt5::Positioning
+        
+        marisa
+        libosmscout
+        libosmscout_map
         libosmscout_map_qt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
