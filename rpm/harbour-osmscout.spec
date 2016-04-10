@@ -43,8 +43,8 @@ OSM Scout is offline map viewer and routing application.
 %build
 # >> build pre
 rm -rf rpmbuilddir
-mkdir rpmbuilddir
-cd rpmbuilddir &&  cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr ..
+mkdir -p rpmbuilddir
+cd rpmbuilddir &&  cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr ..
 cd ..
 make -C rpmbuilddir VERBOSE=1 # %{?_smp_mflags}
 # << build pre
@@ -67,6 +67,17 @@ mkdir -p %{_bindir}
 desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
+
+# remove includes, we don't need it on Jolla phone
+rm %{buildroot}%{_includedir}/osmscout/*.h
+rm %{buildroot}%{_includedir}/osmscout/*/*.h
+
+# Jolla harbour rules - shared libraries without executable flag
+chmod -x %{buildroot}%{_libdir}/*.so
+
+# move all shared libraries to /usr/share/<HARBOUR_APP_NAME>/lib
+mkdir -p %{buildroot}%{_datadir}/%{name}/lib
+mv %{buildroot}%{_libdir}/*.so %{buildroot}%{_datadir}/%{name}/lib
 
 %post -p /sbin/ldconfig
 

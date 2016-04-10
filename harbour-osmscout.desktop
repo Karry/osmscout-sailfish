@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 X-Nemo-Application-Type=silica-qt5
-Icon=osmscout-sailfish
-Exec=osmscout-sailfish
+Icon=harbour-osmscout
+Exec=harbour-osmscout
 Name=OSMScout
 # translation example:
 # your app name in German locale (de)

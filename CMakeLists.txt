@@ -62,8 +62,8 @@ find_package( Qt5 ${QT_MIN_VERSION}
               Positioning
 )
 find_package(OpenMP REQUIRED)
-find_package(LibXml2)
-find_package(BZip2)
+#find_package(LibXml2)
+#find_package(BZip2)
 find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp 
 
 # ==================================================================================================
@@ -127,6 +127,7 @@ if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 
+  set(HARBOUR_APP_NAME harbour-osmscout)
 endif()
 
 # ==================================================================================================
@@ -186,13 +187,12 @@ add_definitions(-std=c++11)
 add_definitions(${QT_DEFINITIONS})
 add_definitions(${Qt5Core_DEFINITIONS})
 
-
 add_subdirectory(dependencies/libosmscout/libosmscout)
 add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
 
 # ==================================================================================================
-# osmscout-sailfish
+# harbour-osmscout
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -234,16 +234,16 @@ set(RESOURCE_FILES
 )
 QT5_ADD_RESOURCES(RESOURCE_SRCS ${RESOURCE_FILES})
 
-add_executable(osmscout-sailfish ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_SRCS})
+add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_SRCS})
 
-target_include_directories(osmscout-sailfish PRIVATE 
+target_include_directories(harbour-osmscout PRIVATE 
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
     ${LIBSAILFISHAPP_INCLUDE_DIRS}
 )
 
-target_link_libraries(osmscout-sailfish
+target_link_libraries(harbour-osmscout
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
@@ -259,21 +259,21 @@ target_link_libraries(osmscout-sailfish
         ${LIBSAILFISHAPP_LIBRARIES}
 )
 
-set_property(TARGET osmscout-sailfish PROPERTY CXX_STANDARD 11)
+set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 11)
 
 # https://github.com/sailfish-sdk/cmakesample/blob/master/CMakeLists.txt
-install(TARGETS osmscout-sailfish
+install(TARGETS harbour-osmscout
 RUNTIME DESTINATION bin)
 
 install(DIRECTORY qml
-DESTINATION share/osmscout-sailfish)
+DESTINATION share/${HARBOUR_APP_NAME})
 
 install(DIRECTORY translations
-DESTINATION share/osmscout-sailfish
+DESTINATION share/${HARBOUR_APP_NAME}
 FILES_MATCHING PATTERN "*.qm")
 
-install(FILES osmscout-sailfish.desktop
+install(FILES harbour-osmscout.desktop
 DESTINATION share/applications)
 
-install(FILES osmscout-sailfish.png
+install(FILES harbour-osmscout.png
 DESTINATION share/icons/hicolor/86x86/apps)
