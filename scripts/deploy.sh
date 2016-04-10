@@ -59,7 +59,7 @@ fi
 export MER_SSH_PROJECT_PATH="$MER_SSH_SHARED_SRC/$PROJECT_NAME"
 export PROJECT_FILE="$MER_SSH_PROJECT_PATH/$PROJECT_TARGET.pro"
 
-export PROJECT_BUILD_DIR="$MER_SSH_PROJECT_PATH/.build.$MER_SSH_TARGET_NAME"
+export PROJECT_BUILD_DIR="$MER_SSH_PROJECT_PATH/build-$MER_SSH_TARGET_NAME"
 export MER_SSH_SDK_TOOLS="$HOME/.config/SailfishBeta7/mer-sdk-tools/MerSDK/$MER_SSH_TARGET_NAME"
 
 export MER_SSH_SHARED_HOME="$HOME"
@@ -71,6 +71,7 @@ export MER_SSH_CMD="$SDK_ROOT/bin/merssh"
 export MER_SSH_PRIVATE_KEY="$SDK_ROOT/vmshare/ssh/private_keys/engine/mersdk"
 export MER_SSH_USERNAME=mersdk
 export MER_SSH_PORT=2222
+export SDK_SSH_HOST=localhost
 
 ##################################################################
 ## SDK vm
@@ -84,6 +85,21 @@ else
 	echo "SDK is running already"
 fi
 
+function sdk_cmd {
+ echo "$@" | ssh \
+    -q \
+    -p $MER_SSH_PORT \
+    -i "$MER_SSH_PRIVATE_KEY" \
+    "$MER_SSH_USERNAME@$SDK_SSH_HOST"
+}
+
+##################################################################
+## 
+echo
+echo "build rpm..."
+
+sdk_cmd "cd /home/mersdk/share/SailfishOS/projects/$PROJECT_NAME/ && mb2 -t SailfishOS-armv7hl build"
+  
 ##################################################################
 ## 
 echo
