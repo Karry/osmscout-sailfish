@@ -135,6 +135,7 @@ endif()
 add_definitions( -std=c11 )
 
 set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-0.2.4)
+set(MARISA_INCLUDE_DIRS ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-0.2.4/lib)
 
 set(MARISA_SRC
     ${MARISA_ROOT}/lib/marisa/grimoire/io/reader.cc
@@ -208,8 +209,8 @@ set(SOURCE_FILES
     src/SearchLocationModel.cpp
     src/Settings.cpp
     src/Theme.cpp
-
-    qml/main.qml
+    
+    # find qml -type f
     qml/AboutDialog.qml
     qml/SearchDialog.qml
     qml/custom/DialogActionButton.qml
@@ -218,6 +219,10 @@ set(SOURCE_FILES
     qml/custom/MapButton.qml
     qml/custom/MapDialog.qml
     qml/custom/ScrollIndicator.qml
+    qml/pages/Map.qml
+    qml/pages/Cover.qml
+    qml/pages/MainPage.qml
+    qml/main.qml
 )
 
 set(RESOURCE_FILES
