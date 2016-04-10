@@ -48,13 +48,9 @@ cd build-SailfishOS-i486
 sb2 -t SailfishOS-i486 -m sdk-build cmake ..
 sb2 -t SailfishOS-i486 -m sdk-build make
 ```
- * Copy build directory to Emulator vm and run it!
+ * Build rpm packages inside SDK vm:
 ```
-tar -cf build-SailfishOS-i486.tar build-SailfishOS-i486
-scp -P 2223 -i ~/SailfishOS/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo  build-SailfishOS-i486.tar nemo@localhost:/home/nemo
-ssh -v nemo@localhost -p 2223 -i ~/SailfishOS/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo 
-tar -xf build-SailfishOS-i486.tar
-cd build-SailfishOS-i486
-LD_LIBRARY_PATH=.:./dependencies/libosmscout/libosmscout:./dependencies/libosmscout/libosmscout-map:./dependencies/libosmscout/libosmscout-map-qt ./osmscout-sailfish
+cd /home/src1/osmscout-sailfish/
+mb2 -t SailfishOS-i486 build
+mb2 -t SailfishOS-armv7hl build
 ```
-
