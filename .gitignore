@@ -62,3 +62,7 @@
 /build
 /build-SailfishOS-i486
 /build-SailfishOS-armv7hl
+/build-qtcreator
+/rpmbuilddir
+/RPMS
+
