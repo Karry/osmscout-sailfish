@@ -73,13 +73,13 @@ int main(int argc, char* argv[])
   qRegisterMetaType<DatabaseLoadedResponse>();
   qRegisterMetaType<osmscout::TileRef>();
 
-  qmlRegisterType<MapWidget>("net.sf.libosmscout.map", 1, 0, "Map");
-  qmlRegisterType<Location>("net.sf.libosmscout.map", 1, 0, "Location");
-  qmlRegisterType<LocationListModel>("net.sf.libosmscout.map", 1, 0, "LocationListModel");
-  qmlRegisterType<RouteStep>("net.sf.libosmscout.map", 1, 0, "RouteStep");
-  qmlRegisterType<RoutingListModel>("net.sf.libosmscout.map", 1, 0, "RoutingListModel");
+  qmlRegisterType<MapWidget>("harbour.osmscout.map", 1, 0, "Map");
+  qmlRegisterType<Location>("harbour.osmscout.map", 1, 0, "Location");
+  qmlRegisterType<LocationListModel>("harbour.osmscout.map", 1, 0, "LocationListModel");
+  qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
+  qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
 
-  qmlRegisterSingletonType<Theme>("net.sf.libosmscout.map", 1, 0, "Theme", ThemeProvider);
+  qmlRegisterSingletonType<Theme>("harbour.osmscout.map", 1, 0, "Theme", ThemeProvider);
 
   osmscout::log.Debug(true);
 

@@ -1,7 +1,7 @@
 import QtQuick 2.2
 import QtGraphicalEffects 1.0
 
-import net.sf.libosmscout.map 1.0
+import harbour.osmscout.map 1.0
 
 Rectangle {
   id: mapButton
