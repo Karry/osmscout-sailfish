@@ -213,27 +213,9 @@ set(SOURCE_FILES
     src/SearchLocationModel.cpp
     src/Settings.cpp
     src/Theme.cpp
-    
-    # find qml -type f
-    qml/AboutDialog.qml
-    qml/SearchDialog.qml
-    qml/custom/DialogActionButton.qml
-    qml/custom/LineEdit.qml
-    qml/custom/LocationSearch.qml
-    qml/custom/MapButton.qml
-    qml/custom/MapDialog.qml
-    qml/custom/ScrollIndicator.qml
-    qml/pages/Map.qml
-    qml/pages/Cover.qml
-    qml/main.qml
 )
 
-set(RESOURCE_FILES
-    res.qrc
-)
-QT5_ADD_RESOURCES(RESOURCE_SRCS ${RESOURCE_FILES})
-
-add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_SRCS})
+add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
 
 target_include_directories(harbour-osmscout PRIVATE 
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
@@ -262,6 +244,9 @@ install(TARGETS harbour-osmscout
 RUNTIME DESTINATION bin)
 
 install(DIRECTORY qml
+DESTINATION share/${HARBOUR_APP_NAME})
+
+install(DIRECTORY pics
 DESTINATION share/${HARBOUR_APP_NAME})
 
 install(DIRECTORY translations
