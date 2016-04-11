@@ -47,6 +47,12 @@ mkdir -p build-SailfishOS-i486
 cd build-SailfishOS-i486
 sb2 -t SailfishOS-i486 -m sdk-build cmake ..
 sb2 -t SailfishOS-i486 -m sdk-build make
+
+cd /home/src1/osmscout-sailfish/
+mkdir -p build-SailfishOS-armv7hl
+cd build-SailfishOS-armv7hl
+sb2 -t SailfishOS-armv7hl -m sdk-build cmake ..
+sb2 -t SailfishOS-armv7hl -m sdk-build make
 ```
  * Build rpm packages inside SDK vm:
 ```
