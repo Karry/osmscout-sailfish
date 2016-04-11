@@ -37,10 +37,7 @@ Requires:
 Files:
   - '%{_bindir}'
   - '%{_datadir}/%{name}'
-  - '%{_datadir}/%{name}/lib/libmarisa.so'
-  - '%{_datadir}/%{name}/lib/liblibosmscout.so'
-  - '%{_datadir}/%{name}/lib/liblibosmscout_map.so'
-  - '%{_datadir}/%{name}/lib/liblibosmscout_map_qt.so'
+  - '%{_datadir}/%{name}/lib/'
   - '%{_datadir}/applications/%{name}.desktop'
   - '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
 
