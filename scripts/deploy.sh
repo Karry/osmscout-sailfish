@@ -42,7 +42,7 @@ if [ "$TYPE" = "emulator" ] ; then
 # 		VBoxManage controlvm "SailfishOS Emulator" poweroff
 		sleep 3
 	else
-		echo "SDK is running already"
+		echo "Emulator is running already"
 	fi	
 else
 	export MER_SSH_DEVICE_NAME="Jolla (ARM)"
