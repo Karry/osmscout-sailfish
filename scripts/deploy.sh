@@ -13,15 +13,13 @@ fi
 
 export TYPE="$1" # emulator
 export PROJECT_NAME="osmscout-sailfish" 
-
-
-PROJECT_TARGET="$PROJECT_NAME"
+export PROJECT_TARGET="harbour-osmscout"
 
 ##################################################################
 ## project root
-export MER_SSH_SHARED_SRC="$HOME/SailfishOS/projects/"
+export MER_SSH_SHARED_SRC="$HOME/SailfishOS/projects"
 ## SDK ROOT
-export SDK_ROOT="$HOME/SailfishOS/"
+export SDK_ROOT="$HOME/SailfishOS"
 
 ## build & deploy target
 ## list of configured devices: ~/SailfishOS/vmshare/devices.xml 
@@ -33,6 +31,7 @@ if [ "$TYPE" = "emulator" ] ; then
 	export DEV_SSH_PORT=2223
 	export MER_SSH_TARGET_NAME=SailfishOS-i486
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo"
+	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/root"
 	
 	## emulator vm
 	if [ `VBoxManage list runningvms | grep -c "$MER_SSH_DEVICE_NAME"` -eq 0 ] ; then
@@ -51,6 +50,7 @@ else
 	export DEV_SSH_PORT=22
 	export MER_SSH_TARGET_NAME=SailfishOS-armv7hl
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
+	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 fi
 
 
@@ -98,15 +98,35 @@ function sdk_cmd {
 echo
 echo "build rpm..."
 
-sdk_cmd "cd /home/mersdk/share/SailfishOS/projects/$PROJECT_NAME/ && mb2 -t SailfishOS-armv7hl build"
+sdk_cmd "cd /home/mersdk/share/SailfishOS/projects/$PROJECT_NAME/ && mb2 -t $MER_SSH_TARGET_NAME build"
   
 ##################################################################
 ## 
 echo
 echo "deploy..."
 
-"$MER_SSH_CMD" \
-  deploy --sdk
+RPM_PATH=`find "$MER_SSH_PROJECT_PATH/RPMS" -name '*.rpm' | head -1`
+if [ ! -f "$RPM_PATH" ] ; then
+  echo "Can't found rpm package"
+  exit 1
+fi
+RPM=`basename "$RPM_PATH"`
+
+echo "Copy $RPM_PATH to root@$DEV_SSH_HOST:/tmp/"
+scp  \
+  -i "$DEV_SSH_ROOT_KEY" \
+  -P "$DEV_SSH_PORT" \
+  "$RPM_PATH" \
+  "root@$DEV_SSH_HOST:/tmp/"
+
+echo "Installing /tmp/$RPM"
+echo "rpm -iv --replacepkgs --force /tmp/$RPM && rm /tmp/$RPM" | ssh \
+  -i "$DEV_SSH_ROOT_KEY" \
+  -p "$DEV_SSH_PORT" \
+  "root@$DEV_SSH_HOST"
+
+#"$MER_SSH_CMD" \
+#  deploy --sdk
   
 echo 
 echo "run"
