@@ -35,10 +35,10 @@ VBoxHeadless -startvm "MerSDK"
 ```
 ssh mersdk@localhost -p 2222 -i ~/SailfishOS/vmshare/ssh/private_keys/engine/mersdk
 ```
- * Install cmake in SDK vm:
+ * Install cmake and elf tools in SDK vm:
 ```
-sb2 -t SailfishOS-armv7hl -m sdk-install -R zypper in cmake
-sb2 -t SailfishOS-i486 -m sdk-install -R zypper in cmake
+sb2 -t SailfishOS-armv7hl -m sdk-install -R zypper in cmake patchelf chrpath
+sb2 -t SailfishOS-i486    -m sdk-install -R zypper in cmake patchelf chrpath
 ```
  * Compile project inside SDK vm:
 ```
