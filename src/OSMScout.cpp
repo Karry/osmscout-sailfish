@@ -21,6 +21,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
+#include <QStandardPaths>
 
 #ifdef QT_QML_DEBUG
 #include <QtQuick>
@@ -87,7 +88,8 @@ int main(int argc, char* argv[])
 
   QThread thread;
 
-  if (!DBThread::InitializeInstance("/home/nemo/Documents/Maps", "/usr/share/harbour-osmscout/")) { // TODO: determine user's Documents directory in runtime
+  QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
+  if (!DBThread::InitializeInstance(docs + QDir::separator() + "Maps", "/usr/share/harbour-osmscout/")) { 
     std::cerr << "Cannot initialize DBThread" << std::endl;
     return 1;
   }
