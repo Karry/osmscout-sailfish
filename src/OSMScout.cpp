@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
 
   QThread thread;
 
-  if (!DBThread::InitializeInstance()) {
+  if (!DBThread::InitializeInstance("/home/nemo/Documents/Maps", "/usr/share/harbour-osmscout/")) { // TODO: determine user's Documents directory in runtime
     std::cerr << "Cannot initialize DBThread" << std::endl;
     return 1;
   }

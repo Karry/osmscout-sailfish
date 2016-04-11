@@ -19,7 +19,7 @@
 
 #include "Theme.h"
 
-#include <QApplication>
+#include <QGuiApplication>
 #include <QDebug>
 #include <QFont>
 #include <QFontMetrics>
@@ -50,7 +50,7 @@ qreal Theme::pointToPixel(qreal point) const
 
 qreal Theme::GetDPI() const
 {
-    QScreen *srn = QApplication::screens().at(0);
+    QScreen *srn = QGuiApplication::screens().at(0);
     qreal dotsPerInch = (qreal)srn->physicalDotsPerInch();
 
     return dotsPerInch;

@@ -22,7 +22,7 @@
 #include <cmath>
 #include <iostream>
 
-#include <QApplication>
+#include <QGuiApplication>
 #include <QMutexLocker>
 #include <QDebug>
 #include <QDir>
@@ -65,8 +65,10 @@ void QBreaker::Reset()
 }
 
 
-DBThread::DBThread()
- : database(std::make_shared<osmscout::Database>(databaseParameter)),
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory)
+ : databaseDirectory(databaseDirectory), 
+   resourceDirectory(resourceDirectory),
+   database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
    mapService(std::make_shared<osmscout::MapService>(database)),
    daylight(true),
@@ -86,7 +88,7 @@ DBThread::DBThread()
 {
   osmscout::log.Debug() << "DBThread::DBThread()";
 
-  QScreen *srn=QApplication::screens().at(0);
+  QScreen *srn=QGuiApplication::screens().at(0);
 
   dpi=(double)srn->physicalDotsPerInch();
 
@@ -214,44 +216,9 @@ void DBThread::TileStateCallback(const osmscout::TileRef& changedTile)
 
 void DBThread::Initialize()
 {
-#ifdef __ANDROID__
-    QStringList docPaths=QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
 
-    QString databaseDirectory;
-
-    // look for standard.oss in each directory
-    for(int i=0; i < docPaths.size(); i++) {
-        QStringList list_filters;
-        list_filters << "osmscout";
-
-        QDir path(docPaths[i]);
-        QStringList list_files = path.entryList(list_filters,QDir::NoDotAndDotDot | QDir::Dirs);
-
-        if(!(list_files.size() == 1)) {
-            continue;
-        }
-
-        databaseDirectory=path.canonicalPath()+"/osmscout";
-    }
-
-    if(databaseDirectory.length() == 0) {
-        qDebug() << "ERROR: map database directory not found";
-    }
-    else {
-        qDebug() << "Loading database from " << databaseDirectory;
-    }
-
-    stylesheetFilename=databaseDirectory+"/standard.oss";
-
-    qDebug() << "Loading style sheet from " << stylesheetFilename;
-
-#else
-  QStringList cmdLineArgs = QApplication::arguments();
-  QString databaseDirectory = cmdLineArgs.size() > 1 ? cmdLineArgs.at(1) : QDir::currentPath();
-
-  stylesheetFilename = cmdLineArgs.size() > 2 ? cmdLineArgs.at(2) : databaseDirectory + QDir::separator() + "standard.oss";
-  iconDirectory = cmdLineArgs.size() > 3 ? cmdLineArgs.at(3) : databaseDirectory + QDir::separator() + "icons";
-#endif
+  stylesheetFilename = databaseDirectory + QDir::separator() + "standard.oss";
+  iconDirectory = resourceDirectory + QDir::separator() + "icons";
 
   if (database->Open(databaseDirectory.toLocal8Bit().data())) {
     osmscout::TypeConfigRef typeConfig=database->GetTypeConfig();
@@ -898,13 +865,13 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
 
 static DBThread* dbThreadInstance=NULL;
 
-bool DBThread::InitializeInstance()
+bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory)
 {
   if (dbThreadInstance!=NULL) {
     return false;
   }
 
-  dbThreadInstance=new DBThread();
+  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory);
 
   return true;
 }

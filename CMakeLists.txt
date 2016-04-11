@@ -52,7 +52,6 @@ find_package( Qt5 ${QT_MIN_VERSION}
               REQUIRED NO_MODULE COMPONENTS 
               Core
               Network
-              Widgets
               Gui
               Positioning
               Xml
@@ -246,7 +245,6 @@ target_include_directories(harbour-osmscout PRIVATE
 target_link_libraries(harbour-osmscout
         Qt5::Core
         Qt5::Gui
-        Qt5::Widgets
         Qt5::Qml
         Qt5::Quick
         Qt5::Svg
@@ -258,8 +256,6 @@ target_link_libraries(harbour-osmscout
         libosmscout_map_qt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
-
-set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 11)
 
 # https://github.com/sailfish-sdk/cmakesample/blob/master/CMakeLists.txt
 install(TARGETS harbour-osmscout

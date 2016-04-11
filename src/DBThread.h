@@ -95,6 +95,9 @@ public slots:
   void Finalize();
 
 private:
+  QString                       databaseDirectory; 
+  QString                       resourceDirectory;
+  
   double                        dpi;
 
   mutable QMutex                mutex;
@@ -136,7 +139,7 @@ private:
   osmscout::BreakerRef          dataLoadingBreaker;
 
 private:
-  DBThread();
+  DBThread(QString databaseDirectory, QString resourceDirectory);
   virtual ~DBThread();
 
   void FreeMaps();
@@ -196,7 +199,7 @@ public:
   void ClearRoute();
   void AddRoute(const osmscout::Way& way);
 
-  static bool InitializeInstance();
+  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory);
   static DBThread* GetInstance();
   static void FreeInstance();
 };
