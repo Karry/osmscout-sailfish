@@ -64,6 +64,8 @@
 /build-SailfishOS-armv7hl
 /build-qtcreator
 /rpmbuilddir
+/rpmbuilddir-arm
+/rpmbuilddir-i386
 /RPMS
 
 # rpm build file lists
