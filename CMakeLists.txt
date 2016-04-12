@@ -213,6 +213,20 @@ set(SOURCE_FILES
     src/SearchLocationModel.cpp
     src/Settings.cpp
     src/Theme.cpp
+    
+    # keep qml files in source list - it makes qtcreator happy
+    # find qml -type f
+    qml/AboutDialog.qml
+    qml/SearchDialog.qml
+    qml/custom/DialogActionButton.qml
+    qml/custom/LineEdit.qml
+    qml/custom/LocationSearch.qml
+    qml/custom/MapButton.qml
+    qml/custom/MapDialog.qml
+    qml/custom/ScrollIndicator.qml
+    qml/pages/Map.qml
+    qml/pages/Cover.qml
+    qml/main.qml
 )
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
