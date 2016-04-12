@@ -54,15 +54,11 @@ Page {
         }
     }
 
-    GridLayout {
-        id: content
-        anchors.fill: parent
-
         Map {
             id: map
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+
             focus: true
+            anchors.fill: parent
 
             function getFreeRect() {
                 return Qt.rect(Theme.horizSpace,
@@ -196,6 +192,6 @@ Page {
                 }
             }
             */
-        }
+
     }
 }
