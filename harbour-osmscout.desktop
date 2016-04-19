@@ -1,12 +1,21 @@
 [Desktop Entry]
 Type=Application
-X-Nemo-Application-Type=silica-qt5
+
+# TYPE chooses the type of booster used. Qt-booster may be used to
+# launch anything. Possible values for TYPE:
+#   qt5                    Launch a Qt 5 application.
+#   qtquick2               Launch a Qt Quick 2 (QML) application.
+#   silica-qt5             Launch a Sailfish Silica application.
+#   generic                Launch any application, even if it's not a library.
+X-Nemo-Application-Type=generic
+
 Icon=harbour-osmscout
 Exec=harbour-osmscout
-Name=OSMScout
+
+Name=OSM Scout
 # translation example:
 # your app name in German locale (de)
 #
 # Remember to comment out the following line, if you do not want to use
 # a different app name in German locale (de).
-Name[de]=OSMScout
+#Name[de]=OSMScout
