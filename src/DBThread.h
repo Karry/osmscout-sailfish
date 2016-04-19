@@ -148,6 +148,10 @@ private:
   void TileStateCallback(const osmscout::TileRef& changedTile);
 
 public:
+  bool isInitialized(); 
+  
+  const DatabaseLoadedResponse loadedResponse() const;
+  
   void GetProjection(osmscout::MercatorProjection& projection);
 
   void CancelCurrentDataLoading();

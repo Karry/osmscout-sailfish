@@ -95,18 +95,17 @@ int main(int argc, char* argv[])
   }
 
   DBThread* dbThread=DBThread::GetInstance();
+  
+  dbThread->moveToThread(&thread);
 
   dbThread->connect(&thread, SIGNAL(started()), SLOT(Initialize()));
   dbThread->connect(&thread, SIGNAL(finished()), SLOT(Finalize()));
 
-  dbThread->moveToThread(&thread);
-
-
-  thread.start();
-
   view->setSource(SailfishApp::pathTo("qml/main.qml"));
   view->showFullScreen();
     
+  thread.start();
+  
   result=app->exec();
 
   thread.quit();

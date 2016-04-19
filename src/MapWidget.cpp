@@ -51,6 +51,13 @@ MapWidget::MapWidget(QQuickItem* parent)
 
     connect(dbThread,SIGNAL(Redraw()),
             this,SLOT(redraw()));
+    
+    // db thread can be initialized before creating this Widget, 
+    // to avoid this race condition, check if database is initialized already
+    // and call our slot manually
+    if (dbThread->isInitialized()){
+        initialisationFinished(dbThread->loadedResponse());
+    }
 }
 
 MapWidget::~MapWidget()
@@ -65,6 +72,9 @@ void MapWidget::redraw()
 
 void MapWidget::initialisationFinished(const DatabaseLoadedResponse& response)
 {
+    if (dbInitialized) // avoid double initialization
+        return;
+    
     size_t zoom=1;
     double dlat=360;
     double dlon=180;
@@ -82,6 +92,7 @@ void MapWidget::initialisationFinished(const DatabaseLoadedResponse& response)
 
     dbInitialized=true;
 
+    qDebug() << "hasBeenPainted: " << hasBeenPainted;
     if (hasBeenPainted) {
         TriggerMapRendering();
     }
@@ -89,6 +100,8 @@ void MapWidget::initialisationFinished(const DatabaseLoadedResponse& response)
 
 void MapWidget::TriggerMapRendering()
 {
+    qDebug() << "TriggerMapRendering";
+    
     DBThread         *dbThread=DBThread::GetInstance();
     RenderMapRequest request;
 

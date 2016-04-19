@@ -214,8 +214,22 @@ void DBThread::TileStateCallback(const osmscout::TileRef& changedTile)
   emit TileStatusChanged(changedTile);
 }
 
+bool DBThread::isInitialized(){
+  QMutexLocker locker(&mutex);
+  return database->IsOpen();
+}
+
+const DatabaseLoadedResponse DBThread::loadedResponse() const {
+  QMutexLocker locker(&mutex);
+  DatabaseLoadedResponse response;
+  database->GetBoundingBox(response.boundingBox);
+  return response;
+}
+
 void DBThread::Initialize()
 {
+  QMutexLocker locker(&mutex);
+  qDebug() << "Initialize";
 
   stylesheetFilename = databaseDirectory + QDir::separator() + "standard.oss";
   iconDirectory = resourceDirectory + QDir::separator() + "icons";
@@ -257,11 +271,13 @@ void DBThread::Initialize()
 
   lastRendering=QTime::currentTime();
 
+  qDebug() << "InitialisationFinished";
   emit InitialisationFinished(response);
 }
 
 void DBThread::Finalize()
 {
+  qDebug() << "Finalize";
   FreeMaps();
 
   if (router && router->IsOpen()) {
@@ -363,7 +379,7 @@ void DBThread::ReloadStyle()
  */
 void DBThread::TriggerMapRendering(const RenderMapRequest& request)
 {
-  //std::cout << ">>> User triggered rendering" << std::endl;
+  std::cout << ">>> User triggered rendering" << std::endl;
   dataLoadingBreaker->Reset();
 
   {
@@ -426,7 +442,7 @@ void DBThread::TriggerMapRendering(const RenderMapRequest& request)
  */
 void DBThread::DrawMap()
 {
-  //std::cout << "DrawMap()" << std::endl;
+  std::cout << "DrawMap()" << std::endl;
   {
     QMutexLocker locker(&mutex);
 
