@@ -32,6 +32,7 @@ PkgConfigBR:
 Requires:
   - sailfishsilica-qt5 >= 0.10.9 
   - qt5-qtpositioning >= 5.2.0
+  - qt5-qtdeclarative-import-positioning >= 5.2.0
 
 # All installed files
 Files:
