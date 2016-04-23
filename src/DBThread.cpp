@@ -68,7 +68,8 @@ void QBreaker::Reset()
 DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
-   tileDownloader(tileCacheDirectory),
+   tileCacheDirectory(tileCacheDirectory),
+   tileDownloader(NULL),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
    mapService(std::make_shared<osmscout::MapService>(database)),
@@ -104,11 +105,6 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
   connect(this,SIGNAL(TileStatusChanged(const osmscout::TileRef&)),
           this,SLOT(HandleTileStatusChanged(const osmscout::TileRef&)));
 
-  connect(&tileDownloader, SIGNAL(downloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)),
-          this, SLOT(tileDownloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)));
-  
-  connect(&tileDownloader, SIGNAL(failed(uint32_t, uint32_t, uint32_t)),
-          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t)));
   //
   // Make sure that we always decouple caller and receiver even if they are running in the same thread
   // else we might get into a dead lock
@@ -117,6 +113,11 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
   connect(this,SIGNAL(TriggerDrawMap()),
           this,SLOT(DrawMap()),
           Qt::QueuedConnection);
+  
+  connect(this,SIGNAL(triggerTileRequest(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)),
+          this,SLOT(tileRequest(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)),
+          Qt::QueuedConnection);
+
 
   osmscout::MapService::TileStateCallback callback=[this](const osmscout::TileRef& tile) {TileStateCallback(tile);};
 
@@ -130,7 +131,9 @@ DBThread::~DBThread()
   if (painter!=NULL) {
     delete painter;
   }
-
+  if (tileDownloader != NULL){
+    delete tileDownloader;
+  }
   mapService->DeregisterTileStateCallback(callbackId);
 }
 
@@ -237,6 +240,13 @@ void DBThread::Initialize()
   QMutexLocker locker(&mutex);
   qDebug() << "Initialize";
 
+  tileDownloader = new OsmTileDownloader(tileCacheDirectory);
+  connect(tileDownloader, SIGNAL(downloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)),
+          this, SLOT(tileDownloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)));
+  
+  connect(tileDownloader, SIGNAL(failed(uint32_t, uint32_t, uint32_t)),
+          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t)));
+    
   stylesheetFilename = databaseDirectory + QDir::separator() + "standard.oss";
   iconDirectory = resourceDirectory + QDir::separator() + "icons";
 
@@ -611,6 +621,7 @@ bool DBThread::RenderMap(QPainter& painter,
     " scaled tile dimension: " << osmTileWidth << " x " << osmTileHeight << " (" << osmTileDimension << ")"<<  
     " osmTileFromX: " << osmTileFromX << " cnt " << (projection.GetWidth() / (uint32_t)osmTileWidth) <<
     " osmTileFromY: " << osmTileFromY << " cnt " << (projection.GetHeight() / (uint32_t)osmTileHeight) <<
+    " current thread : " << QThread::currentThread() << 
     std::endl;  
   
   // render tile net
@@ -645,7 +656,7 @@ bool DBThread::RenderMap(QPainter& painter,
       }else{
         if (tileCache.request(zoomLevel, xtile, ytile)){
           std::cout << "  tile request: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
-          emit tileRequest(zoomLevel, xtile, ytile, osmTileWidth, osmTileHeight);
+          emit triggerTileRequest(zoomLevel, xtile, ytile, osmTileWidth, osmTileHeight);
         }else{
           std::cout << "  requested already: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
         }
@@ -672,7 +683,13 @@ void DBThread::tileRequest(uint32_t zoomLevel,
   uint32_t xtile, uint32_t ytile, 
   uint32_t expectedRenderedWidth, uint32_t expectedRenderedHeight)
 {
-  emit tileDownloader.download(zoomLevel, xtile, ytile);
+  QMutexLocker locker(&mutex);
+  if (tileDownloader == NULL){
+    qWarning() << "tile requested but donwloader is not initialized yet";
+    emit tileDownloadFailed(zoomLevel, xtile, ytile);
+  }else{
+    emit tileDownloader->download(zoomLevel, xtile, ytile);
+  }
 }
 
 void DBThread::tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData)

@@ -85,6 +85,7 @@ signals:
   void TriggerDrawMap();
   void Redraw();
   void TileStatusChanged(const osmscout::TileRef& tile);
+  void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t expectedRenderedWidth, uint32_t expectedRenderedHeight);
 
 public slots:
   void ToggleDaylight();
@@ -102,13 +103,14 @@ public slots:
 private:
   QString                       databaseDirectory; 
   QString                       resourceDirectory;
+  QString                       tileCacheDirectory;
   
   double                        dpi;
 
   mutable QMutex                mutex;
   
   TileCache                     tileCache;
-  OsmTileDownloader             tileDownloader;
+  OsmTileDownloader             *tileDownloader;
 
   osmscout::DatabaseParameter   databaseParameter;
   osmscout::DatabaseRef         database;

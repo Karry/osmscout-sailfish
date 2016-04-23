@@ -18,6 +18,7 @@
  */
 
 #include <QDebug>
+#include <QThread>
 
 #include "OsmTileDownloader.h"
 
@@ -49,7 +50,7 @@ void OsmTileDownloader::download(uint32_t zoomLevel, uint32_t x, uint32_t y)
   QChar ch('a' + char(serverNumber % ('a' - 'c')));  
   QUrl tileUrl(QString("http://%1.tile.openstreetmap.org/%2/%3/%4.png")
     .arg(ch).arg(zoomLevel).arg(x).arg(y));  
-  qDebug() << "Download tile " << tileUrl;
+  qDebug() << "Download tile " << tileUrl << " (current thread: " << QThread::currentThread() << ")";
   
   TileCacheKey key = {zoomLevel, x, y};
   requests.insert(tileUrl, key);
@@ -78,6 +79,7 @@ void OsmTileDownloader::fileDownloaded(QNetworkReply* reply)
 
       QImage image;
       if (image.loadFromData(downloadedData, Q_NULLPTR)){    
+        qDebug() << "Downloaded tile " << url << " (current thread: " << QThread::currentThread() << ")";
         emit downloaded(key.zoomLevel, key.xtile, key.ytile, image, downloadedData);
       }else{
         qWarning() << "Failed to load image data from " << url;
