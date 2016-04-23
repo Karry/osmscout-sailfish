@@ -112,6 +112,8 @@ message(STATUS "")
 
 if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
 
+  add_definitions( -DOSMSCOUT_SAILFISH_VERSION_STRING="${OSMSCOUT_SAILFISH_VERSION_STRING}")
+
   add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
 
   # QT5 definitions
@@ -203,6 +205,8 @@ set(HEADER_FILES
     src/SearchLocationModel.h
     src/Settings.h
     src/Theme.h
+    src/TileCache.cpp
+    src/OsmTileDownloader.cpp
 )
 
 set(SOURCE_FILES
@@ -213,6 +217,8 @@ set(SOURCE_FILES
     src/SearchLocationModel.cpp
     src/Settings.cpp
     src/Theme.cpp
+    src/TileCache.cpp
+    src/OsmTileDownloader.cpp
     
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f
