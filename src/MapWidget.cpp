@@ -20,6 +20,9 @@
 #include "MapWidget.h"
 
 #include <iostream>
+#include <qt5/QtWidgets/qgesture.h>
+#include <qt5/QtCore/qcoreevent.h>
+#include <qt5/QtWidgets/qgesturerecognizer.h>
 
 //! We rotate in 16 steps
 static double DELTA_ANGLE=2*M_PI/16.0;
@@ -31,8 +34,9 @@ MapWidget::MapWidget(QQuickItem* parent)
       magnification(64),
       mouseDragging(false),
       dbInitialized(false),
-      hasBeenPainted(false)
-
+      hasBeenPainted(false),
+      
+      currentTouchPoints()
 {
     setOpaquePainting(true);
     setAcceptedMouseButtons(Qt::LeftButton);
@@ -167,6 +171,18 @@ void MapWidget::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
+void MapWidget::touchEvent(QTouchEvent *event)
+{
+  qDebug() << "touchEvent:";
+  currentTouchPoints.clear();
+  for (QTouchEvent::TouchPoint tp: event->touchPoints()){
+    qDebug() << "  " << tp.id() << "- " << tp.scenePos().x() << "x" << tp.scenePos().y() << " @ " << tp.pressure();    
+    currentTouchPoints << tp.scenePos();
+  }
+  update();
+  QQuickPaintedItem::touchEvent(event);
+}
+
 void MapWidget::wheelEvent(QWheelEvent* event)
 {
     int numDegrees=event->delta()/8;
@@ -201,6 +217,10 @@ void MapWidget::paint(QPainter *painter)
             if (!mouseDragging) {
                 TriggerMapRendering();
             }
+        }
+        painter->setPen(QColor::fromRgbF(1,0,0));
+        for (QPointF tp:currentTouchPoints){
+          painter->drawEllipse(tp, 40.0, 40.0);
         }
     }
     else {

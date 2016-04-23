@@ -48,6 +48,9 @@ private:
   bool                         mouseDragging;
   bool                         dbInitialized;
   bool                         hasBeenPainted;
+  
+  // touch points
+  QList<QPointF>               currentTouchPoints;
 
 signals:
   void TriggerMapRenderingSignal(const RenderMapRequest& request);
@@ -75,8 +78,8 @@ public slots:
 private:
   void TriggerMapRendering();
 
-  void HandleMouseMove(QMouseEvent* event);
-
+  void HandleMouseMove(QMouseEvent* event); 
+  
 public:
   MapWidget(QQuickItem* parent = 0);
   virtual ~MapWidget();
@@ -95,6 +98,7 @@ public:
   void mouseMoveEvent(QMouseEvent* event);
   void mouseReleaseEvent(QMouseEvent* event);
   void wheelEvent(QWheelEvent* event);
+  virtual void touchEvent(QTouchEvent *event);
 
   void paint(QPainter *painter);
 };

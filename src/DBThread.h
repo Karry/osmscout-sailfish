@@ -38,6 +38,8 @@
 #include <osmscout/util/Breaker.h>
 
 #include "Settings.h"
+#include "TileCache.h"
+#include "OsmTileDownloader.h"
 
 struct RenderMapRequest
 {
@@ -93,6 +95,9 @@ public slots:
   void TriggerMapRendering(const RenderMapRequest& request);
   void Initialize();
   void Finalize();
+  void tileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t expectedRenderedWidth, uint32_t expectedRenderedHeight);
+  void tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
+  void tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y);  
 
 private:
   QString                       databaseDirectory; 
@@ -101,6 +106,9 @@ private:
   double                        dpi;
 
   mutable QMutex                mutex;
+  
+  TileCache                     tileCache;
+  OsmTileDownloader             tileDownloader;
 
   osmscout::DatabaseParameter   databaseParameter;
   osmscout::DatabaseRef         database;
@@ -139,7 +147,7 @@ private:
   osmscout::BreakerRef          dataLoadingBreaker;
 
 private:
-  DBThread(QString databaseDirectory, QString resourceDirectory);
+  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
   virtual ~DBThread();
 
   void FreeMaps();
@@ -158,6 +166,7 @@ public:
 
   bool RenderMap(QPainter& painter,
                  const RenderMapRequest& request);
+  
   void RenderMessage(QPainter& painter, qreal width, qreal height, const char* message);
 
   osmscout::TypeConfigRef GetTypeConfig() const;
@@ -203,7 +212,7 @@ public:
   void ClearRoute();
   void AddRoute(const osmscout::Way& way);
 
-  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory);
+  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
   static DBThread* GetInstance();
   static void FreeInstance();
 };

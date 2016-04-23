@@ -89,7 +89,12 @@ int main(int argc, char* argv[])
   QThread thread;
 
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
-  if (!DBThread::InitializeInstance(docs + QDir::separator() + "Maps", "/usr/share/harbour-osmscout/")) { 
+  QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+  if (!DBThread::InitializeInstance(
+        docs + QDir::separator() + "Maps", 
+        "/usr/share/harbour-osmscout/", 
+        cache + QDir::separator() + "OsmTileCache")) { 
+    
     std::cerr << "Cannot initialize DBThread" << std::endl;
     return 1;
   }

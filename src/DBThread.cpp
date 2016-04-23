@@ -65,9 +65,10 @@ void QBreaker::Reset()
 }
 
 
-DBThread::DBThread(QString databaseDirectory, QString resourceDirectory)
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
+   tileDownloader(tileCacheDirectory),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
    mapService(std::make_shared<osmscout::MapService>(database)),
@@ -103,6 +104,11 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory)
   connect(this,SIGNAL(TileStatusChanged(const osmscout::TileRef&)),
           this,SLOT(HandleTileStatusChanged(const osmscout::TileRef&)));
 
+  connect(&tileDownloader, SIGNAL(downloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)),
+          this, SLOT(tileDownloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)));
+  
+  connect(&tileDownloader, SIGNAL(failed(uint32_t, uint32_t, uint32_t)),
+          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t)));
   //
   // Make sure that we always decouple caller and receiver even if they are running in the same thread
   // else we might get into a dead lock
@@ -380,6 +386,7 @@ void DBThread::ReloadStyle()
 void DBThread::TriggerMapRendering(const RenderMapRequest& request)
 {
   std::cout << ">>> User triggered rendering" << std::endl;
+  qDebug() << "magnification: " << request.magnification.GetMagnification() << " level: " << request.magnification.GetLevel();
   dataLoadingBreaker->Reset();
 
   {
@@ -531,122 +538,156 @@ void DBThread::RenderMessage(QPainter& painter, qreal width, qreal height, const
                    NULL);
 }
 
-/**
- * Copies the last rendered map in the backbuffer to the given painter
- */
+ static const double gradtorad=2*M_PI/360;
+
 bool DBThread::RenderMap(QPainter& painter,
                          const RenderMapRequest& request)
 {
-  //std::cout << "RenderMap()" << std::endl;
-
-  QMutexLocker locker(&mutex);
-
-  if (finishedImage==NULL) {
-    RenderMessage(painter,request.width,request.height,"no image rendered (internal error?)");
-
-    // Since we assume that this is just a temporary problem, or we just were not instructed to render
-    // a map yet, we trigger rendering an image...
-    return false;
-  }
-
-  if (!styleConfig) {
-    RenderMessage(painter,request.width,request.height,"no valid style sheet loaded");
-
-    return true;
-  }
-
   osmscout::MercatorProjection projection;
 
-  projection.Set(finishedLon,
-                 finishedLat,
-                 finishedAngle,
-                 finishedMagnification,
+  projection.Set(request.lon,
+                 request.lat,
+                 request.angle,
+                 request.magnification,
                  dpi,
-                 finishedImage->width(),
-                 finishedImage->height());
+                 request.width,
+                 request.height);
 
   osmscout::GeoBox boundingBox;
 
   projection.GetDimensions(boundingBox);
+  
+   
+  QColor white = QColor::fromRgbF(1.0,1.0,1.0);
+  QColor blue = QColor::fromRgbF(0.0,0.0,1.0);
+  QColor grey = QColor::fromRgbF(0.5,0.5,0.5);
+  
+  painter.fillRect( 0,0,
+                    projection.GetWidth(),projection.GetHeight(),
+                    white);
+    
+  // OpenStreetMap render its tiles up to latitude +-85.0511 
+  double osmMinLat =  -85.0511;
+  double osmMaxLat =   85.0511;
+  double osmMinLon = -180.0;
+  double osmMaxLon =  180.0;
+  uint32_t osmTileOriginalWidth = 256; // pixels
+  uint32_t osmTileRes = 1 << projection.GetMagnification().GetLevel();
+  double x1;
+  double y1;
+  projection.GeoToPixel(osmscout::GeoCoord(osmMaxLat, osmMinLon), x1, y1);
+  double x2;
+  double y2;
+  projection.GeoToPixel(osmscout::GeoCoord(osmMinLat, osmMaxLon), x2, y2);
+  
+  // draw line around whole map
+  painter.setPen(blue);
+  /*
+  painter.drawLine(x1,y1, x2, y1);
+  painter.drawLine(x1,y1, x1, y2);
+   */
+  painter.drawLine(x2,y1, x2, y2);
+  painter.drawLine(x1,y2, x2, y2);
+  double osmTileWidth = (x2 - x1) / osmTileRes; // pixels
+  double osmTileHeight = (y2 - y1) / osmTileRes; // pixels
+  double osmTileDimension = osmTileOriginalWidth * (projection.GetMagnification().GetMagnification() / (double)osmTileRes); // pixels
+  
+  
+  painter.setPen(grey);
+  // http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
+      
+  uint32_t osmTileFromX = std::max(0.0, (double)osmTileRes * ((boundingBox.GetMinLon() + (double)180.0) / (double)360.0)); 
+  double maxLatRad = boundingBox.GetMaxLat() * gradtorad;                                 
+  uint32_t osmTileFromY = std::max(0.0, (double)osmTileRes * ((double)1.0 - (log(tan(maxLatRad) + (double)1.0 / cos(maxLatRad)) / M_PI)) / (double)2.0); // std::max(0, ((int32_t)y1 / (int32_t)osmTileHeight)* -1);
 
-  double d=boundingBox.GetWidth()*2*M_PI/360;
-  double scaleSize;
-  size_t minScaleWidth=request.width/20;
-  size_t maxScaleWidth=request.width/10;
-  double scaleValue=d*180*60/M_PI*1852.216/(request.width/minScaleWidth);
+  //std::cout << osmTileRes << " * (("<< boundingBox.GetMinLon()<<" + 180.0) / 360.0) = " << osmTileFromX << std::endl; 
+  //std::cout <<  osmTileRes<<" * (1.0 - (log(tan("<<maxLatRad<<") + 1.0 / cos("<<maxLatRad<<")) / "<<M_PI<<")) / 2.0 = " << osmTileFromY << std::endl;
+  
+  uint32_t zoomLevel = projection.GetMagnification().GetLevel();
+  
+  std::cout << 
+    "level: " << zoomLevel << 
+    " osmTileRes: " << osmTileRes <<
+    " scaled tile dimension: " << osmTileWidth << " x " << osmTileHeight << " (" << osmTileDimension << ")"<<  
+    " osmTileFromX: " << osmTileFromX << " cnt " << (projection.GetWidth() / (uint32_t)osmTileWidth) <<
+    " osmTileFromY: " << osmTileFromY << " cnt " << (projection.GetHeight() / (uint32_t)osmTileHeight) <<
+    std::endl;  
+  
+  // render tile net
+  double x;
+  double y;
+  QMutexLocker locker(&tileCache.mutex);
+  for ( uint32_t ty = 0; 
+        (ty <= (projection.GetHeight() / (uint32_t)osmTileHeight)+1) && ((osmTileFromY + ty) < osmTileRes); 
+        ty++ ){
+    
+    //for (uint32_t i = 1; i< osmTileRes; i++){
+    uint32_t ytile = (osmTileFromY + ty);
+    double ytileLatRad = atan(sinh(M_PI * (1 - 2 * (double)ytile / (double)osmTileRes)));
+    double ytileLatDeg = ytileLatRad * 180.0 / M_PI;
 
-  //std::cout << "1/10 screen (" << width/10 << " pixels) are: " << scaleValue << " meters" << std::endl;
+    for ( uint32_t tx = 0; 
+          (tx <= (projection.GetWidth() / (uint32_t)osmTileWidth)+1) && ((osmTileFromX + tx) < osmTileRes); 
+          tx++ ){
 
-  scaleValue=pow(10,floor(log10(scaleValue))+1);
-  scaleSize=scaleValue/(d*180*60/M_PI*1852.216/request.width);
+      uint32_t xtile = (osmTileFromX + tx);
+      double xtileDeg = (double)xtile / (double)osmTileRes * 360.0 - 180.0;
+      
+      projection.GeoToPixel(osmscout::GeoCoord(ytileLatDeg, xtileDeg), x, y);
+      //double x = x1 + (double)xtile * osmTileWidth;  
 
-  if (scaleSize>minScaleWidth && scaleSize/2>minScaleWidth && scaleSize/2<=maxScaleWidth) {
-    scaleValue=scaleValue/2;
-    scaleSize=scaleSize/2;
-  }
-  else if (scaleSize>minScaleWidth && scaleSize/5>minScaleWidth && scaleSize/5<=maxScaleWidth) {
-    scaleValue=scaleValue/5;
-    scaleSize=scaleSize/5;
-  }
-  else if (scaleSize>minScaleWidth && scaleSize/10>minScaleWidth && scaleSize/10<=maxScaleWidth) {
-    scaleValue=scaleValue/10;
-    scaleSize=scaleSize/10;
-  }
+      //std::cout << "  xtile: " << xtile << " ytile: " << ytile << " x: " << x << " y: " << y << "" << std::endl;
 
-  //std::cout << "VisualScale: value: " << scaleValue << " pixel: " << scaleSize << std::endl;
-
-  double dx=0;
-  double dy=0;
-  if (request.lon!=finishedLon || request.lat!=finishedLat) {
-    double rx,ry,fx,fy;
-
-    projection.GeoToPixel(request.lon,
-                          request.lat,
-                          rx,
-                          ry);
-    projection.GeoToPixel(finishedLon,
-                          finishedLat,
-                          fx,
-                          fy);
-    dx=fx-rx;
-    dy=fy-ry;
-  }
-
-  if (dx!=0 ||
-      dy!=0) {
-    osmscout::FillStyleRef unknownFillStyle;
-    osmscout::Color backgroundColor;
-
-    styleConfig->GetUnknownFillStyle(projection,
-                                     unknownFillStyle);
-
-    if (unknownFillStyle) {
-      backgroundColor=unknownFillStyle->GetFillColor();
+      // TODO: take angle into account
+      if (tileCache.contains(zoomLevel, xtile, ytile)){
+        QImage img = tileCache.get(zoomLevel, xtile, ytile);
+        painter.drawImage(QRectF(x, y, osmTileWidth, osmTileHeight), img);
+      }else{
+        if (tileCache.request(zoomLevel, xtile, ytile)){
+          std::cout << "  tile request: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
+          emit tileRequest(zoomLevel, xtile, ytile, osmTileWidth, osmTileHeight);
+        }else{
+          std::cout << "  requested already: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
+        }
+      }
+      painter.drawLine(x,y, x + osmTileWidth, y);      
+      painter.drawLine(x,y, x, y + osmTileHeight);      
     }
-    else {
-      backgroundColor=osmscout::Color(0,0,0);
-    }
-
-    painter.fillRect(0,
-                     0,
-                     projection.GetWidth(),
-                     projection.GetHeight(),
-                     QColor::fromRgbF(backgroundColor.GetR(),
-                                      backgroundColor.GetG(),
-                                      backgroundColor.GetB(),
-                                      backgroundColor.GetA()));
+    //double y = y1 + (double)ytile * osmTileHeight;
+    //painter.drawLine(x1,y, x2, y);  
   }
+  
+  painter.setPen(grey);
+  painter.drawText(20, 30, QString("%1").arg(projection.GetMagnification().GetLevel()));
+  
+  double centerLat;
+  double centerLon;
+  projection.PixelToGeo(projection.GetWidth() / 2.0, projection.GetHeight() / 2.0, centerLon, centerLat);
+  painter.drawText(20, 60, QString::fromStdString(osmscout::GeoCoord(centerLat, centerLon).GetDisplayText()));  
 
-  painter.drawImage(dx,dy,*finishedImage);
+  return true;
+}
 
-  bool needsNoRepaint=finishedImage->width()==(int) request.width &&
-                      finishedImage->height()==(int) request.height &&
-                      finishedLon==request.lon &&
-                      finishedLat==request.lat &&
-                      finishedAngle==request.angle &&
-                      finishedMagnification==request.magnification;
+void DBThread::tileRequest(uint32_t zoomLevel, 
+  uint32_t xtile, uint32_t ytile, 
+  uint32_t expectedRenderedWidth, uint32_t expectedRenderedHeight)
+{
+  emit tileDownloader.download(zoomLevel, xtile, ytile);
+}
 
-  return needsNoRepaint;
+void DBThread::tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData)
+{
+  QMutexLocker locker(&tileCache.mutex);
+  tileCache.put(zoomLevel, x, y, image);
+  std::cout << "  put: " << zoomLevel << " xtile: " << x << " ytile: " << y << std::endl;
+
+  emit HandleMapRenderingResult();
+}
+
+void DBThread::tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y)
+{
+  QMutexLocker locker(&tileCache.mutex);
+  tileCache.removeRequest(zoomLevel, x, y);
 }
 
 osmscout::TypeConfigRef DBThread::GetTypeConfig() const
@@ -881,13 +922,13 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
 
 static DBThread* dbThreadInstance=NULL;
 
-bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory)
+bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
 {
   if (dbThreadInstance!=NULL) {
     return false;
   }
 
-  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory);
+  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory);
 
   return true;
 }
