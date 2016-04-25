@@ -571,6 +571,7 @@ bool DBThread::RenderMap(QPainter& painter,
   QColor white = QColor::fromRgbF(1.0,1.0,1.0);
   QColor blue = QColor::fromRgbF(0.0,0.0,1.0);
   QColor grey = QColor::fromRgbF(0.5,0.5,0.5);
+  QColor grey2 = QColor::fromRgbF(0.8,0.8,0.8);
   
   painter.fillRect( 0,0,
                     projection.GetWidth(),projection.GetHeight(),
@@ -591,19 +592,19 @@ bool DBThread::RenderMap(QPainter& painter,
   projection.GeoToPixel(osmscout::GeoCoord(osmMinLat, osmMaxLon), x2, y2);
   
   // draw line around whole map
-  painter.setPen(blue);
   /*
+  painter.setPen(blue);
   painter.drawLine(x1,y1, x2, y1);
   painter.drawLine(x1,y1, x1, y2);
-   */
   painter.drawLine(x2,y1, x2, y2);
   painter.drawLine(x1,y2, x2, y2);
+   */
   double osmTileWidth = (x2 - x1) / osmTileRes; // pixels
   double osmTileHeight = (y2 - y1) / osmTileRes; // pixels
   double osmTileDimension = osmTileOriginalWidth * (projection.GetMagnification().GetMagnification() / (double)osmTileRes); // pixels
   
   
-  painter.setPen(grey);
+  painter.setPen(grey2);
   // http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
       
   uint32_t osmTileFromX = std::max(0.0, (double)osmTileRes * ((boundingBox.GetMinLon() + (double)180.0) / (double)360.0)); 
@@ -617,6 +618,7 @@ bool DBThread::RenderMap(QPainter& painter,
   
   std::cout << 
     "level: " << zoomLevel << 
+    " request WxH " << request.width << " x " << request.height <<
     " osmTileRes: " << osmTileRes <<
     " scaled tile dimension: " << osmTileWidth << " x " << osmTileHeight << " (" << osmTileDimension << ")"<<  
     " osmTileFromX: " << osmTileFromX << " cnt " << (projection.GetWidth() / (uint32_t)osmTileWidth) <<
@@ -624,7 +626,7 @@ bool DBThread::RenderMap(QPainter& painter,
     " current thread : " << QThread::currentThread() << 
     std::endl;  
   
-  // render tile net
+  // render available tiles
   double x;
   double y;
   QMutexLocker locker(&tileCache.mutex);
@@ -660,9 +662,9 @@ bool DBThread::RenderMap(QPainter& painter,
         }else{
           std::cout << "  requested already: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
         }
+        painter.drawLine(x,y, x + osmTileWidth, y);      
+        painter.drawLine(x,y, x, y + osmTileHeight);      
       }
-      painter.drawLine(x,y, x + osmTileWidth, y);      
-      painter.drawLine(x,y, x, y + osmTileHeight);      
     }
     //double y = y1 + (double)ytile * osmTileHeight;
     //painter.drawLine(x1,y, x2, y);  
