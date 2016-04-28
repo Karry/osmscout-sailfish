@@ -59,16 +59,16 @@ bool TileCache::contains(uint32_t zoomLevel, uint32_t x, uint32_t y)
   return tiles.contains(key);
 }
 
-QImage TileCache::get(uint32_t zoomLevel, uint32_t x, uint32_t y)
+TileCacheVal TileCache::get(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
   TileCacheKey key = {zoomLevel, x, y};
   if (!tiles.contains(key)){
     qWarning() << "No tile in cache for key {" << zoomLevel << ", " << x << ", " << y << "}";
-    return QImage(); // throw std::underflow_error ?
+    return {QTime(), QImage(), true}; // throw std::underflow_error ?
   }
   TileCacheVal val = tiles.value(key);
   val.lastAccess.start();
-  return val.image;
+  return val;
 }
 
 void TileCache::removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y)
@@ -83,7 +83,7 @@ void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)
   TileCacheKey key = {zoomLevel, x, y};
   QTime now;
   now.start();
-  TileCacheVal val = {now, image};
+  TileCacheVal val = {now, image, false};
   tiles.insert(key, val);
   
   if (tiles.size() > (int)cacheSize){
@@ -131,3 +131,8 @@ void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)
     }
   }
 }
+
+bool TileCache::invalidate(osmscout::GeoBox box){
+    tiles.clear(); // TODO: remove only tiles intersecting box
+}
+

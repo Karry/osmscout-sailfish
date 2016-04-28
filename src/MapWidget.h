@@ -27,6 +27,7 @@
 
 #include "DBThread.h"
 #include "SearchLocationModel.h"
+#include "InputHandler.h"
 
 class MapWidget : public QQuickPaintedItem
 {
@@ -35,33 +36,40 @@ class MapWidget : public QQuickPaintedItem
   Q_PROPERTY(double lon READ GetLon)
 
 private:
-  osmscout::GeoCoord           center;
-  double                       angle;
-  osmscout::Magnification      magnification;
+  //osmscout::GeoCoord           center;
+  //double                       angle;
+  //osmscout::Magnification      magnification;
 
   // Drag and drop
-  int                          startX;
-  int                          startY;
-  osmscout::MercatorProjection startProjection;
+  //int                          startX;
+  //int                          startY;
+  //osmscout::MercatorProjection startProjection;
+  MapView                        view;
+  double                         dpi;
 
   // Controlling rerendering...
-  bool                         mouseDragging;
-  bool                         dbInitialized;
-  bool                         hasBeenPainted;
+  //bool                         mouseDragging;
+  //bool                         dbInitialized;
+  //bool                         hasBeenPainted;
   
   // touch points
-  QList<QPointF>               currentTouchPoints;
+  //QList<QPointF>               currentTouchPoints;
+  
+  InputHandler                   *inputHandler;
 
 signals:
-  void TriggerMapRenderingSignal(const RenderMapRequest& request);
+  //void TriggerMapRenderingSignal(const RenderMapRequest& request);
   void latChanged();
   void lonChanged();
 
 public slots:
-  void initialisationFinished(const DatabaseLoadedResponse& response);
+  //void initialisationFinished(const DatabaseLoadedResponse& response);
+  void viewChanged(const MapView &view);
   void redraw();
+  void zoom(double zoomFactor);
   void zoomIn(double zoomFactor);
   void zoomOut(double zoomFactor);
+  void move(QVector2D vector);
   void left();
   void right();
   void up();
@@ -72,13 +80,15 @@ public slots:
   void toggleDaylight();
   void reloadStyle();
 
+  void showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification);
   void showCoordinates(double lat, double lon);
   void showLocation(Location* location);
 
 private:
-  void TriggerMapRendering();
+  //void TriggerMapRendering();
 
-  void HandleMouseMove(QMouseEvent* event); 
+  //void HandleMouseMove(QMouseEvent* event); 
+  void setupInputHandler(InputHandler *newGesture);
   
 public:
   MapWidget(QQuickItem* parent = 0);
@@ -86,17 +96,20 @@ public:
 
   inline double GetLat() const
   {
-      return center.GetLat();
+      return view.center.GetLat();
   }
 
   inline double GetLon() const
   {
-      return center.GetLon();
+      return view.center.GetLon();
   }
 
-  void mousePressEvent(QMouseEvent* event);
-  void mouseMoveEvent(QMouseEvent* event);
-  void mouseReleaseEvent(QMouseEvent* event);
+  //void translateToTouch(QMouseEvent* event, Qt::TouchPointStates states);
+  
+  //void mousePressEvent(QMouseEvent* event);
+  //void mouseMoveEvent(QMouseEvent* event);
+  //void mouseReleaseEvent(QMouseEvent* event);
+  
   void wheelEvent(QWheelEvent* event);
   virtual void touchEvent(QTouchEvent *event);
 

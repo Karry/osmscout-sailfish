@@ -117,7 +117,7 @@ private:
   osmscout::LocationServiceRef  locationService;
   osmscout::MapServiceRef       mapService;
   osmscout::MapService::CallbackId callbackId;
-  osmscout::MercatorProjection  projection;
+  //osmscout::MercatorProjection  projection;
   osmscout::RouterParameter     routerParameter;
   osmscout::RoutingServiceRef   router;
   osmscout::RoutePostprocessor  routePostprocessor;
@@ -162,7 +162,9 @@ public:
   
   const DatabaseLoadedResponse loadedResponse() const;
   
-  void GetProjection(osmscout::MercatorProjection& projection);
+  const double GetDpi() const;
+  
+  //void GetProjection(osmscout::MercatorProjection& projection);
 
   void CancelCurrentDataLoading();
 

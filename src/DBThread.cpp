@@ -18,6 +18,7 @@
  */
 
 #include "DBThread.h"
+#include "OSMTile.h"
 
 #include <cmath>
 #include <iostream>
@@ -175,17 +176,25 @@ bool DBThread::AssureRouter(osmscout::Vehicle /*vehicle*/)
 
 void DBThread::HandleInitialRenderingRequest()
 {
-  //std::cout << "Triggering initial data rendering timer..." << std::endl;
-  pendingRenderingTimer.stop();
-  pendingRenderingTimer.start(INITIAL_DATA_RENDERING_TIMEOUT);
+    //std::cout << "Triggering initial data rendering timer..." << std::endl;
+    pendingRenderingTimer.stop();
+    pendingRenderingTimer.start(INITIAL_DATA_RENDERING_TIMEOUT);
 }
 
 void DBThread::HandleTileStatusChanged(const osmscout::TileRef& changedTile)
 {
+  // TODO: how to handle with tilling rendering?
+  // probably re-render all all chnaged tiles to cache and trigger re-draw
+    QMutexLocker locker(&tileCache.mutex);
+    tileCache.invalidate(changedTile.get()->GetBoundingBox());
+    emit HandleMapRenderingResult();
+
+  /*
   QMutexLocker locker(&mutex);
 
   std::list<osmscout::TileRef> tiles;
 
+  osmscout::MercatorProjection projection;
   mapService->LookupTiles(projection,tiles);
 
   bool relevant=false;
@@ -215,6 +224,7 @@ void DBThread::HandleTileStatusChanged(const osmscout::TileRef& changedTile)
     //std::cout << "Triggering updated data rendering timer..." << std::endl;
     pendingRenderingTimer.start(UPDATED_DATA_RENDERING_TIMEOUT-elapsedTime);
   }
+  */
 }
 
 void DBThread::TileStateCallback(const osmscout::TileRef& changedTile)
@@ -226,6 +236,10 @@ void DBThread::TileStateCallback(const osmscout::TileRef& changedTile)
 bool DBThread::isInitialized(){
   QMutexLocker locker(&mutex);
   return database->IsOpen();
+}
+const double DBThread::GetDpi() const
+{
+    return dpi;
 }
 
 const DatabaseLoadedResponse DBThread::loadedResponse() const {
@@ -305,12 +319,14 @@ void DBThread::Finalize()
   }
 }
 
+/*
 void DBThread::GetProjection(osmscout::MercatorProjection& projection)
 {
     QMutexLocker locker(&mutex);
 
     projection=this->projection;
 }
+*/
 
 void DBThread::CancelCurrentDataLoading()
 {
@@ -426,6 +442,7 @@ void DBThread::TriggerMapRendering(const RenderMapRequest& request)
       searchParameter.SetUseMultithreading(true);
       searchParameter.SetUseLowZoomOptimization(true);
 
+      osmscout::MercatorProjection projection;
       projection.Set(currentLon,
                      currentLat,
                      currentAngle,
@@ -460,6 +477,9 @@ void DBThread::TriggerMapRendering(const RenderMapRequest& request)
 void DBThread::DrawMap()
 {
   std::cout << "DrawMap()" << std::endl;
+  // TODO: rewrite to tile rendering
+  
+  /*
   {
     QMutexLocker locker(&mutex);
 
@@ -487,7 +507,8 @@ void DBThread::DrawMap()
     drawParameter.SetOptimizeAreaNodes(osmscout::TransPolygon::quality);
     drawParameter.SetRenderBackground(true);
     drawParameter.SetRenderSeaLand(true);
-
+    
+    osmscout::MercatorProjection projection;
     mapService->LookupTiles(projection,tiles);
 
     mapService->ConvertTilesToMapData(tiles,data);
@@ -527,6 +548,7 @@ void DBThread::DrawMap()
   }
 
   emit HandleMapRenderingResult();
+  */
 }
 
 void DBThread::RenderMessage(QPainter& painter, qreal width, qreal height, const char* message)
@@ -548,7 +570,6 @@ void DBThread::RenderMessage(QPainter& painter, qreal width, qreal height, const
                    NULL);
 }
 
- static const double gradtorad=2*M_PI/360;
 
 bool DBThread::RenderMap(QPainter& painter,
                          const RenderMapRequest& request)
@@ -569,7 +590,7 @@ bool DBThread::RenderMap(QPainter& painter,
   
    
   QColor white = QColor::fromRgbF(1.0,1.0,1.0);
-  QColor blue = QColor::fromRgbF(0.0,0.0,1.0);
+  //QColor blue = QColor::fromRgbF(0.0,0.0,1.0);
   QColor grey = QColor::fromRgbF(0.5,0.5,0.5);
   QColor grey2 = QColor::fromRgbF(0.8,0.8,0.8);
   
@@ -578,11 +599,11 @@ bool DBThread::RenderMap(QPainter& painter,
                     white);
     
   // OpenStreetMap render its tiles up to latitude +-85.0511 
-  double osmMinLat =  -85.0511;
-  double osmMaxLat =   85.0511;
-  double osmMinLon = -180.0;
-  double osmMaxLon =  180.0;
-  uint32_t osmTileOriginalWidth = 256; // pixels
+  double osmMinLat = OSMTile::minLat();
+  double osmMaxLat = OSMTile::maxLat();
+  double osmMinLon = OSMTile::minLon();
+  double osmMaxLon = OSMTile::maxLon();
+  
   uint32_t osmTileRes = 1 << projection.GetMagnification().GetLevel();
   double x1;
   double y1;
@@ -601,14 +622,15 @@ bool DBThread::RenderMap(QPainter& painter,
    */
   double osmTileWidth = (x2 - x1) / osmTileRes; // pixels
   double osmTileHeight = (y2 - y1) / osmTileRes; // pixels
-  double osmTileDimension = osmTileOriginalWidth * (projection.GetMagnification().GetMagnification() / (double)osmTileRes); // pixels
   
+  
+  double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (dpi / OSMTile::tileDPI() ); // pixels  
   
   painter.setPen(grey2);
-  // http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
+  
       
   uint32_t osmTileFromX = std::max(0.0, (double)osmTileRes * ((boundingBox.GetMinLon() + (double)180.0) / (double)360.0)); 
-  double maxLatRad = boundingBox.GetMaxLat() * gradtorad;                                 
+  double maxLatRad = boundingBox.GetMaxLat() * GRAD_TO_RAD;                                 
   uint32_t osmTileFromY = std::max(0.0, (double)osmTileRes * ((double)1.0 - (log(tan(maxLatRad) + (double)1.0 / cos(maxLatRad)) / M_PI)) / (double)2.0); // std::max(0, ((int32_t)y1 / (int32_t)osmTileHeight)* -1);
 
   //std::cout << osmTileRes << " * (("<< boundingBox.GetMinLon()<<" + 180.0) / 360.0) = " << osmTileFromX << std::endl; 
@@ -651,19 +673,35 @@ bool DBThread::RenderMap(QPainter& painter,
 
       //std::cout << "  xtile: " << xtile << " ytile: " << ytile << " x: " << x << " y: " << y << "" << std::endl;
 
-      // TODO: take angle into account
+      bool repaintRequested = false;
       if (tileCache.contains(zoomLevel, xtile, ytile)){
-        QImage img = tileCache.get(zoomLevel, xtile, ytile);
-        painter.drawImage(QRectF(x, y, osmTileWidth, osmTileHeight), img);
+        TileCacheVal val = tileCache.get(zoomLevel, xtile, ytile);
+        // take angle into account
+        if (projection.GetAngle() == 0){
+            if (painter.testRenderHint(QPainter::Antialiasing)){
+                // trick for avoiding white lines between tiles caused by antialiasing
+                // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
+                painter.drawImage(QRectF(x, y, osmTileWidth+0.5, osmTileHeight+0.5), val.image);
+            }else{
+                painter.drawImage(QRectF(x, y, osmTileWidth, osmTileHeight), val.image);
+            }
+        }else{
+            painter.drawLine(x,y, x + osmTileWidth, y);      
+            painter.drawLine(x,y, x, y + osmTileHeight);                  
+        }
+        repaintRequested = val.needsRepaint;
       }else{
+        repaintRequested = true;
+        painter.drawLine(x,y, x + osmTileWidth, y);      
+        painter.drawLine(x,y, x, y + osmTileHeight);      
+      }
+      if (repaintRequested){
         if (tileCache.request(zoomLevel, xtile, ytile)){
           std::cout << "  tile request: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
           emit triggerTileRequest(zoomLevel, xtile, ytile, osmTileWidth, osmTileHeight);
         }else{
           std::cout << "  requested already: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
         }
-        painter.drawLine(x,y, x + osmTileWidth, y);      
-        painter.drawLine(x,y, x, y + osmTileHeight);      
       }
     }
     //double y = y1 + (double)ytile * osmTileHeight;

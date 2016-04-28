@@ -32,6 +32,8 @@
 #include <QTime>
 #include <QImage>
 
+#include <osmscout/util/GeoBox.h>
+
 struct TileCacheKey
 {
   uint32_t zoomLevel;
@@ -50,6 +52,7 @@ struct TileCacheVal
 {
   QTime lastAccess;
   QImage image; 
+  bool needsRepaint;
 };
 
 Q_DECLARE_METATYPE(TileCacheVal)
@@ -71,7 +74,14 @@ public:
    */
   bool request(uint32_t zoomLevel, uint32_t x, uint32_t y);
   bool contains(uint32_t zoomLevel, uint32_t x, uint32_t y);
-  QImage get(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  TileCacheVal get(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  
+  /**
+   * 
+   * @param box
+   * @return 
+   */
+  bool invalidate(osmscout::GeoBox box);
   
   void removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y);
   void put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image);

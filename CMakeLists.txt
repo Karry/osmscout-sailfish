@@ -205,8 +205,9 @@ set(HEADER_FILES
     src/SearchLocationModel.h
     src/Settings.h
     src/Theme.h
-    src/TileCache.cpp
-    src/OsmTileDownloader.cpp
+    src/TileCache.h
+    src/OsmTileDownloader.h
+    src/InputHandler.h
 )
 
 set(SOURCE_FILES
@@ -219,6 +220,7 @@ set(SOURCE_FILES
     src/Theme.cpp
     src/TileCache.cpp
     src/OsmTileDownloader.cpp
+    src/InputHandler.cpp
     
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f
