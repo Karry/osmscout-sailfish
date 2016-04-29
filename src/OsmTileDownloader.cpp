@@ -76,6 +76,8 @@ void OsmTileDownloader::fileDownloaded(QNetworkReply* reply)
     TileCacheKey key = requests.value(url);
     requests.remove(url);
     if (reply->error() != QNetworkReply::NoError){
+        // TODO: it seems that this code is affected by https://bugreports.qt.io/browse/QTBUG-46323
+        // on Jolla phone (Qt 5.2.2), exists some workaround? Can we copy-paste fixed QNetworkAccessManager to project?
       qWarning() << "Downloading " << url << "failed with " << reply->errorString();
       serverNumber = qrand(); // try another server for future requests
       emit failed(key.zoomLevel, key.xtile, key.ytile);
