@@ -171,6 +171,9 @@ bool DragHandler::touch(QTouchEvent *event)
     Qt::TouchPointStates state(finger.state());
         
     moving = !state.testFlag(Qt::TouchPointReleased);
+    if (state.testFlag(Qt::TouchPointReleased)){
+        return false;
+    }
 
     if (startX < 0){ // first touch by this point
         startX = finger.pos().x();
@@ -187,9 +190,6 @@ bool DragHandler::touch(QTouchEvent *event)
         ));
     }
     
-    if (state.testFlag(Qt::TouchPointReleased)){
-        return false;
-    }
     return true;
 }
 
