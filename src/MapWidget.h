@@ -36,34 +36,17 @@ class MapWidget : public QQuickPaintedItem
   Q_PROPERTY(double lon READ GetLon)
 
 private:
-  //osmscout::GeoCoord           center;
-  //double                       angle;
-  //osmscout::Magnification      magnification;
 
-  // Drag and drop
-  //int                          startX;
-  //int                          startY;
-  //osmscout::MercatorProjection startProjection;
   MapView                        view;
   double                         dpi;
 
-  // Controlling rerendering...
-  //bool                         mouseDragging;
-  //bool                         dbInitialized;
-  //bool                         hasBeenPainted;
-  
-  // touch points
-  //QList<QPointF>               currentTouchPoints;
-  
   InputHandler                   *inputHandler;
 
 signals:
-  //void TriggerMapRenderingSignal(const RenderMapRequest& request);
   void latChanged();
   void lonChanged();
 
 public slots:
-  //void initialisationFinished(const DatabaseLoadedResponse& response);
   void viewChanged(const MapView &view);
   void redraw();
   void zoom(double zoomFactor);
@@ -85,9 +68,6 @@ public slots:
   void showLocation(Location* location);
 
 private:
-  //void TriggerMapRendering();
-
-  //void HandleMouseMove(QMouseEvent* event); 
   void setupInputHandler(InputHandler *newGesture);
   
 public:
@@ -103,12 +83,6 @@ public:
   {
       return view.center.GetLon();
   }
-
-  //void translateToTouch(QMouseEvent* event, Qt::TouchPointStates states);
-  
-  //void mousePressEvent(QMouseEvent* event);
-  //void mouseMoveEvent(QMouseEvent* event);
-  //void mouseReleaseEvent(QMouseEvent* event);
   
   void wheelEvent(QWheelEvent* event);
   virtual void touchEvent(QTouchEvent *event);

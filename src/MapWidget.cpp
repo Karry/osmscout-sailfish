@@ -27,14 +27,6 @@ static double DELTA_ANGLE=2*M_PI/16.0;
 
 MapWidget::MapWidget(QQuickItem* parent)
     : QQuickPaintedItem(parent),
-      //center(0.0,0.0),
-      //angle(0.0),
-      //magnification(64),
-      //mouseDragging(false),
-      //dbInitialized(false),
-      //hasBeenPainted(false),
-      
-      //currentTouchPoints(),
       inputHandler(NULL)
 {
     setOpaquePainting(true);
@@ -45,12 +37,6 @@ MapWidget::MapWidget(QQuickItem* parent)
 
     //setFocusPolicy(Qt::StrongFocus);
 
-    //connect(dbThread,SIGNAL(InitialisationFinished(DatabaseLoadedResponse)),
-    //        this,SLOT(initialisationFinished(DatabaseLoadedResponse)));
-
-    //connect(this,SIGNAL(TriggerMapRenderingSignal(RenderMapRequest)),
-    //        dbThread,SLOT(TriggerMapRendering(RenderMapRequest)));
-
     connect(dbThread,SIGNAL(HandleMapRenderingResult()),
             this,SLOT(redraw()));
 
@@ -60,15 +46,7 @@ MapWidget::MapWidget(QQuickItem* parent)
     // todo, open last position, move to current position or get as constructor argument...
     view = { osmscout::GeoCoord(0.0, 0.0), 0, osmscout::Magnification::magContinent  };
     setupInputHandler(new InputHandler(view));
-        
-    // db thread can be initialized before creating this Widget, 
-    // to avoid this race condition, check if database is initialized already
-    // and call our slot manually
-    /*
-    if (dbThread->isInitialized()){
-        initialisationFinished(dbThread->loadedResponse());
-    }
-     * */
+
 }
 
 MapWidget::~MapWidget()
@@ -90,54 +68,6 @@ void MapWidget::redraw()
 {
     update();
 }
-/*
-void MapWidget::initialisationFinished(const DatabaseLoadedResponse& response)
-{
-    if (dbInitialized) // avoid double initialization
-        return;
-    
-    size_t zoom=1;
-    double dlat=360;
-    double dlon=180;
-
-    center=response.boundingBox.GetCenter();
-
-    while (dlat>response.boundingBox.GetHeight() &&
-           dlon>response.boundingBox.GetWidth()) {
-        zoom=zoom*2;
-        dlat=dlat/2;
-        dlon=dlon/2;
-    }
-
-    magnification=zoom;
-
-    dbInitialized=true;
-
-    qDebug() << "hasBeenPainted: " << hasBeenPainted;
-    if (hasBeenPainted) {
-        TriggerMapRendering();
-    }
-}
-
-void MapWidget::TriggerMapRendering()
-{
-    qDebug() << "TriggerMapRendering";
-    
-    DBThread         *dbThread=DBThread::GetInstance();
-    RenderMapRequest request;
-
-    request.lat=center.GetLat();
-    request.lon=center.GetLon();
-    request.angle=angle;
-    request.magnification=magnification;
-    request.width=width();
-    request.height=height();
-
-    dbThread->CancelCurrentDataLoading();
-
-    emit TriggerMapRenderingSignal(request);
-}
-*/
 
 void MapWidget::viewChanged(const MapView &updated)
 {
@@ -145,75 +75,16 @@ void MapWidget::viewChanged(const MapView &updated)
     view = updated;
     redraw();
 }
-/*
-void MapWidget::translateToTouch(QMouseEvent* event, Qt::TouchPointStates states)
-{
-    QMouseEvent *mEvent = static_cast<QMouseEvent *>(event);
 
-    QTouchEvent::TouchPoint touchPoint;
-    touchPoint.setPressure(1);
-    touchPoint.setPos(mEvent->pos());
-    touchPoint.setState(states);
-    
-    QList<QTouchEvent::TouchPoint> points;
-    points << touchPoint;
-    QTouchEvent *touchEvnt = new QTouchEvent(QEvent::TouchBegin,0, Qt::NoModifier, 0, points);
-    //touchEvent(touchEvnt);
-    delete touchEvnt;
-}
-*/
-/*
-void MapWidget::mousePressEvent(QMouseEvent* event)
-{
-    if (event->button()==1) {
-        translateToTouch(event, Qt::TouchPointPressed);
-    }
-}
-*/
-
-/*
-void MapWidget::mouseMoveEvent(QMouseEvent* event)
-{
-    translateToTouch(event, Qt::TouchPointMoved);
-}
-*/
-
-/*
-void MapWidget::mouseReleaseEvent(QMouseEvent* event)
-{
-    if (event->button()==1) {
-        translateToTouch(event, Qt::TouchPointReleased);
-    }
-}
-*/
 void MapWidget::touchEvent(QTouchEvent *event)
 {
     qDebug() << "touchEvent:";
-    //currentTouchPoints.clear();
   
     if (!inputHandler->touch(event)){
         if (event->touchPoints().size() == 1){
             QTouchEvent::TouchPoint tp = event->touchPoints()[0];
-            //Qt::TouchPointStates state(tp.state());
-            //if (state.testFlag(Qt::TouchPointReleased)){
-            //    setupInputHandler(new InputHandler(view)); // return to rendering with Antialiasing
-            //}else{
             setupInputHandler(new DragHandler(view, dpi));
-            //}
         }else{
-            /*
-            int remaining = 0;
-            for (QTouchEvent::TouchPoint tp: event->touchPoints()){
-                Qt::TouchPointStates state(tp.state());
-                if (!state.testFlag(Qt::TouchPointReleased))
-                    remaining++;
-            }
-            if (remaining == 0){
-                setupInputHandler(new InputHandler(view)); // return to rendering with Antialiasing
-            }else{
-                setupInputHandler(new DragHandler(view, dpi));
-            }
-            */
             setupInputHandler(new MultitouchHandler(view, dpi));
         }
         inputHandler->touch(event);
@@ -223,45 +94,9 @@ void MapWidget::touchEvent(QTouchEvent *event)
     for (QTouchEvent::TouchPoint tp: event->touchPoints()){
       Qt::TouchPointStates state(tp.state());
       qDebug() << "  " << state <<" " << tp.id() << 
-              //"- scene " << tp.scenePos().x() << "x" << tp.scenePos().y() << 
               " pos " << tp.pos().x() << "x" << tp.pos().y() << 
-              //" screen " << tp.screenPos().x() << "x" << tp.screenPos().y() << 
               " @ " << tp.pressure();    
-      /*
-      if (relevantTouchPoints.size() < 2 && // we respect only two points
-        ( state.testFlag(Qt::TouchPointMoved)
-        || state.testFlag(Qt::TouchPointStationary)
-        || state.testFlag(Qt::TouchPointReleased )
-        )){
-
-        relevantTouchPoints << tp;
-        currentTouchPoints << tp.screenPos();
-      }
-       */
     }
-    /*
-    if (relevantTouchPoints.size() >= 2){
-      // compute zoom
-      QVector2D last(relevantTouchPoints[0].lastScreenPos() - relevantTouchPoints[1].lastScreenPos());
-      QVector2D current(relevantTouchPoints[0].screenPos() - relevantTouchPoints[1].screenPos());
-      if (last.length() == 0)
-        last = current;
-      if (current.length() != 0){
-        zoom( current.length() / last.length() );      
-      }
-    }
-    if (relevantTouchPoints.size() == 1){
-
-    }
-
-
-    for (QTouchEvent::TouchPoint tp: event->touchPoints()){
-      //qDebug() << "  " << tp.id() << "- " << tp.scenePos().x() << "x" << tp.scenePos().y() << " @ " << tp.pressure();    
-      currentTouchPoints << tp.pos();
-    }
-    //update();
-    //QQuickPaintedItem::touchEvent(event); 
-    */
 }
 
 void MapWidget::wheelEvent(QWheelEvent* event)
@@ -290,38 +125,17 @@ void MapWidget::paint(QPainter *painter)
     painter->setRenderHint(QPainter::SmoothPixmapTransform, !animationInProgress);
     painter->setRenderHint(QPainter::HighQualityAntialiasing, !animationInProgress);
     
-    //if (dbInitialized) {
-        RenderMapRequest request;
-        QRectF           boundingBox = contentsBoundingRect();
+    RenderMapRequest request;
+    QRectF           boundingBox = contentsBoundingRect();
 
-        request.lat = view.center.GetLat();
-        request.lon = view.center.GetLon();
-        request.angle = view.angle;
-        request.magnification = view.magnification;
-        request.width = boundingBox.width();
-        request.height = boundingBox.height();
+    request.lat = view.center.GetLat();
+    request.lon = view.center.GetLon();
+    request.angle = view.angle;
+    request.magnification = view.magnification;
+    request.width = boundingBox.width();
+    request.height = boundingBox.height();
 
-        if (!dbThread->RenderMap(*painter,request)) {
-            /*
-            if (!mouseDragging) {
-                TriggerMapRendering();
-            }
-             */
-        }
-        /*
-        painter->setPen(QColor::fromRgbF(1,0,0));
-        for (QPointF tp:currentTouchPoints){
-          painter->drawEllipse(tp, 40.0, 40.0);
-        }
-         
-        /*
-    }
-    else {
-      dbThread->RenderMessage(*painter,width(),height(),"Database not initialized yet");
-    }
-
-    hasBeenPainted=true;
-         */
+    dbThread->RenderMap(*painter,request);
 }
 
 void MapWidget::zoom(double zoomFactor)
