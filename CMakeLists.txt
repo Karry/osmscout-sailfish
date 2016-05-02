@@ -280,3 +280,20 @@ DESTINATION share/applications)
 
 install(FILES harbour-osmscout.png
 DESTINATION share/icons/hicolor/86x86/apps)
+
+install(FILES 
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/bus_stop.png
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/cemetery.png
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/forest.png
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/hospital.png
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/parking.png
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/pharmacy.png
+  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/scrub.png
+DESTINATION share/${HARBOUR_APP_NAME}/map-icons)
+
+install(FILES 
+  dependencies/libosmscout/stylesheets/boundaries.oss
+  dependencies/libosmscout/stylesheets/motorways.oss
+  dependencies/libosmscout/stylesheets/railways.oss
+  dependencies/libosmscout/stylesheets/standard.oss
+DESTINATION share/${HARBOUR_APP_NAME}/map-styles)

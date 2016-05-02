@@ -67,7 +67,7 @@ make -C rpmbuilddir-%{_arch} VERBOSE=1 # %{?_smp_mflags}
 
 %install
 # >> install pre
-rm -rf %{buildroot}
+#rm -rf %{buildroot}
 DESTDIR=%{buildroot} make -C rpmbuilddir-%{_arch} install
 mkdir -p %{_bindir}
 # << install pre
@@ -118,6 +118,8 @@ sha1sum    %{buildroot}%{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/%{name}/lib/
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}/map-styles/
+%{_datadir}/%{name}/map-icons/
 %{_datadir}/icons/hicolor/86x86/apps/%{name}.png
 # >> files
 # << files
