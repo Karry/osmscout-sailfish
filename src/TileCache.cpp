@@ -20,8 +20,12 @@
 
 #include <QDebug>
 
-#include "TileCache.h"
+#include <iostream>
 
+#include "TileCache.h"
+#include "OSMTile.h"
+
+using namespace std;
 
 uint qHash(const TileCacheKey &key){
   return (key.zoomLevel << 24) ^ (key.xtile << 12) ^ key.ytile;
@@ -37,38 +41,72 @@ TileCache::TileCache():
   tiles(), 
   requests(),
   cacheSize(200), 
-  maximumLivetimeMs(20000)
+  maximumLivetimeMs(5 * 60 * 1000)
 {
 }
 
-TileCache::~TileCache() {
+TileCache::~TileCache() 
+{
 }
 
-bool TileCache::request(uint32_t zoomLevel, uint32_t x, uint32_t y){
-  TileCacheKey key = {zoomLevel, x, y};
-  if (requests.contains(key))
-    return false;
-  
-  requests << key;
-  return true;
+void TileCache::clearPendingRequests()
+{        
+    QMutableHashIterator<TileCacheKey, RequestState> it(requests);
+    while (it.hasNext()){
+      it.next();
+      if (it.value().pending){
+          it.remove();
+      }
+    }
+}
+
+bool TileCache::startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y)
+{
+    TileCacheKey key = {zoomLevel, x, y};
+    if (requests.contains(key)){
+        RequestState state = requests.value(key); 
+        state.pending = false;
+        requests.insert(key, state);
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool TileCache::request(uint32_t zoomLevel, uint32_t x, uint32_t y)
+{
+    TileCacheKey key = {zoomLevel, x, y};
+    if (requests.contains(key))
+        return false;
+
+    RequestState state = {true};
+    requests.insert(key, state);
+    return true;
+}
+
+bool TileCache::containsRequest(uint32_t zoomLevel, uint32_t x, uint32_t y)
+{
+    TileCacheKey key = {zoomLevel, x, y};
+    return requests.contains(key);
 }
 
 bool TileCache::contains(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
-  TileCacheKey key = {zoomLevel, x, y};
-  return tiles.contains(key);
+    TileCacheKey key = {zoomLevel, x, y};
+    return tiles.contains(key);
 }
 
 TileCacheVal TileCache::get(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
-  TileCacheKey key = {zoomLevel, x, y};
-  if (!tiles.contains(key)){
-    qWarning() << "No tile in cache for key {" << zoomLevel << ", " << x << ", " << y << "}";
-    return {QTime(), QImage(), true}; // throw std::underflow_error ?
-  }
-  TileCacheVal val = tiles.value(key);
-  val.lastAccess.start();
-  return val;
+    TileCacheKey key = {zoomLevel, x, y};
+    if (!tiles.contains(key)){
+        qWarning() << "No tile in cache for key {" << zoomLevel << ", " << x << ", " << y << "}";
+        return {QTime(), QImage(), true}; // throw std::underflow_error ?
+    }
+    TileCacheVal val = tiles.value(key);
+    val.lastAccess.start();
+    tiles.insert(key, val);
+    return val;
 }
 
 void TileCache::removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y)
@@ -79,60 +117,73 @@ void TileCache::removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y)
 
 void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)
 {
-  removeRequest(zoomLevel, x, y);
-  TileCacheKey key = {zoomLevel, x, y};
-  QTime now;
-  now.start();
-  TileCacheVal val = {now, image, false};
-  tiles.insert(key, val);
-  
-  if (tiles.size() > (int)cacheSize){
-    /** 
-     * maximum size reached
-     * 
-     * first, we will iterate over all entries and remove up to 10% tiles 
-     * older than `maximumLivetimeMs`, if no such entry found, remove oldest
-     */
-    qDebug() << "Cleaning tile cache (" << cacheSize << ")";
-    uint32_t removed = 0;
-    int oldest = 0;
-    TileCacheKey oldestKey = key;
-    
-    QMutableHashIterator<TileCacheKey, TileCacheVal> it(tiles);
-    while (it.hasNext() && removed < (cacheSize / 10)){
-      it.next();
-      
-    //QHash<TileCacheKey, TileCacheVal>::const_iterator it = tiles.constBegin();
-    //while (it != tiles.constEnd() && removed < (cacheSize / 10)){
+    removeRequest(zoomLevel, x, y);
+    TileCacheKey key = {zoomLevel, x, y};
+    QTime now;
+    now.start();
+    TileCacheVal val = {now, image, false};
+    tiles.insert(key, val);
 
-      key = it.key();
-      TileCacheVal val = it.value();
+    if (tiles.size() > (int)cacheSize){
+        /** 
+         * maximum size reached
+         * 
+         * first, we will iterate over all entries and remove up to 10% tiles 
+         * older than `maximumLivetimeMs`, if no such entry found, remove oldest
+         */
+        qDebug() << "Cleaning tile cache (" << cacheSize << ")";
+        uint32_t removed = 0;
+        int oldest = 0;
+        TileCacheKey oldestKey = key;
 
-      int elapsed = val.lastAccess.elapsed();
-      if (elapsed > oldest){
-        oldest = elapsed;
-        oldestKey = key;
-      }
-        
-      if (elapsed > (int)maximumLivetimeMs){
-        qDebug() << "  removing " << key.zoomLevel << " / " << key.xtile << " x " << key.ytile;
-        
-        //tiles.remove(key);
-        it.remove();
-        
-        removed ++;
-      }
-      //++it;
+        QMutableHashIterator<TileCacheKey, TileCacheVal> it(tiles);
+        while (it.hasNext() && removed < (cacheSize / 10)){
+            it.next();
+
+            //QHash<TileCacheKey, TileCacheVal>::const_iterator it = tiles.constBegin();
+            //while (it != tiles.constEnd() && removed < (cacheSize / 10)){
+
+            key = it.key();
+            TileCacheVal val = it.value();
+
+            int elapsed = val.lastAccess.elapsed();
+            if (elapsed > oldest){
+              oldest = elapsed;
+              oldestKey = key;
+            }
+
+            if (elapsed > (int)maximumLivetimeMs){
+              qDebug() << "  removing " << key.zoomLevel << " / " << key.xtile << " x " << key.ytile;
+
+              //tiles.remove(key);
+              it.remove();
+
+              removed ++;
+            }
+            //++it;
+        }
+        if (removed == 0){
+          key = oldestKey;
+          qDebug() << "  removing " << key.zoomLevel << " / " << key.xtile << " x " << key.ytile;
+          tiles.remove(key);
+        }
     }
-    if (removed == 0){
-      key = oldestKey;
-      qDebug() << "  removing " << key.zoomLevel << " / " << key.xtile << " x " << key.ytile;
-      tiles.remove(key);
-    }
-  }
 }
 
 bool TileCache::invalidate(osmscout::GeoBox box){
-    tiles.clear(); // TODO: remove only tiles intersecting box
+    QMutableHashIterator<TileCacheKey, TileCacheVal> it(tiles);
+    bool removed = false;
+    TileCacheKey key;
+    osmscout::GeoBox bbox;
+    while (it.hasNext() ){            
+        it.next();
+        key = it.key();
+        bbox = OSMTile::tileBoundingBox(key.zoomLevel, key.xtile, key.ytile);
+        if (box.Intersects(bbox)){
+            it.remove();
+            removed = true;
+        }
+    }
+    return removed;
 }
 

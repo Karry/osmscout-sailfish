@@ -57,6 +57,13 @@ struct TileCacheVal
 
 Q_DECLARE_METATYPE(TileCacheVal)
 
+struct RequestState
+{
+    bool pending;
+};
+
+Q_DECLARE_METATYPE(RequestState)
+
 /**
  * Cache have to be locked by its mutex() while access.
  * It owns all inserted tiles and it is responsible for its release
@@ -70,10 +77,19 @@ public:
   virtual ~TileCache();
   
   /**
+   * revove all pending requests
+   * TODO: in case of multiple map widgets, add some id to avoid removing requests 
+   * of another widget
+   */
+  void clearPendingRequests();
+  bool startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y);
+
+  /**
    * insert new tile request record, return false if this request exists already
    */
   bool request(uint32_t zoomLevel, uint32_t x, uint32_t y);
   bool contains(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  bool containsRequest(uint32_t zoomLevel, uint32_t x, uint32_t y);  
   TileCacheVal get(uint32_t zoomLevel, uint32_t x, uint32_t y);
   
   /**
@@ -89,7 +105,7 @@ public:
   mutable QMutex                    mutex;
 private:
   QHash<TileCacheKey, TileCacheVal> tiles;
-  QSet<TileCacheKey>                requests;
+  QHash<TileCacheKey, RequestState> requests;
   size_t                            cacheSize; // maximum count of elements in cache
   uint32_t                          maximumLivetimeMs;
 };
