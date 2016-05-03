@@ -80,23 +80,21 @@ class DBThread : public QObject
 
 signals:
   void InitialisationFinished(const DatabaseLoadedResponse& response);
-  void HandleMapRenderingResult();
   void TriggerInitialRendering();
   void TriggerDrawMap();
   void Redraw();
   void TileStatusChanged(const osmscout::TileRef& tile);
-  void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t expectedRenderedWidth, uint32_t expectedRenderedHeight);
+  void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
 
 public slots:
   void ToggleDaylight();
   void ReloadStyle();
   void HandleInitialRenderingRequest();
   void HandleTileStatusChanged(const osmscout::TileRef& changedTile);
-  void DrawMap();
-  void TriggerMapRendering(const RenderMapRequest& request);
+  void DrawTileMap(QPainter &p, const osmscout::GeoCoord box, uint32_t z, size_t width, size_t height, bool drawBackground);
   void Initialize();
   void Finalize();
-  void tileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t expectedRenderedWidth, uint32_t expectedRenderedHeight);
+  void tileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
   void tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
   void tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y);  
 
@@ -125,26 +123,8 @@ private:
   QString                       stylesheetFilename;
   bool                          daylight;
   osmscout::StyleConfigRef      styleConfig;
-  osmscout::MapData             data;
   osmscout::MapPainterQt        *painter;
   QString                       iconDirectory;
-
-  QTime                         lastRendering;
-  QTimer                        pendingRenderingTimer;
-
-  QImage                        *currentImage;
-  size_t                        currentWidth;
-  size_t                        currentHeight;
-  double                        currentLat;
-  double                        currentLon;
-  double                        currentAngle;
-  osmscout::Magnification       currentMagnification;
-
-  QImage                        *finishedImage;
-  double                        finishedLat;
-  double                        finishedLon;
-  double                        finishedAngle;
-  osmscout::Magnification       finishedMagnification;
 
   osmscout::BreakerRef          dataLoadingBreaker;
 
@@ -152,7 +132,6 @@ private:
   DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
   virtual ~DBThread();
 
-  void FreeMaps();
   bool AssureRouter(osmscout::Vehicle vehicle);
 
   void TileStateCallback(const osmscout::TileRef& changedTile);
@@ -164,15 +143,11 @@ public:
   
   const double GetDpi() const;
   
-  //void GetProjection(osmscout::MercatorProjection& projection);
-
   void CancelCurrentDataLoading();
 
   bool RenderMap(QPainter& painter,
                  const RenderMapRequest& request);
   
-  void RenderMessage(QPainter& painter, qreal width, qreal height, const char* message);
-
   osmscout::TypeConfigRef GetTypeConfig() const;
 
   bool GetNodeByOffset(osmscout::FileOffset offset,
