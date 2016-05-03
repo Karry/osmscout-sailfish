@@ -17,5 +17,38 @@
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include "OSMTile.h"
+#include <QString>
+#include <QDebug>
 
+#include "OSMTile.h"
+#include "osmscout/util/GeoBox.h"
+
+osmscout::GeoBox OSMTile::tileBoundingBox(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+{
+    double lon = tilex2lon(xtile, zoomLevel);
+    double lonRes = 360.0 / worldRes(zoomLevel);
+    double lat = tiley2lat(ytile, zoomLevel);
+    double lat2 = tiley2lat(ytile + 1, zoomLevel);
+
+    /*
+    qDebug() << "Tile " << zoomLevel << " " << xtile << " " << ytile << " box: " << 
+            QString::fromStdString(b.GetDisplayText());
+    */
+    
+    return osmscout::GeoBox(
+            osmscout::GeoCoord(lat, lon), 
+            osmscout::GeoCoord(lat2, lon + lonRes)
+            );
+}
+
+osmscout::GeoCoord OSMTile::tileVisualCenter(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+{
+    double y = (double)ytile + 0.5;
+    double n = M_PI - 2.0 * M_PI * y / (double)worldRes(zoomLevel);
+    double lat = 180.0 / M_PI * atan(0.5 * (exp(n) - exp(-n)));
+    
+    double lon = ((double)xtile +0.5) / (double)worldRes(zoomLevel) * 360.0 - 180;
+    
+    return osmscout::GeoCoord(lat, lon);
+}
+    
