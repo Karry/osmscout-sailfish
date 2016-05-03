@@ -106,13 +106,10 @@ bool MoveHandler::zoomOut(double zoomFactor)
 }
 bool MoveHandler::move(QVector2D move)
 {
-    
-    //DBThread                     *dbThread=DBThread::GetInstance();
     osmscout::MercatorProjection projection;
 
-    qDebug() << "move: " << QString::fromStdString(view.center.GetDisplayText()) << "   by: " << move;
+    //qDebug() << "move: " << QString::fromStdString(view.center.GetDisplayText()) << "   by: " << move;
     
-    //dbThread->GetProjection(projection);
     projection.Set(view.center.lon, view.center.lat, view.magnification, dpi, 1000, 1000);
 
     if (!projection.IsValid()) {
