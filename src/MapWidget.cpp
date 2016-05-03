@@ -37,9 +37,6 @@ MapWidget::MapWidget(QQuickItem* parent)
 
     //setFocusPolicy(Qt::StrongFocus);
 
-    connect(dbThread,SIGNAL(HandleMapRenderingResult()),
-            this,SLOT(redraw()));
-
     connect(dbThread,SIGNAL(Redraw()),
             this,SLOT(redraw()));    
     
@@ -71,14 +68,14 @@ void MapWidget::redraw()
 
 void MapWidget::viewChanged(const MapView &updated)
 {
-    qDebug() << "viewChanged: " << QString::fromStdString(updated.center.GetDisplayText()) << "   level: " << updated.magnification.GetLevel();
+    //qDebug() << "viewChanged: " << QString::fromStdString(updated.center.GetDisplayText()) << "   level: " << updated.magnification.GetLevel();
     view = updated;
     redraw();
 }
 
 void MapWidget::touchEvent(QTouchEvent *event)
 {
-    qDebug() << "touchEvent:";
+    //qDebug() << "touchEvent:";
   
     if (!inputHandler->touch(event)){
         if (event->touchPoints().size() == 1){
@@ -93,9 +90,11 @@ void MapWidget::touchEvent(QTouchEvent *event)
     QList<QTouchEvent::TouchPoint> relevantTouchPoints;
     for (QTouchEvent::TouchPoint tp: event->touchPoints()){
       Qt::TouchPointStates state(tp.state());
+      /*
       qDebug() << "  " << state <<" " << tp.id() << 
               " pos " << tp.pos().x() << "x" << tp.pos().y() << 
               " @ " << tp.pressure();    
+       */
     }
 }
 
