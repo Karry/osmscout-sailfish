@@ -55,6 +55,7 @@ void TileCache::clearPendingRequests()
     while (it.hasNext()){
       it.next();
       if (it.value().pending){
+          // qDebug() << "remove pending " << QString("z: %1, %2x%3").arg(it.key().zoomLevel).arg(it.key().xtile).arg(it.key().ytile);                
           it.remove();
       }
     }
@@ -63,11 +64,16 @@ void TileCache::clearPendingRequests()
 bool TileCache::startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
     TileCacheKey key = {zoomLevel, x, y};
-    if (requests.contains(key)){
+    if (requests.contains(key)){        
+        // qDebug() << "start process " << QString("z: %1, %2x%3").arg(key.zoomLevel).arg(key.xtile).arg(key.ytile);
         RequestState state = requests.value(key); 
-        state.pending = false;
-        requests.insert(key, state);
-        return true;
+        if (state.pending){
+            state.pending = false;
+            requests.insert(key, state);
+            return true;
+        }else{
+            return false; // started already
+        }
     }else{
         return false;
     }
@@ -79,6 +85,7 @@ bool TileCache::request(uint32_t zoomLevel, uint32_t x, uint32_t y)
     if (requests.contains(key))
         return false;
 
+    // qDebug() << "request " << QString("z: %1, %2x%3").arg(key.zoomLevel).arg(key.xtile).arg(key.ytile);
     RequestState state = {true};
     requests.insert(key, state);
     return true;
@@ -111,8 +118,9 @@ TileCacheVal TileCache::get(uint32_t zoomLevel, uint32_t x, uint32_t y)
 
 void TileCache::removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
-  TileCacheKey key = {zoomLevel, x, y};
-  requests.remove(key);
+    TileCacheKey key = {zoomLevel, x, y};
+    requests.remove(key);    
+    // qDebug() << "remove " << QString("z: %1, %2x%3").arg(key.zoomLevel).arg(key.xtile).arg(key.ytile);
 }
 
 void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)

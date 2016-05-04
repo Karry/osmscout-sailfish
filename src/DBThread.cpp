@@ -571,9 +571,8 @@ void DBThread::tileRequest(uint32_t zoomLevel,
 {
     {    
         QMutexLocker locker(&tileCache.mutex);
-        if (!tileCache.containsRequest(zoomLevel, xtile, ytile)) // request was canceled
+        if (!tileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
             return;
-        tileCache.startRequestProcess(zoomLevel, xtile, ytile);
     }    
 
     bool requestedFromWeb = true;

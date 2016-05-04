@@ -36,9 +36,9 @@
 
 struct TileCacheKey
 {
-  uint32_t zoomLevel;
-  uint32_t xtile; 
-  uint32_t ytile;
+    uint32_t zoomLevel;
+    uint32_t xtile; 
+    uint32_t ytile;
   
 };
 
