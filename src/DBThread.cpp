@@ -60,10 +60,11 @@ void QBreaker::Reset()
 }
 
 
-DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
+   dpi(dpi),
    tileDownloader(NULL),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
@@ -77,7 +78,8 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
 
   QScreen *srn=QGuiApplication::screens().at(0);
 
-  dpi=(double)srn->physicalDotsPerInch();
+  if (dpi <= 0)
+    dpi=(double)srn->physicalDotsPerInch();
 
   connect(this,SIGNAL(TriggerInitialRendering()),
           this,SLOT(HandleInitialRenderingRequest()));
@@ -399,8 +401,6 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     if (drawParameter.GetRenderSeaLand()) {
       mapService->GetGroundTiles(projection, data.groundTiles);
     }
-
-    //QPainter p;
 
     //p.begin(currentImage);
     p.setRenderHint(QPainter::Antialiasing);
@@ -892,13 +892,13 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
 
 static DBThread* dbThreadInstance=NULL;
 
-bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
+bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi)
 {
   if (dbThreadInstance!=NULL) {
     return false;
   }
 
-  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory);
+  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory, dpi);
 
   return true;
 }

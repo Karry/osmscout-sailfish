@@ -129,7 +129,7 @@ private:
   osmscout::BreakerRef          dataLoadingBreaker;
 
 private:
-  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
+  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi = -1);
   virtual ~DBThread();
 
   bool AssureRouter(osmscout::Vehicle vehicle);
@@ -191,7 +191,7 @@ public:
   void ClearRoute();
   void AddRoute(const osmscout::Way& way);
 
-  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
+  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi = -1);
   static DBThread* GetInstance();
   static void FreeInstance();
 };
