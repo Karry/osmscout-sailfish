@@ -7,6 +7,9 @@ Type=Application
 #   qtquick2               Launch a Qt Quick 2 (QML) application.
 #   silica-qt5             Launch a Sailfish Silica application.
 #   generic                Launch any application, even if it's not a library.
+#
+# Use invoker command to start with booster:
+# /usr/bin/invoker --type=generic /usr/bin/harbour-osmscout 
 X-Nemo-Application-Type=generic
 
 Icon=harbour-osmscout
