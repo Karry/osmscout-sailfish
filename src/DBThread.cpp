@@ -370,11 +370,22 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     drawParameter.SetRenderBackground(drawBackground);
     drawParameter.SetRenderSeaLand(false);
     
+    // see Tiler.cpp example...
+
+    // To get accurate label drawing at tile borders, we take into account labels
+    // of other than the current tile, too.
+    drawParameter.SetDropNotVisiblePointLabels(false);    
+    
     // setup projection for this tile
     osmscout::MercatorProjection projection;
     osmscout::Magnification magnification;
     magnification.SetLevel(z);
     projection.Set(center.lon, center.lat, 0, magnification, dpi, width, height);
+    
+    // setup projection for data lookup
+    osmscout::MercatorProjection lookupProjection;
+    lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, width * 3, height * 3);
+
     
     //searchParameter.SetBreaker(dataLoadingBreaker);
     if (magnification.GetLevel() >= 15) {
@@ -385,9 +396,9 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     }
     searchParameter.SetUseMultithreading(true);
     searchParameter.SetUseLowZoomOptimization(true);
+            
+    mapService->LookupTiles(lookupProjection,tiles);
     
-    
-    mapService->LookupTiles(projection,tiles);
     /*
     if (!mapService->LoadMissingTileDataAsync(searchParameter,*styleConfig,tiles)) {
       qDebug() << "*** Loading of data has error or was interrupted";
