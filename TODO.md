@@ -1,15 +1,7 @@
 
 # TODO
 
-- **Render offline database again**
-  Rendering was rewritten, it is based on OSM tiles now.
-  Before downloading some tile, we should detect if database
-  contains offline data for this region a use it if yes...
- 
 - **Create shiny icon**
-
-- **Display OSM copyright**
-  Tile usage rules want it.
 
 - **Submit to Jolla harbour store**
   Fit final rpm package to all harbour rules. 
