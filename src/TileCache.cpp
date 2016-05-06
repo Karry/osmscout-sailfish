@@ -40,7 +40,7 @@ TileCache::TileCache():
   mutex(),
   tiles(), 
   requests(),
-  cacheSize(200), 
+  cacheSize(100), 
   maximumLivetimeMs(5 * 60 * 1000)
 {
 }
