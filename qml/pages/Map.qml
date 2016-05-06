@@ -117,6 +117,29 @@ Page {
                 }
             }
 
+
+            Rectangle{
+                id : osmCopyright
+                anchors{
+                    left: parent.left
+                    bottom: parent.bottom
+                }
+                width: label.width + 20
+                height: label.height + 12
+
+                color: "white"
+                opacity: 0.7
+
+                Text {
+                    id: label
+                    text: qsTr("© OpenStreetMap contributors")
+                    anchors.centerIn: parent
+
+                    font.pointSize: 12
+                }
+
+            }
+
             // Use PinchArea for multipoint zoom in/out?
 
             /*
