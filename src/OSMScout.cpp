@@ -103,7 +103,10 @@ int main(int argc, char* argv[])
            * 
            * But it doesn't work in current stable version (2.0.0.10), so we hardcode it in code :-(
            */
-          245.0
+          // 245.0 - Jolla native
+          // 130.0 - PC
+          // 100.0 - Qt default
+          200.0
           )) { 
     
     std::cerr << "Cannot initialize DBThread" << std::endl;
