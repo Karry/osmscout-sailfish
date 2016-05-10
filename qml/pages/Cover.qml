@@ -37,8 +37,8 @@ import Sailfish.Silica 1.0
 
 CoverBackground {
     CoverPlaceholder {
-        //% "Default cover"
-        text: qsTrId("components-la-default_cover")
-        icon.source: "image://theme/icon-launcher-component-gallery"
+        //% "OSM Scout"
+        text: qsTrId("OSM Scout")
+        icon.source: "image://theme/harbour-osmscout"
     }
 }

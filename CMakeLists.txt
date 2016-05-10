@@ -280,8 +280,17 @@ FILES_MATCHING PATTERN "*.qm")
 install(FILES harbour-osmscout.desktop
 DESTINATION share/applications)
 
-install(FILES harbour-osmscout.png
+install(FILES icons/86x86/harbour-osmscout.png
 DESTINATION share/icons/hicolor/86x86/apps)
+
+install(FILES icons/108x108/harbour-osmscout.png
+DESTINATION share/icons/hicolor/108x108/apps)
+
+install(FILES icons/128x128/harbour-osmscout.png
+DESTINATION share/icons/hicolor/128x128/apps)
+
+install(FILES icons/256x256/harbour-osmscout.png
+DESTINATION share/icons/hicolor/256x256/apps)
 
 install(FILES 
   dependencies/libosmscout/libosmscout/data/icons/14x14/standard/bus_stop.png
