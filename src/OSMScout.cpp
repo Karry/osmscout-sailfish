@@ -66,9 +66,9 @@ int main(int argc, char* argv[])
   SettingsRef     settings;
   int             result;
 
-  app->setOrganizationName("libosmscout");
+  //app->setOrganizationName("libosmscout");
   app->setOrganizationDomain("libosmscout.sf.net");
-  app->setApplicationName("OSMScout");
+  app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
 
   qRegisterMetaType<RenderMapRequest>();
   qRegisterMetaType<DatabaseLoadedResponse>();
