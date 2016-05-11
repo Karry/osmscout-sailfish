@@ -15,7 +15,7 @@ Name:       harbour-osmscout
 
 # don't setup rpm requires
 # list here all the libraries your RPM installs
-%define __requires_exclude ^ld-linux|libmarisa|libgomp|liblibosmscout.*$
+%define __requires_exclude ^ld-linux|libmarisa|libgomp|libosmscout.*$
 
 # dont strip binaries - it causes segfault on Jolla phone (arm)
 %global __os_install_post %{nil}
@@ -95,12 +95,20 @@ mv %{buildroot}%{_libdir}/*.so %{buildroot}%{_datadir}/%{name}/lib
 
 # -- ship all shared unallowed libraries with the app
 
+# Jolla tablet (i486) build have to be linked to ld-linux.so.2, but it is not allowed 
+# in Harbour! Until Jolla fix their rules, we need to ship ld lib with app.
+%ifarch i486
+  # I am little bit confused by about Jolla tablet x86 architecture. 
+  # Cmake setup build with "-march=i686", target rpm package is i486 and rpm %{_arch} is i386
+  cp /lib/ld-linux.so.2 %{buildroot}%{_datadir}/%{name}/lib
+%endif
+
 # check architecture
 # file %{buildroot}%{_bindir}/harbour-osmscout
 # file /usr/lib/libgomp.so.1
 # file /usr/lib/libgomp.so.1.0.0
 
-cp --preserve=links /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
+cp /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
 #cp --preserve=links /usr/lib/libgomp.so.1.0.0  %{buildroot}%{_datadir}/%{name}/lib/
 
 # -- shared libraries without executable flag
