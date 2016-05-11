@@ -13,10 +13,10 @@ project(osmscout-sailfish C CXX)
 
 # project version
 set(OSMSCOUT_SAILFISH_MAJOR_VERSION "0")
-set(OSMSCOUT_SAILFISH_MINOR_VERSION "1")
+set(OSMSCOUT_SAILFISH_MINOR_VERSION "2")
 set(OSMSCOUT_SAILFISH_PATCH_VERSION "0")
 
-set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "-alpha1")
+set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "-alpha")
 set(OSMSCOUT_SAILFISH_VERSION_SHORT  "${OSMSCOUT_SAILFISH_MAJOR_VERSION}.${OSMSCOUT_SAILFISH_MINOR_VERSION}.${OSMSCOUT_SAILFISH_PATCH_VERSION}")
 set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCOUT_SAILFISH_SUFFIX_VERSION}")
 
@@ -257,9 +257,9 @@ target_link_libraries(harbour-osmscout
         Qt5::Positioning
         
         marisa
-        libosmscout
-        libosmscout_map
-        libosmscout_map_qt
+        osmscout
+        osmscout_map
+        osmscout_map_qt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
 
