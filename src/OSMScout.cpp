@@ -94,18 +94,16 @@ int main(int argc, char* argv[])
           docs + QDir::separator() + "Maps", 
           "/usr/share/harbour-osmscout", 
           cache + QDir::separator() + "OsmTileCache", 
-          /* It seems that Jolla reports incorrect DPI (100), 
-           * maybe related with Andorid bug: https://bugreports.qt.io/browse/QTBUG-35701
-           * 
-           * It should be possible to override by environment variable in new Sailfish OS (2.0.1)
-           * QT_WAYLAND_FORCE_DPI
-           * https://together.jolla.com/question/126893/changelog-201taalojarvi/
-           * 
-           * But it doesn't work in current stable version (2.0.0.10), so we hardcode it in code :-(
+          /* Sailfish OS before version 2.0.1 reports incorrect DPI (100)
+           *
+           * Some DPI values:
+           *
+           * ~ 330 - Jolla tablet native
+           *   242.236 - Jolla phone native
+           *   200 - subjective best value for Maps on Jolla phone
+           *   130 - PC (24" FullHD)
+           *   100 - Qt default (reported by SailfishOS < 2.0.1)
            */
-          // 245.0 - Jolla native
-          // 130.0 - PC
-          // 100.0 - Qt default
           200.0
           )) { 
     

@@ -78,8 +78,12 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
 
   QScreen *srn=QGuiApplication::screens().at(0);
 
-  if (dpi <= 0)
+  qDebug() << "Reported screen DPI: " << srn->physicalDotsPerInch();
+  if (dpi <= 0){
     dpi=(double)srn->physicalDotsPerInch();
+  }else{
+    qDebug() << "DPI override: " << dpi;
+  }
 
   connect(this,SIGNAL(TriggerInitialRendering()),
           this,SLOT(HandleInitialRenderingRequest()));
