@@ -168,14 +168,13 @@ bool DragHandler::touch(QTouchEvent *event)
     Qt::TouchPointStates state(finger.state());
         
     moving = !state.testFlag(Qt::TouchPointReleased);
-    if (state.testFlag(Qt::TouchPointReleased)){
-        return false;
-    }
 
     if (startX < 0){ // first touch by this point
-        startX = finger.pos().x();
-        startY = finger.pos().y();
-        fingerId = finger.id();
+        if (!state.testFlag(Qt::TouchPointReleased)){
+            startX = finger.pos().x();
+            startY = finger.pos().y();
+            fingerId = finger.id();
+        }
     }else{
         if (fingerId != finger.id())
             return false; // should not happen
@@ -187,7 +186,7 @@ bool DragHandler::touch(QTouchEvent *event)
         ));
     }
     
-    return true;
+    return !state.testFlag(Qt::TouchPointReleased);
 }
 
 bool DragHandler::zoomIn(double zoomFactor)

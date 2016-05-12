@@ -59,6 +59,8 @@ void MapWidget::setupInputHandler(InputHandler *newGesture)
     
     connect(inputHandler, SIGNAL(viewChanged(const MapView&)), 
             this, SLOT(viewChanged(const MapView&)));
+    
+    //qDebug() << "Input handler changed (" << (newGesture->animationInProgress()? "animation": "stationary") << ")";
 }
 
 void MapWidget::redraw()
@@ -69,6 +71,8 @@ void MapWidget::redraw()
 void MapWidget::viewChanged(const MapView &updated)
 {
     //qDebug() << "viewChanged: " << QString::fromStdString(updated.center.GetDisplayText()) << "   level: " << updated.magnification.GetLevel();
+    //qDebug() << "viewChanged (" << (inputHandler->animationInProgress()? "animation": "stationary") << ")";
+
     view = updated;
     redraw();
 }
