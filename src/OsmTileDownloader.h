@@ -44,7 +44,7 @@ public slots:
   
 signals:
   void downloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
-  void failed(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  void failed(uint32_t zoomLevel, uint32_t x, uint32_t y, bool zoomLevelOutOfRange);
 
 private slots:
   void fileDownloaded(QNetworkReply* pReply);

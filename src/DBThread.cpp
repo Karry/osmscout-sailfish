@@ -195,8 +195,8 @@ void DBThread::Initialize()
   connect(tileDownloader, SIGNAL(downloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)),
           this, SLOT(tileDownloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)));
   
-  connect(tileDownloader, SIGNAL(failed(uint32_t, uint32_t, uint32_t)),
-          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t)));
+  connect(tileDownloader, SIGNAL(failed(uint32_t, uint32_t, uint32_t, bool)),
+          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t, bool)));
     
   stylesheetFilename = resourceDirectory + QDir::separator() + "map-styles" + QDir::separator() + "standard.oss";
   iconDirectory = resourceDirectory + QDir::separator() + "map-icons";
@@ -666,7 +666,7 @@ void DBThread::tileRequest(uint32_t zoomLevel,
     if (requestedFromWeb){
         if (tileDownloader == NULL){
             qWarning() << "tile requested but donwloader is not initialized yet";
-            emit tileDownloadFailed(zoomLevel, xtile, ytile);
+            emit tileDownloadFailed(zoomLevel, xtile, ytile, false);
         }else{
             emit tileDownloader->download(zoomLevel, xtile, ytile);
         }
@@ -719,10 +719,23 @@ void DBThread::tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage
     emit Redraw();
 }
 
-void DBThread::tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y)
+void DBThread::tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y, bool zoomLevelOutOfRange)
 {
-  QMutexLocker locker(&tileCache.mutex);
-  tileCache.removeRequest(zoomLevel, x, y);
+    QMutexLocker locker(&tileCache.mutex);
+    tileCache.removeRequest(zoomLevel, x, y);
+    
+    if (zoomLevelOutOfRange && zoomLevel > 0){
+        // hack: when zoom level is too high for online source, 
+        // we try to request tile with lower zoom level and put it to cache 
+        // as substitute
+        uint32_t reqZoom = zoomLevel - 1;
+        uint32_t reqX = x / 2;
+        uint32_t reqY = y / 2;
+        if (tileCache.request(reqZoom, reqX, reqY)){
+            qDebug() << "Tile download failed " << x << " " << y << " zoomLevel " << zoomLevel << " try lower zoom";
+            triggerTileRequest(reqZoom, reqX, reqY);
+        }
+    }
 }
 
 osmscout::TypeConfigRef DBThread::GetTypeConfig() const

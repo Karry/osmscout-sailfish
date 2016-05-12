@@ -46,8 +46,8 @@ OsmTileDownloader::~OsmTileDownloader() {
 
 void OsmTileDownloader::download(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
-  if (zoomLevel > 19){
-    emit failed(zoomLevel, x, y);
+  if (zoomLevel > 19){ // TODO: load from configuraion
+    emit failed(zoomLevel, x, y, true);
     return;
   }
   
@@ -80,7 +80,7 @@ void OsmTileDownloader::fileDownloaded(QNetworkReply* reply)
         // on Jolla phone (Qt 5.2.2), exists some workaround? Can we copy-paste fixed QNetworkAccessManager to project?
       qWarning() << "Downloading " << url << "failed with " << reply->errorString();
       serverNumber = qrand(); // try another server for future requests
-      emit failed(key.zoomLevel, key.xtile, key.ytile);
+      emit failed(key.zoomLevel, key.xtile, key.ytile, false);
     }else{
       QByteArray downloadedData = reply->readAll();
 
@@ -90,7 +90,7 @@ void OsmTileDownloader::fileDownloaded(QNetworkReply* reply)
         emit downloaded(key.zoomLevel, key.xtile, key.ytile, image, downloadedData);
       }else{
         qWarning() << "Failed to load image data from " << url;
-        emit failed(key.zoomLevel, key.xtile, key.ytile);
+        emit failed(key.zoomLevel, key.xtile, key.ytile, false);
       }
     }
   }
