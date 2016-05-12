@@ -1,19 +1,12 @@
 
 # TODO
 
-- **Create shiny icon**
-
 - **Submit to Jolla harbour store**
   Fit final rpm package to all harbour rules. 
   I want to create first OSM Scout release to harbour 
   as soon as possible. Future project direction can
   be updated on users needs...
-  
-- **Use available tiles from neiberhood zoom levels**
-  Display rescaled and cropped tile from lower zoom level 
-  if it is available in memory cache instead displaying white
-  square.
-  
+    
 - **Move animations**
   Movements should be more natural. If user swipe on map, 
   movement should have momentum.

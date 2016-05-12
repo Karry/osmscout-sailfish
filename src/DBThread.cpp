@@ -345,7 +345,6 @@ void DBThread::ReloadStyle()
 void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, size_t width, size_t height, bool drawBackground)
 {
   qDebug() << "DrawTileMap()" ;
-  // TODO: rewrite to tile rendering
   
   {
     //QMutexLocker locker(&mutex);
@@ -477,8 +476,8 @@ bool DBThread::RenderMap(QPainter& painter,
   double y2;
   projection.GeoToPixel(osmscout::GeoCoord(osmMinLat, osmMaxLon), x2, y2);
   
-  double osmTileWidth = (x2 - x1) / osmTileRes; // pixels
-  double osmTileHeight = (y2 - y1) / osmTileRes; // pixels
+  double renderTileWidth = (x2 - x1) / osmTileRes; // pixels
+  double renderTileHeight = (y2 - y1) / osmTileRes; // pixels
   
   painter.setPen(grey2);
   
@@ -516,7 +515,7 @@ bool DBThread::RenderMap(QPainter& painter,
 
   tileCache.clearPendingRequests();
   for ( uint32_t ty = 0; 
-        (ty <= (projection.GetHeight() / (uint32_t)osmTileHeight)+1) && ((osmTileFromY + ty) < osmTileRes); 
+        (ty <= (projection.GetHeight() / (uint32_t)renderTileHeight)+1) && ((osmTileFromY + ty) < osmTileRes); 
         ty++ ){
     
     //for (uint32_t i = 1; i< osmTileRes; i++){
@@ -525,7 +524,7 @@ bool DBThread::RenderMap(QPainter& painter,
     double ytileLatDeg = ytileLatRad * 180.0 / M_PI;
 
     for ( uint32_t tx = 0; 
-          (tx <= (projection.GetWidth() / (uint32_t)osmTileWidth)+1) && ((osmTileFromX + tx) < osmTileRes); 
+          (tx <= (projection.GetWidth() / (uint32_t)renderTileWidth)+1) && ((osmTileFromX + tx) < osmTileRes); 
           tx++ ){
 
       uint32_t xtile = (osmTileFromX + tx);
@@ -536,28 +535,64 @@ bool DBThread::RenderMap(QPainter& painter,
 
       //std::cout << "  xtile: " << xtile << " ytile: " << ytile << " x: " << x << " y: " << y << "" << std::endl;
 
-      bool repaintRequested = false;
-      if (tileCache.contains(zoomLevel, xtile, ytile)){
-        TileCacheVal val = tileCache.get(zoomLevel, xtile, ytile);
-        // take angle into account
-        if (projection.GetAngle() == 0){
-            if (painter.testRenderHint(QPainter::Antialiasing)){
-                // trick for avoiding white lines between tiles caused by antialiasing
-                // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
-                painter.drawImage(QRectF(x, y, osmTileWidth+0.5, osmTileHeight+0.5), val.image);
+      bool repaintRequested = true;
+      
+      // lookup tile in cache, if not found, try upper zoom level for substitute. 
+      // Is is repeated up to zoomLevel - 10
+      // - It is better upscaled tile than empty space
+      uint32_t lookupTileZoom = zoomLevel;
+      uint32_t lookupXTile = xtile;
+      uint32_t lookupYTile = ytile;
+      QRectF lookupTileViewport(0, 0, 1, 1); // tile viewport (percent)
+      bool lookupTileFound = false;
+      //qDebug() << "Need paint tile " << xtile << " " << ytile << " zoom " << zoomLevel;
+      while ((!lookupTileFound) && (lookupTileZoom >= 0) && (zoomLevel - lookupTileZoom <= 10)){
+        //qDebug() << "  - lookup tile " << lookupXTile << " " << lookupYTile << " zoom " << lookupTileZoom << " " << " viewport " << lookupTileViewport;
+        if (tileCache.contains(lookupTileZoom, lookupXTile, lookupYTile)){
+            TileCacheVal val = tileCache.get(lookupTileZoom, lookupXTile, lookupYTile);
+
+            double imageWidth = val.image.width();
+            double imageHeight = val.image.height();
+            QRectF imageViewport(imageWidth * lookupTileViewport.x(), imageHeight * lookupTileViewport.y(), 
+                    imageWidth * lookupTileViewport.width(), imageHeight * lookupTileViewport.height() );
+
+            // take angle into account
+            if (projection.GetAngle() == 0){
+                if (painter.testRenderHint(QPainter::Antialiasing)){
+                    // trick for avoiding white lines between tiles caused by antialiasing
+                    // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
+                    painter.drawImage(QRectF(x, y, renderTileWidth+0.5, renderTileHeight+0.5), val.image, imageViewport);
+                }else{
+                    painter.drawImage(QRectF(x, y, renderTileWidth, renderTileHeight), val.image, imageViewport);
+                }
             }else{
-                painter.drawImage(QRectF(x, y, osmTileWidth, osmTileHeight), val.image);
+                // TODO: support map rotation
+                painter.drawLine(x,y, x + renderTileWidth, y);      
+                painter.drawLine(x,y, x, y + renderTileHeight);                  
             }
+            lookupTileFound = true;
+            if (lookupTileZoom == zoomLevel)
+                repaintRequested = val.needsRepaint;
         }else{
-            painter.drawLine(x,y, x + osmTileWidth, y);      
-            painter.drawLine(x,y, x, y + osmTileHeight);                  
+            // no tile found on current zoom zoom level
+            lookupTileZoom --;
+            uint32_t crop = 1 << (zoomLevel - lookupTileZoom);
+            double viewportWidth = 1.0 / (double)crop;
+            double viewportHeight = 1.0 / (double)crop;
+            lookupTileViewport = QRectF(
+                    (double)(xtile % crop) * viewportWidth,
+                    (double)(ytile % crop) * viewportHeight,
+                    viewportWidth,
+                    viewportHeight);
+            lookupXTile = lookupXTile / 2;
+            lookupYTile = lookupYTile / 2;
         }
-        repaintRequested = val.needsRepaint;
-      }else{
-        repaintRequested = true;
-        painter.drawLine(x,y, x + osmTileWidth, y);      
-        painter.drawLine(x,y, x, y + osmTileHeight);      
-      }      
+      }
+      if (!lookupTileFound){
+        // no tile found, draw its outline
+        painter.drawLine(x,y, x + renderTileWidth, y);      
+        painter.drawLine(x,y, x, y + renderTileHeight);
+      }
       
       if (repaintRequested){
         if (tileCache.request(zoomLevel, xtile, ytile)){
