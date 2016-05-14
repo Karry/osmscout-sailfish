@@ -87,6 +87,12 @@ public:
   void wheelEvent(QWheelEvent* event);
   virtual void touchEvent(QTouchEvent *event);
 
+  void translateToTouch(QMouseEvent* event, Qt::TouchPointStates states);
+  
+  void mousePressEvent(QMouseEvent* event);
+  void mouseMoveEvent(QMouseEvent* event);
+  void mouseReleaseEvent(QMouseEvent* event);
+  
   void paint(QPainter *painter);
 };
 

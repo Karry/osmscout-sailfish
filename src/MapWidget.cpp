@@ -51,6 +51,39 @@ MapWidget::~MapWidget()
     delete inputHandler;
 }
 
+void MapWidget::translateToTouch(QMouseEvent* event, Qt::TouchPointStates states)
+{
+    QMouseEvent *mEvent = static_cast<QMouseEvent *>(event);
+
+    QTouchEvent::TouchPoint touchPoint;
+    touchPoint.setPressure(1);
+    touchPoint.setPos(mEvent->pos());
+    touchPoint.setState(states);
+    
+    QList<QTouchEvent::TouchPoint> points;
+    points << touchPoint;
+    QTouchEvent *touchEvnt = new QTouchEvent(QEvent::TouchBegin,0, Qt::NoModifier, 0, points);
+    //qDebug() << "translate mouse event to touch event: "<< touchEvnt;
+    touchEvent(touchEvnt);
+    delete touchEvnt;
+}
+void MapWidget::mousePressEvent(QMouseEvent* event)
+{
+    if (event->button()==1) {
+        translateToTouch(event, Qt::TouchPointPressed);
+    }
+}
+void MapWidget::mouseMoveEvent(QMouseEvent* event)
+{
+    translateToTouch(event, Qt::TouchPointMoved);
+}
+void MapWidget::mouseReleaseEvent(QMouseEvent* event)
+{
+    if (event->button()==1) {
+        translateToTouch(event, Qt::TouchPointReleased);
+    }
+}
+ 
 void MapWidget::setupInputHandler(InputHandler *newGesture)
 {
     if (inputHandler != NULL)
