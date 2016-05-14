@@ -62,7 +62,8 @@ int main(int argc, char* argv[])
 
   QGuiApplication *app = SailfishApp::application(argc, argv);
   QScopedPointer<QQuickView> view(SailfishApp::createView());  
-  
+  //QGuiApplication *app = new QGuiApplication(argc,argv);
+    
   SettingsRef     settings;
   int             result;
 
@@ -118,12 +119,24 @@ int main(int argc, char* argv[])
   dbThread->connect(&thread, SIGNAL(started()), SLOT(Initialize()));
   dbThread->connect(&thread, SIGNAL(finished()), SLOT(Finalize()));
 
-  view->setSource(SailfishApp::pathTo("qml/main.qml"));
-  view->showFullScreen();
+  bool desktop = false;
+  for (QString arg: app->arguments()){
+      desktop |= (arg == "--desktop");
+  }
+  QQmlApplicationEngine *window = NULL;
+  if (!desktop){
+    view->setSource(SailfishApp::pathTo("qml/main.qml"));
+    view->showFullScreen();
+  }else{
+    window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
+  }
     
   thread.start();
   
   result=app->exec();
+  
+  if (window!=NULL)
+      delete window;
 
   thread.quit();
   thread.wait();

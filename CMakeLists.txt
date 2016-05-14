@@ -237,6 +237,7 @@ set(SOURCE_FILES
     qml/pages/Map.qml
     qml/pages/Cover.qml
     qml/main.qml
+    qml/desktop.qml
 )
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
