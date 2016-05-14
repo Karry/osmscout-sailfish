@@ -193,10 +193,12 @@ void DBThread::Initialize()
   // create tile downloader in correct thread
   tileDownloader = new OsmTileDownloader(tileCacheDirectory);
   connect(tileDownloader, SIGNAL(downloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)),
-          this, SLOT(tileDownloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)));
+          this, SLOT(tileDownloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)), 
+          Qt::QueuedConnection);
   
   connect(tileDownloader, SIGNAL(failed(uint32_t, uint32_t, uint32_t, bool)),
-          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t, bool)));
+          this, SLOT(tileDownloadFailed(uint32_t, uint32_t, uint32_t, bool)),
+          Qt::QueuedConnection);
     
   stylesheetFilename = resourceDirectory + QDir::separator() + "map-styles" + QDir::separator() + "standard.oss";
   iconDirectory = resourceDirectory + QDir::separator() + "map-icons";
@@ -354,6 +356,7 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
         return;
     }
     qDebug() << "Render tile offline " << QString::fromStdString(center.GetDisplayText()) << " zoom " << z << " WxH: " << width << " x " << height;
+    database->DumpStatistics();
           
     osmscout::AreaSearchParameter searchParameter;
     osmscout::MapParameter        drawParameter;
@@ -623,7 +626,7 @@ void DBThread::tileRequest(uint32_t zoomLevel,
         QMutexLocker locker(&tileCache.mutex);
         if (!tileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
             return;
-    }    
+    }
 
     bool requestedFromWeb = true;
     
@@ -664,6 +667,7 @@ void DBThread::tileRequest(uint32_t zoomLevel,
     }
     
     if (requestedFromWeb){
+        QMutexLocker locker(&mutex);
         if (tileDownloader == NULL){
             qWarning() << "tile requested but donwloader is not initialized yet";
             emit tileDownloadFailed(zoomLevel, xtile, ytile, false);
