@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
   result=app->exec();
   
   if (window!=NULL)
-      delete window;
+      window->deleteLater();
 
   thread.quit();
   thread.wait();
