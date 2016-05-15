@@ -60,11 +60,11 @@ void QBreaker::Reset()
 }
 
 
-DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi)
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpiArg)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
-   dpi(dpi),
+   dpi(dpiArg),
    tileDownloader(NULL),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
@@ -243,6 +243,8 @@ void DBThread::Initialize()
     qDebug() << "Cannot read initial bounding box";
     return;
   }
+  
+  //mapService->SetCacheSize(10);
 
   //lastRendering=QTime::currentTime();
 
@@ -351,19 +353,16 @@ void DBThread::ReloadStyle()
  * have to be called with acquiered mutex
  */
 void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, size_t width, size_t height, bool drawBackground)
-{
-  qDebug() << "DrawTileMap()" ;
-  
-  {
-    //QMutexLocker locker(&mutex);
-
+{  
     if (!database->IsOpen() || (!styleConfig)) {
         qWarning() << "Not initialized!";
         return;
     }
+    QTime timer;
+
     qDebug() << "Render tile offline " << QString::fromStdString(center.GetDisplayText()) << " zoom " << z << " WxH: " << width << " x " << height;
     database->DumpStatistics();
-          
+
     osmscout::AreaSearchParameter searchParameter;
     osmscout::MapParameter        drawParameter;
     std::list<std::string>        paths;
@@ -376,29 +375,29 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     drawParameter.SetPatternPaths(paths);
     drawParameter.SetDebugData(false);
     drawParameter.SetDebugPerformance(true);
-    drawParameter.SetOptimizeWayNodes(osmscout::TransPolygon::quality);
-    drawParameter.SetOptimizeAreaNodes(osmscout::TransPolygon::quality);
-    
+    drawParameter.SetOptimizeWayNodes(osmscout::TransPolygon::fast);
+    drawParameter.SetOptimizeAreaNodes(osmscout::TransPolygon::fast);
+
     drawParameter.SetRenderBackground(drawBackground);
     drawParameter.SetRenderSeaLand(false);
-    
+
     // see Tiler.cpp example...
 
     // To get accurate label drawing at tile borders, we take into account labels
     // of other than the current tile, too.
     drawParameter.SetDropNotVisiblePointLabels(false);    
-    
+
     // setup projection for this tile
     osmscout::MercatorProjection projection;
     osmscout::Magnification magnification;
     magnification.SetLevel(z);
     projection.Set(center.lon, center.lat, 0, magnification, dpi, width, height);
-    
+
     // setup projection for data lookup
     osmscout::MercatorProjection lookupProjection;
-    lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, width * 3, height * 3);
+    lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, width*2, height*2);
 
-    
+    // https://github.com/Framstag/libosmscout/blob/master/Documentation/RenderTuning.txt
     //searchParameter.SetBreaker(dataLoadingBreaker);
     if (magnification.GetLevel() >= 15) {
       searchParameter.SetMaximumAreaLevel(6);
@@ -408,9 +407,14 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     }
     searchParameter.SetUseMultithreading(true);
     searchParameter.SetUseLowZoomOptimization(true);
-            
+
+    qDebug() << "prepare:   " << timer.elapsed();
+    timer.restart();
+
     mapService->LookupTiles(lookupProjection,tiles);
-    
+
+    qDebug() << "lookup:    " << timer.elapsed();
+    timer.restart();
     /*
     if (!mapService->LoadMissingTileDataAsync(searchParameter,*styleConfig,tiles)) {
       qDebug() << "*** Loading of data has error or was interrupted";
@@ -419,7 +423,15 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
      */
     // load tiles synchronous
     mapService->LoadMissingTileData(searchParameter,*styleConfig,tiles);
+
+    qDebug() << "load data: " << timer.elapsed();
+    timer.restart();
+    //mapService->DumpCacheStatistics();
+
     mapService->ConvertTilesToMapData(tiles,data);
+
+    qDebug() << "convert:   " << timer.elapsed();
+    timer.restart();
 
     if (drawParameter.GetRenderSeaLand()) {
       mapService->GetGroundTiles(projection, data.groundTiles);
@@ -435,14 +447,14 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
                                   data,
                                   &p);
 
+    qDebug() << "draw:      " << timer.elapsed();
+    timer.restart();
     //p.end();
 
     if (!success)  {
-      qWarning() << "*** Rendering of data has error or was interrupted";
-      return;
+        qWarning() << "*** Rendering of data has error or was interrupted";
+        return;
     }
-
-  }
 }
 
 bool DBThread::RenderMap(QPainter& painter,
