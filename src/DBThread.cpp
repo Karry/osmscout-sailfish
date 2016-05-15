@@ -65,6 +65,8 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
    dpi(dpiArg),
+   onlineTileCache(50), // online tiles can be loaded from disk cache easily 
+   offlineTileCache(100), // render offline tile is expensive
    tileDownloader(NULL),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
@@ -102,10 +104,13 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
   // else we might get into a dead lock
   //
   
-  connect(this,SIGNAL(triggerTileRequest(uint32_t, uint32_t, uint32_t)),
-          this,SLOT(tileRequest(uint32_t, uint32_t, uint32_t)),
+  connect(&onlineTileCache,SIGNAL(tileRequested(uint32_t, uint32_t, uint32_t)),
+          this,SLOT(onlineTileRequest(uint32_t, uint32_t, uint32_t)),
           Qt::QueuedConnection);
-
+  
+  connect(&offlineTileCache,SIGNAL(tileRequested(uint32_t, uint32_t, uint32_t)),
+          this,SLOT(offlineTileRequest(uint32_t, uint32_t, uint32_t)),
+          Qt::QueuedConnection);
 
   osmscout::MapService::TileStateCallback callback=[this](const osmscout::TileRef& tile) {TileStateCallback(tile);};
 
@@ -162,7 +167,7 @@ void DBThread::HandleTileStatusChanged(const osmscout::TileRef& changedTile)
     // ignore this event, we are loading tiles synchronously
     
     /*
-    QMutexLocker locker(&tileCache.mutex);
+    QMutexLocker locker(&tileCacheMutex);
     qDebug() << "Invalidate " << QString::fromStdString( changedTile.get()->GetBoundingBox().GetDisplayText() );
     tileCache.invalidate(changedTile.get()->GetBoundingBox());
     emit Redraw();
@@ -195,7 +200,7 @@ void DBThread::Initialize()
 {
   QMutexLocker locker(&mutex);
   qDebug() << "Initialize";
-
+  
   // create tile downloader in correct thread
   tileDownloader = new OsmTileDownloader(tileCacheDirectory);
   connect(tileDownloader, SIGNAL(downloaded(uint32_t, uint32_t, uint32_t, QImage, QByteArray)),
@@ -252,7 +257,11 @@ void DBThread::Initialize()
   emit InitialisationFinished(response);
   
   // invalidate tile cache and emit Redraw
-  tileCache.invalidate(response.boundingBox);
+  {
+    QMutexLocker locker(&tileCacheMutex);
+    onlineTileCache.invalidate(response.boundingBox);
+    offlineTileCache.invalidate(response.boundingBox);
+  }
   emit Redraw();
 }
 
@@ -352,7 +361,8 @@ void DBThread::ReloadStyle()
  * 
  * have to be called with acquiered mutex
  */
-void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, size_t width, size_t height, bool drawBackground)
+void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, 
+        size_t width, size_t height, size_t lookupWidth, size_t lookupHeight, bool drawBackground)
 {  
     if (!database->IsOpen() || (!styleConfig)) {
         qWarning() << "Not initialized!";
@@ -385,7 +395,12 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
 
     // To get accurate label drawing at tile borders, we take into account labels
     // of other than the current tile, too.
-    drawParameter.SetDropNotVisiblePointLabels(false);    
+    if (z >= 17) {
+        // but not for high zoom levels, it is too expensive
+        drawParameter.SetDropNotVisiblePointLabels(true);
+    }else{
+        drawParameter.SetDropNotVisiblePointLabels(false);        
+    }
 
     // setup projection for this tile
     osmscout::MercatorProjection projection;
@@ -395,7 +410,7 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
 
     // setup projection for data lookup
     osmscout::MercatorProjection lookupProjection;
-    lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, width*2, height*2);
+    lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, lookupWidth, lookupHeight);
 
     // https://github.com/Framstag/libosmscout/blob/master/Documentation/RenderTuning.txt
     //searchParameter.SetBreaker(dataLoadingBreaker);
@@ -528,13 +543,14 @@ bool DBThread::RenderMap(QPainter& painter,
   double x;
   double y;
   QTime start;
-  QMutexLocker locker(&tileCache.mutex);
+  QMutexLocker locker(&tileCacheMutex);
   int elapsed = start.elapsed();
   if (elapsed > 1){
       std::cout << "Mutex acquiere took " << elapsed << " ms" << std::endl;
   }
 
-  tileCache.clearPendingRequests();
+  onlineTileCache.clearPendingRequests();
+  offlineTileCache.clearPendingRequests();
   for ( uint32_t ty = 0; 
         (ty <= (projection.GetHeight() / (uint32_t)renderTileHeight)+1) && ((osmTileFromY + ty) < osmTileRes); 
         ty++ ){
@@ -556,72 +572,20 @@ bool DBThread::RenderMap(QPainter& painter,
 
       //std::cout << "  xtile: " << xtile << " ytile: " << ytile << " x: " << x << " y: " << y << "" << std::endl;
 
-      bool repaintRequested = true;
       
-      // lookup tile in cache, if not found, try upper zoom level for substitute. 
-      // Is is repeated up to zoomLevel - 10
-      // - It is better upscaled tile than empty space
-      uint32_t lookupTileZoom = zoomLevel;
-      uint32_t lookupXTile = xtile;
-      uint32_t lookupYTile = ytile;
-      QRectF lookupTileViewport(0, 0, 1, 1); // tile viewport (percent)
-      bool lookupTileFound = false;
-      //qDebug() << "Need paint tile " << xtile << " " << ytile << " zoom " << zoomLevel;
-      while ((!lookupTileFound) && (lookupTileZoom >= 0) && (zoomLevel - lookupTileZoom <= 10)){
-        //qDebug() << "  - lookup tile " << lookupXTile << " " << lookupYTile << " zoom " << lookupTileZoom << " " << " viewport " << lookupTileViewport;
-        if (tileCache.contains(lookupTileZoom, lookupXTile, lookupYTile)){
-            TileCacheVal val = tileCache.get(lookupTileZoom, lookupXTile, lookupYTile);
-
-            double imageWidth = val.image.width();
-            double imageHeight = val.image.height();
-            QRectF imageViewport(imageWidth * lookupTileViewport.x(), imageHeight * lookupTileViewport.y(), 
-                    imageWidth * lookupTileViewport.width(), imageHeight * lookupTileViewport.height() );
-
-            // take angle into account
-            if (projection.GetAngle() == 0){
-                if (painter.testRenderHint(QPainter::Antialiasing)){
-                    // trick for avoiding white lines between tiles caused by antialiasing
-                    // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
-                    painter.drawImage(QRectF(x, y, renderTileWidth+0.5, renderTileHeight+0.5), val.image, imageViewport);
-                }else{
-                    painter.drawImage(QRectF(x, y, renderTileWidth, renderTileHeight), val.image, imageViewport);
-                }
-            }else{
-                // TODO: support map rotation
-                painter.drawLine(x,y, x + renderTileWidth, y);      
-                painter.drawLine(x,y, x, y + renderTileHeight);                  
-            }
-            lookupTileFound = true;
-            if (lookupTileZoom == zoomLevel)
-                repaintRequested = val.needsRepaint;
-        }else{
-            // no tile found on current zoom zoom level
-            lookupTileZoom --;
-            uint32_t crop = 1 << (zoomLevel - lookupTileZoom);
-            double viewportWidth = 1.0 / (double)crop;
-            double viewportHeight = 1.0 / (double)crop;
-            lookupTileViewport = QRectF(
-                    (double)(xtile % crop) * viewportWidth,
-                    (double)(ytile % crop) * viewportHeight,
-                    viewportWidth,
-                    viewportHeight);
-            lookupXTile = lookupXTile / 2;
-            lookupYTile = lookupYTile / 2;
-        }
-      }
+      bool lookupTileFound = lookupAndDrawTile(onlineTileCache, painter, 
+              x, y, renderTileWidth, renderTileHeight, 
+              zoomLevel, xtile, ytile, 10
+              );
+      lookupTileFound |= lookupAndDrawTile(offlineTileCache, painter, 
+              x, y, renderTileWidth, renderTileHeight, 
+              zoomLevel, xtile, ytile, 10
+              );
+      
       if (!lookupTileFound){
         // no tile found, draw its outline
         painter.drawLine(x,y, x + renderTileWidth, y);      
         painter.drawLine(x,y, x, y + renderTileHeight);
-      }
-      
-      if (repaintRequested){
-        if (tileCache.request(zoomLevel, xtile, ytile)){
-          //std::cout << "  tile request: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
-          emit triggerTileRequest(zoomLevel, xtile, ytile);
-        }else{
-          //std::cout << "  requested already: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
-        }
       }
     }
   }
@@ -637,53 +601,106 @@ bool DBThread::RenderMap(QPainter& painter,
   return true;
 }
 
-void DBThread::tileRequest(uint32_t zoomLevel, 
-  uint32_t xtile, uint32_t ytile)
+bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter, 
+        double x, double y, double renderTileWidth, double renderTileHeight, 
+        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t upLimit)
 {
-    {    
-        QMutexLocker locker(&tileCache.mutex);
-        if (!tileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
-            return;
-    }
+    bool triggerRequest = true;
 
-    bool requestedFromWeb = true;
-    
+    uint32_t lookupTileZoom = zoomLevel;
+    uint32_t lookupXTile = xtile;
+    uint32_t lookupYTile = ytile;
+    QRectF lookupTileViewport(0, 0, 1, 1); // tile viewport (percent)
+    bool lookupTileFound = false;
+    //qDebug() << "Need paint tile " << xtile << " " << ytile << " zoom " << zoomLevel;
+    while ((!lookupTileFound) && (lookupTileZoom >= 0) && (zoomLevel - lookupTileZoom <= upLimit)){
+      //qDebug() << "  - lookup tile " << lookupXTile << " " << lookupYTile << " zoom " << lookupTileZoom << " " << " viewport " << lookupTileViewport;
+      if (tileCache.contains(lookupTileZoom, lookupXTile, lookupYTile)){
+          TileCacheVal val = tileCache.get(lookupTileZoom, lookupXTile, lookupYTile);
+          if (!val.image.isNull()){
+            double imageWidth = val.image.width();
+            double imageHeight = val.image.height();
+            QRectF imageViewport(imageWidth * lookupTileViewport.x(), imageHeight * lookupTileViewport.y(), 
+                    imageWidth * lookupTileViewport.width(), imageHeight * lookupTileViewport.height() );
+
+            // TODO: support map rotation            
+            if (painter.testRenderHint(QPainter::Antialiasing)){
+                // trick for avoiding white lines between tiles caused by antialiasing
+                // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
+                painter.drawImage(QRectF(x, y, renderTileWidth+0.5, renderTileHeight+0.5), val.image, imageViewport);
+            }else{
+                painter.drawImage(QRectF(x, y, renderTileWidth, renderTileHeight), val.image, imageViewport);
+            }
+          }
+          lookupTileFound = true;
+          if (lookupTileZoom == zoomLevel)
+              triggerRequest = false;
+      }else{
+          // no tile found on current zoom zoom level
+          lookupTileZoom --;
+          uint32_t crop = 1 << (zoomLevel - lookupTileZoom);
+          double viewportWidth = 1.0 / (double)crop;
+          double viewportHeight = 1.0 / (double)crop;
+          lookupTileViewport = QRectF(
+                  (double)(xtile % crop) * viewportWidth,
+                  (double)(ytile % crop) * viewportHeight,
+                  viewportWidth,
+                  viewportHeight);
+          lookupXTile = lookupXTile / 2;
+          lookupYTile = lookupYTile / 2;
+      }
+    }
+    if (triggerRequest){
+       if (tileCache.request(zoomLevel, xtile, ytile)){
+         //std::cout << "  tile request: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
+        }else{
+         //std::cout << "  requested already: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
+       }
+    }
+    return lookupTileFound;
+}
+
+DBThread::DatabaseTileState DBThread::databaseTileState(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+{
+    QMutexLocker locker(&mutex);
+  
+    // TODO: use database multi-polygon, not bounding box
     osmscout::GeoBox boundingBox;    
     if (database->GetBoundingBox(boundingBox)) {
         osmscout::GeoBox tileBoundingBox = OSMTile::tileBoundingBox(zoomLevel, xtile, ytile);
-        osmscout::GeoCoord tileVisualCenter = OSMTile::tileVisualCenter(zoomLevel, xtile, ytile);
+        //osmscout::GeoCoord tileVisualCenter = OSMTile::tileVisualCenter(zoomLevel, xtile, ytile);
         
-        qDebug() << "tileRequest: Database bounding box: " << 
+        /*
+        qDebug() << "Database bounding box: " << 
                     QString::fromStdString( boundingBox.GetDisplayText()) << 
                 " tile bounding box: " << 
                     QString::fromStdString( tileBoundingBox.GetDisplayText() );
+         */
         
-        // TODO: render offline map when database area intersects tile and online map download fails
         if (boundingBox.GetMinLat() <= tileBoundingBox.GetMinLat() &&
                 boundingBox.GetMinLon() <= tileBoundingBox.GetMinLon() &&
                 boundingBox.GetMaxLat() >= tileBoundingBox.GetMaxLat() && 
                 boundingBox.GetMaxLon() >= tileBoundingBox.GetMaxLon()) {
-            
-            // we can render whole tile offline
-            
-            requestedFromWeb = false;
-            double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (dpi / OSMTile::tileDPI() ); // pixels  
-            QImage canvas(osmTileDimension, osmTileDimension, QImage::Format_RGB32);
-            QPainter p;
-            p.begin(&canvas);            
 
-            DrawTileMap(p, tileVisualCenter, zoomLevel, canvas.width(), canvas.height(), true);
-
-            p.end();
-            {    
-                QMutexLocker locker(&tileCache.mutex);
-                tileCache.put(zoomLevel, xtile, ytile, canvas);
-            }
-            Redraw();
-            //std::cout << "  put offline: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
+            return DatabaseTileState::Covered;
+        }
+        if (boundingBox.Intersects(tileBoundingBox)){
+            return DatabaseTileState::Intersects;
         }
     }
-    
+    return DatabaseTileState::Outside;
+}
+
+void DBThread::onlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+{
+    {    
+        QMutexLocker locker(&tileCacheMutex);
+        if (!onlineTileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
+            return;
+    }
+     
+    bool requestedFromWeb = (databaseTileState(zoomLevel, xtile, ytile) != DatabaseTileState::Covered);
+        
     if (requestedFromWeb){
         QMutexLocker locker(&mutex);
         if (tileDownloader == NULL){
@@ -692,6 +709,52 @@ void DBThread::tileRequest(uint32_t zoomLevel,
         }else{
             emit tileDownloader->download(zoomLevel, xtile, ytile);
         }
+    } else{
+        // put Null image
+        {    
+            QMutexLocker locker(&tileCacheMutex);
+            onlineTileCache.put(zoomLevel, xtile, ytile, QImage());
+        }        
+    }  
+}
+
+void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+{
+    {    
+        QMutexLocker locker(&tileCacheMutex);
+        if (!offlineTileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
+            return;
+    }
+
+    DatabaseTileState state = databaseTileState(zoomLevel, xtile, ytile);
+    bool render = (state != DatabaseTileState::Outside);
+    
+    if (render) {
+        //osmscout::GeoBox tileBoundingBox = OSMTile::tileBoundingBox(zoomLevel, xtile, ytile);
+        osmscout::GeoCoord tileVisualCenter = OSMTile::tileVisualCenter(zoomLevel, xtile, ytile);
+        
+        double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (dpi / OSMTile::tileDPI() ); // pixels  
+        QImage canvas(osmTileDimension, osmTileDimension, QImage::Format_ARGB32);
+        QPainter p;
+        p.begin(&canvas);            
+
+        // TODO: improve renderer to render background only on database multi-polygon
+        bool drawBackground = (state == DatabaseTileState::Covered);
+        DrawTileMap(p, tileVisualCenter, zoomLevel, canvas.width(), canvas.height(), canvas.width()*2, canvas.height()*2, drawBackground);
+
+        p.end();
+        {    
+            QMutexLocker locker(&tileCacheMutex);
+            offlineTileCache.put(zoomLevel, xtile, ytile, canvas);
+        }
+        Redraw();
+        //std::cout << "  put offline: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
+    }else{
+        // put Null image
+        {    
+            QMutexLocker locker(&tileCacheMutex);
+            offlineTileCache.put(zoomLevel, xtile, ytile, QImage());
+        }        
     }
 }
 
@@ -699,42 +762,9 @@ void DBThread::tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage
 {
     QMutexLocker locker(&mutex);
   
-    osmscout::GeoBox boundingBox;    
-    if (database->GetBoundingBox(boundingBox)) {
-        osmscout::GeoBox tileBoundingBox = OSMTile::tileBoundingBox(zoomLevel, x, y);
-
-        qDebug() << "tileDownloaded: Database bounding box: " << 
-                    QString::fromStdString( boundingBox.GetDisplayText()) << 
-                " tile bounding box: " << 
-                    QString::fromStdString( tileBoundingBox.GetDisplayText() );
-
-        if (boundingBox.Intersects(tileBoundingBox)){
-            // if tile bounding box intersects with database bounding box, we render offline data on it
-            double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (dpi / OSMTile::tileDPI() ); // pixels  
-            osmscout::GeoCoord tileVisualCenter = OSMTile::tileVisualCenter(zoomLevel, x, y);
-            
-            if ((int)osmTileDimension != image.width() || (int)osmTileDimension != image.width()){
-                QImage canvas(osmTileDimension, osmTileDimension, QImage::Format_RGB32);
-    
-                QPainter p;
-                p.begin(&canvas);
-                p.drawImage(QRectF(0, 0, canvas.width() +0.5, canvas.height()+0.5), image);
-                DrawTileMap(p, tileVisualCenter, zoomLevel, canvas.width(), canvas.height(), false);
-                              
-                p.end();
-                image = canvas;
-            }else{
-                QPainter p;
-                p.begin(&image);                
-                DrawTileMap(p, tileVisualCenter, zoomLevel, image.width(), image.height(), false);
-                p.end();
-            }
-            
-        }
-    }
     {
-        QMutexLocker locker(&tileCache.mutex);
-        tileCache.put(zoomLevel, x, y, image);
+        QMutexLocker locker(&tileCacheMutex);
+        onlineTileCache.put(zoomLevel, x, y, image);
     }
     //std::cout << "  put: " << zoomLevel << " xtile: " << x << " ytile: " << y << std::endl;
 
@@ -743,8 +773,8 @@ void DBThread::tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage
 
 void DBThread::tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y, bool zoomLevelOutOfRange)
 {
-    QMutexLocker locker(&tileCache.mutex);
-    tileCache.removeRequest(zoomLevel, x, y);
+    QMutexLocker locker(&tileCacheMutex);
+    onlineTileCache.removeRequest(zoomLevel, x, y);
     
     if (zoomLevelOutOfRange && zoomLevel > 0){
         // hack: when zoom level is too high for online source, 
@@ -753,9 +783,10 @@ void DBThread::tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y, bo
         uint32_t reqZoom = zoomLevel - 1;
         uint32_t reqX = x / 2;
         uint32_t reqY = y / 2;
-        if (tileCache.request(reqZoom, reqX, reqY)){
+        if ((!onlineTileCache.contains(reqZoom, reqX, reqY))
+             && onlineTileCache.request(reqZoom, reqX, reqY)){
             qDebug() << "Tile download failed " << x << " " << y << " zoomLevel " << zoomLevel << " try lower zoom";
-            triggerTileRequest(reqZoom, reqX, reqY);
+            //triggerTileRequest(reqZoom, reqX, reqY);
         }
     }
 }

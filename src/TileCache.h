@@ -51,8 +51,7 @@ Q_DECLARE_METATYPE(TileCacheKey)
 struct TileCacheVal
 {
   QTime lastAccess;
-  QImage image; 
-  bool needsRepaint;
+  QImage image;
 };
 
 Q_DECLARE_METATYPE(TileCacheVal)
@@ -72,8 +71,11 @@ class TileCache : public QObject
 {
   Q_OBJECT
   
+signals: 
+  void tileRequested(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  
 public:
-  TileCache();
+  TileCache(size_t cacheSize);
   virtual ~TileCache();
   
   /**
@@ -85,7 +87,9 @@ public:
   bool startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y);
 
   /**
-   * insert new tile request record, return false if this request exists already
+   * try to create new tile request. 
+   * If this request don't exists already, it emit signal tileRequested and return 
+   * true. Otherwise false.
    */
   bool request(uint32_t zoomLevel, uint32_t x, uint32_t y);
   bool contains(uint32_t zoomLevel, uint32_t x, uint32_t y);
@@ -102,7 +106,6 @@ public:
   void removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y);
   void put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image);
   
-  mutable QMutex                    mutex;
 private:
   QHash<TileCacheKey, TileCacheVal> tiles;
   QHash<TileCacheKey, RequestState> requests;

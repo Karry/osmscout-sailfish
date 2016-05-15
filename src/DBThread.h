@@ -84,17 +84,19 @@ signals:
   void TriggerDrawMap();
   void Redraw();
   void TileStatusChanged(const osmscout::TileRef& tile);
-  void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+  //void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
 
 public slots:
   void ToggleDaylight();
   void ReloadStyle();
   void HandleInitialRenderingRequest();
   void HandleTileStatusChanged(const osmscout::TileRef& changedTile);
-  void DrawTileMap(QPainter &p, const osmscout::GeoCoord box, uint32_t z, size_t width, size_t height, bool drawBackground);
+  void DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, 
+        size_t width, size_t height, size_t lookupWidth, size_t lookupHeight, bool drawBackground);
   void Initialize();
   void Finalize();
-  void tileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+  void onlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+  void offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
   void tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
   void tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y, bool zoomLevelOutOfRange);  
 
@@ -107,15 +109,25 @@ private:
 
   mutable QMutex                mutex;
   
-  TileCache                     tileCache;
+  // tile caches
+  // Rendered tile is combined from both sources.
+  //
+  // Online cache may contain NULL images (QImage::isNull() is true) for areas
+  // covered by offline database and offline cache can contain NULL images 
+  // for areas not coverred by database.
+  // 
+  // Offline tiles should be in ARGB format on database area interface.
+  mutable QMutex                tileCacheMutex;
+  TileCache                     onlineTileCache;
+  TileCache                     offlineTileCache;
+  
   OsmTileDownloader             *tileDownloader;
 
   osmscout::DatabaseParameter   databaseParameter;
   osmscout::DatabaseRef         database;
   osmscout::LocationServiceRef  locationService;
   osmscout::MapServiceRef       mapService;
-  osmscout::MapService::CallbackId callbackId;
-  //osmscout::MercatorProjection  projection;
+  osmscout::MapService::CallbackId callbackId;  
   osmscout::RouterParameter     routerParameter;
   osmscout::RoutingServiceRef   router;
   osmscout::RoutePostprocessor  routePostprocessor;
@@ -129,13 +141,30 @@ private:
   osmscout::BreakerRef          dataLoadingBreaker;
 
 private:
+  enum DatabaseTileState{
+    Outside = 0,
+    Covered = 1,
+    Intersects = 2,
+  };
+  
   DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi = -1);
   virtual ~DBThread();
 
   bool AssureRouter(osmscout::Vehicle vehicle);
 
   void TileStateCallback(const osmscout::TileRef& changedTile);
+  
+  /**
+   * lookup tile in cache, if not found, try upper zoom level for substitute. 
+   * (It is better upscaled tile than empty space)
+   * Is is repeated up to zoomLevel - upLimit
+   */
+  bool lookupAndDrawTile(TileCache& tileCache, QPainter& painter, 
+        double x, double y, double renderTileWidth, double renderTileHeight, 
+        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t upLimit);
 
+  DatabaseTileState databaseTileState(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+  
 public:
   bool isInitialized(); 
   
