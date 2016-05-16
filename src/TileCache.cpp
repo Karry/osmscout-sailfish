@@ -21,6 +21,7 @@
 #include <QDebug>
 
 #include <iostream>
+#include <algorithm>
 
 #include "TileCache.h"
 #include "OSMTile.h"
@@ -60,10 +61,39 @@ void TileCache::clearPendingRequests()
     }
 }
 
+void TileCache::mergeAndStartRequests(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
+    uint32_t &xFrom, uint32_t &xTo, uint32_t &yFrom, uint32_t &yTo, uint32_t maxWidth, uint32_t maxHeight)
+{
+    xFrom = xtile;
+    xTo = xtile;
+    yFrom = ytile;
+    yTo = ytile;
+
+    TileCacheKey key = {zoomLevel, xtile, ytile};
+    QMutableHashIterator<TileCacheKey, RequestState> it(requests);
+    while (it.hasNext()){
+        it.next();
+        TileCacheKey req = it.key();
+        RequestState state = it.value();
+        if (state.pending && req.zoomLevel == zoomLevel
+                && (std::max(xTo, req.xtile) - std::min(xFrom, req.xtile) < maxWidth)
+                && (std::max(yTo, req.ytile) - std::min(yFrom, req.ytile) < maxHeight)
+                ){
+
+            xFrom = std::min(xFrom, req.xtile);
+            xTo = std::max(xTo, req.xtile);
+            yFrom = std::min(yFrom, req.ytile);
+            yTo = std::max(yTo, req.ytile);
+            state.pending = false;
+            requests.insert(key, state);
+        }
+    }
+}
+
 bool TileCache::startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
     TileCacheKey key = {zoomLevel, x, y};
-    if (requests.contains(key)){        
+    if (requests.contains(key)){
         // qDebug() << "start process " << QString("z: %1, %2x%3").arg(key.zoomLevel).arg(key.xtile).arg(key.ytile);
         RequestState state = requests.value(key); 
         if (state.pending){
@@ -132,6 +162,12 @@ void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)
     TileCacheVal val = {now, image};
     tiles.insert(key, val);
 
+    cleanupCache();
+}
+
+void TileCache::cleanupCache()
+{
+    
     if (tiles.size() > (int)cacheSize){
         /** 
          * maximum size reached
@@ -142,7 +178,8 @@ void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)
         qDebug() << "Cleaning tile cache (" << cacheSize << ")";
         uint32_t removed = 0;
         int oldest = 0;
-        TileCacheKey oldestKey = key;
+        TileCacheKey key;
+        TileCacheKey oldestKey;
 
         QMutableHashIterator<TileCacheKey, TileCacheVal> it(tiles);
         while (it.hasNext() && removed < (cacheSize / 10)){
@@ -170,7 +207,7 @@ void TileCache::put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image)
             }
             //++it;
         }
-        if (removed == 0){
+        if (removed == 0 && oldest > 0){
           key = oldestKey;
           qDebug() << "  removing " << key.zoomLevel << " / " << key.xtile << " x " << key.ytile;
           tiles.remove(key);

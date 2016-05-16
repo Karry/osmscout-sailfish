@@ -39,6 +39,7 @@ static const double GRAD_TO_RAD = 2 * M_PI / 360;
 class OSMTile{
 public:
     static osmscout::GeoBox tileBoundingBox(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+    static osmscout::GeoCoord tileRelativeCoord(uint32_t zoomLevel, double x, double y);
     static osmscout::GeoCoord tileVisualCenter(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
 
     static inline double minLat(){

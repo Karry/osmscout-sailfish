@@ -85,6 +85,8 @@ public:
    */
   void clearPendingRequests();
   bool startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  void mergeAndStartRequests(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
+    uint32_t &xFrom, uint32_t &xTo, uint32_t &yFrom, uint32_t &yTo, uint32_t maxWidth, uint32_t maxHeight);
 
   /**
    * try to create new tile request. 
@@ -105,6 +107,8 @@ public:
   
   void removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y);
   void put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image);
+  
+  void cleanupCache();
   
 private:
   QHash<TileCacheKey, TileCacheVal> tiles;

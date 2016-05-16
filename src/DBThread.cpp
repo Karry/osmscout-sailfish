@@ -59,14 +59,14 @@ void QBreaker::Reset()
   aborted=false;
 }
 
-
+// TODO: watch system memory and evict caches when system is under pressure
 DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpiArg)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
    dpi(dpiArg),
-   onlineTileCache(50), // online tiles can be loaded from disk cache easily 
-   offlineTileCache(100), // render offline tile is expensive
+   onlineTileCache(20), // online tiles can be loaded from disk cache easily 
+   offlineTileCache(50), // render offline tile is expensive
    tileDownloader(NULL),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
@@ -364,6 +364,8 @@ void DBThread::ReloadStyle()
 void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, 
         size_t width, size_t height, size_t lookupWidth, size_t lookupHeight, bool drawBackground)
 {  
+    QMutexLocker locker(&mutex);
+    
     if (!database->IsOpen() || (!styleConfig)) {
         qWarning() << "Not initialized!";
         return;
@@ -572,11 +574,13 @@ bool DBThread::RenderMap(QPainter& painter,
 
       //std::cout << "  xtile: " << xtile << " ytile: " << ytile << " x: " << x << " y: " << y << "" << std::endl;
 
+      //bool lookupTileFound = false;
       
       bool lookupTileFound = lookupAndDrawTile(onlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
               zoomLevel, xtile, ytile, 10
               );
+      
       lookupTileFound |= lookupAndDrawTile(offlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
               zoomLevel, xtile, ytile, 10
@@ -720,7 +724,7 @@ void DBThread::onlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t yt
 
 void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
 {
-    {    
+    {
         QMutexLocker locker(&tileCacheMutex);
         if (!offlineTileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
             return;
@@ -730,22 +734,79 @@ void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t y
     bool render = (state != DatabaseTileState::Outside);
     
     if (render) {
+        // tile rendering have sub-linear complexity with area size
+        // it means that it is advatage to merge more tile requests with same zoom
+        // and render bigger area
+        uint32_t xFrom;
+        uint32_t xTo;
+        uint32_t yFrom;
+        uint32_t yTo;
+        {
+            QMutexLocker locker(&tileCacheMutex);
+            offlineTileCache.mergeAndStartRequests(zoomLevel, xtile, ytile, xFrom, xTo, yFrom, yTo, 5, 5);
+        }
+        uint32_t width = (xTo - xFrom + 1);
+        uint32_t height = (yTo - yFrom + 1);
+        
         //osmscout::GeoBox tileBoundingBox = OSMTile::tileBoundingBox(zoomLevel, xtile, ytile);
-        osmscout::GeoCoord tileVisualCenter = OSMTile::tileVisualCenter(zoomLevel, xtile, ytile);
+        osmscout::GeoCoord tileVisualCenter = OSMTile::tileRelativeCoord(zoomLevel, 
+                (double)xFrom + (double)width/2.0, 
+                (double)yFrom + (double)height/2.0);
         
         double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (dpi / OSMTile::tileDPI() ); // pixels  
-        QImage canvas(osmTileDimension, osmTileDimension, QImage::Format_ARGB32);
+        
+        QImage canvas(
+                (double)width * osmTileDimension, 
+                (double)height * osmTileDimension, 
+                QImage::Format_ARGB32);
+        
+        QColor transparent = QColor::fromRgbF(1, 1, 1, 0.0);
+        canvas.fill(transparent);
+        
         QPainter p;
-        p.begin(&canvas);            
-
+        p.begin(&canvas);
+        
         // TODO: improve renderer to render background only on database multi-polygon
         bool drawBackground = (state == DatabaseTileState::Covered);
-        DrawTileMap(p, tileVisualCenter, zoomLevel, canvas.width(), canvas.height(), canvas.width()*2, canvas.height()*2, drawBackground);
+        DrawTileMap(p, tileVisualCenter, zoomLevel, canvas.width(), canvas.height(), 
+                canvas.width() + osmTileDimension, canvas.height() + osmTileDimension, 
+                drawBackground);
 
         p.end();
-        {    
+        {
             QMutexLocker locker(&tileCacheMutex);
-            offlineTileCache.put(zoomLevel, xtile, ytile, canvas);
+            if (width == 1 && height == 1){
+                offlineTileCache.put(zoomLevel, xtile, ytile, canvas);
+            }else{
+                for (uint32_t y = yFrom; y <= yTo; ++y){
+                    for (uint32_t x = xFrom; x <= xTo; ++x){
+                        /*
+                        QImage tile(osmTileDimension, osmTileDimension, QImage::Format_ARGB32);
+                        QPainter p;
+                        p.begin(&tile);
+                        p.fillRect(0, 0, tile.width(), tile.height(), transparent);
+                        p.drawImage(
+                                QRect(0, 0, tile.width(), tile.height()), 
+                                canvas, 
+                                QRect(
+                                    (double)(x - xFrom) * osmTileDimension,
+                                    (double)(y - yFrom) * osmTileDimension,
+                                    tile.width(), tile.height()
+                                    ) 
+                                );
+                        p.end();
+                         */
+
+                        QImage tile = canvas.copy(
+                                (double)(x - xFrom) * osmTileDimension,
+                                (double)(y - yFrom) * osmTileDimension,
+                                osmTileDimension, osmTileDimension
+                                );
+                        
+                        offlineTileCache.put(zoomLevel, x, y, tile);
+                    }
+                }
+            }
         }
         Redraw();
         //std::cout << "  put offline: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
@@ -760,7 +821,7 @@ void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t y
 
 void DBThread::tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData)
 {
-    QMutexLocker locker(&mutex);
+    //QMutexLocker locker(&mutex);
   
     {
         QMutexLocker locker(&tileCacheMutex);

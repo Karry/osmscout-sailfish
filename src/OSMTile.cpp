@@ -41,14 +41,18 @@ osmscout::GeoBox OSMTile::tileBoundingBox(uint32_t zoomLevel, uint32_t xtile, ui
             );
 }
 
-osmscout::GeoCoord OSMTile::tileVisualCenter(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+osmscout::GeoCoord OSMTile::tileRelativeCoord(uint32_t zoomLevel, double x, double y)
 {
-    double y = (double)ytile + 0.5;
     double n = M_PI - 2.0 * M_PI * y / (double)worldRes(zoomLevel);
     double lat = 180.0 / M_PI * atan(0.5 * (exp(n) - exp(-n)));
     
-    double lon = ((double)xtile +0.5) / (double)worldRes(zoomLevel) * 360.0 - 180;
+    double lon = x / (double)worldRes(zoomLevel) * 360.0 - 180;
     
     return osmscout::GeoCoord(lat, lon);
+}
+
+osmscout::GeoCoord OSMTile::tileVisualCenter(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
+{
+    return OSMTile::tileRelativeCoord(zoomLevel, (double)xtile + 0.5, (double)ytile + 0.5);
 }
     
