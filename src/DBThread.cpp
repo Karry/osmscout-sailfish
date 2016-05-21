@@ -780,22 +780,6 @@ void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t y
             }else{
                 for (uint32_t y = yFrom; y <= yTo; ++y){
                     for (uint32_t x = xFrom; x <= xTo; ++x){
-                        /*
-                        QImage tile(osmTileDimension, osmTileDimension, QImage::Format_ARGB32);
-                        QPainter p;
-                        p.begin(&tile);
-                        p.fillRect(0, 0, tile.width(), tile.height(), transparent);
-                        p.drawImage(
-                                QRect(0, 0, tile.width(), tile.height()), 
-                                canvas, 
-                                QRect(
-                                    (double)(x - xFrom) * osmTileDimension,
-                                    (double)(y - yFrom) * osmTileDimension,
-                                    tile.width(), tile.height()
-                                    ) 
-                                );
-                        p.end();
-                         */
 
                         QImage tile = canvas.copy(
                                 (double)(x - xFrom) * osmTileDimension,
