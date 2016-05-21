@@ -53,7 +53,7 @@ void OsmTileDownloader::download(uint32_t zoomLevel, uint32_t x, uint32_t y)
   
   // TODO: move tile provider url and its maximum zoom level to resources
   QChar ch('a' + char(serverNumber % ('a' - 'c')));  
-  QUrl tileUrl(QString("http://%1.tile.openstreetmap.org/%2/%3/%4.png")
+  QUrl tileUrl(QString("https://%1.tile.openstreetmap.org/%2/%3/%4.png")
     .arg(ch).arg(zoomLevel).arg(x).arg(y));  
   qDebug() << "Download tile " << tileUrl << " (current thread: " << QThread::currentThread() << ")";
   
