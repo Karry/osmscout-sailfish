@@ -41,6 +41,7 @@
 #include "Theme.h"
 
 #include <osmscout/util/Logger.h>
+#include <osmscout/private/Config.h>
 
 Q_DECLARE_METATYPE(osmscout::TileRef)
 
@@ -66,6 +67,13 @@ int main(int argc, char* argv[])
     
   SettingsRef     settings;
   int             result;
+  
+
+#if defined(HAVE_MMAP)
+  qDebug() << "Usage of memory mapped files is supported.";
+#else
+  qWarning() << "Usage of memory mapped files is NOT supported.";
+#endif
 
   //app->setOrganizationName("libosmscout");
   app->setOrganizationDomain("libosmscout.sf.net");

@@ -36,14 +36,9 @@ include(FeatureSummary)
 include(MacroUtils)
 
 # feature detection (libraries, header, etc.)
-#include(CheckCXXCompilerFlag)
-#include(features)
-function(create_private_config output name)
-  string(REPLACE "-" "_" OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME ${name})
-  string(TOUPPER ${OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME} OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME)
-  configure_file("${OSMSCOUT_BASE_DIR_SOURCE}/cmake/Config.h.cmake" ${output})
-endfunction()
-
+set(OSMSCOUT_ENABLE_SSE true)
+include(CheckCXXCompilerFlag)
+include(features)
 
 # ==================================================================================================
 # Find dependencies
@@ -115,6 +110,7 @@ if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
   add_definitions( -DOSMSCOUT_SAILFISH_VERSION_STRING="${OSMSCOUT_SAILFISH_VERSION_STRING}")
 
   add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
+  add_definitions(-std=c++11)
 
   # QT5 definitions
   add_definitions(${QT_DEFINITIONS})
@@ -131,11 +127,9 @@ if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
   set(HARBOUR_APP_NAME harbour-osmscout)
 endif()
 
+
 # ==================================================================================================
 # libmarisa
-
-# marisa is pure C code
-add_definitions( -std=c11 )
 
 set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-0.2.4)
 set(MARISA_INCLUDE_DIRS ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-0.2.4/lib)
@@ -150,14 +144,6 @@ set(MARISA_SRC
     ${MARISA_ROOT}/lib/marisa/trie.cc
     ${MARISA_ROOT}/lib/marisa/agent.cc
     ${MARISA_ROOT}/lib/marisa/keyset.cc
-    #${MARISA_ROOT}/tools/marisa-common-prefix-search.cc
-    #${MARISA_ROOT}/tools/marisa-benchmark.cc
-    #${MARISA_ROOT}/tools/marisa-predictive-search.cc
-    #${MARISA_ROOT}/tools/marisa-build.cc
-    #${MARISA_ROOT}/tools/marisa-reverse-lookup.cc
-    #${MARISA_ROOT}/tools/marisa-lookup.cc
-    #${MARISA_ROOT}/tools/marisa-dump.cc
-    #${MARISA_ROOT}/tools/cmdopt.cc
 )
 
 add_library(marisa SHARED 
@@ -172,6 +158,7 @@ set(MARISA_FOUND TRUE)
 set(MARISA_LIBRARIES marisa)
 
 # ==================================================================================================
+
 set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
 set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
 
@@ -180,9 +167,6 @@ include_directories(
   ${MARISA_ROOT}/lib
 )
 
-# following code is c++
-remove_definitions(-std=c11)
-add_definitions(-std=c++11)
 
 # QT5 definitions
 add_definitions(${QT_DEFINITIONS})
@@ -194,6 +178,11 @@ add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
 
 # ==================================================================================================
 # harbour-osmscout
+
+# OSMScout includes Config.h
+include_directories(
+  ${OSMSCOUT_BASE_DIR_BUILD}/dependencies/libosmscout/libosmscout/include/
+)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
