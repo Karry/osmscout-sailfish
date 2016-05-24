@@ -10,4 +10,9 @@
 - When requested tile isn't in cache, display rescaled and cropped tile from 
   lower zoom level if it is available in memory cache. 
   It is better than display empty square.
+- Optimize memory usage by core library
+- Resolve packaging issues to respect Jolla Harbour rules
+- Merge tile requests and render it at once - it speedup rendering
+- Fix usage of memory mapped files
+- Many other minor improvements and fixes
 
