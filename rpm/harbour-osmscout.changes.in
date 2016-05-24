@@ -6,7 +6,7 @@
 - Rewrite rendering to combine online Mapnik tiles and offline database
 - Multi-touch controls
 
-* 2016-05-12 Lukáš Karas <lukas.karas@centrum.cz> 0.2-1
+* 2016-05-24 Lukáš Karas <lukas.karas@centrum.cz> 0.2-1
 - When requested tile isn't in cache, display rescaled and cropped tile from 
   lower zoom level if it is available in memory cache. 
   It is better than display empty square.
