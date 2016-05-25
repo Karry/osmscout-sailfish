@@ -189,9 +189,19 @@ void MapWidget::paint(QPainter *painter)
         double y;
         projection.GeoToPixel(lon, lat, x, y);
         if (boundingBox.contains(x, y)){
+            
+            if (horizontalAccuracyValid){
+                double diameter = horizontalAccuracy * projection.GetMeterInPixel();
+                if (diameter > 25.0 && diameter < std::max(request.width, request.height)){
+                    painter->setBrush(QBrush(QColor::fromRgbF(1.0, 1.0, 1.0, 0.4)));
+                    painter->setPen(QColor::fromRgbF(1.0, 1.0, 1.0, 0.7));
+                    painter->drawEllipse(x - (diameter /2.0), y - (diameter /2.0), diameter, diameter);
+                }
+            }
+            
             painter->setBrush(QBrush(QColor::fromRgbF(0,1,0, .6)));
             painter->setPen(QColor::fromRgbF(0.0, 0.5, 0.0, 0.9));
-            painter->drawEllipse(x, y, 20, 20);
+            painter->drawEllipse(x - 10, y - 10, 20, 20);
         }
     }
 }
