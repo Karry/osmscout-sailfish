@@ -627,7 +627,10 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
             QRectF imageViewport(imageWidth * lookupTileViewport.x(), imageHeight * lookupTileViewport.y(), 
                     imageWidth * lookupTileViewport.width(), imageHeight * lookupTileViewport.height() );
 
-            // TODO: support map rotation            
+            // TODO: support map rotation
+            // TODO: measure performance difference between drawing QImage and QPixmap
+            // if QPixmap will have some benefits, we can convert image to pixmap.
+            // But It can be done only in gui thread!
             if (painter.testRenderHint(QPainter::Antialiasing)){
                 // trick for avoiding white lines between tiles caused by antialiasing
                 // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
