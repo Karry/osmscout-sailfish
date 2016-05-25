@@ -27,7 +27,8 @@ static double DELTA_ANGLE=2*M_PI/16.0;
 
 MapWidget::MapWidget(QQuickItem* parent)
     : QQuickPaintedItem(parent),
-      inputHandler(NULL)
+      inputHandler(NULL), 
+      showCurrentPosition(false)
 {
     setOpaquePainting(true);
     setAcceptedMouseButtons(Qt::LeftButton);
@@ -124,16 +125,16 @@ void MapWidget::touchEvent(QTouchEvent *event)
         inputHandler->touch(event);
     }
   
+    /*
     QList<QTouchEvent::TouchPoint> relevantTouchPoints;
     for (QTouchEvent::TouchPoint tp: event->touchPoints()){
       Qt::TouchPointStates state(tp.state());
-      /*
       qDebug() << "  " << state <<" " << tp.id() << 
               " pos " << tp.pos().x() << "x" << tp.pos().y() << 
               " @ " << tp.pressure();    
-       */
     }
-}
+    */
+ }
 
 void MapWidget::wheelEvent(QWheelEvent* event)
 {
@@ -172,6 +173,27 @@ void MapWidget::paint(QPainter *painter)
     request.height = boundingBox.height();
 
     dbThread->RenderMap(*painter,request);
+
+    // render current position spot
+    if (showCurrentPosition && locationValid){
+        osmscout::MercatorProjection projection;
+        
+        projection.Set(request.lon,
+                       request.lat,
+                       request.angle,
+                       request.magnification,
+                       dpi,
+                       request.width,
+                       request.height);
+        double x;
+        double y;
+        projection.GeoToPixel(lon, lat, x, y);
+        if (boundingBox.contains(x, y)){
+            painter->setBrush(QBrush(QColor::fromRgbF(0,1,0, .6)));
+            painter->setPen(QColor::fromRgbF(0.0, 0.5, 0.0, 0.9));
+            painter->drawEllipse(x, y, 20, 20);
+        }
+    }
 }
 
 void MapWidget::zoom(double zoomFactor)
@@ -327,4 +349,15 @@ void MapWidget::showLocation(Location* location)
         showCoordinates(coord, osmscout::Magnification::magVeryClose);    
 
     }
+}
+void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy)
+{
+    // location
+    lastUpdate.restart();
+    this->locationValid = locationValid;
+    this->lat = lat; 
+    this->lon = lon;
+    this->horizontalAccuracyValid = horizontalAccuracyValid;
+    this->horizontalAccuracy = horizontalAccuracy;
+    redraw();
 }

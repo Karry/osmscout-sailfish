@@ -41,6 +41,15 @@ private:
   double                         dpi;
 
   InputHandler                   *inputHandler;
+  
+  // location
+  bool showCurrentPosition;
+  QTime lastUpdate;
+  bool locationValid;
+  double lat; 
+  double lon;
+  bool horizontalAccuracyValid;
+  double horizontalAccuracy;
 
 signals:
   void latChanged();
@@ -67,12 +76,16 @@ public slots:
   void showCoordinates(double lat, double lon);
   void showLocation(Location* location);
 
+  void locationChanged(bool locationValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy);
+
 private:
   void setupInputHandler(InputHandler *newGesture);
   
 public:
   MapWidget(QQuickItem* parent = 0);
   virtual ~MapWidget();
+
+  Q_PROPERTY(bool showCurrentPosition READ getShowCurrentPosition WRITE setShowCurrentPosition)
 
   inline double GetLat() const
   {
@@ -83,6 +96,16 @@ public:
   {
       return view.center.GetLon();
   }
+  
+  inline bool getShowCurrentPosition()
+  { 
+      return showCurrentPosition;
+  };
+  
+  inline void setShowCurrentPosition(bool b)
+  { 
+      showCurrentPosition = b;
+  };
   
   void wheelEvent(QWheelEvent* event);
   virtual void touchEvent(QTouchEvent *event);

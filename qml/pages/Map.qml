@@ -51,6 +51,10 @@ Page {
             if (position.verticalAccuracyValid) {
                 console.log("  vertical accuracy: " + position.verticalAccuracy)
             }
+            map.locationChanged(
+                        position.latitudeValid && position.longitudeValid,
+                        position.coordinate.latitude, position.coordinate.longitude,
+                        position.horizontalAccuracyValid, position.horizontalAccuracy);
         }
     }
 
@@ -59,6 +63,8 @@ Page {
 
             focus: true
             anchors.fill: parent
+
+            showCurrentPosition: true
 
             function getFreeRect() {
                 return Qt.rect(Theme.horizSpace,
