@@ -762,7 +762,7 @@ void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t y
         QImage canvas(
                 (double)width * osmTileDimension, 
                 (double)height * osmTileDimension, 
-                QImage::Format_ARGB32);
+                QImage::Format_ARGB32_Premultiplied); // TODO: verify best format with profiler (callgrind)
         
         QColor transparent = QColor::fromRgbF(1, 1, 1, 0.0);
         canvas.fill(transparent);
