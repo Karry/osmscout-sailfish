@@ -60,3 +60,33 @@ cd /home/src1/osmscout-sailfish/
 mb2 -t SailfishOS-i486 build
 mb2 -t SailfishOS-armv7hl build
 ```
+## Local development
+
+For development tasks like debugging, memory and performance profiling 
+is helpful to run application locally. 
+When you start application with `--desktop` switch, it will use 
+`desktop.qml` UI. You don't need `Sailfish.Silica` components on your machine.
+
+```
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Debug -DQT_QML_DEBUG=yes ..
+make -j `nproc`
+./harbour-osmscout --desktop 
+```
+
+### Tunning examples
+ * Qml profiler
+```
+./harbour-osmscout --desktop --qmljsdebugger=port:12345
+```
+ * Memory leak detection
+```
+valgrind -v --track-origins=yes --leak-check=full --show-leak-kinds=all ./harbour-osmscout --desktop
+```
+ * Heap usage profiling
+```
+LD_PRELOAD=/usr/local/lib/libtcmalloc.so HEAPPROFILE=./heap-profile ./harbour-osmscout --desktop 
+# convert all samples to svg
+find  . -name \*.heap -exec bash -c "pprof -svg harbour-osmscout {} | tee {}.svg" \;
+```
