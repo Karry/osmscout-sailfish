@@ -108,6 +108,9 @@ message(STATUS "")
 if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
 
   add_definitions( -DOSMSCOUT_SAILFISH_VERSION_STRING="${OSMSCOUT_SAILFISH_VERSION_STRING}")
+  if (QT_QML_DEBUG)
+    add_definitions( -DQT_QML_DEBUG)
+  endif()
 
   add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
   add_definitions(-std=c++11)
