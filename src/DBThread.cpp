@@ -212,7 +212,8 @@ void DBThread::Initialize()
           Qt::QueuedConnection);
     
   stylesheetFilename = resourceDirectory + QDir::separator() + "map-styles" + QDir::separator() + "standard.oss";
-  iconDirectory = resourceDirectory + QDir::separator() + "map-icons";
+  // TODO: remove last separator, it should be added by renderer (MapPainterQt.cpp)
+  iconDirectory = resourceDirectory + QDir::separator() + "map-icons" + QDir::separator(); // TODO: load icon set for given stylesheet
 
   if (database->Open(databaseDirectory.toLocal8Bit().data())) {
     osmscout::TypeConfigRef typeConfig=database->GetTypeConfig();
