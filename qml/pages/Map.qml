@@ -16,6 +16,10 @@ Page {
 
         active: true
 
+        property bool valid: false;
+        property double lat: 0.0;
+        property double lon: 0.0;
+
         onValidChanged: {
             console.log("Positioning is " + valid)
             console.log("Last error " + sourceError)
@@ -51,6 +55,12 @@ Page {
             if (position.verticalAccuracyValid) {
                 console.log("  vertical accuracy: " + position.verticalAccuracy)
             }
+
+            positionSource.valid = position.latitudeValid && position.longitudeValid;
+            positionSource.lat = position.coordinate.latitude;
+            positionSource.lon = position.coordinate.longitude;
+            positionIndicator.color = (position.latitudeValid && position.longitudeValid) ? "#8000FF00": "#80FF0000";
+
             map.locationChanged(
                         position.latitudeValid && position.longitudeValid,
                         position.coordinate.latitude, position.coordinate.longitude,
@@ -146,81 +156,52 @@ Page {
 
             }
 
-            // Use PinchArea for multipoint zoom in/out?
+            Rectangle {
+                id : currentPositionBtn
 
-            /*
-            SearchDialog {
-                id: searchDialog
+                anchors{
+                    right: parent.right
+                    bottom: parent.bottom
+                    rightMargin: 8
+                    bottomMargin: 8
+                }
+                width: 90
+                height: 90
 
-                y: Theme.vertSpace
+                color: "#80FFFFFF"
+                border.color: "white"
+                border.width: 1
+                radius: width*0.5
 
-                anchors.horizontalCenter: parent.horizontalCenter
+                Rectangle {
+                    id: positionIndicator
+                    anchors{
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+                    }
+                    width: 20
+                    height: 20
 
-                desktop: map
-
-                onShowLocation: {
-                    map.showLocation(location)
+                    color: "#80FF0000"
+                    border.color: "black"
+                    border.width: 1
+                    radius: width*0.5
                 }
 
-                onStateChanged: {
-                    if (state==="NORMAL") {
-                        onDialogClosed()
-                    }
-                    else {
-                        onDialogOpened()
-                    }
+
+                MouseArea {
+                  id: currentPositionBtnMouseArea
+                  anchors.fill: parent
+
+                  hoverEnabled: true
+                  onClicked: {
+                      if (positionSource.valid){
+                          map.showCoordinates(positionSource.lat, positionSource.lon);
+                      }
+                  }
                 }
+
             }
-
-            // Bottom left column
-            ColumnLayout {
-                id: info
-
-                x: Theme.horizSpace
-                y: parent.height-height-Theme.vertSpace
-
-                spacing: Theme.mapButtonSpace
-
-                MapButton {
-                    id: about
-                    label: "?"
-
-                    onClicked: {
-                        openAboutDialog()
-                    }
-                }
-            }
-            */
-
-            // Bottom right column
-            /*
-            ColumnLayout {
-                id: navigation
-
-                x: parent.width-width-Theme.horizSpace
-                y: parent.height-height-Theme.vertSpace
-
-                spacing: Theme.mapButtonSpace
-
-                MapButton {
-                    id: zoomIn
-                    label: "+"
-
-                    onClicked: {
-                        map.zoomIn(2.0)
-                    }
-                }
-
-                MapButton {
-                    id: zoomOut
-                    label: "-"
-
-                    onClicked: {
-                        map.zoomOut(2.0)
-                    }
-                }
-            }
-            */
 
     }
 }

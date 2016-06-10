@@ -298,6 +298,9 @@ void MapWidget::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnificatio
     if (!inputHandler->showCoordinates(coord, magnification)){
         view = { coord, view.angle, magnification  };
         setupInputHandler(new InputHandler(view));
+        // TODO: create input handler that handle showCoordinates
+        //inputHandler->showCoordinates(coord, magnification);
+        viewChanged(view);
     }
 }
 
