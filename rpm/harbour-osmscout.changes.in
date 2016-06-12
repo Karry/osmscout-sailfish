@@ -16,6 +16,8 @@
 - Fix usage of memory mapped files
 - Many other minor improvements and fixes
 
-* 2016-XX-XX Lukáš Karas <lukas.karas@centrum.cz> 0.3-1
-- Display point with current location
+* 2016-06-12 Lukáš Karas <lukas.karas@centrum.cz> 0.3-1
+- Display point with current location, add button for fast show.
+- Fixed memory leak in core library
+- Other small improvements in library and app.
 
