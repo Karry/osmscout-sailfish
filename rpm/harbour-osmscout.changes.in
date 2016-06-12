@@ -17,7 +17,7 @@
 - Many other minor improvements and fixes
 
 * 2016-06-12 Lukáš Karas <lukas.karas@centrum.cz> 0.3-1
-- Display point with current location, add button for fast show.
+- Display point with current location, add button for fast view.
 - Fixed memory leak in core library
 - Other small improvements in library and app.
 
