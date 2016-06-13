@@ -302,3 +302,30 @@ install(FILES
   dependencies/libosmscout/stylesheets/railways.oss
   dependencies/libosmscout/stylesheets/standard.oss
 DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
+
+# ==================================================================================================
+# PerformanceTest binary
+set(SOURCE_FILES
+    src/PerformanceTest.cpp
+)
+
+add_executable(PerformanceTest ${SOURCE_FILES})
+
+target_include_directories(PerformanceTest PRIVATE 
+		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
+		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
+		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+    ${LIBSAILFISHAPP_INCLUDE_DIRS}
+)
+
+target_link_libraries(PerformanceTest
+        Qt5::Core
+        Qt5::Gui
+        
+        marisa
+        osmscout
+        osmscout_map
+        osmscout_map_qt
+        ${LIBSAILFISHAPP_LIBRARIES}
+)
+
