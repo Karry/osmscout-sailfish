@@ -398,7 +398,7 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
 
     // To get accurate label drawing at tile borders, we take into account labels
     // of other than the current tile, too.
-    if (z >= 17) {
+    if (z >= 14) {
         // but not for high zoom levels, it is too expensive
         drawParameter.SetDropNotVisiblePointLabels(true);
     }else{
@@ -406,13 +406,13 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     }
 
     // setup projection for this tile
-    osmscout::MercatorProjection projection;
+    osmscout::ApproximateMercatorProjection projection;
     osmscout::Magnification magnification;
     magnification.SetLevel(z);
     projection.Set(center.lon, center.lat, 0, magnification, dpi, width, height);
 
     // setup projection for data lookup
-    osmscout::MercatorProjection lookupProjection;
+    osmscout::ApproximateMercatorProjection lookupProjection;
     lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, lookupWidth, lookupHeight);
 
     // https://github.com/Framstag/libosmscout/blob/master/Documentation/RenderTuning.txt
@@ -1048,6 +1048,14 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
                                           radius,
                                           object,
                                           nodeIndex);
+    /*
+    return router->GetClosestRoutableNode(way->nodes[0].GetLat(),
+                                          way->nodes[0].GetLon(),
+                                          vehicle,
+                                          radius,
+                                          object,
+                                          nodeIndex);
+    */
   }
   else {
     return true;
