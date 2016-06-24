@@ -1,6 +1,7 @@
 /*
  OSMScout - a Qt backend for libosmscout and libosmscout-map
  Copyright (C) 2010  Tim Teulings
+ Copyright (C) 2016  Lukáš Karas
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -406,14 +407,16 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     }
 
     // setup projection for this tile
-    osmscout::ApproximateMercatorProjection projection;
+    osmscout::MercatorProjection projection;
     osmscout::Magnification magnification;
     magnification.SetLevel(z);
     projection.Set(center.lon, center.lat, 0, magnification, dpi, width, height);
+    projection.SetLinearInterpolationUsage(z >= 10);
 
     // setup projection for data lookup
-    osmscout::ApproximateMercatorProjection lookupProjection;
+    osmscout::MercatorProjection lookupProjection;
     lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, lookupWidth, lookupHeight);
+    lookupProjection.SetLinearInterpolationUsage(z >= 10);
 
     // https://github.com/Framstag/libosmscout/blob/master/Documentation/RenderTuning.txt
     //searchParameter.SetBreaker(dataLoadingBreaker);
