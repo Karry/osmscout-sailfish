@@ -37,10 +37,11 @@ class MapWidget : public QQuickPaintedItem
 
 private:
 
-  MapView                        view;
-  double                         dpi;
+  MapView          view;
+  double           dpi;
 
-  InputHandler                   *inputHandler;
+  InputHandler     *inputHandler;
+  TapRecognizer    tapRecognizer;     
   
   // location
   bool showCurrentPosition;
@@ -78,6 +79,10 @@ public slots:
 
   void locationChanged(bool locationValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy);
 
+  void onTap(const QPoint p);
+  void onDoubleTap(const QPoint p);
+  void onLongTap(const QPoint p);
+  
 private:
   void setupInputHandler(InputHandler *newGesture);
   

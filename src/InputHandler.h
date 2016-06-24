@@ -23,9 +23,56 @@
 #include <QObject>
 #include <QVector2D>
 #include <QTouchEvent>
+#include <QTimer>
 
 #include <osmscout/util/GeoBox.h>
 #include <osmscout/util/Magnification.h>
+
+/**
+ * Simple class for recognizing some gestures: tap, double tap and long-tap (aka tap-and-hold).
+ */
+class TapRecognizer : public QObject{
+  Q_OBJECT
+
+private:
+  enum TapRecState{
+    INACTIVE = 0,
+    PRESSED = 1, // timer started with hold interval, if expired - long-tap is emited
+    RELEASED = 2, // timer started with tap interval, if expired - tap is emited
+    PRESSED2 = 3, // timer started with hold interval, if expired - state is switched to inactive
+  };
+  
+  int startFingerId;
+  int startX;
+  int startY;
+
+  QTimer timer;
+  TapRecState state;
+  int holdIntervalMs;
+  int tapIntervalMs;
+  int moveTolerance; // TODO: take PPI into account
+  
+private slots:
+  void onTimeout();
+  
+public:
+  inline TapRecognizer(): state(INACTIVE), holdIntervalMs(500), tapIntervalMs(200), moveTolerance(10)
+  {
+    timer.setSingleShot(true);
+    connect(&timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+  }
+  
+  virtual inline ~TapRecognizer()
+  {
+  }
+  
+  void touch(QTouchEvent *event);
+  
+signals:
+  void tap(const QPoint p);
+  void doubleTap(const QPoint p);
+  void longTap(const QPoint p);
+};
 
 struct MapView
 {

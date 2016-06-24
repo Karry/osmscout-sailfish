@@ -21,10 +21,103 @@
 #include <QPoint>
 #include <QVector>
 
-
 #include "InputHandler.h"
 #include "OSMTile.h"
 #include "osmscout/util/Projection.h"
+
+void TapRecognizer::onTimeout()
+{
+    switch(state){
+    case PRESSED:
+        state = INACTIVE;
+        emit longTap(QPoint(startX, startY));
+        break;
+    case RELEASED:
+        state = INACTIVE;
+        emit tap(QPoint(startX, startY));
+        break;
+    case PRESSED2:
+        state = INACTIVE;
+        break;
+    case INACTIVE: 
+    default:
+        state = INACTIVE;
+        break;
+    }
+}
+
+void TapRecognizer::touch(QTouchEvent *event)
+{
+    // discard on multi touch
+    if (event->touchPoints().size() > 1){
+        state = INACTIVE;
+        return;
+    }
+    
+    QTouchEvent::TouchPoint finger = event->touchPoints()[0];    
+    Qt::TouchPointStates fingerState(finger.state());
+    bool released = fingerState.testFlag(Qt::TouchPointReleased);
+    bool pressed = fingerState.testFlag(Qt::TouchPointPressed);
+    int fingerId = finger.id();
+    int x = finger.pos().x();
+    int y = finger.pos().y();
+    
+    // discard when PRESSED and registered another finger or some bigger movement 
+    if ((state == PRESSED || state == PRESSED2) && 
+            (fingerId != startFingerId || std::max(std::abs(x - startX), std::abs(y - startY)) > moveTolerance)){
+        
+        state = INACTIVE;
+        return;
+    }
+    // second touch with too big distance
+    if (state == RELEASED && std::max(std::abs(x - startX), std::abs(y - startY)) > moveTolerance){
+        state = INACTIVE;
+        return;        
+    }    
+    if ((!pressed) && (!released))
+        return;
+    
+    timer.stop();
+
+    switch(state){
+    case INACTIVE: 
+        if (pressed){
+            startFingerId = fingerId;
+            startX = x;
+            startY = y;
+            state = PRESSED;
+            timer.setInterval(holdIntervalMs);
+            timer.start();
+        }
+        break;
+    case PRESSED:
+        if (released){
+            state = RELEASED;
+            timer.setInterval(tapIntervalMs);
+            timer.start();
+        }
+        break;
+    case RELEASED:
+        if (pressed){
+            startFingerId = fingerId;
+            startX = x;
+            startY = y;
+            state = PRESSED2;
+            timer.setInterval(holdIntervalMs);
+            timer.start();
+        }
+        break;
+    case PRESSED2:
+        if (released){
+            state = INACTIVE;
+            emit doubleTap(QPoint(startX, startY));
+        }        
+        break;
+    default:
+        state = INACTIVE;
+        break;
+    }
+}
 
 InputHandler::InputHandler(MapView view): view(view) 
 {

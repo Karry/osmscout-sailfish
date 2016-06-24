@@ -21,6 +21,7 @@
 #include "InputHandler.h"
 
 #include <iostream>
+#include <sys/socket.h>
 
 //! We rotate in 16 steps
 static double DELTA_ANGLE=2*M_PI/16.0;
@@ -41,7 +42,11 @@ MapWidget::MapWidget(QQuickItem* parent)
     connect(dbThread,SIGNAL(Redraw()),
             this,SLOT(redraw()));    
     
-    // todo, open last position, move to current position or get as constructor argument...
+    connect(&tapRecognizer, SIGNAL(tap(const QPoint)),        this, SLOT(onTap(const QPoint)));
+    connect(&tapRecognizer, SIGNAL(doubleTap(const QPoint)),  this, SLOT(onDoubleTap(const QPoint)));
+    connect(&tapRecognizer, SIGNAL(longTap(const QPoint)),    this, SLOT(onLongTap(const QPoint)));
+
+    // TODO, open last position, move to current position or get as constructor argument...
     view = { osmscout::GeoCoord(0.0, 0.0), 0, osmscout::Magnification::magContinent  };
     setupInputHandler(new InputHandler(view));
 
@@ -114,6 +119,7 @@ void MapWidget::viewChanged(const MapView &updated)
 void MapWidget::touchEvent(QTouchEvent *event)
 {
     //qDebug() << "touchEvent:";
+    tapRecognizer.touch(event);
   
     if (!inputHandler->touch(event)){
         if (event->touchPoints().size() == 1){
@@ -373,4 +379,17 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
     this->horizontalAccuracyValid = horizontalAccuracyValid;
     this->horizontalAccuracy = horizontalAccuracy;
     redraw();
+}
+
+void MapWidget::onTap(const QPoint p)
+{
+    qDebug() << "tap " << p;
+}
+void MapWidget::onDoubleTap(const QPoint p)
+{
+    qDebug() << "double tap " << p;
+}
+void MapWidget::onLongTap(const QPoint p)
+{
+    qDebug() << "long tap " << p;
 }
