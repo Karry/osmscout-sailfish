@@ -326,7 +326,7 @@ bool MoveHandler::move(QVector2D move)
     
     return true;
 }
-
+    
 bool MoveHandler::moveNow(QVector2D move)
 {
     osmscout::MercatorProjection projection;
@@ -373,6 +373,62 @@ bool MoveHandler::rotateBy(double angleStep, double angleChange)
     emit viewChanged(view);
     return true;
     */
+}
+
+
+JumpHandler::JumpHandler(MapView view):
+    InputHandler(view)
+{
+    connect(&timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    timer.setSingleShot(false);
+}
+
+JumpHandler::~JumpHandler()
+{
+    // noop
+}
+void JumpHandler::onTimeout()
+{
+    double progress = (double)(animationStart.elapsed() + ANIMATION_TICK) / (double)ANIMATION_DURATION;
+    if (progress >= 1){
+        progress = 1.0;
+        timer.stop();
+    }
+    double magScale = progress; // std::log10( progress * (10 - 1) + 1);
+    double positionScale = std::log( progress * (M_E - 1) + 1);
+    
+    double startMag = startMapView.magnification.GetMagnification();
+    double targetMag = targetMapView.magnification.GetMagnification();    
+    view.magnification = osmscout::Magnification(startMag + ((targetMag - startMag) * magScale));
+    
+    double startLat = startMapView.center.GetLat();
+    double targetLat = targetMapView.center.GetLat();
+    double lat = startLat + ((targetLat - startLat) * positionScale);
+    
+    double startLon = startMapView.center.GetLon();
+    double targetLon = targetMapView.center.GetLon();
+    double lon = startLon + ((targetLon - startLon) * positionScale);
+    
+    view.center.Set(lat, lon);
+    
+    emit viewChanged(view); 
+}    
+bool JumpHandler::animationInProgress()
+{
+    return timer.isActive();    
+}
+
+bool JumpHandler::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification)
+{
+    startMapView = view;
+    targetMapView = {coord, view.angle, magnification};
+
+    animationStart.restart();
+    timer.setInterval(ANIMATION_TICK);
+    timer.start();
+    emit onTimeout();
+    
+    return true;    
 }
 
 DragHandler::DragHandler(MapView view, double dpi): 

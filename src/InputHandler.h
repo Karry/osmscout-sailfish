@@ -187,7 +187,6 @@ public:
      */
     bool moveNow(QVector2D vector); // move vector in pixels, without animation
 
-    //virtual bool showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification);
     virtual bool zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
     virtual bool move(QVector2D vector); // move vector in pixels
     virtual bool rotateBy(double angleStep, double angleChange);
@@ -195,6 +194,29 @@ public:
     
 private:
     double dpi;
+};
+
+class JumpHandler : public InputHandler {
+    Q_OBJECT
+    
+private:
+    QTime animationStart;
+    QTimer timer;
+    MapView startMapView;
+    MapView targetMapView;
+  
+    const int ANIMATION_DURATION = 1000; // ms
+    const int ANIMATION_TICK = 16;
+    
+private slots:
+    void onTimeout();
+
+public: 
+    JumpHandler(MapView view);
+    virtual ~JumpHandler();
+    
+    virtual bool animationInProgress();
+    virtual bool showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification);
 };
 
 class DragHandler : public MoveHandler {
