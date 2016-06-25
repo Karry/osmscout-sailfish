@@ -139,15 +139,11 @@ bool InputHandler::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnifica
 {
     return false;
 }
-bool InputHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
+bool InputHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false;    
 }
 
-bool InputHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
-{
-    return false;    
-}
 bool InputHandler::move(QVector2D move)
 {
     return false;
@@ -163,42 +159,130 @@ bool InputHandler::touch(QTouchEvent *event)
 
 MoveHandler::MoveHandler(MapView view, double dpi): InputHandler(view), dpi(dpi)
 {
-    
+    connect(&timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    timer.setSingleShot(false);
 }
 
 MoveHandler::~MoveHandler()
 {
     // noop
 }
-
-bool MoveHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
+bool MoveHandler::touch(QTouchEvent *event)
 {
+    // move handler consumes finger release 
+    if (event->touchPoints().size() == 1){           
+        QTouchEvent::TouchPoint finger = event->touchPoints()[0];
+        Qt::TouchPointStates state(finger.state());
+        return state.testFlag(Qt::TouchPointReleased); 
+    }
+    return false;
+}
+
+void MoveHandler::onTimeout()
+{
+    double progress = (double)(animationStart.elapsed() + ANIMATION_TICK) / (double)ANIMATION_DURATION;
+    if (progress >= 1){
+        progress = 1.0;
+        timer.stop();
+    }
+    //double scale = std::log( progress * (M_E - 1) + 1);
+    double scale = std::log10( progress * (10 - 1) + 1);
+
+    osmscout::MercatorProjection projection;
+
+    //qDebug() << "move: " << QString::fromStdString(view.center.GetDisplayText()) << "   by: " << move;
+    double startMag = startMapView.magnification.GetMagnification();
+    double targetMag = targetMagnification.GetMagnification();
+    projection.Set(startMapView.center, 
+            osmscout::Magnification(startMag + ((targetMag - startMag) * scale) ),
+            dpi, 1000, 1000);
+
+    if (!projection.IsValid()) {
+        //TriggerMapRendering();
+        return;
+    }
+
+    projection.Move(_move.x() * scale, _move.y() * scale * -1.0);
+
+    view.magnification = projection.GetMagnification(); 
+    view.center=projection.GetCenter();
+    if (view.center.lon < OSMTile::minLon()){
+        view.center.lon = OSMTile::minLon();
+    }else if (view.center.lon > OSMTile::maxLon()){
+        view.center.lon = OSMTile::maxLon();
+    }
+    if (view.center.lat > OSMTile::maxLat()){
+        view.center.lat = OSMTile::maxLat();
+    }else if (view.center.lat < OSMTile::minLat()){
+        view.center.lat = OSMTile::minLat();
+    }
+
+    emit viewChanged(view);    
+}
+
+bool MoveHandler::animationInProgress()
+{
+    return timer.isActive();
+}
+
+bool MoveHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
+{
+    startMapView = view;
+    
+    // compute event distance from center
+    QPoint distance = widgetPosition;
+    distance -= QPoint(widgetDimension.width() / 2, widgetDimension.height() / 2);    
+    if (zoomFactor > 1){
+        _move.setX(distance.x() * (zoomFactor -1));
+        _move.setY(distance.y() * (zoomFactor -1));
+    }else{
+        // 0.75 is magic constant from experiments when map coordinate has same screen position while zoom-out
+        _move.setX(distance.x() * -0.75 * ((1/zoomFactor) -1));
+        _move.setY(distance.y() * -0.75 * ((1/zoomFactor) -1));
+    }
+
+    targetMagnification = view.magnification;
     osmscout::Magnification maxMag;
-
     maxMag.SetLevel(20);
-
-    if (view.magnification.GetMagnification()*zoomFactor>maxMag.GetMagnification()) {
-        view.magnification.SetMagnification(maxMag.GetMagnification());
+    if (zoomFactor > 1){ // zoom in
+        if (targetMagnification.GetMagnification()*zoomFactor>maxMag.GetMagnification()) {
+            targetMagnification.SetMagnification(maxMag.GetMagnification());
+        }
+        else {
+            targetMagnification.SetMagnification(targetMagnification.GetMagnification()*zoomFactor);
+        }
+    }else{ // zoom out
+        if (targetMagnification.GetMagnification()*zoomFactor<1) {
+            targetMagnification.SetMagnification(1);
+        }
+        else {
+            targetMagnification.SetMagnification(targetMagnification.GetMagnification()*zoomFactor);
+        }        
     }
-    else {
-        view.magnification.SetMagnification(view.magnification.GetMagnification()*zoomFactor);
-    }
-    emit viewChanged(view);
+    //emit viewChanged(view);
+    animationStart.restart();
+    timer.setInterval(ANIMATION_TICK);
+    timer.start();
+    emit onTimeout();
     return true;
 }
 
-bool MoveHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
-{
-    if (view.magnification.GetMagnification()/zoomFactor<1) {
-        view.magnification.SetMagnification(1);
-    }
-    else {
-        view.magnification.SetMagnification(view.magnification.GetMagnification()/zoomFactor);
-    }
-    emit viewChanged(view);
-    return true;
-}
 bool MoveHandler::move(QVector2D move)
+{
+    startMapView = view;
+    targetMagnification = view.magnification;
+    _move.setX(move.x());
+    _move.setY(move.y());
+
+    animationStart.restart();
+    timer.setInterval(ANIMATION_TICK);
+    timer.start();
+    emit onTimeout();
+    
+    return true;
+}
+
+bool MoveHandler::moveNow(QVector2D move)
 {
     osmscout::MercatorProjection projection;
 
@@ -274,7 +358,7 @@ bool DragHandler::touch(QTouchEvent *event)
             return false; // should not happen
         
         view = startView;
-        MoveHandler::move(QVector2D(
+        MoveHandler::moveNow(QVector2D(
             startX - finger.pos().x(),
             startY - finger.pos().y()
         ));
@@ -283,17 +367,13 @@ bool DragHandler::touch(QTouchEvent *event)
     return !state.testFlag(Qt::TouchPointReleased);
 }
 
-bool DragHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
+bool DragHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false; 
         // TODO: finger on screen and zoom 
         // => compute geo point under finger, change magnification and then update startView
 }
 
-bool DragHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
-{
-    return false; // TODO
-}
 bool DragHandler::move(QVector2D move)
 {
     return false; // finger on screen discard move
@@ -304,7 +384,7 @@ bool DragHandler::rotateBy(double angleStep, double angleChange)
 }
 bool DragHandler::animationInProgress()
 {
-    return moving;
+    return moving || MoveHandler::animationInProgress();
 }
 
 
@@ -319,13 +399,9 @@ MultitouchHandler::~MultitouchHandler()
 }
 bool MultitouchHandler::animationInProgress()
 {
-    return moving;
+    return moving || MoveHandler::animationInProgress();
 }
-bool MultitouchHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
-{
-    return false;
-}
-bool MultitouchHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
+bool MultitouchHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false;
 }
@@ -389,7 +465,7 @@ bool MultitouchHandler::touch(QTouchEvent *event)
                 startCenter.x() - currentCenter.x(),
                 startCenter.y() - currentCenter.y()
             );
-            MoveHandler::move(move);    
+            MoveHandler::moveNow(move);    
             
             // zoom
             QVector2D startVector(startPointA.pos() - startPointB.pos());

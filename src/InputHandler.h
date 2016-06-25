@@ -24,6 +24,7 @@
 #include <QVector2D>
 #include <QTouchEvent>
 #include <QTimer>
+#include <QTime>
 
 #include <osmscout/util/GeoBox.h>
 #include <osmscout/util/Magnification.h>
@@ -113,8 +114,7 @@ public:
     virtual bool animationInProgress();
     
     virtual bool showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification);
-    virtual bool zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension); // TODO: merge zoom in/out to one method
-    virtual bool zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
+    virtual bool zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
     virtual bool move(QVector2D vector); // move vector in pixels
     virtual bool rotateBy(double angleStep, double angleChange);
     virtual bool touch(QTouchEvent *event);
@@ -126,16 +126,38 @@ protected:
     MapView view;
 };
 
+/**
+ * handler with support of animations
+ */
 class MoveHandler : public InputHandler {
     Q_OBJECT
+    
+private:
+    QTime animationStart;
+    QTimer timer;
+    MapView startMapView;
+    QVector2D _move;
+    osmscout::Magnification targetMagnification;
+  
+    const int ANIMATION_DURATION = 1000; // ms
+    const int ANIMATION_TICK = 16;
+    
+private slots:
+    void onTimeout();
+
 public: 
     MoveHandler(MapView view, double dpi);
     virtual ~MoveHandler();
-
-    virtual bool zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
-    virtual bool zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
+    
+    virtual bool animationInProgress();
+    bool moveNow(QVector2D vector); // move vector in pixels, without animation
+  
+    //virtual bool showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification);
+    virtual bool zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
     virtual bool move(QVector2D vector); // move vector in pixels
     virtual bool rotateBy(double angleStep, double angleChange);
+    virtual bool touch(QTouchEvent *event);
+    
 private:
     double dpi;
 };
@@ -148,8 +170,7 @@ public:
 
     virtual bool animationInProgress();
 
-    virtual bool zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
-    virtual bool zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
+    virtual bool zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
     virtual bool move(QVector2D vector); // move vector in pixels
     virtual bool rotateBy(double angleStep, double angleChange);
     
@@ -170,8 +191,7 @@ public:
 
     virtual bool animationInProgress();
 
-    virtual bool zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
-    virtual bool zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
+    virtual bool zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
     virtual bool move(QVector2D vector); // move vector in pixels
     virtual bool rotateBy(double angleStep, double angleChange);
     

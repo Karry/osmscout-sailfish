@@ -120,8 +120,6 @@ void MapWidget::viewChanged(const MapView &updated)
 
 void MapWidget::touchEvent(QTouchEvent *event)
 {
-    //qDebug() << "touchEvent:";
-    tapRecognizer.touch(event);
   
     if (!inputHandler->touch(event)){
         if (event->touchPoints().size() == 1){
@@ -132,8 +130,11 @@ void MapWidget::touchEvent(QTouchEvent *event)
         }
         inputHandler->touch(event);
     }
+
+    tapRecognizer.touch(event);
   
     /*
+    qDebug() << "touchEvent:";
     QList<QTouchEvent::TouchPoint> relevantTouchPoints;
     for (QTouchEvent::TouchPoint tp: event->touchPoints()){
       Qt::TouchPointStates state(tp.state());
@@ -150,10 +151,10 @@ void MapWidget::wheelEvent(QWheelEvent* event)
     int numSteps=numDegrees/15;
 
     if (numSteps>=0) {
-        zoomIn(numSteps*1.35);
+        zoomIn(numSteps*1.35, event->pos());
     }
     else {
-        zoomOut(-numSteps*1.35);
+        zoomOut(-numSteps*1.35, event->pos());
     }
 
     event->accept();
@@ -233,28 +234,22 @@ void MapWidget::zoom(double zoomFactor, const QPoint widgetPosition)
   if (zoomFactor == 1)
     return;
   
-  if (zoomFactor < 1.0){
-    zoomOut(1/zoomFactor, widgetPosition);
-  }else{
-    zoomIn(zoomFactor, widgetPosition);
+  if (!inputHandler->zoom(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
+    setupInputHandler(new MoveHandler(view, dpi));
+    inputHandler->zoom(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
   }
 }
 
 void MapWidget::zoomIn(double zoomFactor, const QPoint widgetPosition)
 {
-    if (!inputHandler->zoomIn(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
-        setupInputHandler(new MoveHandler(view, dpi));
-        inputHandler->zoomIn(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
-    }
+    zoom(zoomFactor, widgetPosition);
 }
 
 void MapWidget::zoomOut(double zoomFactor, const QPoint widgetPosition)
 {
-    if (!inputHandler->zoomOut(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
-        setupInputHandler(new MoveHandler(view, dpi));
-        inputHandler->zoomOut(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
-    }
+    zoom( 1.0/zoomFactor, widgetPosition);
 }
+
 void MapWidget::move(QVector2D vector)
 {
     if (!inputHandler->move(vector)){
