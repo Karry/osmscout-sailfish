@@ -120,6 +120,51 @@ void TapRecognizer::touch(QTouchEvent *event)
     }
 }
 
+MoveAccumulator& MoveAccumulator::operator+=(const QPointF p)
+{
+    AccumulatorEvent ev = {p, QTime()};
+    ev.time.start();
+    events.push_back(ev);
+    // flush old events
+    while ((!events.isEmpty()) && events.first().time.elapsed() > memory){
+        events.pop_front();
+    }
+    return *this;
+}
+
+QVector2D MoveAccumulator::collect()
+{
+    QVector2D vector;
+    double distance = 0;
+    // flush old events
+    while ((!events.isEmpty()) && events.first().time.elapsed() > memory){
+        events.pop_front();
+    }
+    if (!events.isEmpty()){
+        AccumulatorEvent lastEv = events.first();
+        events.pop_front();
+        while (!events.isEmpty()){
+            AccumulatorEvent currentEv = events.first();
+            events.pop_front();
+            QVector2D lastVect(
+                        currentEv.pos.x() - lastEv.pos.x(), 
+                        currentEv.pos.y() - lastEv.pos.y() 
+                    );
+            double len = lastVect.length();
+            if (len > vectorLengthTreshold || vector.isNull()){
+                vector = lastVect;
+            }
+            distance += len;
+            lastEv = currentEv;
+        }
+    }
+    vector.normalize();
+    return QVector2D(
+            vector.x() * -1 * distance * factor, 
+            vector.y() * -1 * distance * factor
+            );
+}
+
 InputHandler::InputHandler(MapView view): view(view) 
 {
 }
@@ -331,7 +376,8 @@ bool MoveHandler::rotateBy(double angleStep, double angleChange)
 }
 
 DragHandler::DragHandler(MapView view, double dpi): 
-    MoveHandler(view, dpi), moving(true), startView(view), fingerId(-1), startX(-1), startY(-1)
+        MoveHandler(view, dpi), moving(true), startView(view), fingerId(-1), 
+        startX(-1), startY(-1), ended(false)
 {
 }
 DragHandler::~DragHandler()
@@ -339,6 +385,9 @@ DragHandler::~DragHandler()
 }
 bool DragHandler::touch(QTouchEvent *event)
 {
+    if (ended)
+        return false;
+
     if (event->touchPoints().size() > 1)
         return false;
     
@@ -363,8 +412,12 @@ bool DragHandler::touch(QTouchEvent *event)
             startY - finger.pos().y()
         ));
     }
-    
-    return !state.testFlag(Qt::TouchPointReleased);
+    moveAccumulator += finger.pos();
+    if (state.testFlag(Qt::TouchPointReleased)){
+        MoveHandler::move(moveAccumulator.collect());
+        ended = true;
+    }
+    return true;
 }
 
 bool DragHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
@@ -389,7 +442,7 @@ bool DragHandler::animationInProgress()
 
 
 MultitouchHandler::MultitouchHandler(MapView view, double dpi): 
-    MoveHandler(view, dpi), moving(true), startView(view), initialized(false)
+    MoveHandler(view, dpi), moving(true), startView(view), initialized(false), ended(false)
 {
 }
 
@@ -415,6 +468,9 @@ bool MultitouchHandler::rotateBy(double angleStep, double angleChange)
 }    
 bool MultitouchHandler::touch(QTouchEvent *event)
 {
+    if (ended)
+        return false;
+
     if (!initialized){
         QList<QTouchEvent::TouchPoint> valid;
         QListIterator<QTouchEvent::TouchPoint> it(event->touchPoints());        
@@ -465,7 +521,8 @@ bool MultitouchHandler::touch(QTouchEvent *event)
                 startCenter.x() - currentCenter.x(),
                 startCenter.y() - currentCenter.y()
             );
-            MoveHandler::moveNow(move);    
+            MoveHandler::moveNow(move);
+            moveAccumulator += currentCenter;
             
             // zoom
             QVector2D startVector(startPointA.pos() - startPointB.pos());
@@ -502,5 +559,7 @@ bool MultitouchHandler::touch(QTouchEvent *event)
         }
     }
     moving = false;
-    return false;
+    ended = true;
+    MoveHandler::move(moveAccumulator.collect());
+    return true;
 }

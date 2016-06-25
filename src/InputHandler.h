@@ -25,6 +25,7 @@
 #include <QTouchEvent>
 #include <QTimer>
 #include <QTime>
+#include <QQueue>
 
 #include <osmscout/util/GeoBox.h>
 #include <osmscout/util/Magnification.h>
@@ -79,6 +80,33 @@ signals:
   void doubleTap(const QPoint p);
   void longTap(const QPoint p);
   void tapLongTap(const QPoint p);
+};
+
+struct AccumulatorEvent
+{
+  QPointF pos;
+  QTime time;
+};
+Q_DECLARE_METATYPE(AccumulatorEvent)
+
+class MoveAccumulator : public QObject{
+  Q_OBJECT
+
+private:
+  int memory; // ms
+  QQueue<AccumulatorEvent> events;
+  double factor;
+  double vectorLengthTreshold;
+  
+public:
+  inline MoveAccumulator(int memory = 100, double factor = 3, double vectorLengthTreshold = 5):
+    memory(memory), factor(factor), vectorLengthTreshold(vectorLengthTreshold)
+  {
+  }
+  virtual inline ~MoveAccumulator(){}
+  
+  MoveAccumulator& operator+=(const QPointF p);
+  QVector2D collect();
 };
 
 struct MapView
@@ -150,8 +178,15 @@ public:
     virtual ~MoveHandler();
     
     virtual bool animationInProgress();
+    
+    /**
+     * Called from DragHandler or MultitouchHandler when gesture moves with map
+     * 
+     * @param vector
+     * @return 
+     */
     bool moveNow(QVector2D vector); // move vector in pixels, without animation
-  
+
     //virtual bool showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification);
     virtual bool zoom(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension);
     virtual bool move(QVector2D vector); // move vector in pixels
@@ -175,12 +210,15 @@ public:
     virtual bool rotateBy(double angleStep, double angleChange);
     
     virtual bool touch(QTouchEvent *event);
+
 private:
     bool moving;
     MapView startView;
     int fingerId;
     int startX;
     int startY;
+    bool ended;
+    MoveAccumulator moveAccumulator;
 };
 
 class MultitouchHandler : public MoveHandler {
@@ -200,6 +238,8 @@ private:
     bool moving;
     MapView startView;
     bool initialized;
+    bool ended;
+    MoveAccumulator moveAccumulator;
     
     // we take only first two touch points into account
     QTouchEvent::TouchPoint startPointA;
