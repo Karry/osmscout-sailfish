@@ -138,12 +138,12 @@ bool InputHandler::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnifica
 {
     return false;
 }
-bool InputHandler::zoomIn(double zoomFactor)
+bool InputHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false;    
 }
 
-bool InputHandler::zoomOut(double zoomFactor)
+bool InputHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false;    
 }
@@ -170,7 +170,7 @@ MoveHandler::~MoveHandler()
     // noop
 }
 
-bool MoveHandler::zoomIn(double zoomFactor)
+bool MoveHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     osmscout::Magnification maxMag;
 
@@ -186,7 +186,7 @@ bool MoveHandler::zoomIn(double zoomFactor)
     return true;
 }
 
-bool MoveHandler::zoomOut(double zoomFactor)
+bool MoveHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     if (view.magnification.GetMagnification()/zoomFactor<1) {
         view.magnification.SetMagnification(1);
@@ -203,7 +203,7 @@ bool MoveHandler::move(QVector2D move)
 
     //qDebug() << "move: " << QString::fromStdString(view.center.GetDisplayText()) << "   by: " << move;
     
-    projection.Set(view.center.lon, view.center.lat, view.magnification, dpi, 1000, 1000);
+    projection.Set(view.center, view.magnification, dpi, 1000, 1000);
 
     if (!projection.IsValid()) {
         //TriggerMapRendering();
@@ -282,14 +282,14 @@ bool DragHandler::touch(QTouchEvent *event)
     return !state.testFlag(Qt::TouchPointReleased);
 }
 
-bool DragHandler::zoomIn(double zoomFactor)
+bool DragHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false; 
         // TODO: finger on screen and zoom 
         // => compute geo point under finger, change magnification and then update startView
 }
 
-bool DragHandler::zoomOut(double zoomFactor)
+bool DragHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false; // TODO
 }
@@ -320,11 +320,11 @@ bool MultitouchHandler::animationInProgress()
 {
     return moving;
 }
-bool MultitouchHandler::zoomIn(double zoomFactor)
+bool MultitouchHandler::zoomIn(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false;
 }
-bool MultitouchHandler::zoomOut(double zoomFactor)
+bool MultitouchHandler::zoomOut(double zoomFactor, const QPoint widgetPosition, const QRect widgetDimension)
 {
     return false;
 }

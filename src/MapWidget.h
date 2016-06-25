@@ -59,9 +59,15 @@ signals:
 public slots:
   void viewChanged(const MapView &view);
   void redraw();
+  
   void zoom(double zoomFactor);
   void zoomIn(double zoomFactor);
   void zoomOut(double zoomFactor);
+  
+  void zoom(double zoomFactor, const QPoint widgetPosition);
+  void zoomIn(double zoomFactor, const QPoint widgetPosition);
+  void zoomOut(double zoomFactor, const QPoint widgetPosition);
+  
   void move(QVector2D vector);
   void left();
   void right();

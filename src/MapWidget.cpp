@@ -184,8 +184,7 @@ void MapWidget::paint(QPainter *painter)
     if (showCurrentPosition && locationValid){
         osmscout::MercatorProjection projection;
         
-        projection.Set(request.lon,
-                       request.lat,
+        projection.Set(osmscout::GeoCoord(request.lat, request.lon),
                        request.angle,
                        request.magnification,
                        dpi,
@@ -193,7 +192,7 @@ void MapWidget::paint(QPainter *painter)
                        request.height);
         double x;
         double y;
-        projection.GeoToPixel(lon, lat, x, y);
+        projection.GeoToPixel(osmscout::GeoCoord(lat, lon), x, y);
         if (boundingBox.contains(x, y)){
             
             if (horizontalAccuracyValid){
@@ -214,29 +213,44 @@ void MapWidget::paint(QPainter *painter)
 
 void MapWidget::zoom(double zoomFactor)
 {
-  if (zoomFactor == 1)
-    return;
-  
-  if (zoomFactor < 1.0){
-    zoomOut(1/zoomFactor);
-  }else{
-    zoomIn(zoomFactor);
-  }
+    zoom(zoomFactor, QPoint(width()/2, height()/2));
 }
 
 void MapWidget::zoomIn(double zoomFactor)
 {
-    if (!inputHandler->zoomIn(zoomFactor)){
-        setupInputHandler(new MoveHandler(view, dpi));
-        inputHandler->zoomIn(zoomFactor);
-    }
+    zoomIn(zoomFactor, QPoint(width()/2, height()/2));
 }
 
 void MapWidget::zoomOut(double zoomFactor)
 {
-    if (!inputHandler->zoomOut(zoomFactor)){
+    zoomOut(zoomFactor, QPoint(width()/2, height()/2));
+}
+
+void MapWidget::zoom(double zoomFactor, const QPoint widgetPosition)
+{
+  if (zoomFactor == 1)
+    return;
+  
+  if (zoomFactor < 1.0){
+    zoomOut(1/zoomFactor, widgetPosition);
+  }else{
+    zoomIn(zoomFactor, widgetPosition);
+  }
+}
+
+void MapWidget::zoomIn(double zoomFactor, const QPoint widgetPosition)
+{
+    if (!inputHandler->zoomIn(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
         setupInputHandler(new MoveHandler(view, dpi));
-        inputHandler->zoomOut(zoomFactor);
+        inputHandler->zoomIn(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
+    }
+}
+
+void MapWidget::zoomOut(double zoomFactor, const QPoint widgetPosition)
+{
+    if (!inputHandler->zoomOut(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
+        setupInputHandler(new MoveHandler(view, dpi));
+        inputHandler->zoomOut(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
     }
 }
 void MapWidget::move(QVector2D vector)
@@ -388,6 +402,7 @@ void MapWidget::onTap(const QPoint p)
 void MapWidget::onDoubleTap(const QPoint p)
 {
     qDebug() << "double tap " << p;
+    zoomIn(2.0, p);
 }
 void MapWidget::onLongTap(const QPoint p)
 {
