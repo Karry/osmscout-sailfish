@@ -106,7 +106,8 @@ private:
   QString                       resourceDirectory;
   QString                       tileCacheDirectory;
   
-  double                        dpi;
+  double                        mapDpi;
+  double                        physicalDpi;
 
   mutable QMutex                mutex;
   
@@ -148,7 +149,7 @@ private:
     Intersects = 2,
   };
   
-  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi = -1);
+  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double mapDpi = -1);
   virtual ~DBThread();
 
   bool AssureRouter(osmscout::Vehicle vehicle);
@@ -171,7 +172,9 @@ public:
   
   const DatabaseLoadedResponse loadedResponse() const;
   
-  const double GetDpi() const;
+  const double GetMapDpi() const;
+  
+  const double GetPhysicalDpi() const;
   
   void CancelCurrentDataLoading();
 

@@ -35,7 +35,8 @@ MapWidget::MapWidget(QQuickItem* parent)
     setAcceptedMouseButtons(Qt::LeftButton);
     
     DBThread *dbThread=DBThread::GetInstance();
-    dpi = dbThread->GetDpi();
+    dpi = dbThread->GetMapDpi();
+    tapRecognizer.setPhysicalDpi(dbThread->GetPhysicalDpi());
 
     //setFocusPolicy(Qt::StrongFocus);
 
@@ -45,6 +46,7 @@ MapWidget::MapWidget(QQuickItem* parent)
     connect(&tapRecognizer, SIGNAL(tap(const QPoint)),        this, SLOT(onTap(const QPoint)));
     connect(&tapRecognizer, SIGNAL(doubleTap(const QPoint)),  this, SLOT(onDoubleTap(const QPoint)));
     connect(&tapRecognizer, SIGNAL(longTap(const QPoint)),    this, SLOT(onLongTap(const QPoint)));
+    connect(&tapRecognizer, SIGNAL(tapLongTap(const QPoint)), this, SLOT(onTapLongTap(const QPoint)));
 
     // TODO, open last position, move to current position or get as constructor argument...
     view = { osmscout::GeoCoord(0.0, 0.0), 0, osmscout::Magnification::magContinent  };
@@ -408,3 +410,9 @@ void MapWidget::onLongTap(const QPoint p)
 {
     qDebug() << "long tap " << p;
 }
+void MapWidget::onTapLongTap(const QPoint p)
+{
+    qDebug() << "tap, long tap " << p;
+    zoomOut(2.0, p);
+}
+

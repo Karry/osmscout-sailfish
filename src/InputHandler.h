@@ -39,7 +39,7 @@ private:
     INACTIVE = 0,
     PRESSED = 1, // timer started with hold interval, if expired - long-tap is emited
     RELEASED = 2, // timer started with tap interval, if expired - tap is emited
-    PRESSED2 = 3, // timer started with hold interval, if expired - state is switched to inactive
+    PRESSED2 = 3, // timer started with hold interval, if expired - tap-long-tap
   };
   
   int startFingerId;
@@ -50,7 +50,7 @@ private:
   TapRecState state;
   int holdIntervalMs;
   int tapIntervalMs;
-  int moveTolerance; // TODO: take PPI into account
+  int moveTolerance;
   
 private slots:
   void onTimeout();
@@ -68,10 +68,16 @@ public:
   
   void touch(QTouchEvent *event);
   
+  inline void setPhysicalDpi(double physicalDpi)
+  {
+    moveTolerance = physicalDpi / 10.0; // ~ 2.5 mm
+  }
+  
 signals:
   void tap(const QPoint p);
   void doubleTap(const QPoint p);
   void longTap(const QPoint p);
+  void tapLongTap(const QPoint p);
 };
 
 struct MapView

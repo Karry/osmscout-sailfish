@@ -61,11 +61,12 @@ void QBreaker::Reset()
 }
 
 // TODO: watch system memory and evict caches when system is under pressure
-DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpiArg)
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double mapDpiArg)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
-   dpi(dpiArg),
+   mapDpi(mapDpiArg),
+   physicalDpi(mapDpiArg),
    onlineTileCache(20), // online tiles can be loaded from disk cache easily 
    offlineTileCache(50), // render offline tile is expensive
    tileDownloader(NULL),
@@ -81,11 +82,12 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
 
   QScreen *srn=QGuiApplication::screens().at(0);
 
-  qDebug() << "Reported screen DPI: " << srn->physicalDotsPerInch();
-  if (dpi <= 0){
-    dpi=(double)srn->physicalDotsPerInch();
+  physicalDpi = (double)srn->physicalDotsPerInch();
+  qDebug() << "Reported screen DPI: " << physicalDpi;
+  if (mapDpi <= 0){
+    mapDpi=physicalDpi;
   }else{
-    qDebug() << "DPI override: " << dpi;
+    qDebug() << "Map DPI override: " << mapDpi;
   }
 
   connect(this,SIGNAL(TriggerInitialRendering()),
@@ -185,9 +187,14 @@ bool DBThread::isInitialized(){
   QMutexLocker locker(&mutex);
   return database->IsOpen();
 }
-const double DBThread::GetDpi() const
+const double DBThread::GetMapDpi() const
 {
-    return dpi;
+    return mapDpi;
+}
+
+const double DBThread::GetPhysicalDpi() const
+{
+    return physicalDpi;
 }
 
 const DatabaseLoadedResponse DBThread::loadedResponse() const {
@@ -410,12 +417,12 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     osmscout::MercatorProjection projection;
     osmscout::Magnification magnification;
     magnification.SetLevel(z);
-    projection.Set(center, 0, magnification, dpi, width, height);
+    projection.Set(center, 0, magnification, mapDpi, width, height);
     projection.SetLinearInterpolationUsage(z >= 10);
 
     // setup projection for data lookup
     osmscout::MercatorProjection lookupProjection;
-    lookupProjection.Set(center, 0, magnification, dpi, lookupWidth, lookupHeight);
+    lookupProjection.Set(center, 0, magnification, mapDpi, lookupWidth, lookupHeight);
     lookupProjection.SetLinearInterpolationUsage(z >= 10);
 
     // https://github.com/Framstag/libosmscout/blob/master/Documentation/RenderTuning.txt
@@ -486,7 +493,7 @@ bool DBThread::RenderMap(QPainter& painter,
   projection.Set(osmscout::GeoCoord(request.lat, request.lon),
                  request.angle,
                  request.magnification,
-                 dpi,
+                 mapDpi,
                  request.width,
                  request.height);
 
@@ -759,7 +766,7 @@ void DBThread::offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t y
                 (double)xFrom + (double)width/2.0, 
                 (double)yFrom + (double)height/2.0);
         
-        double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (dpi / OSMTile::tileDPI() ); // pixels  
+        double osmTileDimension = (double)OSMTile::osmTileOriginalWidth() * (mapDpi / OSMTile::tileDPI() ); // pixels  
         
         QImage canvas(
                 (double)width * osmTileDimension, 

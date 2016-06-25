@@ -38,6 +38,7 @@ void TapRecognizer::onTimeout()
         break;
     case PRESSED2:
         state = INACTIVE;
+        emit tapLongTap(QPoint(startX, startY));
         break;
     case INACTIVE: 
     default:

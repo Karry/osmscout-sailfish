@@ -88,6 +88,7 @@ public slots:
   void onTap(const QPoint p);
   void onDoubleTap(const QPoint p);
   void onLongTap(const QPoint p);
+  void onTapLongTap(const QPoint p);
   
 private:
   void setupInputHandler(InputHandler *newGesture);
