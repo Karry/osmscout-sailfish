@@ -410,12 +410,12 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     osmscout::MercatorProjection projection;
     osmscout::Magnification magnification;
     magnification.SetLevel(z);
-    projection.Set(center.lon, center.lat, 0, magnification, dpi, width, height);
+    projection.Set(center, 0, magnification, dpi, width, height);
     projection.SetLinearInterpolationUsage(z >= 10);
 
     // setup projection for data lookup
     osmscout::MercatorProjection lookupProjection;
-    lookupProjection.Set(center.lon, center.lat, 0, magnification, dpi, lookupWidth, lookupHeight);
+    lookupProjection.Set(center, 0, magnification, dpi, lookupWidth, lookupHeight);
     lookupProjection.SetLinearInterpolationUsage(z >= 10);
 
     // https://github.com/Framstag/libosmscout/blob/master/Documentation/RenderTuning.txt
@@ -483,8 +483,7 @@ bool DBThread::RenderMap(QPainter& painter,
 {
   osmscout::MercatorProjection projection;
 
-  projection.Set(request.lon,
-                 request.lat,
+  projection.Set(osmscout::GeoCoord(request.lat, request.lon),
                  request.angle,
                  request.magnification,
                  dpi,
