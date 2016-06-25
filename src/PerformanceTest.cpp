@@ -136,8 +136,10 @@ int main(int argc, char* argv[])
   unsigned int  tileWidth;
   unsigned int  tileHeight;
   std::string   driver;
+#if defined(HAVE_LIB_GPERFTOOLS)    
   bool          heapProfile;
   std::string   heapProfilePrefix;
+#endif
 
   if (argc<12) {
     std::cerr << "DrawMap " << std::endl;
@@ -151,8 +153,8 @@ int main(int argc, char* argv[])
 #endif
     return 1;
   }
-  heapProfile = false;
 #if defined(HAVE_LIB_GPERFTOOLS)    
+  heapProfile = false;
   if (argc>12) {
       heapProfile = true;
       heapProfilePrefix = argv[12];
@@ -212,8 +214,8 @@ int main(int argc, char* argv[])
 #if defined(HAVE_LIB_OSMSCOUTMAPQT)
   QPixmap         *qtPixmap=NULL;
   QPainter        *qtPainter=NULL;
-  //QApplication    application(argc,argv,true);
-  QGuiApplication *app = SailfishApp::application(argc, argv);
+
+  SailfishApp::application(argc, argv);
 
 #endif
 
@@ -367,6 +369,7 @@ int main(int argc, char* argv[])
                        tileHeight);
 
         projection.GetDimensions(boundingBox);
+        projection.SetLinearInterpolationUsage(level >= 10);
 
         osmscout::StopClock dbTimer;
 
@@ -430,10 +433,12 @@ int main(int argc, char* argv[])
 #if defined(HAVE_LIB_OSMSCOUTMAPQT)
         if (driver=="Qt") {
           //std::cout << data.nodes.size() << " " << data.ways.size() << " " << data.areas.size() << std::endl;
-          qtMapPainter.DrawMap(projection,
-                               drawParameter,
-                               data,
-                               qtPainter);
+          for (int i=0; i < 100; i++){
+            qtMapPainter.DrawMap(projection,
+                                 drawParameter,
+                                 data,
+                                 qtPainter);
+          }
         }
 #endif
         if (driver=="noop") {
