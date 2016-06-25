@@ -25,3 +25,5 @@
 - Map widget recognize finger taps, it zoom in on double tap.
 - Move and zoom animations. Behavior is more natural, if user swipe on map, movement has momentum.
 - Various improvements in core library
+
+* 2016-xx-x Lukáš Karas <lukas.karas@centrum.cz> 0.5-1
