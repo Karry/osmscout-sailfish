@@ -99,7 +99,14 @@ private:
   double vectorLengthTreshold;
   
 public:
-  inline MoveAccumulator(int memory = 100, double factor = 3, double vectorLengthTreshold = 5):
+    
+  /**
+   * 
+   * @param memory - in milliseconds for finger position points
+   * @param factor - momentum movement length (vector returned from collect method) will be equal to recorded length * factor
+   * @param vectorLengthTreshold - movement (between two points) have to be longer than treshold (in pixels) for change move vector
+   */
+  inline MoveAccumulator(int memory = 100, double factor = 4, double vectorLengthTreshold = 5):
     memory(memory), factor(factor), vectorLengthTreshold(vectorLengthTreshold)
   {
   }
