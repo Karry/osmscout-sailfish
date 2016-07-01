@@ -55,6 +55,11 @@ private:
 signals:
   void latChanged();
   void lonChanged();
+  
+  void tap(const int sceenX, const int screenY, const double lat, const double lon);
+  void doubleTap(const int sceenX, const int screenY, const double lat, const double lon);
+  void longTap(const int sceenX, const int screenY, const double lat, const double lon);
+  void tapLongTap(const int sceenX, const int screenY, const double lat, const double lon);
 
 public slots:
   void viewChanged(const MapView &view);
@@ -118,6 +123,18 @@ public:
   { 
       showCurrentPosition = b;
   };
+  
+  inline osmscout::MercatorProjection getProjection()
+  {
+    osmscout::MercatorProjection projection;
+    projection.Set(osmscout::GeoCoord(GetLat(), GetLon()),
+               view.angle,
+               view.magnification,
+               dpi,
+               width(),
+               height());
+    return projection;
+  }
   
   void wheelEvent(QWheelEvent* event);
   virtual void touchEvent(QTouchEvent *event);

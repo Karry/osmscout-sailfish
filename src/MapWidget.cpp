@@ -185,14 +185,8 @@ void MapWidget::paint(QPainter *painter)
 
     // render current position spot
     if (showCurrentPosition && locationValid){
-        osmscout::MercatorProjection projection;
+        osmscout::MercatorProjection projection = getProjection();
         
-        projection.Set(osmscout::GeoCoord(request.lat, request.lon),
-                       request.angle,
-                       request.magnification,
-                       dpi,
-                       request.width,
-                       request.height);
         double x;
         double y;
         projection.GeoToPixel(osmscout::GeoCoord(lat, lon), x, y);
@@ -394,19 +388,35 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
 void MapWidget::onTap(const QPoint p)
 {
     qDebug() << "tap " << p;
+    double lat;
+    double lon;
+    getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
+    emit tap(p.x(), p.y(), lat, lon);
 }
 void MapWidget::onDoubleTap(const QPoint p)
 {
     qDebug() << "double tap " << p;
     zoomIn(2.0, p);
+    double lat;
+    double lon;
+    getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
+    emit doubleTap(p.x(), p.y(), lat, lon);
 }
 void MapWidget::onLongTap(const QPoint p)
 {
     qDebug() << "long tap " << p;
+    double lat;
+    double lon;
+    getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
+    emit longTap(p.x(), p.y(), lat, lon);
 }
 void MapWidget::onTapLongTap(const QPoint p)
 {
     qDebug() << "tap, long tap " << p;
     zoomOut(2.0, p);
+    double lat;
+    double lon;
+    getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
+    emit tapLongTap(p.x(), p.y(), lat, lon);
 }
 
