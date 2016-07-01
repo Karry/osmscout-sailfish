@@ -4,7 +4,6 @@
 # Structure of OSMScout-Sailfish cmake scripts was inspired by DigiKam project
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
 project(osmscout-sailfish C CXX)
 
