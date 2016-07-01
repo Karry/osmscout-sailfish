@@ -320,6 +320,7 @@ target_include_directories(PerformanceTest PRIVATE
 target_link_libraries(PerformanceTest
         Qt5::Core
         Qt5::Gui
+        Qt5::Quick # requiered by sailfishapp when configred with QT_QML_DEBUG
         
         marisa
         osmscout
