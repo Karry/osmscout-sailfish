@@ -163,7 +163,13 @@ private:
    */
   bool lookupAndDrawTile(TileCache& tileCache, QPainter& painter, 
         double x, double y, double renderTileWidth, double renderTileHeight, 
-        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t upLimit);
+        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
+        uint32_t upLimit, uint32_t downLimit);
+
+  void lookupAndDrawBottomTileRecursive(TileCache& tileCache, QPainter& painter, 
+        double x, double y, double renderTileWidth, double renderTileHeight, double overlap,
+        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
+        uint32_t downLimit);
 
   DatabaseTileState databaseTileState(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
   

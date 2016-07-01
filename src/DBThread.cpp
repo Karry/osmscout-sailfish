@@ -588,12 +588,12 @@ bool DBThread::RenderMap(QPainter& painter,
       
       bool lookupTileFound = lookupAndDrawTile(onlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
-              zoomLevel, xtile, ytile, 10
+              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 2
               );
       
       lookupTileFound |= lookupAndDrawTile(offlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
-              zoomLevel, xtile, ytile, 10
+              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 2
               );
       
       if (!lookupTileFound){
@@ -617,15 +617,22 @@ bool DBThread::RenderMap(QPainter& painter,
 
 bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter, 
         double x, double y, double renderTileWidth, double renderTileHeight, 
-        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, uint32_t upLimit)
+        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
+        uint32_t upLimit, uint32_t downLimit)
 {
     bool triggerRequest = true;
+    
+    // trick for avoiding white lines between tiles caused by antialiasing
+    // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
+    double overlap = painter.testRenderHint(QPainter::Antialiasing) ? 0.5 : 0.0;
 
     uint32_t lookupTileZoom = zoomLevel;
     uint32_t lookupXTile = xtile;
     uint32_t lookupYTile = ytile;
     QRectF lookupTileViewport(0, 0, 1, 1); // tile viewport (percent)
     bool lookupTileFound = false;
+    
+    // lookup upper zoom levels
     //qDebug() << "Need paint tile " << xtile << " " << ytile << " zoom " << zoomLevel;
     while ((!lookupTileFound) && (lookupTileZoom >= 0) && (zoomLevel - lookupTileZoom <= upLimit)){
       //qDebug() << "  - lookup tile " << lookupXTile << " " << lookupYTile << " zoom " << lookupTileZoom << " " << " viewport " << lookupTileViewport;
@@ -641,13 +648,7 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
             // TODO: measure performance difference between drawing QImage and QPixmap
             // if QPixmap will have some benefits, we can convert image to pixmap.
             // But It can be done only in gui thread!
-            if (painter.testRenderHint(QPainter::Antialiasing)){
-                // trick for avoiding white lines between tiles caused by antialiasing
-                // http://stackoverflow.com/questions/7332118/antialiasing-leaves-thin-line-between-adjacent-widgets
-                painter.drawImage(QRectF(x, y, renderTileWidth+0.5, renderTileHeight+0.5), val.image, imageViewport);
-            }else{
-                painter.drawImage(QRectF(x, y, renderTileWidth, renderTileHeight), val.image, imageViewport);
-            }
+            painter.drawImage(QRectF(x, y, renderTileWidth+overlap, renderTileHeight+overlap), val.image, imageViewport);
           }
           lookupTileFound = true;
           if (lookupTileZoom == zoomLevel)
@@ -667,6 +668,15 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
           lookupYTile = lookupYTile / 2;
       }
     }
+    
+    // lookup bottom zoom levels
+    if (!lookupTileFound && downLimit > 0){
+        lookupAndDrawBottomTileRecursive(tileCache, painter, 
+            x, y, renderTileWidth, renderTileHeight, overlap,
+            zoomLevel, xtile, ytile, 
+            downLimit -1);        
+    }
+    
     if (triggerRequest){
        if (tileCache.request(zoomLevel, xtile, ytile)){
          //std::cout << "  tile request: " << zoomLevel << " xtile: " << xtile << " ytile: " << ytile << std::endl;
@@ -676,6 +686,50 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
     }
     return lookupTileFound;
 }
+
+void DBThread::lookupAndDrawBottomTileRecursive(TileCache& tileCache, QPainter& painter, 
+        double x, double y, double renderTileWidth, double renderTileHeight, double overlap,
+        uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
+        uint32_t downLimit)
+{
+    if (zoomLevel > 20)
+        return;
+
+    //qDebug() << "Need paint tile " << xtile << " " << ytile << " zoom " << zoomLevel;
+    uint32_t lookupTileZoom = zoomLevel + 1;
+    uint32_t lookupXTile;
+    uint32_t lookupYTile;
+    uint32_t tileCnt = 2;
+
+    for (uint32_t ty = 0; ty < tileCnt; ty++){
+        lookupYTile = ytile *2 + ty;
+        for (uint32_t tx = 0; tx < tileCnt; tx++){
+            lookupXTile = xtile *2 + tx;
+            //qDebug() << "  - lookup tile " << lookupXTile << " " << lookupYTile << " zoom " << lookupTileZoom;
+            bool found = false;
+            if (tileCache.contains(lookupTileZoom, lookupXTile, lookupYTile)){
+                TileCacheVal val = tileCache.get(lookupTileZoom, lookupXTile, lookupYTile);
+                if (!val.image.isNull()){
+                    double imageWidth = val.image.width();
+                    double imageHeight = val.image.height();                    
+                    painter.drawImage(
+                            QRectF(x + tx * (renderTileWidth/tileCnt), y + ty * (renderTileHeight/tileCnt), renderTileWidth/tileCnt + overlap, renderTileHeight/tileCnt + overlap),
+                            val.image, 
+                            QRectF(0.0, 0.0, imageWidth, imageHeight));
+                    found = true;
+                }              
+            }
+            if (!found && downLimit > 0){
+                // recursion
+                lookupAndDrawBottomTileRecursive(tileCache, painter, 
+                    x + tx * (renderTileWidth/tileCnt), y + ty * (renderTileHeight/tileCnt), renderTileWidth/tileCnt, renderTileHeight/tileCnt, overlap,
+                    zoomLevel +1, lookupXTile, lookupYTile, 
+                    downLimit -1); 
+            }
+        }            
+    }
+}
+
 
 DBThread::DatabaseTileState DBThread::databaseTileState(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile)
 {
