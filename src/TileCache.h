@@ -31,6 +31,7 @@
 #include <QSet>
 #include <QTime>
 #include <QImage>
+#include <QPixmap>
 
 #include <osmscout/util/GeoBox.h>
 
@@ -51,7 +52,7 @@ Q_DECLARE_METATYPE(TileCacheKey)
 struct TileCacheVal
 {
   QTime lastAccess;
-  QImage image;
+  QPixmap image;
 };
 
 Q_DECLARE_METATYPE(TileCacheVal)
