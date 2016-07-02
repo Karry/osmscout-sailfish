@@ -648,7 +648,7 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
             // TODO: measure performance difference between drawing QImage and QPixmap
             // if QPixmap will have some benefits, we can convert image to pixmap.
             // But It can be done only in gui thread!
-            painter.drawImage(QRectF(x, y, renderTileWidth+overlap, renderTileHeight+overlap), val.image, imageViewport);
+            painter.drawPixmap(QRectF(x, y, renderTileWidth+overlap, renderTileHeight+overlap), val.image, imageViewport);
           }
           lookupTileFound = true;
           if (lookupTileZoom == zoomLevel)
@@ -712,7 +712,7 @@ void DBThread::lookupAndDrawBottomTileRecursive(TileCache& tileCache, QPainter& 
                 if (!val.image.isNull()){
                     double imageWidth = val.image.width();
                     double imageHeight = val.image.height();                    
-                    painter.drawImage(
+                    painter.drawPixmap(
                             QRectF(x + tx * (renderTileWidth/tileCnt), y + ty * (renderTileHeight/tileCnt), renderTileWidth/tileCnt + overlap, renderTileHeight/tileCnt + overlap),
                             val.image, 
                             QRectF(0.0, 0.0, imageWidth, imageHeight));
