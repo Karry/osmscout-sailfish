@@ -52,6 +52,8 @@ MapWidget::MapWidget(QQuickItem* parent)
     view = { osmscout::GeoCoord(0.0, 0.0), 0, osmscout::Magnification::magContinent  };
     setupInputHandler(new InputHandler(view));
 
+    setRenderTarget(RenderTarget::FramebufferObject);
+    setPerformanceHints(PerformanceHint::FastFBOResizing);
 }
 
 MapWidget::~MapWidget()
