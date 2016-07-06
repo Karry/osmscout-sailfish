@@ -227,6 +227,7 @@ set(SOURCE_FILES
     qml/custom/MapDialog.qml
     qml/custom/ScrollIndicator.qml
     qml/pages/Map.qml
+    qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml
     qml/main.qml
     qml/desktop.qml

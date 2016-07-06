@@ -105,6 +105,15 @@ Window {
                                map.height /* -searchDialog.y-searchDialog.height-3 *Theme.vertSpace */)
             }
 
+            onTap: {
+
+                console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+            }
+            onLongTap: {
+
+                console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+            }
+
             Keys.onPressed: {
                 if (event.key === Qt.Key_Plus) {
                     map.zoomIn(2.0)

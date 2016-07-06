@@ -83,6 +83,23 @@ Page {
                                map.height-searchDialog.y-searchDialog.height-3*Theme.vertSpace)
             }
 
+            onTap: {
+
+                console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+            }
+            onLongTap: {
+
+                console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+
+                pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
+                               {placeLat: lat, placeLon: lon})
+            }
+            /*
+            void doubleTap(const QPoint p, const osmscout::GeoCoord c);
+            void longTap(const QPoint p, const osmscout::GeoCoord c);
+            void tapLongTap(const QPoint p, const osmscout::GeoCoord c);
+            */
+
             Keys.onPressed: {
                 if (event.key === Qt.Key_Plus) {
                     map.zoomIn(2.0)
