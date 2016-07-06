@@ -134,7 +134,7 @@ void MapWidget::touchEvent(QTouchEvent *event)
     }
 
     tapRecognizer.touch(event);
-  
+
     /*
     qDebug() << "touchEvent:";
     QList<QTouchEvent::TouchPoint> relevantTouchPoints;
@@ -319,6 +319,19 @@ void MapWidget::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnificatio
 void MapWidget::showCoordinates(double lat, double lon)
 {
     showCoordinates(osmscout::GeoCoord(lat,lon), osmscout::Magnification::magVeryClose);
+}
+
+void MapWidget::showCoordinatesInstantly(osmscout::GeoCoord coord, osmscout::Magnification magnification)
+{
+    view.magnification = magnification;
+    view.center = coord;
+    setupInputHandler(new InputHandler(view));
+    redraw();
+}
+
+void MapWidget::showCoordinatesInstantly(double lat, double lon)
+{
+    showCoordinatesInstantly(osmscout::GeoCoord(lat,lon), osmscout::Magnification::magVeryClose);    
 }
 
 void MapWidget::showLocation(Location* location)
