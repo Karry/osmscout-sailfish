@@ -51,6 +51,7 @@ MapWidget::MapWidget(QQuickItem* parent)
     // TODO, open last position, move to current position or get as constructor argument...
     view = { osmscout::GeoCoord(0.0, 0.0), 0, osmscout::Magnification::magContinent  };
     setupInputHandler(new InputHandler(view));
+    setKeepTouchGrab(true);
 
     setRenderTarget(RenderTarget::FramebufferObject);
     setPerformanceHints(PerformanceHint::FastFBOResizing);
@@ -134,7 +135,9 @@ void MapWidget::touchEvent(QTouchEvent *event)
     }
 
     tapRecognizer.touch(event);
-
+    
+    event->accept();
+  
     /*
     qDebug() << "touchEvent:";
     QList<QTouchEvent::TouchPoint> relevantTouchPoints;
