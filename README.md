@@ -75,7 +75,7 @@ cd libsailfishapp
 mkdir build
 cd build
 qmake-qt5 ..
-make -j 4
+make -j `nproc`
 sudo make install
 ```
 
