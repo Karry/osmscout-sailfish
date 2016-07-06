@@ -588,12 +588,12 @@ bool DBThread::RenderMap(QPainter& painter,
       
       bool lookupTileFound = lookupAndDrawTile(onlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
-              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 2
+              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 3
               );
       
       lookupTileFound |= lookupAndDrawTile(offlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
-              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 2
+              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 3
               );
       
       if (!lookupTileFound){
@@ -645,9 +645,6 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
                     imageWidth * lookupTileViewport.width(), imageHeight * lookupTileViewport.height() );
 
             // TODO: support map rotation
-            // TODO: measure performance difference between drawing QImage and QPixmap
-            // if QPixmap will have some benefits, we can convert image to pixmap.
-            // But It can be done only in gui thread!
             painter.drawPixmap(QRectF(x, y, renderTileWidth+overlap, renderTileHeight+overlap), val.image, imageViewport);
           }
           lookupTileFound = true;
