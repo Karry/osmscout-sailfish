@@ -140,6 +140,8 @@ public:
   
   void wheelEvent(QWheelEvent* event);
   virtual void touchEvent(QTouchEvent *event);
+  
+  virtual void focusOutEvent(QFocusEvent *event);
 
   void translateToTouch(QMouseEvent* event, Qt::TouchPointStates states);
   

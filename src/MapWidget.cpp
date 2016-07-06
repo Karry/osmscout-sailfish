@@ -150,6 +150,13 @@ void MapWidget::touchEvent(QTouchEvent *event)
     */
  }
 
+void MapWidget::focusOutEvent(QFocusEvent *event)
+{
+    qDebug() << "focus-out event, cancel all input events";
+    setupInputHandler(new InputHandler(view));
+    QQuickPaintedItem::focusOutEvent(event);
+}
+
 void MapWidget::wheelEvent(QWheelEvent* event)
 {
     int numDegrees=event->delta()/8;
