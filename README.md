@@ -84,7 +84,7 @@ Then you can compile osmscout-sailfish:
 ```
 mkdir -p build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Debug -DQT_QML_DEBUG=yes ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DQT_QML_DEBUG=yes -DOSMSCOUT_ENABLE_SSE=true ..
 make -j `nproc`
 ./harbour-osmscout --desktop 
 ```
