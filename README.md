@@ -67,6 +67,20 @@ is helpful to run application locally.
 When you start application with `--desktop` switch, it will use 
 `desktop.qml` UI. You don't need `Sailfish.Silica` components on your machine.
 
+First, you need to install libsailfishapp locally:
+
+```
+git clone https://github.com/sailfish-sdk/libsailfishapp.git
+cd libsailfishapp
+mkdir build
+cd build
+qmake-qt5 ..
+make -j 4
+sudo make install
+```
+
+Then you can compile osmscout-sailfish:
+
 ```
 mkdir -p build
 cd build
@@ -89,4 +103,9 @@ valgrind -v --track-origins=yes --leak-check=full --show-leak-kinds=all ./harbou
 LD_PRELOAD=/usr/local/lib/libtcmalloc.so HEAPPROFILE=./heap-profile ./harbour-osmscout --desktop 
 # convert all samples to svg
 find  . -name \*.heap -exec bash -c "pprof -svg harbour-osmscout {} | tee {}.svg" \;
+```
+
+ * Debug Qt render timing
+```
+QSG_RENDER_TIMING=1 ./harbour-osmscout --desktop
 ```
