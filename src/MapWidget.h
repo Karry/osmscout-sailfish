@@ -51,6 +51,8 @@ private:
   double lon;
   bool horizontalAccuracyValid;
   double horizontalAccuracy;
+  
+  QMap<int, osmscout::GeoCoord> marks;
 
 signals:
   void latChanged();
@@ -91,6 +93,9 @@ public slots:
   void showLocation(Location* location);
 
   void locationChanged(bool locationValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy);
+  
+  void addPositionMark(int id, double lat, double lon);
+  void removePositionMark(int id);
 
   void onTap(const QPoint p);
   void onDoubleTap(const QPoint p);

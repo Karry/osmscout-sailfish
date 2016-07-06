@@ -213,9 +213,30 @@ void MapWidget::paint(QPainter *painter)
                 }
             }
             
+            // TODO: take DPI into account
             painter->setBrush(QBrush(QColor::fromRgbF(0,1,0, .6)));
             painter->setPen(QColor::fromRgbF(0.0, 0.5, 0.0, 0.9));
             painter->drawEllipse(x - 10, y - 10, 20, 20);
+        }
+    }
+    
+    // render marks
+    if (!marks.isEmpty()){
+        osmscout::MercatorProjection projection = getProjection();
+        
+        double x;
+        double y;
+        QPen pen;
+        pen.setColor(QColor::fromRgbF(0.5, 0.0, 0.0, 0.9));
+        pen.setWidth(6);
+        
+        for (auto &entry: marks){
+            projection.GeoToPixel(osmscout::GeoCoord(entry.GetLat(), entry.GetLon()), x, y);
+            if (boundingBox.contains(x, y)){
+                // TODO: take DPI into account
+                painter->setPen(pen);
+                painter->drawEllipse(x - 20, y - 20, 40, 40);
+            }
         }
     }
 }
@@ -409,6 +430,15 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
     this->horizontalAccuracy = horizontalAccuracy;
     redraw();
 }
+void MapWidget::addPositionMark(int id, double lat, double lon)
+{
+    marks.insert(id, osmscout::GeoCoord(lat, lon));
+}
+void MapWidget::removePositionMark(int id)
+{
+    marks.remove(id);
+}
+
 
 void MapWidget::onTap(const QPoint p)
 {
