@@ -125,6 +125,15 @@ struct MapView
 
 Q_DECLARE_METATYPE(MapView)
 
+inline bool operator==(const MapView& a, const MapView& b)
+{
+  return a.center == b.center && a.angle == b.angle && a.magnification == b.magnification;
+}
+inline bool operator!=(const MapView& a, const MapView& b)
+{
+  return ! (a == b);
+}
+
 /**
  * Input handler retrieve all inputs from user and may change MapView. 
  * If handler don't accept specific action, returns false. In such case, 
