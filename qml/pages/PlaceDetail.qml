@@ -44,13 +44,24 @@ Page {
                 width: parent.width
 
                 spacing: Theme.paddingMedium
-                InfoLabel {
-                    text: formatCoord(placeLat, placeLon)
-                    width: parent.width
-                    opacity: busyIndicator.opacity
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    //anchors.top: parent.top
+
+
+                Row{
+                    spacing: Theme.paddingMedium
+                    anchors.right: parent.right
+                    Label {
+                        id: placeLocationLabel
+                        text: formatCoord(placeLat, placeLon)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    IconButton{
+                        icon.source: "image://theme/icon-m-clipboard"
+                        onClicked: {
+                            Clipboard.text = placeLocationLabel.text
+                        }
+                    }
                 }
+
                 BusyIndicator {
                     id: busyIndicator
                     running: !infoReady
@@ -64,7 +75,7 @@ Page {
           id: map
           //focus: true
           anchors.fill: parent
-
+          showCurrentPosition: true
         }
     }
 }
