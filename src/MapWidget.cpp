@@ -29,7 +29,8 @@ static double DELTA_ANGLE=2*M_PI/16.0;
 MapWidget::MapWidget(QQuickItem* parent)
     : QQuickPaintedItem(parent),
       inputHandler(NULL), 
-      showCurrentPosition(false)
+      showCurrentPosition(false),
+      finished(false)
 {
     setOpaquePainting(true);
     setAcceptedMouseButtons(Qt::LeftButton);
@@ -102,7 +103,7 @@ void MapWidget::setupInputHandler(InputHandler *newGesture)
     inputHandler = newGesture;
     
     connect(inputHandler, SIGNAL(viewChanged(const MapView&)), 
-            this, SLOT(viewChanged(const MapView&)));
+            this, SLOT(changeView(const MapView&)));
     
     //qDebug() << "Input handler changed (" << (newGesture->animationInProgress()? "animation": "stationary") << ")";
 }
@@ -112,13 +113,16 @@ void MapWidget::redraw()
     update();
 }
 
-void MapWidget::viewChanged(const MapView &updated)
+void MapWidget::changeView(const MapView &updated)
 {
     //qDebug() << "viewChanged: " << QString::fromStdString(updated.center.GetDisplayText()) << "   level: " << updated.magnification.GetLevel();
     //qDebug() << "viewChanged (" << (inputHandler->animationInProgress()? "animation": "stationary") << ")";
-
+    bool changed = view != updated;
     view = updated;
-    redraw();
+    if (changed){
+        redraw();
+        emit viewChanged();
+    }
 }
 
 void MapWidget::touchEvent(QTouchEvent *event)
@@ -193,7 +197,11 @@ void MapWidget::paint(QPainter *painter)
     request.width = boundingBox.width();
     request.height = boundingBox.height();
 
-    dbThread->RenderMap(*painter,request);
+    bool oldFinished = finished;
+    finished = dbThread->RenderMap(*painter,request);
+    if (oldFinished != finished){
+        emit finishedChanged(finished);
+    }
 
     // render current position spot
     if (showCurrentPosition && locationValid){
@@ -201,7 +209,7 @@ void MapWidget::paint(QPainter *painter)
         
         double x;
         double y;
-        projection.GeoToPixel(osmscout::GeoCoord(lat, lon), x, y);
+        projection.GeoToPixel(osmscout::GeoCoord(currentPosition.GetLat(), currentPosition.GetLon()), x, y);
         if (boundingBox.contains(x, y)){
             
             if (horizontalAccuracyValid){
@@ -342,8 +350,6 @@ void MapWidget::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnificatio
     if (!inputHandler->showCoordinates(coord, magnification)){
         setupInputHandler(new JumpHandler(view));
         inputHandler->showCoordinates(coord, magnification);
-        //view = { coord, view.angle, magnification  };
-        //viewChanged(view);
     }
 }
 
@@ -354,10 +360,12 @@ void MapWidget::showCoordinates(double lat, double lon)
 
 void MapWidget::showCoordinatesInstantly(osmscout::GeoCoord coord, osmscout::Magnification magnification)
 {
-    view.magnification = magnification;
-    view.center = coord;
-    setupInputHandler(new InputHandler(view));
-    redraw();
+    
+    MapView newView = view;
+    newView.magnification = magnification;
+    newView.center = coord;
+    setupInputHandler(new InputHandler(newView));
+    changeView(newView);
 }
 
 void MapWidget::showCoordinatesInstantly(double lat, double lon)
@@ -424,8 +432,7 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
     // location
     lastUpdate.restart();
     this->locationValid = locationValid;
-    this->lat = lat; 
-    this->lon = lon;
+    this->currentPosition.Set(lat, lon);
     this->horizontalAccuracyValid = horizontalAccuracyValid;
     this->horizontalAccuracy = horizontalAccuracy;
     redraw();

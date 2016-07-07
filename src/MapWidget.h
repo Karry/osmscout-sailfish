@@ -32,8 +32,11 @@
 class MapWidget : public QQuickPaintedItem
 {
   Q_OBJECT
-  Q_PROPERTY(double lat READ GetLat)
-  Q_PROPERTY(double lon READ GetLon)
+  Q_PROPERTY(double   lat READ GetLat NOTIFY viewChanged)
+  Q_PROPERTY(double   lon READ GetLon NOTIFY viewChanged)
+  Q_PROPERTY(uint32_t magLevel READ GetMagLevel NOTIFY viewChanged)
+  Q_PROPERTY(bool     finished READ IsFinished NOTIFY finishedChanged)
+  Q_PROPERTY(bool     showCurrentPosition READ getShowCurrentPosition WRITE setShowCurrentPosition)
 
 private:
 
@@ -43,20 +46,19 @@ private:
   InputHandler     *inputHandler;
   TapRecognizer    tapRecognizer;     
   
-  // location
   bool showCurrentPosition;
+  bool finished;
   QTime lastUpdate;
   bool locationValid;
-  double lat; 
-  double lon;
+  osmscout::GeoCoord currentPosition;
   bool horizontalAccuracyValid;
   double horizontalAccuracy;
   
   QMap<int, osmscout::GeoCoord> marks;
 
 signals:
-  void latChanged();
-  void lonChanged();
+  void viewChanged();
+  void finishedChanged(bool finished);
   
   void tap(const int sceenX, const int screenY, const double lat, const double lon);
   void doubleTap(const int sceenX, const int screenY, const double lat, const double lon);
@@ -64,7 +66,7 @@ signals:
   void tapLongTap(const int sceenX, const int screenY, const double lat, const double lon);
 
 public slots:
-  void viewChanged(const MapView &view);
+  void changeView(const MapView &view);
   void redraw();
   
   void zoom(double zoomFactor);
@@ -109,8 +111,6 @@ public:
   MapWidget(QQuickItem* parent = 0);
   virtual ~MapWidget();
 
-  Q_PROPERTY(bool showCurrentPosition READ getShowCurrentPosition WRITE setShowCurrentPosition)
-
   inline double GetLat() const
   {
       return view.center.GetLat();
@@ -119,6 +119,15 @@ public:
   inline double GetLon() const
   {
       return view.center.GetLon();
+  }
+  
+  inline int GetMagLevel() const
+  {
+      return view.magnification.GetLevel();
+  }
+  inline bool IsFinished() const
+  {
+      return finished;
   }
   
   inline bool getShowCurrentPosition()
