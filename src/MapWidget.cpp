@@ -235,7 +235,7 @@ void MapWidget::paint(QPainter *painter)
         double x;
         double y;
         QPen pen;
-        pen.setColor(QColor::fromRgbF(0.5, 0.0, 0.0, 0.9));
+        pen.setColor(QColor::fromRgbF(0.8, 0.0, 0.0, 0.9));
         pen.setWidth(6);
         
         for (auto &entry: marks){
@@ -440,10 +440,12 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
 void MapWidget::addPositionMark(int id, double lat, double lon)
 {
     marks.insert(id, osmscout::GeoCoord(lat, lon));
+    update();
 }
 void MapWidget::removePositionMark(int id)
 {
     marks.remove(id);
+    update();
 }
 
 
