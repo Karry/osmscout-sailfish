@@ -33,6 +33,7 @@
 // Custom QML objects
 #include "MapWidget.h"
 #include "SearchLocationModel.h"
+#include "LocationInfoModel.h"
 #include "RoutingModel.h"
 
 // Application settings
@@ -87,6 +88,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<MapWidget>("harbour.osmscout.map", 1, 0, "Map");
   qmlRegisterType<Location>("harbour.osmscout.map", 1, 0, "Location");
   qmlRegisterType<LocationListModel>("harbour.osmscout.map", 1, 0, "LocationListModel");
+  qmlRegisterType<LocationInfoModel>("harbour.osmscout.map", 1, 0, "LocationInfoModel");
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
 

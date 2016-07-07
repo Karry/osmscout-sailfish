@@ -195,6 +195,7 @@ set(HEADER_FILES
     src/MapWidget.h
     src/RoutingModel.h
     src/SearchLocationModel.h
+    src/LocationInfoModel.h
     src/Settings.h
     src/Theme.h
     src/TileCache.h
@@ -209,6 +210,7 @@ set(SOURCE_FILES
     src/OSMScout.cpp
     src/RoutingModel.cpp
     src/SearchLocationModel.cpp
+    src/LocationInfoModel.cpp
     src/Settings.cpp
     src/Theme.cpp
     src/TileCache.cpp
