@@ -603,7 +603,7 @@ bool DBThread::RenderMap(QPainter& painter,
       }
     }
   }
-  
+  /*
   painter.setPen(grey);
   painter.drawText(20, 30, QString("%1").arg(projection.GetMagnification().GetLevel()));
   
@@ -611,7 +611,7 @@ bool DBThread::RenderMap(QPainter& painter,
   double centerLon;
   projection.PixelToGeo(projection.GetWidth() / 2.0, projection.GetHeight() / 2.0, centerLon, centerLat);
   painter.drawText(20, 60, QString::fromStdString(osmscout::GeoCoord(centerLat, centerLon).GetDisplayText()));  
-
+  */
   return onlineTileCache.isRequestQueueEmpty() && offlineTileCache.isRequestQueueEmpty();
 }
 
