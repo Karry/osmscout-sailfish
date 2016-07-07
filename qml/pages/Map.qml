@@ -150,6 +150,34 @@ Page {
                 }
             }
 
+            Rectangle{
+                id : renderProgress
+                anchors{
+                    left: parent.left
+                    top: parent.top
+                }
+                width: busyIndicator.width + Theme.paddingMedium
+                height: busyIndicator.height + Theme.paddingMedium
+
+                color: "transparent"
+                opacity: map.finished ? 0 : 0.9
+                Behavior on opacity { NumberAnimation {} }
+
+                BusyIndicator{
+                    id: busyIndicator
+                    running: !map.finished
+                    size: BusyIndicatorSize.Medium
+                    anchors.centerIn: parent
+                }
+                Text {
+                    id: magLevelLabel
+                    text: map.magLevel
+                    anchors.centerIn: parent
+                    opacity: 0.6
+                    font.pointSize: Theme.fontSizeMedium
+                }
+
+            }
 
             Rectangle{
                 id : osmCopyright
@@ -168,7 +196,7 @@ Page {
                     text: qsTr("© OpenStreetMap contributors")
                     anchors.centerIn: parent
 
-                    font.pointSize: 12
+                    font.pointSize: Theme.fontSizeExtraSmall *0.6
                 }
 
             }
