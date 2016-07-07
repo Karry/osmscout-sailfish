@@ -85,7 +85,7 @@ Page {
 
         Map {
           id: map
-          //focus: true
+
           anchors.fill: parent
           showCurrentPosition: true
 
@@ -98,6 +98,23 @@ Page {
               changePosition(lat, lon, false)
           }
 
+          MapRenderingIndicator{
+              id : renderProgress
+              anchors{
+                  left: parent.left
+                  top: parent.top
+              }
+
+              magLevel: map.magLevel
+              finished: map.finished
+          }
+          OSMCopyright{
+              id : osmCopyright
+              anchors{
+                  left: parent.left
+                  bottom: parent.bottom
+              }
+          }
         }
     }
 }

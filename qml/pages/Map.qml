@@ -76,13 +76,6 @@ Page {
 
             showCurrentPosition: true
 
-            function getFreeRect() {
-                return Qt.rect(Theme.horizSpace,
-                               Theme.vertSpace+searchDialog.height+Theme.vertSpace,
-                               map.width-2*Theme.horizSpace,
-                               map.height-searchDialog.y-searchDialog.height-3*Theme.vertSpace)
-            }
-
             onTap: {
 
                 console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
@@ -150,55 +143,23 @@ Page {
                 }
             }
 
-            Rectangle{
+            MapRenderingIndicator{
                 id : renderProgress
                 anchors{
                     left: parent.left
                     top: parent.top
                 }
-                width: busyIndicator.width + Theme.paddingMedium
-                height: busyIndicator.height + Theme.paddingMedium
 
-                color: "transparent"
-                opacity: map.finished ? 0 : 0.9
-                Behavior on opacity { NumberAnimation {} }
-
-                BusyIndicator{
-                    id: busyIndicator
-                    running: !map.finished
-                    size: BusyIndicatorSize.Medium
-                    anchors.centerIn: parent
-                }
-                Text {
-                    id: magLevelLabel
-                    text: map.magLevel
-                    anchors.centerIn: parent
-                    opacity: 0.6
-                    font.pointSize: Theme.fontSizeMedium
-                }
-
+                magLevel: map.magLevel
+                finished: map.finished
             }
 
-            Rectangle{
+            OSMCopyright{
                 id : osmCopyright
                 anchors{
                     left: parent.left
                     bottom: parent.bottom
                 }
-                width: label.width + 20
-                height: label.height + 12
-
-                color: "white"
-                opacity: 0.7
-
-                Text {
-                    id: label
-                    text: qsTr("© OpenStreetMap contributors")
-                    anchors.centerIn: parent
-
-                    font.pointSize: Theme.fontSizeExtraSmall *0.6
-                }
-
             }
 
             Rectangle {

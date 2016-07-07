@@ -228,6 +228,8 @@ set(SOURCE_FILES
     qml/custom/MapButton.qml
     qml/custom/MapDialog.qml
     qml/custom/ScrollIndicator.qml
+    qml/custom/MapRenderingIndicator.qml
+    qml/custom/OSMCopyright.qml
     qml/pages/Map.qml
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml
