@@ -612,7 +612,7 @@ bool DBThread::RenderMap(QPainter& painter,
   projection.PixelToGeo(projection.GetWidth() / 2.0, projection.GetHeight() / 2.0, centerLon, centerLat);
   painter.drawText(20, 60, QString::fromStdString(osmscout::GeoCoord(centerLat, centerLon).GetDisplayText()));  
 
-  return true;
+  return onlineTileCache.isRequestQueueEmpty() && offlineTileCache.isRequestQueueEmpty();
 }
 
 bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter, 

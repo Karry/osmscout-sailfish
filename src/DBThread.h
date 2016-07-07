@@ -184,6 +184,12 @@ public:
   
   void CancelCurrentDataLoading();
 
+  /**
+   * Render map defined by request to painter 
+   * @param painter
+   * @param request
+   * @return true if rendered map is complete (queue of tile render requests is empty)
+   */
   bool RenderMap(QPainter& painter,
                  const RenderMapRequest& request);
   
