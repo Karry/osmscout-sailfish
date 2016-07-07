@@ -503,7 +503,7 @@ bool DBThread::RenderMap(QPainter& painter,
   
    
   QColor white = QColor::fromRgbF(1.0,1.0,1.0);
-  QColor grey = QColor::fromRgbF(0.5,0.5,0.5);
+  //QColor grey = QColor::fromRgbF(0.5,0.5,0.5);
   QColor grey2 = QColor::fromRgbF(0.8,0.8,0.8);
   
   painter.fillRect( 0,0,
