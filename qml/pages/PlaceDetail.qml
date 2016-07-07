@@ -83,7 +83,7 @@ Page {
             }
         }
 
-        Map {
+        MapComponent {
           id: map
 
           anchors.fill: parent
@@ -96,24 +96,6 @@ Page {
           onLongTap: {
               console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
               changePosition(lat, lon, false)
-          }
-
-          MapRenderingIndicator{
-              id : renderProgress
-              anchors{
-                  left: parent.left
-                  top: parent.top
-              }
-
-              magLevel: map.magLevel
-              finished: map.finished
-          }
-          OSMCopyright{
-              id : osmCopyright
-              anchors{
-                  left: parent.left
-                  bottom: parent.bottom
-              }
           }
         }
     }

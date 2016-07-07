@@ -61,14 +61,16 @@ Page {
             positionSource.lon = position.coordinate.longitude;
             positionIndicator.color = (position.latitudeValid && position.longitudeValid) ? "#8000FF00": "#80FF0000";
 
+            /*
             map.locationChanged(
                         position.latitudeValid && position.longitudeValid,
                         position.coordinate.latitude, position.coordinate.longitude,
                         position.horizontalAccuracyValid, position.horizontalAccuracy);
+            */
         }
     }
 
-        Map {
+        MapComponent {
             id: map
 
             focus: true
@@ -140,25 +142,6 @@ Page {
                 else if (event.modifiers===Qt.ControlModifier &&
                          event.key === Qt.Key_R) {
                     map.reloadStyle();
-                }
-            }
-
-            MapRenderingIndicator{
-                id : renderProgress
-                anchors{
-                    left: parent.left
-                    top: parent.top
-                }
-
-                magLevel: map.magLevel
-                finished: map.finished
-            }
-
-            OSMCopyright{
-                id : osmCopyright
-                anchors{
-                    left: parent.left
-                    bottom: parent.bottom
                 }
             }
 

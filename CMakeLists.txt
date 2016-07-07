@@ -230,6 +230,7 @@ set(SOURCE_FILES
     qml/custom/ScrollIndicator.qml
     qml/custom/MapRenderingIndicator.qml
     qml/custom/OSMCopyright.qml
+    qml/custom/MapComponent.qml
     qml/pages/Map.qml
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml

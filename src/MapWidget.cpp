@@ -234,15 +234,16 @@ void MapWidget::paint(QPainter *painter)
         
         double x;
         double y;
+        painter->setBrush(QBrush());
         QPen pen;
         pen.setColor(QColor::fromRgbF(0.8, 0.0, 0.0, 0.9));
         pen.setWidth(6);
+        painter->setPen(pen);
         
         for (auto &entry: marks){
             projection.GeoToPixel(osmscout::GeoCoord(entry.GetLat(), entry.GetLon()), x, y);
             if (boundingBox.contains(x, y)){
                 // TODO: take DPI into account
-                painter->setPen(pen);
                 painter->drawEllipse(x - 20, y - 20, 40, 40);
             }
         }
