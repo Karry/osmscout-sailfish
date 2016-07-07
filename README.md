@@ -105,7 +105,7 @@ LD_PRELOAD=/usr/local/lib/libtcmalloc.so HEAPPROFILE=./heap-profile ./harbour-os
 find  . -name \*.heap -exec bash -c "pprof -svg harbour-osmscout {} | tee {}.svg" \;
 ```
 
- * Debug Qt render timing
+ * Debug Qt renderer timing
 ```
 QSG_RENDER_TIMING=1 ./harbour-osmscout --desktop
 ```
