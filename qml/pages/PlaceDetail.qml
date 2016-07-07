@@ -23,6 +23,16 @@ Page {
         }
     }
 
+    function changePosition(lat, lon, moveMap){
+        placeLat = lat;
+        placeLon = lon;
+        infoReady = false;
+        map.addPositionMark(0, placeLat, placeLon);
+        if (moveMap){
+            map.showCoordinates(placeLat, placeLon);
+        }
+    }
+
     function formatCoord(lat, lon){
         // use consistent GeoCoord toString method
         return  (Math.round(lat * 100000)/100000) + " " + (Math.round(lon * 100000)/100000);
@@ -62,12 +72,14 @@ Page {
                     }
                 }
 
-                BusyIndicator {
-                    id: busyIndicator
-                    running: !infoReady
-                    size: BusyIndicatorSize.Large
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
+
+            }
+            BusyIndicator {
+                id: busyIndicator
+                running: !infoReady
+                size: BusyIndicatorSize.Large
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
 
@@ -76,6 +88,16 @@ Page {
           //focus: true
           anchors.fill: parent
           showCurrentPosition: true
+
+          onTap: {
+              console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+              changePosition(lat, lon, true);
+          }
+          onLongTap: {
+              console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+              changePosition(lat, lon, false)
+          }
+
         }
     }
 }
