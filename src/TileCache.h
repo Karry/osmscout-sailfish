@@ -88,6 +88,7 @@ public:
   bool startRequestProcess(uint32_t zoomLevel, uint32_t x, uint32_t y);
   void mergeAndStartRequests(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
     uint32_t &xFrom, uint32_t &xTo, uint32_t &yFrom, uint32_t &yTo, uint32_t maxWidth, uint32_t maxHeight);
+  bool isRequestQueueEmpty() const;
 
   /**
    * try to create new tile request. 

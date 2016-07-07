@@ -61,6 +61,11 @@ void TileCache::clearPendingRequests()
     }
 }
 
+bool TileCache::isRequestQueueEmpty() const
+{
+    return requests.isEmpty();
+}
+
 void TileCache::mergeAndStartRequests(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile, 
     uint32_t &xFrom, uint32_t &xTo, uint32_t &yFrom, uint32_t &yTo, uint32_t maxWidth, uint32_t maxHeight)
 {
