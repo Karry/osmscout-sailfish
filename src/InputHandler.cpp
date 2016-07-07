@@ -225,7 +225,7 @@ bool MoveHandler::touch(QTouchEvent *event)
 
 void MoveHandler::onTimeout()
 {
-    double progress = (double)(animationStart.elapsed() + ANIMATION_TICK) / (double)ANIMATION_DURATION;
+    double progress = (double)(animationStart.elapsed() + ANIMATION_TICK) / (double)animationDuration;
     if (progress >= 1){
         progress = 1.0;
         timer.stop();
@@ -305,6 +305,7 @@ bool MoveHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRe
         }        
     }
     //emit viewChanged(view);
+    animationDuration = ZOOM_ANIMATION_DURATION;
     animationStart.restart();
     timer.setInterval(ANIMATION_TICK);
     timer.start();
@@ -319,6 +320,7 @@ bool MoveHandler::move(QVector2D move)
     _move.setX(move.x());
     _move.setY(move.y());
 
+    animationDuration = MOVE_ANIMATION_DURATION;
     animationStart.restart();
     timer.setInterval(ANIMATION_TICK);
     timer.start();
