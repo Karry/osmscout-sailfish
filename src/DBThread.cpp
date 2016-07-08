@@ -1122,6 +1122,21 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
   }
 }
 
+void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
+{
+  QMutexLocker locker(&mutex);
+  
+  osmscout::LocationDescription description;
+  
+  if (!locationService->DescribeLocation(location, description)) {
+    std::cerr << "Error during generation of location description" << std::endl;
+    emit locationDescription(location, description); // TODO: report error
+    return;
+  }
+  
+  emit locationDescription(location, description);
+}
+
 static DBThread* dbThreadInstance=NULL;
 
 bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi)

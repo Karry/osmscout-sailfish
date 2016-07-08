@@ -86,6 +86,7 @@ signals:
   void Redraw();
   void TileStatusChanged(const osmscout::TileRef& tile);
   //void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+  void locationDescription(const osmscout::GeoCoord location, const osmscout::LocationDescription description);
 
 public slots:
   void ToggleDaylight();
@@ -100,6 +101,7 @@ public slots:
   void offlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
   void tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
   void tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y, bool zoomLevelOutOfRange);  
+  void requestLocationDescription(const osmscout::GeoCoord location);
 
 private:
   QString                       databaseDirectory; 

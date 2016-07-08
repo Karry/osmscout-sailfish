@@ -32,26 +32,35 @@
 class LocationInfoModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool ready READ isReady)
+    Q_PROPERTY(bool ready READ isReady NOTIFY readyChange)
+
+signals:
+    void locationDescriptionRequested(const osmscout::GeoCoord location);
+    void readyChange(bool ready);
 
 public slots:
-    void setCoords(const double lat, const double lon);
+    void setLocation(const double lat, const double lon);
     void dbInitialized(const DatabaseLoadedResponse&);
-    
+    void onLocationDescription(const osmscout::GeoCoord location, const osmscout::LocationDescription description);
+
+public:
+    enum Roles {
+        LabelRole = Qt::UserRole,
+        BearingRole = Qt::UserRole+1
+    };
+
 public:
     LocationInfoModel();
-    virtual inline ~LocationInfoModel(){}
+    virtual inline ~LocationInfoModel(){};
 
     int inline rowCount(const QModelIndex &parent = QModelIndex()) const
     {
-        return 0;
+        return ready? 1:0;
     };
     
-    QVariant inline data(const QModelIndex &index, int role) const
-    {
-        return QVariant();
-    };
-    
+    QVariant data(const QModelIndex &index, int role) const;
+    QHash<int, QByteArray> roleNames() const;
+    Qt::ItemFlags flags(const QModelIndex &index) const;
     
     bool inline isReady() const 
     {
@@ -61,7 +70,8 @@ public:
 private:
     bool ready;
     bool setup;
-    osmscout::GeoCoord coord;
+    osmscout::GeoCoord location;
+    osmscout::LocationDescription description;
     
 };
 

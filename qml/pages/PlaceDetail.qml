@@ -13,21 +13,19 @@ Page {
     property double placeLat: 0.1;
     property double placeLon: 0.2;
 
-    property bool infoReady: false;
-
     onStatusChanged: {
         if (status == PageStatus.Activating){
-            infoReady = false;
             map.showCoordinatesInstantly(placeLat, placeLon);
             map.addPositionMark(0, placeLat, placeLon);
+            locationInfoModel.setLocation(placeLat, placeLon);
         }
     }
 
     function changePosition(lat, lon, moveMap){
         placeLat = lat;
         placeLon = lon;
-        infoReady = false;
         map.addPositionMark(0, placeLat, placeLon);
+        locationInfoModel.setLocation(placeLat, placeLon);
         if (moveMap){
             map.showCoordinates(placeLat, placeLon);
         }
@@ -36,6 +34,10 @@ Page {
     function formatCoord(lat, lon){
         // use consistent GeoCoord toString method
         return  (Math.round(lat * 100000)/100000) + " " + (Math.round(lon * 100000)/100000);
+    }
+
+    LocationInfoModel{
+        id: locationInfoModel
     }
 
     Drawer {
@@ -76,7 +78,7 @@ Page {
             }
             BusyIndicator {
                 id: busyIndicator
-                running: !infoReady
+                running: !locationInfoModel.ready
                 size: BusyIndicatorSize.Large
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
