@@ -47,12 +47,9 @@ void LocationInfoModel::setLocation(const double lat, const double lon)
     location = osmscout::GeoCoord(lat, lon);
     setup = true;
     ready = false;
-    emit readyChange(ready);
 
-    DBThread *dbThread = DBThread::GetInstance();
-    if (dbThread->isInitialized()){
-        emit locationDescriptionRequested(location);
-    }
+    emit readyChange(ready);
+    emit locationDescriptionRequested(location);
 }
 
 void LocationInfoModel::dbInitialized(const DatabaseLoadedResponse&)

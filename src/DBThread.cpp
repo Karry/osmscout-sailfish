@@ -1124,6 +1124,9 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
 
 void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
 {
+  if (!isInitialized()){
+      return; // ignore request if db is not initialized
+  }
   QMutexLocker locker(&mutex);
   
   osmscout::LocationDescription description;
