@@ -73,12 +73,19 @@ QHash<int, QByteArray> LocationInfoModel::roleNames() const
     QHash<int, QByteArray> roles=QAbstractListModel::roleNames();
 
     roles[LabelRole]="label";
+    roles[TitleRole]="title";
+    roles[AddressRole]="address";
+    roles[InPlaceRole]="inPlace";
+    roles[DistanceRole]="distance";
+    roles[BearingRole]="bearing";
 
     return roles;
 }
 
 QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
 {
+    qDebug() << "Get data" << index.row() << " role: " << role << " (label: " << LabelRole<< ")";
+    
     if (!ready){
         return QVariant();
     }
@@ -92,11 +99,53 @@ QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
     if (atAddressDescription) {
         osmscout::Place place = atAddressDescription->GetPlace();
         
+        osmscout::POIRef poiRef = place.GetPOI();
+        osmscout::LocationRef locRef = place.GetLocation();
+        osmscout::AddressRef addrRef = place.GetAddress();
+        osmscout::AdminRegionRef regionRef = place.GetAdminRegion();
+        
+        QStringList descriptionParts;
+        if (poiRef){
+            descriptionParts << QString::fromStdString(poiRef->name);
+        }
+        if (locRef){
+            descriptionParts << QString::fromStdString(locRef->name);
+        }
+        if (addrRef){
+            descriptionParts << QString::fromStdString(addrRef->name);
+        }
+        if (regionRef){
+            descriptionParts << QString::fromStdString(regionRef->name);
+        }
+        QString address;
+        for (int i = 1; i < descriptionParts.size(); i++){
+            address += descriptionParts.at(i);
+            if (i < descriptionParts.size() -1){
+                address += ", ";
+            }
+        }
+        
+        
         switch (role) {
         case Qt::DisplayRole:
         case LabelRole:
+            qDebug() << "Label";
             return QString::fromStdString(place.GetDisplayString());
+        case TitleRole:
+            if (!descriptionParts.isEmpty()){
+                qDebug() << "Title " << descriptionParts.front();
+                return descriptionParts.front();
+            }
+            return "";
+        case AddressRole:
+            qDebug() << "Address " << address;
+            return address;
+        case InPlaceRole:
+            return atAddressDescription->IsAtPlace();
+        case DistanceRole:
+            return atAddressDescription->GetDistance();
         case BearingRole:
+            qDebug() << "Bearing";
             return QString::fromStdString(osmscout::BearingDisplayString(atAddressDescription->GetBearing()));
         default:
             break;
@@ -111,8 +160,14 @@ void LocationInfoModel::onLocationDescription(const osmscout::GeoCoord location,
     if (location != this->location){
         return; // not our request
     }
-    this->description = description;
     
+    beginResetModel();
+    this->description = description;
+    ready = true;
+    emit readyChange(ready);    
+    endResetModel();
+    
+    // just debug
     osmscout::LocationAtPlaceDescriptionRef atAddressDescription=description.GetAtAddressDescription();    
     if (atAddressDescription) {
         
@@ -130,7 +185,25 @@ void LocationInfoModel::onLocationDescription(const osmscout::GeoCoord location,
     }else{
         qWarning() << "No place description found for " << QString::fromStdString(location.GetDisplayText()) << "";
     }
+    // end of debug    
+}
+
+double LocationInfoModel::distance(double lat1, double lon1, 
+                                    double lat2, double lon2)
+{
     
-    ready = true;
-    emit readyChange(ready);
+
+    return osmscout::GetEllipsoidalDistance(
+            osmscout::GeoCoord(lat1, lon1),
+            osmscout::GeoCoord(lat2, lon2)) * 1000;
+}
+
+QString LocationInfoModel::bearing(double lat1, double lon1, 
+                                   double lat2, double lon2)
+{
+    return QString::fromStdString(
+            osmscout::BearingDisplayString(
+                osmscout::GetSphericalBearingInitial(
+                    osmscout::GeoCoord(lat1, lon1),
+                    osmscout::GeoCoord(lat2, lon2))));
 }

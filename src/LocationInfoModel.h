@@ -46,7 +46,11 @@ public slots:
 public:
     enum Roles {
         LabelRole = Qt::UserRole,
-        BearingRole = Qt::UserRole+1
+        TitleRole = Qt::UserRole+1,
+        AddressRole = Qt::UserRole+2,
+        InPlaceRole = Qt::UserRole+3,
+        DistanceRole = Qt::UserRole+4,
+        BearingRole = Qt::UserRole+5
     };
 
 public:
@@ -66,6 +70,11 @@ public:
     {
         return ready;
     };
+    
+    Q_INVOKABLE double distance(double lat1, double lon1, 
+                                 double lat2, double lon2);
+    Q_INVOKABLE QString bearing(double lat1, double lon1, 
+                                double lat2, double lon2);
     
 private:
     bool ready;
