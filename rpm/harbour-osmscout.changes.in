@@ -26,4 +26,8 @@
 - Move and zoom animations. Behavior is more natural, if user swipe on map, movement has momentum.
 - Various improvements in core library
 
-* 2016-xx-x Lukáš Karas <lukas.karas@centrum.cz> 0.5-1
+* 2016-07-13 Lukáš Karas <lukas.karas@centrum.cz> 0.5-1
+- Optimize map rendering (use framebuffer instead of image)
+- Lookup tiles from lower zoom levels (don't clear view while zoom-out)
+- Show place details on long tap
+- Path rendering improvements in core library
