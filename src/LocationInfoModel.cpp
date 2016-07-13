@@ -104,6 +104,9 @@ QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
         osmscout::AddressRef addrRef = place.GetAddress();
         osmscout::AdminRegionRef regionRef = place.GetAdminRegion();
         
+        double distance = atAddressDescription->GetDistance();
+        bool inPlace = atAddressDescription->IsAtPlace() || (distance < 1);
+        
         QStringList descriptionParts;
         if (poiRef){
             descriptionParts << QString::fromStdString(poiRef->name);
@@ -141,9 +144,9 @@ QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
             qDebug() << "Address " << address;
             return address;
         case InPlaceRole:
-            return atAddressDescription->IsAtPlace();
+            return inPlace;
         case DistanceRole:
-            return atAddressDescription->GetDistance();
+            return distance;
         case BearingRole:
             qDebug() << "Bearing";
             return QString::fromStdString(osmscout::BearingDisplayString(atAddressDescription->GetBearing()));

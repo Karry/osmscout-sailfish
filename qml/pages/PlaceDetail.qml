@@ -147,6 +147,7 @@ Page {
 
                         color: Theme.highlightColor
                         font.pixelSize: Theme.fontSizeSmall
+                        visible: !inPlace
                     }
                     Label {
                         id: entryTitle
