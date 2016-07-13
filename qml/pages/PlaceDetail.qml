@@ -45,7 +45,7 @@ Page {
             return Math.round(distance) + " meters";
         }
         if (distance < 20000){
-            return (Math.round(distance * 100)/100) + " km";
+            return (Math.round((distance/1000) * 100)/100) + " km";
         }
         return Math.round(distance/1000) + " km";
     }
