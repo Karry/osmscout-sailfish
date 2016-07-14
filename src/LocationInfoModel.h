@@ -46,11 +46,12 @@ public slots:
 public:
     enum Roles {
         LabelRole = Qt::UserRole,
-        TitleRole = Qt::UserRole+1,
+        RegionRole = Qt::UserRole+1,
         AddressRole = Qt::UserRole+2,
         InPlaceRole = Qt::UserRole+3,
         DistanceRole = Qt::UserRole+4,
-        BearingRole = Qt::UserRole+5
+        BearingRole = Qt::UserRole+5,
+        PoiRole = Qt::UserRole+6
     };
 
 public:

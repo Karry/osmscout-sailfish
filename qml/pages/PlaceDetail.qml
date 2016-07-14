@@ -45,7 +45,7 @@ Page {
             return Math.round(distance) + " meters";
         }
         if (distance < 20000){
-            return (Math.round((distance/1000) * 100)/100) + " km";
+            return (Math.round((distance/1000) * 10)/10) + " km";
         }
         return Math.round(distance/1000) + " km";
     }
@@ -150,12 +150,13 @@ Page {
                         visible: !inPlace
                     }
                     Label {
-                        id: entryTitle
+                        id: entryPoi
 
                         width: locationInfoView.width
 
-                        text: title // label
+                        text: poi // label
                         font.pixelSize: Theme.fontSizeLarge
+                        visible: poi != ""
                     }
                     Label {
                         id: entryAddress
@@ -163,7 +164,17 @@ Page {
                         width: locationInfoView.width
 
                         text: address
+                        font.pixelSize: Theme.fontSizeLarge
+                        visible: address != ""
+                    }
+                    Label {
+                        id: entryRegion
+
+                        width: locationInfoView.width
+
+                        text: region
                         font.pixelSize: Theme.fontSizeMedium
+                        visible: region != ""
                     }
                 }
                 VerticalScrollDecorator {}

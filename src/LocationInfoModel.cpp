@@ -73,11 +73,12 @@ QHash<int, QByteArray> LocationInfoModel::roleNames() const
     QHash<int, QByteArray> roles=QAbstractListModel::roleNames();
 
     roles[LabelRole]="label";
-    roles[TitleRole]="title";
+    roles[RegionRole]="region";
     roles[AddressRole]="address";
     roles[InPlaceRole]="inPlace";
     roles[DistanceRole]="distance";
     roles[BearingRole]="bearing";
+    roles[PoiRole]="poi";
 
     return roles;
 }
@@ -107,24 +108,18 @@ QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
         double distance = atAddressDescription->GetDistance();
         bool inPlace = atAddressDescription->IsAtPlace() || (distance < 1);
         
-        QStringList descriptionParts;
-        if (poiRef){
-            descriptionParts << QString::fromStdString(poiRef->name);
-        }
+        QStringList addressParts;
         if (locRef){
-            descriptionParts << QString::fromStdString(locRef->name);
+            addressParts << QString::fromStdString(locRef->name);
         }
         if (addrRef){
-            descriptionParts << QString::fromStdString(addrRef->name);
-        }
-        if (regionRef){
-            descriptionParts << QString::fromStdString(regionRef->name);
+            addressParts << QString::fromStdString(addrRef->name);
         }
         QString address;
-        for (int i = 1; i < descriptionParts.size(); i++){
-            address += descriptionParts.at(i);
-            if (i < descriptionParts.size() -1){
-                address += ", ";
+        for (int i = 0; i < addressParts.size(); i++){
+            address += addressParts.at(i);
+            if (i < addressParts.size() -1){
+                address += " ";
             }
         }
         
@@ -134,10 +129,14 @@ QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
         case LabelRole:
             qDebug() << "Label";
             return QString::fromStdString(place.GetDisplayString());
-        case TitleRole:
-            if (!descriptionParts.isEmpty()){
-                qDebug() << "Title " << descriptionParts.front();
-                return descriptionParts.front();
+        case PoiRole:
+            if (poiRef){
+                return QString::fromStdString(poiRef->name);
+            }
+            return "";
+        case RegionRole:
+            if (regionRef){
+                return QString::fromStdString(regionRef->name);
             }
             return "";
         case AddressRole:
