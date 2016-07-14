@@ -49,6 +49,18 @@ Page {
         }
         return Math.round(distance/1000) + " km";
     }
+    function humanBearing(bearing){
+        if (bearing == "W")
+            return qsTrId("west");
+        if (bearing == "E")
+            return qsTrId("east");
+        if (bearing == "S")
+            return qsTrId("south");
+        if (bearing == "N")
+            return qsTrId("north");
+
+        return bearing;
+    }
 
     PositionSource {
         id: positionSource
@@ -99,6 +111,8 @@ Page {
                 spacing: Theme.paddingMedium
                 visible: currentLocValid
                 height: placeDistanceLabel.height
+                width: parent.width - (2 * Theme.paddingMedium)
+                x: Theme.paddingMedium
 
                 anchors {
                     top: placeLocationRow.bottom
@@ -108,7 +122,7 @@ Page {
                     id: placeDistanceLabel
                     text: qsTrId("%1 %2 from you")
                         .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
-                        .arg(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon))
+                        .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
 
                     color: Theme.highlightColor
                     width: parent.width
@@ -118,7 +132,9 @@ Page {
 
             SilicaListView {
                 id: locationInfoView
-                width: parent.width
+                //width: parent.width
+                width: parent.width - (2 * Theme.paddingMedium)
+                x: Theme.paddingMedium
                 model: locationInfoModel
                 //model: 100
 
@@ -143,7 +159,7 @@ Page {
 
                         text: qsTrId("%1 %2 from")
                             .arg(humanDistance(distance))
-                            .arg(bearing)
+                            .arg(humanBearing(bearing))
 
                         color: Theme.highlightColor
                         font.pixelSize: Theme.fontSizeSmall
