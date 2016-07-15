@@ -31,3 +31,5 @@
 - Lookup tiles from higher zoom levels (don't clear view while zoom-out)
 - Show place details on long tap
 - Path rendering improvements in core library
+
+* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.6-1
