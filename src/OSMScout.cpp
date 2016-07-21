@@ -65,21 +65,17 @@ int main(int argc, char* argv[])
 
   QGuiApplication *app = SailfishApp::application(argc, argv);
   QScopedPointer<QQuickView> view(SailfishApp::createView());  
-  //QGuiApplication *app = new QGuiApplication(argc,argv);
+
+  app->setOrganizationDomain("libosmscout.sf.net");
+  app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
     
-  SettingsRef     settings;
-  int             result;
-  
+  int           result;  
 
 #if defined(HAVE_MMAP)
   qDebug() << "Usage of memory mapped files is supported.";
 #else
   qWarning() << "Usage of memory mapped files is NOT supported.";
 #endif
-
-  //app->setOrganizationName("libosmscout");
-  app->setOrganizationDomain("libosmscout.sf.net");
-  app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
 
   qRegisterMetaType<RenderMapRequest>();
   qRegisterMetaType<DatabaseLoadedResponse>();
@@ -96,8 +92,6 @@ int main(int argc, char* argv[])
 
   osmscout::log.Debug(true);
 
-  settings=std::make_shared<Settings>();
-
   QThread thread;
 
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
@@ -105,18 +99,7 @@ int main(int argc, char* argv[])
   if (!DBThread::InitializeInstance(
           docs + QDir::separator() + "Maps", 
           "/usr/share/harbour-osmscout", 
-          cache + QDir::separator() + "OsmTileCache", 
-          /* Sailfish OS before version 2.0.1 reports incorrect DPI (100)
-           *
-           * Some DPI values:
-           *
-           * ~ 330 - Jolla tablet native
-           *   242.236 - Jolla phone native
-           *   200 - subjective best value for Maps on Jolla phone
-           *   130 - PC (24" FullHD)
-           *   100 - Qt default (reported by SailfishOS < 2.0.1)
-           */
-          200.0
+          cache + QDir::separator() + "OsmTileCache" 
           )) { 
     
     std::cerr << "Cannot initialize DBThread" << std::endl;
@@ -153,6 +136,7 @@ int main(int argc, char* argv[])
   thread.wait();
 
   DBThread::FreeInstance();
+  Settings::FreeInstance();
 
   return result;
 }

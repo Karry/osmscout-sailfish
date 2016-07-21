@@ -229,8 +229,14 @@ bool TileCache::invalidate(osmscout::GeoBox box){
     while (it.hasNext() ){            
         it.next();
         key = it.key();
-        bbox = OSMTile::tileBoundingBox(key.zoomLevel, key.xtile, key.ytile);
-        if (box.Intersects(bbox)){
+
+        if (box.IsValid()){
+            bbox = OSMTile::tileBoundingBox(key.zoomLevel, key.xtile, key.ytile);
+            if (box.Intersects(bbox)){
+                it.remove();
+                removed = true;
+            }
+        }else{
             it.remove();
             removed = true;
         }

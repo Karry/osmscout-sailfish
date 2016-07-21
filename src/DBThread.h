@@ -85,7 +85,6 @@ signals:
   void TriggerDrawMap();
   void Redraw();
   void TileStatusChanged(const osmscout::TileRef& tile);
-  //void triggerTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
   void locationDescription(const osmscout::GeoCoord location, const osmscout::LocationDescription description);
 
 public slots:
@@ -102,6 +101,8 @@ public slots:
   void tileDownloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
   void tileDownloadFailed(uint32_t zoomLevel, uint32_t x, uint32_t y, bool zoomLevelOutOfRange);  
   void requestLocationDescription(const osmscout::GeoCoord location);
+  
+  void onMapDPIChange(double dpi);
 
 private:
   QString                       databaseDirectory; 
@@ -151,7 +152,7 @@ private:
     Intersects = 2,
   };
   
-  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double mapDpi = -1);
+  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
   virtual ~DBThread();
 
   bool AssureRouter(osmscout::Vehicle vehicle);
@@ -238,7 +239,7 @@ public:
   void ClearRoute();
   void AddRoute(const osmscout::Way& way);
 
-  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi = -1);
+  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
   static DBThread* GetInstance();
   static void FreeInstance();
 };

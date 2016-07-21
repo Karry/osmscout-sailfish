@@ -105,7 +105,7 @@ public:
    * @param box
    * @return 
    */
-  bool invalidate(osmscout::GeoBox box);
+  bool invalidate(osmscout::GeoBox box = osmscout::GeoBox());
   
   void removeRequest(uint32_t zoomLevel, uint32_t x, uint32_t y);
   void put(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image);

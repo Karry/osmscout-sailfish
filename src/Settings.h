@@ -26,22 +26,34 @@
 
 #include <osmscout/RoutingProfile.h>
 
-class Settings
+/**
+ * Settings provide global instance that extends Qt's QSettings
+ * by properties with signals
+ */
+class Settings: public QObject
 {
+  Q_OBJECT
+  Q_PROPERTY(double mapDPI READ GetMapDPI WRITE SetMapDPI NOTIFY MapDPIChange)
+
+signals:
+  void MapDPIChange(double dpi);
+  
 private:
   QSettings settings;
+  double    physicalDpi;
 
 public:
   Settings();
   ~Settings();
 
-  void SetDPI(size_t dpi);
-  size_t GetDPI() const;
+  void SetMapDPI(double dpi);
+  double GetMapDPI() const;
 
   osmscout::Vehicle GetRoutingVehicle() const;
   void SetRoutingVehicle(const osmscout::Vehicle& vehicle);
+  
+  static Settings* GetInstance();
+  static void FreeInstance();
 };
-
-typedef std::shared_ptr<Settings> SettingsRef;
 
 #endif

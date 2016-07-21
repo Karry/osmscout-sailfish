@@ -61,12 +61,12 @@ void QBreaker::Reset()
 }
 
 // TODO: watch system memory and evict caches when system is under pressure
-DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double mapDpiArg)
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
-   mapDpi(mapDpiArg),
-   physicalDpi(mapDpiArg),
+   mapDpi(-1),
+   physicalDpi(-1),
    onlineTileCache(20), // online tiles can be loaded from disk cache easily 
    offlineTileCache(50), // render offline tile is expensive
    tileDownloader(NULL),
@@ -84,12 +84,13 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
 
   physicalDpi = (double)srn->physicalDotsPerInch();
   qDebug() << "Reported screen DPI: " << physicalDpi;
-  if (mapDpi <= 0){
-    mapDpi=physicalDpi;
-  }else{
-    qDebug() << "Map DPI override: " << mapDpi;
-  }
+  mapDpi = Settings::GetInstance()->GetMapDPI();
+  qDebug() << "Map DPI override: " << mapDpi;
 
+  connect(Settings::GetInstance(), SIGNAL(MapDPIChange(double)),
+          this, SLOT(onMapDPIChange(double)),
+          Qt::QueuedConnection);
+  
   connect(this,SIGNAL(TriggerInitialRendering()),
           this,SLOT(HandleInitialRenderingRequest()));
 
@@ -396,8 +397,12 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     drawParameter.SetPatternPaths(paths);
     drawParameter.SetDebugData(false);
     drawParameter.SetDebugPerformance(true);
-    drawParameter.SetOptimizeWayNodes(osmscout::TransPolygon::fast);
-    drawParameter.SetOptimizeAreaNodes(osmscout::TransPolygon::fast);
+    
+    // optimize process can reduce number of nodes before rendering
+    // it helps for slow renderer backend, but it cost some cpu
+    // it seems that it is better to disable it for mobile devices with slow cpu
+    drawParameter.SetOptimizeWayNodes(osmscout::TransPolygon::none);
+    drawParameter.SetOptimizeAreaNodes(osmscout::TransPolygon::none);
 
     drawParameter.SetRenderBackground(drawBackground);
     drawParameter.SetRenderSeaLand(false);
@@ -1140,15 +1145,29 @@ void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
   emit locationDescription(location, description);
 }
 
+void DBThread::onMapDPIChange(double dpi)
+{
+    QMutexLocker locker(&mutex);
+    mapDpi = dpi;
+
+    // invalidate tile cache and emit Redraw
+    {
+        QMutexLocker locker(&tileCacheMutex);
+        onlineTileCache.invalidate();
+        offlineTileCache.invalidate();
+    }
+    emit Redraw();
+}
+
 static DBThread* dbThreadInstance=NULL;
 
-bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory, double dpi)
+bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
 {
   if (dbThreadInstance!=NULL) {
     return false;
   }
 
-  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory, dpi);
+  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory);
 
   return true;
 }

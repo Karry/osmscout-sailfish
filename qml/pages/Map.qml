@@ -3,6 +3,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 import QtPositioning 5.2
+//import Qt.labs.settings 1.0
 
 import harbour.osmscout.map 1.0
 
@@ -10,6 +11,13 @@ import "../custom"
 
 Page {
     id: mapPage
+
+    /*
+    Settings {
+        id: settings
+        property string state: "active"
+    }
+    */
 
     PositionSource {
         id: positionSource

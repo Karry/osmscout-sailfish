@@ -17,21 +17,40 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+#include <QScreen>
+#include <QGuiApplication>
+
 #include "Settings.h"
 
 Settings::Settings()
 {
-  // no code
+    /* Warning: Sailfish OS before version 2.0.1 reports incorrect DPI (100)
+     *
+     * Some DPI values:
+     *
+     * ~ 330 - Jolla tablet native
+     *   242.236 - Jolla phone native
+     *   130 - PC (24" FullHD)
+     *   100 - Qt default (reported by SailfishOS < 2.0.1)
+     */    
+    QScreen *srn=QGuiApplication::screens().at(0);
+    physicalDpi = (double)srn->physicalDotsPerInch(); 
 }
 
 Settings::~Settings()
 {
-  // no code
+    settings.sync();
 }
 
-size_t Settings::GetDPI() const
+void Settings::SetMapDPI(double dpi)
 {
-  return (size_t)settings.value("settings/dpi",92).toUInt();
+    settings.setValue("settings/map/dpi", (unsigned int)dpi);
+    emit MapDPIChange(dpi);
+}
+
+double Settings::GetMapDPI() const
+{
+  return (size_t)settings.value("settings/map/dpi",physicalDpi).toDouble();
 }
 
 osmscout::Vehicle Settings::GetRoutingVehicle() const
@@ -44,3 +63,20 @@ void Settings::SetRoutingVehicle(const osmscout::Vehicle& vehicle)
   settings.setValue("routing/vehicle", (unsigned int)vehicle);
 }
 
+static Settings* settingsInstance=NULL;
+
+Settings* Settings::GetInstance()
+{
+    if (settingsInstance == NULL){
+        settingsInstance = new Settings();
+    }
+    return settingsInstance;
+}
+
+void Settings::FreeInstance()
+{
+    if (settingsInstance != NULL){
+        delete settingsInstance;
+        settingsInstance = NULL;
+    }
+}
