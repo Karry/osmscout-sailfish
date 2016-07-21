@@ -1154,7 +1154,7 @@ void DBThread::onMapDPIChange(double dpi)
     // invalidate tile cache and emit Redraw
     {
         QMutexLocker locker(&tileCacheMutex);
-        onlineTileCache.invalidate();
+        //onlineTileCache.invalidate(); // DPI change don't affect online tiles
         offlineTileCache.invalidate();
     }
     emit Redraw();

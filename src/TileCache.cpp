@@ -230,6 +230,7 @@ bool TileCache::invalidate(osmscout::GeoBox box){
         it.next();
         key = it.key();
 
+        // TODO: setup some invalid flag instead of removing tile
         if (box.IsValid()){
             bbox = OSMTile::tileBoundingBox(key.zoomLevel, key.xtile, key.ytile);
             if (box.Intersects(bbox)){
