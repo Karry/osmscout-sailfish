@@ -152,7 +152,8 @@ private:
     Intersects = 2,
   };
   
-  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
+  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
+           size_t onlineTileCacheSize = 20, size_t offlineTileCacheSize = 50);
   virtual ~DBThread();
 
   bool AssureRouter(osmscout::Vehicle vehicle);
@@ -239,7 +240,8 @@ public:
   void ClearRoute();
   void AddRoute(const osmscout::Way& way);
 
-  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory);
+  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
+                                 size_t onlineTileCacheSize = 20, size_t offlineTileCacheSize = 50);
   static DBThread* GetInstance();
   static void FreeInstance();
 };

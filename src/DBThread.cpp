@@ -61,14 +61,15 @@ void QBreaker::Reset()
 }
 
 // TODO: watch system memory and evict caches when system is under pressure
-DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
+DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
+    size_t onlineTileCacheSize, size_t offlineTileCacheSize)
  : databaseDirectory(databaseDirectory), 
    resourceDirectory(resourceDirectory),
    tileCacheDirectory(tileCacheDirectory),
    mapDpi(-1),
    physicalDpi(-1),
-   onlineTileCache(20), // online tiles can be loaded from disk cache easily 
-   offlineTileCache(50), // render offline tile is expensive
+   onlineTileCache(onlineTileCacheSize), // online tiles can be loaded from disk cache easily 
+   offlineTileCache(offlineTileCacheSize), // render offline tile is expensive
    tileDownloader(NULL),
    database(std::make_shared<osmscout::Database>(databaseParameter)),
    locationService(std::make_shared<osmscout::LocationService>(database)),
@@ -1161,13 +1162,15 @@ void DBThread::onMapDPIChange(double dpi)
 
 static DBThread* dbThreadInstance=NULL;
 
-bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory)
+bool DBThread::InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
+                                  size_t onlineTileCacheSize, size_t offlineTileCacheSize)
 {
   if (dbThreadInstance!=NULL) {
     return false;
   }
 
-  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory);
+  dbThreadInstance=new DBThread(databaseDirectory, resourceDirectory, tileCacheDirectory,
+                                onlineTileCacheSize, offlineTileCacheSize);
 
   return true;
 }

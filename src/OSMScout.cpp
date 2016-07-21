@@ -94,12 +94,19 @@ int main(int argc, char* argv[])
 
   QThread thread;
 
+  bool desktop = false;
+  for (QString arg: app->arguments()){
+      desktop |= (arg == "--desktop");
+  }
+ 
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
   QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
   if (!DBThread::InitializeInstance(
           docs + QDir::separator() + "Maps", 
           "/usr/share/harbour-osmscout", 
-          cache + QDir::separator() + "OsmTileCache" 
+          cache + QDir::separator() + "OsmTileCache",
+          /* onlineTileCacheSize  */ desktop ?  40 : 20,
+          /* offlineTileCacheSize */ desktop ? 200 : 50
           )) { 
     
     std::cerr << "Cannot initialize DBThread" << std::endl;
@@ -112,11 +119,7 @@ int main(int argc, char* argv[])
 
   dbThread->connect(&thread, SIGNAL(started()), SLOT(Initialize()));
   dbThread->connect(&thread, SIGNAL(finished()), SLOT(Finalize()));
-
-  bool desktop = false;
-  for (QString arg: app->arguments()){
-      desktop |= (arg == "--desktop");
-  }
+ 
   QQmlApplicationEngine *window = NULL;
   if (!desktop){
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
