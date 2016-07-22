@@ -423,7 +423,7 @@ bool JumpHandler::animationInProgress()
 bool JumpHandler::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification)
 {
     startMapView = view;
-    targetMapView = {coord, view.angle, magnification};
+    targetMapView = MapView(coord, view.angle, magnification);
 
     animationStart.restart();
     timer.setInterval(ANIMATION_TICK);

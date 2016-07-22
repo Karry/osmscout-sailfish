@@ -107,7 +107,7 @@ Window {
 
             onTap: {
 
-                console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+                console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");
             }
             onLongTap: {
 

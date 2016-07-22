@@ -50,8 +50,8 @@ MapWidget::MapWidget(QQuickItem* parent)
     connect(&tapRecognizer, SIGNAL(tapLongTap(const QPoint)), this, SLOT(onTapLongTap(const QPoint)));
 
     // TODO, open last position, move to current position or get as constructor argument...
-    view = { osmscout::GeoCoord(0.0, 0.0), 0, osmscout::Magnification::magContinent  };
-    setupInputHandler(new InputHandler(view));
+    view = new MapView(this, osmscout::GeoCoord(0.0, 0.0), /*angle*/ 0, osmscout::Magnification::magContinent);
+    setupInputHandler(new InputHandler(*view));
     setKeepTouchGrab(true);
 
     setRenderTarget(RenderTarget::FramebufferObject);
@@ -61,6 +61,7 @@ MapWidget::MapWidget(QQuickItem* parent)
 MapWidget::~MapWidget()
 {
     delete inputHandler;
+    delete view;
 }
 
 void MapWidget::translateToTouch(QMouseEvent* event, Qt::TouchPointStates states)
@@ -117,8 +118,8 @@ void MapWidget::changeView(const MapView &updated)
 {
     //qDebug() << "viewChanged: " << QString::fromStdString(updated.center.GetDisplayText()) << "   level: " << updated.magnification.GetLevel();
     //qDebug() << "viewChanged (" << (inputHandler->animationInProgress()? "animation": "stationary") << ")";
-    bool changed = view != updated;
-    view = updated;
+    bool changed = *view != updated;
+    view->operator =( updated );
     if (changed){
         redraw();
         emit viewChanged();
@@ -131,9 +132,9 @@ void MapWidget::touchEvent(QTouchEvent *event)
     if (!inputHandler->touch(event)){
         if (event->touchPoints().size() == 1){
             QTouchEvent::TouchPoint tp = event->touchPoints()[0];
-            setupInputHandler(new DragHandler(view, dpi));
+            setupInputHandler(new DragHandler(*view, dpi));
         }else{
-            setupInputHandler(new MultitouchHandler(view, dpi));
+            setupInputHandler(new MultitouchHandler(*view, dpi));
         }
         inputHandler->touch(event);
     }
@@ -157,7 +158,7 @@ void MapWidget::touchEvent(QTouchEvent *event)
 void MapWidget::focusOutEvent(QFocusEvent *event)
 {
     qDebug() << "focus-out event, cancel all input events";
-    setupInputHandler(new InputHandler(view));
+    setupInputHandler(new InputHandler(*view));
     QQuickPaintedItem::focusOutEvent(event);
 }
 
@@ -190,10 +191,10 @@ void MapWidget::paint(QPainter *painter)
     RenderMapRequest request;
     QRectF           boundingBox = contentsBoundingRect();
 
-    request.lat = view.center.GetLat();
-    request.lon = view.center.GetLon();
-    request.angle = view.angle;
-    request.magnification = view.magnification;
+    request.lat = view->center.GetLat();
+    request.lon = view->center.GetLon();
+    request.angle = view->angle;
+    request.magnification = view->magnification;
     request.width = boundingBox.width();
     request.height = boundingBox.height();
 
@@ -271,7 +272,7 @@ void MapWidget::zoom(double zoomFactor, const QPoint widgetPosition)
     return;
   
   if (!inputHandler->zoom(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
-    setupInputHandler(new MoveHandler(view, dpi));
+    setupInputHandler(new MoveHandler(*view, dpi));
     inputHandler->zoom(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
   }
 }
@@ -289,7 +290,7 @@ void MapWidget::zoomOut(double zoomFactor, const QPoint widgetPosition)
 void MapWidget::move(QVector2D vector)
 {
     if (!inputHandler->move(vector)){
-        setupInputHandler(new MoveHandler(view, dpi));
+        setupInputHandler(new MoveHandler(*view, dpi));
         inputHandler->move(vector);
     }
 }
@@ -317,7 +318,7 @@ void MapWidget::down()
 void MapWidget::rotateLeft()
 {
     if (!inputHandler->rotateBy(DELTA_ANGLE, -DELTA_ANGLE)){
-        setupInputHandler(new MoveHandler(view, dpi));
+        setupInputHandler(new MoveHandler(*view, dpi));
         inputHandler->rotateBy(DELTA_ANGLE, -DELTA_ANGLE);
     }
 }
@@ -325,7 +326,7 @@ void MapWidget::rotateLeft()
 void MapWidget::rotateRight()
 {
     if (!inputHandler->rotateBy(DELTA_ANGLE, DELTA_ANGLE)){
-        setupInputHandler(new MoveHandler(view, dpi));
+        setupInputHandler(new MoveHandler(*view, dpi));
         inputHandler->rotateBy(DELTA_ANGLE, DELTA_ANGLE);
     }
 }
@@ -349,7 +350,7 @@ void MapWidget::reloadStyle()
 void MapWidget::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification)
 {
     if (!inputHandler->showCoordinates(coord, magnification)){
-        setupInputHandler(new JumpHandler(view));
+        setupInputHandler(new JumpHandler(*view));
         inputHandler->showCoordinates(coord, magnification);
     }
 }
@@ -362,7 +363,7 @@ void MapWidget::showCoordinates(double lat, double lon)
 void MapWidget::showCoordinatesInstantly(osmscout::GeoCoord coord, osmscout::Magnification magnification)
 {
     
-    MapView newView = view;
+    MapView newView = *view;
     newView.magnification = magnification;
     newView.center = coord;
     setupInputHandler(new InputHandler(newView));

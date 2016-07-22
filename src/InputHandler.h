@@ -116,8 +116,43 @@ public:
   QVector2D collect();
 };
 
-struct MapView
+class MapView: public QObject
 {
+  Q_OBJECT
+
+  Q_PROPERTY(double   lat       READ GetLat)
+  Q_PROPERTY(double   lon       READ GetLon)
+  Q_PROPERTY(double   angle     READ GetAngle)
+  Q_PROPERTY(double   mag       READ GetMag)
+  Q_PROPERTY(uint32_t magLevel  READ GetMagLevel)
+
+public:
+  inline MapView(){}
+  
+  inline MapView(QObject *parent, osmscout::GeoCoord center, double angle, osmscout::Magnification magnification):
+    QObject(parent), center(center), angle(angle), magnification(magnification) {}
+
+  inline MapView(osmscout::GeoCoord center, double angle, osmscout::Magnification magnification):
+    center(center), angle(angle), magnification(magnification) {}
+
+  inline MapView(const MapView &mv):
+    center(mv.center), angle(mv.angle), magnification(mv.magnification) {}
+  
+  inline ~MapView(){}
+  
+  inline double GetLat(){ return center.lat; }
+  inline double GetLon(){ return center.lon; }
+  inline double GetAngle(){ return angle; }
+  inline double GetMag(){ return magnification.GetMagnification(); }
+  inline double GetMagLevel(){ return magnification.GetLevel(); }
+  
+  void inline operator=(const MapView &mv)
+  { 
+    center = mv.center;
+    angle = mv.angle;
+    magnification = mv.magnification;
+  }
+  
   osmscout::GeoCoord           center;
   double                       angle;
   osmscout::Magnification      magnification;

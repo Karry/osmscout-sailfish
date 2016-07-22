@@ -32,15 +32,16 @@
 class MapWidget : public QQuickPaintedItem
 {
   Q_OBJECT
-  Q_PROPERTY(double   lat READ GetLat NOTIFY viewChanged)
-  Q_PROPERTY(double   lon READ GetLon NOTIFY viewChanged)
+  Q_PROPERTY(MapView  *view    READ GetView     NOTIFY viewChanged)
+  Q_PROPERTY(double   lat      READ GetLat      NOTIFY viewChanged)
+  Q_PROPERTY(double   lon      READ GetLon      NOTIFY viewChanged)
   Q_PROPERTY(uint32_t magLevel READ GetMagLevel NOTIFY viewChanged)
-  Q_PROPERTY(bool     finished READ IsFinished NOTIFY finishedChanged)
+  Q_PROPERTY(bool     finished READ IsFinished  NOTIFY finishedChanged)
   Q_PROPERTY(bool     showCurrentPosition READ getShowCurrentPosition WRITE setShowCurrentPosition)
 
 private:
 
-  MapView          view;
+  MapView          *view;
   double           dpi;
 
   InputHandler     *inputHandler;
@@ -111,19 +112,24 @@ public:
   MapWidget(QQuickItem* parent = 0);
   virtual ~MapWidget();
 
+  inline MapView* GetView() const
+  {
+      return view; // We should be owner, parent is set http://doc.qt.io/qt-5/qqmlengine.html#objectOwnership
+  }
+
   inline double GetLat() const
   {
-      return view.center.GetLat();
+      return view->center.GetLat();
   }
 
   inline double GetLon() const
   {
-      return view.center.GetLon();
+      return view->center.GetLon();
   }
   
   inline int GetMagLevel() const
   {
-      return view.magnification.GetLevel();
+      return view->magnification.GetLevel();
   }
   inline bool IsFinished() const
   {
@@ -144,8 +150,8 @@ public:
   {
     osmscout::MercatorProjection projection;
     projection.Set(osmscout::GeoCoord(GetLat(), GetLon()),
-               view.angle,
-               view.magnification,
+               view->angle,
+               view->magnification,
                dpi,
                width(),
                height());
