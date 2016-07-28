@@ -36,7 +36,12 @@ MapWidget::MapWidget(QQuickItem* parent)
     setAcceptedMouseButtons(Qt::LeftButton);
     
     DBThread *dbThread=DBThread::GetInstance();
-    dpi = dbThread->GetMapDpi();
+    
+    mapDpi = Settings::GetInstance()->GetMapDPI();
+
+    connect(Settings::GetInstance(), SIGNAL(MapDPIChange(double)),
+            this, SLOT(onMapDPIChange(double)));
+  
     tapRecognizer.setPhysicalDpi(dbThread->GetPhysicalDpi());
 
     //setFocusPolicy(Qt::StrongFocus);
@@ -132,9 +137,9 @@ void MapWidget::touchEvent(QTouchEvent *event)
     if (!inputHandler->touch(event)){
         if (event->touchPoints().size() == 1){
             QTouchEvent::TouchPoint tp = event->touchPoints()[0];
-            setupInputHandler(new DragHandler(*view, dpi));
+            setupInputHandler(new DragHandler(*view, mapDpi));
         }else{
-            setupInputHandler(new MultitouchHandler(*view, dpi));
+            setupInputHandler(new MultitouchHandler(*view, mapDpi));
         }
         inputHandler->touch(event);
     }
@@ -272,7 +277,7 @@ void MapWidget::zoom(double zoomFactor, const QPoint widgetPosition)
     return;
   
   if (!inputHandler->zoom(zoomFactor, widgetPosition, QRect(0, 0, width(), height()))){
-    setupInputHandler(new MoveHandler(*view, dpi));
+    setupInputHandler(new MoveHandler(*view, mapDpi));
     inputHandler->zoom(zoomFactor, widgetPosition, QRect(0, 0, width(), height()));
   }
 }
@@ -290,7 +295,7 @@ void MapWidget::zoomOut(double zoomFactor, const QPoint widgetPosition)
 void MapWidget::move(QVector2D vector)
 {
     if (!inputHandler->move(vector)){
-        setupInputHandler(new MoveHandler(*view, dpi));
+        setupInputHandler(new MoveHandler(*view, mapDpi));
         inputHandler->move(vector);
     }
 }
@@ -318,7 +323,7 @@ void MapWidget::down()
 void MapWidget::rotateLeft()
 {
     if (!inputHandler->rotateBy(DELTA_ANGLE, -DELTA_ANGLE)){
-        setupInputHandler(new MoveHandler(*view, dpi));
+        setupInputHandler(new MoveHandler(*view, mapDpi));
         inputHandler->rotateBy(DELTA_ANGLE, -DELTA_ANGLE);
     }
 }
@@ -326,7 +331,7 @@ void MapWidget::rotateLeft()
 void MapWidget::rotateRight()
 {
     if (!inputHandler->rotateBy(DELTA_ANGLE, DELTA_ANGLE)){
-        setupInputHandler(new MoveHandler(*view, dpi));
+        setupInputHandler(new MoveHandler(*view, mapDpi));
         inputHandler->rotateBy(DELTA_ANGLE, DELTA_ANGLE);
     }
 }
@@ -429,6 +434,7 @@ void MapWidget::showLocation(Location* location)
 
     }
 }
+
 void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy)
 {
     // location
@@ -439,17 +445,18 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
     this->horizontalAccuracy = horizontalAccuracy;
     redraw();
 }
+
 void MapWidget::addPositionMark(int id, double lat, double lon)
 {
     marks.insert(id, osmscout::GeoCoord(lat, lon));
     update();
 }
+
 void MapWidget::removePositionMark(int id)
 {
     marks.remove(id);
     update();
 }
-
 
 void MapWidget::onTap(const QPoint p)
 {
@@ -459,6 +466,7 @@ void MapWidget::onTap(const QPoint p)
     getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
     emit tap(p.x(), p.y(), lat, lon);
 }
+
 void MapWidget::onDoubleTap(const QPoint p)
 {
     qDebug() << "double tap " << p;
@@ -468,6 +476,7 @@ void MapWidget::onDoubleTap(const QPoint p)
     getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
     emit doubleTap(p.x(), p.y(), lat, lon);
 }
+
 void MapWidget::onLongTap(const QPoint p)
 {
     qDebug() << "long tap " << p;
@@ -476,6 +485,7 @@ void MapWidget::onLongTap(const QPoint p)
     getProjection().PixelToGeo(p.x(), p.y(), lon, lat);
     emit longTap(p.x(), p.y(), lat, lon);
 }
+
 void MapWidget::onTapLongTap(const QPoint p)
 {
     qDebug() << "tap, long tap " << p;
@@ -486,3 +496,10 @@ void MapWidget::onTapLongTap(const QPoint p)
     emit tapLongTap(p.x(), p.y(), lat, lon);
 }
 
+void MapWidget::onMapDPIChange(double dpi)
+{
+    mapDpi = dpi;
+    
+    // discard current input handler
+    setupInputHandler(new InputHandler(*view));
+}

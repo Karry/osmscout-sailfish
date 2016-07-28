@@ -87,6 +87,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<LocationInfoModel>("harbour.osmscout.map", 1, 0, "LocationInfoModel");
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
+  qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
 
   qmlRegisterSingletonType<Theme>("harbour.osmscout.map", 1, 0, "Theme", ThemeProvider);
 

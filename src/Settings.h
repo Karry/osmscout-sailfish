@@ -56,4 +56,20 @@ public:
   static void FreeInstance();
 };
 
+class QmlSettings: public QObject{
+  Q_OBJECT
+  Q_PROPERTY(double mapDPI READ GetMapDPI WRITE SetMapDPI NOTIFY MapDPIChange)
+
+signals:
+  void MapDPIChange(double dpi);
+
+public:
+  QmlSettings();
+  
+  inline ~QmlSettings(){};
+
+  void SetMapDPI(double dpi);
+  double GetMapDPI() const;  
+};
+
 #endif

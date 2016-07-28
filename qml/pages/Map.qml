@@ -12,12 +12,11 @@ import "../custom"
 Page {
     id: mapPage
 
-    /*
+
     Settings {
         id: settings
-        property string state: "active"
+        //mapDPI: 50
     }
-    */
 
     PositionSource {
         id: positionSource

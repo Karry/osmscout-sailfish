@@ -42,7 +42,7 @@ class MapWidget : public QQuickPaintedItem
 private:
 
   MapView          *view;
-  double           dpi;
+  double           mapDpi;
 
   InputHandler     *inputHandler;
   TapRecognizer    tapRecognizer;     
@@ -105,6 +105,8 @@ public slots:
   void onLongTap(const QPoint p);
   void onTapLongTap(const QPoint p);
   
+  void onMapDPIChange(double dpi);  
+  
 private:
   void setupInputHandler(InputHandler *newGesture);
   
@@ -152,7 +154,7 @@ public:
     projection.Set(osmscout::GeoCoord(GetLat(), GetLon()),
                view->angle,
                view->magnification,
-               dpi,
+               mapDpi,
                width(),
                height());
     return projection;

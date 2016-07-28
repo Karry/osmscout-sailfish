@@ -45,6 +45,12 @@ Window {
         map.focus = true
     }
 
+    Settings {
+        id: settings
+        //mapDPI: 50
+    }
+
+
     PositionSource {
         id: positionSource
 

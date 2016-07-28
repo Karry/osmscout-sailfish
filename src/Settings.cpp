@@ -19,6 +19,7 @@
 
 #include <QScreen>
 #include <QGuiApplication>
+#include <qt5/QtCore/qobject.h>
 
 #include "Settings.h"
 
@@ -34,7 +35,7 @@ Settings::Settings()
      *   100 - Qt default (reported by SailfishOS < 2.0.1)
      */    
     QScreen *srn=QGuiApplication::screens().at(0);
-    physicalDpi = (double)srn->physicalDotsPerInch(); 
+    physicalDpi = (double)srn->physicalDotsPerInch();
 }
 
 Settings::~Settings()
@@ -50,7 +51,9 @@ void Settings::SetMapDPI(double dpi)
 
 double Settings::GetMapDPI() const
 {
-  return (size_t)settings.value("settings/map/dpi",physicalDpi).toDouble();
+  // With mobile device user eyes are closer to screen than PC monitor, 
+  // we render thinks a bit smaller (0.75)...
+  return (size_t)settings.value("settings/map/dpi",physicalDpi * 0.75).toDouble();
 }
 
 osmscout::Vehicle Settings::GetRoutingVehicle() const
@@ -79,4 +82,20 @@ void Settings::FreeInstance()
         delete settingsInstance;
         settingsInstance = NULL;
     }
+}
+
+QmlSettings::QmlSettings()
+{
+    connect(Settings::GetInstance(), SIGNAL(MapDPIChange(dpi)), 
+            this, SIGNAL(MapDPIChange(dpi)));
+}
+
+void QmlSettings::SetMapDPI(double dpi)
+{
+    Settings::GetInstance()->SetMapDPI(dpi);
+}
+
+double QmlSettings::GetMapDPI() const
+{
+    return Settings::GetInstance()->GetMapDPI();
 }
