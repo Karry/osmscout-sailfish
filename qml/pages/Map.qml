@@ -71,16 +71,21 @@ Page {
             positionSource.valid = position.latitudeValid && position.longitudeValid;
             positionSource.lat = position.coordinate.latitude;
             positionSource.lon = position.coordinate.longitude;
-            positionIndicator.color = (position.latitudeValid && position.longitudeValid) ? "#8000FF00": "#80FF0000";
-
-            /*
-            map.locationChanged(
-                        position.latitudeValid && position.longitudeValid,
-                        position.coordinate.latitude, position.coordinate.longitude,
-                        position.horizontalAccuracyValid, position.horizontalAccuracy);
-            */
         }
     }
+
+    Drawer {
+        id: drawer
+        anchors.fill: parent
+
+        dock: mapPage.isPortrait ? Dock.Top : Dock.Left
+        open: false
+
+        background:  Rectangle{
+
+            anchors.fill: parent
+            color: "transparent"
+        }
 
         MapComponent {
             id: map
@@ -93,6 +98,9 @@ Page {
             onTap: {
 
                 console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
+                if (drawer.open){
+                    drawer.open = false;
+                }
             }
             onLongTap: {
 
@@ -163,20 +171,52 @@ Page {
             }
 
             Rectangle {
+                id : menuBtn
+                anchors{
+                    right: parent.right
+                    top: parent.top
+
+                    topMargin: Theme.paddingMedium
+                    rightMargin: Theme.paddingMedium
+                    bottomMargin: Theme.paddingMedium
+                    leftMargin: Theme.paddingMedium
+                }
+                width: 90
+                height: 90
+                radius: Theme.paddingMedium
+
+                color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+                IconButton{
+                    icon.source: "image://theme/icon-m-menu"
+                    anchors{
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+                    }
+                }
+                MouseArea {
+                    id: menuBtnMouseArea
+                    anchors.fill: parent
+                    onClicked: {
+                        drawer.open = !drawer.open
+                    }
+                }
+            }
+
+            Rectangle {
                 id : currentPositionBtn
 
                 anchors{
                     right: parent.right
                     bottom: parent.bottom
-                    rightMargin: 8
-                    bottomMargin: 8
+                    rightMargin: Theme.paddingMedium
+                    bottomMargin: Theme.paddingMedium
                 }
                 width: 90
                 height: 90
 
-                color: "#80FFFFFF"
-                border.color: "white"
-                border.width: 1
+                color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
                 radius: width*0.5
 
                 Rectangle {
@@ -188,8 +228,8 @@ Page {
                     width: 20
                     height: 20
 
-                    color: "#80FF0000"
-                    border.color: "black"
+                    color: positionSource.valid ? "#6000FF00" : "#60FF0000"
+                    border.color: Theme.rgba(Theme.primaryColor, 0.8)
                     border.width: 1
                     radius: width*0.5
                 }
@@ -208,6 +248,6 @@ Page {
                 }
 
             }
-
+        }
     }
 }

@@ -10,14 +10,15 @@ Rectangle{
     }
     width: label.width + 20
     height: label.height + 12
+    radius: Theme.paddingSmall
 
-    color: "white"
-    opacity: 0.7
+    color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 
     Text {
         id: label
         text: qsTr("© OpenStreetMap contributors")
         anchors.centerIn: parent
+        color: Theme.rgba(Theme.primaryColor, 0.8)
 
         font.pointSize: Theme.fontSizeExtraSmall *0.6
     }
