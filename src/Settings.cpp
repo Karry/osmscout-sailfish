@@ -19,11 +19,13 @@
 
 #include <QScreen>
 #include <QGuiApplication>
-#include <qt5/QtCore/qobject.h>
+#include <QObject>
+#include <QDebug>
 
 #include "Settings.h"
 
-Settings::Settings()
+Settings::Settings(): 
+    view(NULL)
 {
     /* Warning: Sailfish OS before version 2.0.1 reports incorrect DPI (100)
      *
@@ -41,6 +43,9 @@ Settings::Settings()
 Settings::~Settings()
 {
     settings.sync();
+    if (view != NULL){
+        delete view;
+    }
 }
 
 void Settings::SetMapDPI(double dpi)
@@ -54,6 +59,47 @@ double Settings::GetMapDPI() const
   // With mobile device user eyes are closer to screen than PC monitor, 
   // we render thinks a bit smaller (0.75)...
   return (size_t)settings.value("settings/map/dpi",physicalDpi * 0.75).toDouble();
+}
+
+MapView *Settings::GetMapView()
+{
+  if (view == NULL){
+    double lat   = settings.value("settings/map/lat",   0).toDouble();
+    double lon   = settings.value("settings/map/lon",   0).toDouble();
+    double angle = settings.value("settings/map/angle", 0).toDouble();
+    double mag   = settings.value("settings/map/mag",   osmscout::Magnification::magContinent).toDouble();
+    view = new MapView(this, 
+              osmscout::GeoCoord(lat, lon),
+              angle,
+              osmscout::Magnification(mag)
+              );
+  }
+  return view;
+}
+
+void Settings::SetMapView(MapView *updated)
+{
+  bool changed = false;
+  if (view == NULL){
+    view = new MapView(this, 
+              osmscout::GeoCoord(updated->GetLat(), updated->GetLon()),
+              updated->GetAngle(),
+              osmscout::Magnification(updated->GetMag())
+              );
+    changed = true;
+  }else{
+    changed = *view != *updated;  
+    if (changed){
+        view->operator =( *updated );
+    }
+  }
+  if (changed){
+    settings.setValue("settings/map/lat", view->GetLat());
+    settings.setValue("settings/map/lon", view->GetLon());
+    settings.setValue("settings/map/angle", view->GetAngle());
+    settings.setValue("settings/map/mag", view->GetMag());
+    emit MapViewChanged(view);
+  }
 }
 
 osmscout::Vehicle Settings::GetRoutingVehicle() const
@@ -86,8 +132,10 @@ void Settings::FreeInstance()
 
 QmlSettings::QmlSettings()
 {
-    connect(Settings::GetInstance(), SIGNAL(MapDPIChange(dpi)), 
-            this, SIGNAL(MapDPIChange(dpi)));
+    connect(Settings::GetInstance(), SIGNAL(MapDPIChange(double)), 
+            this, SIGNAL(MapDPIChange(double)));
+    connect(Settings::GetInstance(), SIGNAL(MapViewChanged(MapView *)),
+            this, SIGNAL(MapViewChanged(MapView *)));
 }
 
 void QmlSettings::SetMapDPI(double dpi)
@@ -98,4 +146,19 @@ void QmlSettings::SetMapDPI(double dpi)
 double QmlSettings::GetMapDPI() const
 {
     return Settings::GetInstance()->GetMapDPI();
+}
+
+MapView *QmlSettings::GetMapView() const
+{
+    return Settings::GetInstance()->GetMapView();
+}
+
+void QmlSettings::SetMapView(QObject *o)
+{
+    MapView *view = dynamic_cast<MapView*>(o);
+    if (view == NULL){
+        qWarning() << "Failed to cast " << o << " to MapView*.";
+        return;
+    }
+    Settings::GetInstance()->SetMapView(view);
 }

@@ -25,6 +25,7 @@
 #include <QSettings>
 
 #include <osmscout/RoutingProfile.h>
+#include "InputHandler.h"
 
 /**
  * Settings provide global instance that extends Qt's QSettings
@@ -33,14 +34,17 @@
 class Settings: public QObject
 {
   Q_OBJECT
-  Q_PROPERTY(double mapDPI READ GetMapDPI WRITE SetMapDPI NOTIFY MapDPIChange)
+  Q_PROPERTY(double   mapDPI    READ GetMapDPI  WRITE SetMapDPI   NOTIFY MapDPIChange)
+  Q_PROPERTY(MapView  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
 
 signals:
   void MapDPIChange(double dpi);
+  void MapViewChanged(MapView *view);
   
 private:
   QSettings settings;
   double    physicalDpi;
+  MapView   *view;
 
 public:
   Settings();
@@ -49,6 +53,9 @@ public:
   void SetMapDPI(double dpi);
   double GetMapDPI() const;
 
+  MapView *GetMapView();
+  void SetMapView(MapView *view);
+  
   osmscout::Vehicle GetRoutingVehicle() const;
   void SetRoutingVehicle(const osmscout::Vehicle& vehicle);
   
@@ -58,10 +65,12 @@ public:
 
 class QmlSettings: public QObject{
   Q_OBJECT
-  Q_PROPERTY(double mapDPI READ GetMapDPI WRITE SetMapDPI NOTIFY MapDPIChange)
+  Q_PROPERTY(double   mapDPI    READ GetMapDPI  WRITE SetMapDPI   NOTIFY MapDPIChange)
+  Q_PROPERTY(QObject  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
 
 signals:
   void MapDPIChange(double dpi);
+  void MapViewChanged(MapView *view);
 
 public:
   QmlSettings();
@@ -70,6 +79,9 @@ public:
 
   void SetMapDPI(double dpi);
   double GetMapDPI() const;  
+  
+  MapView *GetMapView() const;
+  void SetMapView(QObject *view);  
 };
 
 #endif

@@ -3,7 +3,6 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 import QtPositioning 5.2
-//import Qt.labs.settings 1.0
 
 import harbour.osmscout.map 1.0
 
@@ -16,6 +15,12 @@ Page {
     Settings {
         id: settings
         //mapDPI: 50
+    }
+
+    onStatusChanged: {
+        if (status == PageStatus.Activating){
+            map.view = settings.mapView;
+        }
     }
 
     PositionSource {
@@ -96,6 +101,11 @@ Page {
                 pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
                                {placeLat: lat, placeLon: lon})
             }
+            onViewChanged: {
+                //console.log("map center "+ map.view.lat + " " + map.view.lon + "");
+                settings.mapView = map.view;
+            }
+
             /*
             void doubleTap(const QPoint p, const osmscout::GeoCoord c);
             void longTap(const QPoint p, const osmscout::GeoCoord c);

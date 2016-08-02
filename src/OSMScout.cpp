@@ -80,6 +80,7 @@ int main(int argc, char* argv[])
   qRegisterMetaType<RenderMapRequest>();
   qRegisterMetaType<DatabaseLoadedResponse>();
   qRegisterMetaType<osmscout::TileRef>();
+  qRegisterMetaType<MapView*>();
 
   qmlRegisterType<MapWidget>("harbour.osmscout.map", 1, 0, "Map");
   qmlRegisterType<Location>("harbour.osmscout.map", 1, 0, "Location");

@@ -32,7 +32,7 @@
 class MapWidget : public QQuickPaintedItem
 {
   Q_OBJECT
-  Q_PROPERTY(MapView  *view    READ GetView     NOTIFY viewChanged)
+  Q_PROPERTY(QObject  *view    READ GetView     WRITE SetMapView  NOTIFY viewChanged)
   Q_PROPERTY(double   lat      READ GetLat      NOTIFY viewChanged)
   Q_PROPERTY(double   lon      READ GetLon      NOTIFY viewChanged)
   Q_PROPERTY(uint32_t magLevel READ GetMagLevel NOTIFY viewChanged)
@@ -117,6 +117,21 @@ public:
   inline MapView* GetView() const
   {
       return view; // We should be owner, parent is set http://doc.qt.io/qt-5/qqmlengine.html#objectOwnership
+  }
+  
+  inline void SetMapView(QObject *o)
+  {
+    MapView *updated = dynamic_cast<MapView*>(o);
+    if (updated == NULL){
+        qWarning() << "Failed to cast " << o << " to MapView*.";
+        return;
+    }
+    
+    bool changed = *view != *updated;
+    if (changed){
+      setupInputHandler(new InputHandler(*updated));
+      changeView(*updated);
+    }
   }
 
   inline double GetLat() const
