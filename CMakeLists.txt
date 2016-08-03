@@ -231,11 +231,15 @@ set(SOURCE_FILES
     qml/custom/MapRenderingIndicator.qml
     qml/custom/OSMCopyright.qml
     qml/custom/MapComponent.qml
+    qml/custom/Link.qml
     qml/pages/Map.qml
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml
+    qml/pages/About.qml
     qml/main.qml
     qml/desktop.qml
+
+    translations/en.ts
 )
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})

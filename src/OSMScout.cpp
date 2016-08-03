@@ -23,6 +23,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include <QStandardPaths>
+#include <QQmlContext>
 
 #ifdef QT_QML_DEBUG
 #include <QtQuick>
@@ -136,6 +137,16 @@ int main(int argc, char* argv[])
   }
   
   view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
+
+  // install translator
+  QTranslator translator;  
+  QLocale locale;
+  if (translator.load(locale, SailfishApp::pathTo("translations").toLocalFile())) {
+    qDebug() << "Install translator for locale " << locale;
+    app->installTranslator(&translator);  
+  }else{
+    qWarning() << "Can't load translator for locale " << locale;      
+  }
   
   thread.start();
   

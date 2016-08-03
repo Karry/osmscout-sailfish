@@ -120,9 +120,11 @@ Page {
 
                 Label {
                     id: placeDistanceLabel
-                    text: qsTrId("%1 %2 from you")
-                        .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
-                        .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
+                    text: locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon) < 2 ?
+                              qsTrId("You are here") :
+                              qsTrId("%1 %2 from you")
+                                .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
+                                .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
 
                     color: Theme.highlightColor
                     width: parent.width

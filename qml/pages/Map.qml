@@ -81,10 +81,63 @@ Page {
         dock: mapPage.isPortrait ? Dock.Top : Dock.Left
         open: false
 
-        background:  Rectangle{
-
+        background: SilicaListView {
+            interactive: false
             anchors.fill: parent
-            color: "transparent"
+            height: childrenRect.height
+            id: menu
+            model: ListModel {
+                ListElement { itemtext: "Search";       itemicon: "image://theme/icon-m-search";         action: "search";   }
+                ListElement { itemtext: "Where am I?";  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
+                ListElement { itemtext: "Settings";     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
+                ListElement { itemtext: "Layers";       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+                ListElement { itemtext: "Bookmarks";    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
+                ListElement { itemtext: "About";        itemicon: "image://theme/icon-m-about";          action: "about";    }
+            }
+
+            delegate: ListItem{
+                id: searchRow
+
+                function isEnabled(action){
+                    return ((action == "whereami" && positionSource.valid) ||
+                            action == "about")
+                }
+
+                function onAction(action){
+                    if (action == "whereami"){
+                        if (positionSource.valid){
+                            pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
+                                           {placeLat: positionSource.lat, placeLon: positionSource.lon})
+                        }else{
+                            console.log("I can't say where you are. Position is not valid!")
+                        }
+                    }else if (action == "about"){
+                        pageStack.push(Qt.resolvedUrl("About.qml"))
+                    }else{
+                        console.log("TODO: "+ action)
+                    }
+                }
+
+                //spacing: Theme.paddingMedium
+                anchors.right: parent.right
+                anchors.left: parent.left
+                IconButton{
+                    id: searchIcon
+                    icon.source: itemicon
+                    enabled: isEnabled(action)
+                    onClicked: onAction(action)
+                }
+
+                Label {
+                    id: searchLabel
+                    anchors.left: searchIcon.right
+                    text: qsTr(itemtext)
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: isEnabled(action)? Theme.primaryColor: Theme.secondaryColor
+                }
+
+                onClicked: onAction(action)
+            }
         }
 
         MapComponent {
