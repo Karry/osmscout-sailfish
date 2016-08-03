@@ -232,6 +232,7 @@ set(SOURCE_FILES
     qml/custom/OSMCopyright.qml
     qml/custom/MapComponent.qml
     qml/custom/Link.qml
+    qml/custom/ScaleIndicator.qml
     qml/pages/Map.qml
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml

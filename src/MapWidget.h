@@ -36,7 +36,7 @@ class MapWidget : public QQuickPaintedItem
   Q_PROPERTY(double   lat      READ GetLat      NOTIFY viewChanged)
   Q_PROPERTY(double   lon      READ GetLon      NOTIFY viewChanged)
   Q_PROPERTY(uint32_t magLevel READ GetMagLevel NOTIFY viewChanged)
-  Q_PROPERTY(double   meterInPixel READ GetMeterInPixel NOTIFY viewChanged)
+  Q_PROPERTY(double   pixelSize READ GetPixelSize NOTIFY viewChanged)
   Q_PROPERTY(bool     finished READ IsFinished  NOTIFY finishedChanged)
   Q_PROPERTY(bool     showCurrentPosition READ getShowCurrentPosition WRITE setShowCurrentPosition)
 
@@ -150,9 +150,9 @@ public:
       return view->magnification.GetLevel();
   }
   
-  inline double GetMeterInPixel() const
+  inline double GetPixelSize() const
   {
-      return getProjection().GetMeterInPixel();
+      return getProjection().GetPixelSize();
   }
   
   inline bool IsFinished() const

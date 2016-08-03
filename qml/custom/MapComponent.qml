@@ -30,6 +30,18 @@ Map {
       magLevel: map.magLevel
       finished: map.finished
   }
+
+  ScaleIndicator{
+    pixelSize: map.pixelSize
+    width: osmCopyright.width - Theme.paddingMedium
+    x: Theme.paddingMedium
+    opacity: 0.6
+    anchors{
+        bottom: osmCopyright.top
+        bottomMargin: Theme.paddingSmall
+    }
+  }
+
   OSMCopyright{
       id : osmCopyright
       anchors{
