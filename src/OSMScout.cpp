@@ -45,6 +45,11 @@
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
 
+// OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system
+#ifndef OSMSCOUT_SAILFISH_VERSION_STRING
+#define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
+#endif
+
 Q_DECLARE_METATYPE(osmscout::TileRef)
 
 static QObject *ThemeProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
@@ -129,7 +134,9 @@ int main(int argc, char* argv[])
   }else{
     window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
   }
-    
+  
+  view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
+  
   thread.start();
   
   result=app->exec();
