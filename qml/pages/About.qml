@@ -52,7 +52,7 @@ Page {
             Label{
                 id: aboutText
                 text: qsTrId(
-                          "OSM Scout for Sailfish OS is map application developed as open-source by volunteers in their free time. " +
+                          "OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. " +
                           "You can help to improve this application by reporting bugs, creating translations or developing new features. " +
                           "Any help is welcome."
                           )
