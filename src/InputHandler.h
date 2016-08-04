@@ -51,6 +51,7 @@ private:
   QTimer timer;
   TapRecState state;
   int holdIntervalMs;
+  int hold2IntervalMs;
   int tapIntervalMs;
   int moveTolerance;
   
@@ -58,7 +59,12 @@ private slots:
   void onTimeout();
   
 public:
-  inline TapRecognizer(): state(INACTIVE), holdIntervalMs(500), tapIntervalMs(200), moveTolerance(15)
+  inline TapRecognizer(): 
+          state(INACTIVE), 
+          holdIntervalMs(1000), 
+          hold2IntervalMs(500), 
+          tapIntervalMs(200), 
+          moveTolerance(15)
   {
     timer.setSingleShot(true);
     connect(&timer, SIGNAL(timeout()), this, SLOT(onTimeout()));

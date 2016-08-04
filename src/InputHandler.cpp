@@ -104,7 +104,7 @@ void TapRecognizer::touch(QTouchEvent *event)
             startX = x;
             startY = y;
             state = PRESSED2;
-            timer.setInterval(holdIntervalMs);
+            timer.setInterval(hold2IntervalMs);
             timer.start();
         }
         break;
