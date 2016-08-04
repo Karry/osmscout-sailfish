@@ -32,4 +32,9 @@
 - Show place details on long tap
 - Path rendering improvements in core library
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.6-1
+* 2016-08-04 Lukáš Karas <lukas.karas@centrum.cz> 0.6-1
+- Restore map position on startup
+- Prepare main menu
+- Add "About" page
+- Add "Where am I?" functionality (just show current position in PlaceDetail page)
+- Display scale bar on map
