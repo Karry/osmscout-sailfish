@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu_HU">
+<TS version="2.0" language="hu_HU">
 <context>
     <name>About</name>
     <message>
@@ -13,19 +13,19 @@
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">Az alkalmazásról</translation>
+        <translation>Az alkalmazásról</translation>
     </message>
     <message>
         <source>GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>Github oldal</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>OSMScout könyvtár GitHub oldala</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline térkép importálási segédlet</translation>
     </message>
 </context>
 <context>
@@ -66,7 +66,7 @@
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap közreműködői</translation>
+        <translation>© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
