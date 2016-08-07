@@ -87,12 +87,12 @@ Page {
             height: childrenRect.height
             id: menu
             model: ListModel {
-                ListElement { itemtext: "Search";       itemicon: "image://theme/icon-m-search";         action: "search";   }
-                ListElement { itemtext: "Where am I?";  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
-                ListElement { itemtext: "Settings";     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
-                ListElement { itemtext: "Layers";       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
-                ListElement { itemtext: "Bookmarks";    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
-                ListElement { itemtext: "About";        itemicon: "image://theme/icon-m-about";          action: "about";    }
+                ListElement { itemtext: qsTr("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
+                ListElement { itemtext: qsTr("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
+                ListElement { itemtext: qsTr("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
+                ListElement { itemtext: qsTr("Layers");       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+                ListElement { itemtext: qsTr("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
+                ListElement { itemtext: qsTr("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
             }
 
             delegate: ListItem{
@@ -131,7 +131,7 @@ Page {
                 Label {
                     id: searchLabel
                     anchors.left: searchIcon.right
-                    text: qsTr(itemtext)
+                    text: itemtext
                     anchors.verticalCenter: parent.verticalCenter
                     color: isEnabled(action)? Theme.primaryColor: Theme.secondaryColor
                 }

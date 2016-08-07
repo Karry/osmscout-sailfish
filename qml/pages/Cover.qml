@@ -38,7 +38,7 @@ import Sailfish.Silica 1.0
 CoverBackground {
     CoverPlaceholder {
         //% "OSM Scout"
-        text: qsTrId("OSM Scout")
+        text: qsTr("OSM Scout")
         icon.source: "image://theme/harbour-osmscout"
     }
 }

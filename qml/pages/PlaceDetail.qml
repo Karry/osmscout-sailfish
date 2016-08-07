@@ -51,13 +51,13 @@ Page {
     }
     function humanBearing(bearing){
         if (bearing == "W")
-            return qsTrId("west");
+            return qsTr("west");
         if (bearing == "E")
-            return qsTrId("east");
+            return qsTr("east");
         if (bearing == "S")
-            return qsTrId("south");
+            return qsTr("south");
         if (bearing == "N")
-            return qsTrId("north");
+            return qsTr("north");
 
         return bearing;
     }
@@ -121,8 +121,8 @@ Page {
                 Label {
                     id: placeDistanceLabel
                     text: locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon) < 2 ?
-                              qsTrId("You are here") :
-                              qsTrId("%1 %2 from you")
+                              qsTr("You are here") :
+                              qsTr("%1 %2 from you")
                                 .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
                                 .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
 
@@ -159,7 +159,7 @@ Page {
 
                         width: locationInfoView.width
 
-                        text: qsTrId("%1 %2 from")
+                        text: qsTr("%1 %2 from")
                             .arg(humanDistance(distance))
                             .arg(humanBearing(bearing))
 
