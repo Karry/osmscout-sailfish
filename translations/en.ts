@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en">
-<context>
-    <name></name>
-    <message id="OSM Scout for Sailfish OS is map application developed as open-source by volunteers.">
-        <source></source>
-        <translation>TRANSLATED</translation>
-    </message>
-    <message id="OSM Scout %1">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="west">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="east">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="south">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="north">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="You are here">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="%1 %2 from you">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-    <message id="%1 %2 from">
-        <source></source>
-        <translation type="obsolete">TRANSLATED</translation>
-    </message>
-</context>
+<TS version="2.1" language="en">
 <context>
     <name>About</name>
     <message>
@@ -52,6 +9,22 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GitHub page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OSMScout library GitHub page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline map import tutorial</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
