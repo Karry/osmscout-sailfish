@@ -87,12 +87,12 @@ Page {
             height: childrenRect.height
             id: menu
             model: ListModel {
-                ListElement { itemtext: qsTr("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
-                ListElement { itemtext: qsTr("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
-                ListElement { itemtext: qsTr("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
-                ListElement { itemtext: qsTr("Layers");       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
-                ListElement { itemtext: qsTr("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
-                ListElement { itemtext: qsTr("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
+                ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
+                ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
+                ListElement { itemtext: QT_TR_NOOP("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
+                ListElement { itemtext: QT_TR_NOOP("Layers");       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+                ListElement { itemtext: QT_TR_NOOP("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
+                ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
             }
 
             delegate: ListItem{
@@ -131,7 +131,7 @@ Page {
                 Label {
                     id: searchLabel
                     anchors.left: searchIcon.right
-                    text: itemtext
+                    text: qsTr(itemtext)
                     anchors.verticalCenter: parent.verticalCenter
                     color: isEnabled(action)? Theme.primaryColor: Theme.secondaryColor
                 }
