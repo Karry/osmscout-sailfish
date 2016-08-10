@@ -1,7 +1,7 @@
 # OSM Scout for Sailfish OS
 
 Goal of this project is to bring offline maps to Sailfish OS with native look and feel.
-OSM Scout for Sailfish OS is based on [OSM Scout](http://wiki.openstreetmap.org/wiki/Libosmscout) 
+OSM Scout for Sailfish OS is based on [OSM Scout](http://libosmscout.sourceforge.net/) 
 library.
 
 ## Project Wiki:
