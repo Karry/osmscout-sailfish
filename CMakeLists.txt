@@ -207,6 +207,8 @@ set(HEADER_FILES
 
 set(LANG_FILES
     translations/en.ts
+
+    translations/cs.ts
     translations/hu.ts
 )
 
