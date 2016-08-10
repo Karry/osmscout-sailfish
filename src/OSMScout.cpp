@@ -141,11 +141,11 @@ int main(int argc, char* argv[])
   // install translator
   QTranslator translator;  
   QLocale locale;
-  if (translator.load(locale, SailfishApp::pathTo("translations").toLocalFile())) {
-    qDebug() << "Install translator for locale " << locale;
+  if (translator.load(locale.name(), SailfishApp::pathTo("translations").toLocalFile())) {
+    qDebug() << "Install translator for locale " << locale << "/" << locale.name();
     app->installTranslator(&translator);  
   }else{
-    qWarning() << "Can't load translator for locale " << locale;      
+    qWarning() << "Can't load translator for locale" << locale << "/" << locale.name() << "(" << SailfishApp::pathTo("translations").toLocalFile() << ")";
   }
   
   thread.start();
