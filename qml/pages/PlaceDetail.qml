@@ -42,12 +42,12 @@ Page {
 
     function humanDistance(distance){
         if (distance < 1500){
-            return Math.round(distance) + " meters";
+            return Math.round(distance) + " "+ qsTr("meters");
         }
         if (distance < 20000){
-            return (Math.round((distance/1000) * 10)/10) + " km";
+            return (Math.round((distance/1000) * 10)/10) + " "+ qsTr("km");
         }
-        return Math.round(distance/1000) + " km";
+        return Math.round(distance/1000) + " "+ qsTr("km");
     }
     function humanBearing(bearing){
         if (bearing == "W")

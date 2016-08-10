@@ -99,5 +99,13 @@
         <source>%1 %2 from</source>
         <translation>%1 %2 innen</translation>
     </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -73,19 +73,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>západ</translation>
+        <translation>západně</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>východ</translation>
+        <translation>východně</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>jih</translation>
+        <translation>jižně</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>sever</translation>
+        <translation>severně</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -93,11 +93,19 @@
     </message>
     <message>
         <source>%1 %2 from you</source>
-        <translation>%1 %2 od vás</translation>
+        <translation>%1 %2 od Vás</translation>
     </message>
     <message>
         <source>%1 %2 from</source>
         <translation>%1 %2 od</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>metrů</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
     </message>
 </context>
 </TS>
