@@ -7,5 +7,5 @@ library.
 ## Project Wiki:
 
  - [Howto build for Sailfish OS](https://github.com/Karry/osmscout-sailfish/wiki/Howto-build-for-Sailfish-OS)
- - [Local development](https://github.com/Karry/osmscout-sailfish/wiki/Howto-create-translation)
+ - [Local development](https://github.com/Karry/osmscout-sailfish/wiki/Local-development)
  - [Howto create translation](https://github.com/Karry/osmscout-sailfish/wiki/Howto-create-translation)
