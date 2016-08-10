@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en">
+<TS version="2.1" language="hu_HU">
 <context>
     <name>About</name>
     <message>
         <source>OSM Scout %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Scout %1</translation>
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation type="unfinished"></translation>
+        <translation>A Sailfish operációs rendszeren futó OSM Scoutalkalmazást a fejlesztők szabad idejükben fejlesztik. Segítheted munkájukat hibák bejelentésével, fordítások készítésével és új programfunkciók fejlesztésével. Minden segítséget köszönettel fogadunk!</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Az alkalmazásról</translation>
     </message>
     <message>
         <source>GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>Github oldal</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>OSMScout könyvtár GitHub oldala</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline térkép importálási segédlet</translation>
     </message>
 </context>
 <context>
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Scout</translation>
     </message>
 </context>
 <context>
     <name>Map</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Where am I?</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi helyzet</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Layers</source>
-        <translation type="unfinished"></translation>
+        <translation>Rétegek</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvjelzők</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Az alkalmazásról</translation>
     </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation type="unfinished"></translation>
+        <translation>nyugatra</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished"></translation>
+        <translation>keletre</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished"></translation>
+        <translation>délre</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished"></translation>
+        <translation>északra</translation>
     </message>
     <message>
         <source>You are here</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi helyzeted</translation>
     </message>
     <message>
         <source>%1 %2 from you</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2 tőled</translation>
     </message>
     <message>
         <source>%1 %2 from</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2 innen</translation>
     </message>
 </context>
 </TS>

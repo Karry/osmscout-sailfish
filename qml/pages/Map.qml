@@ -87,12 +87,12 @@ Page {
             height: childrenRect.height
             id: menu
             model: ListModel {
-                ListElement { itemtext: "Search";       itemicon: "image://theme/icon-m-search";         action: "search";   }
-                ListElement { itemtext: "Where am I?";  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
-                ListElement { itemtext: "Settings";     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
-                ListElement { itemtext: "Layers";       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
-                ListElement { itemtext: "Bookmarks";    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
-                ListElement { itemtext: "About";        itemicon: "image://theme/icon-m-about";          action: "about";    }
+                ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
+                ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
+                ListElement { itemtext: QT_TR_NOOP("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
+                ListElement { itemtext: QT_TR_NOOP("Layers");       itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+                ListElement { itemtext: QT_TR_NOOP("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
+                ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
             }
 
             delegate: ListItem{

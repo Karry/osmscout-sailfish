@@ -39,19 +39,19 @@ Page {
                     id: headerText
                     anchors.left: icon.right
                     anchors.verticalCenter: parent.verticalCenter
-                    title: qsTrId("OSM Scout %1").arg(OSMScoutVersionString)
+                    title: qsTr("OSM Scout %1").arg(OSMScoutVersionString)
                 }
             }
 
             SectionHeader{
                 id: aboutHeader
-                text: "About"
+                text: qsTr("About")
                 anchors.top: header.bottom
             }
 
             Label{
                 id: aboutText
-                text: qsTrId(
+                text: qsTr(
                           "OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. " +
                           "You can help to improve this application by reporting bugs, creating translations or developing new features. " +
                           "Any help is welcome."
@@ -84,7 +84,7 @@ Page {
                     width: parent.width - 2* Theme.paddingLarge
                     x: Theme.paddingLarge
 
-                    label: "GitHub page"
+                    label: qsTr("GitHub page")
                     link: "https://github.com/Karry/osmscout-sailfish"
                     linkText: "github.com/Karry/osmscout-sailfish"
                 }
@@ -93,7 +93,7 @@ Page {
                     width: parent.width - 2* Theme.paddingLarge
                     x: Theme.paddingLarge
 
-                    label: "OSMScout library GitHub page"
+                    label: qsTr("OSMScout library GitHub page")
                     link: "https://github.com/Framstag/libosmscout"
                     linkText: "github.com/Framstag/libosmscout"
 
@@ -104,8 +104,8 @@ Page {
                     width: parent.width - 2* Theme.paddingLarge
                     x: Theme.paddingLarge
 
-                    label: "Offline map import tutorial"
-                    link: "http://libosmscout.sourceforge.net/tutorials/Importing/"
+                    label: qsTr("Offline map import tutorial")
+                    link: "http://libosmscout.sourceforge.net/tutorials/Importing"
                     linkText: "libosmscout.sourceforge.net/tutorials/Importing"
 
                     anchors.top: libLink.bottom
