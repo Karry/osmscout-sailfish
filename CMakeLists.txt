@@ -55,6 +55,7 @@ find_package( Qt5 ${QT_MIN_VERSION}
               Quick
               Positioning
 )
+find_package(Qt5LinguistTools)
 find_package(OpenMP REQUIRED)
 #find_package(LibXml2)
 #find_package(BZip2)
@@ -204,6 +205,14 @@ set(HEADER_FILES
     src/OSMTile.h
 )
 
+set(LANG_FILES
+    translations/en.ts
+    translations/hu.ts
+)
+
+QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
+ADD_CUSTOM_TARGET (translations ALL DEPENDS ${LANG_SRC})
+
 set(SOURCE_FILES
     src/DBThread.cpp
     src/MapWidget.cpp
@@ -240,7 +249,7 @@ set(SOURCE_FILES
     qml/main.qml
     qml/desktop.qml
 
-    translations/en.ts
+    ${LANG_FILES}
 )
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
@@ -277,9 +286,8 @@ DESTINATION share/${HARBOUR_APP_NAME})
 install(DIRECTORY pics
 DESTINATION share/${HARBOUR_APP_NAME})
 
-install(DIRECTORY translations
-DESTINATION share/${HARBOUR_APP_NAME}
-FILES_MATCHING PATTERN "*.qm")
+install(FILES ${LANG_SRC}
+DESTINATION share/${HARBOUR_APP_NAME}/translations)
 
 install(FILES harbour-osmscout.desktop
 DESTINATION share/applications)
