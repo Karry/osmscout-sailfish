@@ -203,6 +203,9 @@ public:
     virtual bool move(QVector2D vector); // move vector in pixels
     virtual bool rotateBy(double angleStep, double angleChange);
     virtual bool touch(QTouchEvent *event);
+    virtual bool currentPosition(bool locationValid, osmscout::GeoCoord currentPosition);
+    virtual bool isLockedToPosition();
+    virtual bool focusOutEvent(QFocusEvent *event);
 
 signals:
     void viewChanged(const MapView &view);
@@ -327,7 +330,20 @@ private:
     QTouchEvent::TouchPoint startPointB;
 };
 
-
+class LockHandler : public JumpHandler {
+    Q_OBJECT
+protected:
+    double dpi;
+    double moveTolerance;
+public: 
+    inline LockHandler(MapView view, double dpi, double moveTolerance): 
+      JumpHandler(view), dpi(dpi), moveTolerance(moveTolerance)
+    {};
+  
+    virtual bool currentPosition(bool locationValid, osmscout::GeoCoord currentPosition);
+    virtual bool isLockedToPosition();
+    virtual bool focusOutEvent(QFocusEvent *event);
+};
 
 #endif	/* INPUTHANDLER_H */
 

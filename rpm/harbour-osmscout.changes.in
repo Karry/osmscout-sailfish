@@ -42,3 +42,4 @@
 * 2016-XX-XX Lukáš Karas <lukas.karas@centrum.cz> 0.7-1
 - increase interval for long-tap 
 - added Czech and Hungarian translations
+- double tap on "show my position" button lock map on current position

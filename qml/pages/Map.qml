@@ -287,15 +287,41 @@ Page {
                     radius: width*0.5
                 }
 
+                IconButton{
+                    id: possitionLockIcon
+                    icon.source: "image://theme/icon-s-secure"
+                    x: parent.width - (width * 0.75)
+                    y: parent.height - (height * 0.75)
+
+                    opacity: map.lockToPosition ? 1 : 0
+                }
 
                 MouseArea {
                   id: currentPositionBtnMouseArea
                   anchors.fill: parent
 
                   hoverEnabled: true
+
+                  Timer {
+                      id: showCurrentPositionTimer
+                      interval: 120 // double click tolerance
+                      running: false
+                      repeat: false
+                      onTriggered: {
+                          if (positionSource.valid){
+                              map.showCoordinates(positionSource.lat, positionSource.lon);
+                          }
+                      }
+                  }
                   onClicked: {
+                      // postpone jump a little bit, double click can apears...
+                      showCurrentPositionTimer.running = true;
+                  }
+                  onDoubleClicked: {
+                      showCurrentPositionTimer.running = false;
                       if (positionSource.valid){
-                          map.showCoordinates(positionSource.lat, positionSource.lon);
+                          map.lockToPosition = !map.lockToPosition;
+                          console.log(map.lockToPosition ? "bound map with current possition" : "unbound map from current possition");
                       }
                   }
                 }

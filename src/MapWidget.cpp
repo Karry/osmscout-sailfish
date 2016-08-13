@@ -20,6 +20,7 @@
 #include "MapWidget.h"
 #include "InputHandler.h"
 
+#include <cmath>
 #include <iostream>
 #include <sys/socket.h>
 
@@ -104,13 +105,19 @@ void MapWidget::mouseReleaseEvent(QMouseEvent* event)
  
 void MapWidget::setupInputHandler(InputHandler *newGesture)
 {
-    if (inputHandler != NULL)
+    bool locked = false; 
+    if (inputHandler != NULL){
+        locked = inputHandler->isLockedToPosition();
         delete inputHandler;
+    }
     inputHandler = newGesture;
     
     connect(inputHandler, SIGNAL(viewChanged(const MapView&)), 
             this, SLOT(changeView(const MapView&)));
-    
+
+    if (locked != inputHandler->isLockedToPosition()){
+        emit lockToPossitionChanged();
+    }
     //qDebug() << "Input handler changed (" << (newGesture->animationInProgress()? "animation": "stationary") << ")";
 }
 
@@ -162,8 +169,10 @@ void MapWidget::touchEvent(QTouchEvent *event)
 
 void MapWidget::focusOutEvent(QFocusEvent *event)
 {
-    qDebug() << "focus-out event, cancel all input events";
-    setupInputHandler(new InputHandler(*view));
+    qDebug() << "focus-out event";
+    if (!inputHandler->focusOutEvent(event)){
+        setupInputHandler(new InputHandler(*view));
+    }
     QQuickPaintedItem::focusOutEvent(event);
 }
 
@@ -352,6 +361,17 @@ void MapWidget::reloadStyle()
     redraw();
 }
 
+void MapWidget::setLockToPosition(bool lock){
+    if (lock){
+        if (!inputHandler->currentPosition(locationValid, currentPosition)){
+            setupInputHandler(new LockHandler(*view, mapDpi, std::min(width(), height()) / 3));
+            inputHandler->currentPosition(locationValid, currentPosition);
+        }
+    }else{
+        setupInputHandler(new InputHandler(*view));
+    }
+}
+
 void MapWidget::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnification magnification)
 {
     if (!inputHandler->showCoordinates(coord, magnification)){
@@ -443,6 +463,9 @@ void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool
     this->currentPosition.Set(lat, lon);
     this->horizontalAccuracyValid = horizontalAccuracyValid;
     this->horizontalAccuracy = horizontalAccuracy;
+
+    inputHandler->currentPosition(locationValid, currentPosition);
+
     redraw();
 }
 

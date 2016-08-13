@@ -39,6 +39,7 @@ class MapWidget : public QQuickPaintedItem
   Q_PROPERTY(double   pixelSize READ GetPixelSize NOTIFY viewChanged)
   Q_PROPERTY(bool     finished READ IsFinished  NOTIFY finishedChanged)
   Q_PROPERTY(bool     showCurrentPosition READ getShowCurrentPosition WRITE setShowCurrentPosition)
+  Q_PROPERTY(bool     lockToPosition READ isLockedToPosition WRITE setLockToPosition NOTIFY lockToPossitionChanged)
 
 private:
 
@@ -60,6 +61,7 @@ private:
 
 signals:
   void viewChanged();
+  void lockToPossitionChanged();
   void finishedChanged(bool finished);
   
   void tap(const int sceenX, const int screenY, const double lat, const double lon);
@@ -169,6 +171,13 @@ public:
   { 
       showCurrentPosition = b;
   };
+  
+  inline bool isLockedToPosition()
+  {
+      return inputHandler->isLockedToPosition();
+  };
+  
+  void setLockToPosition(bool);
   
   inline osmscout::MercatorProjection getProjection() const
   {

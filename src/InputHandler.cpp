@@ -17,6 +17,8 @@
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include <cmath>
+
 #include <QDebug>
 #include <QPoint>
 #include <QVector>
@@ -198,6 +200,18 @@ bool InputHandler::rotateBy(double angleStep, double angleChange)
     return false;
 }
 bool InputHandler::touch(QTouchEvent *event)
+{
+    return false;
+}
+bool InputHandler::currentPosition(bool locationValid, osmscout::GeoCoord currentPosition)
+{
+    return false;
+}
+bool InputHandler::isLockedToPosition()
+{
+    return false;
+}
+bool InputHandler::focusOutEvent(QFocusEvent *event)
 {
     return false;
 }
@@ -619,5 +633,30 @@ bool MultitouchHandler::touch(QTouchEvent *event)
     moving = false;
     ended = true;
     MoveHandler::move(moveAccumulator.collect());
+    return true;
+}
+
+bool LockHandler::currentPosition(bool locationValid, osmscout::GeoCoord currentPosition)
+{
+    if (locationValid){
+        osmscout::MercatorProjection projection;
+        projection.Set(view.center, view.magnification, dpi, 1000, 1000);
+        double x;
+        double y;
+        projection.GeoToPixel(currentPosition, x, y);
+        double distanceFromCenter = sqrt(pow(abs(500 - x), 2) + pow(abs(500 - y), 2));
+        if (distanceFromCenter > moveTolerance){        
+            showCoordinates(currentPosition, view.magnification);
+        }
+    }
+    return true;
+}
+
+bool LockHandler::isLockedToPosition()
+{
+    return true;
+}
+bool LockHandler::focusOutEvent(QFocusEvent *event)
+{
     return true;
 }
