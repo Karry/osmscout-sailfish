@@ -1,44 +1,106 @@
-/****************************************************************************************
-**
-** Copyright (C) 2013 Jolla Ltd.
-** Contact: Martin Jones <martin.jones@jollamobile.com>
-** All rights reserved.
-** 
-** This file is part of Sailfish Silica UI component package.
-**
-** You may use this file under the terms of BSD license as follows:
-**
-** Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are met:
-**     * Redistributions of source code must retain the above copyright
-**       notice, this list of conditions and the following disclaimer.
-**     * Redistributions in binary form must reproduce the above copyright
-**       notice, this list of conditions and the following disclaimer in the
-**       documentation and/or other materials provided with the distribution.
-**     * Neither the name of the Jolla Ltd nor the
-**       names of its contributors may be used to endorse or promote products
-**       derived from this software without specific prior written permission.
-** 
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-** ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-** DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR
-** ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-** (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-** LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-** ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-**
-****************************************************************************************/
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import QtPositioning 5.2
+
+import harbour.osmscout.map 1.0
+
+import "../custom"
+
 CoverBackground {
+    id: cover
+    /*
     CoverPlaceholder {
         //% "OSM Scout"
         text: qsTr("OSM Scout")
         icon.source: "image://theme/harbour-osmscout"
+    }
+    */
+    Settings {
+        id: settings
+    }
+    property bool initialized: false;
+    onStatusChanged: {
+        if (status == PageStatus.Activating){
+            if (!initialized){
+                map.view = settings.mapView;
+                initialized = true;
+            }
+            map.lockToPosition = true;
+        }
+    }
+    PositionSource {
+        id: positionSource
+
+        active: true
+
+        property bool valid: false;
+        property double lat: 0.0;
+        property double lon: 0.0;
+
+        onPositionChanged: {
+            positionSource.valid = position.latitudeValid && position.longitudeValid;
+            positionSource.lat = position.coordinate.latitude;
+            positionSource.lon = position.coordinate.longitude;
+
+            map.locationChanged(
+               position.latitudeValid && position.longitudeValid,
+               position.coordinate.latitude, position.coordinate.longitude,
+               position.horizontalAccuracyValid, position.horizontalAccuracy);
+        }
+    }
+    OpacityRampEffect {
+        enabled: true
+        offset: 1. - (header.height + Theme.paddingLarge) / map.height
+        slope: map.height / Theme.paddingLarge / 3.
+        direction: 3
+        sourceItem: map
+    }
+    Rectangle{
+        id: header
+
+        height: icon.height + 2* Theme.paddingMedium
+        x: Theme.paddingMedium
+
+        Image{
+            id: icon
+            source: "image://theme/harbour-osmscout"
+            x: 0
+            y: Theme.paddingMedium
+            height: Theme.fontSizeMedium * 1.5
+            width: height
+        }
+        Label{
+            id: headerText
+            anchors{
+                verticalCenter: parent.verticalCenter
+                left: icon.right
+                leftMargin: Theme.paddingSmall
+            }
+            text: qsTr("OSM Scout")
+            font.pixelSize: Theme.fontSizeMedium
+        }
+    }
+    Map {
+        id: map
+
+        focus: true
+        anchors.fill: parent
+
+        showCurrentPosition: true
+        lockToPosition: true
+    }
+    CoverActionList {
+        enabled: true
+        iconBackground: true
+        CoverAction {
+            iconSource: "file:///usr/share/harbour-osmscout/pics/icon-cover-remove.png"
+            onTriggered: map.zoomOut(2.0)
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-cover-new"
+            onTriggered: map.zoomIn(2.0)
+        }
     }
 }
