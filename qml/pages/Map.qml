@@ -100,7 +100,7 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about"); //  || action == "search"
+                            action == "about" || action == "search");
                 }
 
                 function onAction(action){
