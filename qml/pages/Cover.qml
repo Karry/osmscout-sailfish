@@ -91,30 +91,31 @@ CoverBackground {
         showCurrentPosition: true
         lockToPosition: true
     }
-    CoverActionList {
-        Timer {
-            id: bindToCurrentPositionTimer
-            interval: 600 // zoom duration
-            running: false
-            repeat: false
-            onTriggered: {
-                map.lockToPosition = true;
-            }
+
+    Timer {
+        id: bindToCurrentPositionTimer
+        interval: 600 // zoom duration
+        running: false
+        repeat: false
+        onTriggered: {
+            map.lockToPosition = true;
         }
+    }
+    CoverActionList {
 
         enabled: true
         iconBackground: true
         CoverAction {
             iconSource: "file:///usr/share/harbour-osmscout/pics/icon-cover-remove.png"
             onTriggered: {
-                map.zoomOut(2.0)
+                map.zoomOut(2.0);
                 bindToCurrentPositionTimer.restart();
             }
         }
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
             onTriggered: {
-                map.zoomIn(2.0)
+                map.zoomIn(2.0);
                 bindToCurrentPositionTimer.restart();
             }
         }
