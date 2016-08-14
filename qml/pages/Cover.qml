@@ -28,6 +28,10 @@ CoverBackground {
                 initialized = true;
             }
             map.lockToPosition = true;
+            //console.log("cover activating... " + positionSource.active)
+            positionSource.active = true;
+        }else if (status == PageStatus.Deactivating){
+            positionSource.active = false;
         }
     }
     PositionSource {
@@ -48,6 +52,8 @@ CoverBackground {
                position.latitudeValid && position.longitudeValid,
                position.coordinate.latitude, position.coordinate.longitude,
                position.horizontalAccuracyValid, position.horizontalAccuracy);
+
+            //console.log("cover map position changed")
         }
     }
     OpacityRampEffect {
