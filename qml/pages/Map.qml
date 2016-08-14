@@ -100,7 +100,7 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about")
+                            action == "about"); //  || action == "search"
                 }
 
                 function onAction(action){
@@ -113,6 +113,8 @@ Page {
                         }
                     }else if (action == "about"){
                         pageStack.push(Qt.resolvedUrl("About.qml"))
+                    }else if (action == "search"){
+                        pageStack.push(Qt.resolvedUrl("Search.qml"))
                     }else{
                         console.log("TODO: "+ action)
                     }

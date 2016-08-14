@@ -248,6 +248,7 @@ set(SOURCE_FILES
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml
     qml/pages/About.qml
+    qml/pages/Search.qml
     qml/main.qml
     qml/desktop.qml
 
