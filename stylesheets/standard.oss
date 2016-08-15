@@ -894,7 +894,16 @@ STYLE
  [MAG veryClose-] {
    [TYPE highway_bus_stop] NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
 
+   [TYPE highway_footway] {
+     WAY#outline {color: #ffffff50; displayWidth: 1.2mm; cap: butt;}
+     WAY {color: #f64762; dash: 1,1; cap: butt; displayWidth: 0.4mm; }
 
+     [BRIDGE] {
+       WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.6mm;}
+       WAY#rbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: 0.6mm;}
+     }
+   }
+   
    [TYPE highway_bridleway] {
      WAY {color: #90570c; displayWidth: 0.4mm; cap: butt; }
 
