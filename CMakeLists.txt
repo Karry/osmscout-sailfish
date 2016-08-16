@@ -318,10 +318,10 @@ install(FILES
 DESTINATION share/${HARBOUR_APP_NAME}/map-icons)
 
 install(FILES 
-  dependencies/libosmscout/stylesheets/boundaries.oss
-  dependencies/libosmscout/stylesheets/motorways.oss
-  dependencies/libosmscout/stylesheets/railways.oss
-  dependencies/libosmscout/stylesheets/standard.oss
+  stylesheets/boundaries.oss
+  stylesheets/motorways.oss
+  stylesheets/railways.oss
+  stylesheets/standard.oss
 DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
 
 # ==================================================================================================
