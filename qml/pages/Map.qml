@@ -100,10 +100,13 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about" || action == "search");
+                            action == "about" ); // || action == "search"
                 }
 
                 function onAction(action){
+                    if (!isEnabled(action))
+                        return;
+
                     if (action == "whereami"){
                         if (positionSource.valid){
                             pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
