@@ -199,6 +199,7 @@ set(HEADER_FILES
     src/LocationInfoModel.h
     src/Settings.h
     src/OnlineTileProvider.h
+    src/OnlineTileProviderModel.h
     src/Theme.h
     src/TileCache.h
     src/OsmTileDownloader.h
@@ -225,6 +226,7 @@ set(SOURCE_FILES
     src/LocationInfoModel.cpp
     src/Settings.cpp
     src/OnlineTileProvider.cpp
+    src/OnlineTileProviderModel.cpp
     src/Theme.cpp
     src/TileCache.cpp
     src/OsmTileDownloader.cpp

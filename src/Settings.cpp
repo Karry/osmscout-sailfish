@@ -124,10 +124,16 @@ bool Settings::GetOnlineTilesEnabled() const
 void Settings::SetOnlineTilesEnabled(bool b)
 {
   if (GetOnlineTilesEnabled() != b){
-    return settings.setValue("onlineTiles", b);
+    settings.setValue("onlineTiles", b);
     emit OnlineTilesEnabledChanged(b);
   }
 }
+
+const QList<OnlineTileProvider> Settings::GetOnlineProviders() const
+{
+    return onlineProviders.values();
+}
+
 const OnlineTileProvider Settings::GetOnlineTileProvider() const
 {
     if (onlineProviders.contains(GetOnlineTileProviderId())){
@@ -178,7 +184,8 @@ bool Settings::loadOnlineTileProviders(QString path)
             SetOnlineTileProviderId(onlineProviders.begin().key());
         }
     }    
-
+    
+    emit OnlineTileProviderIdChanged(GetOnlineTileProviderId());
     return true;
 }
 
@@ -206,6 +213,10 @@ QmlSettings::QmlSettings()
             this, SIGNAL(MapDPIChange(double)));
     connect(Settings::GetInstance(), SIGNAL(MapViewChanged(MapView *)),
             this, SIGNAL(MapViewChanged(MapView *)));
+    connect(Settings::GetInstance(), SIGNAL(OnlineTilesEnabledChanged(bool)),
+            this, SIGNAL(OnlineTilesEnabledChanged(bool)));
+    connect(Settings::GetInstance(), SIGNAL(OnlineTileProviderIdChanged(const QString)),
+            this, SIGNAL(OnlineTileProviderIdChanged(const QString)));
 }
 
 void QmlSettings::SetMapDPI(double dpi)
@@ -231,4 +242,24 @@ void QmlSettings::SetMapView(QObject *o)
         return;
     }
     Settings::GetInstance()->SetMapView(view);
+}
+
+bool QmlSettings::GetOnlineTilesEnabled() const
+{
+    return Settings::GetInstance()->GetOnlineTilesEnabled();
+}
+
+void QmlSettings::SetOnlineTilesEnabled(bool b)
+{
+    Settings::GetInstance()->SetOnlineTilesEnabled(b);
+}
+
+const QString QmlSettings::GetOnlineTileProviderId() const
+{
+    return Settings::GetInstance()->GetOnlineTileProviderId();
+}
+
+void QmlSettings::SetOnlineTileProviderId(QString id)
+{
+    Settings::GetInstance()->SetOnlineTileProviderId(id);
 }

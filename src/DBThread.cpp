@@ -88,9 +88,16 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
   mapDpi = Settings::GetInstance()->GetMapDPI();
   qDebug() << "Map DPI override: " << mapDpi;
 
+  onlineTilesEnabled = Settings::GetInstance()->GetOnlineTilesEnabled();
+  
   connect(Settings::GetInstance(), SIGNAL(MapDPIChange(double)),
           this, SLOT(onMapDPIChange(double)),
           Qt::QueuedConnection);
+  
+  connect(Settings::GetInstance(), SIGNAL(OnlineTileProviderIdChanged(const QString)), 
+          this, SLOT(onlineTileProviderChanged()));
+  connect(Settings::GetInstance(), SIGNAL(OnlineTilesEnabledChanged(bool)), 
+          this, SLOT(onlineTilesEnabledChanged(bool)));  
   
   connect(this,SIGNAL(TriggerInitialRendering()),
           this,SLOT(HandleInitialRenderingRequest()));
@@ -657,7 +664,7 @@ bool DBThread::lookupAndDrawTile(TileCache& tileCache, QPainter& painter,
           if (lookupTileZoom == zoomLevel)
               triggerRequest = false;
       }else{
-          // no tile found on current zoom zoom level
+          // no tile found on current zoom zoom level, lookup upper zoom level
           lookupTileZoom --;
           uint32_t crop = 1 << (zoomLevel - lookupTileZoom);
           double viewportWidth = 1.0 / (double)crop;
@@ -772,9 +779,9 @@ void DBThread::onlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t yt
         if (!onlineTileCache.startRequestProcess(zoomLevel, xtile, ytile)) // request was canceled or started already
             return;
     }
-     
-    bool requestedFromWeb = (databaseTileState(zoomLevel, xtile, ytile) != DatabaseTileState::Covered);
-        
+    
+    // TODO: mutex?
+    bool requestedFromWeb = onlineTilesEnabled && (databaseTileState(zoomLevel, xtile, ytile) != DatabaseTileState::Covered);        
     if (requestedFromWeb){
         QMutexLocker locker(&mutex);
         if (tileDownloader == NULL){
@@ -1158,6 +1165,27 @@ void DBThread::onMapDPIChange(double dpi)
         offlineTileCache.invalidate();
     }
     emit Redraw();
+}
+
+void DBThread::onlineTileProviderChanged()
+{
+    {
+        QMutexLocker locker(&tileCacheMutex);
+        onlineTileCache.invalidate();
+    } 
+    emit Redraw();    
+}
+
+void DBThread::onlineTilesEnabledChanged(bool b)
+{
+    {
+        QMutexLocker threadLocker(&mutex);
+        onlineTilesEnabled = b;
+
+        QMutexLocker cacheLocker(&tileCacheMutex);
+        onlineTileCache.invalidate();
+    }
+    emit Redraw();    
 }
 
 static DBThread* dbThreadInstance=NULL;

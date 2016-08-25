@@ -35,6 +35,7 @@
 #include "MapWidget.h"
 #include "SearchLocationModel.h"
 #include "LocationInfoModel.h"
+#include "OnlineTileProviderModel.h"
 #include "RoutingModel.h"
 
 // Application settings
@@ -92,6 +93,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<Location>("harbour.osmscout.map", 1, 0, "Location");
   qmlRegisterType<LocationListModel>("harbour.osmscout.map", 1, 0, "LocationListModel");
   qmlRegisterType<LocationInfoModel>("harbour.osmscout.map", 1, 0, "LocationInfoModel");
+  qmlRegisterType<OnlineTileProviderModel>("harbour.osmscout.map", 1, 0, "OnlineTileProviderModel");
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
   qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");

@@ -30,6 +30,7 @@
 #include <QNetworkDiskCache>
 
 #include "TileCache.h"
+#include "OnlineTileProvider.h"
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
 #define OSMSCOUT_SAILFISH_VERSION_STRING "v?"
@@ -45,6 +46,7 @@ public:
   
 public slots:
   void download(uint32_t zoomLevel, uint32_t x, uint32_t y);
+  void onlineTileProviderChanged();
   
 signals:
   void downloaded(uint32_t zoomLevel, uint32_t x, uint32_t y, QImage image, QByteArray downloadedData);
@@ -58,6 +60,7 @@ private:
   QNetworkAccessManager     webCtrl;
   QHash<QUrl,TileCacheKey>  requests;
   QNetworkDiskCache         diskCache;
+  OnlineTileProvider        tileProvider;
 
 };
 

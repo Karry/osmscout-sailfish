@@ -68,6 +68,7 @@ public:
   bool GetOnlineTilesEnabled() const;
   void SetOnlineTilesEnabled(bool b);
   
+  const QList<OnlineTileProvider> GetOnlineProviders() const;
   const OnlineTileProvider GetOnlineTileProvider() const; 
   
   const QString GetOnlineTileProviderId() const; 
@@ -83,10 +84,14 @@ class QmlSettings: public QObject{
   Q_OBJECT
   Q_PROPERTY(double   mapDPI    READ GetMapDPI  WRITE SetMapDPI   NOTIFY MapDPIChange)
   Q_PROPERTY(QObject  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
+  Q_PROPERTY(bool     onlineTiles READ GetOnlineTilesEnabled WRITE SetOnlineTilesEnabled NOTIFY OnlineTilesEnabledChanged)
+  Q_PROPERTY(QString  onlineTileProviderId READ GetOnlineTileProviderId WRITE SetOnlineTileProviderId NOTIFY OnlineTileProviderIdChanged)
 
 signals:
   void MapDPIChange(double dpi);
   void MapViewChanged(MapView *view);
+  void OnlineTilesEnabledChanged(bool);
+  void OnlineTileProviderIdChanged(const QString id);
 
 public:
   QmlSettings();
@@ -98,6 +103,12 @@ public:
   
   MapView *GetMapView() const;
   void SetMapView(QObject *view);    
+
+  bool GetOnlineTilesEnabled() const;
+  void SetOnlineTilesEnabled(bool b);
+  
+  const QString GetOnlineTileProviderId() const; 
+  void SetOnlineTileProviderId(QString id);
 };
 
 #endif

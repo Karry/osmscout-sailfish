@@ -35,12 +35,15 @@ public:
   inline OnlineTileProvider(): valid(false){}; 
   
   inline OnlineTileProvider(const OnlineTileProvider &o):
-    valid(o.valid), id(o.id), name(o.name), servers(o.servers), maximumZoomLevel(o.maximumZoomLevel){};
+    valid(o.valid), id(o.id), name(o.name), servers(o.servers), 
+          maximumZoomLevel(o.maximumZoomLevel), copyright(o.copyright){};
   
-  inline OnlineTileProvider(QString id, QString name, QStringList servers, int maximumZoomLevel):
-    valid(true), id(id), name(name), servers(servers), maximumZoomLevel(maximumZoomLevel){};
+  inline OnlineTileProvider(QString id, QString name, QStringList servers, int maximumZoomLevel, 
+          QString copyright):
+    valid(true), id(id), name(name), servers(servers), maximumZoomLevel(maximumZoomLevel), 
+    copyright(copyright){};
     
-  inline ~OnlineTileProvider(){};
+  virtual inline ~OnlineTileProvider(){};
 
   inline void operator=(const OnlineTileProvider &o)
   {
@@ -71,6 +74,11 @@ public:
     return valid;
   }
 
+  QString getCopyright() const
+  {
+    return copyright;
+  }
+
   static OnlineTileProvider fromJson(QJsonValue obj);
 
 private: 
@@ -79,6 +87,7 @@ private:
   QString name;
   QStringList servers;
   int maximumZoomLevel;
+  QString copyright;
 };
 
 #endif	/* ONLINETILEPROVIDER_H */

@@ -21,6 +21,8 @@
 #include <QThread>
 
 #include "OsmTileDownloader.h"
+#include "OnlineTileProvider.h"
+#include "Settings.h"
 
 OsmTileDownloader::OsmTileDownloader(QString diskCacheDir):
   serverNumber(qrand())
@@ -38,23 +40,42 @@ OsmTileDownloader::OsmTileDownloader(QString diskCacheDir):
  
   
   diskCache.setCacheDirectory(diskCacheDir);
-  webCtrl.setCache(&diskCache); 
+  webCtrl.setCache(&diskCache);
+  
+  connect(Settings::GetInstance(), SIGNAL(OnlineTileProviderIdChanged(const QString)), 
+          this, SLOT(onlineTileProviderChanged()));
+  
+  tileProvider = Settings::GetInstance()->GetOnlineTileProvider();
 }
 
 OsmTileDownloader::~OsmTileDownloader() {
 }
 
+void OsmTileDownloader::onlineTileProviderChanged()
+{
+  tileProvider = Settings::GetInstance()->GetOnlineTileProvider();
+  requests.clear();
+}
+
 void OsmTileDownloader::download(uint32_t zoomLevel, uint32_t x, uint32_t y)
 {
-  if (zoomLevel > 19){ // TODO: load from configuraion
+  if (!tileProvider.isValid()){
+    emit failed(zoomLevel, x, y, false);
+    return;      
+  }
+  if ((int)zoomLevel > tileProvider.getMaximumZoomLevel()){
     emit failed(zoomLevel, x, y, true);
     return;
-  }
+  }  
   
-  // TODO: move tile provider url and its maximum zoom level to resources
-  QChar ch('a' + char(serverNumber % ('a' - 'c')));  
-  QUrl tileUrl(QString("https://%1.tile.openstreetmap.org/%2/%3/%4.png")
-    .arg(ch).arg(zoomLevel).arg(x).arg(y));  
+  QStringList servers = tileProvider.getServers();
+  if (servers.empty()){
+    emit failed(zoomLevel, x, y, false);
+    return;      
+  }
+  QString server = servers.at(serverNumber % servers.size());
+
+  QUrl tileUrl(server.arg(zoomLevel).arg(x).arg(y));
   qDebug() << "Download tile " << tileUrl << " (current thread: " << QThread::currentThread() << ")";
   
   TileCacheKey key = {zoomLevel, x, y};

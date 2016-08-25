@@ -103,6 +103,8 @@ public slots:
   void requestLocationDescription(const osmscout::GeoCoord location);
   
   void onMapDPIChange(double dpi);
+  void onlineTileProviderChanged();
+  void onlineTilesEnabledChanged(bool);
 
 private:
   QString                       databaseDirectory; 
@@ -144,6 +146,8 @@ private:
   QString                       iconDirectory;
 
   osmscout::BreakerRef          dataLoadingBreaker;
+  
+  bool                          onlineTilesEnabled;
 
 private:
   enum DatabaseTileState{

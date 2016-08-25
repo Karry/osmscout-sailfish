@@ -30,8 +30,10 @@ OnlineTileProvider OnlineTileProvider::fromJson(QJsonValue val)
   auto name = obj["name"];
   auto servers = obj["servers"];
   auto maximumZoomLevel = obj["maximumZoomLevel"];
+  auto copyright = obj["copyright"];
   
-  if (!(id.isString() && name.isString() && servers.isArray() && maximumZoomLevel.isDouble())){
+  if (!(id.isString() && name.isString() && servers.isArray() && 
+          maximumZoomLevel.isDouble() && copyright.isString())){
     return OnlineTileProvider();      
   }
   
@@ -45,5 +47,6 @@ OnlineTileProvider OnlineTileProvider::fromJson(QJsonValue val)
     return OnlineTileProvider();
   }
   
-  return OnlineTileProvider(id.toString(), name.toString(), serverList, maximumZoomLevel.toDouble());
+  return OnlineTileProvider(id.toString(), name.toString(), serverList, 
+          maximumZoomLevel.toDouble(), copyright.toString());
 }

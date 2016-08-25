@@ -7,6 +7,18 @@
       "https://b.tile.openstreetmap.org/%1/%2/%3.png",
       "https://c.tile.openstreetmap.org/%1/%2/%3.png"
     ],
-    "maximumZoomLevel": 19
+    "maximumZoomLevel": 19, 
+    "copyright": "© OpenStreetMap contributors"
+  }, 
+  {
+    "id": "hikebikemap",
+    "name": "Hike & Bike Map",
+    "servers": [
+      "http://a.tiles.wmflabs.org/hikebike/%1/%2/%3.png",
+      "http://b.tiles.wmflabs.org/hikebike/%1/%2/%3.png",
+      "http://c.tiles.wmflabs.org/hikebike/%1/%2/%3.png"
+    ],
+    "maximumZoomLevel": 19,
+    "copyright": "© Leaflet, OSM, NASA"
   }
 ]

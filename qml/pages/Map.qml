@@ -100,7 +100,7 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about" ); // || action == "search"
+                            action == "about"  || action == "layers"); // || action == "search"
                 }
 
                 function onAction(action){
@@ -118,6 +118,8 @@ Page {
                         pageStack.push(Qt.resolvedUrl("About.qml"))
                     }else if (action == "search"){
                         pageStack.push(Qt.resolvedUrl("Search.qml"))
+                    }else if (action == "layers"){
+                        pageStack.push(Qt.resolvedUrl("Layers.qml"))
                     }else{
                         console.log("TODO: "+ action)
                     }
