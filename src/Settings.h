@@ -90,7 +90,7 @@ class QmlSettings: public QObject{
 signals:
   void MapDPIChange(double dpi);
   void MapViewChanged(MapView *view);
-  void OnlineTilesEnabledChanged(bool);
+  void OnlineTilesEnabledChanged(bool enabled);
   void OnlineTileProviderIdChanged(const QString id);
 
 public:
@@ -109,6 +109,8 @@ public:
   
   const QString GetOnlineTileProviderId() const; 
   void SetOnlineTileProviderId(QString id);
+  
+  Q_INVOKABLE QString onlineProviderCopyright();
 };
 
 #endif

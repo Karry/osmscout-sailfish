@@ -263,3 +263,12 @@ void QmlSettings::SetOnlineTileProviderId(QString id)
 {
     Settings::GetInstance()->SetOnlineTileProviderId(id);
 }
+
+QString QmlSettings::onlineProviderCopyright()
+{
+    OnlineTileProvider provider = Settings::GetInstance()->GetOnlineTileProvider();
+    if (provider.isValid()){
+        return provider.getCopyright();
+    }
+    return "";
+}

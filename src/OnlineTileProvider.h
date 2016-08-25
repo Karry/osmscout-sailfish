@@ -52,6 +52,7 @@ public:
     name = o.name;
     servers = o.servers;
     maximumZoomLevel = o.maximumZoomLevel;
+    copyright = o.copyright;
   }
 
   inline QString getId() const {

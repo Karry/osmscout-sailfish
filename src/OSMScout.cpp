@@ -41,9 +41,6 @@
 // Application settings
 #include "Settings.h"
 
-// Application theming
-#include "Theme.h"
-
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
 
@@ -53,16 +50,6 @@
 #endif
 
 Q_DECLARE_METATYPE(osmscout::TileRef)
-
-static QObject *ThemeProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
-
-    Theme *theme = new Theme();
-
-    return theme;
-}
 
 int main(int argc, char* argv[])
 {
@@ -97,8 +84,6 @@ int main(int argc, char* argv[])
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
   qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
-
-  qmlRegisterSingletonType<Theme>("harbour.osmscout.map", 1, 0, "Theme", ThemeProvider);
 
   osmscout::log.Debug(true);
 

@@ -33,7 +33,7 @@ Map {
 
   ScaleIndicator{
     pixelSize: map.pixelSize
-    width: osmCopyright.width - Theme.paddingMedium
+    width: Math.min(parent.width / 2, 270) - Theme.paddingMedium
     x: Theme.paddingMedium
     opacity: 0.6
     anchors{
