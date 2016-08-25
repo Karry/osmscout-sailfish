@@ -22,6 +22,10 @@
 #include <QObject>
 #include <QDebug>
 
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+
 #include "Settings.h"
 
 Settings::Settings(): 
@@ -110,6 +114,72 @@ osmscout::Vehicle Settings::GetRoutingVehicle() const
 void Settings::SetRoutingVehicle(const osmscout::Vehicle& vehicle)
 {
   settings.setValue("routing/vehicle", (unsigned int)vehicle);
+}
+
+bool Settings::GetOnlineTilesEnabled() const
+{
+  return settings.value("onlineTiles", true).toBool();
+}
+
+void Settings::SetOnlineTilesEnabled(bool b)
+{
+  if (GetOnlineTilesEnabled() != b){
+    return settings.setValue("onlineTiles", b);
+    emit OnlineTilesEnabledChanged(b);
+  }
+}
+const OnlineTileProvider Settings::GetOnlineTileProvider() const
+{
+    if (onlineProviders.contains(GetOnlineTileProviderId())){
+        return onlineProviders[GetOnlineTileProviderId()];
+    }
+    return OnlineTileProvider();
+}
+
+const QString Settings::GetOnlineTileProviderId() const
+{
+    QString def = "?";
+    if (!onlineProviders.isEmpty()){
+        def = onlineProviders.begin().key();
+    }
+    return settings.value("onlineTileProvider", def).toString();
+}
+
+void Settings::SetOnlineTileProviderId(QString id){
+    if (GetOnlineTileProviderId() != id){
+        settings.setValue("onlineTileProvider", id);
+        emit OnlineTileProviderIdChanged(id);
+    }
+}
+
+bool Settings::loadOnlineTileProviders(QString path)
+{
+    // load online tile providers
+    QFile loadFile(path);
+    if (!loadFile.open(QIODevice::ReadOnly)) {
+        qWarning() << "Couldn't open" << loadFile.fileName() << "file.";
+        return false;
+    }
+    
+    QJsonDocument doc = QJsonDocument::fromJson(loadFile.readAll());
+    for (auto obj: doc.array()){
+        OnlineTileProvider provider = OnlineTileProvider::fromJson(obj);
+        if (!provider.isValid()){
+            qWarning() << "Can't parse online provider from json value" << obj;
+        }else{    
+            onlineProviders[provider.getId()] = provider;
+        }
+    }
+    
+    // check if current provider is valid...
+    if (!onlineProviders.contains(GetOnlineTileProviderId())){
+        // ...if not, setup first
+        if (!onlineProviders.isEmpty()){
+            SetOnlineTileProviderId(onlineProviders.begin().key());
+        }
+    }    
+
+    return true;
 }
 
 static Settings* settingsInstance=NULL;

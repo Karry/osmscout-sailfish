@@ -145,8 +145,13 @@ int main(int argc, char* argv[])
     qDebug() << "Install translator for locale " << locale << "/" << locale.name();
     app->installTranslator(&translator);  
   }else{
-    qWarning() << "Can't load translator for locale" << locale << "/" << locale.name() << "(" << SailfishApp::pathTo("translations").toLocalFile() << ")";
+    qWarning() << "Can't load translator for locale" << locale << "/" << locale.name() << 
+            "(" << SailfishApp::pathTo("translations").toLocalFile() << ")";
   }
+  
+  // load online tile providers
+  Settings::GetInstance()->loadOnlineTileProviders(
+    SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
   
   thread.start();
   

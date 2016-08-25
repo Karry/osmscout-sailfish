@@ -26,6 +26,7 @@
 
 #include <osmscout/RoutingProfile.h>
 #include "InputHandler.h"
+#include "OnlineTileProvider.h"
 
 /**
  * Settings provide global instance that extends Qt's QSettings
@@ -36,15 +37,20 @@ class Settings: public QObject
   Q_OBJECT
   Q_PROPERTY(double   mapDPI    READ GetMapDPI  WRITE SetMapDPI   NOTIFY MapDPIChange)
   Q_PROPERTY(MapView  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
+  Q_PROPERTY(bool     onlineTiles READ GetOnlineTilesEnabled WRITE SetOnlineTilesEnabled NOTIFY OnlineTilesEnabledChanged)
+  Q_PROPERTY(QString  onlineTileProviderId READ GetOnlineTileProviderId WRITE SetOnlineTileProviderId NOTIFY OnlineTileProviderIdChanged)
 
 signals:
   void MapDPIChange(double dpi);
   void MapViewChanged(MapView *view);
+  void OnlineTilesEnabledChanged(bool);
+  void OnlineTileProviderIdChanged(const QString id);
   
 private:
   QSettings settings;
   double    physicalDpi;
   MapView   *view;
+  QMap<QString, OnlineTileProvider> onlineProviders;
 
 public:
   Settings();
@@ -58,6 +64,16 @@ public:
   
   osmscout::Vehicle GetRoutingVehicle() const;
   void SetRoutingVehicle(const osmscout::Vehicle& vehicle);
+  
+  bool GetOnlineTilesEnabled() const;
+  void SetOnlineTilesEnabled(bool b);
+  
+  const OnlineTileProvider GetOnlineTileProvider() const; 
+  
+  const QString GetOnlineTileProviderId() const; 
+  void SetOnlineTileProviderId(QString id);
+  
+  bool loadOnlineTileProviders(QString path);
   
   static Settings* GetInstance();
   static void FreeInstance();
@@ -81,7 +97,7 @@ public:
   double GetMapDPI() const;  
   
   MapView *GetMapView() const;
-  void SetMapView(QObject *view);  
+  void SetMapView(QObject *view);    
 };
 
 #endif

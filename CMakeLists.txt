@@ -198,6 +198,7 @@ set(HEADER_FILES
     src/SearchLocationModel.h
     src/LocationInfoModel.h
     src/Settings.h
+    src/OnlineTileProvider.h
     src/Theme.h
     src/TileCache.h
     src/OsmTileDownloader.h
@@ -223,6 +224,7 @@ set(SOURCE_FILES
     src/SearchLocationModel.cpp
     src/LocationInfoModel.cpp
     src/Settings.cpp
+    src/OnlineTileProvider.cpp
     src/Theme.cpp
     src/TileCache.cpp
     src/OsmTileDownloader.cpp
@@ -249,6 +251,7 @@ set(SOURCE_FILES
     qml/pages/Cover.qml
     qml/pages/About.qml
     qml/pages/Search.qml
+    qml/pages/Layers.qml
     qml/main.qml
     qml/desktop.qml
 
@@ -284,6 +287,9 @@ install(TARGETS harbour-osmscout
 RUNTIME DESTINATION bin)
 
 install(DIRECTORY qml
+DESTINATION share/${HARBOUR_APP_NAME})
+
+install(DIRECTORY resources
 DESTINATION share/${HARBOUR_APP_NAME})
 
 install(DIRECTORY pics
