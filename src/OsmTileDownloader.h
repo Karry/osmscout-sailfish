@@ -31,6 +31,10 @@
 
 #include "TileCache.h"
 
+#ifndef OSMSCOUT_SAILFISH_VERSION_STRING
+#define OSMSCOUT_SAILFISH_VERSION_STRING "v?"
+#endif
+
 class OsmTileDownloader : public QObject
 {
  Q_OBJECT
