@@ -56,6 +56,8 @@ public:
   Settings();
   ~Settings();
 
+  double GetPhysicalDPI() const;
+  
   void SetMapDPI(double dpi);
   double GetMapDPI() const;
 
@@ -82,6 +84,7 @@ public:
 
 class QmlSettings: public QObject{
   Q_OBJECT
+  Q_PROPERTY(double   physicalDPI READ GetPhysicalDPI)
   Q_PROPERTY(double   mapDPI    READ GetMapDPI  WRITE SetMapDPI   NOTIFY MapDPIChange)
   Q_PROPERTY(QObject  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
   Q_PROPERTY(bool     onlineTiles READ GetOnlineTilesEnabled WRITE SetOnlineTilesEnabled NOTIFY OnlineTilesEnabledChanged)
@@ -98,9 +101,11 @@ public:
   
   inline ~QmlSettings(){};
 
+  double GetPhysicalDPI() const;
+
   void SetMapDPI(double dpi);
   double GetMapDPI() const;  
-  
+    
   MapView *GetMapView() const;
   void SetMapView(QObject *view);    
 

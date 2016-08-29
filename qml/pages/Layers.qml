@@ -31,65 +31,112 @@ Page {
     Settings {
         id: settings
     }
-
-    Column {
-        width: parent.width
-
-        PageHeader { title: qsTr("Map settings") }
-
-        SectionHeader{
-            text: qsTr("Online Maps")
+    onStatusChanged: {
+        if (status == PageStatus.Activating){
+            map.view = settings.mapView;
         }
+    }
 
-        TextSwitch{
-            id: onlineTiles
-            width: parent.width
+    Drawer {
+        id: drawer
+        anchors.fill: parent
 
-            checked: settings.onlineTiles
-            text: qsTr("Enable online maps")
-            //description: qsTr("Enables online maps")
+        dock: layersPage.isPortrait ? Dock.Top : Dock.Left
+        open: true
 
-            onCheckedChanged: {
-                settings.onlineTiles = checked;
-            }
-        }
+        background: SilicaFlickable {
+            id: flickable
+            anchors.fill: parent
+            //height: childrenRect.height
+            contentHeight: content.height + 2*Theme.paddingLarge
 
-        ComboBox {
-            width: parent.width
+            VerticalScrollDecorator {}
 
-            property bool initialized: false
+            Column {
+                id: content
+                width: parent.width
 
-            OnlineTileProviderModel{
-                id: providerModel
-            }
+                PageHeader { title: qsTr("Map settings") }
 
-            label: qsTr("Style")
-            menu: ContextMenu {
-                Repeater {
+                Slider{
+                    id: mapDpiSlider
                     width: parent.width
-                    model: providerModel
-                    delegate: MenuItem {
-                        text: name
+
+                    value: settings.mapDPI
+                    valueText: Math.round((settings.mapDPI / 96) * 100) + "%"
+                    minimumValue: 96
+                    maximumValue: settings.physicalDPI * 1.1
+                    label: qsTr("Map magnification")
+
+                    onValueChanged: {
+                        settings.mapDPI = value;
+                    }
+                }
+
+                SectionHeader{
+                    text: qsTr("Online Maps")
+                }
+
+                TextSwitch{
+                    id: onlineTiles
+                    width: parent.width
+
+                    checked: settings.onlineTiles
+                    text: qsTr("Enable online maps")
+                    //description: qsTr("Enables online maps")
+
+                    onCheckedChanged: {
+                        settings.onlineTiles = checked;
+                    }
+                }
+
+                ComboBox {
+                    width: parent.width
+
+                    property bool initialized: false
+
+                    OnlineTileProviderModel{
+                        id: providerModel
+                    }
+
+                    label: qsTr("Style")
+                    menu: ContextMenu {
+                        Repeater {
+                            width: parent.width
+                            model: providerModel
+                            delegate: MenuItem {
+                                text: name
+                            }
+                        }
+                    }
+
+                    onCurrentItemChanged: {
+                        if (!initialized){
+                            return;
+                        }
+
+                        settings.onlineTileProviderId = providerModel.getId(currentIndex)
+                    }
+                    Component.onCompleted: {
+                        for (var i = 0; i < providerModel.count(); i++) {
+                            if (providerModel.getId(i) == settings.onlineTileProviderId) {
+                                currentIndex = i
+                                break
+                            }
+                        }
+                        initialized = true;
                     }
                 }
             }
+        }
 
-            onCurrentItemChanged: {
-                if (!initialized){
-                    return;
-                }
+        MapComponent {
+            id: map
 
-                settings.onlineTileProviderId = providerModel.getId(currentIndex)
-            }
-            Component.onCompleted: {
-                for (var i = 0; i < providerModel.count(); i++) {
-                    if (providerModel.getId(i) == settings.onlineTileProviderId) {
-                        currentIndex = i
-                        break
-                    }
-                }
-                initialized = true;
-            }
+            focus: true
+            anchors.fill: parent
+
+            showCurrentPosition: true
         }
     }
 }

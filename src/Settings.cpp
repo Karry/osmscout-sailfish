@@ -51,6 +51,10 @@ Settings::~Settings()
         delete view;
     }
 }
+double Settings::GetPhysicalDPI() const
+{
+    return physicalDpi;
+}
 
 void Settings::SetMapDPI(double dpi)
 {
@@ -217,6 +221,11 @@ QmlSettings::QmlSettings()
             this, SIGNAL(OnlineTilesEnabledChanged(bool)));
     connect(Settings::GetInstance(), SIGNAL(OnlineTileProviderIdChanged(const QString)),
             this, SIGNAL(OnlineTileProviderIdChanged(const QString)));
+}
+
+double QmlSettings::GetPhysicalDPI() const
+{
+    return Settings::GetInstance()->GetPhysicalDPI();
 }
 
 void QmlSettings::SetMapDPI(double dpi)
