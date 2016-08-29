@@ -47,3 +47,7 @@
 - small map style improvements
 
 * 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.8-1
+- add "Map settings" page
+- make possible to change online tile source or disable online tiles completely
+- allow change map DPI (tile magnification) to fit current needs
+
