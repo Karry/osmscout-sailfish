@@ -193,6 +193,30 @@ bool Settings::loadOnlineTileProviders(QString path)
     return true;
 }
 
+bool Settings::GetOfflineMap() const
+{
+    return settings.value("offlineMap", true).toBool();
+}
+void Settings::SetOfflineMap(bool b)
+{
+  if (GetOfflineMap() != b){
+    settings.setValue("offlineMap", b);
+    emit OfflineMapChanged(b);
+  }
+}
+
+bool Settings::GetRenderSea() const
+{
+    return settings.value("renderSea", false).toBool();
+}
+void Settings::SetRenderSea(bool b)
+{
+  if (GetRenderSea() != b){
+    settings.setValue("renderSea", b);
+    emit RenderSeaChanged(b);
+  }    
+}
+
 static Settings* settingsInstance=NULL;
 
 Settings* Settings::GetInstance()
@@ -221,6 +245,10 @@ QmlSettings::QmlSettings()
             this, SIGNAL(OnlineTilesEnabledChanged(bool)));
     connect(Settings::GetInstance(), SIGNAL(OnlineTileProviderIdChanged(const QString)),
             this, SIGNAL(OnlineTileProviderIdChanged(const QString)));
+    connect(Settings::GetInstance(), SIGNAL(OfflineMapChanged(bool)),
+            this, SIGNAL(OfflineMapChanged(bool)));
+    connect(Settings::GetInstance(), SIGNAL(RenderSeaChanged(bool)),
+            this, SIGNAL(RenderSeaChanged(bool)));
 }
 
 double QmlSettings::GetPhysicalDPI() const
@@ -280,4 +308,22 @@ QString QmlSettings::onlineProviderCopyright()
         return provider.getCopyright();
     }
     return "";
+}
+
+bool QmlSettings::GetOfflineMap() const
+{
+    return Settings::GetInstance()->GetOfflineMap();
+}
+void QmlSettings::SetOfflineMap(bool b)
+{
+    Settings::GetInstance()->SetOfflineMap(b);
+}
+
+bool QmlSettings::GetRenderSea() const
+{
+    return Settings::GetInstance()->GetRenderSea();
+}
+void QmlSettings::SetRenderSea(bool b)
+{
+    Settings::GetInstance()->SetRenderSea(b);
 }

@@ -105,6 +105,9 @@ public slots:
   void onMapDPIChange(double dpi);
   void onlineTileProviderChanged();
   void onlineTilesEnabledChanged(bool);
+  
+  void onOfflineMapChanged(bool);
+  void onRenderSeaChanged(bool);  
 
 private:
   QString                       databaseDirectory; 
@@ -148,6 +151,8 @@ private:
   osmscout::BreakerRef          dataLoadingBreaker;
   
   bool                          onlineTilesEnabled;
+  bool                          offlineTilesEnabled;
+  bool                          renderSea;
 
 private:
   enum DatabaseTileState{

@@ -73,12 +73,10 @@ Page {
                     }
                 }
 
-                SectionHeader{
-                    text: qsTr("Online Maps")
-                }
+                SectionHeader{ text: qsTr("Online Maps") }
 
                 TextSwitch{
-                    id: onlineTiles
+                    id: onlineTilesSwitch
                     width: parent.width
 
                     checked: settings.onlineTiles
@@ -125,6 +123,33 @@ Page {
                             }
                         }
                         initialized = true;
+                    }
+                }
+
+                SectionHeader{ text: qsTr("Offline Maps") }
+
+                TextSwitch{
+                    id: offlineMapSwitch
+                    width: parent.width
+
+                    checked: settings.offlineMap
+                    text: qsTr("Enable offline map")
+                    //description: qsTr("See can overlap online tiles!")
+
+                    onCheckedChanged: {
+                        settings.offlineMap = checked;
+                    }
+                }
+                TextSwitch{
+                    id: renderSeaSwitch
+                    width: parent.width
+
+                    checked: settings.renderSea
+                    text: qsTr("Sea rendering")
+                    description: qsTr("Sea can overlap online tiles!")
+
+                    onCheckedChanged: {
+                        settings.renderSea = checked;
                     }
                 }
             }

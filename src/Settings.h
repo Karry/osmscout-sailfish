@@ -35,16 +35,20 @@
 class Settings: public QObject
 {
   Q_OBJECT
-  Q_PROPERTY(double   mapDPI    READ GetMapDPI  WRITE SetMapDPI   NOTIFY MapDPIChange)
-  Q_PROPERTY(MapView  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
+  Q_PROPERTY(double   mapDPI     READ GetMapDPI     WRITE SetMapDPI     NOTIFY MapDPIChange)
+  Q_PROPERTY(MapView  *mapView   READ GetMapView    WRITE SetMapView    NOTIFY MapViewChanged)
   Q_PROPERTY(bool     onlineTiles READ GetOnlineTilesEnabled WRITE SetOnlineTilesEnabled NOTIFY OnlineTilesEnabledChanged)
   Q_PROPERTY(QString  onlineTileProviderId READ GetOnlineTileProviderId WRITE SetOnlineTileProviderId NOTIFY OnlineTileProviderIdChanged)
+  Q_PROPERTY(bool     offlineMap READ GetOfflineMap WRITE SetOfflineMap NOTIFY OfflineMapChanged)
+  Q_PROPERTY(bool     renderSea  READ GetRenderSea  WRITE SetRenderSea  NOTIFY RenderSeaChanged)
 
 signals:
   void MapDPIChange(double dpi);
   void MapViewChanged(MapView *view);
   void OnlineTilesEnabledChanged(bool);
   void OnlineTileProviderIdChanged(const QString id);
+  void OfflineMapChanged(bool);
+  void RenderSeaChanged(bool);
   
 private:
   QSettings settings;
@@ -78,6 +82,12 @@ public:
   
   bool loadOnlineTileProviders(QString path);
   
+  bool GetOfflineMap() const;
+  void SetOfflineMap(bool);
+  
+  bool GetRenderSea() const;
+  void SetRenderSea(bool);
+  
   static Settings* GetInstance();
   static void FreeInstance();
 };
@@ -89,12 +99,16 @@ class QmlSettings: public QObject{
   Q_PROPERTY(QObject  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
   Q_PROPERTY(bool     onlineTiles READ GetOnlineTilesEnabled WRITE SetOnlineTilesEnabled NOTIFY OnlineTilesEnabledChanged)
   Q_PROPERTY(QString  onlineTileProviderId READ GetOnlineTileProviderId WRITE SetOnlineTileProviderId NOTIFY OnlineTileProviderIdChanged)
+  Q_PROPERTY(bool     offlineMap READ GetOfflineMap WRITE SetOfflineMap NOTIFY OfflineMapChanged)
+  Q_PROPERTY(bool     renderSea  READ GetRenderSea  WRITE SetRenderSea  NOTIFY RenderSeaChanged)
 
 signals:
   void MapDPIChange(double dpi);
   void MapViewChanged(MapView *view);
   void OnlineTilesEnabledChanged(bool enabled);
   void OnlineTileProviderIdChanged(const QString id);
+  void OfflineMapChanged(bool);
+  void RenderSeaChanged(bool);
 
 public:
   QmlSettings();
@@ -116,6 +130,12 @@ public:
   void SetOnlineTileProviderId(QString id);
   
   Q_INVOKABLE QString onlineProviderCopyright();
+  
+  bool GetOfflineMap() const;
+  void SetOfflineMap(bool);
+  
+  bool GetRenderSea() const;
+  void SetRenderSea(bool);  
 };
 
 #endif

@@ -89,6 +89,8 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
   qDebug() << "Map DPI override: " << mapDpi;
 
   onlineTilesEnabled = Settings::GetInstance()->GetOnlineTilesEnabled();
+  offlineTilesEnabled = Settings::GetInstance()->GetOfflineMap();
+  renderSea = Settings::GetInstance()->GetRenderSea();
   
   connect(Settings::GetInstance(), SIGNAL(MapDPIChange(double)),
           this, SLOT(onMapDPIChange(double)),
@@ -98,7 +100,11 @@ DBThread::DBThread(QString databaseDirectory, QString resourceDirectory, QString
           this, SLOT(onlineTileProviderChanged()));
   connect(Settings::GetInstance(), SIGNAL(OnlineTilesEnabledChanged(bool)), 
           this, SLOT(onlineTilesEnabledChanged(bool)));  
-  
+  connect(Settings::GetInstance(), SIGNAL(OfflineMapChanged(bool)), 
+          this, SLOT(onOfflineMapChanged(bool)));  
+  connect(Settings::GetInstance(), SIGNAL(RenderSeaChanged(bool)), 
+          this, SLOT(onRenderSeaChanged(bool)));  
+
   connect(this,SIGNAL(TriggerInitialRendering()),
           this,SLOT(HandleInitialRenderingRequest()));
 
@@ -412,8 +418,8 @@ void DBThread::DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_
     drawParameter.SetOptimizeWayNodes(osmscout::TransPolygon::none);
     drawParameter.SetOptimizeAreaNodes(osmscout::TransPolygon::none);
 
-    drawParameter.SetRenderBackground(drawBackground);
-    drawParameter.SetRenderSeaLand(false);
+    drawParameter.SetRenderBackground(drawBackground || renderSea);
+    drawParameter.SetRenderSeaLand(renderSea);
 
     // see Tiler.cpp example...
 
@@ -599,15 +605,20 @@ bool DBThread::RenderMap(QPainter& painter,
 
       //bool lookupTileFound = false;
       
-      bool lookupTileFound = lookupAndDrawTile(onlineTileCache, painter, 
+      bool lookupTileFound = false;
+      if (onlineTilesEnabled){
+        lookupTileFound |= lookupAndDrawTile(onlineTileCache, painter, 
               x, y, renderTileWidth, renderTileHeight, 
               zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 3
               );
-      
-      lookupTileFound |= lookupAndDrawTile(offlineTileCache, painter, 
-              x, y, renderTileWidth, renderTileHeight, 
-              zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 3
-              );
+      }
+
+      if (offlineTilesEnabled){
+        lookupTileFound |= lookupAndDrawTile(offlineTileCache, painter, 
+                x, y, renderTileWidth, renderTileHeight, 
+                zoomLevel, xtile, ytile, /* up limit */ 6, /* down limit */ 3
+                );
+      }
       
       if (!lookupTileFound){
         // no tile found, draw its outline
@@ -781,7 +792,7 @@ void DBThread::onlineTileRequest(uint32_t zoomLevel, uint32_t xtile, uint32_t yt
     }
     
     // TODO: mutex?
-    bool requestedFromWeb = onlineTilesEnabled && (databaseTileState(zoomLevel, xtile, ytile) != DatabaseTileState::Covered);        
+    bool requestedFromWeb = !(offlineTilesEnabled && databaseTileState(zoomLevel, xtile, ytile) == DatabaseTileState::Covered);
     if (requestedFromWeb){
         QMutexLocker locker(&mutex);
         if (tileDownloader == NULL){
@@ -1184,8 +1195,35 @@ void DBThread::onlineTilesEnabledChanged(bool b)
 
         QMutexLocker cacheLocker(&tileCacheMutex);
         onlineTileCache.invalidate();
+        onlineTileCache.clearPendingRequests();
     }
     emit Redraw();    
+}
+
+void DBThread::onOfflineMapChanged(bool b)
+{
+    {
+        QMutexLocker threadLocker(&mutex);
+        offlineTilesEnabled = b;
+
+        QMutexLocker cacheLocker(&tileCacheMutex);
+        onlineTileCache.invalidate(); // overlapp areas will change
+        offlineTileCache.invalidate();
+        offlineTileCache.clearPendingRequests();
+    }
+    emit Redraw();    
+}
+void DBThread::onRenderSeaChanged(bool b)
+{
+    {
+        QMutexLocker threadLocker(&mutex);
+        renderSea = b;
+
+        QMutexLocker cacheLocker(&tileCacheMutex);
+        offlineTileCache.invalidate();
+        offlineTileCache.clearPendingRequests();
+    }
+    emit Redraw();
 }
 
 static DBThread* dbThreadInstance=NULL;
