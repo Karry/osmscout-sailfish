@@ -79,6 +79,10 @@ Page {
                         minimumValue: 96
                         maximumValue: settings.physicalDPI * 1.1
                         label: qsTr("Map magnification")
+
+                        onValueChanged: {
+                            settings.mapDPI = value;
+                        }
                     }
 
                     SectionHeader{ text: qsTr("Online Maps") }
