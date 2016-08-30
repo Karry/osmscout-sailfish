@@ -323,7 +323,7 @@ bool MoveHandler::zoom(double zoomFactor, const QPoint widgetPosition, const QRe
     animationStart.restart();
     timer.setInterval(ANIMATION_TICK);
     timer.start();
-    emit onTimeout();
+    onTimeout();
     return true;
 }
 
@@ -338,7 +338,7 @@ bool MoveHandler::move(QVector2D move)
     animationStart.restart();
     timer.setInterval(ANIMATION_TICK);
     timer.start();
-    emit onTimeout();
+    onTimeout();
     
     return true;
 }
@@ -442,7 +442,7 @@ bool JumpHandler::showCoordinates(osmscout::GeoCoord coord, osmscout::Magnificat
     animationStart.restart();
     timer.setInterval(ANIMATION_TICK);
     timer.start();
-    emit onTimeout();
+    onTimeout();
     
     return true;    
 }

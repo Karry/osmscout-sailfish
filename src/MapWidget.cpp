@@ -132,8 +132,11 @@ void MapWidget::changeView(const MapView &updated)
     //qDebug() << "viewChanged (" << (inputHandler->animationInProgress()? "animation": "stationary") << ")";
     bool changed = *view != updated;
     view->operator =( updated );
-    if (changed){
+    // make sure that we render map with antialiasing. TODO: do it better
+    if (changed || (!inputHandler->animationInProgress())){
         redraw();
+    }
+    if (changed){
         emit viewChanged();
     }
 }
