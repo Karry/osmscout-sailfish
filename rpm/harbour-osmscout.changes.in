@@ -46,8 +46,9 @@
 - show map on cover
 - small map style improvements
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.8-1
+* 2016-08-31 Lukáš Karas <lukas.karas@centrum.cz> 0.8-1
 - add "Map settings" page
-- make possible to change online tile source or disable online tiles completely
 - allow change map DPI (tile magnification) to fit current needs
-
+- make possible to change online tile source or disable online tiles completely
+- allow render land/sea or disable offline map completely
+- sync with upstream library to support new database format
