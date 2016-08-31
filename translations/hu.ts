@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu_HU">
+<TS version="2.0" language="hu_HU">
 <context>
     <name>About</name>
     <message>
@@ -39,39 +39,39 @@
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Térkép beállítások</translation>
     </message>
     <message>
         <source>Map magnification</source>
-        <translation type="unfinished"></translation>
+        <translation>Térkép nagyítás</translation>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Online térképek</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Online térképek engedélyezése</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Stílus</translation>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline térképek</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline térképek engedélyezése</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízfelület renderelése</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation type="unfinished"></translation>
+        <translation>A vízfelületek el fogják takarni az online térképrészleteket!</translation>
     </message>
 </context>
 <context>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <source>Layers</source>
-        <translation type="vanished">Rétegek</translation>
+        <translation>Rétegek</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -102,14 +102,14 @@
     </message>
     <message>
         <source>Map settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Térkép beállítások</translation>
     </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© OpenStreetMap közreműködők</translation>
+        <translation>© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
@@ -144,18 +144,18 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>méter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
     <name>Search</name>
     <message>
         <source>Search places...</source>
-        <translation type="unfinished"></translation>
+        <translation>Helyek keresése</translation>
     </message>
 </context>
 </TS>
