@@ -36,6 +36,45 @@
     </message>
 </context>
 <context>
+    <name>Layers</name>
+    <message>
+        <source>Map settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map magnification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Online Maps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable online maps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline Maps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable offline map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sea rendering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sea can overlap online tiles!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -51,7 +90,7 @@
     </message>
     <message>
         <source>Layers</source>
-        <translation>Rétegek</translation>
+        <translation type="vanished">Rétegek</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -61,12 +100,16 @@
         <source>About</source>
         <translation>Az alkalmazásról</translation>
     </message>
+    <message>
+        <source>Map settings</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap közreműködők</translation>
+        <translation type="vanished">© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
@@ -105,6 +148,13 @@
     </message>
     <message>
         <source>km</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Search places...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
