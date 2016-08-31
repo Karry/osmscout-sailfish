@@ -874,6 +874,8 @@ STYLE
      }
    }
  
+   [TYPE highway_bus_stop] NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
+
    [TYPE highway_track] {
      WAY#outline {color: #ffffff50; displayWidth: 1.2mm; cap: butt;}
      WAY {color: #90570c; dash: 3,1; cap: butt; displayWidth: 0.4mm;}
@@ -929,7 +931,7 @@ STYLE
  }
 
  [MAG veryClose-] {
-   [TYPE highway_bus_stop] NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
+   //[TYPE highway_bus_stop] NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
 
    [TYPE highway_footway] {
      WAY#outline {color: #ffffff50; displayWidth: 1.2mm; cap: butt;}
@@ -1111,6 +1113,19 @@ STYLE
    }
 
    [MAG closer-] {
+     [TYPE railway_tram,
+           railway_light_rail,
+           railway_narrow_gauge,
+           railway_funicular
+         SIZE 5m 0.25mm:3px<] {
+       [TUNNEL] {
+         WAY {dash: 1,1; cap: butt;}
+       } 
+       [BRIDGE] {
+         WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; offset: -2.5m; displayOffset: -0.25mm;}
+         WAY#rbridge {color: @bridgeColor; displayWidth: 0.2mm; offset: 2.5m; displayOffset: 0.25mm;}
+       }
+     }
      [TYPE railway_rail SIZE 5m 0.25mm:3px<] {
        // Better rendering?
        [TUNNEL] {
