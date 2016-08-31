@@ -36,6 +36,45 @@
     </message>
 </context>
 <context>
+    <name>Layers</name>
+    <message>
+        <source>Map settings</source>
+        <translation>Nastavení mapy</translation>
+    </message>
+    <message>
+        <source>Map magnification</source>
+        <translation>Zvětšení mapy</translation>
+    </message>
+    <message>
+        <source>Online Maps</source>
+        <translation>Online mapa</translation>
+    </message>
+    <message>
+        <source>Enable online maps</source>
+        <translation>Povolit online mapu</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Styl</translation>
+    </message>
+    <message>
+        <source>Offline Maps</source>
+        <translation>Offline mapa</translation>
+    </message>
+    <message>
+        <source>Enable offline map</source>
+        <translation>Povolit offline mapu</translation>
+    </message>
+    <message>
+        <source>Sea rendering</source>
+        <translation>Zobrazit moře</translation>
+    </message>
+    <message>
+        <source>Sea can overlap online tiles!</source>
+        <translation>Moře může překrýt online mapu!</translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -51,7 +90,7 @@
     </message>
     <message>
         <source>Layers</source>
-        <translation>Vrstvy</translation>
+        <translation type="vanished">Vrstvy</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -61,12 +100,16 @@
         <source>About</source>
         <translation>O OSM Scout</translation>
     </message>
+    <message>
+        <source>Map settings</source>
+        <translation>Nastavení mapy</translation>
+    </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© přispěvatelé OpenStreetMap</translation>
+        <translation type="vanished">© přispěvatelé OpenStreetMap</translation>
     </message>
 </context>
 <context>
@@ -106,6 +149,13 @@
     <message>
         <source>km</source>
         <translation>km</translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Search places...</source>
+        <translation>Hledat místa...</translation>
     </message>
 </context>
 </TS>
