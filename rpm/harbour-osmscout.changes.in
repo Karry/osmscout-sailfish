@@ -52,3 +52,5 @@
 - make possible to change online tile source or disable online tiles completely
 - allow render land/sea or disable offline map completely
 - sync with upstream library to support new database format
+
+* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.9-1
