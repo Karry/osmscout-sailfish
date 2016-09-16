@@ -141,7 +141,9 @@ signals:
   void TriggerDrawMap();
   void Redraw();
   void TileStatusChanged(const osmscout::TileRef& tile);
-  void locationDescription(const osmscout::GeoCoord location, const osmscout::LocationDescription description);
+  void locationDescription(const osmscout::GeoCoord location, 
+                           const QString database,
+                           const osmscout::LocationDescription description);
 
 public slots:
   void ToggleDaylight();
@@ -193,12 +195,7 @@ private:
 
   osmscout::DatabaseParameter   databaseParameter;
   QList<DBInstanceRef>          databases;
-  //osmscout::DatabaseRef         databases;
-  //osmscout::LocationServiceRef  locationService;
-  //osmscout::MapServiceRef       mapService;
-  //osmscout::MapService::CallbackId callbackId;  
   osmscout::RouterParameter     routerParameter;
-  //osmscout::RoutingServiceRef   router;
   osmscout::RoutePostprocessor  routePostprocessor;
 
   QString                       stylesheetFilename;
@@ -206,8 +203,6 @@ private:
                                 stylesheetFlags;
   bool                          daylight;
   QString                       iconDirectory;
-
-  //osmscout::BreakerRef          dataLoadingBreaker;
   
   bool                          onlineTilesEnabled;
   bool                          offlineTilesEnabled;

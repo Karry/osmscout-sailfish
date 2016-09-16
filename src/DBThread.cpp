@@ -31,7 +31,6 @@
 
 #include <osmscout/util/Logger.h>
 #include <osmscout/util/StopClock.h>
-#include <qt4/QtCore/qdebug.h>
 
 QBreaker::QBreaker()
   : osmscout::Breaker(),
@@ -75,13 +74,8 @@ DBThread::DBThread(QStringList databaseLookupDirs,
    onlineTileCache(onlineTileCacheSize), // online tiles can be loaded from disk cache easily 
    offlineTileCache(offlineTileCacheSize), // render offline tile is expensive
    tileDownloader(NULL),
-   //databases(std::make_shared<osmscout::Database>(databaseParameter)),
-   //locationService(std::make_shared<osmscout::LocationService>(databases)),
-   //mapService(std::make_shared<osmscout::MapService>(databases)),
    daylight(true),
-   //painter(NULL),
    iconDirectory()//,
-   //dataLoadingBreaker(std::make_shared<QBreaker>())
 {
   osmscout::log.Debug() << "DBThread::DBThread()";
 
@@ -1232,18 +1226,41 @@ void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
       return; // ignore request if db is not initialized
   }
   QMutexLocker locker(&mutex);
-  
+    
+  osmscout::LocationDescription description;
+  int count = 0;
   for (auto db:databases){
-    osmscout::LocationDescription description;
-
-    if (!db->locationService->DescribeLocation(location, description)) {
+    osmscout::GeoBox dbBox;
+    if (!db->database->GetBoundingBox(dbBox)){
+      continue;
+    }
+    if (!dbBox.Includes(location)){
+      continue;
+    }
+    
+    if (!db->locationService->DescribeLocationByAddress(location, description)) {
       std::cerr << "Error during generation of location description" << std::endl;
-      emit locationDescription(location, description); // TODO: report error
-      return;
+      continue;
     }
 
-    // TODO: skip if description is empty
-    emit locationDescription(location, description);
+    if (description.GetAtAddressDescription()){
+      count++;
+      emit locationDescription(location, db->path, description);
+    }
+    
+    if (!db->locationService->DescribeLocationByPOI(location, description)) {
+      std::cerr << "Error during generation of location description" << std::endl;
+      continue;
+    }
+
+    if (description.GetAtPOIDescription()){
+      count++;
+      emit locationDescription(location, db->path, description);
+    }
+  }
+  if (count == 0){
+    // emit empty description
+    emit locationDescription(location, "", description);    
   }
 }
 

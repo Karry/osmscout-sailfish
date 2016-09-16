@@ -36,8 +36,8 @@ ready(false), setup(false)
             dbThread, SLOT(requestLocationDescription(const osmscout::GeoCoord)),
             Qt::QueuedConnection);
     
-    connect(dbThread, SIGNAL(locationDescription(const osmscout::GeoCoord, const osmscout::LocationDescription)), 
-            this, SLOT(onLocationDescription(const osmscout::GeoCoord, const osmscout::LocationDescription)),
+    connect(dbThread, SIGNAL(locationDescription(const osmscout::GeoCoord, const QString, const osmscout::LocationDescription)), 
+            this, SLOT(onLocationDescription(const osmscout::GeoCoord, const QString, const osmscout::LocationDescription)),
             Qt::QueuedConnection);
     
 }
@@ -157,6 +157,7 @@ QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
 }
 
 void LocationInfoModel::onLocationDescription(const osmscout::GeoCoord location, 
+                                              const QString database,
                                               const osmscout::LocationDescription description)
 {
     if (location != this->location){
