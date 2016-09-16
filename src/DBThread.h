@@ -143,7 +143,9 @@ signals:
   void TileStatusChanged(const osmscout::TileRef& tile);
   void locationDescription(const osmscout::GeoCoord location, 
                            const QString database,
-                           const osmscout::LocationDescription description);
+                           const osmscout::LocationDescription description,
+                           const QStringList regions);
+  void locationDescriptionFinished(const osmscout::GeoCoord location);
 
 public slots:
   void ToggleDaylight();
@@ -239,6 +241,10 @@ private:
         uint32_t downLimit);
 
   DatabaseTileState databaseTileState(uint32_t zoomLevel, uint32_t xtile, uint32_t ytile);
+  
+  QStringList BuildAdminRegionList(const osmscout::LocationServiceRef& locationService,
+                                   const osmscout::AdminRegionRef& adminRegion,
+                                   std::map<osmscout::FileOffset,osmscout::AdminRegionRef> regionMap);
   
 public:
   bool isInitialized(); 

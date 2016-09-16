@@ -29,6 +29,13 @@
 
 #include "DBThread.h"
 
+struct ObjectKey{
+ QString                  database;
+ osmscout::ObjectFileRef  ref;
+};
+
+Q_DECLARE_METATYPE(ObjectKey)
+
 class LocationInfoModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -43,7 +50,9 @@ public slots:
     void dbInitialized(const DatabaseLoadedResponse&);
     void onLocationDescription(const osmscout::GeoCoord location, 
                                const QString database, 
-                               const osmscout::LocationDescription description);
+                               const osmscout::LocationDescription description,
+                               const QStringList regions);
+    void onLocationDescriptionFinished(const osmscout::GeoCoord);
 
 public:
     enum Roles {
@@ -53,7 +62,11 @@ public:
         InPlaceRole = Qt::UserRole+3,
         DistanceRole = Qt::UserRole+4,
         BearingRole = Qt::UserRole+5,
-        PoiRole = Qt::UserRole+6
+        PoiRole = Qt::UserRole+6,
+        TypeRole = Qt::UserRole+7,
+        ZipCodeRole = Qt::UserRole+8,
+        WebsiteRole = Qt::UserRole+9,
+        PhoneRole = Qt::UserRole+10
     };
 
 public:
@@ -62,7 +75,7 @@ public:
 
     int inline rowCount(const QModelIndex &parent = QModelIndex()) const
     {
-        return ready? 1:0;
+        return model.size();
     };
     
     QVariant data(const QModelIndex &index, int role) const;
@@ -79,11 +92,21 @@ public:
     Q_INVOKABLE QString bearing(double lat1, double lon1, 
                                 double lat2, double lon2);
     
+    static bool distanceComparator(const QMap<int, QVariant> &obj1,
+                                   const QMap<int, QVariant> &obj2);
+    
+private: 
+   void addToModel(const QString database,
+                   const osmscout::LocationAtPlaceDescriptionRef description,
+                   const QStringList regions);
+ 
 private:
     bool ready;
     bool setup;
     osmscout::GeoCoord location;
-    osmscout::LocationDescription description;
+
+    QList<ObjectKey> objectSet; // set of objects already inserted to model
+    QList<QMap<int, QVariant>> model;
     
 };
 

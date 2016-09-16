@@ -1220,6 +1220,26 @@ bool DBThread::GetClosestRoutableNode(const osmscout::ObjectFileRef& refObject,
     */
 }
 
+QStringList DBThread::BuildAdminRegionList(const osmscout::LocationServiceRef& locationService,
+                                           const osmscout::AdminRegionRef& adminRegion,
+                                           std::map<osmscout::FileOffset,osmscout::AdminRegionRef> regionMap)
+{
+  if (!adminRegion){
+    return QStringList();
+  }
+
+  QStringList list;
+  locationService->ResolveAdminRegionHierachie(adminRegion, regionMap);
+  list << QString::fromStdString(adminRegion->name);
+  osmscout::FileOffset parentOffset = adminRegion->parentRegionOffset;
+  while (parentOffset != 0){
+    osmscout::AdminRegionRef region = regionMap[parentOffset];
+    list << QString::fromStdString(region->name);
+    parentOffset = region->parentRegionOffset;
+  }
+  return list;
+}
+
 void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
 {
   if (!isInitialized()){
@@ -1238,6 +1258,7 @@ void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
       continue;
     }
     
+    std::map<osmscout::FileOffset,osmscout::AdminRegionRef> regionMap;
     if (!db->locationService->DescribeLocationByAddress(location, description)) {
       std::cerr << "Error during generation of location description" << std::endl;
       continue;
@@ -1245,7 +1266,10 @@ void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
 
     if (description.GetAtAddressDescription()){
       count++;
-      emit locationDescription(location, db->path, description);
+      
+      auto place = description.GetAtAddressDescription()->GetPlace();
+      emit locationDescription(location, db->path, description, 
+                               BuildAdminRegionList(db->locationService, place.GetAdminRegion(), regionMap));
     }
     
     if (!db->locationService->DescribeLocationByPOI(location, description)) {
@@ -1255,13 +1279,14 @@ void DBThread::requestLocationDescription(const osmscout::GeoCoord location)
 
     if (description.GetAtPOIDescription()){
       count++;
-      emit locationDescription(location, db->path, description);
+
+      auto place = description.GetAtPOIDescription()->GetPlace();
+      emit locationDescription(location, db->path, description, 
+                               BuildAdminRegionList(db->locationService, place.GetAdminRegion(), regionMap));
     }
   }
-  if (count == 0){
-    // emit empty description
-    emit locationDescription(location, "", description);    
-  }
+  
+  emit locationDescriptionFinished(location);
 }
 
 void DBThread::onMapDPIChange(double dpi)
