@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
   QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
   if (!DBThread::InitializeInstance(
-          docs + QDir::separator() + "Maps", 
+          QStringList() << docs + QDir::separator() + "Maps", 
           "/usr/share/harbour-osmscout", 
           cache + QDir::separator() + "OsmTileCache",
           /* onlineTileCacheSize  */ desktop ?  40 : 20,

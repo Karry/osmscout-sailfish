@@ -170,6 +170,7 @@ bool Settings::loadOnlineTileProviders(QString path)
         qWarning() << "Couldn't open" << loadFile.fileName() << "file.";
         return false;
     }
+    qDebug() << "Loading online tile providers from " << loadFile.fileName();
     
     QJsonDocument doc = QJsonDocument::fromJson(loadFile.readAll());
     for (auto obj: doc.array()){

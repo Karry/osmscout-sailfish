@@ -405,6 +405,8 @@ void MapWidget::showCoordinatesInstantly(double lat, double lon)
 
 void MapWidget::showLocation(Location* location)
 {
+   // TODO: how to handle with multiple databases?
+  /*
     if (location==NULL) {
         qDebug() << "MapWidget::showLocation(): no location passed!";
         return;
@@ -456,6 +458,7 @@ void MapWidget::showLocation(Location* location)
         showCoordinates(coord, osmscout::Magnification::magVeryClose);    
 
     }
+   */
 }
 
 void MapWidget::locationChanged(bool locationValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy)

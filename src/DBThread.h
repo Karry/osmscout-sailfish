@@ -75,6 +75,62 @@ public:
   void Reset();
 };
 
+class DBInstance : public QObject
+{
+  Q_OBJECT
+
+public:
+  QString                       path;
+  osmscout::DatabaseRef         database;
+  
+  osmscout::LocationServiceRef  locationService;
+  osmscout::MapServiceRef       mapService;
+  osmscout::MapService::CallbackId callbackId;
+  osmscout::BreakerRef          dataLoadingBreaker;  
+  
+  osmscout::RoutingServiceRef   router;
+
+  osmscout::StyleConfigRef      styleConfig;
+  osmscout::MapPainterQt        *painter;
+  
+  inline DBInstance(QString path,
+                    osmscout::DatabaseRef database,
+                    osmscout::LocationServiceRef locationService,
+                    osmscout::MapServiceRef mapService,
+                    osmscout::MapService::CallbackId callbackId,
+                    osmscout::BreakerRef dataLoadingBreaker,
+                    osmscout::StyleConfigRef styleConfig):
+    path(path),
+    database(database),
+    locationService(locationService),
+    mapService(mapService),
+    callbackId(callbackId),
+    dataLoadingBreaker(dataLoadingBreaker),
+    styleConfig(styleConfig),
+    painter(NULL)
+  {
+    if (styleConfig){
+      painter = new osmscout::MapPainterQt(styleConfig);
+    }   
+  };
+  
+  inline ~DBInstance()
+  {
+    if (painter!=NULL) {
+      delete painter;
+    }
+  };
+
+  void LoadStyle(QString stylesheetFilename,
+                 std::unordered_map<std::string,bool> stylesheetFlags);
+  
+  bool AssureRouter(osmscout::Vehicle vehicle, 
+                    osmscout::RouterParameter routerParameter);  
+
+};
+
+typedef std::shared_ptr<DBInstance> DBInstanceRef;
+
 class DBThread : public QObject
 {
   Q_OBJECT
@@ -90,6 +146,8 @@ signals:
 public slots:
   void ToggleDaylight();
   void ReloadStyle();
+  void LoadStyle(QString stylesheetFilename,
+                 std::unordered_map<std::string,bool> stylesheetFlags);
   void HandleInitialRenderingRequest();
   void HandleTileStatusChanged(const osmscout::TileRef& changedTile);
   void DrawTileMap(QPainter &p, const osmscout::GeoCoord center, uint32_t z, 
@@ -110,7 +168,7 @@ public slots:
   void onRenderSeaChanged(bool);  
 
 private:
-  QString                       databaseDirectory; 
+  QStringList                   databaseLookupDirs; 
   QString                       resourceDirectory;
   QString                       tileCacheDirectory;
   
@@ -134,21 +192,22 @@ private:
   OsmTileDownloader             *tileDownloader;
 
   osmscout::DatabaseParameter   databaseParameter;
-  osmscout::DatabaseRef         database;
-  osmscout::LocationServiceRef  locationService;
-  osmscout::MapServiceRef       mapService;
-  osmscout::MapService::CallbackId callbackId;  
+  QList<DBInstanceRef>          databases;
+  //osmscout::DatabaseRef         databases;
+  //osmscout::LocationServiceRef  locationService;
+  //osmscout::MapServiceRef       mapService;
+  //osmscout::MapService::CallbackId callbackId;  
   osmscout::RouterParameter     routerParameter;
-  osmscout::RoutingServiceRef   router;
+  //osmscout::RoutingServiceRef   router;
   osmscout::RoutePostprocessor  routePostprocessor;
 
   QString                       stylesheetFilename;
+  std::unordered_map<std::string,bool>
+                                stylesheetFlags;
   bool                          daylight;
-  osmscout::StyleConfigRef      styleConfig;
-  osmscout::MapPainterQt        *painter;
   QString                       iconDirectory;
 
-  osmscout::BreakerRef          dataLoadingBreaker;
+  //osmscout::BreakerRef          dataLoadingBreaker;
   
   bool                          onlineTilesEnabled;
   bool                          offlineTilesEnabled;
@@ -161,7 +220,7 @@ private:
     Intersects = 2,
   };
   
-  DBThread(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
+  DBThread(QStringList databaseLookupDirectories, QString resourceDirectory, QString tileCacheDirectory,
            size_t onlineTileCacheSize = 20, size_t offlineTileCacheSize = 50);
   virtual ~DBThread();
 
@@ -206,6 +265,7 @@ public:
   bool RenderMap(QPainter& painter,
                  const RenderMapRequest& request);
   
+  /*
   osmscout::TypeConfigRef GetTypeConfig() const;
 
   bool GetNodeByOffset(osmscout::FileOffset offset,
@@ -217,6 +277,7 @@ public:
 
   bool ResolveAdminRegionHierachie(const osmscout::AdminRegionRef& adminRegion,
                                    std::map<osmscout::FileOffset,osmscout::AdminRegionRef >& refs) const;
+  */
 
   bool SearchForLocations(const std::string& searchPattern,
                           size_t limit,
@@ -249,7 +310,7 @@ public:
   void ClearRoute();
   void AddRoute(const osmscout::Way& way);
 
-  static bool InitializeInstance(QString databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
+  static bool InitializeInstance(QStringList databaseDirectory, QString resourceDirectory, QString tileCacheDirectory,
                                  size_t onlineTileCacheSize = 20, size_t offlineTileCacheSize = 50);
   static DBThread* GetInstance();
   static void FreeInstance();

@@ -122,6 +122,9 @@ bool GetAdminRegionHierachie(const osmscout::AdminRegionRef& adminRegion,
                              std::map<osmscout::FileOffset,osmscout::AdminRegionRef>& adminRegionMap,
                              std::string& path)
 {
+  // TODO: implement search with multiple databases
+  return false;
+  /*
   if (!DBThread::GetInstance()->ResolveAdminRegionHierachie(adminRegion,
                                                             adminRegionMap)) {
     return false;
@@ -162,6 +165,7 @@ bool GetAdminRegionHierachie(const osmscout::AdminRegionRef& adminRegion,
   }
 
   return true;
+   */
 }
 
 QString GetAdminRegionLabel(std::map<osmscout::FileOffset,
@@ -197,6 +201,8 @@ QString GetAdminRegionLabel(std::map<osmscout::FileOffset,
 
 QString GetObjectTypLabel(const osmscout::ObjectFileRef& object)
 {
+    // TODO: implement search with multiple database
+  /*
     if (object.GetType()==osmscout::RefType::refNode) {
       osmscout::NodeRef node;
 
@@ -221,7 +227,7 @@ QString GetObjectTypLabel(const osmscout::ObjectFileRef& object)
         return QString::fromUtf8(way->GetType()->GetName().c_str());
       }
     }
-
+*/
     return "";
 }
 
