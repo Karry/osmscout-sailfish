@@ -1230,11 +1230,17 @@ QStringList DBThread::BuildAdminRegionList(const osmscout::LocationServiceRef& l
 
   QStringList list;
   locationService->ResolveAdminRegionHierachie(adminRegion, regionMap);
-  list << QString::fromStdString(adminRegion->name);
+  QString name = QString::fromStdString(adminRegion->name);
+  list << name;
+  QString last = name;
   osmscout::FileOffset parentOffset = adminRegion->parentRegionOffset;
   while (parentOffset != 0){
     osmscout::AdminRegionRef region = regionMap[parentOffset];
-    list << QString::fromStdString(region->name);
+    name = QString::fromStdString(region->name);
+    if (last != name){ // skip duplicates in admin region names
+      list << name;
+    }
+    last = name;
     parentOffset = region->parentRegionOffset;
   }
   return list;
