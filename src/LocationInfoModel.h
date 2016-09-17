@@ -64,7 +64,7 @@ public:
         BearingRole = Qt::UserRole+5,
         PoiRole = Qt::UserRole+6,
         TypeRole = Qt::UserRole+7,
-        ZipCodeRole = Qt::UserRole+8,
+        PostalCodeRole = Qt::UserRole+8,
         WebsiteRole = Qt::UserRole+9,
         PhoneRole = Qt::UserRole+10
     };

@@ -90,13 +90,17 @@ QHash<int, QByteArray> LocationInfoModel::roleNames() const
     roles[DistanceRole]="distance";
     roles[BearingRole]="bearing";
     roles[PoiRole]="poi";
+    roles[TypeRole] = "type";
+    roles[PostalCodeRole] = "postalCode";
+    roles[WebsiteRole] = "website";
+    roles[PhoneRole] = "phone";
 
     return roles;
 }
 
 QVariant LocationInfoModel::data(const QModelIndex &index, int role) const
 {
-    qDebug() << "Get data" << index.row() << " role: " << role << " (label: " << LabelRole<< ")";
+    //qDebug() << "Get data" << index.row() << " role: " << role << " (label: " << LabelRole<< ")";
     
     if(index.row() < 0 || index.row() >= model.size()) {
       return QVariant();
@@ -140,7 +144,6 @@ void LocationInfoModel::addToModel(const QString database,
   osmscout::POIRef poiRef = place.GetPOI();
   osmscout::LocationRef locRef = place.GetLocation();
   osmscout::AddressRef addrRef = place.GetAddress();
-  //osmscout::AdminRegionRef regionRef = place.GetAdminRegion();
 
   double distance = description->GetDistance();
   bool inPlace = description->IsAtPlace() || (distance < 1);
@@ -197,7 +200,7 @@ void LocationInfoModel::addToModel(const QString database,
   obj[BearingRole] = QString::fromStdString(osmscout::BearingDisplayString(description->GetBearing()));
   obj[PoiRole] = (poiRef) ? QString::fromStdString(poiRef->name): "";
   obj[TypeRole] = QString::fromStdString(place.GetObjectFeatures()->GetType()->GetName());
-  obj[ZipCodeRole] = postalCode;
+  obj[PostalCodeRole] = postalCode;
   obj[WebsiteRole] = website;
   obj[PhoneRole] = phone;
 

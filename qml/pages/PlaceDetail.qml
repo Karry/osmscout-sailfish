@@ -89,6 +89,16 @@ Page {
             anchors.fill: parent
             color: "transparent"
 
+            /*
+            OpacityRampEffect {
+                //enabled: !onlineTileProviderComboBox._menuOpen //true
+                offset: 1 - 1 / slope
+                slope: locationInfoView.height / (Theme.paddingLarge * 4)
+                direction: 2
+                sourceItem: locationInfoView
+            }
+            */
+
             Row{
                 id: placeLocationRow
 
@@ -134,8 +144,9 @@ Page {
 
             SilicaListView {
                 id: locationInfoView
-                //width: parent.width
                 width: parent.width - (2 * Theme.paddingMedium)
+                //contentHeight: content.height + 2*Theme.paddingLarge
+                spacing: Theme.paddingMedium
                 x: Theme.paddingMedium
                 model: locationInfoModel
                 //model: 100
@@ -143,6 +154,7 @@ Page {
                 opacity: locationInfoModel.ready ? 1.0 : 0.0
                 Behavior on opacity { FadeAnimation {} }
 
+                VerticalScrollDecorator {}
                 clip: true
 
                 anchors {
@@ -190,13 +202,91 @@ Page {
 
                         width: locationInfoView.width
 
-                        text: region
+                        text: {
+                            if (region.length > 0){
+                                var str = region[0];
+                                if (postalCode != ""){
+                                    str += ", "+ postalCode;
+                                }
+                                if (region.length > 1){
+                                    for (var i=1; i<region.length; i++){
+                                        str += ", "+ region[i];
+                                    }
+                                }
+                            }else if (postalCode!=""){
+                                return postalCode;
+                            }
+                        }
                         font.pixelSize: Theme.fontSizeMedium
-                        visible: region != ""
+                        visible: region.length > 0 || postalCode != ""
                     }
-                }
-                VerticalScrollDecorator {}
+                    Row {
+                        id: phoneRow
+                        visible: phone != ""
+                        width: locationInfoView.width
+                        height: phoneIcon.height
 
+                        IconButton{
+                            id: phoneIcon
+                            visible: phone != ""
+                            icon.source: "image://theme/icon-m-dialpad"
+
+                            MouseArea{
+                                onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
+                                anchors.fill: parent
+                            }
+                        }
+                        Label {
+                            id: phoneLabel
+                            anchors.left: phoneIcon.right
+                            anchors.verticalCenter: phoneIcon.verticalCenter
+                            visible: phone != ""
+                            text: phone
+
+                            color: Theme.highlightColor
+                            truncationMode: TruncationMode.Fade
+
+                            MouseArea{
+                                onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
+                                anchors.fill: parent
+                            }
+                        }
+                    }
+                    Row {
+                        id: websiteRow
+                        visible: website != ""
+                        width: locationInfoView.width
+                        height: websiteIcon.height
+
+                        IconButton{
+                            id: websiteIcon
+                            visible: website != ""
+                            icon.source: "image://theme/icon-m-region"
+
+                            MouseArea{
+                                onClicked: Qt.openUrlExternally(website)
+                                anchors.fill: parent
+                            }
+                        }
+                        Label {
+                            id: websiteLabel
+                            anchors.left: websiteIcon.right
+                            anchors.verticalCenter: websiteIcon.verticalCenter
+                            visible: website != ""
+                            text: website
+
+                            font.underline: true
+                            color: Theme.highlightColor
+                            truncationMode: TruncationMode.Fade
+
+                            MouseArea{
+                                onClicked: Qt.openUrlExternally(website)
+                                anchors.fill: parent
+                            }
+                        }
+                    }
+
+                }
             }
             BusyIndicator {
                 id: busyIndicator
