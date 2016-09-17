@@ -89,57 +89,12 @@ Page {
             anchors.fill: parent
             color: "transparent"
 
-            /*
             OpacityRampEffect {
                 //enabled: !onlineTileProviderComboBox._menuOpen //true
                 offset: 1 - 1 / slope
                 slope: locationInfoView.height / (Theme.paddingLarge * 4)
                 direction: 2
                 sourceItem: locationInfoView
-            }
-            */
-
-            Row{
-                id: placeLocationRow
-
-                spacing: Theme.paddingMedium
-                anchors.right: parent.right
-                Label {
-                    id: placeLocationLabel
-                    text: formatCoord(placeLat, placeLon)
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                IconButton{
-                    icon.source: "image://theme/icon-m-clipboard"
-                    onClicked: {
-                        Clipboard.text = placeLocationLabel.text
-                    }
-                }
-            }
-            Row{
-                id: placeDistanceRow
-                spacing: Theme.paddingMedium
-                visible: currentLocValid
-                height: placeDistanceLabel.height
-                width: parent.width - (2 * Theme.paddingMedium)
-                x: Theme.paddingMedium
-
-                anchors {
-                    top: placeLocationRow.bottom
-                }
-
-                Label {
-                    id: placeDistanceLabel
-                    text: locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon) < 2 ?
-                              qsTr("You are here") :
-                              qsTr("%1 %2 from you")
-                                .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
-                                .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
-
-                    color: Theme.highlightColor
-                    width: parent.width
-                    font.pixelSize: Theme.fontSizeSmall
-                }
             }
 
             SilicaListView {
@@ -158,11 +113,59 @@ Page {
                 clip: true
 
                 anchors {
-                    top: placeDistanceRow.bottom
+                    top: parent.top
                     bottom: parent.bottom
                 }
 
+                header: Rectangle {
+                    color: "transparent"
+                    height: placeLocationRow.height + placeDistanceRow.height
+                    width: parent.width
 
+                    Row{
+                        id: placeLocationRow
+
+                        spacing: Theme.paddingMedium
+                        anchors.right: parent.right
+                        Label {
+                            id: placeLocationLabel
+                            text: formatCoord(placeLat, placeLon)
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        IconButton{
+                            icon.source: "image://theme/icon-m-clipboard"
+                            onClicked: {
+                                Clipboard.text = placeLocationLabel.text
+                            }
+                        }
+                    }
+                    Row{
+                        id: placeDistanceRow
+                        spacing: Theme.paddingMedium
+                        visible: currentLocValid
+                        height: placeDistanceLabel.height
+                        //width: parent.width // - (2 * Theme.paddingMedium)
+                        anchors.right: parent.right
+                        //x: Theme.paddingMedium
+
+                        anchors {
+                            top: placeLocationRow.bottom
+                        }
+
+                        Label {
+                            id: placeDistanceLabel
+                            text: locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon) < 2 ?
+                                      qsTr("You are here") :
+                                      qsTr("%1 %2 from you")
+                                        .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
+                                        .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
+
+                            color: Theme.highlightColor
+                            //width: parent.width
+                            font.pixelSize: Theme.fontSizeSmall
+                        }
+                    }
+                }
                 delegate: Column{
                     spacing: Theme.paddingSmall
 
@@ -286,6 +289,12 @@ Page {
                         }
                     }
 
+                }
+
+                footer: Rectangle {
+                    color: "transparent"
+                    width: parent.width
+                    height: 2*Theme.paddingLarge
                 }
             }
             BusyIndicator {
