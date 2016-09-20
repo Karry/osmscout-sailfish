@@ -35,9 +35,29 @@ Page {
         }
     }
 
-    function formatCoord(lat, lon){
-        // use consistent GeoCoord toString method
-        return  (Math.round(lat * 100000)/100000) + " " + (Math.round(lon * 100000)/100000);
+    function formatDegree(degree){
+        var minutes = (degree - Math.floor(degree)) * 60;
+        var seconds = (minutes - Math.floor(minutes )) * 60;
+        return Math.floor(degree) + "°"
+            + (minutes<10?"0":"") + Math.floor(minutes) + "'"
+            + (seconds<10?"0":"") + seconds.toFixed(2) + "\"";
+    }
+    function formatDegreeLikeGeocaching(degree){
+        var minutes = (degree - Math.floor(degree)) * 60;
+        return Math.floor(degree) + "°"
+              + (minutes<10?"0":"") + minutes.toFixed(3) + "'"
+    }
+
+    function formatCoord(lat, lon, format){
+        if (format === "geocaching"){
+            return (lat>0? "N":"S") +" "+ formatDegreeLikeGeocaching( Math.abs(lat) ) + " " +
+                   (lon>0? "E":"W") +" "+ formatDegreeLikeGeocaching( Math.abs(lon) );
+        }
+        if (format === "numeric"){
+            return  (Math.round(lat * 100000)/100000) + " " + (Math.round(lon * 100000)/100000);
+        }
+        // format === "degrees"
+        return formatDegree( Math.abs(lat) ) + (lat>0? "N":"S") + " " + formatDegree( Math.abs(lon) ) + (lon>0? "E":"W");
     }
 
     function humanDistance(distance){
@@ -60,6 +80,10 @@ Page {
             return qsTr("north");
 
         return bearing;
+    }
+
+    Settings {
+        id: settings
     }
 
     PositionSource {
@@ -90,11 +114,100 @@ Page {
             color: "transparent"
 
             OpacityRampEffect {
-                //enabled: !onlineTileProviderComboBox._menuOpen //true
+                //enabled: !placeLocationComboBox._menuOpen //true
                 offset: 1 - 1 / slope
                 slope: locationInfoView.height / (Theme.paddingLarge * 4)
                 direction: 2
                 sourceItem: locationInfoView
+            }
+
+            Rectangle{
+                id: placeLocationRow
+
+                color: "transparent"
+                width: parent.width
+                height: Math.max(placeLocationComboBox.height, clipboardBtn.height) + placeDistanceLabel.height
+                anchors{
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+                ComboBox {
+                    id: placeLocationComboBox
+                    y: (clipboardBtn.height - contentItem.height) /2
+                    contentItem.opacity: 0
+
+                    property bool initialized: false
+
+                    menu: ContextMenu {
+                        MenuItem { text: formatCoord(placeLat, placeLon, "degrees") }
+                        MenuItem { text: formatCoord(placeLat, placeLon, "geocaching") }
+                        MenuItem { text: formatCoord(placeLat, placeLon, "numeric") }
+                    }
+                    onCurrentItemChanged: {
+                        if (!initialized){
+                            return;
+                        }
+                        var format = "degrees";
+                        if (currentIndex == 0){
+                            format = "degrees";
+                        }else if (currentIndex == 1){
+                            format = "geocaching";
+                        }else if (currentIndex == 2){
+                            format = "numeric";
+                        }
+
+                        settings.gpsFormat = format
+                    }
+                    Component.onCompleted: {
+                        currentIndex = 0;
+                        if (settings.gpsFormat === "degrees"){
+                            currentIndex = 0;
+                        } else if (settings.gpsFormat === "geocaching"){
+                            currentIndex = 1;
+                        } else if (settings.gpsFormat === "numeric"){
+                            currentIndex = 2;
+                        }
+
+                        initialized = true;
+                    }
+                }
+                IconButton{
+                    id: clipboardBtn
+                    anchors{
+                        right: parent.right
+                    }
+
+                    icon.source: "image://theme/icon-m-clipboard"
+                    onClicked: {
+                        Clipboard.text = placeLocationLabel.text
+                    }
+                }
+                /* it seems to be impossible to align ComboBox content to right, so we hide it and add this another Label :) */
+                Label {
+                    id: placeLocationLabel
+                    text: placeLocationComboBox.value //formatCoord(placeLat, placeLon)
+                    y: (clipboardBtn.height - height) /2
+                    color: Theme.highlightColor
+                    anchors{
+                        right: clipboardBtn.left
+                    }
+                }
+                Label {
+                    id: placeDistanceLabel
+                    text: locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon) < 2 ?
+                              qsTr("You are here") :
+                              qsTr("%1 %2 from you")
+                                .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
+                                .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
+
+                    color: Theme.highlightColor
+                    //width: parent.width
+                    font.pixelSize: Theme.fontSizeSmall
+                    anchors{
+                        right: clipboardBtn.left
+                        bottom: parent.bottom
+                    }
+                }
             }
 
             SilicaListView {
@@ -113,59 +226,10 @@ Page {
                 clip: true
 
                 anchors {
-                    top: parent.top
+                    top: placeLocationRow.bottom
                     bottom: parent.bottom
                 }
 
-                header: Rectangle {
-                    color: "transparent"
-                    height: placeLocationRow.height + placeDistanceRow.height
-                    width: parent.width
-
-                    Row{
-                        id: placeLocationRow
-
-                        spacing: Theme.paddingMedium
-                        anchors.right: parent.right
-                        Label {
-                            id: placeLocationLabel
-                            text: formatCoord(placeLat, placeLon)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                        IconButton{
-                            icon.source: "image://theme/icon-m-clipboard"
-                            onClicked: {
-                                Clipboard.text = placeLocationLabel.text
-                            }
-                        }
-                    }
-                    Row{
-                        id: placeDistanceRow
-                        spacing: Theme.paddingMedium
-                        visible: currentLocValid
-                        height: placeDistanceLabel.height
-                        //width: parent.width // - (2 * Theme.paddingMedium)
-                        anchors.right: parent.right
-                        //x: Theme.paddingMedium
-
-                        anchors {
-                            top: placeLocationRow.bottom
-                        }
-
-                        Label {
-                            id: placeDistanceLabel
-                            text: locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon) < 2 ?
-                                      qsTr("You are here") :
-                                      qsTr("%1 %2 from you")
-                                        .arg(humanDistance(locationInfoModel.distance(currentLocLat, currentLocLon, placeLat, placeLon)))
-                                        .arg(humanBearing(locationInfoModel.bearing(currentLocLat, currentLocLon, placeLat, placeLon)))
-
-                            color: Theme.highlightColor
-                            //width: parent.width
-                            font.pixelSize: Theme.fontSizeSmall
-                        }
-                    }
-                }
                 delegate: Column{
                     spacing: Theme.paddingSmall
 
@@ -293,7 +357,7 @@ Page {
 
                 footer: Rectangle {
                     color: "transparent"
-                    width: parent.width
+                    width: locationInfoView.width
                     height: 2*Theme.paddingLarge
                 }
             }

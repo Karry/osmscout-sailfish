@@ -218,6 +218,18 @@ void Settings::SetRenderSea(bool b)
   }    
 }
 
+const QString Settings::GetGpsFormat() const
+{
+  return settings.value("gpsFormat", "degrees").toString();
+}
+void Settings::SetGpsFormat(const QString formatId)
+{
+  if (GetGpsFormat() != formatId){
+    settings.setValue("gpsFormat", formatId);
+    emit GpsFormatChanged(formatId);
+  }
+}
+
 static Settings* settingsInstance=NULL;
 
 Settings* Settings::GetInstance()
@@ -250,6 +262,8 @@ QmlSettings::QmlSettings()
             this, SIGNAL(OfflineMapChanged(bool)));
     connect(Settings::GetInstance(), SIGNAL(RenderSeaChanged(bool)),
             this, SIGNAL(RenderSeaChanged(bool)));
+    connect(Settings::GetInstance(), SIGNAL(GpsFormatChanged(const QString)),
+            this, SIGNAL(GpsFormatChanged(const QString)));
 }
 
 double QmlSettings::GetPhysicalDPI() const
@@ -327,4 +341,12 @@ bool QmlSettings::GetRenderSea() const
 void QmlSettings::SetRenderSea(bool b)
 {
     Settings::GetInstance()->SetRenderSea(b);
+}
+const QString QmlSettings::GetGpsFormat() const
+{
+    return Settings::GetInstance()->GetGpsFormat();
+}
+void QmlSettings::SetGpsFormat(const QString formatId)
+{
+    Settings::GetInstance()->SetGpsFormat(formatId);  
 }

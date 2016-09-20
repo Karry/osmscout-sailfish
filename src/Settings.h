@@ -41,6 +41,7 @@ class Settings: public QObject
   Q_PROPERTY(QString  onlineTileProviderId READ GetOnlineTileProviderId WRITE SetOnlineTileProviderId NOTIFY OnlineTileProviderIdChanged)
   Q_PROPERTY(bool     offlineMap READ GetOfflineMap WRITE SetOfflineMap NOTIFY OfflineMapChanged)
   Q_PROPERTY(bool     renderSea  READ GetRenderSea  WRITE SetRenderSea  NOTIFY RenderSeaChanged)
+  Q_PROPERTY(QString  gpsFormat  READ GetGpsFormat  WRITE SetGpsFormat  NOTIFY GpsFormatChanged)
 
 signals:
   void MapDPIChange(double dpi);
@@ -49,6 +50,7 @@ signals:
   void OnlineTileProviderIdChanged(const QString id);
   void OfflineMapChanged(bool);
   void RenderSeaChanged(bool);
+  void GpsFormatChanged(const QString formatId);
   
 private:
   QSettings settings;
@@ -88,6 +90,9 @@ public:
   bool GetRenderSea() const;
   void SetRenderSea(bool);
   
+  const QString GetGpsFormat() const;
+  void SetGpsFormat(const QString formatId);
+  
   static Settings* GetInstance();
   static void FreeInstance();
 };
@@ -101,6 +106,7 @@ class QmlSettings: public QObject{
   Q_PROPERTY(QString  onlineTileProviderId READ GetOnlineTileProviderId WRITE SetOnlineTileProviderId NOTIFY OnlineTileProviderIdChanged)
   Q_PROPERTY(bool     offlineMap READ GetOfflineMap WRITE SetOfflineMap NOTIFY OfflineMapChanged)
   Q_PROPERTY(bool     renderSea  READ GetRenderSea  WRITE SetRenderSea  NOTIFY RenderSeaChanged)
+  Q_PROPERTY(QString  gpsFormat  READ GetGpsFormat  WRITE SetGpsFormat  NOTIFY GpsFormatChanged)
 
 signals:
   void MapDPIChange(double dpi);
@@ -109,6 +115,7 @@ signals:
   void OnlineTileProviderIdChanged(const QString id);
   void OfflineMapChanged(bool);
   void RenderSeaChanged(bool);
+  void GpsFormatChanged(const QString formatId);
 
 public:
   QmlSettings();
@@ -136,6 +143,9 @@ public:
   
   bool GetRenderSea() const;
   void SetRenderSea(bool);  
+  
+  const QString GetGpsFormat() const;
+  void SetGpsFormat(const QString formatId);
 };
 
 #endif
