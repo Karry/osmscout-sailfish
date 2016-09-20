@@ -53,6 +53,7 @@
 - allow render land/sea or disable offline map completely
 - sync with upstream library to support new database format
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.9-1
+* 2016-09-20 Lukáš Karas <lukas.karas@centrum.cz> 0.9-1
 - sync with upstream library to support new database format
 - initial support for mutiple databases
+- support for multiple location notation
