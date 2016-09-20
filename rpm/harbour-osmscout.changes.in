@@ -57,4 +57,4 @@
 - sync with upstream library to support new database format
 - initial support for multiple databases
 - location info page can display POI website and phone
-- support for multiple location notations
+- support for multiple GPS notations
