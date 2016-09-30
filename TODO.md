@@ -7,7 +7,7 @@
 
 - **Map style setting**
 - **Offline map manager**
-- **POI and plase searching**
+- **POI and place searching**
 - **Management of favourite places**
 - **Navigation**
 
