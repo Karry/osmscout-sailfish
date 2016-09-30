@@ -59,4 +59,8 @@
 - location info page can display POI website and phone
 - support for multiple GPS notations
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.10-1
+* 2016-09-30 Lukáš Karas <lukas.karas@centrum.cz> 0.10-1
+- sync with upstream library to support new database format
+- POI icons
+
+* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.11-1
