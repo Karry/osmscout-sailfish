@@ -246,115 +246,125 @@ Page {
                         font.pixelSize: Theme.fontSizeSmall
                         visible: !inPlace
                     }
-                    Label {
-                        id: entryPoi
+                    Row {
+                      POIIcon{
+                          id: poiIcon
+                          poiType: type
+                          width: 64
+                          height: 64
+                      }
+                      Column{
+                        Label {
+                            id: entryPoi
 
-                        width: locationInfoView.width
+                            width: locationInfoView.width - poiIcon.width - (2*Theme.paddingSmall)
 
-                        text: poi // label
-                        font.pixelSize: Theme.fontSizeLarge
-                        visible: poi != ""
-                    }
-                    Label {
-                        id: entryAddress
+                            text: poi // label
+                            font.pixelSize: Theme.fontSizeLarge
+                            visible: poi != ""
+                        }
+                        Label {
+                            id: entryAddress
 
-                        width: locationInfoView.width
+                            width: locationInfoView.width - poiIcon.width - (2*Theme.paddingSmall)
 
-                        text: address
-                        font.pixelSize: Theme.fontSizeLarge
-                        visible: address != ""
-                    }
-                    Label {
-                        id: entryRegion
+                            text: address
+                            font.pixelSize: Theme.fontSizeLarge
+                            visible: address != ""
+                        }
+                        Label {
+                            id: entryRegion
 
-                        width: locationInfoView.width
+                            width: locationInfoView.width - poiIcon.width - (2*Theme.paddingSmall)
+                            wrapMode: Text.WordWrap
 
-                        text: {
-                            if (region.length > 0){
-                                var str = region[0];
-                                if (postalCode != ""){
-                                    str += ", "+ postalCode;
-                                }
-                                if (region.length > 1){
-                                    for (var i=1; i<region.length; i++){
-                                        str += ", "+ region[i];
+                            text: {
+                                if (region.length > 0){
+                                    var str = region[0];
+                                    if (postalCode != ""){
+                                        str += ", "+ postalCode;
                                     }
+                                    if (region.length > 1){
+                                        for (var i=1; i<region.length; i++){
+                                            str += ", "+ region[i];
+                                        }
+                                    }
+                                }else if (postalCode!=""){
+                                    return postalCode;
                                 }
-                            }else if (postalCode!=""){
-                                return postalCode;
                             }
+                            font.pixelSize: Theme.fontSizeMedium
+                            visible: region.length > 0 || postalCode != ""
                         }
-                        font.pixelSize: Theme.fontSizeMedium
-                        visible: region.length > 0 || postalCode != ""
-                    }
-                    Row {
-                        id: phoneRow
-                        visible: phone != ""
-                        width: locationInfoView.width
-                        height: phoneIcon.height
-
-                        IconButton{
-                            id: phoneIcon
+                        Row {
+                            id: phoneRow
                             visible: phone != ""
-                            icon.source: "image://theme/icon-m-dialpad"
+                            width: locationInfoView.width
+                            height: phoneIcon.height
 
-                            MouseArea{
-                                onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
-                                anchors.fill: parent
+                            IconButton{
+                                id: phoneIcon
+                                visible: phone != ""
+                                icon.source: "image://theme/icon-m-dialpad"
+
+                                MouseArea{
+                                    onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
+                                    anchors.fill: parent
+                                }
+                            }
+                            Label {
+                                id: phoneLabel
+                                anchors.left: phoneIcon.right
+                                anchors.verticalCenter: phoneIcon.verticalCenter
+                                visible: phone != ""
+                                text: phone
+
+                                color: Theme.highlightColor
+                                truncationMode: TruncationMode.Fade
+
+                                MouseArea{
+                                    onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
+                                    anchors.fill: parent
+                                }
                             }
                         }
-                        Label {
-                            id: phoneLabel
-                            anchors.left: phoneIcon.right
-                            anchors.verticalCenter: phoneIcon.verticalCenter
-                            visible: phone != ""
-                            text: phone
-
-                            color: Theme.highlightColor
-                            truncationMode: TruncationMode.Fade
-
-                            MouseArea{
-                                onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
-                                anchors.fill: parent
-                            }
-                        }
-                    }
-                    Row {
-                        id: websiteRow
-                        visible: website != ""
-                        width: locationInfoView.width
-                        height: websiteIcon.height
-
-                        IconButton{
-                            id: websiteIcon
+                        Row {
+                            id: websiteRow
                             visible: website != ""
-                            icon.source: "image://theme/icon-m-region"
+                            width: locationInfoView.width
+                            height: websiteIcon.height
 
-                            MouseArea{
-                                onClicked: Qt.openUrlExternally(website)
-                                anchors.fill: parent
+                            IconButton{
+                                id: websiteIcon
+                                visible: website != ""
+                                icon.source: "image://theme/icon-m-region"
+
+                                MouseArea{
+                                    onClicked: Qt.openUrlExternally(website)
+                                    anchors.fill: parent
+                                }
+                            }
+                            Label {
+                                id: websiteLabel
+                                anchors.left: websiteIcon.right
+                                anchors.verticalCenter: websiteIcon.verticalCenter
+                                visible: website != ""
+                                text: website
+
+                                font.underline: true
+                                color: Theme.highlightColor
+                                truncationMode: TruncationMode.Fade
+
+                                MouseArea{
+                                    onClicked: Qt.openUrlExternally(website)
+                                    anchors.fill: parent
+                                }
                             }
                         }
-                        Label {
-                            id: websiteLabel
-                            anchors.left: websiteIcon.right
-                            anchors.verticalCenter: websiteIcon.verticalCenter
-                            visible: website != ""
-                            text: website
 
-                            font.underline: true
-                            color: Theme.highlightColor
-                            truncationMode: TruncationMode.Fade
-
-                            MouseArea{
-                                onClicked: Qt.openUrlExternally(website)
-                                anchors.fill: parent
-                            }
-                        }
                     }
-
+                    }
                 }
-
                 footer: Rectangle {
                     color: "transparent"
                     width: locationInfoView.width

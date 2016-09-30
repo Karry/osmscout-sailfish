@@ -248,6 +248,7 @@ set(SOURCE_FILES
     qml/custom/MapComponent.qml
     qml/custom/Link.qml
     qml/custom/ScaleIndicator.qml
+    qml/custom/POIIcon.qml
     qml/pages/Map.qml
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml
@@ -314,6 +315,10 @@ DESTINATION share/icons/hicolor/128x128/apps)
 
 install(FILES icons/256x256/harbour-osmscout.png
 DESTINATION share/icons/hicolor/256x256/apps)
+
+install(DIRECTORY icons/poi/
+DESTINATION share/${HARBOUR_APP_NAME}/poi-icons
+FILES_MATCHING PATTERN "*.svg")
 
 install(FILES 
   dependencies/libosmscout/libosmscout/data/icons/14x14/standard/bus_stop.png
