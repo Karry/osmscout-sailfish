@@ -8,6 +8,10 @@ Image{
     property string poiType: 'unknown'
     property string unknownTypeIcon: 'marker'
 
+    /*
+     * This is mapping libosmscout types (defined in *.ost file used for import)
+     * and poi icons.
+     */
     property variant iconMapping: {
                 'address': 'marker',
 
@@ -36,6 +40,8 @@ Image{
                 'amenity_school': 'school',
 
                 'railway_station': 'rail',
+                'highway_bus_stop': 'bus',
+                'railway_tram_stop': 'rail-light',
                 'aeroway_aerodrome': 'airport',
                 'aeroway_terminal': 'airport',
 
