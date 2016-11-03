@@ -77,7 +77,7 @@ Page {
                         value: settings.mapDPI
                         valueText: Math.round((settings.mapDPI / 96) * 100) + "%"
                         minimumValue: 96
-                        maximumValue: settings.physicalDPI * 1.1
+                        maximumValue: Math.max(96 * 2, settings.physicalDPI * 1.5)
                         label: qsTr("Map magnification")
 
                         onValueChanged: {
