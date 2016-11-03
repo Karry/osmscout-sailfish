@@ -179,6 +179,7 @@ add_definitions(${Qt5Core_DEFINITIONS})
 add_subdirectory(dependencies/libosmscout/libosmscout)
 add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
+add_subdirectory(dependencies/libosmscout/libosmscout-client-qt)
 
 # ==================================================================================================
 # harbour-osmscout
@@ -192,19 +193,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(HEADER_FILES
-    src/DBThread.h
-    src/MapWidget.h
-    src/RoutingModel.h
-    src/SearchLocationModel.h
-    src/LocationInfoModel.h
-    src/Settings.h
-    src/OnlineTileProvider.h
-    src/OnlineTileProviderModel.h
-    src/Theme.h
-    src/TileCache.h
-    src/OsmTileDownloader.h
-    src/InputHandler.h
-    src/OSMTile.h
+#    src/DBThread.h
 )
 
 set(LANG_FILES
@@ -218,20 +207,7 @@ QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
 ADD_CUSTOM_TARGET (translations ALL DEPENDS ${LANG_SRC})
 
 set(SOURCE_FILES
-    src/DBThread.cpp
-    src/MapWidget.cpp
     src/OSMScout.cpp
-    src/RoutingModel.cpp
-    src/SearchLocationModel.cpp
-    src/LocationInfoModel.cpp
-    src/Settings.cpp
-    src/OnlineTileProvider.cpp
-    src/OnlineTileProviderModel.cpp
-    src/Theme.cpp
-    src/TileCache.cpp
-    src/OsmTileDownloader.cpp
-    src/InputHandler.cpp
-    src/OSMTile.cpp
     
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f
@@ -267,6 +243,7 @@ target_include_directories(harbour-osmscout PRIVATE
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
     ${LIBSAILFISHAPP_INCLUDE_DIRS}
 )
 
@@ -282,6 +259,7 @@ target_link_libraries(harbour-osmscout
         osmscout
         osmscout_map
         osmscout_map_qt
+        osmscout_client_qt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
 
@@ -349,6 +327,7 @@ target_include_directories(PerformanceTest PRIVATE
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
     ${LIBSAILFISHAPP_INCLUDE_DIRS}
 )
 

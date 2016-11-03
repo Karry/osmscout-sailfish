@@ -32,14 +32,14 @@
 #include <sailfishapp.h>
 
 // Custom QML objects
-#include "MapWidget.h"
-#include "SearchLocationModel.h"
-#include "LocationInfoModel.h"
-#include "OnlineTileProviderModel.h"
-#include "RoutingModel.h"
+#include <osmscout/MapWidget.h>
+#include <osmscout/SearchLocationModel.h>
+#include <osmscout/LocationInfoModel.h>
+#include <osmscout/OnlineTileProviderModel.h>
+#include <osmscout/RoutingModel.h>
 
 // Application settings
-#include "Settings.h"
+#include <osmscout/Settings.h>
 
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
@@ -96,9 +96,10 @@ int main(int argc, char* argv[])
  
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
   QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-  if (!DBThread::InitializeInstance(
+  if (!DBThread::InitializeTiledInstance(
           QStringList() << docs + QDir::separator() + "Maps", 
-          "/usr/share/harbour-osmscout", 
+          "/usr/share/harbour-osmscout/map-styles/standard.oss", 
+          "/usr/share/harbour-osmscout/map-icons", 
           cache + QDir::separator() + "OsmTileCache",
           /* onlineTileCacheSize  */ desktop ?  40 : 20,
           /* offlineTileCacheSize */ desktop ? 200 : 50
