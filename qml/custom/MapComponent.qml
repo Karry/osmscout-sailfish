@@ -27,7 +27,7 @@ Map {
           top: parent.top
       }
 
-      magLevel: map.magLevel
+      zoomLevel: map.zoomLevel
       finished: map.finished
   }
 

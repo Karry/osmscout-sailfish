@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 
 Rectangle{
 
-    property int magLevel: 0;
+    property int zoomLevel: 0;
     property bool finished: false;
 
     width: busyIndicator.width + Theme.paddingMedium
@@ -20,8 +20,8 @@ Rectangle{
         anchors.centerIn: parent
     }
     Text {
-        id: magLevelLabel
-        text: magLevel
+        id: zoomLevelLabel
+        text: zoomLevel
         anchors.centerIn: parent
         opacity: 0.4
         font.pointSize: Theme.fontSizeMedium
