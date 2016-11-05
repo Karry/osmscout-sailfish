@@ -96,7 +96,10 @@ Image{
                 'historic_building': 'town-hall',
                 'historic': 'square-stroked',
 
-                'place_locality': 'square-stroked'
+                'place_locality': 'square-stroked',
+                'place_hamlet': 'square-stroked',
+                'place_village': 'residential-community'
+
         }
 
     function iconUrl(icon){

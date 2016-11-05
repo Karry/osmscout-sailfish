@@ -289,6 +289,7 @@ Page {
                                             str += ", "+ region[i];
                                         }
                                     }
+                                    return str;
                                 }else if (postalCode!=""){
                                     return postalCode;
                                 }

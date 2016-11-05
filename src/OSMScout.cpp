@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
   qRegisterMetaType<MapView*>();
 
   qmlRegisterType<MapWidget>("harbour.osmscout.map", 1, 0, "Map");
-  qmlRegisterType<Location>("harbour.osmscout.map", 1, 0, "Location");
+  qmlRegisterType<LocationEntry>("harbour.osmscout.map", 1, 0, "LocationEntry");
   qmlRegisterType<LocationListModel>("harbour.osmscout.map", 1, 0, "LocationListModel");
   qmlRegisterType<LocationInfoModel>("harbour.osmscout.map", 1, 0, "LocationInfoModel");
   qmlRegisterType<OnlineTileProviderModel>("harbour.osmscout.map", 1, 0, "OnlineTileProviderModel");

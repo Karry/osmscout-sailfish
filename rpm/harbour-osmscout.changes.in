@@ -68,6 +68,7 @@
 - update default map stylesheet
 
 * 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.12-1
-- try to fix crashes on Jolla tablet
-- minor fix in location info page (model)
-- increase maximum map magnification
+- fix crashes on Jolla tablet
+- minor fix on location info page
+- increase maximum map upscale
+- initial support for search

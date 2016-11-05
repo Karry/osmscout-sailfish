@@ -100,7 +100,7 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about"  || action == "layers"); // || action == "search"
+                            action == "about"  || action == "layers" || action == "search");
                 }
 
                 function onAction(action){
@@ -117,7 +117,8 @@ Page {
                     }else if (action == "about"){
                         pageStack.push(Qt.resolvedUrl("About.qml"))
                     }else if (action == "search"){
-                        pageStack.push(Qt.resolvedUrl("Search.qml"))
+                        pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                       {mainMap: map, mainPageDrawer: drawer})
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
                     }else{

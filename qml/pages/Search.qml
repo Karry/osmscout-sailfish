@@ -25,49 +25,151 @@ import harbour.osmscout.map 1.0
 
 import "../custom"
 
+/*
+ * Inspired by SearchPage.qml in ComponentGallery - showcase of Silica components
+ */
 Page {
     id: searchPage
     property string searchString
+    property bool keepSearchFieldFocus
 
-    onSearchStringChanged: {
-        console.log("searchString: " + searchString);
-        //suggestionModel.setPattern(searchString);
+    property Map mainMap;
+    property Drawer mainPageDrawer;
+
+    function selectLocation(selectedLocation) {
+        console.log("selectLocation: " + selectedLocation);
+        mainMap.showLocation(selectedLocation);
+        mainPageDrawer.open = false;
+        pageStack.pop();
     }
 
-    SilicaListView {
-        id: listView
-        anchors.fill: parent
+    onSearchStringChanged: {
+        suggestionModel.setPattern(searchString)
+    }
 
-        VerticalScrollDecorator {}
+    Column {
+        id: headerContainer
 
-        header: SearchField{
+        width: searchPage.width
+
+        SearchField {
             id: searchField
-            placeholderText: qsTr("Search places...")
-            width: searchPage.width
+            width: parent.width
 
             Binding {
-               target: searchPage
-               property: "searchString"
-               value: searchField.text.toLowerCase().trim()
+                target: searchPage
+                property: "searchString"
+                value: searchField.text.trim()
             }
             Component.onCompleted: {
                 searchField.forceActiveFocus()
             }
-        }
-
-        LocationListModel {
-            id: suggestionModel
-        }
-
-        model: suggestionModel
-        delegate: ListItem {
-            Label {
-                text: label
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.verticalCenter: parent.verticalCenter
-                color: highlighted ? Theme.highlightColor : Theme.primaryColor
-                x: Theme.paddingLarge
+            EnterKey.onClicked: {
+                var selectedLocation = suggestionModel.get(0)
+                if (selectedLocation !== null) {
+                    selectLocation(selectedLocation);
+                }
             }
         }
+    }
+
+
+    SilicaListView {
+        id: suggestionView
+        model: suggestionModel
+        anchors.fill: parent
+        spacing: Theme.paddingMedium
+        x: Theme.paddingMedium
+
+        currentIndex: -1 // otherwise currentItem will steal focus
+
+        header:  Item {
+            id: header
+            width: headerContainer.width
+            height: headerContainer.height
+            Component.onCompleted: headerContainer.parent = header
+        }
+
+        delegate: BackgroundItem {
+            id: backgroundItem
+            height: Math.max(entryIcon.height,entryDescription.height)
+
+            ListView.onAdd: AddAnimation {
+                target: backgroundItem
+            }
+            ListView.onRemove: RemoveAnimation {
+                target: backgroundItem
+            }
+
+            POIIcon{
+                id: entryIcon
+                poiType: type
+                width: 64
+                height: 64
+                anchors{
+                    right: entryDescription.left
+                }
+            }
+            Column{
+                id: entryDescription
+                x: searchField.textLeftMargin
+
+                Label {
+                    id: labelLabel
+                    width: parent.width
+                    color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    textFormat: Text.StyledText
+                    text: Theme.highlightText(label, searchString, Theme.highlightColor)
+                }
+                Label {
+                    id: entryRegion
+
+                    width: searchPage.width - searchField.textLeftMargin - (2*Theme.paddingSmall)
+                    wrapMode: Text.WordWrap
+
+                    text: {
+                        var str = "";
+                        if (region.length > 0){
+                            var start = 0;
+                            while (start < region.length && region[start] == label){
+                                start++;
+                            }
+                            str = region[start];
+                            for (var i=start+1; i<region.length; i++){
+                                str += ", "+ region[i];
+                            }
+                        }
+                        return str;
+                    }
+                    color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    font.pixelSize: Theme.fontSizeMedium
+                    visible: region.length > 0
+                }
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    var selectedLocation = suggestionModel.get(index)
+
+                    // the else case should never happen
+                    if (selectedLocation !== null) {
+                        selectLocation(selectedLocation);
+                    }
+                }
+            }
+        }
+
+        VerticalScrollDecorator {}
+
+        Component.onCompleted: {
+            if (keepSearchFieldFocus) {
+                searchField.forceActiveFocus()
+            }
+            keepSearchFieldFocus = false
+        }
+    }
+
+    LocationListModel {
+        id: suggestionModel
     }
 }
