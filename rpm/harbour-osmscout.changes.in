@@ -67,7 +67,7 @@
 - update core library: sea/land index was optimised
 - update default map stylesheet
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.12-1
+* 2016-11-06 Lukáš Karas <lukas.karas@centrum.cz> 0.12-1
 - fix crashes on Jolla tablet
 - minor fix on location info page
 - increase maximum map upscale
