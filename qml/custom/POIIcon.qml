@@ -38,6 +38,7 @@ Image{
                 'amenity_restaurant': 'restaurant',
                 'amenity_school_building': 'school',
                 'amenity_school': 'school',
+                'amenity_ferry_terminal': 'ferry',
 
                 'railway_station': 'rail',
                 'highway_bus_stop': 'bus',
@@ -51,7 +52,7 @@ Image{
                 'leisure_golf_course': 'golf',
                 'leisure_water_park': 'swimming',
                 'leisure_swimming_pool': 'swimming',
-                'leisure_marina': 'ferry',
+                'leisure_marina': 'harbor',
                 'leisure_park': 'park',
 
                 'tourism_aquarium': 'aquarium',
@@ -113,6 +114,7 @@ Image{
                 'highway_unclassified': 'highway_tertiary',
                 'highway_cycleway':'bicycle-share',
                 'building': 'building',
+                'landuse_industrial': 'industry',
 
                 'natural_peak':'mountain',
                 'waterway_stream': 'waterway_stream',
