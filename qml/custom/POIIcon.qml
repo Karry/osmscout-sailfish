@@ -54,11 +54,11 @@ Image{
                 'leisure_marina': 'ferry',
                 'leisure_park': 'park',
 
-                'tourism_aquarium': 'circle-stroked',
+                'tourism_aquarium': 'aquarium',
                 'tourism_attraction_building': 'circle-stroked',
                 'tourism_attraction': 'circle-stroked',
-                'tourism_artwork': 'circle-stroked',
-                'tourism_camp_site': 'circle-stroked',
+                'tourism_artwork': 'monument',
+                'tourism_camp_site': 'campsite',
                 'tourism_caravan_site': 'circle-stroked',
                 'tourism_picnic_site': 'circle-stroked',
                 'tourism_theme_park': 'circle-stroked',
@@ -96,9 +96,30 @@ Image{
                 'historic_building': 'town-hall',
                 'historic': 'square-stroked',
 
+                'shop': 'shop',
+                'christian_church_building':'religious-christian',
+                'christian_church': 'religious-christian',
+                'railway_subway_entrance': 'entrance',
+
                 'place_locality': 'square-stroked',
-                'place_hamlet': 'square-stroked',
-                'place_village': 'residential-community'
+                'boundary_administrative': 'square-stroked',
+
+                'place_hamlet': 'hamlet',
+                'place_village': 'residential-community',
+                'place_suburb': 'residential-community',
+                'place_bigcity': 'city',
+                'highway_residential': 'highway_residential',
+                'highway_tertiary': 'highway_tertiary',
+                'highway_unclassified': 'highway_tertiary',
+                'highway_cycleway':'bicycle-share',
+                'building': 'building',
+
+                'natural_peak':'mountain',
+                'waterway_stream': 'waterway_stream',
+                'waterway_river': 'waterway_river',
+                'landuse_reservoir': 'landuse_reservoir',
+                'natural_water': 'natural_water',
+                'natural_spring': 'water'
 
         }
 
