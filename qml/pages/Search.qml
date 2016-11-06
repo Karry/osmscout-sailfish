@@ -134,9 +134,13 @@ Page {
                             while (start < region.length && region[start] == label){
                                 start++;
                             }
-                            str = region[start];
-                            for (var i=start+1; i<region.length; i++){
-                                str += ", "+ region[i];
+                            if (start < region.length){
+                                str = region[start];
+                                for (var i=start+1; i<region.length; i++){
+                                    str += ", "+ region[i];
+                                }
+                            }else{
+                                str = region[0];
                             }
                         }
                         return str;
