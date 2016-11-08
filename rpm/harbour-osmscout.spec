@@ -87,15 +87,11 @@ rm %{buildroot}%{_datadir}/%{name}/qml/desktop.qml
 
 ## Jolla harbour rules:
 
-# TODO: setup visibility correctly and strip non-used symbols
-# -- strip symbols from shared libraries and app
-#strip %{buildroot}%{_libdir}/*.so %{buildroot}%{_bindir}/%{name}
-
-# -- move all shared libraries to /usr/share/<HARBOUR_APP_NAME>/lib
-mkdir -p %{buildroot}%{_datadir}/%{name}/lib
-mv %{buildroot}%{_libdir}/*.so %{buildroot}%{_datadir}/%{name}/lib
+# -- strip symbols app
+strip %{buildroot}%{_bindir}/%{name}
 
 # -- ship all shared unallowed libraries with the app
+mkdir -p %{buildroot}%{_datadir}/%{name}/lib
 
 # Jolla tablet (i486) build have to be linked to ld-linux.so.2, but it is not allowed 
 # in Harbour! Until Jolla fix their rules, we need to ship ld lib with app.
@@ -110,6 +106,7 @@ mv %{buildroot}%{_libdir}/*.so %{buildroot}%{_datadir}/%{name}/lib
 # file /usr/lib/libgomp.so.1
 # file /usr/lib/libgomp.so.1.0.0
 
+# support for OMP
 cp /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
 #cp --preserve=links /usr/lib/libgomp.so.1.0.0  %{buildroot}%{_datadir}/%{name}/lib/
 
