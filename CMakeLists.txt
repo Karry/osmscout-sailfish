@@ -150,7 +150,7 @@ set(MARISA_SRC
     ${MARISA_ROOT}/lib/marisa/keyset.cc
 )
 
-add_library(marisa SHARED 
+add_library(marisa
     ${MARISA_SRC}
 )
 install(TARGETS marisa
