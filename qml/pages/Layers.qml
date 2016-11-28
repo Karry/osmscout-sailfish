@@ -50,7 +50,7 @@ Page {
             color: "transparent"
 
             OpacityRampEffect {
-                enabled: !onlineTileProviderComboBox._menuOpen //true
+                enabled: (!onlineTileProviderComboBox._menuOpen && !stylesheetComboBox._menuOpen) //true
                 offset: 1 - 1 / slope
                 slope: flickable.height / (Theme.paddingLarge * 4)
                 direction: 2
@@ -153,6 +153,45 @@ Page {
                             settings.offlineMap = checked;
                         }
                     }
+                    ComboBox {
+                        id: stylesheetComboBox
+                        width: parent.width
+
+                        property bool initialized: false
+
+                        label: qsTr("Style")
+                        menu: ContextMenu {
+                            MenuItem { text: "Standard" }
+                            MenuItem { text: "Winter sports" }
+                            MenuItem { text: "Boundaries (for debugging)" }
+                        }
+                        MapStyle{
+                            id: mapStyle
+                        }
+
+                        onCurrentItemChanged: {
+                            if (!initialized){
+                                return;
+                            }
+                            var stylesheet="standard.oss";
+                            if (currentIndex==1)
+                                stylesheet="winter-sports.oss";
+                            if (currentIndex==2)
+                                stylesheet="boundaries.oss";
+
+                            mapStyle.style = stylesheet;
+                            // TODO: persist in settings
+                        }
+                        Component.onCompleted: {
+                            var stylesheet = mapStyle.style;
+                            if (stylesheet == "winter-sports.oss")
+                                currentIndex = 1;
+                            if (stylesheet == "boundaries.oss")
+                                currentIndex = 2;
+                            initialized = true;
+                        }
+                    }
+
                     TextSwitch{
                         id: renderSeaSwitch
                         width: parent.width

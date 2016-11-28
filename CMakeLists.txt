@@ -194,6 +194,7 @@ set(CMAKE_AUTORCC ON)
 
 set(HEADER_FILES
 #    src/DBThread.h
+    src/MapStyleHelper.h
 )
 
 set(LANG_FILES
@@ -208,6 +209,7 @@ ADD_CUSTOM_TARGET (translations ALL DEPENDS ${LANG_SRC})
 
 set(SOURCE_FILES
     src/OSMScout.cpp
+    src/MapStyleHelper.cpp
     
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f
@@ -310,9 +312,8 @@ DESTINATION share/${HARBOUR_APP_NAME}/map-icons)
 
 install(FILES 
   stylesheets/boundaries.oss
-  stylesheets/motorways.oss
-  stylesheets/railways.oss
   stylesheets/standard.oss
+  stylesheets/winter-sports.oss
 DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
 
 # ==================================================================================================

@@ -44,6 +44,8 @@
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
 
+#include "MapStyleHelper.h"
+
 // OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
 #define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
@@ -84,6 +86,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
   qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
+  qmlRegisterType<MapStyleHelper>("harbour.osmscout.map", 1, 0, "MapStyle");
 
   osmscout::log.Debug(true);
 
