@@ -165,6 +165,13 @@ Page {
 
         VerticalScrollDecorator {}
 
+        BusyIndicator {
+            id: busyIndicator
+            running: suggestionModel.searching
+            size: BusyIndicatorSize.Large
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+        }
         Component.onCompleted: {
             if (keepSearchFieldFocus) {
                 searchField.forceActiveFocus()
