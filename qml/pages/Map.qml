@@ -89,7 +89,7 @@ Page {
             model: ListModel {
                 ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
                 ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
-                ListElement { itemtext: QT_TR_NOOP("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
+                ListElement { itemtext: QT_TR_NOOP("Map downloads");itemicon: "image://theme/icon-m-cloud-download"; action: "downloads";}
                 ListElement { itemtext: QT_TR_NOOP("Map settings"); itemicon: "image://theme/icon-m-levels";         action: "layers";   }
                 ListElement { itemtext: QT_TR_NOOP("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
                 ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
@@ -100,7 +100,7 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about"  || action == "layers" || action == "search");
+                            action == "about"  || action == "layers" || action == "search" || action == "downloads");
                 }
 
                 function onAction(action){
@@ -121,6 +121,8 @@ Page {
                                        {mainMap: map, mainPageDrawer: drawer})
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
+                    }else if (action == "downloads"){
+                        pageStack.push(Qt.resolvedUrl("Downloads.qml"))
                     }else{
                         console.log("TODO: "+ action)
                     }

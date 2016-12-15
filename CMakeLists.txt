@@ -19,6 +19,8 @@ set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "")
 set(OSMSCOUT_SAILFISH_VERSION_SHORT  "${OSMSCOUT_SAILFISH_MAJOR_VERSION}.${OSMSCOUT_SAILFISH_MINOR_VERSION}.${OSMSCOUT_SAILFISH_PATCH_VERSION}")
 set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCOUT_SAILFISH_SUFFIX_VERSION}")
 
+set(OSMSCOUT_USER_AGENT "OSM Scout for Sailfish OS %1")
+
 # ==================================================================================================
 
 set(CMAKE_MIN_VERSION    "2.8.11")
@@ -109,6 +111,9 @@ message(STATUS "")
 if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
 
   add_definitions( -DOSMSCOUT_SAILFISH_VERSION_STRING="${OSMSCOUT_SAILFISH_VERSION_STRING}")
+  add_definitions( -DOSMSCOUT_VERSION_STRING="${OSMSCOUT_SAILFISH_VERSION_STRING}")
+  add_definitions( -DOSMSCOUT_USER_AGENT="${OSMSCOUT_USER_AGENT}")
+
   if (QT_QML_DEBUG)
     add_definitions( -DQT_QML_DEBUG)
   endif()
@@ -227,12 +232,15 @@ set(SOURCE_FILES
     qml/custom/Link.qml
     qml/custom/ScaleIndicator.qml
     qml/custom/POIIcon.qml
+    qml/custom/AvailableMapsView.qml
     qml/pages/Map.qml
     qml/pages/PlaceDetail.qml
     qml/pages/Cover.qml
     qml/pages/About.qml
     qml/pages/Search.qml
     qml/pages/Layers.qml
+    qml/pages/Downloads.qml
+    qml/pages/MapList.qml
     qml/main.qml
     qml/desktop.qml
 

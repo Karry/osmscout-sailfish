@@ -37,6 +37,8 @@
 #include <osmscout/LocationInfoModel.h>
 #include <osmscout/OnlineTileProviderModel.h>
 #include <osmscout/RoutingModel.h>
+#include <osmscout/AvailableMapsModel.h>
+#include <osmscout/MapDownloadsModel.h>
 
 // Application settings
 #include <osmscout/Settings.h>
@@ -87,6 +89,8 @@ int main(int argc, char* argv[])
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
   qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
   qmlRegisterType<MapStyleHelper>("harbour.osmscout.map", 1, 0, "MapStyle");
+  qmlRegisterType<AvailableMapsModel>("harbour.osmscout.map", 1, 0, "AvailableMapsModel");
+  qmlRegisterType<MapDownloadsModel>("harbour.osmscout.map", 1, 0, "MapDownloadsModel");
 
   osmscout::log.Debug(true);
 
@@ -143,7 +147,9 @@ int main(int argc, char* argv[])
   // load online tile providers
   Settings::GetInstance()->loadOnlineTileProviders(
     SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
-  
+  Settings::GetInstance()->loadMapProviders(
+    SailfishApp::pathTo("resources/map-providers.json").toLocalFile());
+
   thread.start();
   
   result=app->exec();
