@@ -54,6 +54,7 @@ Page {
             anchors.fill: parent
 
             Column {
+                id: downloadsColumn
                 width: parent.width
                 visible: mapDownloadsModel.rowCount() > 0
                 SectionHeader{ text: qsTr("Download Progress") }
@@ -67,20 +68,39 @@ Page {
                     model:mapDownloadsModel
 
                     delegate: ListItem{
-
-                        Label {
-                            text: mapName
-                        }
-                        Row {
-                            Label{
-                                text: (model!=null) ? Math.round(model.progressRole * 100)+" %" : "?"
+                        Row{
+                            spacing: Theme.paddingMedium
+                            x: Theme.paddingMedium
+                            Image{
+                                width:  Theme.fontSizeMedium * 2
+                                height: Theme.fontSizeMedium * 2
+                                source:"image://theme/icon-m-cloud-download"
+                                verticalAlignment: Image.AlignVCenter
                             }
-                            Label{
-                                text: progressDescription
+
+                            Column{
+                                Label {
+                                    text: mapName
+                                }
+                                Row {
+                                    spacing: Theme.paddingMedium
+                                    Label{
+                                        text: (model!=null) ? Math.round(model.progressRole * 100)+" %" : "?"
+                                    }
+                                    Label{
+                                        text: progressDescription!="" ? "(" + progressDescription + ")": ""
+                                    }
+                                }
                             }
                         }
-
                     }
+                }
+                Component.onCompleted: {
+                    mapDownloadsModel.modelReset.connect(onModelReset);
+                }
+                function onModelReset() {
+                    console.log("mapDownloadsModel rows: "+mapDownloadsModel.rowCount());
+                    downloadsColumn.visible = mapDownloadsModel.rowCount() > 0
                 }
             }
 
@@ -100,13 +120,13 @@ Page {
 
                 onClick: {
                     var index=availableMapsModel.index(row, /*column*/ 0 /* parent */);
-                    //console.log("clicked to: "+name+" / " + index);
-                    if (dir){
+                    //console.log("clicked to: "+item.name+" / " + index);
+                    if (item.dir){
                         pageStack.push(Qt.resolvedUrl("MapList.qml"),
-                                       {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: name})
+                                       {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: item.name, downloadsPage: downloadsPage})
                     }else{
                         pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
-                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: name})
+                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: item.name, mapItem: item, downloadsPage: downloadsPage})
                     }
                 }
             }

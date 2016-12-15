@@ -30,13 +30,15 @@ SilicaListView {
     property AvailableMapsModel originModel
     property var rootIndex
 
-    signal click(int row, bool dir, string name)
+    signal click(int row, variant item)
     
     model: DelegateModel {
         id: visualModel
         model: originModel
         rootIndex : listView.rootIndex
         delegate:  ListItem{
+            property variant myData: model
+
             width: listView.width
             height: entryIcon.height
 
@@ -48,8 +50,6 @@ SilicaListView {
                 Image {
                     id: entryIcon
 
-                    //anchors.horizontalCenter: parent.horizontalCenter
-                    //anchors.verticalCenter: parent.verticalCenter
                     width:  Theme.fontSizeMedium * 2
                     height: Theme.fontSizeMedium * 2
 
@@ -59,10 +59,6 @@ SilicaListView {
                     verticalAlignment: Image.AlignVCenter
                     sourceSize.width: width
                     sourceSize.height: height
-
-                    //Component.onCompleted: {
-                    //    console.log("height: "+height+", "+nameLabel.height)
-                    //}
                 }
 
                 Label{
@@ -78,7 +74,7 @@ SilicaListView {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
-                //rightPadding: Theme.paddingMedium
+
                 Label{
                     id: sizeLabel
                     visible: !dir
@@ -97,7 +93,7 @@ SilicaListView {
 
             onClicked: {
                 //console.log("index: " + index );
-                listView.click(index, dir, name)
+                listView.click(index, myData)
             }
         }
     }

@@ -30,10 +30,71 @@ Page {
     property AvailableMapsModel availableMapsModel
     property var mapIndex
     property string mapName
+    property variant mapItem
+    property var downloadsPage
+
+    MapDownloadsModel{
+        id:mapDownloadsModel
+    }
 
     Column{
+        spacing: Theme.paddingMedium
+        width: parent.width
         PageHeader{
             title: mapName
         }
+
+        Label{
+            id: descriptionText
+
+            width: parent.width - 2*Theme.paddingMedium
+            x: Theme.paddingMedium
+
+            text: mapItem.description
+            wrapMode: Text.WordWrap
+            font.pixelSize: Theme.fontSizeSmall
+        }
+
+        Column{
+            width: parent.width - 2*Theme.paddingMedium
+            x: Theme.paddingMedium
+            Label{
+                text: qsTr("Size")
+                color: Theme.primaryColor
+            }
+            Label{
+                text: mapItem.size
+                color: Theme.highlightColor
+            }
+        }
+
+        Column{
+            width: parent.width - 2*Theme.paddingMedium
+            x: Theme.paddingMedium
+            Label{
+                text: qsTr("Last Update")
+                color: Theme.primaryColor
+            }
+            Label{
+                text: Qt.formatDate(mapItem.time)
+                color: Theme.highlightColor
+            }
+        }
+
+        SectionHeader{
+            id: downloadMapHeader
+            text: qsTr("Download")
+        }
+        Button{
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("Download")
+            onClicked: {
+                var dir=mapDownloadsModel.suggestedDirectory(mapItem.map);
+                mapDownloadsModel.downloadMap(mapItem.map, dir);
+                console.log("downloading to " + dir);
+                pageStack.pop(downloadsPage);
+            }
+        }
+
     }
 }

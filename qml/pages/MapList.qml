@@ -32,6 +32,7 @@ Page {
     property AvailableMapsModel availableMapsModel
     property var rootDirectoryIndex
     property string rootName
+    property var downloadsPage
 
     SilicaFlickable{
         anchors.fill: parent
@@ -58,14 +59,14 @@ Page {
                 spacing: Theme.paddingMedium
 
                 onClick: {
-                    var index=availableMapsModel.index(row, /*column*/ 0, /* parent */ rootDirectoryIndex);
-                    //console.log("clicked to: "+name+" / " + index);
-                    if (dir){
+                    var index=availableMapsModel.index(row, /*column*/ 0 /* parent */);
+                    //console.log("clicked to: "+item.name+" / " + index);
+                    if (item.dir){
                         pageStack.push(Qt.resolvedUrl("MapList.qml"),
-                                       {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: name})
+                                       {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: item.name, downloadsPage: downloadsPage})
                     }else{
                         pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
-                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: name})
+                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: item.name, mapItem: item, downloadsPage: downloadsPage})
                     }
                 }
 
