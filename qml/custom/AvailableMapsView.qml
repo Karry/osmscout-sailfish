@@ -66,10 +66,29 @@ SilicaListView {
                 Label{
                     id: nameLabel
                     height: entryIcon.height
-                    font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: Theme.fontSizeMedium
                     verticalAlignment: Text.AlignVCenter
                     text: name
                 }
+            }
+
+            Label{
+                id: sizeLabel
+                visible: !dir
+                text: size
+                anchors.top: parent.top
+                anchors.right: parent.right
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.secondaryColor
+            }
+            Label{
+                id: dateLabel
+                visible: !dir
+                text: Qt.formatDate(time)
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.secondaryColor
             }
 
             MouseArea{
