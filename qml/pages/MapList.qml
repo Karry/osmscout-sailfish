@@ -38,14 +38,13 @@ Page {
         contentHeight: contentColumn.childrenRect.height
 
         VerticalScrollDecorator {}
-
         Column {
             id: contentColumn
             anchors.fill: parent
 
-            SectionHeader{
+            PageHeader{
                 id: downloadMapHeader
-                text: rootName
+                title: rootName
             }
 
             AvailableMapsView {
@@ -54,23 +53,9 @@ Page {
                 originModel: availableMapsModel
                 rootIndex: rootDirectoryIndex
 
-                x: Theme.paddingMedium
-                width: parent.width - 2*Theme.paddingMedium
-                height: contentHeight // binding loop, but how to define?
+                width: parent.width
+                height: contentHeight + Theme.paddingMedium // binding loop, but how to define?
                 spacing: Theme.paddingMedium
-                interactive: false
-
-                VerticalScrollDecorator {}
-
-                /*
-                Component.onCompleted: {
-                    availableMapsModel.loaded.connect(onLoaded)
-                    console.log("model: "+model+" rootIndex: "+originModel.rootIndex+" count: "+originModel.count)
-                }
-                function onLoaded() {
-                    console.log("loaded rows: "+availableMapsModel.rowCount());
-                }
-                */
 
                 onClick: {
                     var index=availableMapsModel.index(row, /*column*/ 0, /* parent */ rootDirectoryIndex);
@@ -78,6 +63,9 @@ Page {
                     if (dir){
                         pageStack.push(Qt.resolvedUrl("MapList.qml"),
                                        {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: name})
+                    }else{
+                        pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
+                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: name})
                     }
                 }
 

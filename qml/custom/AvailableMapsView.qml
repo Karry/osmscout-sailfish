@@ -36,12 +36,14 @@ SilicaListView {
         id: visualModel
         model: originModel
         rootIndex : listView.rootIndex
-        delegate:  Item{
+        delegate:  ListItem{
             width: listView.width
             height: entryIcon.height
 
             Row{
+                anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.paddingMedium
+                x: Theme.paddingMedium
 
                 Image {
                     id: entryIcon
@@ -72,31 +74,30 @@ SilicaListView {
                 }
             }
 
-            Label{
-                id: sizeLabel
-                visible: !dir
-                text: size
-                anchors.top: parent.top
+            Column{
                 anchors.right: parent.right
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.secondaryColor
-            }
-            Label{
-                id: dateLabel
-                visible: !dir
-                text: Qt.formatDate(time)
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.secondaryColor
+                anchors.verticalCenter: parent.verticalCenter
+                width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
+                //rightPadding: Theme.paddingMedium
+                Label{
+                    id: sizeLabel
+                    visible: !dir
+                    text: size
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryColor
+                }
+                Label{
+                    id: dateLabel
+                    visible: !dir
+                    text: Qt.formatDate(time)
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryColor
+                }
             }
 
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    //console.log("index: " + index );
-                    listView.click(index, dir, name)
-                }
+            onClicked: {
+                //console.log("index: " + index );
+                listView.click(index, dir, name)
             }
         }
     }

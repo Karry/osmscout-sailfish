@@ -241,6 +241,7 @@ set(SOURCE_FILES
     qml/pages/Layers.qml
     qml/pages/Downloads.qml
     qml/pages/MapList.qml
+    qml/pages/MapDetail.qml
     qml/main.qml
     qml/desktop.qml
 

@@ -35,6 +35,14 @@ Page {
         id: availableMapsModel
     }
 
+    BusyIndicator {
+        id: busyIndicator
+        running: availableMapsModel.loading
+        size: BusyIndicatorSize.Large
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
     SilicaFlickable{
         anchors.fill: parent
         contentHeight: contentColumn.childrenRect.height
@@ -51,15 +59,14 @@ Page {
                 SectionHeader{ text: qsTr("Download Progress") }
                 ListView {
                     id: downloadsListView
-                    x: Theme.paddingMedium
-                    width: parent.width - 2*Theme.paddingMedium
+                    //x: Theme.paddingMedium
+                    width: parent.width
                     interactive: false
                     height: contentHeight // binding loop, but how to define?
 
                     model:mapDownloadsModel
 
-                    delegate: Column{
-                        spacing: Theme.paddingSmall
+                    delegate: ListItem{
 
                         Label {
                             text: mapName
@@ -85,23 +92,11 @@ Page {
             AvailableMapsView{
                 id:availableMapListView
 
-                //anchors.fill: parent
-                x: Theme.paddingMedium
-                width: parent.width - 2*Theme.paddingMedium
-                height: contentHeight // binding loop, but how to define?
+                width: parent.width
+                height: contentHeight + Theme.paddingMedium // binding loop, but how to define?
                 spacing: Theme.paddingMedium
-                interactive: false
 
                 originModel:availableMapsModel
-
-                /*
-                Component.onCompleted: {
-                    availableMapsModel.loaded.connect(onLoaded)
-                }
-                function onLoaded() {
-                    console.log("loaded rows: "+availableMapsModel.rowCount());
-                }
-                */
 
                 onClick: {
                     var index=availableMapsModel.index(row, /*column*/ 0 /* parent */);
@@ -109,6 +104,9 @@ Page {
                     if (dir){
                         pageStack.push(Qt.resolvedUrl("MapList.qml"),
                                        {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: name})
+                    }else{
+                        pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
+                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: name})
                     }
                 }
             }
