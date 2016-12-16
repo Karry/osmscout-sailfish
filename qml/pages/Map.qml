@@ -12,6 +12,16 @@ Page {
     id: mapPage
 
 
+    RemorsePopup { id: remorse }
+
+    MapDownloadsModel{
+        id:mapDownloadsModel
+
+        onMapDownloadFails: {
+            remorse.execute(message, function() { }, 10 * 1000);
+        }
+    }
+
     Settings {
         id: settings
         //mapDPI: 50

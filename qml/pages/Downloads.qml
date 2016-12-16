@@ -28,8 +28,13 @@ import "../custom"
 Page {
     id: downloadsPage
 
+    RemorsePopup { id: remorse }
+
     MapDownloadsModel{
         id:mapDownloadsModel
+        onMapDownloadFails: {
+            remorse.execute(message, function() { }, 10 * 1000);
+        }
     }
     AvailableMapsModel{
         id: availableMapsModel
