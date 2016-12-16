@@ -73,10 +73,12 @@ SilicaListView {
             Column{
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
+                anchors.rightMargin: Theme.paddingMedium
+                //width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
 
                 Label{
                     id: sizeLabel
+                    anchors.right: parent.right
                     visible: !dir
                     text: size
                     font.pixelSize: Theme.fontSizeExtraSmall
@@ -84,6 +86,7 @@ SilicaListView {
                 }
                 Label{
                     id: dateLabel
+                    anchors.right: parent.right
                     visible: !dir
                     text: Qt.formatDate(time)
                     font.pixelSize: Theme.fontSizeExtraSmall
