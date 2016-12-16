@@ -103,8 +103,18 @@ int main(int argc, char* argv[])
  
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
   QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+  
+  QStringList databaseLookupDirectories; 
+  databaseLookupDirectories << docs + QDir::separator() + "Maps";
+  for (auto volume:QDir::drives()){
+    if (volume.absolutePath().startsWith("/media")){ // Sailfish OS specific!
+      qDebug() << "Found storage:" << volume.absolutePath();
+      databaseLookupDirectories << volume.absolutePath() + QDir::separator() + "Maps";
+    }
+  }
+  
   if (!DBThread::InitializeTiledInstance(
-          QStringList() << docs + QDir::separator() + "Maps", 
+          databaseLookupDirectories, 
           "/usr/share/harbour-osmscout/map-styles/standard.oss", 
           "/usr/share/harbour-osmscout/map-icons", 
           cache + QDir::separator() + "OsmTileCache",
