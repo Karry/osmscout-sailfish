@@ -76,4 +76,5 @@
 * 2016-12-16 Lukáš Karas <lukas.karas@centrum.cz> 0.13-1
 - add Polish translations
 - add map style for winter sports
+- try to detect SD card mount point, add "Maps" subdirectory to map lookup list
 - map downloader
