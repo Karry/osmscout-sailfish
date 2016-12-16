@@ -85,11 +85,47 @@ Page {
             id: downloadMapHeader
             text: qsTr("Download")
         }
+        ComboBox {
+            id: destinationDirectoryComboBox
+
+            property bool initialized: false
+            property string selected: ""
+            property ListModel directories: ListModel {}
+
+            label: "Directory"
+            menu: ContextMenu {
+                id: contextMenu
+                Repeater {
+                    model: destinationDirectoryComboBox.directories
+                    MenuItem { text: dir }
+                }
+            }
+            onCurrentItemChanged: {
+                if (!initialized){
+                    return;
+                }
+                var dirs=mapDownloadsModel.getLookupDirectories();
+                selected = dirs[currentIndex];
+                //selected = directories[currentIndex].dir
+            }
+            Component.onCompleted: {
+                var dirs=mapDownloadsModel.getLookupDirectories();
+                for (var i in dirs){
+                    var dir = dirs[i];
+                    if (selected==""){
+                        selected=dir;
+                    }
+                    console.log("Dir: "+dir);
+                    directories.append({"dir": dir});
+                }
+                initialized = true;
+            }
+        }
         Button{
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Download")
             onClicked: {
-                var dir=mapDownloadsModel.suggestedDirectory(mapItem.map);
+                var dir=mapDownloadsModel.suggestedDirectory(mapItem.map, destinationDirectoryComboBox.selected);
                 mapDownloadsModel.downloadMap(mapItem.map, dir);
                 console.log("downloading to " + dir);
                 pageStack.pop(downloadsPage);

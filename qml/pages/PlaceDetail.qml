@@ -182,7 +182,7 @@ Page {
                         Clipboard.text = placeLocationLabel.text
                     }
                 }
-                /* it seems to be impossible to align ComboBox content to right, so we hide it and add this another Label :) */
+                /* it seems to be impossible to align ComboBox content to right, so we hide it (contentItem.opacity) and add this another Label :) */
                 Label {
                     id: placeLocationLabel
                     text: placeLocationComboBox.value //formatCoord(placeLat, placeLon)
