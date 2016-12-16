@@ -73,4 +73,7 @@
 - increase maximum map upscale
 - initial support for search
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.13-1
+* 2016-12-16 Lukáš Karas <lukas.karas@centrum.cz> 0.13-1
+- add Polish translations
+- add map style for winter sports
+- map downloader
