@@ -18,7 +18,7 @@ Page {
         id:mapDownloadsModel
 
         onMapDownloadFails: {
-            remorse.execute(message, function() { }, 10 * 1000);
+            remorse.execute(qsTr(message), function() { }, 10 * 1000);
         }
     }
 
