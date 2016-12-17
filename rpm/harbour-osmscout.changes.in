@@ -78,3 +78,6 @@
 - add map style for winter sports
 - try to detect SD card mount point, add "Maps" subdirectory to map lookup list
 - map downloader
+
+* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.14-1
+- update translations
