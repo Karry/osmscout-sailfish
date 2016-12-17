@@ -36,6 +36,17 @@
     </message>
 </context>
 <context>
+    <name>Downloads</name>
+    <message>
+        <source>Download Progress</source>
+        <translation>Průběh stahování</translation>
+    </message>
+    <message>
+        <source>Download Map</source>
+        <translation>Stáhnout mapu</translation>
+    </message>
+</context>
+<context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
@@ -86,7 +97,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation>Nastavení</translation>
+        <translation type="vanished">Nastavení</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -103,6 +114,29 @@
     <message>
         <source>Map settings</source>
         <translation>Nastavení mapy</translation>
+    </message>
+    <message>
+        <source>Map downloads</source>
+        <translation>Stahování map</translation>
+    </message>
+</context>
+<context>
+    <name>MapDetail</name>
+    <message>
+        <source>Size</source>
+        <translation>Velikost</translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation>Poslední aktualizace</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Stáhnout</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Složka</translation>
     </message>
 </context>
 <context>
@@ -155,7 +189,40 @@
     <name>Search</name>
     <message>
         <source>Search places...</source>
-        <translation>Hledat místa...</translation>
+        <translation type="vanished">Hledat místa...</translation>
+    </message>
+</context>
+<context>
+    <name>l10n</name>
+    <message>
+        <source>© OpenStreetMap contributors</source>
+        <translation type="vanished">© přispěvatelé OpenStreetMap</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation>Složka již existuje</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>Nemohu vytvořit složku</translation>
+    </message>
+</context>
+<context>
+    <name>resource</name>
+    <message>
+        <source>© OpenStreetMap contributors</source>
+        <translation>© přispěvatelé OpenStreetMap</translation>
+    </message>
+    <message>
+        <source>Hike &amp; Bike Map</source>
+        <translation>Cyklistická a turistická mapa</translation>
+    </message>
+    <message>
+        <source>OSM Mapnik</source>
+        <translation>OSM Mapnik</translation>
     </message>
 </context>
 </TS>

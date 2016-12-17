@@ -36,6 +36,56 @@
     </message>
 </context>
 <context>
+    <name>Downloads</name>
+    <message>
+        <source>Download Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Layers</name>
+    <message>
+        <source>Map settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map magnification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Online Maps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable online maps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline Maps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable offline map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sea rendering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sea can overlap online tiles!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -46,14 +96,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -61,11 +103,31 @@
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Map downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map settings</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
-    <name>OSMCopyright</name>
+    <name>MapDetail</name>
     <message>
-        <source>© OpenStreetMap contributors</source>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -97,6 +159,40 @@
     </message>
     <message>
         <source>%1 %2 from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>resource</name>
+    <message>
+        <source>© OpenStreetMap contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hike &amp; Bike Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OSM Mapnik</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

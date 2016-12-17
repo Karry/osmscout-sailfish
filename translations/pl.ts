@@ -36,6 +36,17 @@
     </message>
 </context>
 <context>
+    <name>Downloads</name>
+    <message>
+        <source>Download Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
@@ -86,7 +97,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="vanished">Ustawienia</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -103,6 +114,29 @@
     <message>
         <source>Map settings</source>
         <translation>Ustawienia mapy</translation>
+    </message>
+    <message>
+        <source>Map downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MapDetail</name>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -155,7 +189,33 @@
     <name>Search</name>
     <message>
         <source>Search places...</source>
-        <translation>Wyszukaj miejsca...</translation>
+        <translation type="vanished">Wyszukaj miejsca...</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>resource</name>
+    <message>
+        <source>© OpenStreetMap contributors</source>
+        <translation type="unfinished">© Twórcy OpenStreetMap</translation>
+    </message>
+    <message>
+        <source>Hike &amp; Bike Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OSM Mapnik</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

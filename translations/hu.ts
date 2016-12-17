@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hu_HU">
+<TS version="2.1" language="hu_HU">
 <context>
     <name>About</name>
     <message>
@@ -33,6 +33,17 @@
     <message>
         <source>OSM Scout</source>
         <translation>OSM Scout</translation>
+    </message>
+</context>
+<context>
+    <name>Downloads</name>
+    <message>
+        <source>Download Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Map</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -86,11 +97,11 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation>Beállítások</translation>
+        <translation type="vanished">Beállítások</translation>
     </message>
     <message>
         <source>Layers</source>
-        <translation>Rétegek</translation>
+        <translation type="vanished">Rétegek</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -104,12 +115,35 @@
         <source>Map settings</source>
         <translation>Térkép beállítások</translation>
     </message>
+    <message>
+        <source>Map downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MapDetail</name>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap közreműködők</translation>
+        <translation type="vanished">© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
@@ -155,7 +189,33 @@
     <name>Search</name>
     <message>
         <source>Search places...</source>
-        <translation>Helyek keresése</translation>
+        <translation type="vanished">Helyek keresése</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>resource</name>
+    <message>
+        <source>© OpenStreetMap contributors</source>
+        <translation type="unfinished">© OpenStreetMap közreműködők</translation>
+    </message>
+    <message>
+        <source>Hike &amp; Bike Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OSM Mapnik</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
