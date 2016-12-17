@@ -23,7 +23,10 @@ CONFIG += sailfishapp_i18n
 
 
 TRANSLATIONS += translations/en.ts \
-                translations/hu.ts
+                translations/hu.ts \
+                translations/cs.ts \
+                translations/pl.ts
+
 
 lupdate_only {
 SOURCES =   qml/*.qml \
@@ -31,12 +34,10 @@ SOURCES =   qml/*.qml \
             qml/pages/*.qml
 }
 
-
+# find qml -type f | sort | sed 's/$/ \\/'
 DISTFILES += \
     qml/AboutDialog.qml \
-    qml/desktop.qml \
-    qml/main.qml \
-    qml/SearchDialog.qml \
+    qml/custom/AvailableMapsView.qml \
     qml/custom/DialogActionButton.qml \
     qml/custom/LineEdit.qml \
     qml/custom/Link.qml \
@@ -46,38 +47,27 @@ DISTFILES += \
     qml/custom/MapDialog.qml \
     qml/custom/MapRenderingIndicator.qml \
     qml/custom/OSMCopyright.qml \
+    qml/custom/POIIcon.qml \
     qml/custom/ScaleIndicator.qml \
     qml/custom/ScrollIndicator.qml \
+    qml/desktop.qml \
+    qml/main.qml \
     qml/pages/About.qml \
     qml/pages/Cover.qml \
+    qml/pages/Downloads.qml \
+    qml/pages/Layers.qml \
+    qml/pages/MapDetail.qml \
+    qml/pages/MapList.qml \
     qml/pages/Map.qml \
-    qml/pages/PlaceDetail.qml
+    qml/pages/PlaceDetail.qml \
+    qml/pages/Search.qml \
+    qml/SearchDialog.qml
 
 HEADERS += \
-    src/DBThread.h \
-    src/InputHandler.h \
-    src/LocationInfoModel.h \
-    src/MapWidget.h \
-    src/OSMTile.h \
-    src/OsmTileDownloader.h \
-    src/RoutingModel.h \
-    src/SearchLocationModel.h \
-    src/Settings.h \
-    src/Theme.h \
-    src/TileCache.h
+    src/MapStyleHelper.h
 
 SOURCES += \
-    src/DBThread.cpp \
-    src/InputHandler.cpp \
-    src/LocationInfoModel.cpp \
-    src/MapWidget.cpp \
+    src/MapStyleHelper.cpp \
     src/OSMScout.cpp \
-    src/OSMTile.cpp \
-    src/OsmTileDownloader.cpp \
-    src/PerformanceTest.cpp \
-    src/RoutingModel.cpp \
-    src/SearchLocationModel.cpp \
-    src/Settings.cpp \
-    src/Theme.cpp \
-    src/TileCache.cpp
+    src/PerformanceTest.cpp
 

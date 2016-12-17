@@ -92,7 +92,7 @@ Page {
             property string selected: ""
             property ListModel directories: ListModel {}
 
-            label: "Directory"
+            label: qsTr("Directory")
             menu: ContextMenu {
                 id: contextMenu
                 Repeater {
