@@ -14,39 +14,36 @@ Page {
     SilicaFlickable {
         id: flickable
         anchors.fill: parent
-        contentHeight: content.height + 2*Theme.paddingLarge
+        contentHeight: content.height + header.height + 2*Theme.paddingLarge
 
         VerticalScrollDecorator {}
 
-        Rectangle {
-            id: content
-            //spacing: Theme.paddingLarge
-            width: parent.width
-            height: header.height + aboutHeader.height + aboutText.height + links.height + 2*Theme.paddingLarge
-            color: "transparent"
+        Rectangle{
+            id: header
 
-            Rectangle{
-                id: header
-
-                height: icon.height + 2* Theme.paddingLarge
-                Image{
-                    id: icon
-                    source: "image://theme/harbour-osmscout"
-                    x: 2* Theme.paddingLarge
-                    y: Theme.paddingLarge
-                }
-                PageHeader {
-                    id: headerText
-                    anchors.left: icon.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    title: qsTr("OSM Scout %1").arg(OSMScoutVersionString)
-                }
+            height: icon.height + 2* Theme.paddingLarge
+            Image{
+                id: icon
+                source: "image://theme/harbour-osmscout"
+                x: 2* Theme.paddingLarge
+                y: Theme.paddingLarge
             }
+            PageHeader {
+                id: headerText
+                anchors.left: icon.right
+                anchors.verticalCenter: parent.verticalCenter
+                title: qsTr("OSM Scout %1").arg(OSMScoutVersionString)
+            }
+        }
+
+        Column {
+            id: content
+            width: parent.width
+            anchors.top: header.bottom
 
             SectionHeader{
                 id: aboutHeader
                 text: qsTr("About")
-                anchors.top: header.bottom
             }
 
             Label{
@@ -61,28 +58,19 @@ Page {
 
                 width: parent.width - 2* Theme.paddingLarge
                 x: Theme.paddingLarge
-
-                anchors {
-                    top: aboutHeader.bottom
-                    topMargin: Theme.paddingSmall
-                }
             }
 
             Rectangle{
                 id: links
                 color: "transparent"
-                height: githubLink.height + libLink.height + tutorialLink.height
+                height: githubLink.height + libLink.height + tutorialLink.height + 2*Theme.paddingLarge
                 width: parent.width
-
-                anchors {
-                    top: aboutText.bottom
-                    topMargin: Theme.paddingLarge
-                }
 
                 Link{
                     id:githubLink
                     width: parent.width - 2* Theme.paddingLarge
                     x: Theme.paddingLarge
+                    y: Theme.paddingLarge
 
                     label: qsTr("GitHub page")
                     link: "https://github.com/Karry/osmscout-sailfish"
@@ -111,6 +99,41 @@ Page {
                     anchors.top: libLink.bottom
                 }
             }
+
+            SectionHeader{
+                id: translatorsHeader
+                text: qsTr("Translators")
+            }
+
+            Column{
+                id: translatorsColumn
+
+                spacing: Theme.paddingMedium
+                width: parent.width - 2* Theme.paddingLarge
+                x: Theme.paddingLarge
+
+                Label{
+                    text: qsTr("Czech: Lukáš Karas")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
+                    text: qsTr("Hungarian: Miklós Márton")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
+                    text: qsTr("Polish: Atlochowski")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
+                    text: qsTr("Swedish: Åke Engelbrektson")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+            }
+
         }
     }
 }
