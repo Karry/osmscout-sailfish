@@ -27,6 +27,26 @@
         <source>Offline map import tutorial</source>
         <translation>Offline térkép importálási segédlet</translation>
     </message>
+    <message>
+        <source>Translators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Czech: Lukáš Karas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hungarian: Miklós Márton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polish: Atlochowski</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish: Åke Engelbrektson</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
