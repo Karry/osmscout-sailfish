@@ -207,6 +207,7 @@ set(LANG_FILES
 
     translations/cs.ts
     translations/hu.ts
+    translations/pl.ts
 )
 
 QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
