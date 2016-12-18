@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu_HU">
+<TS version="2.0" language="hu_HU">
 <context>
     <name>About</name>
     <message>
@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>A Sailfish operációs rendszeren futó OSM Scoutalkalmazást a fejlesztők szabad idejükben fejlesztik. Segítheted munkájukat hibák bejelentésével, fordítások készítésével és új programfunkciók fejlesztésével. Minden segítséget köszönettel fogadunk!</translation>
+        <translation>A Sailfish operációs rendszeren futó OSM Scout alkalmazást a fejlesztők szabad idejükben fejlesztik. Segítheted munkájukat hibák bejelentésével, fordítások készítésével és új programfunkciók fejlesztésével. Minden segítséget köszönettel fogadunk!</translation>
     </message>
     <message>
         <source>About</source>
@@ -29,23 +29,23 @@
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordítók</translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation type="unfinished"></translation>
+        <translation>Cseh: Lukáš Karas</translation>
     </message>
     <message>
         <source>Hungarian: Miklós Márton</source>
-        <translation type="unfinished"></translation>
+        <translation>Magyar: Márton Miklós</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
-        <translation type="unfinished"></translation>
+        <translation>Lengyel: Atlochowski</translation>
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
-        <translation type="unfinished"></translation>
+        <translation>Svéd: Åke Engelbrektson</translation>
     </message>
 </context>
 <context>
@@ -59,11 +59,11 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltés folyamatban</translation>
     </message>
     <message>
         <source>Download Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Térkép letöltése</translation>
     </message>
 </context>
 <context>
@@ -113,15 +113,15 @@
     </message>
     <message>
         <source>Where am I?</source>
-        <translation>Jelenlegi helyzet</translation>
+        <translation>Jelenlegi pozíció</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Beállítások</translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Layers</source>
-        <translation type="vanished">Rétegek</translation>
+        <translation>Rétegek</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -137,33 +137,33 @@
     </message>
     <message>
         <source>Map downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Letölthető térképek</translation>
     </message>
 </context>
 <context>
     <name>MapDetail</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Méret</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Utoljára frissítve</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltés</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár</translation>
     </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© OpenStreetMap közreműködők</translation>
+        <translation>© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
@@ -186,7 +186,7 @@
     </message>
     <message>
         <source>You are here</source>
-        <translation>Jelenlegi helyzeted</translation>
+        <translation>Jelenlegi pozíciód</translation>
     </message>
     <message>
         <source>%1 %2 from you</source>
@@ -209,33 +209,33 @@
     <name>Search</name>
     <message>
         <source>Search places...</source>
-        <translation type="vanished">Helyek keresése</translation>
+        <translation>Helyek keresése</translation>
     </message>
 </context>
 <context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>A megadott könyvtár már létezik</translation>
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem sikerült a könyvtárat létrehozni</translation>
     </message>
 </context>
 <context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="unfinished">© OpenStreetMap közreműködők</translation>
+        <translation>© OpenStreetMap közreműködői</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Hike &amp; Bike térképek</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Mapnik</translation>
     </message>
 </context>
 </TS>
