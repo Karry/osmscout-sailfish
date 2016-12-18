@@ -29,23 +29,23 @@
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished">Lista tłumaczy</translation>
+        <translation>Lista tłumaczy</translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation type="unfinished">czeski: Lukáš Karas</translation>
+        <translation>czeski: Lukáš Karas</translation>
     </message>
     <message>
         <source>Hungarian: Miklós Márton</source>
-        <translation type="unfinished">węgierski: Miklós Márton</translation>
+        <translation>węgierski: Miklós Márton</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
-        <translation type="unfinished">polski: Atlochowski</translation>
+        <translation>polski: Atlochowski</translation>
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
-        <translation type="unfinished">szwedzki: Åke Engelbrektson</translation>
+        <translation>szwedzki: Åke Engelbrektson</translation>
     </message>
 </context>
 <context>
@@ -59,11 +59,11 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation type="unfinished">Postęp ściągania</translation>
+        <translation>Postęp pobierania</translation>
     </message>
     <message>
         <source>Download Map</source>
-        <translation type="unfinished">Ściągnij mapę</translation>
+        <translation>Ściągnij mapę</translation>
     </message>
 </context>
 <context>
@@ -137,26 +137,26 @@
     </message>
     <message>
         <source>Map downloads</source>
-        <translation type="unfinished">Mapy do ściągnięcia</translation>
+        <translation>Mapy do ściągnięcia</translation>
     </message>
 </context>
 <context>
     <name>MapDetail</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Rozmiar</translation>
+        <translation>Rozmiar</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">Ostatnia aktualizacja</translation>
+        <translation>Ostatnia aktualizacja</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Ściągnij</translation>
+        <translation>Ściągnij</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Katalog</translation>
+        <translation>Katalog</translation>
     </message>
 </context>
 <context>
@@ -216,26 +216,26 @@
     <name>message</name>
     <message>
         <source>Directory already exists</source>
-        <translation type="unfinished">Katalog już istnieje</translation>
+        <translation>Katalog już istnieje</translation>
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation type="unfinished">Nie można utworzyć katalogu</translation>
+        <translation>Nie można utworzyć katalogu</translation>
     </message>
 </context>
 <context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="unfinished">© Twórcy OpenStreetMap</translation>
+        <translation>© Twórcy OpenStreetMap</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation type="unfinished"> Mapa Hike &amp; Bike </translation>
+        <translation> Mapa Hike &amp; Bike </translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
-        <translation type="unfinished">OSM Mapnik</translation>
+        <translation>OSM Mapnik</translation>
     </message>
 </context>
 </TS>
