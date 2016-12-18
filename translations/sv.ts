@@ -8,12 +8,12 @@
         <translation>OSM Scout %1</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>Om</translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSM Scout för Sailfish OS är utvecklad som öppen källkod av frivilliga krafter, på ledig tid. Du kan hjälpa till att förbättra appen genom att rapportera fel, skapa översättningar eller utveckla nya funktioner. All hjälp är välkommen.</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Om</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -27,12 +27,43 @@
         <source>Offline map import tutorial</source>
         <translation>Importguide för offline-kartor</translation>
     </message>
+    <message>
+        <source>Translators</source>
+        <translation>Översättare</translation>
+    </message>
+    <message>
+        <source>Czech: Lukáš Karas</source>
+        <translation>Tjeckiska: Lukáš Karas</translation>
+    </message>
+    <message>
+        <source>Hungarian: Miklós Márton</source>
+        <translation>Ungerska: Miklós Márton</translation>
+    </message>
+    <message>
+        <source>Polish: Atlochowski</source>
+        <translation>Polska: Atlochowski</translation>
+    </message>
+    <message>
+        <source>Swedish: Åke Engelbrektson</source>
+        <translation>Svenska: Åke Engelbrektson</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
         <translation>OSM Scout</translation>
+    </message>
+</context>
+<context>
+    <name>Downloads</name>
+    <message>
+        <source>Download Progress</source>
+        <translation>Nedladdningsförlopp</translation>
+    </message>
+    <message>
+        <source>Download Map</source>
+        <translation>Ladda ner kartor</translation>
     </message>
 </context>
 <context>
@@ -85,14 +116,6 @@
         <translation>Var är jag?</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Inställningar</translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation>Lager</translation>
-    </message>
-    <message>
         <source>Bookmarks</source>
         <translation>Bokmärken</translation>
     </message>
@@ -101,15 +124,31 @@
         <translation>Om</translation>
     </message>
     <message>
-        <source>Map settings</source>
-        <translation>Kartinställningar</translation>
+        <source>Map downloads</source>
+        <translation>Ladda ner kartor</translation>
+    </message>
+    <message>
+        <source>Kartinställningar</source>
+        <translation></translation>
     </message>
 </context>
 <context>
-    <name>OSMCopyright</name>
+    <name>MapDetail</name>
     <message>
-        <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap contributors</translation>
+        <source>Size</source>
+        <translation>Storlek</translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation>Senast uppdaterad</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Ladda ner</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Mapp</translation>
     </message>
 </context>
 <context>
@@ -152,10 +191,30 @@
     </message>
 </context>
 <context>
-    <name>Search</name>
+    <name>message</name>
     <message>
-        <source>Search places...</source>
-        <translation>Sök efter platser...</translation>
+        <source>Directory already exists</source>
+        <translation>Mappen finns redan</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>Kan inte skapa mappen</translation>
+    </message>
+</context>
+<context>
+    <name>resource</name>
+    <message>
+        <source>© OpenStreetMap contributors</source>
+        <translation>© OpenStreetMap contributors</translation>
+    </message>
+    <message>
+        <source>Hike &amp; Bike Map</source>
+        <translation>Gång &amp; cykelkarta</translation>
+    </message>
+    <message>
+        <source>OSM Mapnik</source>
+        <translation>OSM Mapnik</translation>
     </message>
 </context>
 </TS>
+
