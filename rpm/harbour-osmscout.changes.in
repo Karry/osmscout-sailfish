@@ -80,4 +80,7 @@
 - map downloader
 
 * 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.14-1
-- update translations
+- update Czech and Hungarian translations
+- fix Polish translation (it was missing in build)
+- added Swedish translation
+- fix map sorting by using locale aware string comparison
