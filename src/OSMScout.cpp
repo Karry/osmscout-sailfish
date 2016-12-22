@@ -24,6 +24,7 @@
 #include <QQuickView>
 #include <QStandardPaths>
 #include <QQmlContext>
+#include <QFileInfo>
 
 #ifdef QT_QML_DEBUG
 #include <QtQuick>
@@ -106,10 +107,21 @@ int main(int argc, char* argv[])
   
   QStringList databaseLookupDirectories; 
   databaseLookupDirectories << docs + QDir::separator() + "Maps";
-  for (auto volume:QDir::drives()){
-    if (volume.absolutePath().startsWith("/media")){ // Sailfish OS specific!
-      qDebug() << "Found storage:" << volume.absolutePath();
-      databaseLookupDirectories << volume.absolutePath() + QDir::separator() + "Maps";
+
+  // we should use QStorageInfo for Qt >= 5.4
+  QFile file("/etc/mtab"); // Linux specific
+  if (file.open(QFile::ReadOnly)) {
+    while(true) {
+      QStringList parts = QString::fromUtf8(file.readLine()).trimmed().split(" ");
+      if (parts.count() > 1) {
+        QString mountPoint=parts[1].replace("\\040", " ");
+        if (mountPoint.startsWith("/media") && QFileInfo(mountPoint).isDir()){ // Sailfish OS specific mount point base for SD cards!
+          qDebug() << "Found storage:" << mountPoint;
+          databaseLookupDirectories << mountPoint + QDir::separator() + "Maps";
+        }
+      } else {
+        break;
+      }
     }
   }
   
