@@ -87,3 +87,6 @@
 - fix map tree model for depth >= 2 (USA states)
 
 * 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.15-1
+- fix SD card detection (read /etc/mtab for mount points)
+- update Polish translation
+- add Norwegian Bokmål translation
