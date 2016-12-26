@@ -47,6 +47,10 @@
         <source>Swedish: Åke Engelbrektson</source>
         <translation>Svenska: Åke Engelbrektson</translation>
     </message>
+    <message>
+        <source>Norwegian Bokmål: Håvard Moen</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -128,8 +132,8 @@
         <translation>Ladda ner kartor</translation>
     </message>
     <message>
-        <source>Kartinställningar</source>
-        <translation></translation>
+        <source>Map settings</source>
+        <translation type="unfinished">Kartinställningar</translation>
     </message>
 </context>
 <context>
@@ -217,4 +221,3 @@
     </message>
 </context>
 </TS>
-

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hu_HU">
+<TS version="2.1" language="hu_HU">
 <context>
     <name>About</name>
     <message>
@@ -46,6 +46,10 @@
     <message>
         <source>Swedish: Åke Engelbrektson</source>
         <translation>Svéd: Åke Engelbrektson</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål: Håvard Moen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -117,11 +121,11 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation>Beállítások</translation>
+        <translation type="vanished">Beállítások</translation>
     </message>
     <message>
         <source>Layers</source>
-        <translation>Rétegek</translation>
+        <translation type="vanished">Rétegek</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -163,7 +167,7 @@
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap közreműködők</translation>
+        <translation type="vanished">© OpenStreetMap közreműködők</translation>
     </message>
 </context>
 <context>
@@ -209,7 +213,7 @@
     <name>Search</name>
     <message>
         <source>Search places...</source>
-        <translation>Helyek keresése</translation>
+        <translation type="vanished">Helyek keresése</translation>
     </message>
 </context>
 <context>

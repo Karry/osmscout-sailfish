@@ -47,6 +47,10 @@
         <source>Swedish: Åke Engelbrektson</source>
         <translation>Švédština: Åke Engelbrektson</translation>
     </message>
+    <message>
+        <source>Norwegian Bokmål: Håvard Moen</source>
+        <translation>Norština, Bokmål: Håvard Moen</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>

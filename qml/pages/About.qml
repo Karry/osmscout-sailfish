@@ -123,6 +123,11 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
+                    text: qsTr("Norwegian Bokmål: Håvard Moen")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
                     text: qsTr("Polish: Atlochowski")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
