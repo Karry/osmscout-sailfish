@@ -33,7 +33,7 @@ Page {
     MapDownloadsModel{
         id:mapDownloadsModel
         onMapDownloadFails: {
-            remorse.execute(message, function() { }, 10 * 1000);
+            remorse.execute(qsTranslate("message", message), function() { }, 10 * 1000);
         }
     }
     AvailableMapsModel{

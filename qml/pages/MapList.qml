@@ -59,7 +59,7 @@ Page {
                 spacing: Theme.paddingMedium
 
                 onClick: {
-                    var index=availableMapsModel.index(row, /*column*/ 0 /* parent */);
+                    var index=availableMapsModel.index(row, /*column*/ 0, /* parent */ rootDirectoryIndex);
                     //console.log("clicked to: "+item.name+" / " + index);
                     if (item.dir){
                         pageStack.push(Qt.resolvedUrl("MapList.qml"),

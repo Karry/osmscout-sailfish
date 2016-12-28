@@ -116,7 +116,7 @@ Page {
                                 width: parent.width
                                 model: providerModel
                                 delegate: MenuItem {
-                                    text: name
+                                    text: qsTranslate("resource", name)
                                 }
                             }
                         }

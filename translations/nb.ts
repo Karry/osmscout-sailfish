@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu_HU">
+<TS version="2.1" language="nb" sourcelanguage="en">
 <context>
     <name>About</name>
     <message>
@@ -9,43 +9,43 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>A Sailfish operációs rendszeren futó OSM Scout alkalmazást a fejlesztők szabad idejükben fejlesztik. Segítheted munkájukat hibák bejelentésével, fordítások készítésével és új programfunkciók fejlesztésével. Minden segítséget köszönettel fogadunk!</translation>
+        <translation>OSM Scout for Sailfish OS er utviklet som fri programvare av frivillige krefter på deres ledige tid. Du kan hjelpe til med å forbedre dette programmet ved å melde inn feil, lage oversettelser eller utvikle ny funksjonalitet. All hjelp er velkommen.</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Az alkalmazásról</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>Github oldal</translation>
+        <translation>GitHub side</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>OSMScout könyvtár GitHub oldala</translation>
+        <translation>OSMScout-library GitHub side</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Offline térkép importálási segédlet</translation>
+        <translation>Importeringsguide for offline kart</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation>Fordítók</translation>
+        <translation>Oversettere</translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation>Cseh: Lukáš Karas</translation>
+        <translation>Tjekkisk: Lukáš Karas</translation>
     </message>
     <message>
         <source>Hungarian: Miklós Márton</source>
-        <translation>Magyar: Márton Miklós</translation>
+        <translation>Ungarsk: Miklós Márton</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
-        <translation>Lengyel: Atlochowski</translation>
+        <translation>Polsk: Atlochowski</translation>
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
-        <translation>Svéd: Åke Engelbrektson</translation>
+        <translation>Svensk: Åke Engelbrektson</translation>
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
@@ -63,146 +63,131 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>Letöltés folyamatban</translation>
+        <translation>Nedlastningsfremgang</translation>
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Térkép letöltése</translation>
+        <translation>Last ned kart</translation>
     </message>
 </context>
 <context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>Térkép beállítások</translation>
+        <translation>Kartinstillinger</translation>
     </message>
     <message>
         <source>Map magnification</source>
-        <translation>Térkép nagyítás</translation>
+        <translation>Kartforstørrelse</translation>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>Online térképek</translation>
+        <translation>Online-kart</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Online térképek engedélyezése</translation>
+        <translation>Skru på online-kart</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>Stílus</translation>
+        <translation>Stil</translation>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Offline térképek</translation>
+        <translation>Offline-kart</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Offline térképek engedélyezése</translation>
+        <translation>Skru på offline-kart</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Vízfelület renderelése</translation>
+        <translation>Sjørendering</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation>A vízfelületek el fogják takarni az online térképrészleteket!</translation>
+        <translation>Sjø kan overlappe online-ruter</translation>
     </message>
 </context>
 <context>
     <name>Map</name>
     <message>
         <source>Search</source>
-        <translation>Keresés</translation>
+        <translation>Søk</translation>
     </message>
     <message>
         <source>Where am I?</source>
-        <translation>Jelenlegi pozíció</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation type="vanished">Beállítások</translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation type="vanished">Rétegek</translation>
+        <translation>Hvor er jeg?</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Könyvjelzők</translation>
+        <translation>Bokmerker</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Az alkalmazásról</translation>
-    </message>
-    <message>
-        <source>Map settings</source>
-        <translation>Térkép beállítások</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Map downloads</source>
-        <translation>Letölthető térképek</translation>
+        <translation>Kartnedlasting</translation>
+    </message>
+    <message>
+        <source>Map settings</source>
+        <translation>Kartinstillinger</translation>
     </message>
 </context>
 <context>
     <name>MapDetail</name>
     <message>
         <source>Size</source>
-        <translation>Méret</translation>
+        <translation>Størrelse</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation>Utoljára frissítve</translation>
+        <translation>Sist oppdatering</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation>Letöltés</translation>
+        <translation>Last ned</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>Könyvtár</translation>
-    </message>
-</context>
-<context>
-    <name>OSMCopyright</name>
-    <message>
-        <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© OpenStreetMap közreműködők</translation>
+        <translation>Katalog</translation>
     </message>
 </context>
 <context>
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>nyugatra</translation>
+        <translation>vest</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>keletre</translation>
+        <translation>øst</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>délre</translation>
+        <translation>sør</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>északra</translation>
+        <translation>nord</translation>
     </message>
     <message>
         <source>You are here</source>
-        <translation>Jelenlegi pozíciód</translation>
+        <translation>Du er her</translation>
     </message>
     <message>
         <source>%1 %2 from you</source>
-        <translation>%1 %2 tőled</translation>
+        <translation>%1 %2 fra deg</translation>
     </message>
     <message>
         <source>%1 %2 from</source>
-        <translation>%1 %2 innen</translation>
+        <translation>%1 %2 fra</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation>méter</translation>
+        <translation>meter</translation>
     </message>
     <message>
         <source>km</source>
@@ -210,32 +195,25 @@
     </message>
 </context>
 <context>
-    <name>Search</name>
-    <message>
-        <source>Search places...</source>
-        <translation type="vanished">Helyek keresése</translation>
-    </message>
-</context>
-<context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
-        <translation>A megadott könyvtár már létezik</translation>
+        <translation>Katolog finnes allerede</translation>
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation>Nem sikerült a könyvtárat létrehozni</translation>
+        <translation>Kan ikke opprette katalog</translation>
     </message>
 </context>
 <context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap közreműködői</translation>
+        <translation>© OpenStreetMap bidragsytere</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation>Hike &amp; Bike térképek</translation>
+        <translation>Gang- og sykkelkart</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>

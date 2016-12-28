@@ -37,99 +37,109 @@ Page {
         id:mapDownloadsModel
     }
 
-    Column{
-        spacing: Theme.paddingMedium
-        width: parent.width
-        PageHeader{
-            title: mapName
-        }
+    SilicaFlickable{
+        anchors.fill: parent
+        contentHeight: contentColumn.childrenRect.height
 
-        Label{
-            id: descriptionText
-
-            width: parent.width - 2*Theme.paddingMedium
-            x: Theme.paddingMedium
-
-            text: mapItem.description
-            wrapMode: Text.WordWrap
-            font.pixelSize: Theme.fontSizeSmall
-        }
-
+        VerticalScrollDecorator {}
         Column{
-            width: parent.width - 2*Theme.paddingMedium
-            x: Theme.paddingMedium
-            Label{
-                text: qsTr("Size")
-                color: Theme.primaryColor
-            }
-            Label{
-                text: mapItem.size
-                color: Theme.highlightColor
-            }
-        }
+            id: contentColumn
+            anchors.fill: parent
 
-        Column{
-            width: parent.width - 2*Theme.paddingMedium
-            x: Theme.paddingMedium
-            Label{
-                text: qsTr("Last Update")
-                color: Theme.primaryColor
+            spacing: Theme.paddingMedium
+
+            PageHeader{
+                title: mapName
             }
+
             Label{
-                text: Qt.formatDate(mapItem.time)
-                color: Theme.highlightColor
+                id: descriptionText
+
+                width: parent.width - 2*Theme.paddingMedium
+                x: Theme.paddingMedium
+
+                text: mapItem.description
+                wrapMode: Text.WordWrap
+                font.pixelSize: Theme.fontSizeSmall
             }
-        }
 
-        SectionHeader{
-            id: downloadMapHeader
-            text: qsTr("Download")
-        }
-        ComboBox {
-            id: destinationDirectoryComboBox
-
-            property bool initialized: false
-            property string selected: ""
-            property ListModel directories: ListModel {}
-
-            label: "Directory"
-            menu: ContextMenu {
-                id: contextMenu
-                Repeater {
-                    model: destinationDirectoryComboBox.directories
-                    MenuItem { text: dir }
+            Column{
+                width: parent.width - 2*Theme.paddingMedium
+                x: Theme.paddingMedium
+                Label{
+                    text: qsTr("Size")
+                    color: Theme.primaryColor
+                }
+                Label{
+                    text: mapItem.size
+                    color: Theme.highlightColor
                 }
             }
-            onCurrentItemChanged: {
-                if (!initialized){
-                    return;
+
+            Column{
+                width: parent.width - 2*Theme.paddingMedium
+                x: Theme.paddingMedium
+                Label{
+                    text: qsTr("Last Update")
+                    color: Theme.primaryColor
                 }
-                var dirs=mapDownloadsModel.getLookupDirectories();
-                selected = dirs[currentIndex];
-                //selected = directories[currentIndex].dir
+                Label{
+                    text: Qt.formatDate(mapItem.time)
+                    color: Theme.highlightColor
+                }
             }
-            Component.onCompleted: {
-                var dirs=mapDownloadsModel.getLookupDirectories();
-                for (var i in dirs){
-                    var dir = dirs[i];
-                    if (selected==""){
-                        selected=dir;
+
+            SectionHeader{
+                id: downloadMapHeader
+                text: qsTr("Download")
+            }
+            ComboBox {
+                id: destinationDirectoryComboBox
+
+                property bool initialized: false
+                property string selected: ""
+                property ListModel directories: ListModel {}
+
+                label: qsTr("Directory")
+                menu: ContextMenu {
+                    id: contextMenu
+                    Repeater {
+                        model: destinationDirectoryComboBox.directories
+                        MenuItem { text: dir }
                     }
-                    console.log("Dir: "+dir);
-                    directories.append({"dir": dir});
                 }
-                initialized = true;
+                onCurrentItemChanged: {
+                    if (!initialized){
+                        return;
+                    }
+                    var dirs=mapDownloadsModel.getLookupDirectories();
+                    selected = dirs[currentIndex];
+                    //selected = directories[currentIndex].dir
+                }
+                Component.onCompleted: {
+                    var dirs=mapDownloadsModel.getLookupDirectories();
+                    for (var i in dirs){
+                        var dir = dirs[i];
+                        if (selected==""){
+                            selected=dir;
+                        }
+                        console.log("Dir: "+dir);
+                        directories.append({"dir": dir});
+                    }
+                    initialized = true;
+                }
             }
-        }
-        Button{
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Download")
-            onClicked: {
-                var dir=mapDownloadsModel.suggestedDirectory(mapItem.map, destinationDirectoryComboBox.selected);
-                mapDownloadsModel.downloadMap(mapItem.map, dir);
-                console.log("downloading to " + dir);
-                pageStack.pop(downloadsPage);
+            Button{
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Download")
+                onClicked: {
+                    var dir=mapDownloadsModel.suggestedDirectory(mapItem.map, destinationDirectoryComboBox.selected);
+                    mapDownloadsModel.downloadMap(mapItem.map, dir);
+                    console.log("downloading to " + dir);
+                    pageStack.pop(downloadsPage);
+                }
             }
+
         }
 
     }

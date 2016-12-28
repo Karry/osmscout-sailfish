@@ -12,7 +12,7 @@ project(osmscout-sailfish C CXX)
 
 # project version
 set(OSMSCOUT_SAILFISH_MAJOR_VERSION "0")
-set(OSMSCOUT_SAILFISH_MINOR_VERSION "13")
+set(OSMSCOUT_SAILFISH_MINOR_VERSION "15")
 set(OSMSCOUT_SAILFISH_PATCH_VERSION "0")
 
 set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "")
@@ -207,6 +207,9 @@ set(LANG_FILES
 
     translations/cs.ts
     translations/hu.ts
+    translations/nb.ts
+    translations/pl.ts
+    translations/sv.ts
 )
 
 QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
