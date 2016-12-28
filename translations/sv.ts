@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="sv" sourcelanguage="en_US">
@@ -49,7 +50,7 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation type="unfinished"></translation>
+        <translation>Norska (Bokmål): Håvard Moen</translation>
     </message>
 </context>
 <context>
@@ -133,7 +134,7 @@
     </message>
     <message>
         <source>Map settings</source>
-        <translation type="unfinished">Kartinställningar</translation>
+        <translation>Kartinställningar</translation>
     </message>
 </context>
 <context>
