@@ -144,16 +144,6 @@ int main(int argc, char* argv[])
 
   dbThread->connect(&thread, SIGNAL(started()), SLOT(Initialize()));
   dbThread->connect(&thread, SIGNAL(finished()), SLOT(Finalize()));
- 
-  QQmlApplicationEngine *window = NULL;
-  if (!desktop){
-    view->setSource(SailfishApp::pathTo("qml/main.qml"));
-    view->showFullScreen();
-  }else{
-    window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
-  }
-  
-  view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
 
   // install translator
   QTranslator translator;  
@@ -165,7 +155,17 @@ int main(int argc, char* argv[])
     qWarning() << "Can't load translator for locale" << locale << "/" << locale.name() << 
             "(" << SailfishApp::pathTo("translations").toLocalFile() << ")";
   }
-  
+
+  view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
+
+  QQmlApplicationEngine *window = NULL;
+  if (!desktop){
+    view->setSource(SailfishApp::pathTo("qml/main.qml"));
+    view->showFullScreen();
+  }else{
+    window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
+  }
+
   // load online tile providers
   Settings::GetInstance()->loadOnlineTileProviders(
     SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
