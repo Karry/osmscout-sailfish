@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation type="unfinished"></translation>
+        <translation>norweski: Håvard Moen</translation>
     </message>
 </context>
 <context>
