@@ -86,7 +86,9 @@
 - fix map sorting by using locale aware string comparison
 - fix map tree model for depth >= 2 (USA states)
 
-* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.15-1
+* 2016-12-28 Lukáš Karas <lukas.karas@centrum.cz> 0.15-1
 - fix SD card detection (read /etc/mtab for mount points)
 - update Polish translation
 - add Norwegian Bokmål translation
+
+* 2016-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.16-1
