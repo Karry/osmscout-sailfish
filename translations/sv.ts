@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="sv" sourcelanguage="en_US">
@@ -46,6 +47,10 @@
     <message>
         <source>Swedish: Åke Engelbrektson</source>
         <translation>Svenska: Åke Engelbrektson</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål: Håvard Moen</source>
+        <translation>Norska (Bokmål): Håvard Moen</translation>
     </message>
 </context>
 <context>
@@ -128,8 +133,8 @@
         <translation>Ladda ner kartor</translation>
     </message>
     <message>
-        <source>Kartinställningar</source>
-        <translation></translation>
+        <source>Map settings</source>
+        <translation>Kartinställningar</translation>
     </message>
 </context>
 <context>
