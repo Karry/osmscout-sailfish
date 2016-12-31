@@ -384,7 +384,7 @@ int main(int argc, char* argv[])
         
         mapService->LookupTiles(magnification,dataBoundingBox,tiles);
         mapService->LoadMissingTileData(searchParameter,*styleConfig,tiles);
-        mapService->ConvertTilesToMapData(tiles,data);
+        mapService->AddTileDataToMapData(tiles,data);
 
         stats.nodeCount+=data.nodes.size();
         stats.wayCount+=data.ways.size();
