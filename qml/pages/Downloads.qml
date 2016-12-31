@@ -90,7 +90,7 @@ Page {
                                 Row {
                                     spacing: Theme.paddingMedium
                                     Label{
-                                        text: (model!=null) ? Math.round(model.progressRole * 100)+" %" : "?"
+                                        text: (model!=null) ? (Math.round(model.progressRole * 1000)/10)+" %" : "?"
                                     }
                                     Label{
                                         text: progressDescription!="" ? "(" + progressDescription + ")": ""
