@@ -51,6 +51,10 @@
         <source>Norwegian Bokmål: Håvard Moen</source>
         <translation>Norština, Bokmål: Håvard Moen</translation>
     </message>
+    <message>
+        <source>German: Pawel Spoon</source>
+        <translation>Němčina: Pawel Spoon</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>

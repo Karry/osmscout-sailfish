@@ -118,6 +118,11 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
+                    text: qsTr("German: Pawel Spoon")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
                     text: qsTr("Hungarian: Miklós Márton")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
