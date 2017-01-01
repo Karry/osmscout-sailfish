@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout für Sailfish OS wird als Open-Source von Freiwilligen in ihrer Freizeit entwickelt. Sie können helfen diese App zu verbessern, in dem Sie Fehler melden, diese App in eine neue Sprache übersetzen oder neue Funktionen entwickeln. Jede Hilfe ist willkommen.</translation>
+        <translation>OSM Scout für Sailfish OS wird als Open-Source-Projekt von Freiwilligen in ihrer Freizeit entwickelt. Sie können helfen diese Applikation zu verbessern, in dem Sie Fehler melden, diese App in eine neue Sprache übersetzen oder neue Funktionen implementieren. Jede Hilfe ist willkommen.</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Anleitung für den Import von Offline-Karten</translation>
+        <translation>Anleitung für den Offline-Karten Import</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Kartendownloads</translation>
+        <translation>Karte herunterladen</translation>
     </message>
 </context>
 <context>
@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Darstellung des Meeres</translation>
+        <translation>Visualisierung des Meeres</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Where am I?</source>
-        <translation>Wo bin ich?</translation>
+        <translation>Wo befinde ich mich?</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>Map settings</source>
-        <translation>Karten Einstellungen</translation>
+        <translation>Karteneinstellungen</translation>
     </message>
     <message>
         <source>Map downloads</source>
@@ -156,7 +156,7 @@
     </message>
     <message>
         <source>Download</source>
-        <translation>Download</translation>
+        <translation>Herunterladen</translation>
     </message>
     <message>
         <source>Directory</source>
