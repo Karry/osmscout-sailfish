@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial importu offline mapy</translation>
+        <translation>Anleitung für den Import von Offline-Karten</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -63,7 +63,7 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>Průběh stahování</translation>
+        <translation>Downloadfortschritt</translation>
     </message>
     <message>
         <source>Download Map</source>
@@ -78,7 +78,7 @@
     </message>
     <message>
         <source>Map magnification</source>
-        <translation>Vergrösserung</translation>
+        <translation>Kartenskalierung</translation>
     </message>
     <message>
         <source>Online Maps</source>
@@ -94,19 +94,19 @@
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Offline Karten</translation>
+        <translation>Offline-Karten</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Offline Karten erlauben</translation>
+        <translation>Offline-Karten aktivieren</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Zobrazit moře</translation>
+        <translation>Darstellung des Meeres</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation>Moře může překrýt online mapu!</translation>
+        <translation>Das Meer kann die Online-Karte überdecken!</translation>
     </message>
 </context>
 <context>
@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>Layers</source>
-        <translation type="vanished">Vrstvy</translation>
+        <translation type="vanished">Schichten</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Oblíbená místa</translation>
+        <translation>Lesezeichen</translation>
     </message>
     <message>
         <source>About</source>
@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>Map downloads</source>
-        <translation>Stahování map</translation>
+        <translation>Kartendownloads</translation>
     </message>
 </context>
 <context>
@@ -156,18 +156,18 @@
     </message>
     <message>
         <source>Download</source>
-        <translation>Stáhnout</translation>
+        <translation>Download</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>Složka</translation>
+        <translation>Ordner</translation>
     </message>
 </context>
 <context>
     <name>OSMCopyright</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© přispěvatelé OpenStreetMap</translation>
+        <translation type="vanished">© OpenStreetMap Mitwirkende</translation>
     </message>
 </context>
 <context>
@@ -220,7 +220,7 @@
     <name>l10n</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© přispěvatelé OpenStreetMap</translation>
+        <translation type="vanished">© OpenStreetMap Mitwirkende</translation>
     </message>
 </context>
 <context>
@@ -231,14 +231,14 @@
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation>Nemohu vytvořit složku</translation>
+        <translation>Erstellung vom Ordner fehlgeschlagen</translation>
     </message>
 </context>
 <context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap contributors</translation>
+        <translation>© OpenStreetMap Mitwirkende</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
