@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>German: Pawel Spoon</source>
-        <translation type="unfinished"></translation>
+        <translation>Deutsch: Pawel Spoon</translation>
     </message>
 </context>
 <context>
