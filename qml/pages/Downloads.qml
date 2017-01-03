@@ -89,8 +89,15 @@ Page {
                                 }
                                 Row {
                                     spacing: Theme.paddingMedium
+
                                     Label{
-                                        text: (model!=null) ? (Math.round(model.progressRole * 1000)/10)+" %" : "?"
+                                        text: {
+                                            if (model==null)
+                                                return "?";
+                                            var fraction = model.progressRole;
+                                            var percent = (Math.round(fraction * 1000)/10);
+                                            return (percent-Math.round(percent)==0) ? percent+".0 %": percent+" %";
+                                        }
                                     }
                                     Label{
                                         text: progressDescription!="" ? "(" + progressDescription + ")": ""
