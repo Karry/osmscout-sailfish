@@ -95,3 +95,7 @@
 - fix localisation
 - update Polish and Swedish translations
 - add German translation from Pawel Spoon
+- update core library:
+  -- fixed contour labels for right-to-left written scripts
+  -- flip over upwards contour labels
+  -- remove too much squiggly contour labels
