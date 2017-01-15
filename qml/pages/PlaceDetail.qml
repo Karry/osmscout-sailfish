@@ -350,7 +350,23 @@ Page {
                                 anchors.left: websiteIcon.right
                                 anchors.verticalCenter: websiteIcon.verticalCenter
                                 visible: website != ""
-                                text: website
+                                text: {
+                                    // simple url normalisation for view
+                                    var str=website.toString();
+
+                                    // remove standard protocols
+                                    if (str.indexOf("http://")===0){
+                                        str=str.substring(7);
+                                    }else if (str.indexOf("https://")===0){
+                                        str=str.substring(8);
+                                    }
+
+                                    // remove last slash
+                                    if (str.lastIndexOf("/")===(str.length-1)){
+                                        str=str.substring(0,str.length-1);
+                                    }
+                                    return str;
+                                }
 
                                 font.underline: true
                                 color: Theme.highlightColor
