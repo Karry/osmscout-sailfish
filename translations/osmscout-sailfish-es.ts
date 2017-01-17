@@ -5,127 +5,127 @@
     <name>About</name>
     <message>
         <source>OSM Scout %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Scout %1</translation>
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Scout para Sailfish OS es desarrollado como fuente abierta por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o desarrollando nuevas características. Toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <source>GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>página  GitHub</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>Libreria OSMScout página GitHub</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutorial de importación de mapas sin conexión</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Traductores</translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation type="unfinished"></translation>
+        <translation>Checo: Lukáš Karas</translation>
     </message>
     <message>
         <source>Hungarian: Miklós Márton</source>
-        <translation type="unfinished"></translation>
+        <translation>Húngaro: Miklós Márton</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
-        <translation type="unfinished"></translation>
+        <translation>Polaco: Atlochowski</translation>
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
-        <translation type="unfinished"></translation>
+        <translation>Sueco: Åke Engelbrektson</translation>
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation type="unfinished"></translation>
+        <translation>Noruego: Håvard Moen</translation>
     </message>
     <message>
         <source>German: Pawel Spoon</source>
-        <translation type="unfinished"></translation>
+        <translation>Alemán: Pawel Spoon</translation>
     </message>
 </context>
 <context>
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Scout</translation>
     </message>
 </context>
 <context>
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Progreso de descarga</translation>
     </message>
     <message>
         <source>Download Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargar mapa</translation>
     </message>
 </context>
 <context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del mapa</translation>
     </message>
     <message>
         <source>Map magnification</source>
-        <translation type="unfinished"></translation>
+        <translation>Ampliación del mapa</translation>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapas con conexión</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar mapas con conexion</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo</translation>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapas sin conexión</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar mapas sin conexión</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation type="unfinished"></translation>
+        <translation>renderizar océano</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation type="unfinished"></translation>
+        <translation>Océano puede superponer azulejos con conexión</translation>
     </message>
 </context>
 <context>
     <name>Map</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Where am I?</source>
-        <translation type="unfinished"></translation>
+        <translation>Dónde estoy?</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Marcadores</translation>
     </message>
     <message>
         <source>About</source>
