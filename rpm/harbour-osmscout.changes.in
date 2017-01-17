@@ -100,8 +100,9 @@
   -- flip over upwards contour labels
   -- remove too much squiggly contour labels
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.17-1
+* 2017-01-17 Lukáš Karas <lukas.karas@centrum.cz> 0.17-1
 - rendering improvements and fixes in core library:
   -- fixed rendering of multiple labels for one object
   -- fixed rendering of objects optimised for low zoom levels
   -- improved multi-database rendering
+  -- added support for word wrap in labels, setup reasonable defaults
