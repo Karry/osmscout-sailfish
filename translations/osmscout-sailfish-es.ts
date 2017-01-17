@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>página  GitHub</translation>
+        <translation>GitHub página</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>Libreria OSMScout página GitHub</translation>
+        <translation>OSMScout Libreria GitHub página</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
@@ -78,11 +78,11 @@
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>Configuración del mapa</translation>
+        <translation>Ajustes de mapa</translation>
     </message>
     <message>
         <source>Map magnification</source>
-        <translation>Ampliación del mapa</translation>
+        <translation>Ampliación de mapa</translation>
     </message>
     <message>
         <source>Online Maps</source>
@@ -129,99 +129,99 @@
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <source>Map downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarga de mapas</translation>
     </message>
     <message>
         <source>Map settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes de mapa</translation>
     </message>
 </context>
 <context>
     <name>MapDetail</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Última actualización</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargar</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio</translation>
     </message>
 </context>
 <context>
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation type="unfinished"></translation>
+        <translation>oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished"></translation>
+        <translation>este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished"></translation>
+        <translation>sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished"></translation>
+        <translation>norte</translation>
     </message>
     <message>
         <source>You are here</source>
-        <translation type="unfinished"></translation>
+        <translation>Estás aquí</translation>
     </message>
     <message>
         <source>%1 %2 from you</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2 de usted</translation>
     </message>
     <message>
         <source>%1 %2 from</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2 de</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio existente</translation>
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Can&apos;t crear directorio</translation>
     </message>
 </context>
 <context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>© OpenStreetMap contribuyentes </translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Caminata &amp; Mapa de bici</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Mapnik</translation>
     </message>
 </context>
 
