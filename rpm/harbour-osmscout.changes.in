@@ -106,3 +106,6 @@
   -- fixed rendering of objects optimised for low zoom levels
   -- improved multi-database rendering
   -- added support for word wrap in labels, setup reasonable defaults
+
+* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.18-1
+- added Spanish translation by Carlos Gonzalez
