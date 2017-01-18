@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation type="unfinished"></translation>
+        <translation>hiszpański: Carlos Gonzalez</translation>
     </message>
 </context>
 <context>
