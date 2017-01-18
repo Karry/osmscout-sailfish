@@ -55,6 +55,10 @@
         <source>German: Pawel Spoon</source>
         <translation>Němčina: Pawel Spoon</translation>
     </message>
+    <message>
+        <source>Spanish: Carlos Gonzalez</source>
+        <translation>Španělština: Carlos Gonzalez</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
