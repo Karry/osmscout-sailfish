@@ -55,8 +55,12 @@
         <source>German: Pawel Spoon</source>
         <translation>Alemán: Pawel Spoon</translation>
     </message>
+    <message>
+        <source>Spanish: Carlos Gonzalez</source>
+        <translation>Español: Carlos Gonzalez</translation>
+    </message>
 </context>
-<context>
+<context>   
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
