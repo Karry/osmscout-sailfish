@@ -53,11 +53,11 @@
     </message>
     <message>
         <source>German: Pawel Spoon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyska: Pawel Spoon</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanska: Carlos Gonzalez</translation>
     </message>
 </context>
 <context>
