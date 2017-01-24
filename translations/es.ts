@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout para Sailfish OS es desarrollado como fuente abierta por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o desarrollando nuevas características. Toda ayuda es bienvenida.</translation>
+        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente libre por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -17,15 +17,15 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>GitHub página</translation>
+        <translation>GitHub de OSM Scout</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>OSMScout Libreria GitHub página</translation>
+        <translation>GitHub de la libreria OSM Scout</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial de importación de mapas sin conexión</translation>
+        <translation>Tutorial de como importar el mapa</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -71,7 +71,7 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>Progreso de descarga</translation>
+        <translation>Progreso de la descarga</translation>
     </message>
     <message>
         <source>Download Map</source>
@@ -82,7 +82,7 @@
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>Ajustes de mapa</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Map magnification</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation>Océano puede superponer azulejos con conexión</translation>
+        <translation>El mar puede superponer tiles con conexión</translation>
     </message>
 </context>
 <context>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>Map downloads</source>
-        <translation>Descarga de mapas</translation>
+        <translation>Descargar mapa</translation>
     </message>
     <message>
         <source>Map settings</source>
@@ -195,7 +195,7 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metros</translation>
+        <translation>metros al</translation>
     </message>
     <message>
         <source>km</source>
@@ -221,7 +221,7 @@
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation>Caminata &amp; Mapa de bici</translation>
+        <translation>Caminata &amp; Mapa para bici</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
