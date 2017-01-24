@@ -8,7 +8,7 @@
         <translation>OSM Scout %1</translation>
     </message>
     <message>
-        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
+        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
         <translation>OSM Scout para sailfish os es desarrollado como codigo fuente libre por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
@@ -82,7 +82,7 @@
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>Configuración</translation>
+        <translation>Configuración de mapa</translation>
     </message>
     <message>
         <source>Map magnification</source>
@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>Map settings</source>
-        <translation>Ajustes de mapa</translation>
+        <translation>Ajustes</translation>
     </message>
 </context>
 <context>
@@ -167,19 +167,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>oeste</translation>
+        <translation>al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>este</translation>
+        <translation>al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>sur</translation>
+        <translation>al sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>norte</translation>
+        <translation>al norte</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -195,7 +195,7 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metros al</translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
