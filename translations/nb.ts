@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation type="unfinished"></translation>
+        <translation>Norsk Bokmål: Håvard Moen</translation>
     </message>
 </context>
 <context>
@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation>Sjø kan overlappe online-ruter</translation>
+        <translation>Sjø kan overlappe online-ruter!</translation>
     </message>
 </context>
 <context>
