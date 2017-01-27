@@ -146,8 +146,8 @@ endif()
 # ==================================================================================================
 # libmarisa
 
-set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-0.2.4)
-set(MARISA_INCLUDE_DIRS ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-0.2.4/lib)
+set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie)
+set(MARISA_INCLUDE_DIRS ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie/lib)
 
 set(MARISA_SRC
     ${MARISA_ROOT}/lib/marisa/grimoire/io/reader.cc
