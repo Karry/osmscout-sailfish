@@ -147,7 +147,9 @@ endif()
 # libmarisa
 
 set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie)
-set(MARISA_INCLUDE_DIRS ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie/lib)
+set(MARISA_INCLUDE_DIRS
+    ${MARISA_ROOT}/lib
+    ${MARISA_ROOT}/include)
 
 set(MARISA_SRC
     ${MARISA_ROOT}/lib/marisa/grimoire/io/reader.cc
@@ -159,6 +161,10 @@ set(MARISA_SRC
     ${MARISA_ROOT}/lib/marisa/trie.cc
     ${MARISA_ROOT}/lib/marisa/agent.cc
     ${MARISA_ROOT}/lib/marisa/keyset.cc
+)
+
+include_directories(
+  ${MARISA_INCLUDE_DIRS}
 )
 
 add_library(marisa
@@ -179,7 +185,6 @@ set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
 
 include_directories(
   ${OSMSCOUT_BASE_DIR_BUILD}/include/
-  ${MARISA_ROOT}/lib
 )
 
 
