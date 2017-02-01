@@ -52,6 +52,7 @@ Page {
         }
 
         onPositionChanged: {
+            /*
             console.log("Position changed:")
 
             if (position.latitudeValid) {
@@ -77,6 +78,7 @@ Page {
             if (position.verticalAccuracyValid) {
                 console.log("  vertical accuracy: " + position.verticalAccuracy)
             }
+            */
 
             positionSource.valid = position.latitudeValid && position.longitudeValid;
             positionSource.lat = position.coordinate.latitude;
