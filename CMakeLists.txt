@@ -219,6 +219,7 @@ set(LANG_FILES
     translations/cs.ts
     translations/de.ts
     translations/es.ts
+    translations/fr.ts
     translations/hu.ts
     translations/nb.ts
     translations/pl.ts
