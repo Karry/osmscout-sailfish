@@ -89,6 +89,19 @@ Page {
                 }
             }
 
+            Column{
+                width: parent.width - 2*Theme.paddingMedium
+                x: Theme.paddingMedium
+                Label{
+                    text: qsTr("Data Version")
+                    color: Theme.primaryColor
+                }
+                Label{
+                    text: mapItem.version
+                    color: Theme.highlightColor
+                }
+            }
+
             SectionHeader{
                 id: downloadMapHeader
                 text: qsTr("Download")
