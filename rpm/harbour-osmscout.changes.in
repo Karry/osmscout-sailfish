@@ -113,5 +113,9 @@
 - fix place description with multiple databases
 
 * 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.19-1
-- update Norwegian translation
+- update Norwegian and Spanish translations
+- add French translation by Pierre-Henri Horrein
 - add online maps from Stamen Design
+- update core library:
+  -- support new database format
+  -- improve object cache
