@@ -59,6 +59,10 @@
         <source>Spanish: Carlos Gonzalez</source>
         <translation>Španělština: Carlos Gonzalez</translation>
     </message>
+    <message>
+        <source>French: Pierre-Henri Horrein</source>
+        <translation>Franscouzština: Pierre-Henri Horrein</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -169,6 +173,10 @@
     <message>
         <source>Directory</source>
         <translation>Složka</translation>
+    </message>
+    <message>
+        <source>Data Version</source>
+        <translation>Verze dat</translation>
     </message>
 </context>
 <context>

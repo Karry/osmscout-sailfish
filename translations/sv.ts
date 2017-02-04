@@ -59,6 +59,10 @@
         <source>Spanish: Carlos Gonzalez</source>
         <translation>Spanska: Carlos Gonzalez</translation>
     </message>
+    <message>
+        <source>French: Pierre-Henri Horrein</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -161,6 +165,10 @@
     <message>
         <source>Directory</source>
         <translation>Mapp</translation>
+    </message>
+    <message>
+        <source>Data Version</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente libre por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente libre por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -59,8 +59,16 @@
         <source>Spanish: Carlos Gonzalez</source>
         <translation>Español: Carlos Gonzalez</translation>
     </message>
+    <message>
+        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French: Pierre-Henri Horrein</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
-<context>   
+<context>
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
@@ -161,6 +169,10 @@
     <message>
         <source>Directory</source>
         <translation>Directorio</translation>
+    </message>
+    <message>
+        <source>Data Version</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
