@@ -225,7 +225,7 @@
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© contributeurs d&apos;OpenStreetMap</translation>
+        <translation>© Contributeurs d&apos;OpenStreetMap</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
