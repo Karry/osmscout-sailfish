@@ -53,15 +53,15 @@
     </message>
     <message>
         <source>German: Pawel Spoon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tysk: Pawel Spoon</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation type="unfinished"></translation>
+        <translation>Spansk: Carlos Gonzalez</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
-        <translation type="unfinished"></translation>
+        <translation>Fransk: Pierre-Henri Horrein</translation>
     </message>
 </context>
 <context>
@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Data Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Data Versjon</translation>
     </message>
 </context>
 <context>
