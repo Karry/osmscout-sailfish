@@ -172,14 +172,14 @@ Page {
 
             onTap: {
 
-                console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
+                console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
                 if (drawer.open){
                     drawer.open = false;
                 }
             }
             onLongTap: {
 
-                console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+                console.log("long tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon);
 
                 pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
                                {placeLat: lat, placeLon: lon})

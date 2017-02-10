@@ -404,11 +404,11 @@ Page {
           showCurrentPosition: true
 
           onTap: {
-              console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+              console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon);
               changePosition(lat, lon, true);
           }
           onLongTap: {
-              console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+              console.log("long tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon);
               changePosition(lat, lon, false)
           }
         }

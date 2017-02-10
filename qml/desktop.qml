@@ -113,11 +113,11 @@ Window {
 
             onTap: {
 
-                console.log("tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");
+                console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");
             }
             onLongTap: {
 
-                console.log("long tap: " + sceenX + "x" + screenY + " @ " + lat + " " + lon);
+                console.log("long tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon);
             }
 
             Keys.onPressed: {
