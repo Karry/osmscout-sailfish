@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
-        <translation type="unfinished"></translation>
+        <translation>francuski: Pierre-Henri Horrein</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Data Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja</translation>
     </message>
 </context>
 <context>
