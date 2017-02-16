@@ -55,7 +55,12 @@ OSM Scout is offline map viewer and routing application.
 # >> build pre
 #rm -rf rpmbuilddir-%{_arch}
 mkdir -p rpmbuilddir-%{_arch}
-cd rpmbuilddir-%{_arch} &&  cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
+
+## for production build:
+cd rpmbuilddir-%{_arch} &&   cmake -DCMAKE_BUILD_TYPE=RELEASE                  -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
+## for debug build, use these commands instead:
+# cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=DEBUG -DQT_QML_DEBUG=yes -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
+
 cd ..
 make -C rpmbuilddir-%{_arch} VERBOSE=1 # %{?_smp_mflags}
 # << build pre
