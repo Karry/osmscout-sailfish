@@ -25,10 +25,14 @@ Page {
     Settings {
         id: settings
         //mapDPI: 50
+        Component.onDestruction: {
+            console.log("store map position");
+            settings.mapView = map.view;
+        }
     }
 
     onStatusChanged: {
-        if (status == PageStatus.Activating){
+        if (status === PageStatus.Activating){
             map.view = settings.mapView;
         }
     }
@@ -184,10 +188,11 @@ Page {
                 pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
                                {placeLat: lat, placeLon: lon})
             }
+            /*
             onViewChanged: {
                 //console.log("map center "+ map.view.lat + " " + map.view.lon + "");
-                settings.mapView = map.view;
             }
+            */
 
             /*
             void doubleTap(const QPoint p, const osmscout::GeoCoord c);
