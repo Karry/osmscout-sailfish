@@ -82,7 +82,7 @@ desktop-file-install --delete-original       \
 # remove includes, we don't need it on Jolla phone
 rm %{buildroot}%{_includedir}/osmscout/*.h
 rm %{buildroot}%{_includedir}/osmscout/*/*.h
-# remove desktp qml
+# remove desktop qml
 rm %{buildroot}%{_datadir}/%{name}/qml/desktop.qml
 
 ## Jolla harbour rules:
