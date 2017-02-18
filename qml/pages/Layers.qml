@@ -197,6 +197,8 @@ Page {
                         }
                     }
 
+                    SectionHeader{ text: qsTr("Slyle flags") }
+
                     ListView {
                         id: flagList
                         StyleFlagsModel{

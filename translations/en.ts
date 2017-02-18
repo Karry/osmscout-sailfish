@@ -120,6 +120,10 @@
         <source>Sea can overlap online tiles!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Slyle flags</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Map</name>
@@ -256,6 +260,34 @@
     <message>
         <source>daylight</source>
         <translation>Daylight</translation>
+    </message>
+    <message>
+        <source>waterway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wood</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>leisure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minorBuilding</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

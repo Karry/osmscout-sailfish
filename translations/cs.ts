@@ -120,6 +120,10 @@
         <source>Sea can overlap online tiles!</source>
         <translation>Moře může překrýt online mapu!</translation>
     </message>
+    <message>
+        <source>Slyle flags</source>
+        <translation>Volby stylu</translation>
+    </message>
 </context>
 <context>
     <name>Map</name>
@@ -285,6 +289,34 @@
     <message>
         <source>daylight</source>
         <translation>Denní</translation>
+    </message>
+    <message>
+        <source>waterway</source>
+        <translation>Vodní plochy</translation>
+    </message>
+    <message>
+        <source>wood</source>
+        <translation>Lesy</translation>
+    </message>
+    <message>
+        <source>natural</source>
+        <translation>Typ krajiny</translation>
+    </message>
+    <message>
+        <source>railway</source>
+        <translation>Železnice</translation>
+    </message>
+    <message>
+        <source>leisure</source>
+        <translation>Volný čas</translation>
+    </message>
+    <message>
+        <source>building</source>
+        <translation>Budovy</translation>
+    </message>
+    <message>
+        <source>minorBuilding</source>
+        <translation>Minoritní budovy</translation>
     </message>
 </context>
 </TS>

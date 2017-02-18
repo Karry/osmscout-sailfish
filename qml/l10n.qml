@@ -17,6 +17,13 @@ Item{
           QT_TRANSLATE_NOOP("slylesheet", "winter-sports"),
 
           QT_TRANSLATE_NOOP("styleflag", "daylight"),
+          QT_TRANSLATE_NOOP("styleflag", "waterway"),
+          QT_TRANSLATE_NOOP("styleflag", "wood"),
+          QT_TRANSLATE_NOOP("styleflag", "natural"),
+          QT_TRANSLATE_NOOP("styleflag", "railway"),
+          QT_TRANSLATE_NOOP("styleflag", "leisure"),
+          QT_TRANSLATE_NOOP("styleflag", "building"),
+          QT_TRANSLATE_NOOP("styleflag", "minorBuilding"),
 
           QT_TRANSLATE_NOOP("message", "Directory already exists"),
           QT_TRANSLATE_NOOP("message", "Can't create directory")
