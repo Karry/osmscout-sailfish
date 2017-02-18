@@ -40,6 +40,8 @@
 #include <osmscout/RoutingModel.h>
 #include <osmscout/AvailableMapsModel.h>
 #include <osmscout/MapDownloadsModel.h>
+#include <osmscout/MapStyleModel.h>
+#include <osmscout/StyleFlagsModel.h>
 
 // Application settings
 #include <osmscout/Settings.h>
@@ -47,10 +49,8 @@
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
 
-#include "MapStyleHelper.h"
-
-// OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
+#warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
 #define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
 #endif
 
@@ -89,9 +89,10 @@ int main(int argc, char* argv[])
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
   qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
-  qmlRegisterType<MapStyleHelper>("harbour.osmscout.map", 1, 0, "MapStyle");
+  qmlRegisterType<MapStyleModel>("harbour.osmscout.map", 1, 0, "MapStyleModel");
   qmlRegisterType<AvailableMapsModel>("harbour.osmscout.map", 1, 0, "AvailableMapsModel");
   qmlRegisterType<MapDownloadsModel>("harbour.osmscout.map", 1, 0, "MapDownloadsModel");
+  qmlRegisterType<StyleFlagsModel>("harbour.osmscout.map", 1, 0, "StyleFlagsModel");
 
   osmscout::log.Debug(true);
 
@@ -124,11 +125,20 @@ int main(int argc, char* argv[])
       }
     }
   }
+
+  // load online tile providers
+  Settings::GetInstance()->loadOnlineTileProviders(
+    SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
+  // load map providers
+  Settings::GetInstance()->loadMapProviders(
+    SailfishApp::pathTo("resources/map-providers.json").toLocalFile());
+  // configure path to styles
+  Settings::GetInstance()->SetStyleSheetDirectory(
+    SailfishApp::pathTo("map-styles").toLocalFile());
   
   if (!DBThread::InitializeTiledInstance(
           databaseLookupDirectories, 
-          "/usr/share/harbour-osmscout/map-styles/standard.oss", 
-          "/usr/share/harbour-osmscout/map-icons", 
+          SailfishApp::pathTo("map-icons").toLocalFile(),
           cache + QDir::separator() + "OsmTileCache",
           /* onlineTileCacheSize  */ desktop ?  40 : 20,
           /* offlineTileCacheSize */ desktop ? 200 : 50
@@ -165,12 +175,6 @@ int main(int argc, char* argv[])
   }else{
     window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
   }
-
-  // load online tile providers
-  Settings::GetInstance()->loadOnlineTileProviders(
-    SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
-  Settings::GetInstance()->loadMapProviders(
-    SailfishApp::pathTo("resources/map-providers.json").toLocalFile());
 
   thread.start();
   

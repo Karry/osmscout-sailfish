@@ -161,11 +161,12 @@ Page {
 
                         label: qsTr("Style")
                         menu: ContextMenu {
-                            MenuItem { text: "Standard" }
-                            MenuItem { text: "Winter sports" }
-                            MenuItem { text: "Boundaries (for debugging)" }
+                            Repeater {
+                                model: mapStyle
+                                MenuItem { text: qsTranslate("slylesheet",name) }
+                            }
                         }
-                        MapStyle{
+                        MapStyleModel{
                             id: mapStyle
                         }
 
@@ -173,21 +174,12 @@ Page {
                             if (!initialized){
                                 return;
                             }
-                            var stylesheet="standard.oss";
-                            if (currentIndex==1)
-                                stylesheet="winter-sports.oss";
-                            if (currentIndex==2)
-                                stylesheet="boundaries.oss";
-
+                            var stylesheet=mapStyle.file(currentIndex)
                             mapStyle.style = stylesheet;
-                            // TODO: persist in settings
                         }
                         Component.onCompleted: {
                             var stylesheet = mapStyle.style;
-                            if (stylesheet == "winter-sports.oss")
-                                currentIndex = 1;
-                            if (stylesheet == "boundaries.oss")
-                                currentIndex = 2;
+                            currentIndex = mapStyle.indexOf(stylesheet);
                             initialized = true;
                         }
                     }
@@ -202,6 +194,29 @@ Page {
 
                         onCheckedChanged: {
                             settings.renderSea = checked;
+                        }
+                    }
+
+                    ListView {
+                        id: flagList
+                        StyleFlagsModel{
+                            id: mapFlags
+                        }
+                        height: contentHeight
+                        width: parent.width
+                        model:mapFlags
+                        delegate: TextSwitch{
+                            checked: value
+                            text: qsTranslate("styleflag", key)
+                            property bool initialized: false
+                            onCheckedChanged: {
+                                if (initialized){
+                                    mapFlags.setFlag(key, !value);
+                                }
+                            }
+                            Component.onCompleted: {
+                                initialized=true;
+                            }
                         }
                     }
                 }

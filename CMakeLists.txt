@@ -210,7 +210,6 @@ set(CMAKE_AUTORCC ON)
 
 set(HEADER_FILES
 #    src/DBThread.h
-    src/MapStyleHelper.h
 )
 
 set(LANG_FILES
@@ -231,8 +230,7 @@ ADD_CUSTOM_TARGET (translations ALL DEPENDS ${LANG_SRC})
 
 set(SOURCE_FILES
     src/OSMScout.cpp
-    src/MapStyleHelper.cpp
-    
+
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f
     qml/AboutDialog.qml
@@ -244,22 +242,23 @@ set(SOURCE_FILES
     qml/custom/MapDialog.qml
     qml/custom/ScrollIndicator.qml
     qml/custom/MapRenderingIndicator.qml
-    qml/custom/OSMCopyright.qml
-    qml/custom/MapComponent.qml
     qml/custom/Link.qml
-    qml/custom/ScaleIndicator.qml
+    qml/custom/OSMCopyright.qml
     qml/custom/POIIcon.qml
     qml/custom/AvailableMapsView.qml
-    qml/pages/Map.qml
-    qml/pages/PlaceDetail.qml
+    qml/custom/MapComponent.qml
+    qml/custom/ScaleIndicator.qml
     qml/pages/Cover.qml
-    qml/pages/About.qml
     qml/pages/Search.qml
-    qml/pages/Layers.qml
-    qml/pages/Downloads.qml
     qml/pages/MapList.qml
+    qml/pages/Downloads.qml
     qml/pages/MapDetail.qml
+    qml/pages/About.qml
+    qml/pages/PlaceDetail.qml
+    qml/pages/Map.qml
+    qml/pages/Layers.qml
     qml/main.qml
+    qml/l10n.qml
     qml/desktop.qml
 
     ${LANG_FILES}
