@@ -24,15 +24,13 @@ Page {
 
     Settings {
         id: settings
-        //mapDPI: 50
+
         Component.onDestruction: {
             console.log("store map position");
             settings.mapView = map.view;
         }
-    }
-
-    onStatusChanged: {
-        if (status === PageStatus.Activating){
+        Component.onCompleted: {
+            console.log("restore map position");
             map.view = settings.mapView;
         }
     }
@@ -122,6 +120,9 @@ Page {
                 function onAction(action){
                     if (!isEnabled(action))
                         return;
+
+                    // store view
+                    settings.mapView = map.view;
 
                     if (action == "whereami"){
                         if (positionSource.valid){
