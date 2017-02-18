@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente libre por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente libre por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -238,6 +238,28 @@
     <message>
         <source>OSM Mapnik</source>
         <translation>OSM Mapnik</translation>
+    </message>
+</context>
+<context>
+    <name>slylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>styleflag</name>
+    <message>
+        <source>daylight</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

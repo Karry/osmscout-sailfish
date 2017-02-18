@@ -236,4 +236,26 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>slylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation>Boundaries (for debugging)</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation>Standard</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation>Winter sports</translation>
+    </message>
+</context>
+<context>
+    <name>styleflag</name>
+    <message>
+        <source>daylight</source>
+        <translation>Daylight</translation>
+    </message>
+</context>
 </TS>

@@ -265,4 +265,26 @@
         <translation>OSM Mapnik</translation>
     </message>
 </context>
+<context>
+    <name>slylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation>Administrativní hranice (ladění)</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation>Standardní</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation>Zimní sporty</translation>
+    </message>
+</context>
+<context>
+    <name>styleflag</name>
+    <message>
+        <source>daylight</source>
+        <translation>Denní</translation>
+    </message>
+</context>
 </TS>

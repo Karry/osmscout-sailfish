@@ -236,4 +236,26 @@
         <translation>OSM Mapnik</translation>
     </message>
 </context>
+<context>
+    <name>slylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>styleflag</name>
+    <message>
+        <source>daylight</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
