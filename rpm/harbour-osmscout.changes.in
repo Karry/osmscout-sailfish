@@ -116,7 +116,9 @@
 - update translations (Norwegian, Spanish, Sweden, Polish, Czech)
 - add French translation by Pierre-Henri Horrein
 - add online maps from Stamen Design
+- configured map style is persisted now
 - configurable map style flags
 - update core library:
-  -- support new database format (increase hard limit for area size)
-  -- add another layer of data cache
+  -- support new database format (increased hard limit for area size)
+  -- add another layer of data cache (lower memory footprint and faster loading)
+  -- fixed crashes on 32 bit systems caused by memory exhaustion by mmap-ed files
