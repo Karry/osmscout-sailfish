@@ -47,7 +47,7 @@ Image{
                 'aeroway_terminal': 'airport',
 
                 'leisure_building': 'building',
-                'leisure_sports_centre': 'socker',
+                'leisure_sports_centre': 'soccer',
                 'leisure_stadium': 'stadium',
                 'leisure_golf_course': 'golf',
                 'leisure_water_park': 'swimming',
