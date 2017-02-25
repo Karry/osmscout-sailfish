@@ -63,7 +63,7 @@ Page {
             Rectangle{
                 id: links
                 color: "transparent"
-                height: githubLink.height + libLink.height + tutorialLink.height + 2*Theme.paddingLarge
+                height: githubLink.height + libLink.height + tutorialLink.height + privacyLink.height + 2*Theme.paddingLarge
                 width: parent.width
 
                 Link{
@@ -97,6 +97,17 @@ Page {
                     linkText: "libosmscout.sourceforge.net/tutorials/Importing"
 
                     anchors.top: libLink.bottom
+                }
+                Link{
+                    id:privacyLink
+                    width: parent.width - 2* Theme.paddingLarge
+                    x: Theme.paddingLarge
+
+                    label: qsTr("Privacy notes")
+                    link: "https://github.com/Karry/osmscout-sailfish/wiki/Privacy"
+                    linkText: "github.com/Karry/osmscout-sailfish/wiki/Privacy"
+
+                    anchors.top: tutorialLink.bottom
                 }
             }
 
