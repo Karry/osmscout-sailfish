@@ -247,9 +247,9 @@ Page {
                                 settings.fontSize=2.0;
                             if (currentIndex==1)
                                 settings.fontSize=3.0;
-                            if (currentIndex==4)
+                            if (currentIndex==2)
                                 settings.fontSize=4.0;
-                            if (currentIndex==5)
+                            if (currentIndex==3)
                                 settings.fontSize=6.0;
                         }
                         Component.onCompleted: {
