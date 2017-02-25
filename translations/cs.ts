@@ -160,6 +160,10 @@
         <source>Huge</source>
         <translation>obrovská</translation>
     </message>
+    <message>
+        <source>Bigger</source>
+        <translation>větší</translation>
+    </message>
 </context>
 <context>
     <name>Map</name>

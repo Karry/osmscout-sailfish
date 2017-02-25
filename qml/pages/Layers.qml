@@ -235,6 +235,7 @@ Page {
                         menu: ContextMenu {
                             MenuItem { text: qsTr("Normal") }
                             MenuItem { text: qsTr("Big") }
+                            MenuItem { text: qsTr("Bigger") }
                             MenuItem { text: qsTr("Huge") }
                         }
 
@@ -245,17 +246,21 @@ Page {
                             if (currentIndex==0)
                                 settings.fontSize=2.0;
                             if (currentIndex==1)
+                                settings.fontSize=3.0;
+                            if (currentIndex==4)
                                 settings.fontSize=4.0;
-                            if (currentIndex==2)
+                            if (currentIndex==5)
                                 settings.fontSize=6.0;
                         }
                         Component.onCompleted: {
                             if (settings.fontSize<=2.0)
                                 currentIndex = 0;
-                            if (settings.fontSize>2.0 && settings.fontSize <= 4.0)
+                            if (settings.fontSize>2.0 && settings.fontSize <= 3.0)
                                 currentIndex = 1;
-                            if (settings.fontSize>4.0)
+                            if (settings.fontSize>3.0 && settings.fontSize <= 4.0)
                                 currentIndex = 2;
+                            if (settings.fontSize>4.0)
+                                currentIndex = 3;
                             initialized = true;
                         }
                     }
