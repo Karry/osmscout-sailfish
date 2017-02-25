@@ -117,7 +117,7 @@
 - add French translation by Pierre-Henri Horrein
 - add online maps from Stamen Design
 - configured map style is persisted now
-- configurable map style flags
+- configurable map style flags and font
 - update core library:
   -- support new database format (increased hard limit for area size)
   -- add another layer of data cache (lower memory footprint and faster loading)
