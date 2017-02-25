@@ -82,6 +82,9 @@ Page {
         return bearing;
     }
 
+    AppSettings{
+        id:appSettings
+    }
     Settings {
         id: settings
     }
@@ -156,15 +159,15 @@ Page {
                             format = "numeric";
                         }
 
-                        settings.gpsFormat = format
+                        appSettings.gpsFormat = format
                     }
                     Component.onCompleted: {
                         currentIndex = 0;
-                        if (settings.gpsFormat === "degrees"){
+                        if (appSettings.gpsFormat === "degrees"){
                             currentIndex = 0;
-                        } else if (settings.gpsFormat === "geocaching"){
+                        } else if (appSettings.gpsFormat === "geocaching"){
                             currentIndex = 1;
-                        } else if (settings.gpsFormat === "numeric"){
+                        } else if (appSettings.gpsFormat === "numeric"){
                             currentIndex = 2;
                         }
 

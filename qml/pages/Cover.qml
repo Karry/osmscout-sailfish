@@ -10,21 +10,14 @@ import "../custom"
 
 CoverBackground {
     id: cover
-    /*
-    CoverPlaceholder {
-        //% "OSM Scout"
-        text: qsTr("OSM Scout")
-        icon.source: "image://theme/harbour-osmscout"
-    }
-    */
-    Settings {
-        id: settings
+    AppSettings{
+        id: appSettings
     }
     property bool initialized: false;
     onStatusChanged: {
         if (status == PageStatus.Activating){
             if (!initialized){
-                map.view = settings.mapView;
+                map.view = appSettings.mapView;
                 initialized = true;
             }
             map.lockToPosition = true;

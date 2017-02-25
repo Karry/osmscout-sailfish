@@ -229,6 +229,7 @@ QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
 ADD_CUSTOM_TARGET (translations ALL DEPENDS ${LANG_SRC})
 
 set(SOURCE_FILES
+    src/AppSettings.cpp
     src/OSMScout.cpp
 
     # keep qml files in source list - it makes qtcreator happy

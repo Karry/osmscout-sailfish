@@ -43,9 +43,6 @@
 #include <osmscout/MapStyleModel.h>
 #include <osmscout/StyleFlagsModel.h>
 
-// Application settings
-#include <osmscout/Settings.h>
-
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
 
@@ -53,6 +50,11 @@
 #warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
 #define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
 #endif
+
+// Library settings
+#include <osmscout/Settings.h>
+// Application settings
+#include "AppSettings.h"
 
 Q_DECLARE_METATYPE(osmscout::TileRef)
 
@@ -89,6 +91,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
   qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
   qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
+  qmlRegisterType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings");
   qmlRegisterType<MapStyleModel>("harbour.osmscout.map", 1, 0, "MapStyleModel");
   qmlRegisterType<AvailableMapsModel>("harbour.osmscout.map", 1, 0, "AvailableMapsModel");
   qmlRegisterType<MapDownloadsModel>("harbour.osmscout.map", 1, 0, "MapDownloadsModel");
@@ -126,19 +129,22 @@ int main(int argc, char* argv[])
     }
   }
 
+  SettingsRef settings=std::make_shared<Settings>();
+
   // load online tile providers
-  Settings::GetInstance()->loadOnlineTileProviders(
+  settings->loadOnlineTileProviders(
     SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
   // load map providers
-  Settings::GetInstance()->loadMapProviders(
+  settings->loadMapProviders(
     SailfishApp::pathTo("resources/map-providers.json").toLocalFile());
   // configure path to styles
-  Settings::GetInstance()->SetStyleSheetDirectory(
+  settings->SetStyleSheetDirectory(
     SailfishApp::pathTo("map-styles").toLocalFile());
   
   if (!DBThread::InitializeTiledInstance(
           databaseLookupDirectories, 
           SailfishApp::pathTo("map-icons").toLocalFile(),
+          settings,
           cache + QDir::separator() + "OsmTileCache",
           /* onlineTileCacheSize  */ desktop ?  40 : 20,
           /* offlineTileCacheSize */ desktop ? 200 : 50
@@ -187,7 +193,6 @@ int main(int argc, char* argv[])
   thread.wait();
 
   DBThread::FreeInstance();
-  Settings::FreeInstance();
 
   return result;
 }

@@ -22,17 +22,20 @@ Page {
         }
     }
 
-    Settings {
-        id: settings
-
+    AppSettings{
+        id: appSettings
         Component.onDestruction: {
             console.log("store map position");
-            settings.mapView = map.view;
+            appSettings.mapView = map.view;
         }
         Component.onCompleted: {
             console.log("restore map position");
-            map.view = settings.mapView;
+            map.view = appSettings.mapView;
         }
+    }
+
+    Settings {
+        id: settings
     }
 
     PositionSource {
@@ -122,7 +125,7 @@ Page {
                         return;
 
                     // store view
-                    settings.mapView = map.view;
+                    appSettings.mapView = map.view;
 
                     if (action == "whereami"){
                         if (positionSource.valid){

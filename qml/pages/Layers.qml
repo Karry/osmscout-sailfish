@@ -28,12 +28,15 @@ import "../custom"
 Page {
     id: layersPage
 
+    AppSettings{
+        id:appSettings
+    }
     Settings {
         id: settings
     }
     onStatusChanged: {
         if (status == PageStatus.Activating){
-            map.view = settings.mapView;
+            map.view = appSettings.mapView;
         }
     }
 
@@ -50,7 +53,10 @@ Page {
             color: "transparent"
 
             OpacityRampEffect {
-                enabled: (!onlineTileProviderComboBox._menuOpen && !stylesheetComboBox._menuOpen) //true
+                enabled: (!onlineTileProviderComboBox._menuOpen &&
+                          !stylesheetComboBox._menuOpen &&
+                          !fontComboBox._menuOpen &&
+                          !fontSizeComboBox._menuOpen)
                 offset: 1 - 1 / slope
                 slope: flickable.height / (Theme.paddingLarge * 4)
                 direction: 2
@@ -180,6 +186,76 @@ Page {
                         Component.onCompleted: {
                             var stylesheet = mapStyle.style;
                             currentIndex = mapStyle.indexOf(stylesheet);
+                            initialized = true;
+                        }
+                    }
+                    ComboBox {
+                        id: fontComboBox
+                        width: parent.width
+
+                        property bool initialized: false
+
+                        label: qsTr("Font")
+                        // some standard fonts form `fc-list :lang=en`
+                        menu: ContextMenu {
+                            MenuItem { text: qsTr("DejaVu Sans") }
+                            MenuItem { text: qsTr("Droid Serif") }
+                            MenuItem { text: qsTr("Liberation Sans") }
+                        }
+
+                        onCurrentItemChanged: {
+                            if (!initialized){
+                                return;
+                            }
+                            if (currentIndex==0)
+                                settings.fontName="DejaVu Sans"
+                            if (currentIndex==1)
+                                settings.fontName="Droid Serif"
+                            if (currentIndex==2)
+                                settings.fontName="Liberation Sans"
+                        }
+                        Component.onCompleted: {
+                            console.log("use font: "+settings.fontName);
+                            if (settings.fontName=="DejaVu Sans")
+                                currentIndex = 0;
+                            if (settings.fontName=="Droid Serif")
+                                currentIndex = 1;
+                            if (settings.fontName=="Liberation Sans")
+                                currentIndex = 2;
+                            initialized = true;
+                        }
+                    }
+                    ComboBox {
+                        id: fontSizeComboBox
+                        width: parent.width
+
+                        property bool initialized: false
+
+                        label: qsTr("Font Size")
+                        menu: ContextMenu {
+                            MenuItem { text: qsTr("Normal") }
+                            MenuItem { text: qsTr("Big") }
+                            MenuItem { text: qsTr("Huge") }
+                        }
+
+                        onCurrentItemChanged: {
+                            if (!initialized){
+                                return;
+                            }
+                            if (currentIndex==0)
+                                settings.fontSize=2.0;
+                            if (currentIndex==1)
+                                settings.fontSize=4.0;
+                            if (currentIndex==2)
+                                settings.fontSize=6.0;
+                        }
+                        Component.onCompleted: {
+                            if (settings.fontSize<=2.0)
+                                currentIndex = 0;
+                            if (settings.fontSize>2.0 && settings.fontSize <= 4.0)
+                                currentIndex = 1;
+                            if (settings.fontSize>4.0)
+                                currentIndex = 2;
                             initialized = true;
                         }
                     }
