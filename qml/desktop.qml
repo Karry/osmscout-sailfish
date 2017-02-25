@@ -48,6 +48,8 @@ Window {
     Settings {
         id: settings
         //mapDPI: 50
+        //fontName: "Comic Sans MS"
+        fontName: "Sans"
     }
 
 
@@ -103,13 +105,6 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
             focus: true
-
-            function getFreeRect() {
-                return Qt.rect(Theme.horizSpace,
-                               Theme.vertSpace+/*searchDialog.height+*/Theme.vertSpace,
-                               map.width-2*Theme.horizSpace,
-                               map.height /* -searchDialog.y-searchDialog.height-3 *Theme.vertSpace */)
-            }
 
             onTap: {
 
@@ -200,10 +195,10 @@ Window {
             ColumnLayout {
                 id: info
 
-                x: Theme.horizSpace
-                y: parent.height-height-Theme.vertSpace
+                x: 4
+                y: parent.height-height-4
 
-                spacing: Theme.mapButtonSpace
+                spacing: 4
 
                 MapButton {
                     id: about
@@ -219,10 +214,10 @@ Window {
             ColumnLayout {
                 id: navigation
 
-                x: parent.width-width-Theme.horizSpace
-                y: parent.height-height-Theme.vertSpace
+                x: parent.width-width-4
+                y: parent.height-height-4
 
-                spacing: Theme.mapButtonSpace
+                spacing: 4
 
                 MapButton {
                     id: zoomIn
