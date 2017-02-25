@@ -67,6 +67,10 @@
         <source>French: Pierre-Henri Horrein</source>
         <translation>Francés:  Pierre-Henri Horrein </translation>
     </message>
+    <message>
+        <source>Privacy notes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -126,6 +130,38 @@
     </message>
     <message>
         <source>Slyle flags</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DejaVu Sans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Droid Serif</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liberation Sans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Big</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Huge</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

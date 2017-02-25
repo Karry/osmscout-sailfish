@@ -63,6 +63,10 @@
         <source>French: Pierre-Henri Horrein</source>
         <translation>Franscouzština: Pierre-Henri Horrein</translation>
     </message>
+    <message>
+        <source>Privacy notes</source>
+        <translation>Poznámky k soukromí</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -123,6 +127,38 @@
     <message>
         <source>Slyle flags</source>
         <translation>Volby stylu</translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation>Font</translation>
+    </message>
+    <message>
+        <source>DejaVu Sans</source>
+        <translation>DejaVu Sans</translation>
+    </message>
+    <message>
+        <source>Droid Serif</source>
+        <translation>Droid Serif</translation>
+    </message>
+    <message>
+        <source>Liberation Sans</source>
+        <translation>Liberation Sans</translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation>Velikonst fontu</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>normální</translation>
+    </message>
+    <message>
+        <source>Big</source>
+        <translation>velká</translation>
+    </message>
+    <message>
+        <source>Huge</source>
+        <translation>obrovská</translation>
     </message>
 </context>
 <context>
