@@ -122,3 +122,5 @@
   -- support new database format (increased hard limit for area size)
   -- add another layer of data cache (lower memory footprint and faster loading)
   -- fixed crashes on 32 bit systems caused by memory exhaustion by mmap-ed files
+
+* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.20-1
