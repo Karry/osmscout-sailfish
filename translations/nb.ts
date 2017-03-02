@@ -125,7 +125,7 @@
         <translation>Sjø kan overlappe online-ruter!</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation>Stilflagg</translation>
     </message>
     <message>
@@ -284,15 +284,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>grenser</translation>
+        <translation type="unfinished">grenser</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation>standard</translation>
+        <translation type="unfinished">standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>vintersport</translation>
+        <translation type="unfinished">vintersport</translation>
     </message>
 </context>
 <context>
@@ -328,6 +328,21 @@
     <message>
         <source>minorBuilding</source>
         <translation>mindre bygning</translation>
+    </message>
+</context>
+<context>
+    <name>stylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="vanished">grenser</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="vanished">standard</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="vanished">vintersport</translation>
     </message>
 </context>
 </TS>

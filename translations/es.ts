@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -129,7 +129,7 @@
         <translation>El mar puede superponer tiles con conexión</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation>Estilo de banderas</translation>
     </message>
     <message>
@@ -332,6 +332,21 @@
     <message>
         <source>minorBuilding</source>
         <translation>edificio menor</translation>
+    </message>
+</context>
+<context>
+    <name>stylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="vanished">límites</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="vanished">estándar</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="vanished">deportes-invierno</translation>
     </message>
 </context>
 </TS>

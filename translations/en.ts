@@ -125,7 +125,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -284,15 +284,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>Boundaries (for debugging)</translation>
+        <translation type="unfinished">Boundaries (for debugging)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation>Standard</translation>
+        <translation type="unfinished">Standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>Winter sports</translation>
+        <translation type="unfinished">Winter sports</translation>
     </message>
 </context>
 <context>
@@ -328,6 +328,21 @@
     <message>
         <source>minorBuilding</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>stylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="vanished">Boundaries (for debugging)</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="vanished">Standard</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="vanished">Winter sports</translation>
     </message>
 </context>
 </TS>

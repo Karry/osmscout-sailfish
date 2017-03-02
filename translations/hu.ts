@@ -125,7 +125,7 @@
         <translation>A vízfelületek el fogják takarni az online térképrészleteket!</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

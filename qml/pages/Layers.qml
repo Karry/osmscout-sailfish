@@ -169,7 +169,7 @@ Page {
                         menu: ContextMenu {
                             Repeater {
                                 model: mapStyle
-                                MenuItem { text: qsTranslate("slylesheet",name) }
+                                MenuItem { text: qsTranslate("stylesheet",name) }
                             }
                         }
                         MapStyleModel{
@@ -278,7 +278,7 @@ Page {
                         }
                     }
 
-                    SectionHeader{ text: qsTr("Slyle flags") }
+                    SectionHeader{ text: qsTr("Style flags") }
 
                     ListView {
                         id: flagList

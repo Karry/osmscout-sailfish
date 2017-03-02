@@ -125,7 +125,7 @@
         <translation>Moře může překrýt online mapu!</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation>Volby stylu</translation>
     </message>
     <message>
@@ -357,6 +357,21 @@
     <message>
         <source>minorBuilding</source>
         <translation>Minoritní budovy</translation>
+    </message>
+</context>
+<context>
+    <name>stylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="vanished">Administrativní hranice (ladění)</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="vanished">Standardní</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="vanished">Zimní sporty</translation>
     </message>
 </context>
 </TS>

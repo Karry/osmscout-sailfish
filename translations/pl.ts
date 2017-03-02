@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout jest rozwijany jako otwarte oprogramowanie przez wolontariuszy w ich wolnym czasie. Możesz pomóc rozwijać tą aplikację przez raportowanie błędów, tłumaczenie oraz pisanie nowych funkcji</translation>
+        <translation>OSM Scout jest rozwijany jako otwarte oprogramowanie przez wolontariuszy w ich wolnym czasie. Możesz pomóc rozwijać tą aplikację przez raportowanie błędów, tłumaczenie oraz pisanie nowych funkcji.</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -125,7 +125,7 @@
         <translation>Morze może przkryć mapy online!</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -350,6 +350,21 @@
     <message>
         <source>minorBuilding</source>
         <translation>mały budynek</translation>
+    </message>
+</context>
+<context>
+    <name>stylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="vanished">granice</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="vanished">standardowy</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="vanished">sporty zimowe</translation>
     </message>
 </context>
 </TS>

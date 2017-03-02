@@ -125,7 +125,7 @@
         <translation>L&apos;eau peut déborder sur les tuiles en ligne !</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

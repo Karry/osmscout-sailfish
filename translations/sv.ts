@@ -125,7 +125,7 @@
         <translation>Sjö kan överlappa online-rutor!</translation>
     </message>
     <message>
-        <source>Slyle flags</source>
+        <source>Style flags</source>
         <translation>Stilflaggor</translation>
     </message>
     <message>
@@ -328,6 +328,21 @@
     <message>
         <source>minorBuilding</source>
         <translation>mindre byggnad</translation>
+    </message>
+</context>
+<context>
+    <name>stylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="vanished">gränser</translation>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="vanished">standard</translation>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="vanished">vintersport</translation>
     </message>
 </context>
 </TS>
