@@ -130,39 +130,39 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Czcionki</translation>
     </message>
     <message>
         <source>DejaVu Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>DejaVu Sans</translation>
     </message>
     <message>
         <source>Droid Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>Droid Serif</translation>
     </message>
     <message>
         <source>Liberation Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberation Sans</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmiar czcionki</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normalny</translation>
     </message>
     <message>
         <source>Big</source>
-        <translation type="unfinished"></translation>
+        <translation>Duży</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Wielki</translation>
     </message>
     <message>
         <source>Bigger</source>
-        <translation type="unfinished"></translation>
+        <translation>Większy</translation>
     </message>
 </context>
 <context>
@@ -306,50 +306,50 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"></translation>
+        <translation>granice</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"></translation>
+        <translation>standardowy</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"></translation>
+        <translation>sporty zimowe</translation>
     </message>
 </context>
 <context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation type="unfinished"></translation>
+        <translation>światło dzienne</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation>arteria wodna</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>las</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation>natura</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation type="unfinished"></translation>
+        <translation>pociąg</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation>wolny czas</translation>
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>budynek</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>mały budynek</translation>
     </message>
 </context>
 </TS>
