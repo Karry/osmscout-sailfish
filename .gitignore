@@ -63,6 +63,7 @@
 /build-SailfishOS-i486
 /build-SailfishOS-armv7hl
 /build-qtcreator
+/build-qtcreator-prod/
 /rpmbuilddir
 /rpmbuilddir-arm
 /rpmbuilddir-i386
@@ -73,3 +74,10 @@
 /debuglinks.list
 /debugsources.list
 /documentation.list
+
+# Qt Creator settings
+CMakeLists.txt.user
+# KDE directory specific setting
+.directory
+# adhoc directory for executing without install
+/share
