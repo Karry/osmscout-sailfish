@@ -175,7 +175,16 @@ install(TARGETS marisa
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib)
 
+# skip marisa autodetection and setup these properties explicitly
+
+# This one is used by `create_private_config` function (features.cmake)
+# for generating private Config.h from template Config.h.cmake
+set(OSMSCOUT_HAVE_LIB_MARISA TRUE)
+
+# This one is used by other CMakeLists.txt files for add Marisa-specific classes
 set(MARISA_FOUND TRUE)
+
+# used by linker
 set(MARISA_LIBRARIES marisa)
 
 # ==================================================================================================
