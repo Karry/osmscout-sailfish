@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -122,11 +122,11 @@
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>renderizar océano</translation>
+        <translation>Renderizando mar</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation>El mar puede superponer tiles con conexión</translation>
+        <translation>El mar puede superponer tiles con conexión!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -166,7 +166,7 @@
     </message>
     <message>
         <source>Bigger</source>
-        <translation>Inmenso</translation>
+        <translation>Grandísimo</translation>
     </message>
 </context>
 <context>
