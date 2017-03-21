@@ -26,6 +26,14 @@ Item{
           QT_TRANSLATE_NOOP("styleflag", "minorBuilding"),
 
           QT_TRANSLATE_NOOP("message", "Directory already exists"),
-          QT_TRANSLATE_NOOP("message", "Can't create directory")
+          QT_TRANSLATE_NOOP("message", "Can't create directory"),
+
+          QT_TRANSLATE_NOOP("databaseType", "node"),
+          QT_TRANSLATE_NOOP("databaseType", "way"),
+          QT_TRANSLATE_NOOP("databaseType", "area"),
+
+          // names of major database types
+          QT_TRANSLATE_NOOP("objectType", "building")
+
         ]
 }

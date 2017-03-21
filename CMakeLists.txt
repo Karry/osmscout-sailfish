@@ -267,6 +267,7 @@ set(SOURCE_FILES
     qml/pages/PlaceDetail.qml
     qml/pages/Map.qml
     qml/pages/Layers.qml
+    qml/pages/MapObjects.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml

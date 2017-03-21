@@ -126,3 +126,4 @@
 * 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.20-1
 - update translations (Norwegian, Spanish, Polish)
 - fix POI search by its name (enable Marisa library in build, it was broken)
+- added simple "map objects" page, that may help to response to the queston: "What the hell is that brown area?"

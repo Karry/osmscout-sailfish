@@ -42,6 +42,7 @@
 #include <osmscout/MapDownloadsModel.h>
 #include <osmscout/MapStyleModel.h>
 #include <osmscout/StyleFlagsModel.h>
+#include <osmscout/MapObjectInfoModel.h>
 
 #include <osmscout/util/Logger.h>
 #include <osmscout/private/Config.h>
@@ -96,6 +97,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<AvailableMapsModel>("harbour.osmscout.map", 1, 0, "AvailableMapsModel");
   qmlRegisterType<MapDownloadsModel>("harbour.osmscout.map", 1, 0, "MapDownloadsModel");
   qmlRegisterType<StyleFlagsModel>("harbour.osmscout.map", 1, 0, "StyleFlagsModel");
+  qmlRegisterType<MapObjectInfoModel>("harbour.osmscout.map", 1, 0, "MapObjectInfoModel");
 
   osmscout::log.Debug(true);
 

@@ -105,11 +105,12 @@ Page {
     }
 
     Drawer {
+        id: drawer
         anchors.fill: parent
 
         dock: placeDetailPage.isPortrait ? Dock.Top : Dock.Left
         open: true
-
+        backgroundSize: placeDetailPage.isPortrait ? drawer.height * 0.6 : drawer.width * 0.6
 
         background:  Rectangle{
 
@@ -391,6 +392,36 @@ Page {
                     height: 2*Theme.paddingLarge
                 }
             }
+
+            Rectangle{
+                id : placeTools
+                color: "transparent"
+                width: parent.width
+                height: objectsBtn.height
+                anchors{
+                    bottom: parent.bottom
+                }
+
+                IconButton{
+                    id: objectsBtn
+                    anchors{
+                        right: parent.right
+                    }
+
+                    icon.source: "image://theme/icon-m-question"
+                    onClicked: {
+
+                        pageStack.push(Qt.resolvedUrl("MapObjects.qml"),
+                                       {
+                                           view: map.view,
+                                           screenPosition: map.screenPosition(placeLat, placeLon),
+                                           mapWidth: map.width,
+                                           mapHeight: map.height
+                                       })
+                    }
+                }
+            }
+
             BusyIndicator {
                 id: busyIndicator
                 running: !locationInfoModel.ready

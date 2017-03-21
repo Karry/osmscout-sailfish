@@ -45,6 +45,7 @@ Page {
         anchors.fill: parent
 
         dock: layersPage.isPortrait ? Dock.Top : Dock.Left
+        backgroundSize: layersPage.isPortrait ? drawer.height * 0.6 : drawer.width * 0.6
         open: true
 
         background: Rectangle{
