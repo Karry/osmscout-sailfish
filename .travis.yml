@@ -1,3 +1,7 @@
+addons:
+  apt:
+    packages:
+    - cmake
 language: cpp
 install: ./scripts/download-dependencies.sh
 before_script: cmake .
