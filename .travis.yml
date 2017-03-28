@@ -16,7 +16,7 @@ install:
  - qmake PREFIX=/usr .
  - make
  - sudo make install
- - sudo ldconfig
+ - cd ../..
 
 before_script: cmake .
 script: make
