@@ -55,7 +55,6 @@ find_package( Qt5 ${QT_MIN_VERSION}
               Svg
               Qml
               Quick
-              Positioning
 )
 find_package(Qt5LinguistTools)
 find_package(OpenMP REQUIRED)
