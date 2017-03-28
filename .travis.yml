@@ -14,6 +14,7 @@ install:
  - qmake ..
  - make
  - sudo make install
+ - sudo ldconfig
 
  - git clone https://github.com/sailfish-sdk/libsailfishapp.git dependencies/libsailfishapp
  - cd dependencies/libsailfishapp
@@ -22,5 +23,7 @@ install:
  - qmake ..
  - make
  - sudo make install
+ - sudo ldconfig
+
 before_script: cmake .
 script: make
