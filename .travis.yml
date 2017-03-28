@@ -1,10 +1,9 @@
 os: linux
 dist: yakkety
-addons:
-  apt:
-    packages:
-    - cmake
 language: cpp
+
+before_install:
+ - sudo apt-get install -y cmake
 install: ./scripts/download-dependencies.sh
 before_script: cmake .
 script: make
