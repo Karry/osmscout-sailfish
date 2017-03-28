@@ -3,14 +3,14 @@ dist: yakkety
 language: cpp
 
 before_install:
- - sudo apt-get install -y cmake qtbase5-dev qtpositioning5-dev
+ - sudo apt-get install -y cmake qt5-qmake qtbase5-dev qtpositioning5-dev
 install: 
  - ./scripts/download-dependencies.sh
  - git clone https://github.com/sailfish-sdk/libsailfishapp.git dependencies/libsailfishapp
  - cd dependencies/libsailfishapp
  - mkdir build
  - cd build
- - qmake-qt5 ..
+ - qmake ..
  - make
  - sudo make install
 before_script: cmake .
