@@ -1,3 +1,5 @@
+os: linux
+dist: yakkety
 addons:
   apt:
     packages:
