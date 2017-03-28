@@ -3,9 +3,18 @@ dist: yakkety
 language: cpp
 
 before_install:
- - sudo apt-get install -y cmake qt5-qmake qtbase5-dev qtpositioning5-dev
+ - sudo apt-get install -y  git make libtool pkg-config cmake qt5-qmake qtbase5-dev qtpositioning5-dev libxml2-dev libprotobuf-dev protobuf-compiler libagg-dev libfreetype6-dev libcairo2-dev libpangocairo-1.0-0 libpango1.0-dev qt5-default qtdeclarative5-dev libqt5svg5-dev qtlocation5-dev freeglut3 freeglut3-dev
 install: 
  - ./scripts/download-dependencies.sh
+
+ - git clone https://git.merproject.org/mer-core/mlite.git dependencies/mlite
+ - cd dependencies/mlite
+ - mkdir build
+ - cd build
+ - qmake ..
+ - make
+ - sudo make install
+
  - git clone https://github.com/sailfish-sdk/libsailfishapp.git dependencies/libsailfishapp
  - cd dependencies/libsailfishapp
  - mkdir build
