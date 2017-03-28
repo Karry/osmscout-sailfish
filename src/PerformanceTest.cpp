@@ -35,7 +35,7 @@
 //#include <QApplication>
 //#include <QDesktopWidget>
 #include <QGuiApplication>
-#include <sailfishapp.h>
+#include <sailfishapp/sailfishapp.h>
 
 #include <QPixmap>
 #include <QScreen>

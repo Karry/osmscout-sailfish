@@ -30,7 +30,7 @@
 #include <QtQuick>
 #endif
 
-#include <sailfishapp.h>
+#include <sailfishapp/sailfishapp.h>
 
 // Custom QML objects
 #include <osmscout/MapWidget.h>
