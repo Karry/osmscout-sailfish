@@ -1,5 +1,6 @@
 # OSM Scout for Sailfish OS
 
+[![Last build by Travis CI](https://travis-ci.org/Karry/osmscout-sailfish.svg?branch=master)](https://travis-ci.org/Karry/osmscout-sailfish)
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=rowzv7&url=https%3A%2F%2Fgithub.com%2FKarry%2Fosmscout-sailfish)
 
 
