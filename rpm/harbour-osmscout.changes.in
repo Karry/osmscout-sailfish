@@ -123,7 +123,10 @@
   -- add another layer of data cache (lower memory footprint and faster loading)
   -- fixed crashes on 32 bit systems caused by memory exhaustion by mmap-ed files
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.20-1
+* 2017-04-09 Lukáš Karas <lukas.karas@centrum.cz> 0.20-1
 - update translations (Norwegian, Spanish, Polish)
 - fix POI search by its name (enable Marisa library in build, it was broken)
 - added simple "map objects" page, that may help to response to the queston: "What the hell is that brown area?"
+- update core library:
+  -- explicit map download timeouts
+  -- support for more fancy area borders
