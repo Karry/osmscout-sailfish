@@ -132,4 +132,5 @@
   -- support for more fancy area borders
 
 * 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.21-1
+- initial support for routing
 
