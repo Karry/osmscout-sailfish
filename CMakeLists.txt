@@ -257,6 +257,7 @@ set(SOURCE_FILES
     qml/custom/AvailableMapsView.qml
     qml/custom/MapComponent.qml
     qml/custom/ScaleIndicator.qml
+    qml/custom/LocationSelector.qml
     qml/pages/Cover.qml
     qml/pages/Search.qml
     qml/pages/MapList.qml
@@ -267,6 +268,8 @@ set(SOURCE_FILES
     qml/pages/Map.qml
     qml/pages/Layers.qml
     qml/pages/MapObjects.qml
+    qml/pages/Routing.qml
+    qml/pages/RouteDescription.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml
