@@ -12,9 +12,9 @@ Item{
           QT_TRANSLATE_NOOP("resource", "Hike & Bike Map"),
           QT_TRANSLATE_NOOP("resource", "OSM Mapnik"),
 
-          QT_TRANSLATE_NOOP("slylesheet", "boundaries"),
-          QT_TRANSLATE_NOOP("slylesheet", "standard"),
-          QT_TRANSLATE_NOOP("slylesheet", "winter-sports"),
+          QT_TRANSLATE_NOOP("stylesheet", "boundaries"),
+          QT_TRANSLATE_NOOP("stylesheet", "standard"),
+          QT_TRANSLATE_NOOP("stylesheet", "winter-sports"),
 
           QT_TRANSLATE_NOOP("styleflag", "daylight"),
           QT_TRANSLATE_NOOP("styleflag", "waterway"),

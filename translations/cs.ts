@@ -166,6 +166,21 @@
     </message>
 </context>
 <context>
+    <name>LocationSelector</name>
+    <message>
+        <source>Select location...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Hledat</translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -174,14 +189,6 @@
     <message>
         <source>Where am I?</source>
         <translation>Kde jsem?</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation type="vanished">Nastavení</translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation type="vanished">Vrstvy</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -198,6 +205,10 @@
     <message>
         <source>Map downloads</source>
         <translation>Stahování map</translation>
+    </message>
+    <message>
+        <source>Routing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -221,13 +232,6 @@
     <message>
         <source>Data Version</source>
         <translation>Verze dat</translation>
-    </message>
-</context>
-<context>
-    <name>OSMCopyright</name>
-    <message>
-        <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© přispěvatelé OpenStreetMap</translation>
     </message>
 </context>
 <context>
@@ -270,17 +274,45 @@
     </message>
 </context>
 <context>
-    <name>Search</name>
+    <name>Routing</name>
     <message>
-        <source>Search places...</source>
-        <translation type="vanished">Hledat místa...</translation>
+        <source>Search route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="obsolete">Hledat</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>l10n</name>
+    <name>databaseType</name>
     <message>
-        <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© přispěvatelé OpenStreetMap</translation>
+        <source>node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -292,6 +324,13 @@
     <message>
         <source>Can&apos;t create directory</source>
         <translation>Nemohu vytvořit složku</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation type="unfinished">Budovy</translation>
     </message>
 </context>
 <context>
@@ -307,21 +346,6 @@
     <message>
         <source>OSM Mapnik</source>
         <translation>OSM Mapnik</translation>
-    </message>
-</context>
-<context>
-    <name>slylesheet</name>
-    <message>
-        <source>boundaries</source>
-        <translation>Administrativní hranice (ladění)</translation>
-    </message>
-    <message>
-        <source>standard</source>
-        <translation>Standardní</translation>
-    </message>
-    <message>
-        <source>winter-sports</source>
-        <translation>Zimní sporty</translation>
     </message>
 </context>
 <context>
@@ -363,15 +387,15 @@
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">Administrativní hranice (ladění)</translation>
+        <translation>Administrativní hranice (ladění)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">Standardní</translation>
+        <translation>Standardní</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">Zimní sporty</translation>
+        <translation>Zimní sporty</translation>
     </message>
 </context>
 </TS>

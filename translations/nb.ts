@@ -166,6 +166,21 @@
     </message>
 </context>
 <context>
+    <name>LocationSelector</name>
+    <message>
+        <source>Select location...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Søk</translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -190,6 +205,10 @@
     <message>
         <source>Map settings</source>
         <translation>Kartinstillinger</translation>
+    </message>
+    <message>
+        <source>Routing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -255,6 +274,48 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="obsolete">Søk</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
@@ -263,6 +324,13 @@
     <message>
         <source>Can&apos;t create directory</source>
         <translation>Kan ikke opprette katalog</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation type="unfinished">bygning</translation>
     </message>
 </context>
 <context>
@@ -284,15 +352,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished">grenser</translation>
+        <translation type="obsolete">grenser</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished">standard</translation>
+        <translation type="obsolete">standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished">vintersport</translation>
+        <translation type="obsolete">vintersport</translation>
     </message>
 </context>
 <context>
@@ -334,15 +402,15 @@
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">grenser</translation>
+        <translation>grenser</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">standard</translation>
+        <translation>standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">vintersport</translation>
+        <translation>vintersport</translation>
     </message>
 </context>
 </TS>

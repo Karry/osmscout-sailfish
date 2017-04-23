@@ -166,6 +166,21 @@
     </message>
 </context>
 <context>
+    <name>LocationSelector</name>
+    <message>
+        <source>Select location...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -173,10 +188,6 @@
     </message>
     <message>
         <source>Where am I?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -189,6 +200,14 @@
     </message>
     <message>
         <source>Map settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Routing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -255,6 +274,44 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
@@ -262,6 +319,13 @@
     </message>
     <message>
         <source>Can&apos;t create directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -284,15 +348,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished">Boundaries (for debugging)</translation>
+        <translation type="obsolete">Boundaries (for debugging)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished">Standard</translation>
+        <translation type="obsolete">Standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished">Winter sports</translation>
+        <translation type="obsolete">Winter sports</translation>
     </message>
 </context>
 <context>
@@ -334,15 +398,15 @@
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">Boundaries (for debugging)</translation>
+        <translation>Boundaries (for debugging)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">Standard</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">Winter sports</translation>
+        <translation>Winter sports</translation>
     </message>
 </context>
 </TS>

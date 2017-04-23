@@ -166,6 +166,21 @@
     </message>
 </context>
 <context>
+    <name>LocationSelector</name>
+    <message>
+        <source>Select location...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Wyszukaj</translation>
+    </message>
+</context>
+<context>
     <name>Map</name>
     <message>
         <source>Search</source>
@@ -198,6 +213,10 @@
     <message>
         <source>Map downloads</source>
         <translation>Mapy do ściągnięcia</translation>
+    </message>
+    <message>
+        <source>Routing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -270,10 +289,52 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="obsolete">Wyszukaj</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Search</name>
     <message>
         <source>Search places...</source>
         <translation type="vanished">Wyszukaj miejsca...</translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -285,6 +346,13 @@
     <message>
         <source>Can&apos;t create directory</source>
         <translation>Nie można utworzyć katalogu</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation type="unfinished">budynek</translation>
     </message>
 </context>
 <context>
@@ -306,15 +374,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>granice</translation>
+        <translation type="vanished">granice</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation>standardowy</translation>
+        <translation type="vanished">standardowy</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>sporty zimowe</translation>
+        <translation type="vanished">sporty zimowe</translation>
     </message>
 </context>
 <context>
@@ -356,15 +424,15 @@
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">granice</translation>
+        <translation>granice</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">standardowy</translation>
+        <translation>standardowy</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">sporty zimowe</translation>
+        <translation>sporty zimowe</translation>
     </message>
 </context>
 </TS>
