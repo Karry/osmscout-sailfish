@@ -258,6 +258,7 @@ set(SOURCE_FILES
     qml/custom/MapComponent.qml
     qml/custom/ScaleIndicator.qml
     qml/custom/LocationSelector.qml
+    qml/custom/Utils.js
     qml/pages/Cover.qml
     qml/pages/Search.qml
     qml/pages/MapList.qml

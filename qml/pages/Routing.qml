@@ -25,13 +25,19 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 Page {
     id: routingPage
 
+    property double toLat: -1000
+    property double toLon: -1000
 
     RoutingListModel{
         id: route
+    }
+    AppSettings{
+        id:appSettings
     }
 
     function computeRoute() {
@@ -68,10 +74,17 @@ Page {
                 id: toSelector
                 width: parent.width
                 label: qsTr("To")
+
+                Component.onCompleted: {
+                    if (toLat!=-1000 && toLon!=-1000){
+                        toSelector.location=route.locationEntryFromPosition(toLat, toLon);
+                        toSelector.value=Utils.formatCoord(toLat, toLon, appSettings.gpsFormat);
+                    }
+                }
             }
             ComboBox {
                 id: vehicleComboBox
-                label: qsTr("With")
+                label: qsTr("By")
                 menu: ContextMenu {
                     MenuItem { text: qsTr("Car") }
                     //MenuItem { text: qsTr("Foot")}
