@@ -30,9 +30,9 @@ ComboBox {
 
         active: true
 
-        property bool valid: true; // TODO: false on device
-        property double lat: 50.07;//0.0;
-        property double lon: 14.43;//0.0;
+        property bool valid: false;
+        property double lat: 0.0;
+        property double lon: 0.0;
 
         onPositionChanged: {
             positionSource.valid = position.latitudeValid && position.longitudeValid;
