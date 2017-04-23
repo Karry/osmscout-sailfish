@@ -99,17 +99,18 @@ Page {
         open: false
 
         background: SilicaListView {
-            interactive: false
+            interactive: true
             anchors.fill: parent
             height: childrenRect.height
             id: menu
             model: ListModel {
                 ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
                 ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
+                ListElement { itemtext: QT_TR_NOOP("Routing");      itemicon: "image://theme/icon-m-shortcut";       action: "routing";  }
                 ListElement { itemtext: QT_TR_NOOP("Map downloads");itemicon: "image://theme/icon-m-cloud-download"; action: "downloads";}
                 ListElement { itemtext: QT_TR_NOOP("Map settings"); itemicon: "image://theme/icon-m-levels";         action: "layers";   }
-                ListElement { itemtext: QT_TR_NOOP("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
                 ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
+                ListElement { itemtext: QT_TR_NOOP("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
             }
 
             delegate: ListItem{
@@ -117,7 +118,17 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
-                            action == "about"  || action == "layers" || action == "search" || action == "downloads");
+                            action == "about" || action == "layers" || action == "search" || 
+                            action == "downloads" || action == "routing");
+                }
+
+                signal selectLocation(LocationEntry location)
+
+                onSelectLocation: {
+                    console.log("selectLocation: " + location);
+                    map.showLocation(location);
+                    drawer.open = false;
+                    pageStack.pop();
                 }
 
                 function onAction(action){
@@ -137,8 +148,10 @@ Page {
                     }else if (action == "about"){
                         pageStack.push(Qt.resolvedUrl("About.qml"))
                     }else if (action == "search"){
-                        pageStack.push(Qt.resolvedUrl("Search.qml"),
-                                       {mainMap: map, mainPageDrawer: drawer})
+                        var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"));
+                        searchPage.selectLocation.connect(selectLocation);
+                    }else if (action == "routing"){
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"))
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
                     }else if (action == "downloads"){

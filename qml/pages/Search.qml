@@ -32,15 +32,10 @@ Page {
     id: searchPage
     property string searchString
     property bool keepSearchFieldFocus
+    signal selectLocation(LocationEntry location)
 
-    property Map mainMap;
-    property Drawer mainPageDrawer;
-
-    function selectLocation(selectedLocation) {
-        console.log("selectLocation: " + selectedLocation);
-        mainMap.showLocation(selectedLocation);
-        mainPageDrawer.open = false;
-        pageStack.pop();
+    onSelectLocation: {
+        console.log("selectLocation: " + location);
     }
 
     onSearchStringChanged: {
