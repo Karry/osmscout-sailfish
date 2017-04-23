@@ -148,7 +148,7 @@ int main(int argc, char* argv[])
           SailfishApp::pathTo("map-icons").toLocalFile(),
           settings,
           cache + QDir::separator() + "OsmTileCache",
-          /* onlineTileCacheSize  */ desktop ?  40 : 20,
+          /* onlineTileCacheSize  */ desktop ?  40 : 25,
           /* offlineTileCacheSize */ desktop ? 200 : 50
           )) { 
     
