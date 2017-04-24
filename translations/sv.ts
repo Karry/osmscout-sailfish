@@ -169,11 +169,11 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj plats...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuell position</translation>
     </message>
     <message>
         <source>Search</source>
@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Vägval</translation>
     </message>
 </context>
 <context>
@@ -277,11 +277,11 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök rutt</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Från</translation>
     </message>
     <message>
         <source>Search</source>
@@ -289,30 +289,30 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Till</translation>
     </message>
     <message>
         <source>With</source>
-        <translation type="unfinished"></translation>
+        <translation>Med</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Bil</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>nod</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>väg</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>område</translation>
     </message>
 </context>
 <context>
@@ -414,3 +414,4 @@
     </message>
 </context>
 </TS>
+
