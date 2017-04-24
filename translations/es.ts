@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -173,15 +173,15 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar ubicación...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Actual ubicación</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Enrutando</translation>
     </message>
 </context>
 <context>
@@ -281,11 +281,11 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar ruta</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Desde</translation>
     </message>
     <message>
         <source>Search</source>
@@ -293,30 +293,30 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Para</translation>
     </message>
     <message>
         <source>With</source>
-        <translation type="unfinished"></translation>
+        <translation>Con</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Carro</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>nodo</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>camino</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>área</translation>
     </message>
 </context>
 <context>
@@ -334,7 +334,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">edificio</translation>
+        <translation>edificio</translation>
     </message>
 </context>
 <context>
@@ -356,15 +356,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">límites</translation>
+        <translation>límites</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">estándar</translation>
+        <translation>estandar</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">deportes-invierno</translation>
+        <translation>deportes-invierno</translation>
     </message>
 </context>
 <context>
