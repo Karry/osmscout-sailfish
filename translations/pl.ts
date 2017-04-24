@@ -253,19 +253,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>zachód</translation>
+        <translation type="vanished">zachód</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>wschód</translation>
+        <translation type="vanished">wschód</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>południe</translation>
+        <translation type="vanished">południe</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>północ</translation>
+        <translation type="vanished">północ</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -281,11 +281,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metry</translation>
+        <translation type="vanished">metry</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
@@ -307,11 +307,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With</source>
+        <source>Car</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Car</source>
+        <source>By</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -320,6 +320,33 @@
     <message>
         <source>Search places...</source>
         <translation type="vanished">Wyszukaj miejsca...</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished">metry</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished">km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation type="unfinished">zachód</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation type="unfinished">wschód</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation type="unfinished">południe</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation type="unfinished">północ</translation>
     </message>
 </context>
 <context>

@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Suchen</translation>
+        <translation>Suchen</translation>
     </message>
 </context>
 <context>
@@ -253,19 +253,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>westlich</translation>
+        <translation type="vanished">westlich</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>östlich</translation>
+        <translation type="vanished">östlich</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>südlich</translation>
+        <translation type="vanished">südlich</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>nördlich</translation>
+        <translation type="vanished">nördlich</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -281,11 +281,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>Meter</translation>
+        <translation type="vanished">Meter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
@@ -307,11 +307,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With</source>
+        <source>Car</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Car</source>
+        <source>By</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -320,6 +320,33 @@
     <message>
         <source>Search places...</source>
         <translation type="vanished">Plätze suchen...</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>Meter</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>westlich</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>östlich</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>südlich</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>nördlich</translation>
     </message>
 </context>
 <context>

@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation>Sök</translation>
     </message>
 </context>
 <context>
@@ -238,19 +238,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>väster</translation>
+        <translation type="vanished">väster</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>öster</translation>
+        <translation type="vanished">öster</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>söder</translation>
+        <translation type="vanished">söder</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>norr</translation>
+        <translation type="vanished">norr</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -266,11 +266,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>meter</translation>
+        <translation type="vanished">meter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
@@ -293,11 +293,42 @@
     </message>
     <message>
         <source>With</source>
-        <translation>Med</translation>
+        <translation type="vanished">Med</translation>
     </message>
     <message>
         <source>Car</source>
         <translation>Bil</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Med</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>meter</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>väster</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>öster</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>söder</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>norr</translation>
     </message>
 </context>
 <context>
@@ -330,7 +361,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">byggnad</translation>
+        <translation>byggnad</translation>
     </message>
 </context>
 <context>
@@ -414,4 +445,3 @@
     </message>
 </context>
 </TS>
-

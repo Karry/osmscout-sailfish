@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -242,19 +242,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>al oeste</translation>
+        <translation type="vanished">al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>al este</translation>
+        <translation type="vanished">al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>al sur</translation>
+        <translation type="vanished">al sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>al norte</translation>
+        <translation type="vanished">al norte</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -270,11 +270,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metros</translation>
+        <translation type="vanished">metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
@@ -297,11 +297,42 @@
     </message>
     <message>
         <source>With</source>
-        <translation>Con</translation>
+        <translation type="vanished">Con</translation>
     </message>
     <message>
         <source>Car</source>
         <translation>Carro</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Con</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>metros</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>al oeste</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>al este</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>al sur</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>al norte</translation>
     </message>
 </context>
 <context>
@@ -356,15 +387,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>límites</translation>
+        <translation type="vanished">límites</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation>estandar</translation>
+        <translation type="vanished">estandar</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>deportes-invierno</translation>
+        <translation type="vanished">deportes-invierno</translation>
     </message>
 </context>
 <context>
