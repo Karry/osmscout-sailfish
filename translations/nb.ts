@@ -169,15 +169,15 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Velg plassering</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjeldene plassering</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Søk</translation>
+        <translation>Søk</translation>
     </message>
 </context>
 <context>
@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruter</translation>
     </message>
 </context>
 <context>
@@ -277,11 +277,11 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Søk rute</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Fra</translation>
     </message>
     <message>
         <source>Search</source>
@@ -289,57 +289,57 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Til</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Bil</translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished"></translation>
+        <translation>Med</translation>
     </message>
 </context>
 <context>
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished">meter</translation>
+        <translation>meter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
     <message>
         <source>west</source>
-        <translation type="unfinished">vest</translation>
+        <translation>vest</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished">øst</translation>
+        <translation>øst</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished">sør</translation>
+        <translation>sør</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished">nord</translation>
+        <translation>nord</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>node</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>vei</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>område</translation>
     </message>
 </context>
 <context>
@@ -357,7 +357,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">bygning</translation>
+        <translation>bygning</translation>
     </message>
 </context>
 <context>
