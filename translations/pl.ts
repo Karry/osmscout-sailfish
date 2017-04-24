@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>Privacy notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Prywatne notatki</translation>
     </message>
 </context>
 <context>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Style flags</source>
-        <translation type="unfinished"></translation>
+        <translation>Flagi stylu</translation>
     </message>
     <message>
         <source>Font</source>
@@ -169,15 +169,15 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz lokalizację...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecna lokalizacja</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Wyszukaj</translation>
+        <translation>Wyszukaj</translation>
     </message>
 </context>
 <context>
@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Wytyczanie trasy</translation>
     </message>
 </context>
 <context>
@@ -292,11 +292,11 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyszukaj trasę</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Z</translation>
     </message>
     <message>
         <source>Search</source>
@@ -304,15 +304,15 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Do</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Samochód</translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished"></translation>
+        <translation>Za pomocą</translation>
     </message>
 </context>
 <context>
@@ -326,42 +326,42 @@
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished">metry</translation>
+        <translation>metry</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
     <message>
         <source>west</source>
-        <translation type="unfinished">zachód</translation>
+        <translation>zachód</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished">wschód</translation>
+        <translation>wschód</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished">południe</translation>
+        <translation>południe</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished">północ</translation>
+        <translation>północ</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>węzeł</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>droga</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>obszar</translation>
     </message>
 </context>
 <context>
@@ -379,7 +379,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">budynek</translation>
+        <translation>budynek</translation>
     </message>
 </context>
 <context>
