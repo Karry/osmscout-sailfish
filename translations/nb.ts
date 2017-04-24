@@ -293,38 +293,38 @@
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Bil</translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished"></translation>
+        <translation>Med</translation>
     </message>
 </context>
 <context>
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished">meter</translation>
+        <translation>meter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
     <message>
         <source>west</source>
-        <translation type="unfinished">vest</translation>
+        <translation>vest</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished">øst</translation>
+        <translation>øst</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished">sør</translation>
+        <translation>sør</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished">nord</translation>
+        <translation>nord</translation>
     </message>
 </context>
 <context>
