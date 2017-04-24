@@ -2,7 +2,7 @@
 
 [![Last build by Travis CI](https://travis-ci.org/Karry/osmscout-sailfish.svg?branch=master)](https://travis-ci.org/Karry/osmscout-sailfish)
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=rowzv7&url=https%3A%2F%2Fgithub.com%2FKarry%2Fosmscout-sailfish)
-
+[Donate via PayPal.me](https://paypal.me/OSMScoutForSailfish)
 
 Goal of this project is to bring offline maps to Sailfish OS with native look and feel.
 OSM Scout for Sailfish OS is based on [OSM Scout](http://libosmscout.sourceforge.net/) 
