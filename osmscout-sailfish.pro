@@ -21,47 +21,59 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 # following CONFIG line
 CONFIG += sailfishapp_i18n
 
-
-TRANSLATIONS += translations/en.ts \
+# find translations -type f | sort | sed 's/$/ \\/'
+TRANSLATIONS += translations/cs.ts \
+                translations/de.ts \
+                translations/en.ts \
+                translations/es.ts \
+                translations/fr.ts \
                 translations/hu.ts \
-                translations/cs.ts \
-                translations/pl.ts
+                translations/nb.ts \
+                translations/pl.ts \
+                translations/sv.ts
 
 
 lupdate_only {
 SOURCES =   qml/*.qml \
             qml/custom/*.qml \
+            qml/custom/*.js \
             qml/pages/*.qml
 }
 
 # find qml -type f | sort | sed 's/$/ \\/'
 DISTFILES += \
-    qml/AboutDialog.qml \
-    qml/custom/AvailableMapsView.qml \
-    qml/custom/DialogActionButton.qml \
-    qml/custom/LineEdit.qml \
-    qml/custom/Link.qml \
-    qml/custom/LocationSearch.qml \
-    qml/custom/MapButton.qml \
-    qml/custom/MapComponent.qml \
-    qml/custom/MapDialog.qml \
-    qml/custom/MapRenderingIndicator.qml \
-    qml/custom/OSMCopyright.qml \
-    qml/custom/POIIcon.qml \
-    qml/custom/ScaleIndicator.qml \
-    qml/custom/ScrollIndicator.qml \
-    qml/desktop.qml \
-    qml/main.qml \
-    qml/pages/About.qml \
-    qml/pages/Cover.qml \
-    qml/pages/Downloads.qml \
-    qml/pages/Layers.qml \
-    qml/pages/MapDetail.qml \
-    qml/pages/MapList.qml \
-    qml/pages/Map.qml \
-    qml/pages/PlaceDetail.qml \
-    qml/pages/Search.qml \
-    qml/SearchDialog.qml
+            qml/AboutDialog.qml \
+            qml/custom/AvailableMapsView.qml \
+            qml/custom/DialogActionButton.qml \
+            qml/custom/LineEdit.qml \
+            qml/custom/Link.qml \
+            qml/custom/LocationSearch.qml \
+            qml/custom/LocationSelector.qml \
+            qml/custom/MapButton.qml \
+            qml/custom/MapComponent.qml \
+            qml/custom/MapDialog.qml \
+            qml/custom/MapRenderingIndicator.qml \
+            qml/custom/OSMCopyright.qml \
+            qml/custom/POIIcon.qml \
+            qml/custom/ScaleIndicator.qml \
+            qml/custom/ScrollIndicator.qml \
+            qml/custom/Utils.js \
+            qml/desktop.qml \
+            qml/l10n.qml \
+            qml/main.qml \
+            qml/pages/About.qml \
+            qml/pages/Cover.qml \
+            qml/pages/Downloads.qml \
+            qml/pages/Layers.qml \
+            qml/pages/MapDetail.qml \
+            qml/pages/MapList.qml \
+            qml/pages/MapObjects.qml \
+            qml/pages/Map.qml \
+            qml/pages/PlaceDetail.qml \
+            qml/pages/RouteDescription.qml \
+            qml/pages/Routing.qml \
+            qml/pages/Search.qml \
+            qml/SearchDialog.qml
 
 HEADERS += \
     src/MapStyleHelper.h
