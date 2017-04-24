@@ -237,22 +237,6 @@
 <context>
     <name>PlaceDetail</name>
     <message>
-        <source>west</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>You are here</source>
         <translation type="unfinished"></translation>
     </message>
@@ -262,14 +246,6 @@
     </message>
     <message>
         <source>%1 %2 from</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>km</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -288,11 +264,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With</source>
+        <source>Car</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Car</source>
+        <source>By</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>north</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

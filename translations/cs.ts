@@ -169,15 +169,15 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte místo...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Současná poloha</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Hledat</translation>
+        <translation>Hledat</translation>
     </message>
 </context>
 <context>
@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigace</translation>
     </message>
 </context>
 <context>
@@ -238,19 +238,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>západně</translation>
+        <translation type="vanished">západně</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>východně</translation>
+        <translation type="vanished">východně</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>jižně</translation>
+        <translation type="vanished">jižně</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>severně</translation>
+        <translation type="vanished">severně</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -266,22 +266,22 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metrů</translation>
+        <translation type="vanished">metrů</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat trasu</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Z</translation>
     </message>
     <message>
         <source>Search</source>
@@ -289,30 +289,57 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>With</source>
-        <translation type="unfinished"></translation>
+        <translation>Do</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Prostředek</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>metrů</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>západně</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>východně</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>jižně</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>severně</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>bod</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>cesta</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>plocha</translation>
     </message>
 </context>
 <context>
@@ -330,7 +357,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">Budovy</translation>
+        <translation>Budova</translation>
     </message>
 </context>
 <context>

@@ -253,19 +253,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>nyugatra</translation>
+        <translation type="vanished">nyugatra</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>keletre</translation>
+        <translation type="vanished">keletre</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>délre</translation>
+        <translation type="vanished">délre</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>északra</translation>
+        <translation type="vanished">északra</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -281,11 +281,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>méter</translation>
+        <translation type="vanished">méter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
@@ -307,11 +307,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With</source>
+        <source>Car</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Car</source>
+        <source>By</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -320,6 +320,33 @@
     <message>
         <source>Search places...</source>
         <translation type="vanished">Helyek keresése</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished">méter</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished">km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation type="unfinished">nyugatra</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation type="unfinished">keletre</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation type="unfinished">délre</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation type="unfinished">északra</translation>
     </message>
 </context>
 <context>

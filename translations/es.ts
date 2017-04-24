@@ -173,15 +173,15 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar ubicación...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Actual ubicación</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Enrutando</translation>
     </message>
 </context>
 <context>
@@ -242,19 +242,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>al oeste</translation>
+        <translation type="vanished">al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>al este</translation>
+        <translation type="vanished">al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>al sur</translation>
+        <translation type="vanished">al sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>al norte</translation>
+        <translation type="vanished">al norte</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -270,22 +270,22 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metros</translation>
+        <translation type="vanished">metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar ruta</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Desde</translation>
     </message>
     <message>
         <source>Search</source>
@@ -293,30 +293,61 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Para</translation>
     </message>
     <message>
         <source>With</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Con</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Carro</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Con</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>metros</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>al oeste</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>al este</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>al sur</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>al norte</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>nodo</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>camino</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>área</translation>
     </message>
 </context>
 <context>
@@ -334,7 +365,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">edificio</translation>
+        <translation>edificio</translation>
     </message>
 </context>
 <context>
@@ -360,7 +391,7 @@
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">estándar</translation>
+        <translation type="vanished">estandar</translation>
     </message>
     <message>
         <source>winter-sports</source>
