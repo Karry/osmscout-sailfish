@@ -131,6 +131,10 @@
   -- explicit map download timeouts
   -- support for more fancy area borders
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.21-1
+* 2017-05-10 Lukáš Karas <lukas.karas@centrum.cz> 0.21-1
+- first ANNIVERSARY release!
 - initial support for routing
-
+- update translations (Czech, Norwegian, Polish, Spanish, Swedish)
+- update core library:
+  -- support for localised database types and fearures (not used yet)
+  -- initial Qt refactoring (not visible in UI)
