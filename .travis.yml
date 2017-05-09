@@ -1,5 +1,5 @@
 os: linux
-dist: yakkety
+dist: trusty
 language: cpp
 
 before_install:
