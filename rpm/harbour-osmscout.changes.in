@@ -138,3 +138,5 @@
 - update core library:
   -- support for localised database types and features (not used yet)
   -- initial Qt refactoring (not visible in UI)
+
+* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.22-1
