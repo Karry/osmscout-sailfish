@@ -45,6 +45,7 @@
 #include <osmscout/MapObjectInfoModel.h>
 
 #include <osmscout/util/Logger.h>
+#include <osmscout/OSMScoutQt.h>
 #include <osmscout/private/Config.h>
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
@@ -56,8 +57,6 @@
 #include <osmscout/Settings.h>
 // Application settings
 #include "AppSettings.h"
-
-Q_DECLARE_METATYPE(osmscout::TileRef)
 
 int main(int argc, char* argv[])
 {
@@ -79,29 +78,17 @@ int main(int argc, char* argv[])
   qWarning() << "Usage of memory mapped files is NOT supported.";
 #endif
 
-  qRegisterMetaType<RenderMapRequest>();
-  qRegisterMetaType<DatabaseLoadedResponse>();
-  qRegisterMetaType<osmscout::TileRef>();
+  OSMScoutQt::RegisterQmlTypes("harbour.osmscout.map", 1, 0);
   qRegisterMetaType<MapView*>();
 
-  qmlRegisterType<MapWidget>("harbour.osmscout.map", 1, 0, "Map");
-  qmlRegisterType<LocationEntry>("harbour.osmscout.map", 1, 0, "LocationEntry");
-  qmlRegisterType<LocationListModel>("harbour.osmscout.map", 1, 0, "LocationListModel");
   qmlRegisterType<LocationInfoModel>("harbour.osmscout.map", 1, 0, "LocationInfoModel");
   qmlRegisterType<OnlineTileProviderModel>("harbour.osmscout.map", 1, 0, "OnlineTileProviderModel");
-  qmlRegisterType<RouteStep>("harbour.osmscout.map", 1, 0, "RouteStep");
-  qmlRegisterType<RoutingListModel>("harbour.osmscout.map", 1, 0, "RoutingListModel");
-  qmlRegisterType<QmlSettings>("harbour.osmscout.map", 1, 0, "Settings");
-  qmlRegisterType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings");
   qmlRegisterType<MapStyleModel>("harbour.osmscout.map", 1, 0, "MapStyleModel");
-  qmlRegisterType<AvailableMapsModel>("harbour.osmscout.map", 1, 0, "AvailableMapsModel");
-  qmlRegisterType<MapDownloadsModel>("harbour.osmscout.map", 1, 0, "MapDownloadsModel");
   qmlRegisterType<StyleFlagsModel>("harbour.osmscout.map", 1, 0, "StyleFlagsModel");
-  qmlRegisterType<MapObjectInfoModel>("harbour.osmscout.map", 1, 0, "MapObjectInfoModel");
+
+  qmlRegisterType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings");
 
   osmscout::log.Debug(true);
-
-  QThread thread;
 
   bool desktop = false;
   for (QString arg: app->arguments()){
@@ -131,47 +118,31 @@ int main(int argc, char* argv[])
     }
   }
 
-  SettingsRef settings=std::make_shared<Settings>();
-
-  // load online tile providers
-  settings->loadOnlineTileProviders(
-    SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile());
-  // load map providers
-  settings->loadMapProviders(
-    SailfishApp::pathTo("resources/map-providers.json").toLocalFile());
-  // configure path to styles
-  settings->SetStyleSheetDirectory(
-    SailfishApp::pathTo("map-styles").toLocalFile());
-  
-  if (!DBThread::InitializeTiledInstance(
-          databaseLookupDirectories, 
-          SailfishApp::pathTo("map-icons").toLocalFile(),
-          settings,
-          cache + QDir::separator() + "OsmTileCache",
-          /* onlineTileCacheSize  */ desktop ?  40 : 25,
-          /* offlineTileCacheSize */ desktop ? 200 : 50
-          )) { 
-    
-    std::cerr << "Cannot initialize DBThread" << std::endl;
-    return 1;
-  }
-
-  DBThread* dbThread=DBThread::GetInstance();
-  
-  dbThread->moveToThread(&thread);
-
-  dbThread->connect(&thread, SIGNAL(started()), SLOT(Initialize()));
-  dbThread->connect(&thread, SIGNAL(finished()), SLOT(Finalize()));
-
   // install translator
-  QTranslator translator;  
+  QTranslator translator;
   QLocale locale;
   if (translator.load(locale.name(), SailfishApp::pathTo("translations").toLocalFile())) {
     qDebug() << "Install translator for locale " << locale << "/" << locale.name();
-    app->installTranslator(&translator);  
+    app->installTranslator(&translator);
   }else{
-    qWarning() << "Can't load translator for locale" << locale << "/" << locale.name() << 
+    qWarning() << "Can't load translator for locale" << locale << "/" << locale.name() <<
             "(" << SailfishApp::pathTo("translations").toLocalFile() << ")";
+  }
+
+  bool initSuccess=OSMScoutQt::NewInstance()
+    .WithOnlineTileProviders(SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile())
+    .WithMapProviders(SailfishApp::pathTo("resources/map-providers.json").toLocalFile())
+    .WithMapLookupDirectories(databaseLookupDirectories)
+    .WithCacheLocation(cache + QDir::separator() + "OsmTileCache")
+    .WithIconDirectory(SailfishApp::pathTo("map-icons").toLocalFile())
+    .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
+    //.WithOnlineTileCacheSize(desktop ?  40 : 25)
+    //.WithOfflineTileCacheSize(desktop ? 200 : 50)
+    .Init(/*tiledInstance*/true);
+
+  if (!initSuccess) {
+    std::cerr << "Cannot initialize OSMScoutQt" << std::endl;
+    return 1;
   }
 
   view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
@@ -183,18 +154,13 @@ int main(int argc, char* argv[])
   }else{
     window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
   }
-
-  thread.start();
   
   result=app->exec();
   
   if (window!=NULL)
       window->deleteLater();
 
-  thread.quit();
-  thread.wait();
-
-  DBThread::FreeInstance();
+  OSMScoutQt::FreeInstance();
 
   return result;
 }
