@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial importu map offline</translation>
+        <translation>Instrukcja importu map offline</translation>
     </message>
     <message>
         <source>Translators</source>
