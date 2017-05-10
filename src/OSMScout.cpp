@@ -136,8 +136,7 @@ int main(int argc, char* argv[])
     .WithCacheLocation(cache + QDir::separator() + "OsmTileCache")
     .WithIconDirectory(SailfishApp::pathTo("map-icons").toLocalFile())
     .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
-    //.WithOnlineTileCacheSize(desktop ?  40 : 25)
-    //.WithOfflineTileCacheSize(desktop ? 200 : 50)
+    .WithTileCacheSizes(/* online */ desktop ?  40 : 25, /* offline */ desktop ? 200 : 50)
     .Init(/*tiledInstance*/true);
 
   if (!initSuccess) {
