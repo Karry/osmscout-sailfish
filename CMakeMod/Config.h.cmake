@@ -26,6 +26,20 @@
 #cmakedefine HAVE_FSEEKO 1
 #endif
 
+/* Define to 1 if _fseeki64 exists and is declared. */
+#ifndef HAVE__FSEEKI64
+#cmakedefine HAVE__FSEEKI64 1
+#endif
+
+/* Define to 1 if _ftelli64 exists and is declared. */
+#ifndef HAVE__FTELLI64
+#cmakedefine HAVE__FTELLI64 1
+#endif
+
+#cmakedefine _LARGEFILE_SOURCE
+#cmakedefine _LARGE_FILES
+#cmakedefine _FILE_OFFSET_BITS @_FILE_OFFSET_BITS@
+
 /* Define to 1 if the system has the type `int16_t'. */
 #ifndef HAVE_INT16_T
 #cmakedefine HAVE_INT16_T 1
@@ -121,11 +135,6 @@
 #cmakedefine HAVE_STDLIB_H 1
 #endif
 
-/* Define to 1 if the system has the type `std::wstring'. */
-#ifndef HAVE_STD__WSTRING
-#cmakedefine HAVE_STD__WSTRING 1
-#endif
-
 /* Define to 1 if you have the <strings.h> header file. */
 #ifndef HAVE_STRINGS_H
 #cmakedefine HAVE_STRINGS_H 1
@@ -174,6 +183,11 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #ifndef HAVE_UNISTD_H
 #cmakedefine HAVE_UNISTD_H 1
+#endif
+
+/* Define to 1 if you have the <codecvt> header file. */
+#ifndef HAVE_CODECVT
+#cmakedefine HAVE_CODECVT 1
 #endif
 
 /* Define to 1 if the system has the type `unsigned long long'. */
@@ -257,6 +271,11 @@
 #cmakedefine OSMSCOUT_HAVE_ULONG_LONG 1
 #endif
 
+/* The size of `wchar_t', as computed by sizeof. */
+#ifndef SIZEOF_WCHAR_T
+#cmakedefine SIZEOF_WCHAR_T @SIZEOF_WCHAR_T@
+#endif
+
 /* Define to the sub-directory where libtool stores uninstalled libraries. */
 #ifndef LT_OBJDIR
 #define LT_OBJDIR ".libs/"
@@ -292,11 +311,6 @@
 #define PACKAGE_VERSION "0.1"
 #endif
 
-/* The size of `wchar_t', as computed by sizeof. */
-#ifndef SIZEOF_WCHAR_T
-#define SIZEOF_WCHAR_T @SIZEOF_WCHAR_T@
-#endif
-
 /* Define to 1 if you have the ANSI C header files. */
 #ifndef STDC_HEADERS
 #cmakedefine STDC_HEADERS 1
@@ -325,6 +339,14 @@
 /* zlib detected */
 #ifndef HAVE_LIB_ZLIB
 #cmakedefine HAVE_LIB_ZLIB 1
+#endif
+
+/* iconv detected */
+#ifndef HAVE_ICONV
+#cmakedefine HAVE_ICONV 1
+#endif
+#ifndef ICONV_CONST
+#define ICONV_CONST @ICONV_CONST@
 #endif
 
 /* libagg detected */
