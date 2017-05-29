@@ -122,6 +122,10 @@ if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
   if (QT_QML_DEBUG)
     add_definitions( -DQT_QML_DEBUG)
   endif()
+  if (SANITIZE)
+    # -fsanitize=address
+    add_definitions( -fno-omit-frame-pointer -fstack-protector-all)
+  endif()
 
   add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
   add_definitions(-std=c++11)
