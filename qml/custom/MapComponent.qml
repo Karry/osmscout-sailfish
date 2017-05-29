@@ -26,6 +26,7 @@ import harbour.osmscout.map 1.0
 
 Map {
   id: map
+  renderingType: "tiled" // plane or tiled
 
   PositionSource {
       id: positionSource

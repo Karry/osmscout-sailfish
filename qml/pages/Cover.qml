@@ -107,6 +107,7 @@ CoverBackground {
 
         showCurrentPosition: true
         lockToPosition: true
+        renderingType: "tiled" // plane or tiled
     }
 
     Timer {

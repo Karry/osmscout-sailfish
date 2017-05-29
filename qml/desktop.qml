@@ -106,6 +106,8 @@ Window {
             Layout.fillHeight: true
             focus: true
 
+            renderingType: "tiled" // plane or tiled
+
             onTap: {
 
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");

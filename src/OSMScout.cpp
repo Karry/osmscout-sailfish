@@ -137,7 +137,7 @@ int main(int argc, char* argv[])
     .WithIconDirectory(SailfishApp::pathTo("map-icons").toLocalFile())
     .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
     .WithTileCacheSizes(/* online */ desktop ?  40 : 25, /* offline */ desktop ? 200 : 50)
-    .Init(/*tiledInstance*/true);
+    .Init();
 
   if (!initSuccess) {
     std::cerr << "Cannot initialize OSMScoutQt" << std::endl;
