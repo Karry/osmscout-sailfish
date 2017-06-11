@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation>Enrutando</translation>
+        <translation>Enrutar</translation>
     </message>
 </context>
 <context>
@@ -305,7 +305,7 @@
     </message>
     <message>
         <source>By</source>
-        <translation>Con</translation>
+        <translation>Por</translation>
     </message>
 </context>
 <context>
@@ -387,7 +387,7 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">límites</translation>
+        <translation type="vanished">Linderos</translation>
     </message>
     <message>
         <source>standard</source>
