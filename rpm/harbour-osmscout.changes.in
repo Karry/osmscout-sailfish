@@ -139,9 +139,9 @@
   -- support for localised database types and features (not used yet)
   -- initial Qt refactoring (not visible in UI)
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.22-1
+* 2017-06-16 Lukáš Karas <lukas.karas@centrum.cz> 0.22-1
 - udpate translations (Polish, Spanish)
 - display world overview map as background, when online tiles are disabled
 - update upstream library:
-  -- refactoring of Qt API - loading data from multiple databases should be faster
+  -- refactoring of Qt rendering - loading data from multiple databases should be faster
   -- each map use separate renderer and visual cache
