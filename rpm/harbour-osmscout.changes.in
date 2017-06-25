@@ -145,3 +145,7 @@
 - update upstream library:
   -- refactoring of Qt rendering - loading data from multiple databases should be faster
   -- each map use separate renderer and visual cache
+
+* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.23-1
+- update upstream library:
+  -- route computation is asynchronous now
