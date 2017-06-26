@@ -62,7 +62,7 @@ Page {
 
         BusyIndicator {
             id: busyIndicator
-            //running: route.searching
+            running: !route.ready
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
