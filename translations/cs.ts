@@ -293,7 +293,7 @@
     </message>
     <message>
         <source>Car</source>
-        <translation>Auto</translation>
+        <translation type="vanished">Auto</translation>
     </message>
     <message>
         <source>By</source>
@@ -373,6 +373,21 @@
     <message>
         <source>OSM Mapnik</source>
         <translation>OSM Mapnik</translation>
+    </message>
+</context>
+<context>
+    <name>routerVehicle</name>
+    <message>
+        <source>car</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>bicycle</source>
+        <translation>Kolo</translation>
+    </message>
+    <message>
+        <source>foot</source>
+        <translation>Pěšky</translation>
     </message>
 </context>
 <context>

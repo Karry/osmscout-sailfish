@@ -292,10 +292,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Car</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>By</source>
         <translation type="unfinished"></translation>
     </message>
@@ -373,6 +369,21 @@
     <message>
         <source>OSM Mapnik</source>
         <translation>OSM Mapnik</translation>
+    </message>
+</context>
+<context>
+    <name>routerVehicle</name>
+    <message>
+        <source>car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bicycle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>foot</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
