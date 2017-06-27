@@ -33,8 +33,13 @@ Page {
     property double toLat: -1000
     property double toLon: -1000
 
+    RemorsePopup { id: remorse }
+
     RoutingListModel{
         id: route
+        onRouteFailed: {
+            remorse.execute(qsTranslate("message", reason), function() { }, 10 * 1000);
+        }
     }
     AppSettings{
         id:appSettings

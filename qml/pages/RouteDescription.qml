@@ -27,9 +27,29 @@ import harbour.osmscout.map 1.0
 import "../custom"
 
 Page {
-    id: routingPage
+    id: routeDescription
 
     property RoutingListModel route
+    property bool failed: false
+
+    RemorsePopup { id: remorse }
+
+    Connections {
+        target: route
+        onRouteFailed: {
+            if (status==PageStatus.Active){
+                pageStack.pop();
+            }
+            // to avoid warning "cannot pop while transition is in progress"
+            // we setup failed flag and pop page later
+            failed=true;
+        }
+    }
+    onStatusChanged: {
+        if (failed && status==PageStatus.Active){
+            pageStack.pop();
+        }
+    }
 
     SilicaListView {
         id: stepsView
