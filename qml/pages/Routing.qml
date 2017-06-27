@@ -42,7 +42,9 @@ Page {
 
     function computeRoute() {
         if ((fromSelector.location !== null) && (toSelector.location!== null)) {
-            route.setStartAndTarget(fromSelector.location,toSelector.location)
+            route.setStartAndTarget(fromSelector.location,
+                                    toSelector.location,
+                                    vehicleComboBox.selected);
         } else {
             route.clear();
         }
@@ -85,10 +87,33 @@ Page {
             ComboBox {
                 id: vehicleComboBox
                 label: qsTr("By")
+
+                property bool initialized: false
+                property string selected: ""
+                property ListModel vehiclesModel: ListModel {}
+
                 menu: ContextMenu {
-                    MenuItem { text: qsTr("Car") }
-                    //MenuItem { text: qsTr("Foot")}
-                    //MenuItem { text: qsTr("Bicycle")}
+                    Repeater {
+                        id: vehicleRepeater
+                        model: vehicleComboBox.vehiclesModel
+                        MenuItem { text: qsTranslate("routerVehicle", vehicle) }
+                    }
+                }
+                onCurrentItemChanged: {
+                    if (!initialized){
+                        return;
+                    }
+                    var vehicles=route.availableVehicles();
+                    selected = vehicles[currentIndex];
+                }
+                Component.onCompleted: {
+                    var vehicles=route.availableVehicles()
+                    for (var i in vehicles){
+                        var vehicle = vehicles[i];
+                        console.log("Vehicle: "+vehicle);
+                        vehiclesModel.append({"vehicle": vehicle});
+                    }
+                    initialized = true;
                 }
             }
             Row {
