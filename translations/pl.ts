@@ -401,15 +401,15 @@
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation type="unfinished"></translation>
+        <translation>samochód</translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation type="unfinished"></translation>
+        <translation>rower</translation>
     </message>
     <message>
         <source>foot</source>
-        <translation type="unfinished"></translation>
+        <translation>pieszo</translation>
     </message>
 </context>
 <context>
