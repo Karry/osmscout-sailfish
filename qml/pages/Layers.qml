@@ -272,7 +272,6 @@ Page {
 
                         checked: settings.renderSea
                         text: qsTr("Sea rendering")
-                        description: qsTr("Sea can overlap online tiles!")
 
                         onCheckedChanged: {
                             settings.renderSea = checked;
