@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Activar mapas con conexion</translation>
+        <translation>Mapas con conexión</translation>
     </message>
     <message>
         <source>Style</source>
@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Activar mapas sin conexión</translation>
+        <translation>Mapas sin conexión</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation type="vanished">El mar puede superponer tiles con conexión!</translation>
+        <translation>El mar puede superponer tiles con conexión!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -242,19 +242,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation type="vanished">al oeste</translation>
+        <translation>al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="vanished">al este</translation>
+        <translation>al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="vanished">al sur</translation>
+        <translation>al sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="vanished">al norte</translation>
+        <translation>al norte</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -270,22 +270,22 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="vanished">metros</translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="vanished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation type="unfinished">Enrutar</translation>
+        <translation>Enrutar</translation>
     </message>
     <message>
         <source>Preparing</source>
-        <translation type="unfinished"></translation>
+        <translation>Preparando</translation>
     </message>
 </context>
 <context>
@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="obsolete">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>To</source>
@@ -308,11 +308,11 @@
     </message>
     <message>
         <source>With</source>
-        <translation type="vanished">Con</translation>
+        <translation>Con</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="vanished">Carro</translation>
+        <translation>Carro</translation>
     </message>
     <message>
         <source>By</source>
@@ -413,15 +413,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">Linderos</translation>
+        <translation>Linderos</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">estandar</translation>
+        <translation>estandar</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">deportes-invierno</translation>
+        <translation>deportes-invierno</translation>
     </message>
 </context>
 <context>
