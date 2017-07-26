@@ -126,6 +126,7 @@ Dialog {
             id: progressBar
             width: parent.width
             maximumValue: 100
+            value: 50
             indeterminate: true
             valueText: qsTr("Preparing")
             label: qsTr("Progress")
