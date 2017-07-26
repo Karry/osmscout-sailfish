@@ -111,6 +111,11 @@ Window {
             onTap: {
 
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");
+
+                var way=map.createOverlayWay();
+                way.addPoint(lat, lon);
+                way.addPoint(lat, lon + 0.1);
+                map.addOverlayWay(0,way);
             }
             onLongTap: {
 

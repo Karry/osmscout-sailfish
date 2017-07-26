@@ -32,6 +32,8 @@ Page {
 
     property double toLat: -1000
     property double toLon: -1000
+    property var mapPage
+    property var mainMap
 
     RemorsePopup { id: remorse }
 
@@ -130,7 +132,7 @@ Page {
                     onClicked: {
                         computeRoute();
                         pageStack.push(Qt.resolvedUrl("RouteDescription.qml"),
-                                       {route: route});
+                                       {route: route, mapPage: mapPage, mainMap: mainMap});
                     }
                 }
             }

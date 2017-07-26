@@ -159,7 +159,12 @@ Page {
                     if (action == "whereami"){
                         if (positionSource.valid){
                             pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
-                                           {placeLat: positionSource.lat, placeLon: positionSource.lon})
+                                           {
+                                               placeLat: positionSource.lat,
+                                               placeLon: positionSource.lon,
+                                               mapPage: mapPage,
+                                               mainMap: map
+                                           })
                         }else{
                             console.log("I can't say where you are. Position is not valid!")
                         }
@@ -169,7 +174,11 @@ Page {
                         var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"));
                         searchPage.selectLocation.connect(selectLocation);
                     }else if (action == "routing"){
-                        pageStack.push(Qt.resolvedUrl("Routing.qml"))
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"),
+                                       {
+                                           mapPage: mapPage,
+                                           mainMap: map
+                                       })
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
                     }else if (action == "downloads"){
@@ -221,7 +230,12 @@ Page {
                 console.log("long tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon);
 
                 pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
-                               {placeLat: lat, placeLon: lon})
+                               {
+                                   placeLat: lat,
+                                   placeLon: lon,
+                                   mapPage: mapPage,
+                                   mainMap: map
+                               })
             }
             /*
             onViewChanged: {

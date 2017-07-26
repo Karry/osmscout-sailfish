@@ -148,4 +148,7 @@
 
 * 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.23-1
 - update upstream library:
-  -- route computation is asynchronous now
+  -- route computation is asynchronous now (don't block UI)
+  -- support for routing via neighbouring databases
+  -- fix routing from/to gps coordinates
+  -- display route on (Qt) map

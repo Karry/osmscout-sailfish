@@ -36,6 +36,9 @@ Page {
     property double currentLocLat: 0;
     property double currentLocLon: 0;
 
+    property var mapPage
+    property var mainMap
+
     onStatusChanged: {
         if (status == PageStatus.Activating){
             map.showCoordinatesInstantly(placeLat, placeLon);
@@ -383,7 +386,9 @@ Page {
                         pageStack.push(Qt.resolvedUrl("Routing.qml"),
                                        {
                                            toLat: placeLat,
-                                           toLon: placeLon
+                                           toLon: placeLon,
+                                           mapPage: mapPage,
+                                           mainMap: mainMap
                                        })
                     }
                 }

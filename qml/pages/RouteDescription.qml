@@ -17,7 +17,7 @@
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 import QtPositioning 5.2
@@ -26,11 +26,18 @@ import harbour.osmscout.map 1.0
 
 import "../custom"
 
-Page {
+Dialog {
     id: routeDescription
 
     property RoutingListModel route
     property bool failed: false
+    property var mapPage
+    property var mainMap
+
+    canAccept: route.ready
+
+    acceptDestination: mapPage
+    acceptDestinationAction: PageStackAction.Pop
 
     RemorsePopup { id: remorse }
 
@@ -49,6 +56,16 @@ Page {
         if (failed && status==PageStatus.Active){
             pageStack.pop();
         }
+    }
+
+    onAccepted: {
+        var routeWay=route.routeWay;
+        mainMap.addOverlayWay(0,routeWay);
+        console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
+    }
+
+    onRejected: {
+        console.log("TODO: route.cancel()");
     }
 
     SilicaListView {
