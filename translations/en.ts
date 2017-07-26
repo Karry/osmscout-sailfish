@@ -121,10 +121,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sea can overlap online tiles!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Style flags</source>
         <translation type="unfinished"></translation>
     </message>
@@ -246,6 +242,17 @@
     </message>
     <message>
         <source>%1 %2 from</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RouteDescription</name>
+    <message>
+        <source>Routing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preparing</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

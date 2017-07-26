@@ -60,6 +60,7 @@ Dialog {
             progressBar.indeterminate=false;
             progressBar.value=percent;
             progressBar.valueText=percent+" %";
+            progressBar.label=qsTr("Routing")
         }
     }
     onStatusChanged: {
@@ -128,8 +129,8 @@ Dialog {
             maximumValue: 100
             value: 50
             indeterminate: true
-            valueText: qsTr("Preparing")
-            label: qsTr("Progress")
+            valueText: ""
+            label: qsTr("Preparing")
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
         }

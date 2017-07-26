@@ -122,7 +122,7 @@
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation>Sjø kan overlappe online-ruter!</translation>
+        <translation type="vanished">Sjø kan overlappe online-ruter!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -271,6 +271,17 @@
     <message>
         <source>km</source>
         <translation type="vanished">km</translation>
+    </message>
+</context>
+<context>
+    <name>RouteDescription</name>
+    <message>
+        <source>Routing</source>
+        <translation type="unfinished">Ruter</translation>
+    </message>
+    <message>
+        <source>Preparing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
