@@ -43,6 +43,10 @@ Dialog {
 
     Connections {
         target: route
+        onComputingChanged: {
+            progressBar.opacity = route.ready ? 0:1;
+        }
+
         onRouteFailed: {
             if (status==PageStatus.Active){
                 pageStack.pop();
@@ -50,6 +54,12 @@ Dialog {
             // to avoid warning "cannot pop while transition is in progress"
             // we setup failed flag and pop page later
             failed=true;
+        }
+        onRoutingProgress: {
+            console.log("progress: "+percent);
+            progressBar.indeterminate=false;
+            progressBar.value=percent;
+            progressBar.valueText=percent+" %";
         }
     }
     onStatusChanged: {
@@ -68,10 +78,25 @@ Dialog {
         console.log("TODO: route.cancel()");
     }
 
+    DialogHeader {
+        id: header
+        //title: "Route"
+        //acceptText : qsTr("Accept")
+        //cancelText : qsTr("Cancel")
+    }
     SilicaListView {
         id: stepsView
         model: route
-        anchors.fill: parent
+
+        VerticalScrollDecorator {}
+        clip: true
+
+        anchors{
+            top: header.bottom
+            right: parent.right
+            left: parent.left
+            bottom: parent.bottom
+        }
         spacing: Theme.paddingMedium
         x: Theme.paddingMedium
 
@@ -97,10 +122,13 @@ Dialog {
             }
         }
 
-        BusyIndicator {
-            id: busyIndicator
-            running: !route.ready
-            size: BusyIndicatorSize.Large
+        ProgressBar {
+            id: progressBar
+            width: parent.width
+            maximumValue: 100
+            indeterminate: true
+            valueText: qsTr("Preparing")
+            label: qsTr("Progress")
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
         }
