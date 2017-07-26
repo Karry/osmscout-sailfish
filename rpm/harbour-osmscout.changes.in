@@ -146,9 +146,12 @@
   -- refactoring of Qt rendering - loading data from multiple databases should be faster
   -- each map use separate renderer and visual cache
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.23-1
+* 2017-07-26 Lukáš Karas <lukas.karas@centrum.cz> 0.23-1
 - update upstream library:
   -- route computation is asynchronous now (don't block UI)
   -- support for routing via neighbouring databases
   -- fix routing from/to gps coordinates
-  -- display route on (Qt) map
+  -- display route on (Qt) map widget
+  -- another routing improvements (expose progress to QML, cancel signal...)
+- update UI to support new routing capabilities ^^^
+- update Spanish and Swedish translations
