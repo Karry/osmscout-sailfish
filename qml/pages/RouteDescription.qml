@@ -56,7 +56,7 @@ Dialog {
             failed=true;
         }
         onRoutingProgress: {
-            console.log("progress: "+percent);
+            //console.log("progress: "+percent);
             progressBar.indeterminate=false;
             progressBar.value=percent;
             progressBar.valueText=percent+" %";
@@ -76,7 +76,7 @@ Dialog {
     }
 
     onRejected: {
-        console.log("TODO: route.cancel()");
+        route.cancel();
     }
 
     DialogHeader {
