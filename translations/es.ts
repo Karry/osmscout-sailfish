@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Activar mapas con conexion</translation>
+        <translation>Mapas con conexión</translation>
     </message>
     <message>
         <source>Style</source>
@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Activar mapas sin conexión</translation>
+        <translation>Mapas sin conexión</translation>
     </message>
     <message>
         <source>Sea rendering</source>
