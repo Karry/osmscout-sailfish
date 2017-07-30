@@ -277,10 +277,14 @@
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation type="unfinished">Ruter</translation>
+        <translation type="obsolete">Ruter</translation>
     </message>
     <message>
         <source>Preparing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculating the route</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -309,6 +313,10 @@
     <message>
         <source>By</source>
         <translation>Med</translation>
+    </message>
+    <message>
+        <source>Route!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

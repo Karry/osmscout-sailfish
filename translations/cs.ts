@@ -314,6 +314,10 @@
         <source>By</source>
         <translation>Prostředek</translation>
     </message>
+    <message>
+        <source>Route!</source>
+        <translation>Vyhledej!</translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

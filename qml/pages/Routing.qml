@@ -127,7 +127,7 @@ Page {
                 spacing: Theme.paddingLarge
                 anchors.horizontalCenter: parent.horizontalCenter
                 Button {
-                    text: "Route!"
+                    text: qsTr("Route!")
                     enabled: (fromSelector.location !== null) && (toSelector.location!== null)
                     onClicked: {
                         computeRoute();

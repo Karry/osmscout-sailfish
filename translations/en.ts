@@ -248,11 +248,11 @@
 <context>
     <name>RouteDescription</name>
     <message>
-        <source>Routing</source>
+        <source>Preparing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Preparing</source>
+        <source>Calculating the route</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -272,6 +272,10 @@
     </message>
     <message>
         <source>By</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Route!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
