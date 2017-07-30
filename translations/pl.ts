@@ -292,11 +292,15 @@
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation>Wytyczanie trasy</translation>
+        <translation type="vanished">Wytyczanie trasy</translation>
     </message>
     <message>
         <source>Preparing</source>
         <translation>Przygotowywanie</translation>
+    </message>
+    <message>
+        <source>Calculating the route</source>
+        <translation>Wytyczanie trasy</translation>
     </message>
 </context>
 <context>

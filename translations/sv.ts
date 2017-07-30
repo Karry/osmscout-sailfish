@@ -277,11 +277,15 @@
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation type="unfinished">Vägval</translation>
+        <translation type="obsolete">Vägval</translation>
     </message>
     <message>
         <source>Preparing</source>
         <translation>Förbereder</translation>
+    </message>
+    <message>
+        <source>Calculating the route</source>
+        <translation>Vägval</translation>
     </message>
 </context>
 <context>

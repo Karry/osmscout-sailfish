@@ -60,7 +60,7 @@ Dialog {
             progressBar.indeterminate=false;
             progressBar.value=percent;
             progressBar.valueText=percent+" %";
-            progressBar.label=qsTr("Routing")
+            progressBar.label=qsTr("Calculating the route")
         }
     }
     onStatusChanged: {

@@ -277,11 +277,15 @@
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation>Počítání trasy</translation>
+        <translation type="vanished">Počítání trasy</translation>
     </message>
     <message>
         <source>Preparing</source>
         <translation>Příprava</translation>
+    </message>
+    <message>
+        <source>Calculating the route</source>
+        <translation>Počítání trasy</translation>
     </message>
 </context>
 <context>
