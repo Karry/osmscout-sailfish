@@ -320,7 +320,7 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"></translation>
+        <translation>Beräkna</translation>
     </message>
 </context>
 <context>
