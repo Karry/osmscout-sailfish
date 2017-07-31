@@ -122,7 +122,7 @@
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Renderizando mar</translation>
+        <translation>Renderizando el mar</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
@@ -289,7 +289,7 @@
     </message>
     <message>
         <source>Calculating the route</source>
-        <translation>Enrutar</translation>
+        <translation>Calculando la ruta</translation>
     </message>
 </context>
 <context>
@@ -324,7 +324,7 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta!</translation>
     </message>
 </context>
 <context>
