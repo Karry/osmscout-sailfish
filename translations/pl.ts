@@ -331,7 +331,7 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"></translation>
+        <translation>Wytycz!</translation>
     </message>
 </context>
 <context>
