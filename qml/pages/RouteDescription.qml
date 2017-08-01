@@ -25,6 +25,7 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 Dialog {
     id: routeDescription
@@ -85,6 +86,8 @@ Dialog {
         //acceptText : qsTr("Accept")
         //cancelText : qsTr("Cancel")
     }
+
+
     SilicaListView {
         id: stepsView
         model: route
@@ -100,6 +103,18 @@ Dialog {
         }
         spacing: Theme.paddingMedium
         x: Theme.paddingMedium
+
+        header: Column{
+            visible: route.count>0
+            spacing: Theme.paddingMedium
+            x: Theme.paddingMedium
+            Label{
+                text: Utils.humanDistance(route.length)
+            }
+            Label{
+                text: Utils.humanDuration(route.duration)
+            }
+        }
 
         delegate: BackgroundItem {
             id: backgroundItem
