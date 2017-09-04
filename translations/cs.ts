@@ -443,6 +443,10 @@
         <source>minorBuilding</source>
         <translation>Minoritní budovy</translation>
     </message>
+    <message>
+        <source>elevationContours</source>
+        <translation>Vrstevnice</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>

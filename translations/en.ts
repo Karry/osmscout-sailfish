@@ -392,31 +392,35 @@
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation>Waterway</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>Wood</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation>Natural</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation type="unfinished"></translation>
+        <translation>Railway</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation>Leisure</translation>
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>Building</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>Minor Building</translation>
+    </message>
+    <message>
+        <source>elevationContours</source>
+        <translation>Elevation Contour</translation>
     </message>
 </context>
 <context>

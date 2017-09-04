@@ -458,6 +458,10 @@
         <source>minorBuilding</source>
         <translation>mindre bygning</translation>
     </message>
+    <message>
+        <source>elevationContours</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>

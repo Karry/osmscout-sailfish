@@ -480,6 +480,10 @@
         <source>minorBuilding</source>
         <translation>mały budynek</translation>
     </message>
+    <message>
+        <source>elevationContours</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
