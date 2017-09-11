@@ -155,3 +155,10 @@
   -- another routing improvements (expose progress to QML, cancel signal...)
 - update UI to support new routing capabilities ^^^
 - update Spanish and Swedish translations
+
+* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.24-1
+- update upstream library:
+  -- improve route node lookup
+- fix location selector on route page
+- display route length and duration
+- update Polish, Spanish and Swedish translations
