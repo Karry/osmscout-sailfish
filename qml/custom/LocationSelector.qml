@@ -50,6 +50,10 @@ ComboBox {
     property bool initialized: false
     property bool initWithCurrentLocation: false
 
+    property string selectLocationStr: qsTr("Select location...")
+    property string currentLocationStr: qsTr("Current location")
+    property string searchStr: qsTr("Search")
+
     signal selectLocation(LocationEntry loc)
 
     onSelectLocation: {
@@ -62,19 +66,22 @@ ComboBox {
     function activated(activeIndex){
         console.log("Activated, index: "+activeIndex);
         if (activeIndex==0){
-            value=currentItem.text;
+            value=currentLocationStr;
             location=routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
+            console.log("Use current position: "+positionSource.lat + " " + positionSource.lon);
         }
         if (activeIndex==1){
+            location=null; // in case of search cancel
             var searchPage=pageStack.push(Qt.resolvedUrl("../pages/Search.qml"));
             searchPage.selectLocation.connect(selectLocation);
+            value=selectLocationStr;
         }
     }
 
-    value: qsTr("Select location...")
+    value: selectLocationStr
     menu: ContextMenu {
-        MenuItem { text: qsTr("Current location") }
-        MenuItem { text: qsTr("Search") }
+        MenuItem { text: currentLocationStr }
+        MenuItem { text: searchStr }
     }
 
     Connections {
@@ -91,9 +98,13 @@ ComboBox {
         initialized = true;
         currentIndex = -1;
         console.log("onCompleted, initialised: "+initialized+", index: "+currentIndex);
-        if (initWithCurrentLocation && positionSource.valid){
-            currentIndex=0;
-            activated(0);
+        if (initWithCurrentLocation){
+            if (positionSource.valid){
+                currentIndex=0;
+                activated(0);
+            }else{
+                console.log("Position is not valid yet")
+            }
         }
     }
 }
