@@ -464,7 +464,7 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>höjdkonturer</translation>
     </message>
 </context>
 <context>
