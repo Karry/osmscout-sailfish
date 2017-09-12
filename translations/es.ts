@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Current location</source>
-        <translation>Actual ubicación</translation>
+        <translation>Ubicación actual</translation>
     </message>
     <message>
         <source>Search</source>
@@ -468,7 +468,7 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>Contornos de elevación</translation>
     </message>
 </context>
 <context>
