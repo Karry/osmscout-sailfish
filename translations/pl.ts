@@ -482,7 +482,7 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontury wysokości</translation>
     </message>
 </context>
 <context>
