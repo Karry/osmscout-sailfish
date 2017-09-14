@@ -38,6 +38,11 @@ ComboBox {
             positionSource.valid = position.latitudeValid && position.longitudeValid;
             positionSource.lat = position.coordinate.latitude;
             positionSource.lon = position.coordinate.longitude;
+
+            if (useCurrentLocation){
+                location=routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
+                console.log("Update and use current position: "+positionSource.lat + " " + positionSource.lon);
+            }
         }
     }
     RoutingListModel{
@@ -49,6 +54,7 @@ ComboBox {
     property LocationEntry location: null
     property bool initialized: false
     property bool initWithCurrentLocation: false
+    property bool useCurrentLocation: false
 
     property string selectLocationStr: qsTr("Select location...")
     property string currentLocationStr: qsTr("Current location")
@@ -68,6 +74,7 @@ ComboBox {
         if (activeIndex==0){
             value=currentLocationStr;
             location=routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
+            useCurrentLocation=true;
             console.log("Use current position: "+positionSource.lat + " " + positionSource.lon);
         }
         if (activeIndex==1){
@@ -75,6 +82,7 @@ ComboBox {
             var searchPage=pageStack.push(Qt.resolvedUrl("../pages/Search.qml"));
             searchPage.selectLocation.connect(selectLocation);
             value=selectLocationStr;
+            useCurrentLocation=false;
         }
     }
 
