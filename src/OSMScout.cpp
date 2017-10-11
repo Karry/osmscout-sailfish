@@ -97,12 +97,21 @@ int main(int argc, char* argv[])
   for (QString arg: app->arguments()){
       desktop |= (arg == "--desktop");
   }
- 
+
+  QString home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
   QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
   
-  QStringList databaseLookupDirectories; 
-  databaseLookupDirectories << docs + QDir::separator() + "Maps";
+  QStringList databaseLookupDirectories;
+
+  // if user has Maps directory in "Documents" already, we will use it
+  // for compatibility reasons
+  if (QFile::exists(docs + QDir::separator() + "Maps")) {
+    databaseLookupDirectories << docs + QDir::separator() + "Maps";
+  }else{
+    // we will use Maps in "Home" directory otherwise
+    databaseLookupDirectories << home + QDir::separator() + "Maps";
+  }
 
   // we should use QStorageInfo for Qt >= 5.4
   QFile file("/etc/mtab"); // Linux specific
