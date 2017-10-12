@@ -290,6 +290,7 @@ Page {
                         model:mapFlags
                         delegate: TextSwitch{
                             checked: value
+                            busy: inProgress
                             text: qsTranslate("styleflag", key)
                             property bool initialized: false
                             onCheckedChanged: {
