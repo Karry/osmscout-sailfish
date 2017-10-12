@@ -34,12 +34,39 @@ Page {
     property bool keepSearchFieldFocus
     signal selectLocation(LocationEntry location)
 
+    property string postponedSearchString
+
     onSelectLocation: {
         console.log("selectLocation: " + location);
     }
 
+    Timer {
+        id: postponeTimer
+        interval: 1500
+        running: false
+        repeat: false
+        onTriggered: {
+            if (postponedSearchString==searchString){
+                console.log("Search postponed short expression: \"" + searchString + "\"");
+                suggestionModel.setPattern(searchString);
+            }
+        }
+    }
+
     onSearchStringChanged: {
-        suggestionModel.setPattern(searchString)
+        // postpone search of short expressions
+        if (searchString.length>3){
+            console.log("Search: \"" + searchString + "\"");
+            suggestionModel.setPattern(searchString);
+        }else{
+            postponedSearchString=searchString;
+            console.log("Postpone search of short expression: \"" + searchString + "\"");
+            if (postponeTimer.running){
+                postponeTimer.restart();
+            }else{
+                postponeTimer.start();
+            }
+        }
     }
 
     Column {
