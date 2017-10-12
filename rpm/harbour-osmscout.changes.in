@@ -159,6 +159,9 @@
 * 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.24-1
 - update upstream library:
   -- improve route node lookup
+  -- improve location search (improved database format)
+  -- search should be faster
 - fix location selector on route page
 - display route length and duration
 - update Polish, Spanish and Swedish translations
+- search is able to find near location (street) by name without admin region (town)
