@@ -46,13 +46,16 @@ if [ "$TYPE" = "emulator" ] ; then
 else
 	export MER_SSH_DEVICE_NAME="Jolla (ARM)"
 	export DEV_SSH_USER=nemo
-	export DEV_SSH_HOST=192.168.2.15
+	export DEV_SSH_HOST=jolla
 	export DEV_SSH_PORT=22
 	export MER_SSH_TARGET_NAME=SailfishOS-armv7hl
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 fi
 
+if [ $# -ge 2 ] ; then
+	export DEV_SSH_HOST=$2
+fi
 
 
 ##################################################################
