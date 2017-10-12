@@ -79,7 +79,11 @@ ComboBox {
         }
         if (activeIndex==1){
             location=null; // in case of search cancel
-            var searchPage=pageStack.push(Qt.resolvedUrl("../pages/Search.qml"));
+            var searchPage=pageStack.push(Qt.resolvedUrl("../pages/Search.qml"),
+                                          {
+                                              searchCenterLat: positionSource.lat,
+                                              searchCenterLon: positionSource.lon
+                                          });
             searchPage.selectLocation.connect(selectLocation);
             value=selectLocationStr;
             useCurrentLocation=false;

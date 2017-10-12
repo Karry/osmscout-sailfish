@@ -33,6 +33,8 @@ Page {
     property string searchString
     property bool keepSearchFieldFocus
     signal selectLocation(LocationEntry location)
+    property double searchCenterLat
+    property double searchCenterLon
 
     property string postponedSearchString
 
@@ -204,5 +206,7 @@ Page {
 
     LocationListModel {
         id: suggestionModel
+        lat: searchCenterLat
+        lon: searchCenterLon
     }
 }

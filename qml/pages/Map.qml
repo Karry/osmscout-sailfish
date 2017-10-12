@@ -171,7 +171,11 @@ Page {
                     }else if (action == "about"){
                         pageStack.push(Qt.resolvedUrl("About.qml"))
                     }else if (action == "search"){
-                        var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"));
+                        var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                                      {
+                                                          searchCenterLat: positionSource.lat,
+                                                          searchCenterLon: positionSource.lon
+                                                      });
                         searchPage.selectLocation.connect(selectLocation);
                     }else if (action == "routing"){
                         pageStack.push(Qt.resolvedUrl("Routing.qml"),
