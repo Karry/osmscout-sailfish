@@ -24,6 +24,7 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 /*
  * Inspired by SearchPage.qml in ComponentGallery - showcase of Silica components
@@ -43,6 +44,10 @@ Page {
         console.log("selectLocation: " + location);
     }
 
+    AppSettings{
+        id:appSettings
+    }
+
     Timer {
         id: postponeTimer
         interval: 1500
@@ -51,7 +56,7 @@ Page {
         onTriggered: {
             if (postponedSearchString==searchString){
                 console.log("Search postponed short expression: \"" + searchString + "\"");
-                suggestionModel.setPattern(searchString);
+                suggestionModel.pattern=searchString;
             }
         }
     }
@@ -60,7 +65,7 @@ Page {
         // postpone search of short expressions
         if (searchString.length>3){
             console.log("Search: \"" + searchString + "\"");
-            suggestionModel.setPattern(searchString);
+            suggestionModel.pattern=searchString;
         }else{
             postponedSearchString=searchString;
             console.log("Postpone search of short expression: \"" + searchString + "\"");
@@ -145,7 +150,9 @@ Page {
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     textFormat: Text.StyledText
-                    text: Theme.highlightText(label, searchString, Theme.highlightColor)
+                    text: (type=="coordinate") ?
+                              Utils.formatCoord(lat, lon, appSettings.gpsFormat) :
+                              Theme.highlightText(label, searchString, Theme.highlightColor)
                 }
                 Label {
                     id: entryRegion
