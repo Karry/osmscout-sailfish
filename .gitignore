@@ -63,7 +63,9 @@
 /build-SailfishOS-i486
 /build-SailfishOS-armv7hl
 /build-qtcreator
-/build-qtcreator-prod/
+/build-qtcreator-prod
+/cmake-build-debug
+/qmllive-workspace
 /rpmbuilddir
 /rpmbuilddir-arm
 /rpmbuilddir-i386
