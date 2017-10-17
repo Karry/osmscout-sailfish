@@ -67,7 +67,7 @@ export MER_SSH_SDK_TOOLS="$HOME/.config/SailfishBeta7/mer-sdk-tools/MerSDK/$MER_
 
 export MER_SSH_SHARED_HOME="$HOME"
 export MER_SSH_SHARED_TARGET="$SDK_ROOT/mersdk/targets/"
-export SDK_VM_NAME=MerSDK
+export SDK_VM_NAME="Sailfish OS Build Engine"
 
 ## SDK ssh config
 export MER_SSH_CMD="$SDK_ROOT/bin/merssh"
