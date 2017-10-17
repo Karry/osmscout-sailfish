@@ -33,6 +33,7 @@ Page {
     property string searchString
     property bool keepSearchFieldFocus
     signal selectLocation(LocationEntry location)
+    property var acceptDestination;
     property double searchCenterLat
     property double searchCenterLon
 
@@ -92,6 +93,7 @@ Page {
                 var selectedLocation = suggestionModel.get(0)
                 if (selectedLocation !== null) {
                     selectLocation(selectedLocation);
+                    pageStack.pop(acceptDestination); // accept without preview
                 }
             }
         }
@@ -181,7 +183,12 @@ Page {
 
                     // the else case should never happen
                     if (selectedLocation !== null) {
-                        selectLocation(selectedLocation);
+                        previewMap.showLocation(selectedLocation);
+                        previewMap.addPositionMark(0, lat, lon);
+                        previewDialog.selectedLocation = selectedLocation;
+                        previewDialog.acceptDestination = acceptDestination;
+
+                        previewDialog.open();
                     }
                 }
             }
@@ -208,5 +215,37 @@ Page {
         id: suggestionModel
         lat: searchCenterLat
         lon: searchCenterLon
+    }
+
+    Dialog{
+        id: previewDialog
+
+        property var selectedLocation;
+
+        acceptDestinationAction: PageStackAction.Pop
+
+        onAccepted: {
+            // the else case should never happen
+            if (selectedLocation !== null) {
+                selectLocation(selectedLocation);
+            }
+        }
+
+        DialogHeader {
+            id: header
+            //title: "Search result"
+            //acceptText : qsTr("Accept")
+            //cancelText : qsTr("Cancel")
+        }
+
+        MapComponent{
+            id: previewMap
+            anchors{
+                top: header.bottom
+                right: parent.right
+                left: parent.left
+                bottom: parent.bottom
+            }
+        }
     }
 }

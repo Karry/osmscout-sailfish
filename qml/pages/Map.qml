@@ -146,7 +146,6 @@ Page {
                     console.log("selectLocation: " + location);
                     map.showLocation(location);
                     drawer.open = false;
-                    pageStack.pop();
                 }
 
                 function onAction(action){
@@ -174,7 +173,8 @@ Page {
                         var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
                                                       {
                                                           searchCenterLat: positionSource.lat,
-                                                          searchCenterLon: positionSource.lon
+                                                          searchCenterLon: positionSource.lon,
+                                                          acceptDestination: mapPage
                                                       });
                         searchPage.selectLocation.connect(selectLocation);
                     }else if (action == "routing"){

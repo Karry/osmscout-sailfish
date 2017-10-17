@@ -66,7 +66,6 @@ ComboBox {
         console.log("selectLocation: " + loc);
         location=loc;
         value=location.label;
-        pageStack.pop();
     }
 
     function activated(activeIndex){
@@ -82,7 +81,8 @@ ComboBox {
             var searchPage=pageStack.push(Qt.resolvedUrl("../pages/Search.qml"),
                                           {
                                               searchCenterLat: positionSource.lat,
-                                              searchCenterLon: positionSource.lon
+                                              searchCenterLon: positionSource.lon,
+                                              acceptDestination: pageStack.currentPage
                                           });
             searchPage.selectLocation.connect(selectLocation);
             value=selectLocationStr;

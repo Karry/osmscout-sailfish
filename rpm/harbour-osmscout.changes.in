@@ -165,3 +165,4 @@
 - display route length and duration
 - update Polish, Spanish and Swedish translations
 - search is able to find near location (street) by name without admin region (town)
+- add preview map for search result
