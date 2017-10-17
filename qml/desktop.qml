@@ -108,14 +108,12 @@ Window {
 
             renderingType: "tiled" // plane or tiled
 
+            property var overlayWay: map.createOverlayWay("_route");
             onTap: {
+                overlayWay.addPoint(lat, lon);
+                map.addOverlayWay(0, overlayWay);
 
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");
-
-                var way=map.createOverlayWay();
-                way.addPoint(lat, lon);
-                way.addPoint(lat, lon + 0.1);
-                map.addOverlayWay(0,way);
             }
             onLongTap: {
 
