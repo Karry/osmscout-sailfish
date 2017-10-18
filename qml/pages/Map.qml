@@ -29,6 +29,14 @@ import "../custom"
 Page {
     id: mapPage
 
+    signal selectLocation(LocationEntry location)
+
+    onSelectLocation: {
+        console.log("selectLocation: " + location);
+        map.showLocation(location);
+        drawer.open = false;
+    }
+
 
     RemorsePopup { id: remorse }
 
@@ -138,14 +146,6 @@ Page {
                     return ((action == "whereami" && positionSource.valid) ||
                             action == "about" || action == "layers" || action == "search" || 
                             action == "downloads" || action == "routing");
-                }
-
-                signal selectLocation(LocationEntry location)
-
-                onSelectLocation: {
-                    console.log("selectLocation: " + location);
-                    map.showLocation(location);
-                    drawer.open = false;
                 }
 
                 function onAction(action){

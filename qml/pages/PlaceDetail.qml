@@ -370,11 +370,27 @@ Page {
 
             Row{
                 id : placeTools
-                width: routeBtn.width+objectsBtn.width+Theme.paddingLarge
+                width: searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
                 height: objectsBtn.height
                 anchors{
                     bottom: parent.bottom
                     right: parent.right
+                }
+
+                IconButton{
+                    id: searchBtn
+
+                    icon.source: "image://theme/icon-m-search"
+                    onClicked: {
+
+                        var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                      {
+                                        searchCenterLat: placeLat,
+                                        searchCenterLon: placeLon,
+                                        acceptDestination: mapPage
+                                      });
+                        searchPage.selectLocation.connect(mapPage.selectLocation);
+                    }
                 }
 
                 IconButton{
