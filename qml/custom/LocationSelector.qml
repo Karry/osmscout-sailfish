@@ -1,5 +1,5 @@
 /*
- OSMScout - a Qt backend for libosmscout and libosmscout-map
+ OSM Scout for Sailfish OS
  Copyright (C) 2016  Lukas Karas
 
  This program is free software; you can redistribute it and/or modify
@@ -23,6 +23,8 @@ import Sailfish.Silica 1.0
 import QtPositioning 5.2
 
 import harbour.osmscout.map 1.0
+
+import "Utils.js" as Utils
 
 ComboBox {
     PositionSource {
@@ -48,6 +50,9 @@ ComboBox {
     RoutingListModel{
         id: routingModel
     }
+    AppSettings{
+        id: appSettings
+    }
 
     id: selector
 
@@ -59,13 +64,20 @@ ComboBox {
     property string selectLocationStr: qsTr("Select location...")
     property string currentLocationStr: qsTr("Current location")
     property string searchStr: qsTr("Search")
+    property string pickStr: qsTr("Pick a place")
 
     signal selectLocation(LocationEntry loc)
+    signal pickPlace(double lat, double lon)
 
     onSelectLocation: {
         console.log("selectLocation: " + loc);
         location=loc;
         value=location.label;
+    }
+    onPickPlace: {
+        location=routingModel.locationEntryFromPosition(lat, lon);
+        console.log("Use picket position: " + lat + " " + lon);
+        value=Utils.formatCoord(lat, lon, appSettings.gpsFormat);
     }
 
     function activated(activeIndex){
@@ -88,12 +100,24 @@ ComboBox {
             value=selectLocationStr;
             useCurrentLocation=false;
         }
+        if (activeIndex==2){
+            location=null; // in case of search cancel
+            var pickPage=pageStack.push(Qt.resolvedUrl("../pages/PlacePicker.qml"),
+                                          {
+                                              mapLat: positionSource.lat,
+                                              mapLon: positionSource.lon
+                                          });
+            pickPage.pickPlace.connect(pickPlace);
+            value=selectLocationStr;
+            useCurrentLocation=false;
+        }
     }
 
     value: selectLocationStr
     menu: ContextMenu {
         MenuItem { text: currentLocationStr }
         MenuItem { text: searchStr }
+        MenuItem { text: pickStr }
     }
 
     Connections {

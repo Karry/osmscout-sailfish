@@ -1,6 +1,6 @@
 /*
- OSMScout - a Qt backend for libosmscout and libosmscout-map
- Copyright (C) 2016  Lukas Karas
+ OSM Scout for Sailfish OS
+ Copyright (C) 2017  Lukas Karas
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
