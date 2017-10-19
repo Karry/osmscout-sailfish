@@ -179,6 +179,10 @@
         <source>Search</source>
         <translation type="unfinished">Rechercher</translation>
     </message>
+    <message>
+        <source>Pick a place</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Map</name>

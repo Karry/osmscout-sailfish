@@ -175,6 +175,10 @@
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Pick a place</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Map</name>
@@ -336,7 +340,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Building</translation>
     </message>
 </context>
 <context>
