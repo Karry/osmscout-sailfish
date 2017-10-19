@@ -162,6 +162,7 @@
   -- improve location search quality (improved database format)
   -- search should be faster
 - fix location selector on route page
+- add posibility to pick a place from the map (location sector on route page)
 - display route length and duration
 - update Polish, Spanish and Swedish translations
 - search is able to find near location (street) by name without admin region (town)
