@@ -185,7 +185,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar un lugar</translation>
     </message>
 </context>
 <context>
