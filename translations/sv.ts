@@ -181,7 +181,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj en plats</translation>
     </message>
 </context>
 <context>
