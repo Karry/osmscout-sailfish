@@ -24,7 +24,7 @@ export SDK_ROOT="$HOME/SailfishOS"
 ## build & deploy target
 ## list of configured devices: ~/SailfishOS/vmshare/devices.xml 
 if [ "$TYPE" = "emulator" ] ; then
-	export MER_SSH_DEVICE_NAME="SailfishOS Emulator"
+	export MER_SSH_DEVICE_NAME="Sailfish OS Emulator"
 	# 	ssh nemo@localhost -p 2223 -i ~/SailfishOS/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo
 	export DEV_SSH_USER=nemo
 	export DEV_SSH_HOST=localhost
