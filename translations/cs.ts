@@ -181,7 +181,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat na mapě</translation>
     </message>
 </context>
 <context>
