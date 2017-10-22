@@ -17,9 +17,10 @@ Configure: none
 # Do not use automatic builder.
 Builder: none
 
-# We need CMake to build this package.
+# We need CMake and other tools to build this package.
 PkgBR:
   - cmake
+  - chrpath
 # This section specifies build dependencies that are resolved using pkgconfig.
 PkgConfigBR:
   - sailfishapp >= 1.0.2

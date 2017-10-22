@@ -40,6 +40,7 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Positioning)
 BuildRequires:  cmake
 BuildRequires:  desktop-file-utils
+BuildRequires:  chrpath
 
 %description
 OSM Scout is offline map viewer and routing application.
