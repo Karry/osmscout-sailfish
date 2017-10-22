@@ -156,14 +156,18 @@
 - update UI to support new routing capabilities ^^^
 - update Spanish and Swedish translations
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.24-1
+* 2017-10-23 Lukáš Karas <lukas.karas@centrum.cz> 0.24-1
 - update upstream library:
   -- improve route node lookup
-  -- improve location search quality (improved database format)
+  -- improve location search quality (new database format)
   -- search should be faster
-- fix location selector on route page
-- add posibility to pick a place from the map (location sector on route page)
-- display route length and duration
+- search:
+  -- search is able to find near location (street) by name without admin region (town)
+  -- add preview map for search result
+  -- merge near locations with same label and type
+  -- sort search results by relevance
+- routing:
+  -- fix location selector on route page
+  -- add possibility to pick a place from the map
+  -- display route length and duration
 - update Polish, Spanish and Swedish translations
-- search is able to find near location (street) by name without admin region (town)
-- add preview map for search result
