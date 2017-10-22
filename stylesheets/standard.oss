@@ -135,16 +135,16 @@ CONST
   COLOR countryBorderColor         = #ff0000;
 
   // Contour
-  COLOR majorContourColor          = #9f9f9f;
-  COLOR mediumContourColor         = #a5a5a5;
-  COLOR minorContourColor          = #aaaaaa;
+  COLOR majorContourColor          = #90b090;
+  COLOR mediumContourColor         = #a5b5a5;
+  COLOR minorContourColor          = #90b090;
 
   // Landuse, water
   IF daylight {
-    COLOR allotmentsColor          = #c8b084;
+    COLOR allotmentsColor          = #ceb9b1;
   }
   ELSE {
-    COLOR allotmentsColor          = darken(#c8b084,0.5);
+    COLOR allotmentsColor          = darken(#ceb9b1,0.5);
   }
   
   COLOR beachColor                 = #eecc55;
@@ -154,10 +154,10 @@ CONST
 
   COLOR cemeteryColor              = #a9caae;
   COLOR commercialColor            = #efc8c8;
-  COLOR constructionColor          = #9d9d6c;
+  COLOR constructionColor          = #babaa4;
   
-  COLOR farmColor                = #ead8bd;
-  COLOR farmyardColor              = #dcbe92;
+  COLOR farmColor                  = #eae0d2;
+  COLOR farmyardColor              = #dcc7a8;
   COLOR fellColor                  = #f9f9f9;
 
   IF daylight {
@@ -213,7 +213,7 @@ CONST
   IF daylight {
     COLOR motorwayColor            = #4440ec; // dark blue
     COLOR trunkColor               = #7674ec; // lighther blue
-    COLOR primaryColor             = #ec4044; // red
+    COLOR primaryColor             = #f25b73; // red
     COLOR secondaryColor           = #fdac44; // orange
     COLOR tertiaryColor            = #fef271; // yelow
     COLOR roadColor                = #ffffff; // white
@@ -615,10 +615,12 @@ STYLE
 
     }
 
-    [MAG suburb-] {
+    [MAG cityOver-] {
       [TYPE waterway_dock,
             waterway_riverbank] AREA { color: @waterColor; }
-            
+    }
+        
+    [MAG suburb-] {
       [TYPE waterway_stream] {
         [SIZE 2m 0.25mm:3px<] WAY {color: @waterColor; width: 2m;}
         [SIZE 2m <0.25mm:3px] WAY {color: @waterColor; displayWidth: 0.25mm;}
@@ -693,7 +695,7 @@ STYLE
        WAY#outline { color: darken(@primaryColor,0.4); width: 14m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
        WAY { color: @primaryColor; width: 14m;}
      }
-     [SIZE 14m <0.4mm:3px] WAY { color: lighten(@primaryColor,0.3); displayWidth: 0.4mm;}
+     [SIZE 14m <0.4mm:3px] WAY { color: lighten(@primaryColor,0.1); displayWidth: 0.5mm;}
    }
  }
 
@@ -703,7 +705,7 @@ STYLE
        WAY#outline { color: darken(@secondaryColor,0.4); width: 12m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
        WAY { color: @secondaryColor; width: 12m;}
      }
-     [SIZE 12m <0.25mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm; }
+     [SIZE 12m <0.25mm:3px] WAY { color: #f0b549; displayWidth: 0.4mm; }
    }
  }
 
@@ -713,7 +715,7 @@ STYLE
        WAY#outline { color: darken(@tertiaryColor,0.4); width: 10m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
        WAY { color: @tertiaryColor; width: 10m;}
      }
-     [SIZE 10m <0.25mm:3px] WAY { color: #fefe73; displayWidth: 0.25mm;}
+     [SIZE 10m <0.25mm:3px] WAY { color: #c4ac53; displayWidth: 0.4mm;}
    }
  }
 
@@ -779,7 +781,7 @@ STYLE
        WAY#outline { color: @roadBColor; width: 8m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
        WAY { color: @roadColor; width: 8m;}
      }
-     [SIZE 8m <0.1mm:3px] WAY { color: #999999; displayWidth: 0.1mm; }
+     [SIZE 8m <0.1mm:3px] WAY { color: #806060; displayWidth: 0.1mm; }
 
      AREA { color: @roadColor;}
      AREA.BORDER { color: @roadBColor; width: 0.1mm;}
@@ -1351,10 +1353,6 @@ STYLE
 
  IF leisure {
    [MAG county-] {
-     [TYPE leisure_pitch] {
-       AREA { color: @pitchColor;}
-       AREA.BORDER { color: @pitchBorderColor; width: 0.1mm; }
-     }
 
      [TYPE leisure_water_park] {
        AREA { color: #f1eee8;}
@@ -1372,8 +1370,17 @@ STYLE
      // Semiransparent overlay
      [TYPE leisure_nature_reserve] {
        AREA { color: @natureReserveColor;}
-       AREA.BORDER { color: @natureReserveBorderColor; width: 0.2mm;}
+       AREA.BORDER#dashed { color: @natureReserveBorderColor; width: 0.2mm; dash: 6,6; displayOffset: -0.4mm; }
+       AREA.BORDER#solid { color: lighten(@natureReserveBorderColor, 0.3); width: 0.8mm; }
        AREA.TEXT { label: Name.name; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
+     }
+
+     [TYPE leisure_pitch] {
+       AREA { color: @pitchColor;}
+       AREA.BORDER { color: @pitchBorderColor; width: 0.1mm; }
+     }
+     [TYPE leisure_swimming_pool] {
+       AREA { color: #74daff;}
      }
    }
 
@@ -1851,6 +1858,7 @@ STYLE
      AREA {color: @landColor;}
    }
  }
+
  [MAG cityOver-veryClose] {
    [TYPE place_suburb] NODE.TEXT {label: IName; style: emphasize; size: 1.3; scaleMag: city; priority: @labelPrioSuburb;}
  }
