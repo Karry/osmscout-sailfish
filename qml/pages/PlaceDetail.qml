@@ -370,11 +370,18 @@ Page {
 
             Row{
                 id : placeTools
-                width: searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
+                width: osmNoteBtn.width+searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
                 height: objectsBtn.height
                 anchors{
                     bottom: parent.bottom
                     right: parent.right
+                }
+
+                IconButton{
+                    id: osmNoteBtn
+
+                    icon.source: "image://theme/icon-m-edit"
+                    onClicked: Qt.openUrlExternally("http://www.openstreetmap.org/note/new#map="+map.view.magLevel+"/"+placeLat.toString()+"/"+placeLon.toString()+"")
                 }
 
                 IconButton{
