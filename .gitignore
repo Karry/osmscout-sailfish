@@ -83,3 +83,6 @@ CMakeLists.txt.user
 .directory
 # adhoc directory for executing without install
 /share
+
+# QML cache
+*.qmlc
