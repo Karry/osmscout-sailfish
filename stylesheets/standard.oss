@@ -122,7 +122,7 @@ CONST
     COLOR waterColor               = #9acffd;
     COLOR waterLabelColor          = darken(@waterColor, 0.5);
     COLOR landColor                = #f1eee9;
-    COLOR unknownColor             = @waterColor;
+    COLOR unknownColor             = @landColor;
   }
   ELSE {
     COLOR waterColor               = darken(#9acffd, 0.5);
