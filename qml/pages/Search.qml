@@ -186,8 +186,6 @@ Page {
 
                     // the else case should never happen
                     if (selectedLocation !== null) {
-                        previewMap.showLocation(selectedLocation);
-                        previewMap.addPositionMark(0, lat, lon);
                         previewDialog.selectedLocation = selectedLocation;
                         previewDialog.acceptDestination = acceptDestination;
 
@@ -297,12 +295,38 @@ Page {
 
         property var selectedLocation;
 
+        onSelectedLocationChanged: {
+            previewMap.showLocation(selectedLocation);
+            previewMap.addPositionMark(0, selectedLocation.lat, selectedLocation.lon);
+            previewMap.removeAllOverlayObjects();
+
+            mapObjectInfo.setLocationEntry(selectedLocation);
+
+            header.title = selectedLocation.label;
+        }
+
         acceptDestinationAction: PageStackAction.Pop
 
         onAccepted: {
             // the else case should never happen
             if (selectedLocation !== null) {
                 selectLocation(selectedLocation);
+            }
+        }
+
+        MapObjectInfoModel{
+            id: mapObjectInfo
+            onReadyChanged: {
+                console.log("ready changed: " + ready +  " rows: "+rowCount());
+                if (ready){
+                    var cnt=rowCount();
+                    for (var row=0; row<cnt; row++){
+                        var obj=mapObjectInfo.createOverlayObject(row);
+                        obj.type="_highlighted";
+                        //console.log("object "+row+": "+obj);
+                        previewMap.addOverlayObject(row, obj);
+                    }
+                }
             }
         }
 
@@ -321,6 +345,7 @@ Page {
                 left: parent.left
                 bottom: parent.bottom
             }
+            showCurrentPosition: true
         }
     }
 }

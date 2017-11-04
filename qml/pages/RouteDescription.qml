@@ -72,7 +72,7 @@ Dialog {
 
     onAccepted: {
         var routeWay=route.routeWay;
-        mainMap.addOverlayWay(0,routeWay);
+        mainMap.addOverlayObject(0,routeWay);
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
     }
 

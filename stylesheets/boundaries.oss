@@ -3,6 +3,7 @@ OSS
     COLOR waterColor                 = #9acffd;
     COLOR landColor                  = #f1eee9;
     COLOR unknownColor               = @waterColor;
+    COLOR highlightedColor                 = #ff000088;
 
   SYMBOL place_city
     CIRCLE 0,0 1.25 {
@@ -13,12 +14,22 @@ OSS
     CIRCLE 0,0 0.75 {
       AREA {color: #ff000055; }
     }
+  SYMBOL marker
+    CIRCLE 0,0 0.75 {
+      AREA {color: #ff000055; }
+    }
 
   STYLE
    [TYPE _tile_sea] AREA {color: @waterColor;}
    //[TYPE _tile_coast] AREA {color: @waterColor;}
    [TYPE _tile_land] AREA {color: @landColor;}
    //[TYPE _tile_unknown] AREA {color: @unknownColor;}
+
+  [MAG world-] {
+    [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
+    [TYPE _highlighted] AREA.BORDER {color: @highlightedColor; width: 1.0mm; }
+    [TYPE _highlighted] NODE.ICON { symbol: marker; }
+  }
 
   [TYPE boundary_administrative] {
     AREA {color: #dddddd; }
