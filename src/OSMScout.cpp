@@ -68,7 +68,6 @@ int main(int argc, char* argv[])
 #endif
 
   QGuiApplication *app = SailfishApp::application(argc, argv);
-  QScopedPointer<QQuickView> view(SailfishApp::createView());  
 
   app->setOrganizationDomain("libosmscout.sf.net");
   app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
@@ -159,20 +158,16 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
-
-  QQmlApplicationEngine *window = NULL;
-  if (!desktop){
+  if (!desktop) {
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->showFullScreen();
-  }else{
-    window = new QQmlApplicationEngine(SailfishApp::pathTo("qml/desktop.qml"));
+    result=app->exec();
+  } else {
+    QQmlApplicationEngine window(SailfishApp::pathTo("qml/desktop.qml"));
+    result=app->exec();
   }
-  
-  result=app->exec();
-  
-  if (window!=NULL)
-      window->deleteLater();
 
   OSMScoutQt::FreeInstance();
 
