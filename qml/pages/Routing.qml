@@ -27,7 +27,7 @@ import harbour.osmscout.map 1.0
 import "../custom"
 import "../custom/Utils.js" as Utils
 
-Page {
+Dialog {
     id: routingPage
 
     property double toLat: -1000
@@ -57,20 +57,53 @@ Page {
         }
     }
 
+    canAccept: (fromSelector.location !== null) && (toSelector.location!== null)
+    acceptDestination: Qt.resolvedUrl("RouteDescription.qml")
+    acceptDestinationAction: PageStackAction.Push
+    acceptDestinationProperties: {"route": route, "mapPage": mapPage, "mainMap": mainMap}
+
+    onAccepted: {
+        computeRoute();
+    }
+
     SilicaFlickable {
         id: flickable
         anchors.fill: parent
-        //contentHeight: content.height + 2*Theme.paddingLarge
 
         VerticalScrollDecorator {}
+
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Swap start and target")
+                onClicked: {
+                    // swap selector state
+                    var fromLocation=fromSelector.location;
+                    var fromLabel=fromSelector.value;
+                    var fromCurrent=fromSelector.useCurrentLocation;
+                    var fromIndex=fromSelector.currentIndex;
+
+                    fromSelector.location=toSelector.location;
+                    fromSelector.value=toSelector.value;
+                    fromSelector.useCurrentLocation=toSelector.useCurrentLocation;
+                    fromSelector.currentIndex=toSelector.currentIndex;
+
+                    toSelector.location=fromLocation;
+                    toSelector.value=fromLabel;
+                    toSelector.useCurrentLocation=fromCurrent;
+                    toSelector.currentIndex=fromIndex;
+                }
+            }
+        }
 
         Column{
             id: content
             anchors.fill: parent
 
-            PageHeader {
-                id: headerText
+            DialogHeader {
+                id: header
                 title: qsTr("Search route")
+                acceptText : qsTr("Route!")
+                cancelText : ""
             }
 
             LocationSelector {
@@ -121,19 +154,6 @@ Page {
                         vehiclesModel.append({"vehicle": vehicle});
                     }
                     initialized = true;
-                }
-            }
-            Row {
-                spacing: Theme.paddingLarge
-                anchors.horizontalCenter: parent.horizontalCenter
-                Button {
-                    text: qsTr("Route!")
-                    enabled: (fromSelector.location !== null) && (toSelector.location!== null)
-                    onClicked: {
-                        computeRoute();
-                        pageStack.push(Qt.resolvedUrl("RouteDescription.qml"),
-                                       {route: route, mapPage: mapPage, mainMap: mainMap});
-                    }
                 }
             }
         }

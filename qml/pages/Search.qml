@@ -332,7 +332,7 @@ Page {
 
         DialogHeader {
             id: header
-            //title: "Search result"
+            //title: qsTr("Search result")
             //acceptText : qsTr("Accept")
             //cancelText : qsTr("Cancel")
         }

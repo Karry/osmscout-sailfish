@@ -84,7 +84,7 @@ Dialog {
         id: header
         //title: "Route"
         //acceptText : qsTr("Accept")
-        //cancelText : qsTr("Cancel")
+        cancelText : route.ready ? "" : qsTr("Cancel")
     }
 
 
