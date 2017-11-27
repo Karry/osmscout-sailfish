@@ -28,6 +28,7 @@ PkgConfigBR:
   - Qt5Qml
   - Qt5Quick
   - Qt5Positioning
+  - Qt5Sql
 
 # Runtime dependencies which are not automatically detected
 Requires:
