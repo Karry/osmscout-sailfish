@@ -175,3 +175,6 @@
 * 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.25-1
 - highlight search result objects on search result preview
 - show region in place detail page when there is no near poi or address point
+- upstream library fixes:
+  -- fix race condition that stops rendering pipeline
+  -- fix basemap (world overview when online tiles are disabled) with tiled renderer
