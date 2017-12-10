@@ -28,14 +28,12 @@ import "../custom"
 
 CoverBackground {
     id: cover
-    AppSettings{
-        id: appSettings
-    }
+
     property bool initialized: false;
     onStatusChanged: {
         if (status == PageStatus.Activating){
             if (!initialized){
-                map.view = appSettings.mapView;
+                map.view = AppSettings.mapView;
                 initialized = true;
             }
             map.lockToPosition = true;
@@ -104,6 +102,24 @@ CoverBackground {
 
         focus: true
         anchors.fill: parent
+
+        TiledMapOverlay {
+          anchors.fill: parent
+          view: map.view
+          enabled: AppSettings.hillShades
+          opacity: AppSettings.hillShadesOpacity
+          // If you intend to use tiles from OpenMapSurfer services in your own applications please contact us.
+          // https://korona.geog.uni-heidelberg.de/contact.html
+          provider: {
+                "id": "ASTER_GDEM",
+                "name": "Hillshade",
+                "servers": [
+                  "https://korona.geog.uni-heidelberg.de/tiles/asterh/x=%2&y=%3&z=%1"
+                ],
+                "maximumZoomLevel": 18,
+                "copyright": "© IAT, METI, NASA, NOAA",
+              }
+        }
 
         showCurrentPosition: true
         lockToPosition: true

@@ -28,15 +28,12 @@ import "../custom"
 Page {
     id: layersPage
 
-    AppSettings{
-        id:appSettings
-    }
     Settings {
         id: settings
     }
     onStatusChanged: {
         if (status == PageStatus.Activating){
-            map.view = appSettings.mapView;
+            map.view = AppSettings.mapView;
         }
     }
 
@@ -145,6 +142,38 @@ Page {
                             initialized = true;
                         }
                     }
+
+                    SectionHeader{ text: qsTr("Map Overlay") }
+
+                    TextSwitch{
+                        id: hillShadesSwitch
+                        width: parent.width
+
+                        checked: AppSettings.hillShades
+                        text: qsTr("Hill Shades")
+                        description: qsTr("Provided by Heidelberg University, based on ASTER GDEM data")
+
+                        onCheckedChanged: {
+                            AppSettings.hillShades = checked;
+                        }
+                    }
+                    Slider{
+                        id: hillShadesOpacitySlider
+                        width: parent.width
+
+                        enabled: AppSettings.hillShades
+                        opacity: enabled ? 1 : 0.3
+                        value: AppSettings.hillShadesOpacity
+                        valueText: Math.round((AppSettings.hillShadesOpacity) * 100) + "%"
+                        minimumValue: 0
+                        maximumValue: 1
+                        label: qsTr("Hill shades intensity")
+
+                        onValueChanged: {
+                            AppSettings.hillShadesOpacity = value;
+                        }
+                    }
+
 
                     SectionHeader{ text: qsTr("Offline Maps") }
 

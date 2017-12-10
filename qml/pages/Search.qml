@@ -44,10 +44,6 @@ Page {
         console.log("selectLocation: " + location);
     }
 
-    AppSettings{
-        id:appSettings
-    }
-
     Timer {
         id: postponeTimer
         interval: 1500
@@ -139,7 +135,7 @@ Page {
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     textFormat: Text.StyledText
                     text: (type=="coordinate") ?
-                              Utils.formatCoord(lat, lon, appSettings.gpsFormat) :
+                              Utils.formatCoord(lat, lon, AppSettings.gpsFormat) :
                               (searchString=="" ? label : Theme.highlightText(label, highlighRegexp, Theme.highlightColor))
                 }
                 Label {

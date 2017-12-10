@@ -17,9 +17,11 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#include <QDebug>
-
 #include "AppSettings.h"
+
+#include <osmscout/OSMScoutQt.h>
+
+#include <QDebug>
 
 AppSettings::AppSettings(): view(NULL)
 {
@@ -33,10 +35,10 @@ MapView *AppSettings::GetMapView()
     double angle = settings.value("settings/map/angle", 0).toDouble();
     double mag   = settings.value("settings/map/mag",   osmscout::Magnification::magContinent).toDouble();
     view = new MapView(this,
-              osmscout::GeoCoord(lat, lon),
-              angle,
-              osmscout::Magnification(mag)
-              );
+                       osmscout::GeoCoord(lat, lon),
+                       angle,
+                       osmscout::Magnification(mag),
+                       OSMScoutQt::GetInstance().GetSettings()->GetMapDPI());
   }
   return view;
 }
@@ -51,10 +53,10 @@ void AppSettings::SetMapView(QObject *o)
   bool changed = false;
   if (view == NULL){
     view = new MapView(this,
-              osmscout::GeoCoord(updated->GetLat(), updated->GetLon()),
-              updated->GetAngle(),
-              osmscout::Magnification(updated->GetMag())
-              );
+                       osmscout::GeoCoord(updated->GetLat(), updated->GetLon()),
+                       updated->GetAngle(),
+                       osmscout::Magnification(updated->GetMag()),
+                       updated->GetMapDpi());
     changed = true;
   }else{
     changed = *view != *updated;
@@ -81,5 +83,31 @@ void AppSettings::SetGpsFormat(const QString formatId)
   if (GetGpsFormat() != formatId){
     settings.setValue("gpsFormat", formatId);
     emit GpsFormatChanged(formatId);
+  }
+}
+
+bool AppSettings::GetHillShades() const
+{
+  return settings.value("hillShades", false).toBool();
+}
+
+void AppSettings::SetHillShades(bool b)
+{
+  if (b!=GetHillShades()) {
+    settings.setValue("hillShades", b);
+    emit HillShadesChanged(b);
+  }
+}
+
+double AppSettings::GetHillShadesOpacity() const
+{
+  return settings.value("hillShadesOpacity", 0.6).toDouble();
+}
+
+void AppSettings::SetHillShadesOpacity(double d)
+{
+  if (d!=GetHillShadesOpacity()) {
+    settings.setValue("hillShadesOpacity", d);
+    emit HillShadesOpacityChanged(d);
   }
 }

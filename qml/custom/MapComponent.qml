@@ -62,6 +62,24 @@ Map {
     }
   }
 
+  TiledMapOverlay {
+      anchors.fill: parent
+      view: map.view
+      enabled: AppSettings.hillShades
+      opacity: AppSettings.hillShadesOpacity
+      // If you intend to use tiles from OpenMapSurfer services in your own applications please contact us.
+      // https://korona.geog.uni-heidelberg.de/contact.html
+      provider: {
+            "id": "ASTER_GDEM",
+            "name": "Hillshade",
+            "servers": [
+              "https://korona.geog.uni-heidelberg.de/tiles/asterh/x=%2&y=%3&z=%1"
+            ],
+            "maximumZoomLevel": 18,
+            "copyright": "© IAT, METI, NASA, NOAA",
+          }
+  }
+
   OSMCopyright{
       id : osmCopyright
       anchors{

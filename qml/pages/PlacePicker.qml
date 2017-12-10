@@ -51,12 +51,9 @@ Dialog {
         //cancelText : qsTr("Cancel")
     }
 
-    AppSettings{
-        id: appSettings
-        Component.onCompleted: {
-            console.log("restore map position");
-            map.view = appSettings.mapView;
-        }
+    Component.onCompleted: {
+        console.log("restore map position");
+        map.view = AppSettings.mapView;
     }
 
     MapComponent{

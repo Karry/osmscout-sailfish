@@ -43,10 +43,6 @@ Dialog {
             remorse.execute(qsTranslate("message", reason), function() { }, 10 * 1000);
         }
     }
-    AppSettings{
-        id:appSettings
-    }
-
     function computeRoute() {
         if ((fromSelector.location !== null) && (toSelector.location!== null)) {
             route.setStartAndTarget(fromSelector.location,
@@ -120,7 +116,7 @@ Dialog {
                 Component.onCompleted: {
                     if (toLat!=-1000 && toLon!=-1000){
                         toSelector.location=route.locationEntryFromPosition(toLat, toLon);
-                        toSelector.value=Utils.formatCoord(toLat, toLon, appSettings.gpsFormat);
+                        toSelector.value=Utils.formatCoord(toLat, toLon, AppSettings.gpsFormat);
                     }
                 }
             }

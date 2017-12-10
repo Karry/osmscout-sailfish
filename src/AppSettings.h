@@ -26,12 +26,16 @@
 
 class AppSettings: public QObject{
   Q_OBJECT
-  Q_PROPERTY(QObject  *mapView  READ GetMapView WRITE SetMapView  NOTIFY MapViewChanged)
-  Q_PROPERTY(QString  gpsFormat   READ GetGpsFormat           WRITE SetGpsFormat    NOTIFY GpsFormatChanged)
+  Q_PROPERTY(QObject  *mapView          READ GetMapView           WRITE SetMapView           NOTIFY MapViewChanged)
+  Q_PROPERTY(QString  gpsFormat         READ GetGpsFormat         WRITE SetGpsFormat         NOTIFY GpsFormatChanged)
+  Q_PROPERTY(bool     hillShades        READ GetHillShades        WRITE SetHillShades        NOTIFY HillShadesChanged)
+  Q_PROPERTY(double   hillShadesOpacity READ GetHillShadesOpacity WRITE SetHillShadesOpacity NOTIFY HillShadesOpacityChanged)
 
 signals:
   void MapViewChanged(MapView *view);
   void GpsFormatChanged(const QString formatId);
+  void HillShadesChanged(bool);
+  void HillShadesOpacityChanged(double);
 
 public:
   AppSettings();
@@ -42,6 +46,12 @@ public:
 
   const QString GetGpsFormat() const;
   void SetGpsFormat(const QString formatId);
+
+  bool GetHillShades() const;
+  void SetHillShades(bool);
+
+  double GetHillShadesOpacity() const;
+  void SetHillShadesOpacity(double);
 
 private:
   QSettings settings;

@@ -50,9 +50,6 @@ ComboBox {
     RoutingListModel{
         id: routingModel
     }
-    AppSettings{
-        id: appSettings
-    }
 
     id: selector
 
@@ -77,7 +74,7 @@ ComboBox {
     onPickPlace: {
         location=routingModel.locationEntryFromPosition(lat, lon);
         console.log("Use picket position: " + lat + " " + lon);
-        value=Utils.formatCoord(lat, lon, appSettings.gpsFormat);
+        value=Utils.formatCoord(lat, lon, AppSettings.gpsFormat);
     }
 
     function activated(activeIndex){

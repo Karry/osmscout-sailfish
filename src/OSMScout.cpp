@@ -61,6 +61,13 @@
 // Application settings
 #include "AppSettings.h"
 
+static QObject *appSettingsSingletontypeProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+  Q_UNUSED(engine)
+  Q_UNUSED(scriptEngine)
+  return new AppSettings();
+}
+
 int main(int argc, char* argv[])
 {
 #ifdef Q_WS_X11
@@ -88,7 +95,7 @@ int main(int argc, char* argv[])
   qmlRegisterType<MapStyleModel>("harbour.osmscout.map", 1, 0, "MapStyleModel");
   qmlRegisterType<StyleFlagsModel>("harbour.osmscout.map", 1, 0, "StyleFlagsModel");
 
-  qmlRegisterType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings");
+  qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 
   osmscout::log.Debug(true);
 
