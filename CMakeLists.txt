@@ -147,6 +147,9 @@ endif()
 # ==================================================================================================
 # libmarisa
 
+# libmarisa don't have cmake based build, but it is relatively small,
+# so we define library target here
+
 set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie)
 set(MARISA_INCLUDE_DIRS
     ${MARISA_ROOT}/lib
@@ -202,6 +205,8 @@ include_directories(
 add_definitions(${QT_DEFINITIONS})
 add_definitions(${Qt5Core_DEFINITIONS})
 
+# we are including libosmscout subdirectories directly, we are responsible
+# to setup all variables correctly
 add_subdirectory(dependencies/libosmscout/libosmscout)
 add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
