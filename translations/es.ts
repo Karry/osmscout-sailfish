@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation type="vanished">OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSMscout para Sailfish OS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>GitHub de OSM Scout</translation>
+        <translation>GitHub de OSMscout</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>GitHub de la libreria OSM Scout</translation>
+        <translation>GitHub de libOSMscout</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout para sailfish os es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSMscout para Sailfish OS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
@@ -76,7 +76,7 @@
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
-        <translation>OSM Scout</translation>
+        <translation>OSMscout</translation>
     </message>
 </context>
 <context>
@@ -102,11 +102,11 @@
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>Mapas con conexión</translation>
+        <translation>Mapas en línea</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Mapas con conexión</translation>
+        <translation>Mapas con línea</translation>
     </message>
     <message>
         <source>Style</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Mapas sin conexión</translation>
+        <translation>Mapas sin línea</translation>
     </message>
     <message>
         <source>Enable offline map</source>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
-        <translation type="vanished">El mar puede superponer tiles con conexión!</translation>
+        <translation>El mar puede superponer tiles con conexión!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -246,19 +246,19 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation type="vanished">al oeste</translation>
+        <translation>al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="vanished">al este</translation>
+        <translation>al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="vanished">al sur</translation>
+        <translation>al sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="vanished">al norte</translation>
+        <translation>al norte</translation>
     </message>
     <message>
         <source>You are here</source>
@@ -274,18 +274,18 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="vanished">metros</translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="vanished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation type="vanished">Enrutar</translation>
+        <translation>Enrutar</translation>
     </message>
     <message>
         <source>Preparing</source>
@@ -308,7 +308,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="vanished">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>To</source>
@@ -316,11 +316,11 @@
     </message>
     <message>
         <source>With</source>
-        <translation type="vanished">Con</translation>
+        <translation>Con</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="vanished">Carro</translation>
+        <translation>Carro</translation>
     </message>
     <message>
         <source>By</source>
@@ -381,7 +381,7 @@
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation>Can&apos;t crear directorio</translation>
+        <translation>no se pudo crear el directorio</translation>
     </message>
 </context>
 <context>
@@ -425,15 +425,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">Linderos</translation>
+        <translation>Linderos</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">estandar</translation>
+        <translation>estandar</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">deportes-invierno</translation>
+        <translation>deportes-invierno</translation>
     </message>
 </context>
 <context>
