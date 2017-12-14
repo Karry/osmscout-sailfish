@@ -4,3 +4,6 @@
 [submodule "dependencies/libosmscout"]
 	path = dependencies/libosmscout
 	url = https://github.com/Karry/libosmscout.git
+[submodule "wiki"]
+	path = wiki
+	url = https://github.com/Karry/osmscout-sailfish.wiki.git
