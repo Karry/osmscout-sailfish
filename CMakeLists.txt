@@ -390,3 +390,31 @@ target_link_libraries(PerformanceTest
         ${LIBSAILFISHAPP_LIBRARIES}
 )
 
+# ==================================================================================================
+# SearchPerfTest binary
+set(SOURCE_FILES
+        src/SearchPerfTest.cpp
+        )
+
+add_executable(SearchPerfTest ${SOURCE_FILES})
+
+target_include_directories(SearchPerfTest PRIVATE
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
+        ${LIBSAILFISHAPP_INCLUDE_DIRS}
+        )
+
+target_link_libraries(SearchPerfTest
+        Qt5::Core
+        Qt5::Gui
+        Qt5::Quick # requiered by sailfishapp when configred with QT_QML_DEBUG
+
+        marisa
+        osmscout
+        osmscout_map
+        osmscout_map_qt
+        ${LIBSAILFISHAPP_LIBRARIES}
+        )
+
