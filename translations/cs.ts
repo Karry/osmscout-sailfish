@@ -166,19 +166,19 @@
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Překryvná vrstva</translation>
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Stínování kopců</translation>
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="unfinished"></translation>
+        <translation>Poskytována univerzitou v Heidelbergu, založena na ASTER GDEM datech</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Intenzita stínů</translation>
     </message>
 </context>
 <context>
@@ -309,7 +309,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušit</translation>
     </message>
 </context>
 <context>
@@ -344,7 +344,7 @@
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaměnit start a cíl</translation>
     </message>
 </context>
 <context>
