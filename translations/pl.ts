@@ -164,6 +164,22 @@
         <source>Bigger</source>
         <translation>Większy</translation>
     </message>
+    <message>
+        <source>Map Overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hill Shades</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hill shades intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LocationSelector</name>
@@ -306,6 +322,10 @@
         <source>Calculating the route</source>
         <translation>Wytyczanie trasy</translation>
     </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Routing</name>
@@ -336,6 +356,10 @@
     <message>
         <source>Route!</source>
         <translation>Wytycz!</translation>
+    </message>
+    <message>
+        <source>Swap start and target</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
