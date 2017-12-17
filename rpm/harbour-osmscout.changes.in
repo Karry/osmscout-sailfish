@@ -176,6 +176,7 @@
 - highlight search result objects on search result preview
 - show region in place detail page when there is no near poi or address point
 - add possibility of hill shades overlay (online tiles)
+- update translations (Czech, Spanish and Swedish)
 - upstream library fixes:
   -- fix race condition that stops rendering pipeline
   -- fix basemap (world overview when online tiles are disabled) with tiled renderer
