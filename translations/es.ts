@@ -170,19 +170,19 @@
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobreponer mapa</translation>
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Sombras de colina</translation>
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="unfinished"></translation>
+        <translation>Dado por la Universidad de Heidelberg, basado en datos ASTER GDEM</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensidad de sombra de colina</translation>
     </message>
 </context>
 <context>
@@ -313,7 +313,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -352,7 +352,7 @@
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation>Deslizar para iniciar la rura</translation>
     </message>
 </context>
 <context>
@@ -449,15 +449,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">Linderos</translation>
+        <translation>Linderos</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">estandar</translation>
+        <translation>estandar</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">deportes-invierno</translation>
+        <translation>deportes-invierno</translation>
     </message>
 </context>
 <context>
