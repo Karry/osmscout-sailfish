@@ -166,19 +166,19 @@
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Kartöverlägg</translation>
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Bergsskuggning</translation>
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillhandahållet av Heidelberg University, baserat på ASTER GDEM data</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Bergsskuggningens intensitet</translation>
     </message>
 </context>
 <context>
@@ -309,7 +309,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
@@ -348,7 +348,7 @@
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation>Växla start och mål</translation>
     </message>
 </context>
 <context>
