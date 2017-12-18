@@ -156,7 +156,7 @@ int main(int argc, char* argv[])
     .WithCacheLocation(cache + QDir::separator() + "OsmTileCache")
     .WithIconDirectory(SailfishApp::pathTo("map-icons").toLocalFile())
     .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
-    .WithTileCacheSizes(/* online */ desktop ?  40 : 25, /* offline */ desktop ? 200 : 50)
+    .WithTileCacheSizes(/* online */ desktop ?  40 : 40, /* offline */ desktop ? 200 : 50)
     .WithUserAgent("OSMScoutForSFOS", OSMSCOUT_SAILFISH_VERSION_STRING)
     .Init();
 
