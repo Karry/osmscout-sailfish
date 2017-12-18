@@ -166,19 +166,19 @@
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nakładka mapy</translation>
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Cienie wzgórz</translation>
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostarczone przez Heidelberg University, na bazie danych ASTER GDEM</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensywność cieni wzgórz</translation>
     </message>
 </context>
 <context>
@@ -324,7 +324,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Anuluj</translation>
     </message>
 </context>
 <context>
@@ -359,7 +359,7 @@
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamień początek i cel</translation>
     </message>
 </context>
 <context>
