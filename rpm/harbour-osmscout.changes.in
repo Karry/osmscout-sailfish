@@ -172,11 +172,11 @@
   -- display route length and duration
 - update Polish, Spanish and Swedish translations
 
-* 2017-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.25-1
+* 2017-12-19 Lukáš Karas <lukas.karas@centrum.cz> 0.25-1
 - highlight search result objects on search result preview
 - show region in place detail page when there is no near poi or address point
 - add possibility of hill shades overlay (online tiles)
-- update translations (Czech, Spanish and Swedish)
+- update translations (Czech, Spanish, Swedish and Poland)
 - upstream library fixes:
   -- fix race condition that stops rendering pipeline
   -- fix basemap (world overview when online tiles are disabled) with tiled renderer
