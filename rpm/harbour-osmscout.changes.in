@@ -180,3 +180,5 @@
 - upstream library fixes:
   -- fix race condition that stops rendering pipeline
   -- fix basemap (world overview when online tiles are disabled) with tiled renderer
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.26-1
