@@ -61,6 +61,7 @@
 /build-qtcreator
 /build-qtcreator-prod
 /cmake-build-debug
+/dependencies/libosmscout-build
 /qmllive-workspace
 /rpmbuilddir
 /rpmbuilddir-arm
