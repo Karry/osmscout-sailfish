@@ -182,3 +182,8 @@
   -- fix basemap (world overview when online tiles are disabled) with tiled renderer
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.26-1
+- fix rare crash in routing
+- in progress:
+  - make possible to translate route steps
+  - add route step icons
+  - improve rendering on boundary of multiple databases
