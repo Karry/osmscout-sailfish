@@ -81,5 +81,6 @@ HEADERS += \
 SOURCES += \
     src/MapStyleHelper.cpp \
     src/OSMScout.cpp \
-    src/PerformanceTest.cpp
+    src/PerformanceTest.cpp \
+    dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp
 

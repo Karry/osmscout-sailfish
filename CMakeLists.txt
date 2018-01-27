@@ -286,6 +286,7 @@ set(SOURCE_FILES
 )
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
+add_dependencies(harbour-osmscout translations)
 
 target_include_directories(harbour-osmscout PRIVATE 
 		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
