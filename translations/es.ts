@@ -320,235 +320,235 @@
     <name>RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar brusco a la izquierda</translation>
     </message>
     <message>
         <source>Turn left</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar a la izquierda</translation>
     </message>
     <message>
         <source>Turn slightly left</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar leve a la izquierda</translation>
     </message>
     <message>
         <source>Straight on</source>
-        <translation type="unfinished"></translation>
+        <translation>Recto</translation>
     </message>
     <message>
         <source>Turn slightly right</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar leve a la derecha</translation>
     </message>
     <message>
         <source>Turn right</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar a la derecha</translation>
     </message>
     <message>
         <source>Turn sharp right</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar brusco a la derecha</translation>
     </message>
     <message>
         <source>Turn</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar&lt;/fuerte&gt; dentro de %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la izquierda&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la izquierda&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la izquierda&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Recto&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la derecha&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la derecha&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la derecha&lt;/fuerte&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la izquierda&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la izquierda&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la izquierda&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Recto&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la derecha&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la derecha&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la derecha&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>unnamed road</source>
-        <translation type="unfinished"></translation>
+        <translation>Carretera sin nombre</translation>
     </message>
     <message>
         <source>(%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Empezar&lt;/fuerte&gt; a %1</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Continuar&lt;/fuerte&gt; a lo largo %1</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Continuar</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Empezar&lt;/fuerte&gt; a lo largo %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Empezar&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;A llegado a su destino&lt;/fuerte&gt; at %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;A llegado a su destino&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation type="unfinished"></translation>
+        <translation>A llegado a su destino</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Entrar en la rotonda&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Entrar en la rotonda&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrar en la rotonda</translation>
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Salir de la rotonda</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Salir de la rotonda&lt;/fuerte&gt; en %1. salir de la calle %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Salir de la rotonda&lt;/fuerte&gt; en %1. salir</translation>
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrar a la autopista</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt; %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt; %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Al cruzar %1&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar autopista</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Cambiar autopista&lt;/fuerte&gt; desde %1 to %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Cambiar autopista&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Salir de la autop[ista</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Salir de la autopista&lt;/fuerte&gt; %1 en %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Salir de la autopista&lt;/fuerte&gt; %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;Salir de la autopista&lt;/fuerte&gt;</translation>
     </message>
     <message>
         <source>Way changes name</source>
-        <translation type="unfinished"></translation>
+        <translation>El camino cambio de nombre</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;El camino cambio de nombre&lt;/fuerte&gt; desde %1 to %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;fuerte&gt;El camino cambio de nombre&lt;/fuerte&gt; para %1</translation>
     </message>
 </context>
 <context>
