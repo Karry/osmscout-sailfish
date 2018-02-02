@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
-        <translation>Francés:  Pierre-Henri Horrein </translation>
+        <translation>Francés:  Pierre-Henri Horrein</translation>
     </message>
     <message>
         <source>Privacy notes</source>
@@ -352,67 +352,67 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar&lt;/fuerte&gt; dentro de %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar&lt;/strong&gt; dentro de %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la izquierda&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la izquierda&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la izquierda&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Recto&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Recto&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la derecha&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la derecha&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la derecha&lt;/fuerte&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt; dentro de  %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la izquierda&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la izquierda&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la izquierda&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Recto&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Recto&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar leve a la derecha&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar a la derecha&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Girar brusco a la derecha&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>unnamed road</source>
@@ -432,7 +432,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;fuerte&gt;Empezar&lt;/fuerte&gt; a %1</translation>
+        <translation>&lt;strong&gt;Empezar&lt;/strong&gt; a %1</translation>
     </message>
     <message>
         <source>Start</source>
@@ -440,7 +440,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;fuerte&gt;Continuar&lt;/fuerte&gt; a lo largo %1</translation>
+        <translation>&lt;strong&gt;Continuar&lt;/strong&gt; a lo largo %1</translation>
     </message>
     <message>
         <source>Continue</source>
@@ -448,19 +448,19 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;fuerte&gt;Empezar&lt;/fuerte&gt; a lo largo %1</translation>
+        <translation>&lt;strong&gt;Empezar&lt;/strong&gt; a lo largo %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;fuerte&gt;Empezar&lt;/fuerte&gt;</translation>
+        <translation>&lt;strong&gt;Empezar&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;fuerte&gt;A llegado a su destino&lt;/fuerte&gt; at %1</translation>
+        <translation>&lt;strong&gt;A llegado a su destino&lt;/strong&gt; at %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;fuerte&gt;A llegado a su destino&lt;/fuerte&gt;</translation>
+        <translation>&lt;strong&gt;A llegado a su destino&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
@@ -468,11 +468,11 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Entrar en la rotonda&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Entrar en la rotonda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;fuerte&gt;Entrar en la rotonda&lt;/fuerte&gt;</translation>
+        <translation>&lt;strong&gt;Entrar en la rotonda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Enter roundabout</source>
@@ -484,11 +484,11 @@
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;fuerte&gt;Salir de la rotonda&lt;/fuerte&gt; en %1. salir de la calle %2</translation>
+        <translation>&lt;strong&gt;Salir de la rotonda&lt;/strong&gt; en %1. salir de la calle %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;fuerte&gt;Salir de la rotonda&lt;/fuerte&gt; en %1. salir</translation>
+        <translation>&lt;strong&gt;Salir de la rotonda&lt;/strong&gt; en %1. salir</translation>
     </message>
     <message>
         <source>Enter motorway</source>
@@ -496,19 +496,19 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt; %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Entrar a la autopista&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt; %1</translation>
+        <translation>&lt;strong&gt;Entrar a la autopista&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt;</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Entrar a la autopista&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;fuerte&gt;Entrar a la autopista&lt;/fuerte&gt;</translation>
+        <translation>&lt;strong&gt;Entrar a la autopista&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Change motorway</source>
@@ -516,11 +516,11 @@
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;fuerte&gt;Cambiar autopista&lt;/fuerte&gt; desde %1 to %2</translation>
+        <translation>&lt;strong&gt;Cambiar autopista&lt;/strong&gt; desde %1 to %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;fuerte&gt;Cambiar autopista&lt;/fuerte&gt;</translation>
+        <translation>&lt;strong&gt;Cambiar autopista&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
@@ -528,15 +528,15 @@
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;fuerte&gt;Salir de la autopista&lt;/fuerte&gt; %1 en %2</translation>
+        <translation>&lt;strong&gt;Salir de la autopista&lt;/strong&gt; %1 en %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;fuerte&gt;Salir de la autopista&lt;/fuerte&gt; %1</translation>
+        <translation>&lt;strong&gt;Salir de la autopista&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;fuerte&gt;Salir de la autopista&lt;/fuerte&gt;</translation>
+        <translation>&lt;strong&gt;Salir de la autopista&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Way changes name</source>
@@ -544,11 +544,11 @@
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;fuerte&gt;El camino cambio de nombre&lt;/fuerte&gt; desde %1 to %2</translation>
+        <translation>&lt;strong&gt;El camino cambio de nombre&lt;/strong&gt; desde %1 to %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;fuerte&gt;El camino cambio de nombre&lt;/fuerte&gt; para %1</translation>
+        <translation>&lt;strong&gt;El camino cambio de nombre&lt;/strong&gt; para %1</translation>
     </message>
 </context>
 <context>
@@ -654,7 +654,7 @@
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation>© OpenStreetMap contribuyentes </translation>
+        <translation>© OpenStreetMap contribuyentes</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
