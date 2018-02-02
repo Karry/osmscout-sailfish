@@ -183,7 +183,7 @@
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.26-1
 - fix rare crash in routing
+- improve rendering on boundary of multiple databases
+- make possible to translate route steps, update translations (Czech, Polish, Spanish, and Swedish)
 - in progress:
-  - make possible to translate route steps
   - add route step icons
-  - improve rendering on boundary of multiple databases
