@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout pro Sailfish OS je vyvýjen dobrovolníky v jejich volném čase jako open-source. Můžete pomoci vylepšit tuto aplikaci reportováním chyb, vytvářením překladů nebo vývojem nových vlastností. Každá pomoc je výtána.</translation>
+        <translation>OSM Scout pro Sailfish OS je vyvýjen dobrovolníky v jejich volném čase jako open-source. Můžete pomoci vylepšit tuto aplikaci reportováním chyb, vytvářením překladů nebo vývojem nových vlastností. Každá pomoc je vítána.</translation>
     </message>
     <message>
         <source>GitHub page</source>
