@@ -181,7 +181,7 @@
   -- fix race condition that stops rendering pipeline
   -- fix basemap (world overview when online tiles are disabled) with tiled renderer
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.26-1
+* 2018-02-04 Lukáš Karas <lukas.karas@centrum.cz> 0.26-1
 - fix rare crash in routing
 - improve rendering on boundary of multiple databases
 - make possible to translate route steps, update translations (Czech, Polish, Spanish, and Swedish)
