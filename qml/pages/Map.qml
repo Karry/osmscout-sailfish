@@ -311,8 +311,8 @@ Page {
                     bottomMargin: Theme.paddingMedium
                     leftMargin: Theme.paddingMedium
                 }
-                width: 90
-                height: 90
+                width: Theme.iconSizeLarge
+                height: width
                 radius: Theme.paddingMedium
 
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
@@ -342,8 +342,8 @@ Page {
                     rightMargin: Theme.paddingMedium
                     bottomMargin: Theme.paddingMedium
                 }
-                width: 90
-                height: 90
+                width: Theme.iconSizeLarge
+                height: width
 
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 
