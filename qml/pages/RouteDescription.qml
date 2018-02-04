@@ -116,6 +116,8 @@ Dialog {
             }
         }
 
+        delegate: RoutingStep{}
+        /*
         delegate: BackgroundItem {
             id: backgroundItem
             //height: entryDescription.height
@@ -137,6 +139,7 @@ Dialog {
                 text: label
             }
         }
+        */
 
         ProgressBar {
             id: progressBar

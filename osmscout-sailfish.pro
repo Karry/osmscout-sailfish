@@ -57,6 +57,8 @@ DISTFILES += \
             qml/custom/POIIcon.qml \
             qml/custom/ScaleIndicator.qml \
             qml/custom/ScrollIndicator.qml \
+            qml/custom/RoutingStep.qml \
+            qml/custom/RouteStepIcon.qml \
             qml/custom/Utils.js \
             qml/desktop.qml \
             qml/l10n.qml \

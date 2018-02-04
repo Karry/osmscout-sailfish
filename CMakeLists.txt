@@ -265,6 +265,8 @@ set(SOURCE_FILES
     qml/custom/MapComponent.qml
     qml/custom/ScaleIndicator.qml
     qml/custom/LocationSelector.qml
+    qml/custom/RoutingStep.qml
+    qml/custom/RouteStepIcon.qml
     qml/custom/Utils.js
     qml/pages/Cover.qml
     qml/pages/Search.qml
@@ -344,10 +346,14 @@ install(FILES icons/256x256/harbour-osmscout.png
 DESTINATION share/icons/hicolor/256x256/apps)
 
 install(DIRECTORY icons/poi/
-DESTINATION share/${HARBOUR_APP_NAME}/poi-icons
-FILES_MATCHING PATTERN "*.svg")
+        DESTINATION share/${HARBOUR_APP_NAME}/poi-icons
+        FILES_MATCHING PATTERN "*.svg")
 
-install(FILES 
+install(DIRECTORY icons/routestep/
+        DESTINATION share/${HARBOUR_APP_NAME}/routestep
+        FILES_MATCHING PATTERN "*.svg")
+
+install(FILES
   dependencies/libosmscout/libosmscout/data/icons/14x14/standard/bus_stop.png
   dependencies/libosmscout/libosmscout/data/icons/14x14/standard/cemetery.png
   dependencies/libosmscout/libosmscout/data/icons/14x14/standard/forest.png

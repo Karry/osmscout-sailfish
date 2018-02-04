@@ -11,6 +11,8 @@
         <file>qml/custom/MapButton.qml</file>
         <file>qml/custom/MapDialog.qml</file>
         <file>qml/custom/ScrollIndicator.qml</file>
+        <file>qml/custom/RoutingStep.qml</file>
+        <file>qml/custom/RouteStepIcon.qml</file>
         <file>pics/DeleteText.svg</file>
         <file>pics/Minus.svg</file>
         <file>pics/Search.svg</file>

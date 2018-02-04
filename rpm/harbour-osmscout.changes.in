@@ -185,5 +185,4 @@
 - fix rare crash in routing
 - improve rendering on boundary of multiple databases
 - make possible to translate route steps, update translations (Czech, Polish, Spanish, and Swedish)
-- in progress:
-  - add route step icons
+- add route step icons
