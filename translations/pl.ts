@@ -367,31 +367,31 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w lewo&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w lewo&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;jedź prosto&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;jedź prosto&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w prawo&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w prawo&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w prawo&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w prawo&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt; na %2</translation>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt; w %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
@@ -467,7 +467,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Cel osiągnięty&lt;/strong&gt; na %1</translation>
+        <translation>&lt;strong&gt;Cel osiągnięty&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
