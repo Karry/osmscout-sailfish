@@ -1471,6 +1471,7 @@ STYLE
          amenity_fast_food,
          amenity_fuel,
          amenity_kindergarten,
+         amenity_library,
          amenity_restaurant,
          amenity_school] AREA { color: @amenityColor; }
  }
@@ -1547,6 +1548,7 @@ STYLE
          amenity_fast_food,
          amenity_fuel,
          amenity_kindergarten,
+         amenity_library,
          amenity_recycling,
          amenity_restaurant,
          amenity_school] {
@@ -1662,6 +1664,7 @@ STYLE
            amenity_fast_food_building,
            amenity_fuel_building,
            amenity_kindergarten_building,
+           amenity_library_building,
            amenity_restaurant_building,
            amenity_school_building] {
            AREA { color: @amenityBuildingColor; }
