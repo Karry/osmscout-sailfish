@@ -51,13 +51,4 @@ Item {
         //font.pixelSize: Theme.textFontSize
         wrapMode: Text.Wrap
     }
-    /*
-    Rectangle {
-        x: Theme.paddingMedium
-        y: parent.height-Theme.paddingMedium
-        width: parent.width-(2*Theme.paddingMedium)
-        height: 1
-        color: "#ffffffff"
-    }
-    */
 }
