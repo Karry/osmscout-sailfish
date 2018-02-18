@@ -47,7 +47,7 @@ Item {
 
         anchors.left: icon.right
         width: parent.width - (2*Theme.paddingMedium) - icon.width
-        text: label
+        text: description
         //font.pixelSize: Theme.textFontSize
         wrapMode: Text.Wrap
     }
