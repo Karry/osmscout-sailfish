@@ -190,4 +190,4 @@
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.27-1
 - fix map icons and symbols
 - add new "Public Transport" map style
-- TODO: support for basic navigation
+- basic support for navigation
