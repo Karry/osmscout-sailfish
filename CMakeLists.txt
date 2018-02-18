@@ -275,7 +275,7 @@ set(SOURCE_FILES
     qml/pages/MapDetail.qml
     qml/pages/About.qml
     qml/pages/PlaceDetail.qml
-    qml/pages/Map.qml
+    qml/pages/MapPage.qml
     qml/pages/Layers.qml
     qml/pages/MapObjects.qml
     qml/pages/Routing.qml

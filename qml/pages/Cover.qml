@@ -29,6 +29,9 @@ import "../custom"
 CoverBackground {
     id: cover
 
+    property NavigationModel navigationModel
+    property RoutingListModel routingModel
+
     property bool initialized: false;
     onStatusChanged: {
         if (status == PageStatus.Activating){
@@ -43,6 +46,15 @@ CoverBackground {
             positionSource.active = false;
         }
     }
+
+    Component.onCompleted: {
+        routingModel.computingChanged.connect(function(){
+            if (routingModel.ready){
+                map.addOverlayObject(0,routingModel.routeWay);
+            }
+        });
+    }
+
     PositionSource {
         id: positionSource
 
@@ -76,6 +88,7 @@ CoverBackground {
         id: header
 
         height: icon.height + 2* Theme.paddingMedium
+        visible: !navigationModel.destinationSet
         x: Theme.paddingMedium
 
         Image{
@@ -97,6 +110,46 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeMedium
         }
     }
+
+    Rectangle {
+        id: nextStepBox
+
+        x: Theme.paddingMedium
+        height: nextStepIcon.height + 2* Theme.paddingMedium
+        visible: navigationModel.destinationSet
+        color: "transparent"
+
+        RouteStepIcon{
+            id: nextStepIcon
+            stepType: navigationModel.nextRouteStep.type
+            x: 0
+            y: Theme.paddingMedium
+            height: Theme.fontSizeMedium * 1.5
+            width: height
+        }
+        Text{
+            id: distanceToNextStep
+
+            function humanDistance(distance){
+                if (distance < 150){
+                    return Math.round(distance/10)*10 + " "+ qsTr("meters");
+                }
+                if (distance < 2000){
+                    return Math.round(distance/100)*100 + " "+ qsTr("meters");
+                }
+                return Math.round(distance/1000) + " "+ qsTr("km");
+            }
+            text: humanDistance(navigationModel.nextRouteStep.distanceTo)
+            color: Theme.primaryColor
+            font.pixelSize: Theme.fontSizeMedium
+            anchors{
+                verticalCenter: parent.verticalCenter
+                left: nextStepIcon.right
+                leftMargin: Theme.paddingSmall
+            }
+        }
+    }
+
     Map {
         id: map
 

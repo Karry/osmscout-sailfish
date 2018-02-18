@@ -56,7 +56,13 @@ Dialog {
     canAccept: (fromSelector.location !== null) && (toSelector.location!== null)
     acceptDestination: Qt.resolvedUrl("RouteDescription.qml")
     acceptDestinationAction: PageStackAction.Push
-    acceptDestinationProperties: {"route": route, "mapPage": mapPage, "mainMap": mainMap}
+    acceptDestinationProperties: {
+        "route": route,
+        "mapPage": mapPage,
+        "mainMap": mainMap,
+        "destination": toSelector.location,
+        "fromCurrentLocation": fromSelector.useCurrentLocation
+    }
 
     onAccepted: {
         computeRoute();

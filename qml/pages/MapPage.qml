@@ -29,6 +29,9 @@ import "../custom"
 Page {
     id: mapPage
 
+    property NavigationModel navigationModel
+    property RoutingListModel routingModel
+
     signal selectLocation(LocationEntry location)
 
     onSelectLocation: {
@@ -36,7 +39,6 @@ Page {
         map.showLocation(location);
         drawer.open = false;
     }
-
 
     RemorsePopup { id: remorse }
 
@@ -55,6 +57,12 @@ Page {
     Component.onCompleted: {
         console.log("restore map position");
         map.view = AppSettings.mapView;
+
+        routingModel.computingChanged.connect(function(){
+            if (routingModel.ready){
+                map.addOverlayObject(0,routingModel.routeWay);
+            }
+        });
     }
 
     Settings {
@@ -301,10 +309,67 @@ Page {
             }
 
             Rectangle {
+                id: nextStepBox
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: navigationModel.destinationSet ? (Theme.iconSizeLarge + 2*Theme.paddingMedium) : 0
+
+                color: Theme.rgba(Theme.highlightDimmerColor, 0.8)
+
+                RouteStepIcon{
+                    id: nextStepIcon
+                    stepType: navigationModel.nextRouteStep.type
+                    height: parent.height
+                    width: height
+                    anchors{
+                        top: parent.top
+                        left: parent.left
+                    }
+                }
+                Text{
+                    id: distanceToNextStep
+
+                    function humanDistance(distance){
+                        if (distance < 150){
+                            return Math.round(distance/10)*10 + " "+ qsTr("meters");
+                        }
+                        if (distance < 2000){
+                            return Math.round(distance/100)*100 + " "+ qsTr("meters");
+                        }
+                        return Math.round(distance/1000) + " "+ qsTr("km");
+                    }
+                    text: humanDistance(navigationModel.nextRouteStep.distanceTo)
+                    color: Theme.primaryColor
+                    font.pixelSize: Theme.fontSizeLarge
+                    x: Theme.paddingMedium
+                    y: Theme.paddingMedium
+                    anchors{
+                        top: parent.top
+                        left: nextStepIcon.right
+                    }
+                }
+                Text{
+                    id: nextStepDescription
+                    text: navigationModel.nextRouteStep.shortDescription
+                    font.pixelSize: Theme.fontSizeMedium
+                    color: Theme.secondaryColor
+                    wrapMode: Text.Wrap
+                    x: Theme.paddingMedium
+                    anchors{
+                        top: distanceToNextStep.bottom
+                        left: nextStepIcon.right
+                        right: parent.right
+                    }
+                }
+            }
+
+            Rectangle {
                 id : menuBtn
                 anchors{
                     right: parent.right
-                    top: parent.top
+                    top: nextStepBox.bottom
 
                     topMargin: Theme.paddingMedium
                     rightMargin: Theme.paddingMedium

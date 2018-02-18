@@ -74,5 +74,4 @@ Image{
 
     sourceSize.width: width
     sourceSize.height: height
-
 }

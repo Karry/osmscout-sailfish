@@ -32,6 +32,8 @@ Dialog {
 
     property RoutingListModel route
     property bool failed: false
+    property bool fromCurrentLocation: false
+    property LocationEntry destination
     property var mapPage
     property var mainMap
 
@@ -74,6 +76,10 @@ Dialog {
         var routeWay=route.routeWay;
         mainMap.addOverlayObject(0,routeWay);
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
+        if (fromCurrentLocation && destination && destination.type != "none"){
+            console.log("navigation destination: " + destination + " (" + destination.label + ")");
+            mapPage.navigationModel.destination = destination;
+        }
     }
 
     onRejected: {
@@ -83,7 +89,7 @@ Dialog {
     DialogHeader {
         id: header
         //title: "Route"
-        //acceptText : qsTr("Accept")
+        acceptText : fromCurrentLocation ? qsTr("Navigate") : qsTr("Accept")
         cancelText : route.ready ? "" : qsTr("Cancel")
     }
 
@@ -117,29 +123,6 @@ Dialog {
         }
 
         delegate: RoutingStep{}
-        /*
-        delegate: BackgroundItem {
-            id: backgroundItem
-            //height: entryDescription.height
-            height: entryDescription.implicitHeight+Theme.paddingMedium
-
-            ListView.onAdd: AddAnimation {
-                target: backgroundItem
-            }
-            ListView.onRemove: RemoveAnimation {
-                target: backgroundItem
-            }
-            Label {
-                id: entryDescription
-                x: Theme.paddingMedium
-
-                width: parent.width-2*Theme.paddingMedium
-                //color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                //textFormat: Text.StyledText
-                text: label
-            }
-        }
-        */
 
         ProgressBar {
             id: progressBar
