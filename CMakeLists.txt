@@ -367,6 +367,7 @@ install(FILES
   stylesheets/boundaries.oss
   stylesheets/standard.oss
   stylesheets/winter-sports.oss
+  stylesheets/public-transport.oss
 DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
 
 # ==================================================================================================

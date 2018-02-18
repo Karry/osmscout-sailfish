@@ -740,5 +740,9 @@
         <source>winter-sports</source>
         <translation>vintersport</translation>
     </message>
+    <message>
+        <source>public-transport</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

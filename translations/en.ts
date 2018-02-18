@@ -700,5 +700,9 @@
         <source>winter-sports</source>
         <translation>Winter sports</translation>
     </message>
+    <message>
+        <source>public-transport</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
