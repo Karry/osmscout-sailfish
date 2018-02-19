@@ -28,6 +28,8 @@ Map {
   id: map
   renderingType: "tiled" // plane or tiled
 
+  property double topMargin:0
+
   PositionSource {
       id: positionSource
       active: true
@@ -45,6 +47,7 @@ Map {
       anchors{
           left: parent.left
           top: parent.top
+          topMargin: map.topMargin
       }
 
       zoomLevel: map.zoomLevel

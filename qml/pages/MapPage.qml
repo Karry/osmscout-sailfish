@@ -225,6 +225,8 @@ Page {
             focus: true
             anchors.fill: parent
 
+            topMargin: nextStepBox.height
+
             showCurrentPosition: true
 
             onTap: {
@@ -314,18 +316,20 @@ Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: navigationModel.destinationSet ? (Theme.iconSizeLarge + 2*Theme.paddingMedium) : 0
+                height: navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
+                visible: navigationModel.destinationSet
 
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.8)
 
                 RouteStepIcon{
                     id: nextStepIcon
                     stepType: navigationModel.nextRouteStep.type
-                    height: parent.height
+                    height: Theme.iconSizeLarge
                     width: height
                     anchors{
-                        top: parent.top
                         left: parent.left
+                        margins: Theme.paddingMedium
+                        verticalCenter: parent.verticalCenter
                     }
                 }
                 Text{
@@ -343,11 +347,11 @@ Page {
                     text: humanDistance(navigationModel.nextRouteStep.distanceTo)
                     color: Theme.primaryColor
                     font.pixelSize: Theme.fontSizeLarge
-                    x: Theme.paddingMedium
-                    y: Theme.paddingMedium
                     anchors{
                         top: parent.top
                         left: nextStepIcon.right
+                        topMargin: Theme.paddingMedium
+                        leftMargin: Theme.paddingMedium
                     }
                 }
                 Text{
@@ -356,11 +360,11 @@ Page {
                     font.pixelSize: Theme.fontSizeMedium
                     color: Theme.secondaryColor
                     wrapMode: Text.Wrap
-                    x: Theme.paddingMedium
                     anchors{
                         top: distanceToNextStep.bottom
-                        left: nextStepIcon.right
+                        left: distanceToNextStep.left
                         right: parent.right
+                        margins: Theme.paddingSmall
                     }
                 }
             }
