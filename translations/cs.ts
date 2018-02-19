@@ -727,7 +727,7 @@
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>Veřejná doprava</translation>
     </message>
 </context>
 </TS>
