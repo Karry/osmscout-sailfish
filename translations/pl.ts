@@ -764,7 +764,7 @@
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>transport publiczny</translation>
     </message>
 </context>
 </TS>
