@@ -98,11 +98,11 @@
     </message>
     <message>
         <source>Map magnification</source>
-        <translation>Ampliación de mapa</translation>
+        <translation>Ampliación del mapa</translation>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>Mapas en línea</translation>
+        <translation>Mapas con conexión</translation>
     </message>
     <message>
         <source>Enable online maps</source>
@@ -114,15 +114,15 @@
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Mapas sin línea</translation>
-    </message>
-    <message>
-        <source>Enable offline map</source>
         <translation>Mapas sin conexión</translation>
     </message>
     <message>
+        <source>Enable offline map</source>
+        <translation>Mapas sin  línea</translation>
+    </message>
+    <message>
         <source>Sea rendering</source>
-        <translation>Renderizando el mar</translation>
+        <translation>Renderizar el mar</translation>
     </message>
     <message>
         <source>Sea can overlap online tiles!</source>
@@ -189,7 +189,7 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation>Seleccionar ubicación...</translation>
+        <translation>Elegir ubicación...</translation>
     </message>
     <message>
         <source>Current location</source>
@@ -201,7 +201,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation>Seleccionar un lugar</translation>
+        <translation>Marcar un lugar</translation>
     </message>
 </context>
 <context>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation>Enrutar</translation>
+        <translation>Ir!</translation>
     </message>
 </context>
 <context>
@@ -301,7 +301,7 @@
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation type="vanished">Enrutar</translation>
+        <translation type="vanished">Ir!</translation>
     </message>
     <message>
         <source>Preparing</source>
@@ -352,35 +352,35 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar&lt;/strong&gt; dentro de %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Recto&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Recto&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt; dentro de  %2</translation>
+        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
@@ -416,7 +416,7 @@
     </message>
     <message>
         <source>unnamed road</source>
-        <translation>Carretera sin nombre</translation>
+        <translation>Calle sin nombre</translation>
     </message>
     <message>
         <source>(%1)</source>
@@ -432,11 +432,11 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Empezar&lt;/strong&gt; a %1</translation>
+        <translation>&lt;strong&gt;Iniciar&lt;/strong&gt; a %1</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Empezar</translation>
+        <translation>Iniciar</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
@@ -448,19 +448,19 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Empezar&lt;/strong&gt; a lo largo %1</translation>
+        <translation>&lt;strong&gt;Iniciar&lt;/strong&gt; a lo largo %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Empezar&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Iniciar&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;A llegado a su destino&lt;/strong&gt; at %1</translation>
+        <translation>&lt;strong&gt;A llegado a su destino!&lt;/strong&gt; at %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;A llegado a su destino&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;A llegado a su destino!&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
@@ -540,11 +540,11 @@
     </message>
     <message>
         <source>Way changes name</source>
-        <translation>El camino cambio de nombre</translation>
+        <translation>La calle cambio de nombre</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;El camino cambio de nombre&lt;/strong&gt; desde %1 to %2</translation>
+        <translation>&lt;strong&gt;La calle cambio de nombre&lt;/strong&gt; desde %1 para %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
@@ -555,7 +555,7 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation>Buscar ruta</translation>
+        <translation>Definir la ruta</translation>
     </message>
     <message>
         <source>From</source>
@@ -587,7 +587,7 @@
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation>Deslizar para iniciar la rura</translation>
+        <translation>Iniciar la rura</translation>
     </message>
 </context>
 <context>
@@ -640,7 +640,7 @@
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation>no se pudo crear el directorio</translation>
+        <translation>No se pudo crear el directorio</translation>
     </message>
 </context>
 <context>
@@ -750,7 +750,7 @@
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>transporte-público</translation>
     </message>
 </context>
 </TS>
