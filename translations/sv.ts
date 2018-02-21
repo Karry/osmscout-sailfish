@@ -76,11 +76,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">meter</translation>
+        <translation>meter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -263,11 +263,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">meter</translation>
+        <translation>meter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
