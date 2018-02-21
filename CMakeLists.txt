@@ -227,22 +227,6 @@ set(HEADER_FILES
 #    src/DBThread.h
 )
 
-set(LANG_FILES
-    translations/en.ts
-
-    translations/cs.ts
-    translations/de.ts
-    translations/es.ts
-    translations/fr.ts
-    translations/hu.ts
-    translations/nb.ts
-    translations/pl.ts
-    translations/sv.ts
-)
-
-QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
-ADD_CUSTOM_TARGET (translations ALL DEPENDS ${LANG_SRC})
-
 set(SOURCE_FILES
     src/AppSettings.cpp
     src/OSMScout.cpp
@@ -283,9 +267,46 @@ set(SOURCE_FILES
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml
-
-    ${LANG_FILES}
 )
+
+# XML files with translated phrases.
+# You can add new language translation just by adding new entry here, and run build.
+# Newly created *.ts file may be edited by linguist tool.
+# Please don't forget to add new *.ts file to Meson-based build.
+set(TRANSLATION_TS_FILES
+        translations/en.ts
+
+        translations/cs.ts
+        translations/de.ts
+        translations/es.ts
+        translations/fr.ts
+        translations/hu.ts
+        translations/nb.ts
+        translations/pl.ts
+        translations/sv.ts
+        )
+
+# source files that may contains translatable phrases (see tr, qsTr, QT_TRANSLATE_NOOP functions)
+set(TRANSLATION_SOURCE_FILES
+        ${SOURCE_FILES}
+        src/OSMScout.cpp
+        dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp
+        )
+
+# See http://doc.qt.io/qt-5/cmake-manual.html
+#
+# qt5_create_translation macro process translations in two steps:
+#
+#  - collect available phrases inside TRANSLATION_SOURCE_FILES
+#    with lupdate tool and put them into *.ts files if some is missing there.
+#
+#  - create binary translation files (*.qm) from translated phrases available
+#    in *.ts files with lrelease tool
+qt5_create_translation(TRANSLATION_QM_FILES
+        ${TRANSLATION_SOURCE_FILES}
+        ${TRANSLATION_TS_FILES})
+
+add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
 add_dependencies(harbour-osmscout translations)
@@ -327,7 +348,7 @@ DESTINATION share/${HARBOUR_APP_NAME})
 install(DIRECTORY pics
 DESTINATION share/${HARBOUR_APP_NAME})
 
-install(FILES ${LANG_SRC}
+install(FILES ${TRANSLATION_QM_FILES}
 DESTINATION share/${HARBOUR_APP_NAME}/translations)
 
 install(FILES harbour-osmscout.desktop
