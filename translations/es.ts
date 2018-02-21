@@ -61,11 +61,11 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMscout para Sailfish OS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSMscout para SailfishOS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
-        <translation>Francés:  Pierre-Henri Horrein</translation>
+        <translation>Francés: Pierre-Henri Horrein</translation>
     </message>
     <message>
         <source>Privacy notes</source>
@@ -80,11 +80,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">metros</translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -102,7 +102,7 @@
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>Opciones</translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Map magnification</source>
@@ -190,7 +190,7 @@
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation>Intensidad de sombra de colina</translation>
+        <translation>Intensidad de la sombra de colina</translation>
     </message>
 </context>
 <context>
@@ -267,26 +267,26 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">metros</translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation type="vanished">al oeste</translation>
+        <translation>al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="vanished">al este</translation>
+        <translation>al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="vanished">al sur</translation>
+        <translation>al sur</translation>
     </message>
     <message>
         <source>north</source>
@@ -306,18 +306,18 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="vanished">metros</translation>
+        <translation>metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="vanished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation type="vanished">Ir!</translation>
+        <translation>Ir!</translation>
     </message>
     <message>
         <source>Preparing</source>
@@ -333,11 +333,11 @@
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceptar</translation>
     </message>
 </context>
 <context>
@@ -440,7 +440,7 @@
     </message>
     <message>
         <source>unnamed road</source>
-        <translation>Calle sin nombre</translation>
+        <translation>calle sin nombre</translation>
     </message>
     <message>
         <source>(%1)</source>
@@ -480,7 +480,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;A llegado a su destino!&lt;/strong&gt; at %1</translation>
+        <translation>&lt;strong&gt;A llegado a su destino!&lt;/strong&gt; a %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
@@ -536,19 +536,19 @@
     </message>
     <message>
         <source>Change motorway</source>
-        <translation>Cambiar autopista</translation>
+        <translation>Cambiar de autopista</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Cambiar autopista&lt;/strong&gt; desde %1 to %2</translation>
+        <translation>&lt;strong&gt;Cambiar autopista&lt;/strong&gt; desde %1 para %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Cambiar autopista&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Cambiar de autopista&lt;/strong&gt;</translation>
     </message>
     <message>
-        <source>Leave motorway</source>
-        <translation>Salir de la autop[ista</translation>
+        <source>Leave motorway</source> 
+        <translation>Salir de la autopista</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
@@ -564,15 +564,15 @@
     </message>
     <message>
         <source>Way changes name</source>
-        <translation>La calle cambio de nombre</translation>
+        <translation>Calle cambio de nombre</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;La calle cambio de nombre&lt;/strong&gt; desde %1 para %2</translation>
+        <translation>&lt;strong&gt;Calle cambio de nombre&lt;/strong&gt; desde %1 para %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;El camino cambio de nombre&lt;/strong&gt; para %1</translation>
+        <translation>&lt;strong&gt;Calle cambio de nombre&lt;/strong&gt; para %1</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="vanished">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>To</source>
@@ -595,11 +595,11 @@
     </message>
     <message>
         <source>With</source>
-        <translation type="vanished">Con</translation>
+        <translation>Con</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="vanished">Carro</translation>
+        <translation>Carro</translation>
     </message>
     <message>
         <source>By</source>
@@ -607,11 +607,11 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation>Ruta!</translation>
+        <translation>Ir!</translation>
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation>Iniciar la rura</translation>
+        <translation>Iniciar la ruta</translation>
     </message>
 </context>
 <context>
@@ -693,15 +693,15 @@
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation>Carro</translation>
+        <translation>carro</translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation>Bicicleta</translation>
+        <translation>bicicleta</translation>
     </message>
     <message>
         <source>foot</source>
-        <translation>A pie</translation>
+        <translation>a pie</translation>
     </message>
 </context>
 <context>
@@ -716,7 +716,7 @@
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">deportes-invierno</translation>
+        <translation>deportes-invierno</translation>
     </message>
 </context>
 <context>
