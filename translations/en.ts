@@ -197,7 +197,7 @@
     </message>
 </context>
 <context>
-    <name>Map</name>
+    <name>MapPage</name>
     <message>
         <source>Search</source>
         <translation type="unfinished"></translation>

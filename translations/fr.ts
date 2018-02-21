@@ -201,7 +201,7 @@
     </message>
 </context>
 <context>
-    <name>Map</name>
+    <name>MapPage</name>
     <message>
         <source>Search</source>
         <translation>Rechercher</translation>
