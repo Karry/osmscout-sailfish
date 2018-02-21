@@ -74,6 +74,14 @@
         <source>OSM Scout</source>
         <translation>OSM Scout</translation>
     </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished">metrů</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished">km</translation>
+    </message>
 </context>
 <context>
     <name>Downloads</name>
@@ -201,6 +209,29 @@
     </message>
 </context>
 <context>
+    <name>MapDetail</name>
+    <message>
+        <source>Size</source>
+        <translation>Velikost</translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation>Poslední aktualizace</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Stáhnout</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Složka</translation>
+    </message>
+    <message>
+        <source>Data Version</source>
+        <translation>Verze dat</translation>
+    </message>
+</context>
+<context>
     <name>MapPage</name>
     <message>
         <source>Search</source>
@@ -230,28 +261,13 @@
         <source>Routing</source>
         <translation>Navigace</translation>
     </message>
-</context>
-<context>
-    <name>MapDetail</name>
     <message>
-        <source>Size</source>
-        <translation>Velikost</translation>
+        <source>meters</source>
+        <translation type="unfinished">metrů</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation>Poslední aktualizace</translation>
-    </message>
-    <message>
-        <source>Download</source>
-        <translation>Stáhnout</translation>
-    </message>
-    <message>
-        <source>Directory</source>
-        <translation>Složka</translation>
-    </message>
-    <message>
-        <source>Data Version</source>
-        <translation>Verze dat</translation>
+        <source>km</source>
+        <translation type="unfinished">km</translation>
     </message>
 </context>
 <context>
@@ -310,6 +326,14 @@
     <message>
         <source>Cancel</source>
         <translation>Zrušit</translation>
+    </message>
+    <message>
+        <source>Navigate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -78,6 +78,14 @@
         <source>OSM Scout</source>
         <translation>OSMscout</translation>
     </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished">metros</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation type="unfinished">km</translation>
+    </message>
 </context>
 <context>
     <name>Downloads</name>
@@ -205,6 +213,29 @@
     </message>
 </context>
 <context>
+    <name>MapDetail</name>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation>Última actualización</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Descargar</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Directorio</translation>
+    </message>
+    <message>
+        <source>Data Version</source>
+        <translation>Versión de datos</translation>
+    </message>
+</context>
+<context>
     <name>MapPage</name>
     <message>
         <source>Search</source>
@@ -234,28 +265,13 @@
         <source>Routing</source>
         <translation>Ir!</translation>
     </message>
-</context>
-<context>
-    <name>MapDetail</name>
     <message>
-        <source>Size</source>
-        <translation>Tamaño</translation>
+        <source>meters</source>
+        <translation type="unfinished">metros</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation>Última actualización</translation>
-    </message>
-    <message>
-        <source>Download</source>
-        <translation>Descargar</translation>
-    </message>
-    <message>
-        <source>Directory</source>
-        <translation>Directorio</translation>
-    </message>
-    <message>
-        <source>Data Version</source>
-        <translation>Versión de datos</translation>
+        <source>km</source>
+        <translation type="unfinished">km</translation>
     </message>
 </context>
 <context>
@@ -314,6 +330,14 @@
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Navigate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
