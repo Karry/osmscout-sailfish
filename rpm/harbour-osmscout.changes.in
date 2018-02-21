@@ -187,7 +187,8 @@
 - make possible to translate route steps, update translations (Czech, Polish, Spanish, and Swedish)
 - add route step icons
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.27-1
+* 2018-02-31 Lukáš Karas <lukas.karas@centrum.cz> 0.27-1
 - fix map icons and symbols
 - add new "Public Transport" map style
 - basic support for navigation
+- update (Czech, Spanish and Poland) translations
