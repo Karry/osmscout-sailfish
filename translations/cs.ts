@@ -76,11 +76,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">metrů</translation>
+        <translation>metrů</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -263,11 +263,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">metrů</translation>
+        <translation>metrů</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -329,11 +329,11 @@
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigovat</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit</translation>
     </message>
 </context>
 <context>
