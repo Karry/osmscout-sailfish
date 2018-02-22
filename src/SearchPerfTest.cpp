@@ -184,7 +184,7 @@ std::string GetObject(const osmscout::DatabaseRef& database,
 
   label=object.GetTypeName();
   label+=" ";
-  label+=osmscout::NumberToString(object.GetFileOffset());
+  label+=std::to_string(object.GetFileOffset());
 
   if (object.GetType()==osmscout::RefType::refNode) {
     osmscout::NodeRef node;
