@@ -87,6 +87,11 @@ int main(int argc, char* argv[])
   qWarning() << "Usage of memory mapped files is NOT supported.";
 #endif
 
+#ifdef QT_QML_DEBUG
+  qWarning() << "Starting QML debugger on port 1234.";
+  qQmlEnableDebuggingHelper.startTcpDebugServer(1234);
+#endif
+
   OSMScoutQt::RegisterQmlTypes("harbour.osmscout.map", 1, 0);
   qRegisterMetaType<MapView*>();
 
