@@ -196,3 +196,6 @@
 * 2018-02-21 Lukáš Karas <lukas.karas@centrum.cz> 0.28-1
 - fix translation context for main page
 - update (Czech, Spanish, Swedish and Poland) translations
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.29-1
+- search nearest POI
