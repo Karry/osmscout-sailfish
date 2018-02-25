@@ -610,55 +610,55 @@
     <name>Search</name>
     <message>
         <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Do vzdálenosti %1</translation>
     </message>
     <message>
         <source>Unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bez jména</translation>
     </message>
     <message>
         <source>Restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurace</translation>
     </message>
     <message>
         <source>Fast Food</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast Food</translation>
     </message>
     <message>
         <source>Cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kavárna</translation>
     </message>
     <message>
         <source>ATM</source>
-        <translation type="unfinished"></translation>
+        <translation>Bankomat</translation>
     </message>
     <message>
         <source>Drinking water</source>
-        <translation type="unfinished"></translation>
+        <translation>Fontánka s pitnou vodou</translation>
     </message>
     <message>
         <source>Toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Veřejné toalety</translation>
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastávka veřejné dopravy</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Čerpací stanice</translation>
     </message>
     <message>
         <source>Accomodation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubytování</translation>
     </message>
     <message>
         <source>Camp</source>
-        <translation type="unfinished"></translation>
+        <translation>Kemp</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
+        <translation>Via ferrata</translation>
     </message>
 </context>
 <context>
