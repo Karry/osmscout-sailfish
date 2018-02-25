@@ -40,6 +40,17 @@ Page {
 
     property string postponedSearchString
 
+    states: [
+        State { name: "empty";  },
+        State { name: "poi";    },
+        State { name: "search"; }
+    ]
+
+
+    onStateChanged: {
+        console.log("Search state changed: "+ state);
+    }
+
     onSelectLocation: {
         console.log("selectLocation: " + location);
     }
@@ -50,7 +61,7 @@ Page {
         running: false
         repeat: false
         onTriggered: {
-            if (postponedSearchString==searchString){
+            if (postponedSearchString==searchString && state!="poi"){
                 console.log("Search postponed short expression: \"" + searchString + "\"");
                 searchModel.pattern=searchString;
             }
@@ -58,17 +69,54 @@ Page {
     }
 
     onSearchStringChanged: {
-        // postpone search of short expressions
-        if (searchString.length>3){
-            console.log("Search: \"" + searchString + "\"");
-            searchModel.pattern=searchString;
+        if (searchString.length == 0){
+            highlighRegexp = new RegExp("", 'i')
         }else{
-            postponedSearchString=searchString;
-            console.log("Postpone search of short expression: \"" + searchString + "\"");
-            if (postponeTimer.running){
-                postponeTimer.restart();
+            highlighRegexp = new RegExp("("+searchString.replace(' ','|')+")", 'i')
+        }
+
+        if (searchString.length==0){
+            state="empty";
+            suggestionView.model = poiTypesModel;
+            suggestionView.delegate = poiItem;
+        } else if (searchString.length>3 && searchString.substring(0,4)=="poi:") {
+            if (state!="poi"){
+                state="poi";
+                searchModel.pattern="";
+                suggestionView.model=poiModel;
+                suggestionView.delegate = searchItem;
+            }
+        } else {
+            if (state!="search"){
+                state="search";
+                suggestionView.model=searchModel;
+                suggestionView.delegate = searchItem;
+            }
+        }
+
+        if (searchPage.state==="poi"){
+            console.log("Search "+ state + " expression: " + searchString);
+            var parts=searchString.split(":");
+            if (parts.length>=3){
+                poiModel.maxDistance = parts[1] / 1;
+                poiModel.types = parts[2].split(" ");
             }else{
-                postponeTimer.start();
+                poiModel.maxDistance = 1000;
+                poiModel.types = parts[1].split(" ");
+            }
+        } else {
+            // postpone search of short expressions
+            if (searchString.length>3){
+                console.log("Search: \"" + searchString + "\"");
+                searchModel.pattern=searchString;
+            }else{
+                postponedSearchString=searchString;
+                console.log("Postpone search of short expression: \"" + searchString + "\"");
+                if (postponeTimer.running){
+                    postponeTimer.restart();
+                }else{
+                    postponeTimer.start();
+                }
             }
         }
     }
@@ -91,7 +139,7 @@ Page {
                 searchField.forceActiveFocus()
             }
             EnterKey.onClicked: {
-                var selectedLocation = searchModel.get(0)
+                var selectedLocation = suggestionView.model.get(0)
                 if (selectedLocation !== null) {
                     selectLocation(selectedLocation);
                     pageStack.pop(acceptDestination); // accept without preview
@@ -100,7 +148,67 @@ Page {
         }
     }
 
-    property var highlighRegexp: new RegExp("("+searchString.replace(' ','|')+")", 'i')
+    property var highlighRegexp: new RegExp("", 'i')
+
+    onHighlighRegexpChanged: {
+        console.log("highlight regexp: " + highlighRegexp);
+    }
+
+    Component {
+        id: poiItem
+
+        BackgroundItem {
+            id: backgroundItem
+            height: Math.max(entryIcon.height,entryDescription.height)
+
+            ListView.onAdd: AddAnimation {
+                target: backgroundItem
+            }
+            ListView.onRemove: RemoveAnimation {
+                target: backgroundItem
+            }
+
+            POIIcon{
+                id: entryIcon
+                poiType: iconType
+                width: Theme.iconSizeMedium
+                height: width
+                anchors{
+                    right: entryDescription.left
+                }
+            }
+            Column{
+                id: entryDescription
+                x: searchField.textLeftMargin
+
+                Label {
+                    id: labelLabel
+                    width: parent.width
+                    color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    textFormat: Text.StyledText
+                    text: qsTr(label)
+                }
+                Label {
+                    id: descriptionLabel
+
+                    width: searchPage.width - searchField.textLeftMargin - (2*Theme.paddingSmall)
+                    wrapMode: Text.WordWrap
+
+                    text: qsTr("Up to distance %1").arg(Utils.humanDistance(distance))
+
+                    color: Theme.secondaryHighlightColor
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    searchField.text = "poi:" + distance + ":" + types;
+                    console.log("search expression: " + searchField.text);
+                }
+            }
+        }
+    }
 
     Component {
         id: searchItem
@@ -119,8 +227,8 @@ Page {
             POIIcon{
                 id: entryIcon
                 poiType: type
-                width: 64
-                height: 64
+                width: Theme.iconSizeMedium
+                height: width
                 anchors{
                     right: entryDescription.left
                 }
@@ -136,7 +244,7 @@ Page {
                     textFormat: Text.StyledText
                     text: (type=="coordinate") ?
                               Utils.formatCoord(lat, lon, AppSettings.gpsFormat) :
-                              (searchString=="" ? label : Theme.highlightText(label, highlighRegexp, Theme.highlightColor))
+                              (label== "" ? qsTr("Unnamed") :(searchString=="" ? label : Theme.highlightText(label, highlighRegexp, Theme.highlightColor)))
                 }
                 Label {
                     id: entryRegion
@@ -178,7 +286,7 @@ Page {
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    var selectedLocation = searchModel.get(index)
+                    var selectedLocation = suggestionView.model.get(index)
 
                     // the else case should never happen
                     if (selectedLocation !== null) {
@@ -194,7 +302,6 @@ Page {
 
     SilicaListView {
         id: suggestionView
-        model: searchModel
         anchors.fill: parent
         spacing: Theme.paddingMedium
         x: Theme.paddingMedium
@@ -208,13 +315,14 @@ Page {
             Component.onCompleted: headerContainer.parent = header
         }
 
-        delegate: searchItem
+        model: poiTypesModel // searchModel
+        delegate: poiItem // searchItem
 
         VerticalScrollDecorator {}
 
         BusyIndicator {
             id: busyIndicator
-            running: searchModel.searching
+            running: searchPage.state !== "poi" && (searchModel.searching || poiModel.searching)
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -225,6 +333,37 @@ Page {
             }
             keepSearchFieldFocus = false
         }
+    }
+
+    ListModel {
+        id: poiTypesModel
+
+        // amenities
+        ListElement { label: QT_TR_NOOP("Restaurant");    iconType: "amenity_restaurant"; distance: 1500; types: "amenity_restaurant amenity_restaurant_building"; }
+        ListElement { label: QT_TR_NOOP("Fast Food");     iconType: "amenity_fast_food";  distance: 1500; types: "amenity_fast_food amenity_fast_food_building"; }
+        ListElement { label: QT_TR_NOOP("Cafe");          iconType: "amenity_cafe";       distance: 1500; types: "amenity_cafe amenity_cafe_building"; }
+        ListElement { label: QT_TR_NOOP("ATM");           iconType: "amenity_atm";        distance: 1500; types: "amenity_atm"; }
+        ListElement { label: QT_TR_NOOP("Drinking water"); iconType: "amenity_drinking_water"; distance: 1500; types: "amenity_drinking_water"; }
+        ListElement { label: QT_TR_NOOP("Toilets");       iconType: "amenity_toilets";    distance: 1500; types: "amenity_toilets"; }
+
+        // public transport
+        ListElement { label: QT_TR_NOOP("Public transport stop"); iconType: "railway_tram_stop"; distance: 1500;
+            types: "railway_station railway_subway_entrance railway_tram_stop highway_bus_stop railway_halt amenity_ferry_terminal"; }
+
+        ListElement { label: QT_TR_NOOP("Fuel");          iconType: "amenity_fuel";       distance: 10000; types: "amenity_fuel amenity_fuel_building"; }
+        ListElement { label: QT_TR_NOOP("Accomodation");  iconType: "tourism_hotel";      distance: 10000;
+            types: "tourism_hotel tourism_hotel_building tourism_hostel tourism_hostel_building tourism_motel tourism_motel_building tourism_alpine_hut tourism_alpine_hut_building"; }
+        ListElement { label: QT_TR_NOOP("Camp");          iconType: "tourism_camp_site";  distance: 10000; types: "tourism_camp_site tourism_caravan_site"; }
+
+        // and somethig for fun
+        ListElement { label: QT_TR_NOOP("Via ferrata route"); iconType: "natural_peak";   distance: 20000;
+            types: "highway_via_ferrata_easy highway_via_ferrata_moderate highway_via_ferrata_difficult highway_via_ferrata_extreme"; }
+    }
+
+    NearPOIModel {
+        id: poiModel
+        lat: searchCenterLat
+        lon: searchCenterLon
     }
 
     LocationListModel {
