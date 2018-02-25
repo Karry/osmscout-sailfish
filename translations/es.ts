@@ -278,15 +278,15 @@
     <name>PlaceDetail</name>
     <message>
         <source>west</source>
-        <translation>al oeste</translation>
+        <translation type="vanished">al oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>al este</translation>
+        <translation type="vanished">al este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>al sur</translation>
+        <translation type="vanished">al sur</translation>
     </message>
     <message>
         <source>north</source>
@@ -306,18 +306,18 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metros</translation>
+        <translation type="vanished">metros</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>km</translation>
+        <translation type="vanished">km</translation>
     </message>
 </context>
 <context>
     <name>RouteDescription</name>
     <message>
         <source>Routing</source>
-        <translation>Ir!</translation>
+        <translation type="vanished">Ir!</translation>
     </message>
     <message>
         <source>Preparing</source>
@@ -547,7 +547,7 @@
         <translation>&lt;strong&gt;Cambiar de autopista&lt;/strong&gt;</translation>
     </message>
     <message>
-        <source>Leave motorway</source> 
+        <source>Leave motorway</source>
         <translation>Salir de la autopista</translation>
     </message>
     <message>
@@ -587,7 +587,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation>Buscar</translation>
+        <translation type="vanished">Buscar</translation>
     </message>
     <message>
         <source>To</source>
@@ -595,11 +595,11 @@
     </message>
     <message>
         <source>With</source>
-        <translation>Con</translation>
+        <translation type="vanished">Con</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation>Carro</translation>
+        <translation type="vanished">Carro</translation>
     </message>
     <message>
         <source>By</source>
@@ -612,6 +612,61 @@
     <message>
         <source>Swap start and target</source>
         <translation>Iniciar la ruta</translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Up to distance %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restaurant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fast Food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cafe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ATM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drinking water</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toilets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public transport stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fuel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accomodation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Camp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Via ferrata route</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -716,7 +771,7 @@
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>deportes-invierno</translation>
+        <translation type="vanished">deportes-invierno</translation>
     </message>
 </context>
 <context>
