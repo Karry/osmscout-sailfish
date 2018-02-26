@@ -614,55 +614,55 @@
     <name>Search</name>
     <message>
         <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Upp till %1 avstånd</translation>
     </message>
     <message>
         <source>Unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Namnlös</translation>
     </message>
     <message>
         <source>Restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurant</translation>
     </message>
     <message>
         <source>Fast Food</source>
-        <translation type="unfinished"></translation>
+        <translation>Snabbmat</translation>
     </message>
     <message>
         <source>Cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kafé</translation>
     </message>
     <message>
         <source>ATM</source>
-        <translation type="unfinished"></translation>
+        <translation>Uttagsautomat</translation>
     </message>
     <message>
         <source>Drinking water</source>
-        <translation type="unfinished"></translation>
+        <translation>Dricksvatten</translation>
     </message>
     <message>
         <source>Toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Toalett</translation>
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmänt färdmedel</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Bränsle</translation>
     </message>
     <message>
         <source>Accomodation</source>
-        <translation type="unfinished"></translation>
+        <translation>Boende</translation>
     </message>
     <message>
         <source>Camp</source>
-        <translation type="unfinished"></translation>
+        <translation>Camping</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
+        <translation>Klättringsled</translation>
     </message>
 </context>
 <context>
