@@ -243,7 +243,7 @@
     </message>
     <message>
         <source>Where am I?</source>
-        <translation>Dónde estoy?</translation>
+        <translation>Ubicar</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Map downloads</source>
-        <translation>Descargar mapa</translation>
+        <translation>Descargar</translation>
     </message>
     <message>
         <source>Map settings</source>
@@ -650,23 +650,23 @@
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation>transporte público</translation>
+        <translation>Transporte público</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation></translation>
+        <translation>Combustible</translation>
     </message>
     <message>
         <source>Accomodation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hospedaje</translation>
     </message>
     <message>
         <source>Camp</source>
-        <translation type="unfinished"></translation>
+        <translation>Campo</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
+        <translation>Vía ferrata</translation>
     </message>
 </context>
 <context>
