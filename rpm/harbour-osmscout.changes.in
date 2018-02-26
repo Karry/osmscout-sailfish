@@ -199,3 +199,5 @@
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.29-1
 - search nearest POI
+- add button for reloading map list, when there was some connection error
+- update (Czech, Spanish, Swedish and Poland) translations

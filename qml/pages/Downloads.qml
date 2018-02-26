@@ -17,7 +17,7 @@
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtPositioning 5.2
 
@@ -51,7 +51,6 @@ Page {
     SilicaFlickable{
         anchors.fill: parent
         contentHeight: contentColumn.childrenRect.height
-
         VerticalScrollDecorator {}
 
         Column {
@@ -144,4 +143,29 @@ Page {
             }
         }
     }
+
+    Column{
+        visible: availableMapsModel.fetchError != ""
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.margins: Theme.horizontalPageMargin
+        spacing: Theme.paddingLarge
+        width: parent.width
+
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTranslate("message", availableMapsModel.fetchError)
+            font.pixelSize: Theme.fontSizeMedium
+        }
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            preferredWidth: Theme.buttonWidthMedium
+            text: qsTr("Refresh")
+            onClicked: {
+                console.log("Reloading...")
+                availableMapsModel.reload();
+            }
+        }
+    }
+
 }

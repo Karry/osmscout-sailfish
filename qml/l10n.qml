@@ -30,6 +30,10 @@ Item{
         QT_TRANSLATE_NOOP("message", "Directory already exists"),
         QT_TRANSLATE_NOOP("message", "Can't create directory"),
 
+        // http://doc.qt.io/qt-5/qiodevice.html#errorString
+        QT_TRANSLATE_NOOP("message", "Network access is disabled."),
+        QT_TRANSLATE_NOOP("message", "Connection refused"),
+
         QT_TRANSLATE_NOOP("databaseType", "node"),
         QT_TRANSLATE_NOOP("databaseType", "way"),
         QT_TRANSLATE_NOOP("databaseType", "area"),

@@ -93,6 +93,10 @@
         <source>Download Map</source>
         <translation>Télécharger la carte</translation>
     </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -704,6 +708,14 @@
     <message>
         <source>Can&apos;t create directory</source>
         <translation>Impossible de créer le répertoire</translation>
+    </message>
+    <message>
+        <source>Network access is disabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
