@@ -729,6 +729,10 @@
         <source>Connection refused</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>objectType</name>

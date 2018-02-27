@@ -725,6 +725,10 @@
         <source>Connection refused</source>
         <translation>Spojení odmítnuto</translation>
     </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation>Timeout spojení</translation>
+    </message>
 </context>
 <context>
     <name>objectType</name>
