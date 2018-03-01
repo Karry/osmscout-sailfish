@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Odśwież</translation>
     </message>
 </context>
 <context>
@@ -738,15 +738,15 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostęp do sieci jest wyłączony.</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Połączenie odrzucone</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Czas działanie socket'u upłynął</translation>
     </message>
 </context>
 <context>
