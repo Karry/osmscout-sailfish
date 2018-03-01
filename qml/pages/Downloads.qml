@@ -99,7 +99,9 @@ Page {
                                         }
                                     }
                                     Label{
-                                        text: progressDescription!="" ? "(" + progressDescription + ")": ""
+                                        text: errorString != "" ?
+                                                  qsTranslate("message", errorString) :
+                                                  (progressDescription!="" ? "(" + progressDescription + ")": "")
                                     }
                                 }
                             }
