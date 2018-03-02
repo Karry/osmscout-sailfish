@@ -99,15 +99,15 @@
     </message>
     <message>
         <source>Delete Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń mapę</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobrane mapy</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie</translation>
     </message>
 </context>
 <context>
@@ -762,7 +762,7 @@
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd sesji sieci.</translation>
     </message>
 </context>
 <context>
