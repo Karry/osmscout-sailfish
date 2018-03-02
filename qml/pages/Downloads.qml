@@ -39,6 +39,9 @@ Page {
     AvailableMapsModel{
         id: availableMapsModel
     }
+    InstalledMapsModel{
+        id: installedMapsModel
+    }
 
     BusyIndicator {
         id: busyIndicator
@@ -117,9 +120,161 @@ Page {
                 }
             }
 
+            Column {
+                id: installedMapsColumn
+                width: parent.width
+                visible: installedMapsModel.rowCount() > 0
+                SectionHeader{ text: qsTr("Downloaded Maps") }
+                ListView {
+                    id: installedMapsListView
+                    //x: Theme.paddingMedium
+                    width: parent.width
+                    interactive: false
+                    height: contentHeight // binding loop, but how to define?
+                    clip: true
+
+                    model: installedMapsModel
+
+                    delegate: ListItem{
+                        property bool updateAvailable: false
+
+                        Row{
+                            spacing: Theme.paddingMedium
+                            x: Theme.paddingMedium
+                            Image{
+                                width:  Theme.fontSizeMedium * 2
+                                height: Theme.fontSizeMedium * 2
+                                source: updateAvailable ? "image://theme/icon-m-refresh" :  "image://theme/icon-m-other"
+                                verticalAlignment: Image.AlignVCenter
+                            }
+
+                            Column{
+                                Label {
+                                    text: name
+                                }
+                                Row {
+                                    spacing: Theme.paddingMedium
+
+                                    Label{
+                                        text: directory
+                                        font.pixelSize: Theme.fontSizeExtraSmall
+                                        color: Theme.secondaryColor
+                                    }
+                                }
+                            }
+                        }
+                        Column{
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.rightMargin: Theme.paddingMedium
+                            anchors.topMargin: Theme.paddingMedium
+                            //width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
+
+                            /*
+                            Label{
+                                id: sizeLabel
+                                anchors.right: parent.right
+                                visible: !dir
+                                text: size
+                                font.pixelSize: Theme.fontSizeExtraSmall
+                                color: Theme.secondaryColor
+                            }
+                            */
+                            Label{
+                                id: dateLabel
+                                anchors.right: parent.right
+                                visible: time!=null
+                                text: Qt.formatDate(time)
+                                font.pixelSize: Theme.fontSizeExtraSmall
+                                color: Theme.secondaryColor
+                            }
+                        }
+                        function checkUpdate(){
+                            console.log("checking updates for map " + name + " (" + path + ")");
+                            if (path.length==0){
+                                updateAvailable=false;
+                                return;
+                            }
+                            var latestReleaseTime=availableMapsModel.timeOfMap(path);
+                            console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
+                            updateAvailable = latestReleaseTime != null && latestReleaseTime > time;
+                        }
+                        Component.onCompleted: {
+                            checkUpdate();
+                            availableMapsModel.modelReset.connect(checkUpdate);
+                        }
+                        onClicked: {
+                            //console.log("click for update: " + updateAvailable);
+                            if (updateAvailable){
+                                var map=availableMapsModel.mapByPath(path);
+                                if (map==null){
+                                    return;
+                                }
+                                var item = {
+                                    name: map.name,
+                                    version: map.version,
+                                    description: map.description,
+                                    time: map.time,
+                                    size: map.size,
+                                    map: map
+                                };
+
+                                console.log("open map for update: " + item.name + " / "+item.map+ " / " + item.time);
+
+                                pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
+                                               {
+                                                   availableMapsModel: availableMapsModel,
+                                                   //mapIndex: index,
+                                                   mapName: item.name,
+                                                   mapItem: item,
+                                                   downloadsPage: downloadsPage
+                                               })
+                            }
+                        }
+                        menu: ContextMenu {
+                             MenuItem {
+                                 text: qsTr("Delete Map")
+                                 onClicked: installedMapsModel.deleteMap(index)
+                             }
+                         }
+                    }
+                }
+                Component.onCompleted: {
+                    installedMapsModel.modelReset.connect(onModelReset);
+                }
+                function onModelReset() {
+                    console.log("installedMapsModel rows: "+installedMapsModel.rowCount());
+                    installedMapsColumn.visible = installedMapsModel.rowCount() > 0
+                }
+            }
+
             SectionHeader{
                 id: downloadMapHeader
                 text: qsTr("Download Map")
+            }
+
+            Column{
+                visible: availableMapsModel.fetchError != ""
+                anchors.horizontalCenter: parent.horizontalCenter
+                //anchors.verticalCenter: parent.verticalCenter
+                anchors.margins: Theme.horizontalPageMargin
+                spacing: Theme.paddingLarge
+                width: parent.width
+
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: qsTranslate("message", availableMapsModel.fetchError)
+                    font.pixelSize: Theme.fontSizeMedium
+                }
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    preferredWidth: Theme.buttonWidthMedium
+                    text: qsTr("Refresh")
+                    onClicked: {
+                        console.log("Reloading...")
+                        availableMapsModel.reload();
+                    }
+                }
             }
 
             AvailableMapsView{
@@ -136,38 +291,24 @@ Page {
                     //console.log("clicked to: "+item.name+" / " + index);
                     if (item.dir){
                         pageStack.push(Qt.resolvedUrl("MapList.qml"),
-                                       {availableMapsModel: availableMapsModel, rootDirectoryIndex: index, rootName: item.name, downloadsPage: downloadsPage})
+                                       {
+                                           availableMapsModel: availableMapsModel,
+                                           rootDirectoryIndex: index,
+                                           rootName: item.name,
+                                           downloadsPage: downloadsPage
+                                       })
                     }else{
                         pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
-                                       {availableMapsModel: availableMapsModel, mapIndex: index, mapName: item.name, mapItem: item, downloadsPage: downloadsPage})
+                                       {
+                                           availableMapsModel: availableMapsModel,
+                                           //mapIndex: index,
+                                           mapName: item.name,
+                                           mapItem: item,
+                                           downloadsPage: downloadsPage
+                                       })
                     }
                 }
             }
         }
     }
-
-    Column{
-        visible: availableMapsModel.fetchError != ""
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.margins: Theme.horizontalPageMargin
-        spacing: Theme.paddingLarge
-        width: parent.width
-
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTranslate("message", availableMapsModel.fetchError)
-            font.pixelSize: Theme.fontSizeMedium
-        }
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            preferredWidth: Theme.buttonWidthMedium
-            text: qsTr("Refresh")
-            onClicked: {
-                console.log("Reloading...")
-                availableMapsModel.reload();
-            }
-        }
-    }
-
 }

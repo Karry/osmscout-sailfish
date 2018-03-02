@@ -34,6 +34,7 @@ Item{
         QT_TRANSLATE_NOOP("message", "Network access is disabled."),
         QT_TRANSLATE_NOOP("message", "Connection refused"),
         QT_TRANSLATE_NOOP("message", "Socket operation timed out"),
+        QT_TRANSLATE_NOOP("message", "Network session error."),
 
         QT_TRANSLATE_NOOP("databaseType", "node"),
         QT_TRANSLATE_NOOP("databaseType", "way"),

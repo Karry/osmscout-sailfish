@@ -28,7 +28,7 @@ import "../custom"
 
 Page {
     property AvailableMapsModel availableMapsModel
-    property var mapIndex
+
     property string mapName
     property variant mapItem
     property var downloadsPage
