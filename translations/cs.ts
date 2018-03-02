@@ -99,15 +99,15 @@
     </message>
     <message>
         <source>Delete Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Smazat mapu</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Stažené mapy</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Mažu</translation>
     </message>
 </context>
 <context>
@@ -743,7 +743,7 @@
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba připojení</translation>
     </message>
 </context>
 <context>
