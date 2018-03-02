@@ -136,6 +136,7 @@ Page {
                     model: installedMapsModel
 
                     delegate: ListItem{
+                        id: installedMapItem
                         property bool updateAvailable: false
 
                         Row{
@@ -224,7 +225,6 @@ Page {
                                 pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
                                                {
                                                    availableMapsModel: availableMapsModel,
-                                                   //mapIndex: index,
                                                    mapName: item.name,
                                                    mapItem: item,
                                                    downloadsPage: downloadsPage
@@ -232,11 +232,16 @@ Page {
                             }
                         }
                         menu: ContextMenu {
-                             MenuItem {
-                                 text: qsTr("Delete Map")
-                                 onClicked: installedMapsModel.deleteMap(index)
-                             }
-                         }
+                            MenuItem {
+                                text: qsTr("Delete Map")
+                                onClicked: {
+                                    var idx = index
+                                    Remorse.itemAction(installedMapItem,
+                                                       qsTr("Deleting"),
+                                                       function() { installedMapsModel.deleteMap(idx) });
+                                }
+                            }
+                        }
                     }
                 }
                 Component.onCompleted: {
