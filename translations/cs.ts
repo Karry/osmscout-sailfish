@@ -97,6 +97,14 @@
         <source>Refresh</source>
         <translation>Obnovit</translation>
     </message>
+    <message>
+        <source>Delete Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded Maps</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -728,6 +736,10 @@
     <message>
         <source>Socket operation timed out</source>
         <translation>Timeout spojení</translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

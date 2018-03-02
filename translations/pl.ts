@@ -97,6 +97,14 @@
         <source>Refresh</source>
         <translation>Odśwież</translation>
     </message>
+    <message>
+        <source>Delete Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded Maps</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -746,7 +754,11 @@
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation>Czas działanie socket'u upłynął</translation>
+        <translation>Czas działanie socket&apos;u upłynął</translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
