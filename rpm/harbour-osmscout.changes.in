@@ -197,10 +197,10 @@
 - fix translation context for main page
 - update (Czech, Spanish, Swedish and Poland) translations
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.29-1
+* 2018-03-03 Lukáš Karas <lukas.karas@centrum.cz> 0.29-1
 - search nearest POI
-- add button for reloading map list, when there was some connection error
 - fix invalid memory access caused by cache object racecondition
+- add button for reloading map list, when there was some connection error
 - delete old map when update for same region is downloaded (it will work just for newly downloaded)
 - show already downloaded maps on device, make possible to download it and update it
 - update (Czech, Spanish, Swedish and Poland) translations
