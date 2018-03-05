@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl_PL" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -8,12 +6,12 @@
         <translation>OSM Scout %1</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>O OSM Scout</translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSM Scout jest rozwijany jako otwarte oprogramowanie przez wolontariuszy w ich wolnym czasie. Możesz pomóc rozwijać tą aplikację przez raportowanie błędów, tłumaczenie oraz pisanie nowych funkcji.</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>O OSM Scout</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -111,7 +109,7 @@
     </message>
     <message>
         <source>Update Map</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -147,10 +145,6 @@
     <message>
         <source>Sea rendering</source>
         <translation>Renderowanie morza</translation>
-    </message>
-    <message>
-        <source>Sea can overlap online tiles!</source>
-        <translation type="vanished">Morze może przkryć mapy online!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -262,32 +256,24 @@
         <translation>Gdzie jestem?</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation type="vanished">Ustawienia</translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation type="vanished">Warstwy</translation>
-    </message>
-    <message>
-        <source>Bookmarks</source>
-        <translation>Zakładki</translation>
-    </message>
-    <message>
         <source>About</source>
         <translation>O OSM Scout</translation>
-    </message>
-    <message>
-        <source>Map settings</source>
-        <translation>Ustawienia mapy</translation>
     </message>
     <message>
         <source>Map downloads</source>
         <translation>Mapy do ściągnięcia</translation>
     </message>
     <message>
+        <source>Map settings</source>
+        <translation>Ustawienia mapy</translation>
+    </message>
+    <message>
         <source>Routing</source>
         <translation>Wytyczanie trasy</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Zakładki</translation>
     </message>
     <message>
         <source>meters</source>
@@ -299,30 +285,7 @@
     </message>
 </context>
 <context>
-    <name>OSMCopyright</name>
-    <message>
-        <source>© OpenStreetMap contributors</source>
-        <translation type="vanished">© Twórcy OpenStreetMap</translation>
-    </message>
-</context>
-<context>
     <name>PlaceDetail</name>
-    <message>
-        <source>west</source>
-        <translation type="vanished">zachód</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation type="vanished">wschód</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation type="vanished">południe</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation type="vanished">północ</translation>
-    </message>
     <message>
         <source>You are here</source>
         <translation>Tu jesteś</translation>
@@ -335,21 +298,9 @@
         <source>%1 %2 from</source>
         <translation>%1 %2 od</translation>
     </message>
-    <message>
-        <source>meters</source>
-        <translation type="vanished">metry</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
 </context>
 <context>
     <name>RouteDescription</name>
-    <message>
-        <source>Routing</source>
-        <translation type="vanished">Wytyczanie trasy</translation>
-    </message>
     <message>
         <source>Preparing</source>
         <translation>Przygotowywanie</translation>
@@ -617,16 +568,8 @@
         <translation>Z</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation type="obsolete">Wyszukaj</translation>
-    </message>
-    <message>
         <source>To</source>
         <translation>Do</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation type="vanished">Samochód</translation>
     </message>
     <message>
         <source>By</source>
@@ -643,10 +586,6 @@
 </context>
 <context>
     <name>Search</name>
-    <message>
-        <source>Search places...</source>
-        <translation type="vanished">Wyszukaj miejsca...</translation>
-    </message>
     <message>
         <source>Up to distance %1</source>
         <translation>Do odległości %1</translation>
@@ -810,15 +749,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">granice</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">standardowy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">sporty zimowe</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

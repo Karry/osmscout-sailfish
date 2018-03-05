@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -8,8 +6,8 @@
         <translation>OSM Scout %1</translation>
     </message>
     <message>
-        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creatingt translations or developing new features. Any help is welcome.</source>
-        <translation type="vanished">OSMscout para Sailfish OS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
+        <translation>OSMscout para SailfishOS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -60,10 +58,6 @@
         <translation>Español: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMscout para SailfishOS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
-    </message>
-    <message>
         <source>French: Pierre-Henri Horrein</source>
         <translation>Francés: Pierre-Henri Horrein</translation>
     </message>
@@ -99,23 +93,23 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete Map</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update Map</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -151,10 +145,6 @@
     <message>
         <source>Sea rendering</source>
         <translation>Renderizar el mar</translation>
-    </message>
-    <message>
-        <source>Sea can overlap online tiles!</source>
-        <translation type="vanished">El mar puede superponer tiles con conexión!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -266,10 +256,6 @@
         <translation>Ubicar</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Marcadores</translation>
-    </message>
-    <message>
         <source>About</source>
         <translation>Acerca de</translation>
     </message>
@@ -286,6 +272,10 @@
         <translation>Navegar</translation>
     </message>
     <message>
+        <source>Bookmarks</source>
+        <translation>Marcadores</translation>
+    </message>
+    <message>
         <source>meters</source>
         <translation>metros</translation>
     </message>
@@ -296,22 +286,6 @@
 </context>
 <context>
     <name>PlaceDetail</name>
-    <message>
-        <source>west</source>
-        <translation type="vanished">al oeste</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation type="vanished">al este</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation type="vanished">al sur</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation type="vanished">al norte</translation>
-    </message>
     <message>
         <source>You are here</source>
         <translation>Estás aquí</translation>
@@ -324,21 +298,9 @@
         <source>%1 %2 from</source>
         <translation>%1 %2 de</translation>
     </message>
-    <message>
-        <source>meters</source>
-        <translation type="vanished">metros</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
 </context>
 <context>
     <name>RouteDescription</name>
-    <message>
-        <source>Routing</source>
-        <translation type="vanished">Ir!</translation>
-    </message>
     <message>
         <source>Preparing</source>
         <translation>Preparando</translation>
@@ -606,20 +568,8 @@
         <translation>Desde</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation type="vanished">Buscar</translation>
-    </message>
-    <message>
         <source>To</source>
         <translation>Para</translation>
-    </message>
-    <message>
-        <source>With</source>
-        <translation type="vanished">Con</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation type="vanished">Carro</translation>
     </message>
     <message>
         <source>By</source>
@@ -743,19 +693,19 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -799,15 +749,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">Linderos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">estandar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">deportes-invierno</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

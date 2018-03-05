@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -95,23 +93,23 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete Map</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update Map</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -147,10 +145,6 @@
     <message>
         <source>Sea rendering</source>
         <translation>Sjörendering</translation>
-    </message>
-    <message>
-        <source>Sea can overlap online tiles!</source>
-        <translation type="vanished">Sjö kan överlappa online-rutor!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -262,10 +256,6 @@
         <translation>Var är jag?</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Bokmärken</translation>
-    </message>
-    <message>
         <source>About</source>
         <translation>Om</translation>
     </message>
@@ -282,6 +272,10 @@
         <translation>Vägval</translation>
     </message>
     <message>
+        <source>Bookmarks</source>
+        <translation>Bokmärken</translation>
+    </message>
+    <message>
         <source>meters</source>
         <translation>meter</translation>
     </message>
@@ -292,22 +286,6 @@
 </context>
 <context>
     <name>PlaceDetail</name>
-    <message>
-        <source>west</source>
-        <translation type="vanished">väster</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation type="vanished">öster</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation type="vanished">söder</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation type="vanished">norr</translation>
-    </message>
     <message>
         <source>You are here</source>
         <translation>Du är här</translation>
@@ -320,21 +298,9 @@
         <source>%1 %2 from</source>
         <translation>%1 %2 om</translation>
     </message>
-    <message>
-        <source>meters</source>
-        <translation type="vanished">meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
 </context>
 <context>
     <name>RouteDescription</name>
-    <message>
-        <source>Routing</source>
-        <translation type="obsolete">Vägval</translation>
-    </message>
     <message>
         <source>Preparing</source>
         <translation>Förbereder</translation>
@@ -602,20 +568,8 @@
         <translation>Från</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation type="obsolete">Sök</translation>
-    </message>
-    <message>
         <source>To</source>
         <translation>Till</translation>
-    </message>
-    <message>
-        <source>With</source>
-        <translation type="vanished">Med</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation type="vanished">Bil</translation>
     </message>
     <message>
         <source>By</source>
@@ -739,19 +693,19 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -795,15 +749,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="vanished">gränser</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>standard</source>
-        <translation type="vanished">standard</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="vanished">vintersport</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

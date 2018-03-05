@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="cs_CZ" sourcelanguage="en_US">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -8,12 +6,12 @@
         <translation>OSM Scout %1</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>O OSM Scout</translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSM Scout pro Sailfish OS je vyvýjen dobrovolníky v jejich volném čase jako open-source. Můžete pomoci vylepšit tuto aplikaci reportováním chyb, vytvářením překladů nebo vývojem nových vlastností. Každá pomoc je vítána.</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>O OSM Scout</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -111,7 +109,7 @@
     </message>
     <message>
         <source>Update Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizovat mapu</translation>
     </message>
 </context>
 <context>
@@ -147,10 +145,6 @@
     <message>
         <source>Sea rendering</source>
         <translation>Zobrazit moře</translation>
-    </message>
-    <message>
-        <source>Sea can overlap online tiles!</source>
-        <translation type="vanished">Moře může překrýt online mapu!</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -262,24 +256,24 @@
         <translation>Kde jsem?</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Oblíbená místa</translation>
-    </message>
-    <message>
         <source>About</source>
         <translation>O OSM Scout</translation>
-    </message>
-    <message>
-        <source>Map settings</source>
-        <translation>Nastavení mapy</translation>
     </message>
     <message>
         <source>Map downloads</source>
         <translation>Stahování map</translation>
     </message>
     <message>
+        <source>Map settings</source>
+        <translation>Nastavení mapy</translation>
+    </message>
+    <message>
         <source>Routing</source>
         <translation>Navigace</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Oblíbená místa</translation>
     </message>
     <message>
         <source>meters</source>
@@ -293,22 +287,6 @@
 <context>
     <name>PlaceDetail</name>
     <message>
-        <source>west</source>
-        <translation type="vanished">západně</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation type="vanished">východně</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation type="vanished">jižně</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation type="vanished">severně</translation>
-    </message>
-    <message>
         <source>You are here</source>
         <translation>Jste zde</translation>
     </message>
@@ -320,21 +298,9 @@
         <source>%1 %2 from</source>
         <translation>%1 %2 od</translation>
     </message>
-    <message>
-        <source>meters</source>
-        <translation type="vanished">metrů</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
 </context>
 <context>
     <name>RouteDescription</name>
-    <message>
-        <source>Routing</source>
-        <translation type="vanished">Počítání trasy</translation>
-    </message>
     <message>
         <source>Preparing</source>
         <translation>Příprava</translation>
@@ -455,14 +421,6 @@
         <translation>Na křižovatce %1&lt;strong&gt;Zahněte ostře vpravo&lt;/strong&gt;</translation>
     </message>
     <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>Na křižovatce %1&lt;strong&gt;Vjeďte na kruhový objezd&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>Vjeďte na kruhový objezd</translation>
-    </message>
-    <message>
         <source>unnamed road</source>
         <translation>nepojmenovaná cesta</translation>
     </message>
@@ -515,8 +473,16 @@
         <translation>Dosaženo cíle</translation>
     </message>
     <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>Na křižovatce %1&lt;strong&gt;Vjeďte na kruhový objezd&lt;/strong&gt;</translation>
+    </message>
+    <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;Vjeďte na kruhový objezd&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>Vjeďte na kruhový objezd</translation>
     </message>
     <message>
         <source>Leave roundabout</source>
@@ -602,16 +568,8 @@
         <translation>Z</translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation type="obsolete">Hledat</translation>
-    </message>
-    <message>
         <source>To</source>
         <translation>Do</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation type="vanished">Auto</translation>
     </message>
     <message>
         <source>By</source>
@@ -785,6 +743,21 @@
     <message>
         <source>foot</source>
         <translation>Pěšky</translation>
+    </message>
+</context>
+<context>
+    <name>slylesheet</name>
+    <message>
+        <source>boundaries</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>standard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>winter-sports</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
