@@ -447,3 +447,12 @@ target_link_libraries(SearchPerfTest
         ${LIBSAILFISHAPP_LIBRARIES}
         )
 
+# ==================================================================================================
+# MultiDBRouting
+
+add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRouting.cpp)
+set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 11)
+target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include)
+target_link_libraries(MultiDBRouting
+        osmscout
+        )
