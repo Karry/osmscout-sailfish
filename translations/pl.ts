@@ -109,6 +109,10 @@
         <source>Deleting</source>
         <translation>Usuwanie</translation>
     </message>
+    <message>
+        <source>Update Map</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
