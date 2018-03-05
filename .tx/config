@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[osm-scout.ents]
+file_filter = translations/<lang>.ts
+source_file = translations/en.ts
+source_lang = en
+type = QT
+
