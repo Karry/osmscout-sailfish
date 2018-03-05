@@ -233,6 +233,17 @@ Page {
                         }
                         menu: ContextMenu {
                             MenuItem {
+                                text: qsTr("Update Map")
+                                visible: updateAvailable
+                                onClicked: {
+                                    var map=availableMapsModel.mapByPath(path);
+                                    var baseDir = directory.substring(0, directory.lastIndexOf("/"));
+                                    var dir=mapDownloadsModel.suggestedDirectory(map, baseDir);
+                                    mapDownloadsModel.downloadMap(map, dir);
+                                    console.log("downloading to " + dir);
+                                }
+                            }
+                            MenuItem {
                                 text: qsTr("Delete Map")
                                 onClicked: {
                                     var idx = index
