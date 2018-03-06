@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sv">
 <context>
     <name>About</name>
     <message>
@@ -93,23 +95,23 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Delete Map</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort kartan</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"/>
+        <translation>Nerladdade kartor</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"/>
+        <translation>Tar bort</translation>
     </message>
     <message>
         <source>Update Map</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatera kartan</translation>
     </message>
 </context>
 <context>
@@ -693,19 +695,19 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"/>
+        <translation>Nätverksåtkomst är inaktiverat.</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"/>
+        <translation>Anslutning nekas</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"/>
+        <translation>Tidsgränsen för socket-åtgärden överskreds</translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"/>
+        <translation>Fel i nätverkssessionen.</translation>
     </message>
 </context>
 <context>
@@ -749,15 +751,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"/>
+        <translation>gränser</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"/>
+        <translation>standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"/>
+        <translation>vintersport</translation>
     </message>
 </context>
 <context>
