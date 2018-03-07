@@ -748,21 +748,6 @@
     </message>
 </context>
 <context>
-    <name>slylesheet</name>
-    <message>
-        <source>boundaries</source>
-        <translation type="obsolete">Boundaries (for debugging)</translation>
-    </message>
-    <message>
-        <source>standard</source>
-        <translation type="obsolete">Standard</translation>
-    </message>
-    <message>
-        <source>winter-sports</source>
-        <translation type="obsolete">Winter sports</translation>
-    </message>
-</context>
-<context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>

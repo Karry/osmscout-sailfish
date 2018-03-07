@@ -746,21 +746,6 @@
     </message>
 </context>
 <context>
-    <name>slylesheet</name>
-    <message>
-        <source>boundaries</source>
-        <translation>granice</translation>
-    </message>
-    <message>
-        <source>standard</source>
-        <translation>standardowa</translation>
-    </message>
-    <message>
-        <source>winter-sports</source>
-        <translation>sporty zimowe</translation>
-    </message>
-</context>
-<context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
