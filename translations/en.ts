@@ -817,7 +817,7 @@
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>Public transport</translation>
     </message>
 </context>
 </TS>
