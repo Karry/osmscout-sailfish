@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>Update Map</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizuj mapę</translation>
     </message>
 </context>
 <context>
@@ -749,15 +749,15 @@
     <name>slylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"/>
+        <translation>granice</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"/>
+        <translation>standardowa</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"/>
+        <translation>sporty zimowe</translation>
     </message>
 </context>
 <context>
