@@ -349,7 +349,16 @@ Page {
                                 truncationMode: TruncationMode.Fade
 
                                 MouseArea{
-                                    onClicked: Qt.openUrlExternally(website)
+                                    onClicked: {
+                                        var url=website;
+                                        if (url.indexOf("://")===-1){
+                                            // if there is no protocol defined, add default one to make Qt.openUrlExternally function happy
+                                            // https should be standard these days
+                                            url = "https://" + url;
+                                        }
+                                        console.log("opening url: " + url);
+                                        Qt.openUrlExternally(url);
+                                    }
                                     anchors.fill: parent
                                 }
                             }
