@@ -456,3 +456,13 @@ target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_BASE_DIR_SOURCE}/li
 target_link_libraries(MultiDBRouting
         osmscout
         )
+
+# ==================================================================================================
+# Routing
+
+add_executable(Routing ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/Routing.cpp)
+set_property(TARGET Routing PROPERTY CXX_STANDARD 11)
+target_include_directories(Routing PRIVATE ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include)
+target_link_libraries(Routing
+        osmscout
+        )
