@@ -206,4 +206,6 @@
 - update (Czech, Spanish, Swedish and Poland) translations
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.30-1
-- integration with Transifex service
+- integration with Transifex service (make translation is simpler now)
+- router now fully support transition between databases (not just two)
+- speedup routing with multiple databases, but routing with single database is little bit slower (~10%)
