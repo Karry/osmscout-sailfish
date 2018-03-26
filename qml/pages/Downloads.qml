@@ -127,7 +127,6 @@ Page {
                 SectionHeader{ text: qsTr("Downloaded Maps") }
                 ListView {
                     id: installedMapsListView
-                    //x: Theme.paddingMedium
                     width: parent.width
                     interactive: false
                     height: contentHeight // binding loop, but how to define?
@@ -139,31 +138,32 @@ Page {
                         id: installedMapItem
                         property bool updateAvailable: false
 
-                        Row{
-                            spacing: Theme.paddingMedium
+                        Image{
+                            id: icon
                             x: Theme.paddingMedium
-                            Image{
-                                width:  Theme.fontSizeMedium * 2
-                                height: Theme.fontSizeMedium * 2
-                                source: updateAvailable ? "image://theme/icon-m-refresh" :  "image://theme/icon-m-other"
-                                verticalAlignment: Image.AlignVCenter
+                            width:  Theme.fontSizeMedium * 2
+                            height: Theme.fontSizeMedium * 2
+                            source: updateAvailable ? "image://theme/icon-m-refresh" :  "image://theme/icon-m-other"
+                            verticalAlignment: Image.AlignVCenter
+                        }
+
+                        Column{
+                            anchors.left: icon.right
+                            anchors.right: parent.right
+                            x: Theme.paddingMedium
+                            Label {
+                                text: name
                             }
+                            Label{
+                                text: directory
+                                font.pixelSize: Theme.fontSizeExtraSmall
+                                color: Theme.secondaryColor
 
-                            Column{
-                                Label {
-                                    text: name
-                                }
-                                Row {
-                                    spacing: Theme.paddingMedium
-
-                                    Label{
-                                        text: directory
-                                        font.pixelSize: Theme.fontSizeExtraSmall
-                                        color: Theme.secondaryColor
-                                    }
-                                }
+                                width: parent.width
+                                truncationMode: TruncationMode.Fade
                             }
                         }
+
                         Column{
                             anchors.right: parent.right
                             anchors.top: parent.top
