@@ -196,10 +196,12 @@ set(MARISA_LIBRARIES marisa)
 set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
 set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
 
-include_directories(
-  ${OSMSCOUT_BASE_DIR_BUILD}/include/
+set(OSMSCOUT_INCLUDE_DIRS
+  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
+  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
+  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
 )
-
 
 # QT5 definitions
 add_definitions(${QT_DEFINITIONS})
@@ -214,11 +216,6 @@ add_subdirectory(dependencies/libosmscout/libosmscout-client-qt)
 
 # ==================================================================================================
 # harbour-osmscout
-
-# OSMScout includes Config.h
-include_directories(
-  ${OSMSCOUT_BASE_DIR_BUILD}/dependencies/libosmscout/libosmscout/include/
-)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -312,11 +309,8 @@ add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
 add_dependencies(harbour-osmscout translations)
 
 target_include_directories(harbour-osmscout PRIVATE 
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
-    ${LIBSAILFISHAPP_INCLUDE_DIRS}
+        ${OSMSCOUT_INCLUDE_DIRS}
+        ${LIBSAILFISHAPP_INCLUDE_DIRS}
 )
 
 target_link_libraries(harbour-osmscout
@@ -400,18 +394,15 @@ set(SOURCE_FILES
 add_executable(PerformanceTest ${SOURCE_FILES})
 
 target_include_directories(PerformanceTest PRIVATE 
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
-		${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
-    ${LIBSAILFISHAPP_INCLUDE_DIRS}
+        ${OSMSCOUT_INCLUDE_DIRS}
+        ${LIBSAILFISHAPP_INCLUDE_DIRS}
 )
 
 target_link_libraries(PerformanceTest
         Qt5::Core
         Qt5::Gui
         Qt5::Quick # requiered by sailfishapp when configred with QT_QML_DEBUG
-        
+
         marisa
         osmscout
         osmscout_map
@@ -428,10 +419,7 @@ set(SOURCE_FILES
 add_executable(SearchPerfTest ${SOURCE_FILES})
 
 target_include_directories(SearchPerfTest PRIVATE
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
+        ${OSMSCOUT_INCLUDE_DIRS}
         ${LIBSAILFISHAPP_INCLUDE_DIRS}
         )
 
@@ -452,7 +440,7 @@ target_link_libraries(SearchPerfTest
 
 add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRouting.cpp)
 set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 11)
-target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include)
+target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(MultiDBRouting
         osmscout
         )
@@ -462,7 +450,7 @@ target_link_libraries(MultiDBRouting
 
 add_executable(Routing ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/Routing.cpp)
 set_property(TARGET Routing PROPERTY CXX_STANDARD 11)
-target_include_directories(Routing PRIVATE ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include)
+target_include_directories(Routing PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(Routing
         osmscout
         )

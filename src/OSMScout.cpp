@@ -49,7 +49,6 @@
 
 #include <osmscout/util/Logger.h>
 #include <osmscout/OSMScoutQt.h>
-#include <osmscout/private/Config.h>
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
 #warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
