@@ -437,7 +437,9 @@ Page {
 
             mapObjectInfo.setLocationEntry(selectedLocation);
 
-            header.title = selectedLocation.label;
+            header.title = (selectedLocation.type=="coordinate") ?
+                        Utils.formatCoord(selectedLocation.lat, selectedLocation.lon, AppSettings.gpsFormat) :
+                        selectedLocation.label;
         }
 
         acceptDestinationAction: PageStackAction.Pop

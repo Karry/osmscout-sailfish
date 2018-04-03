@@ -69,7 +69,9 @@ ComboBox {
     onSelectLocation: {
         console.log("selectLocation: " + loc);
         location=loc;
-        value=location.label;
+        value=(location.label=="" || location.type=="coordinate") ?
+            Utils.formatCoord(location.lat, location.lon, AppSettings.gpsFormat) :
+            location.label;
     }
     onPickPlace: {
         location=routingModel.locationEntryFromPosition(lat, lon);
