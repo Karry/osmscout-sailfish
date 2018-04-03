@@ -97,6 +97,20 @@ function sdk_cmd {
 }
 
 ##################################################################
+echo
+echo "Checking SDK connection..."
+echo "ssh \
+    -p $MER_SSH_PORT \
+    -i \"$MER_SSH_PRIVATE_KEY\" \
+    \"$MER_SSH_USERNAME@$SDK_SSH_HOST\""
+
+echo
+echo "sb2-config -l" | ssh \
+    -p $MER_SSH_PORT \
+    -i "$MER_SSH_PRIVATE_KEY" \
+    "$MER_SSH_USERNAME@$SDK_SSH_HOST" || exit 1
+
+##################################################################
 ## 
 echo
 echo "build rpm..."
