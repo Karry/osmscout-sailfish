@@ -308,7 +308,11 @@ add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
 add_dependencies(harbour-osmscout translations)
 
+# Private config header
+create_private_config("${CMAKE_CURRENT_BINARY_DIR}/privateinclude/harbour-osmscout/private/Config.h" "harbour-osmscout")
+
 target_include_directories(harbour-osmscout PRIVATE 
+        ${CMAKE_CURRENT_BINARY_DIR}/privateinclude
         ${OSMSCOUT_INCLUDE_DIRS}
         ${LIBSAILFISHAPP_INCLUDE_DIRS}
 )

@@ -60,6 +60,8 @@
 // Application settings
 #include "AppSettings.h"
 
+#include <harbour-osmscout/private/Config.h>
+
 static QObject *appSettingsSingletontypeProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
   Q_UNUSED(engine)
