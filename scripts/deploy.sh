@@ -29,7 +29,7 @@ if [ "$TYPE" = "emulator" ] ; then
 	export DEV_SSH_USER=nemo
 	export DEV_SSH_HOST=localhost
 	export DEV_SSH_PORT=2223
-	export MER_SSH_TARGET_NAME=SailfishOS-2.1.3.7-i486
+	export MER_SSH_TARGET_NAME=SailfishOS-2.1.4.13-i486
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo"
 	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/root"
 	
@@ -48,7 +48,7 @@ else
 	export DEV_SSH_USER=nemo
 	export DEV_SSH_HOST=jolla
 	export DEV_SSH_PORT=22
-	export MER_SSH_TARGET_NAME=SailfishOS-2.1.3.7-armv7hl
+	export MER_SSH_TARGET_NAME=SailfishOS-2.1.4.13-armv7hl
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 fi
@@ -116,8 +116,8 @@ echo
 echo "build rpm..."
 
 # HACK: mb2 mapping don't contains gcc libs like libgomp.so
-sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-2.1.3.7/opt/cross/armv7hl-meego-linux-gnueabi/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-2.1.3.7-armv7hl/usr/lib/libgomp.so.1'"
-sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-2.1.3.7/usr/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-2.1.3.7-i486/usr/lib/libgomp.so.1'"
+sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-2.1.4.13/opt/cross/armv7hl-meego-linux-gnueabi/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-2.1.4.13-armv7hl/usr/lib/libgomp.so.1'"
+sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-2.1.4.13/usr/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-2.1.4.13-i486/usr/lib/libgomp.so.1'"
 
 sdk_cmd "cd /home/mersdk/share/SailfishOS/projects/$PROJECT_NAME/ && mb2 -t $MER_SSH_TARGET_NAME build"
   
