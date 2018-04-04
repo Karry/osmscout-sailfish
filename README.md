@@ -16,4 +16,4 @@ library.
 
 ## Translations
 
-[![Translate on Transifex](https://www.transifex.com/projects/p/osm-scout/resource/ents/chart/image_png)](https://www.transifex.com/osm-scout/osm-scout)
+[![Translate on Transifex](https://www.transifex.com/projects/p/osm-scout/resource/ents/chart/image_png/)](https://www.transifex.com/osm-scout/osm-scout)
