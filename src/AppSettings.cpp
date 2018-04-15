@@ -23,6 +23,8 @@
 
 #include <QDebug>
 
+using namespace osmscout;
+
 AppSettings::AppSettings(): view(NULL)
 {
 }

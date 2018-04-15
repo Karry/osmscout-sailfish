@@ -326,10 +326,10 @@ target_link_libraries(harbour-osmscout
         Qt5::Positioning
         
         marisa
-        osmscout
-        osmscout_map
-        osmscout_map_qt
-        osmscout_client_qt
+        OSMScout
+        OSMScoutMap
+        OSMScoutMapQt
+        OSMScoutClientQt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
 
@@ -408,9 +408,9 @@ target_link_libraries(PerformanceTest
         Qt5::Quick # requiered by sailfishapp when configred with QT_QML_DEBUG
 
         marisa
-        osmscout
-        osmscout_map
-        osmscout_map_qt
+        OSMScout
+        OSMScoutMap
+        OSMScoutMapQt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
 
@@ -433,9 +433,9 @@ target_link_libraries(SearchPerfTest
         Qt5::Quick # requiered by sailfishapp when configred with QT_QML_DEBUG
 
         marisa
-        osmscout
-        osmscout_map
-        osmscout_map_qt
+        OSMScout
+        OSMScoutMap
+        OSMScoutMapQt
         ${LIBSAILFISHAPP_LIBRARIES}
         )
 
@@ -446,7 +446,7 @@ add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRouti
 set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 11)
 target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(MultiDBRouting
-        osmscout
+        OSMScout
         )
 
 # ==================================================================================================
@@ -456,5 +456,5 @@ add_executable(Routing ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/Routing.cpp)
 set_property(TARGET Routing PROPERTY CXX_STANDARD 11)
 target_include_directories(Routing PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(Routing
-        osmscout
+        OSMScout
         )

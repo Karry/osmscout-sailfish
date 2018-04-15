@@ -32,7 +32,7 @@ class AppSettings: public QObject{
   Q_PROPERTY(double   hillShadesOpacity READ GetHillShadesOpacity WRITE SetHillShadesOpacity NOTIFY HillShadesOpacityChanged)
 
 signals:
-  void MapViewChanged(MapView *view);
+  void MapViewChanged(osmscout::MapView *view);
   void GpsFormatChanged(const QString formatId);
   void HillShadesChanged(bool);
   void HillShadesOpacityChanged(double);
@@ -41,7 +41,7 @@ public:
   AppSettings();
   inline virtual ~AppSettings(){}
 
-  MapView *GetMapView();
+  osmscout::MapView *GetMapView();
   void SetMapView(QObject *o);
 
   const QString GetGpsFormat() const;
@@ -54,8 +54,8 @@ public:
   void SetHillShadesOpacity(double);
 
 private:
-  QSettings settings;
-  MapView   *view;
+  QSettings         settings;
+  osmscout::MapView *view;
 };
 
 #endif /* APPSETTINGS_H */
