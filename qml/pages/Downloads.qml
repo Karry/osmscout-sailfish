@@ -217,7 +217,8 @@ Page {
                                     description: map.description,
                                     time: map.time,
                                     size: map.size,
-                                    map: map
+                                    map: map,
+                                    path: map.path
                                 };
 
                                 console.log("open map for update: " + item.name + " / "+item.map+ " / " + item.time);

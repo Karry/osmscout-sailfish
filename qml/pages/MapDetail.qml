@@ -33,8 +33,65 @@ Page {
     property variant mapItem
     property var downloadsPage
 
+    property bool updateAvailable: false
+    property string updateDirectory: ""
+    property variant installedTime
+
     MapDownloadsModel{
         id:mapDownloadsModel
+    }
+    InstalledMapsModel{
+        id: installedMapsModel
+    }
+
+    function equalPath(a,b){
+        if (typeof a===typeof b && a.length===b.length){
+            for (var i=0; i<a.length; i++){
+                if (a[i]!=b[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    Component.onCompleted: {
+        var path=mapItem.path;
+        var time=installedMapsModel.timeOfMap(path);
+        installedTime=time;
+
+        console.log("checking updates for map " + mapName + " (" + path + ")");
+        if ((typeof time === "undefined") || path.length==0){
+            console.log("Not installed (" + path + ")");
+            updateAvailable=false;
+            return;
+        }
+        var latestReleaseTime=availableMapsModel.timeOfMap(path);
+        console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
+        updateAvailable = latestReleaseTime != null && latestReleaseTime > time;
+        if (updateAvailable){
+            //console.log("Installed count: "+installedMapsModel.rowCount());
+            for (var row=0; row < installedMapsModel.rowCount(); row++){
+                var p=installedMapsModel.data(installedMapsModel.index(row, 0), /*path*/ 0x0101);
+                var directory=installedMapsModel.data(installedMapsModel.index(row, 0), /*directory*/ 0x0102);
+                //console.log("Installed "+row+": "+p+" == "+path+" = "+equalPath(p,path));
+                if (equalPath(p,path)){
+                    updateDirectory = directory.substring(0, directory.lastIndexOf("/"));
+                    console.log("Update directory: "+updateDirectory);
+                    if (destinationDirectoryComboBox.initialized){
+                        var directories=mapDownloadsModel.getLookupDirectories();
+                        //console.log("directories: "+directories);
+                        for (var dirRow=0; dirRow < directories.length; dirRow++){
+                            if (updateDirectory==directories[dirRow]){
+                                destinationDirectoryComboBox.currentIndex=dirRow;
+                            }
+                        }
+                    }
+                    return;
+                }
+            }
+        }
     }
 
     SilicaFlickable{
@@ -79,6 +136,20 @@ Page {
             Column{
                 width: parent.width - 2*Theme.paddingMedium
                 x: Theme.paddingMedium
+                visible: updateAvailable
+                Label{
+                    text: qsTr("Downloaded")
+                    color: Theme.primaryColor
+                }
+                Label{
+                    text: Qt.formatDate(installedTime)
+                    color: Theme.highlightColor
+                }
+            }
+
+            Column{
+                width: parent.width - 2*Theme.paddingMedium
+                x: Theme.paddingMedium
                 Label{
                     text: qsTr("Last Update")
                     color: Theme.primaryColor
@@ -110,7 +181,7 @@ Page {
                 id: destinationDirectoryComboBox
 
                 property bool initialized: false
-                property string selected: ""
+                property string selected: updateDirectory
                 property ListModel directories: ListModel {}
 
                 label: qsTr("Directory")
@@ -144,7 +215,7 @@ Page {
             }
             Button{
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Download")
+                text: updateAvailable ? qsTr("Update") : qsTr("Download")
                 onClicked: {
                     var dir=mapDownloadsModel.suggestedDirectory(mapItem.map, destinationDirectoryComboBox.selected);
                     mapDownloadsModel.downloadMap(mapItem.map, dir);
