@@ -202,7 +202,7 @@
 - fix invalid memory access caused by cache object racecondition
 - add button for reloading map list, when there was some connection error
 - delete old map when update for same region is downloaded (it will work just for newly downloaded)
-- show already downloaded maps on device, make possible to download it and update it
+- show already downloaded maps on device, make possible to delete and update it
 - update (Czech, Spanish, Swedish and Poland) translations
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.30-1
