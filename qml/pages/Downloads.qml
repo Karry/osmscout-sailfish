@@ -233,7 +233,7 @@ Page {
                         }
                         menu: ContextMenu {
                             MenuItem {
-                                text: qsTr("Update Map")
+                                text: qsTr("Update")
                                 visible: updateAvailable
                                 onClicked: {
                                     var map=availableMapsModel.mapByPath(path);
@@ -244,7 +244,7 @@ Page {
                                 }
                             }
                             MenuItem {
-                                text: qsTr("Delete Map")
+                                text: qsTr("Delete")
                                 onClicked: {
                                     var idx = index
                                     Remorse.itemAction(installedMapItem,

@@ -96,7 +96,7 @@
         <translation>Obnovit</translation>
     </message>
     <message>
-        <source>Delete Map</source>
+        <source>Delete</source>
         <translation>Smazat mapu</translation>
     </message>
     <message>
@@ -108,7 +108,7 @@
         <translation>Mažu</translation>
     </message>
     <message>
-        <source>Update Map</source>
+        <source>Update</source>
         <translation>Aktualizovat mapu</translation>
     </message>
 </context>

@@ -96,7 +96,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Delete Map</source>
+        <source>Delete</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -108,7 +108,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Update Map</source>
+        <source>Update</source>
         <translation type="unfinished"/>
     </message>
 </context>

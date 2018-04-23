@@ -98,7 +98,7 @@
         <translation>Uppdatera</translation>
     </message>
     <message>
-        <source>Delete Map</source>
+        <source>Delete</source>
         <translation>Ta bort kartan</translation>
     </message>
     <message>
@@ -110,7 +110,7 @@
         <translation>Tar bort</translation>
     </message>
     <message>
-        <source>Update Map</source>
+        <source>Update</source>
         <translation>Uppdatera kartan</translation>
     </message>
 </context>

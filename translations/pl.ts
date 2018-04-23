@@ -96,7 +96,7 @@
         <translation>Odśwież</translation>
     </message>
     <message>
-        <source>Delete Map</source>
+        <source>Delete</source>
         <translation>Usuń mapę</translation>
     </message>
     <message>
@@ -108,7 +108,7 @@
         <translation>Usuwanie</translation>
     </message>
     <message>
-        <source>Update Map</source>
+        <source>Update</source>
         <translation>Aktualizuj mapę</translation>
     </message>
 </context>
