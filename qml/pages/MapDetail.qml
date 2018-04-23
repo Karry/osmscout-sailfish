@@ -33,6 +33,7 @@ Page {
     property variant mapItem
     property var downloadsPage
 
+    property bool upToDate: false
     property bool updateAvailable: false
     property string updateDirectory: ""
     property variant installedTime
@@ -60,16 +61,23 @@ Page {
         var path=mapItem.path;
         var time=installedMapsModel.timeOfMap(path);
         installedTime=time;
+        updateAvailable=false;
+        upToDate = false;
 
         console.log("checking updates for map " + mapName + " (" + path + ")");
         if ((typeof time === "undefined") || path.length==0){
             console.log("Not installed (" + path + ")");
-            updateAvailable=false;
             return;
         }
         var latestReleaseTime=availableMapsModel.timeOfMap(path);
         console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
-        updateAvailable = latestReleaseTime != null && latestReleaseTime > time;
+        if (latestReleaseTime == null){
+            console.log("This should not happen, map (" + path + ") is not available");
+            return;
+        }
+
+        upToDate = latestReleaseTime.getTime() == time.getTime();
+        updateAvailable = latestReleaseTime > time;
         if (updateAvailable){
             //console.log("Installed count: "+installedMapsModel.rowCount());
             for (var row=0; row < installedMapsModel.rowCount(); row++){
@@ -136,7 +144,7 @@ Page {
             Column{
                 width: parent.width - 2*Theme.paddingMedium
                 x: Theme.paddingMedium
-                visible: updateAvailable
+                visible: updateAvailable || upToDate
                 Label{
                     text: qsTr("Downloaded")
                     color: Theme.primaryColor
@@ -215,7 +223,8 @@ Page {
             }
             Button{
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: updateAvailable ? qsTr("Update") : qsTr("Download")
+                text: upToDate ? qsTr("Up-to-date") : (updateAvailable ? qsTr("Update") : qsTr("Download"))
+                enabled: !upToDate
                 onClicked: {
                     var dir=mapDownloadsModel.suggestedDirectory(mapItem.map, destinationDirectoryComboBox.selected);
                     mapDownloadsModel.downloadMap(mapItem.map, dir);
