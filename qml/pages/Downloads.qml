@@ -28,6 +28,8 @@ import "../custom"
 Page {
     id: downloadsPage
 
+    property ListModel allUpdates: ListModel {}
+
     RemorsePopup { id: remorse }
 
     MapDownloadsModel{
@@ -55,6 +57,23 @@ Page {
         anchors.fill: parent
         contentHeight: contentColumn.childrenRect.height
         VerticalScrollDecorator {}
+
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Update all")
+                enabled: allUpdates.count > 0
+                onClicked: {
+                    for (var i=0; i<allUpdates.count; i++){
+                        var item=allUpdates.get(i);
+                        var map=item.map;
+                        var directory=item.directory;
+                        var baseDir = directory.substring(0, directory.lastIndexOf("/"));
+                        var dir=mapDownloadsModel.suggestedDirectory(map, baseDir);
+                        mapDownloadsModel.downloadMap(map, dir);
+                    }
+                }
+            }
+        }
 
         Column {
             id: contentColumn
@@ -199,6 +218,13 @@ Page {
                             var latestReleaseTime=availableMapsModel.timeOfMap(path);
                             console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
                             updateAvailable = latestReleaseTime != null && latestReleaseTime > time;
+                            if (updateAvailable){
+                                var map=availableMapsModel.mapByPath(path);
+                                allUpdates.append({
+                                                      map: map,
+                                                      directory: directory
+                                                  });
+                            }
                         }
                         Component.onCompleted: {
                             checkUpdate();
