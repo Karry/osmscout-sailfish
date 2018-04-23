@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="cs">
 <context>
     <name>About</name>
     <message>
@@ -97,7 +99,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation>Smazat mapu</translation>
+        <translation>Smazat</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
@@ -109,7 +111,7 @@
     </message>
     <message>
         <source>Update</source>
-        <translation>Aktualizovat mapu</translation>
+        <translation>Aktualizovat</translation>
     </message>
 </context>
 <context>
@@ -243,6 +245,14 @@
     <message>
         <source>Data Version</source>
         <translation>Verze dat</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Aktualizovat</translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation>Staženo</translation>
     </message>
 </context>
 <context>

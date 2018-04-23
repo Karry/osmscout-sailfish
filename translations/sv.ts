@@ -246,6 +246,14 @@
         <source>Data Version</source>
         <translation>Dataversion</translation>
     </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Uppdatera kartan</translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MapPage</name>

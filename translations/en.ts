@@ -246,6 +246,14 @@
         <source>Data Version</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MapPage</name>
