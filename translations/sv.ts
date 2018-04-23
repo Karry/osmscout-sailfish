@@ -113,6 +113,10 @@
         <source>Update</source>
         <translation>Uppdatera kartan</translation>
     </message>
+    <message>
+        <source>Update all</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -252,6 +256,10 @@
     </message>
     <message>
         <source>Downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up-to-date</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

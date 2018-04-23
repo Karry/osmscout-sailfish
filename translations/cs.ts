@@ -113,6 +113,10 @@
         <source>Update</source>
         <translation>Aktualizovat</translation>
     </message>
+    <message>
+        <source>Update all</source>
+        <translation>Aktualizovat vše</translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -253,6 +257,10 @@
     <message>
         <source>Downloaded</source>
         <translation>Staženo</translation>
+    </message>
+    <message>
+        <source>Up-to-date</source>
+        <translation>Aktuální</translation>
     </message>
 </context>
 <context>
