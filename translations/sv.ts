@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -115,7 +113,7 @@
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdatera alla</translation>
     </message>
 </context>
 <context>
@@ -252,15 +250,15 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Uppdatera kartan</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Nerladdat</translation>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdaterat</translation>
     </message>
 </context>
 <context>
