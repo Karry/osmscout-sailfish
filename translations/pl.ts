@@ -115,7 +115,7 @@
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizuj wszystko</translation>
     </message>
 </context>
 <context>
@@ -252,15 +252,15 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Aktualizuj mapę</translation>
+        <translation>Aktualizuj</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobrane</translation>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualne</translation>
     </message>
 </context>
 <context>
