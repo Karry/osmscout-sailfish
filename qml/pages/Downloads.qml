@@ -174,12 +174,14 @@ Page {
                                 text: name
                             }
                             Label{
-                                text: directory
                                 font.pixelSize: Theme.fontSizeExtraSmall
                                 color: Theme.secondaryColor
 
                                 width: parent.width
                                 truncationMode: TruncationMode.Fade
+                                text: directory
+                                    .replace(/\/home\/nemo\//i, "["+ qsTr("Home") +"] ")
+                                    .replace(/\/media\/sdcard\/[^/]*\//i, "["+ qsTr("SD card") +"] ")
                             }
                         }
 
