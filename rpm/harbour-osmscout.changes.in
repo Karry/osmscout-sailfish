@@ -210,3 +210,4 @@
 - router now fully support transition between databases (not just two)
 - speedup routing with multiple databases, but routing with single database is little bit slower (~10%)
 - minor UI improvements and fixes
+- update (Czech, Spanish, Swedish and Poland) translations
