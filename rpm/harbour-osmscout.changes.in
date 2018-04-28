@@ -211,3 +211,6 @@
 - speedup routing with multiple databases, but routing with single database is little bit slower (~10%)
 - minor UI improvements and fixes
 - update (Czech, Spanish, Swedish and Poland) translations
+
+* 2018-04-28 Lukáš Karas <lukas.karas@centrum.cz> 0.31-1
+- fix search and routing (namespace issue intruced in 0.30)
