@@ -95,27 +95,27 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Refrescar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapas descargados</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrando</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar todo</translation>
     </message>
 </context>
 <context>
@@ -252,15 +252,15 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargado</translation>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
+        <translation>Hasta la fecha</translation>
     </message>
 </context>
 <context>
@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>Where am I?</source>
-        <translation>Ubicar</translation>
+        <translation>Ubicación</translation>
     </message>
     <message>
         <source>About</source>
@@ -650,7 +650,7 @@
     </message>
     <message>
         <source>Camp</source>
-        <translation>Campo</translation>
+        <translation>Acampar</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
@@ -711,19 +711,19 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>El acceso a la red está deshabilitado.</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Conexión denegada</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>La operación de enchufe agotó el tiempo de espera</translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Error de sesión de red.</translation>
     </message>
 </context>
 <context>
