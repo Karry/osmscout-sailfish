@@ -176,7 +176,7 @@
 - highlight search result objects on search result preview
 - show region in place detail page when there is no near poi or address point
 - add possibility of hill shades overlay (online tiles)
-- update translations (Czech, Spanish, Swedish and Poland)
+- update translations (Czech, Spanish, Swedish and Polish)
 - upstream library fixes:
   -- fix race condition that stops rendering pipeline
   -- fix basemap (world overview when online tiles are disabled) with tiled renderer
@@ -191,11 +191,11 @@
 - fix map icons and symbols
 - add new "Public Transport" map style
 - basic support for navigation
-- update (Czech, Spanish and Poland) translations
+- update (Czech, Spanish and Polish) translations
 
 * 2018-02-21 Lukáš Karas <lukas.karas@centrum.cz> 0.28-1
 - fix translation context for main page
-- update (Czech, Spanish, Swedish and Poland) translations
+- update (Czech, Spanish, Swedish and Polish) translations
 
 * 2018-03-03 Lukáš Karas <lukas.karas@centrum.cz> 0.29-1
 - search nearest POI
@@ -203,14 +203,14 @@
 - add button for reloading map list, when there was some connection error
 - delete old map when update for same region is downloaded (it will work just for newly downloaded)
 - show already downloaded maps on device, make possible to delete and update it
-- update (Czech, Spanish, Swedish and Poland) translations
+- update (Czech, Spanish, Swedish and Polish) translations
 
 * 2018-04-28 Lukáš Karas <lukas.karas@centrum.cz> 0.30-1
 - integration with Transifex service (make translation is simpler now)
 - router now fully support transition between databases (not just two)
 - speedup routing with multiple databases, but routing with single database is little bit slower (~10%)
 - minor UI improvements and fixes
-- update (Czech, Spanish, Swedish and Poland) translations
+- update (Czech, Spanish, Swedish and Polish) translations
 
 * 2018-04-28 Lukáš Karas <lukas.karas@centrum.cz> 0.31-1
 - fix search and routing (namespace issue intruced in 0.30)
