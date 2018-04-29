@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Ściągnij mapę</translation>
+        <translation>Pobierz mapę</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Download</source>
-        <translation>Ściągnij</translation>
+        <translation>Pobierz</translation>
     </message>
     <message>
         <source>Directory</source>
@@ -279,7 +279,7 @@
     </message>
     <message>
         <source>Map downloads</source>
-        <translation>Mapy do ściągnięcia</translation>
+        <translation>Mapy do pobrania</translation>
     </message>
     <message>
         <source>Map settings</source>
