@@ -212,5 +212,6 @@
 - minor UI improvements and fixes
 - update (Czech, Spanish, Swedish and Polish) translations
 
-* 2018-04-28 Lukáš Karas <lukas.karas@centrum.cz> 0.31-1
+* 2018-04-29 Lukáš Karas <lukas.karas@centrum.cz> 0.31-1
 - fix search and routing (namespace issue intruced in 0.30)
+- fix location info
