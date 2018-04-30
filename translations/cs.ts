@@ -117,6 +117,14 @@
         <source>Update all</source>
         <translation>Aktualizovat vše</translation>
     </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SD card</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -261,6 +269,14 @@
     <message>
         <source>Up-to-date</source>
         <translation>Aktuální</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SD card</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
