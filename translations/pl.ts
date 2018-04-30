@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>metry</translation>
+        <translation>metrów</translation>
     </message>
     <message>
         <source>km</source>
