@@ -50,17 +50,17 @@
 #include <osmscout/util/Logger.h>
 #include <osmscout/OSMScoutQt.h>
 
-#ifndef OSMSCOUT_SAILFISH_VERSION_STRING
-#warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
-#define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
-#endif
-
 // Library settings
 #include <osmscout/Settings.h>
 // Application settings
 #include "AppSettings.h"
 
 #include <harbour-osmscout/private/Config.h>
+
+#ifndef OSMSCOUT_SAILFISH_VERSION_STRING
+#warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
+#define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
+#endif
 
 using namespace osmscout;
 
@@ -81,6 +81,7 @@ int main(int argc, char* argv[])
 
   app->setOrganizationDomain("libosmscout.sf.net");
   app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
+  app->setApplicationVersion(OSMSCOUT_SAILFISH_VERSION_STRING);
     
   int           result;  
 

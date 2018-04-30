@@ -107,8 +107,6 @@ message(STATUS "")
 
 if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
 
-  add_definitions( -DOSMSCOUT_SAILFISH_VERSION_STRING="${OSMSCOUT_SAILFISH_VERSION_STRING}")
-
   if (LABEL_LAYOUTER_DEBUG)
     add_definitions( -DLABEL_LAYOUTER_DEBUG)
   endif()
@@ -308,7 +306,8 @@ add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
 add_dependencies(harbour-osmscout translations)
 
 # Private config header
-create_private_config("${CMAKE_CURRENT_BINARY_DIR}/privateinclude/harbour-osmscout/private/Config.h" "harbour-osmscout")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Config.h.cmake"
+               "${CMAKE_CURRENT_BINARY_DIR}/privateinclude/harbour-osmscout/private/Config.h")
 
 target_include_directories(harbour-osmscout PRIVATE 
         ${CMAKE_CURRENT_BINARY_DIR}/privateinclude
