@@ -554,7 +554,7 @@
         <location filename="../qml/custom/Utils.js" line="50"/>
         <location filename="../qml/custom/Utils.js" line="52"/>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
     <message>
         <location filename="../qml/custom/Utils.js" line="56"/>
