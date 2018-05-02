@@ -357,6 +357,164 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation>Hledat trasu</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Z</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Do</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Prostředek</translation>
+    </message>
+    <message>
+        <source>Route!</source>
+        <translation>Vyhledej!</translation>
+    </message>
+    <message>
+        <source>Swap start and target</source>
+        <translation>Zaměnit start a cíl</translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Up to distance %1</source>
+        <translation>Do vzdálenosti %1</translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation>Bez jména</translation>
+    </message>
+    <message>
+        <source>Restaurant</source>
+        <translation>Restaurace</translation>
+    </message>
+    <message>
+        <source>Fast Food</source>
+        <translation>Fast Food</translation>
+    </message>
+    <message>
+        <source>Cafe</source>
+        <translation>Kavárna</translation>
+    </message>
+    <message>
+        <source>ATM</source>
+        <translation>Bankomat</translation>
+    </message>
+    <message>
+        <source>Drinking water</source>
+        <translation>Fontánka s pitnou vodou</translation>
+    </message>
+    <message>
+        <source>Toilets</source>
+        <translation>Veřejné toalety</translation>
+    </message>
+    <message>
+        <source>Public transport stop</source>
+        <translation>Zastávka veřejné dopravy</translation>
+    </message>
+    <message>
+        <source>Fuel</source>
+        <translation>Čerpací stanice</translation>
+    </message>
+    <message>
+        <source>Accomodation</source>
+        <translation>Ubytování</translation>
+    </message>
+    <message>
+        <source>Camp</source>
+        <translation>Kemp</translation>
+    </message>
+    <message>
+        <source>Via ferrata route</source>
+        <translation>Via ferrata</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>metrů</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>západně</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>východně</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>jižně</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>severně</translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation>bod</translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation>cesta</translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation>plocha</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation>Složka již existuje</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>Nemohu vytvořit složku</translation>
+    </message>
+    <message>
+        <source>Network access is disabled.</source>
+        <translation>Přístup k internetu je zakázán</translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation>Spojení odmítnuto</translation>
+    </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation>Timeout spojení</translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation>Chyba připojení</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation>Budova</translation>
+    </message>
+</context>
+<context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
@@ -589,164 +747,6 @@
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
         <translation>&lt;strong&gt;Změna silnice&lt;/strong&gt; z %1</translation>
-    </message>
-</context>
-<context>
-    <name>Routing</name>
-    <message>
-        <source>Search route</source>
-        <translation>Hledat trasu</translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation>Z</translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation>Do</translation>
-    </message>
-    <message>
-        <source>By</source>
-        <translation>Prostředek</translation>
-    </message>
-    <message>
-        <source>Route!</source>
-        <translation>Vyhledej!</translation>
-    </message>
-    <message>
-        <source>Swap start and target</source>
-        <translation>Zaměnit start a cíl</translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <source>Up to distance %1</source>
-        <translation>Do vzdálenosti %1</translation>
-    </message>
-    <message>
-        <source>Unnamed</source>
-        <translation>Bez jména</translation>
-    </message>
-    <message>
-        <source>Restaurant</source>
-        <translation>Restaurace</translation>
-    </message>
-    <message>
-        <source>Fast Food</source>
-        <translation>Fast Food</translation>
-    </message>
-    <message>
-        <source>Cafe</source>
-        <translation>Kavárna</translation>
-    </message>
-    <message>
-        <source>ATM</source>
-        <translation>Bankomat</translation>
-    </message>
-    <message>
-        <source>Drinking water</source>
-        <translation>Fontánka s pitnou vodou</translation>
-    </message>
-    <message>
-        <source>Toilets</source>
-        <translation>Veřejné toalety</translation>
-    </message>
-    <message>
-        <source>Public transport stop</source>
-        <translation>Zastávka veřejné dopravy</translation>
-    </message>
-    <message>
-        <source>Fuel</source>
-        <translation>Čerpací stanice</translation>
-    </message>
-    <message>
-        <source>Accomodation</source>
-        <translation>Ubytování</translation>
-    </message>
-    <message>
-        <source>Camp</source>
-        <translation>Kemp</translation>
-    </message>
-    <message>
-        <source>Via ferrata route</source>
-        <translation>Via ferrata</translation>
-    </message>
-</context>
-<context>
-    <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>metrů</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
-    <message>
-        <source>west</source>
-        <translation>západně</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation>východně</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation>jižně</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation>severně</translation>
-    </message>
-</context>
-<context>
-    <name>databaseType</name>
-    <message>
-        <source>node</source>
-        <translation>bod</translation>
-    </message>
-    <message>
-        <source>way</source>
-        <translation>cesta</translation>
-    </message>
-    <message>
-        <source>area</source>
-        <translation>plocha</translation>
-    </message>
-</context>
-<context>
-    <name>message</name>
-    <message>
-        <source>Directory already exists</source>
-        <translation>Složka již existuje</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create directory</source>
-        <translation>Nemohu vytvořit složku</translation>
-    </message>
-    <message>
-        <source>Network access is disabled.</source>
-        <translation>Přístup k internetu je zakázán</translation>
-    </message>
-    <message>
-        <source>Connection refused</source>
-        <translation>Spojení odmítnuto</translation>
-    </message>
-    <message>
-        <source>Socket operation timed out</source>
-        <translation>Timeout spojení</translation>
-    </message>
-    <message>
-        <source>Network session error.</source>
-        <translation>Chyba připojení</translation>
-    </message>
-</context>
-<context>
-    <name>objectType</name>
-    <message>
-        <source>building</source>
-        <translation>Budova</translation>
     </message>
 </context>
 <context>

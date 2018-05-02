@@ -357,6 +357,164 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation>Wyszukaj trasę</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Z</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Do</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Za pomocą</translation>
+    </message>
+    <message>
+        <source>Route!</source>
+        <translation>Wytycz!</translation>
+    </message>
+    <message>
+        <source>Swap start and target</source>
+        <translation>Zamień początek i cel</translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Up to distance %1</source>
+        <translation>Do odległości %1</translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation>Bez nazwy</translation>
+    </message>
+    <message>
+        <source>Restaurant</source>
+        <translation>Restauracja</translation>
+    </message>
+    <message>
+        <source>Fast Food</source>
+        <translation>Fast Food</translation>
+    </message>
+    <message>
+        <source>Cafe</source>
+        <translation>Kawiarnia</translation>
+    </message>
+    <message>
+        <source>ATM</source>
+        <translation>Bankomat</translation>
+    </message>
+    <message>
+        <source>Drinking water</source>
+        <translation>Woda pitna</translation>
+    </message>
+    <message>
+        <source>Toilets</source>
+        <translation>Toalety</translation>
+    </message>
+    <message>
+        <source>Public transport stop</source>
+        <translation>Przystanek komunikacji miejskiej</translation>
+    </message>
+    <message>
+        <source>Fuel</source>
+        <translation>Paliwo</translation>
+    </message>
+    <message>
+        <source>Accomodation</source>
+        <translation>Zakwaterowanie</translation>
+    </message>
+    <message>
+        <source>Camp</source>
+        <translation>Kemping</translation>
+    </message>
+    <message>
+        <source>Via ferrata route</source>
+        <translation>Trasa via ferrata</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>metry</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>zachód</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>wschód</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>południe</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>północ</translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation>węzeł</translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation>droga</translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation>obszar</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation>Katalog już istnieje</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>Nie można utworzyć katalogu</translation>
+    </message>
+    <message>
+        <source>Network access is disabled.</source>
+        <translation>Dostęp do sieci jest wyłączony.</translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation>Połączenie odrzucone</translation>
+    </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation>Czas działanie socket&apos;u upłynął</translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation>Błąd sesji sieci.</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation>budynek</translation>
+    </message>
+</context>
+<context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
@@ -592,164 +750,6 @@
     </message>
 </context>
 <context>
-    <name>Routing</name>
-    <message>
-        <source>Search route</source>
-        <translation>Wyszukaj trasę</translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation>Z</translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation>Do</translation>
-    </message>
-    <message>
-        <source>By</source>
-        <translation>Za pomocą</translation>
-    </message>
-    <message>
-        <source>Route!</source>
-        <translation>Wytycz!</translation>
-    </message>
-    <message>
-        <source>Swap start and target</source>
-        <translation>Zamień początek i cel</translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <source>Up to distance %1</source>
-        <translation>Do odległości %1</translation>
-    </message>
-    <message>
-        <source>Unnamed</source>
-        <translation>Bez nazwy</translation>
-    </message>
-    <message>
-        <source>Restaurant</source>
-        <translation>Restauracja</translation>
-    </message>
-    <message>
-        <source>Fast Food</source>
-        <translation>Fast Food</translation>
-    </message>
-    <message>
-        <source>Cafe</source>
-        <translation>Kawiarnia</translation>
-    </message>
-    <message>
-        <source>ATM</source>
-        <translation>Bankomat</translation>
-    </message>
-    <message>
-        <source>Drinking water</source>
-        <translation>Woda pitna</translation>
-    </message>
-    <message>
-        <source>Toilets</source>
-        <translation>Toalety</translation>
-    </message>
-    <message>
-        <source>Public transport stop</source>
-        <translation>Przystanek komunikacji miejskiej</translation>
-    </message>
-    <message>
-        <source>Fuel</source>
-        <translation>Paliwo</translation>
-    </message>
-    <message>
-        <source>Accomodation</source>
-        <translation>Zakwaterowanie</translation>
-    </message>
-    <message>
-        <source>Camp</source>
-        <translation>Kemping</translation>
-    </message>
-    <message>
-        <source>Via ferrata route</source>
-        <translation>Trasa via ferrata</translation>
-    </message>
-</context>
-<context>
-    <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>metry</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
-    <message>
-        <source>west</source>
-        <translation>zachód</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation>wschód</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation>południe</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation>północ</translation>
-    </message>
-</context>
-<context>
-    <name>databaseType</name>
-    <message>
-        <source>node</source>
-        <translation>węzeł</translation>
-    </message>
-    <message>
-        <source>way</source>
-        <translation>droga</translation>
-    </message>
-    <message>
-        <source>area</source>
-        <translation>obszar</translation>
-    </message>
-</context>
-<context>
-    <name>message</name>
-    <message>
-        <source>Directory already exists</source>
-        <translation>Katalog już istnieje</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create directory</source>
-        <translation>Nie można utworzyć katalogu</translation>
-    </message>
-    <message>
-        <source>Network access is disabled.</source>
-        <translation>Dostęp do sieci jest wyłączony.</translation>
-    </message>
-    <message>
-        <source>Connection refused</source>
-        <translation>Połączenie odrzucone</translation>
-    </message>
-    <message>
-        <source>Socket operation timed out</source>
-        <translation>Czas działanie socket&apos;u upłynął</translation>
-    </message>
-    <message>
-        <source>Network session error.</source>
-        <translation>Błąd sesji sieci.</translation>
-    </message>
-</context>
-<context>
-    <name>objectType</name>
-    <message>
-        <source>building</source>
-        <translation>budynek</translation>
-    </message>
-</context>
-<context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
@@ -757,7 +757,7 @@
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation> Mapa Hike &amp; Bike </translation>
+        <translation>Mapa Hike &amp; Bike</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>

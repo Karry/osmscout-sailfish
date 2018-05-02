@@ -357,6 +357,164 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Route!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap start and target</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Up to distance %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restaurant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fast Food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cafe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ATM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drinking water</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toilets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public transport stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fuel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accomodation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Camp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Via ferrata route</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>Meter</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>westlich</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>östlich</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>südlich</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>nördlich</translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation>Ordner existiert bereits</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>Erstellung vom Ordner fehlgeschlagen</translation>
+    </message>
+    <message>
+        <source>Network access is disabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
@@ -588,164 +746,6 @@
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Routing</name>
-    <message>
-        <source>Search route</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>By</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Route!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unnamed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restaurant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fast Food</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cafe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ATM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Drinking water</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toilets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Public transport stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fuel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Accomodation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Camp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>Meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
-    <message>
-        <source>west</source>
-        <translation>westlich</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation>östlich</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation>südlich</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation>nördlich</translation>
-    </message>
-</context>
-<context>
-    <name>databaseType</name>
-    <message>
-        <source>node</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>way</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>area</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>message</name>
-    <message>
-        <source>Directory already exists</source>
-        <translation>Ordner existiert bereits</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create directory</source>
-        <translation>Erstellung vom Ordner fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connection refused</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Network session error.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>objectType</name>
-    <message>
-        <source>building</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

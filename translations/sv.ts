@@ -357,6 +357,164 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation>Sök vägval</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Från</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Till</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Med</translation>
+    </message>
+    <message>
+        <source>Route!</source>
+        <translation>Beräkna!</translation>
+    </message>
+    <message>
+        <source>Swap start and target</source>
+        <translation>Växla start och mål</translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Up to distance %1</source>
+        <translation>Upp till %1 avstånd</translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation>Namnlös</translation>
+    </message>
+    <message>
+        <source>Restaurant</source>
+        <translation>Restaurant</translation>
+    </message>
+    <message>
+        <source>Fast Food</source>
+        <translation>Snabbmat</translation>
+    </message>
+    <message>
+        <source>Cafe</source>
+        <translation>Kafé</translation>
+    </message>
+    <message>
+        <source>ATM</source>
+        <translation>Uttagsautomat</translation>
+    </message>
+    <message>
+        <source>Drinking water</source>
+        <translation>Dricksvatten</translation>
+    </message>
+    <message>
+        <source>Toilets</source>
+        <translation>Toalett</translation>
+    </message>
+    <message>
+        <source>Public transport stop</source>
+        <translation>Allmänt färdmedel</translation>
+    </message>
+    <message>
+        <source>Fuel</source>
+        <translation>Bränsle</translation>
+    </message>
+    <message>
+        <source>Accomodation</source>
+        <translation>Boende</translation>
+    </message>
+    <message>
+        <source>Camp</source>
+        <translation>Camping</translation>
+    </message>
+    <message>
+        <source>Via ferrata route</source>
+        <translation>Klättringsled</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>meter</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>väst</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>öst</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>syd</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>nord</translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation>nod</translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation>väg</translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation>område</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation>Mappen finns redan</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>Kan inte skapa mappen</translation>
+    </message>
+    <message>
+        <source>Network access is disabled.</source>
+        <translation>Nätverksåtkomst är inaktiverat.</translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation>Anslutning nekas</translation>
+    </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation>Tidsgränsen för socket-åtgärden överskreds</translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation>Fel i nätverkssessionen.</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation>byggnad</translation>
+    </message>
+</context>
+<context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
@@ -589,164 +747,6 @@
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
         <translation>&lt;strong&gt;Vägen byter namn&lt;/strong&gt; till %1</translation>
-    </message>
-</context>
-<context>
-    <name>Routing</name>
-    <message>
-        <source>Search route</source>
-        <translation>Sök vägval</translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation>Från</translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation>Till</translation>
-    </message>
-    <message>
-        <source>By</source>
-        <translation>Med</translation>
-    </message>
-    <message>
-        <source>Route!</source>
-        <translation>Beräkna!</translation>
-    </message>
-    <message>
-        <source>Swap start and target</source>
-        <translation>Växla start och mål</translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <source>Up to distance %1</source>
-        <translation>Upp till %1 avstånd</translation>
-    </message>
-    <message>
-        <source>Unnamed</source>
-        <translation>Namnlös</translation>
-    </message>
-    <message>
-        <source>Restaurant</source>
-        <translation>Restaurant</translation>
-    </message>
-    <message>
-        <source>Fast Food</source>
-        <translation>Snabbmat</translation>
-    </message>
-    <message>
-        <source>Cafe</source>
-        <translation>Kafé</translation>
-    </message>
-    <message>
-        <source>ATM</source>
-        <translation>Uttagsautomat</translation>
-    </message>
-    <message>
-        <source>Drinking water</source>
-        <translation>Dricksvatten</translation>
-    </message>
-    <message>
-        <source>Toilets</source>
-        <translation>Toalett</translation>
-    </message>
-    <message>
-        <source>Public transport stop</source>
-        <translation>Allmänt färdmedel</translation>
-    </message>
-    <message>
-        <source>Fuel</source>
-        <translation>Bränsle</translation>
-    </message>
-    <message>
-        <source>Accomodation</source>
-        <translation>Boende</translation>
-    </message>
-    <message>
-        <source>Camp</source>
-        <translation>Camping</translation>
-    </message>
-    <message>
-        <source>Via ferrata route</source>
-        <translation>Klättringsled</translation>
-    </message>
-</context>
-<context>
-    <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
-    <message>
-        <source>west</source>
-        <translation>väst</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation>öst</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation>syd</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation>nord</translation>
-    </message>
-</context>
-<context>
-    <name>databaseType</name>
-    <message>
-        <source>node</source>
-        <translation>nod</translation>
-    </message>
-    <message>
-        <source>way</source>
-        <translation>väg</translation>
-    </message>
-    <message>
-        <source>area</source>
-        <translation>område</translation>
-    </message>
-</context>
-<context>
-    <name>message</name>
-    <message>
-        <source>Directory already exists</source>
-        <translation>Mappen finns redan</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create directory</source>
-        <translation>Kan inte skapa mappen</translation>
-    </message>
-    <message>
-        <source>Network access is disabled.</source>
-        <translation>Nätverksåtkomst är inaktiverat.</translation>
-    </message>
-    <message>
-        <source>Connection refused</source>
-        <translation>Anslutning nekas</translation>
-    </message>
-    <message>
-        <source>Socket operation timed out</source>
-        <translation>Tidsgränsen för socket-åtgärden överskreds</translation>
-    </message>
-    <message>
-        <source>Network session error.</source>
-        <translation>Fel i nätverkssessionen.</translation>
-    </message>
-</context>
-<context>
-    <name>objectType</name>
-    <message>
-        <source>building</source>
-        <translation>byggnad</translation>
     </message>
 </context>
 <context>

@@ -443,6 +443,200 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <location filename="../qml/pages/Routing.qml" line="79"/>
+        <source>Swap start and target</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Routing.qml" line="106"/>
+        <source>Search route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Routing.qml" line="107"/>
+        <source>Route!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Routing.qml" line="114"/>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Routing.qml" line="120"/>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Routing.qml" line="131"/>
+        <source>By</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="197"/>
+        <source>Up to distance %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="247"/>
+        <source>Unnamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="342"/>
+        <source>Restaurant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="343"/>
+        <source>Fast Food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="344"/>
+        <source>Cafe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="345"/>
+        <source>ATM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="346"/>
+        <source>Drinking water</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="347"/>
+        <source>Toilets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="350"/>
+        <source>Public transport stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="353"/>
+        <source>Fuel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="354"/>
+        <source>Accomodation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="356"/>
+        <source>Camp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Search.qml" line="359"/>
+        <source>Via ferrata route</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <location filename="../qml/custom/Utils.js" line="47"/>
+        <source>meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/custom/Utils.js" line="50"/>
+        <location filename="../qml/custom/Utils.js" line="52"/>
+        <source>km</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/custom/Utils.js" line="56"/>
+        <source>west</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/custom/Utils.js" line="58"/>
+        <source>east</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/custom/Utils.js" line="60"/>
+        <source>south</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/custom/Utils.js" line="62"/>
+        <source>north</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <location filename="../qml/l10n.qml" line="39"/>
+        <source>node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="40"/>
+        <source>way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="41"/>
+        <source>area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <location filename="../qml/l10n.qml" line="30"/>
+        <source>Directory already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="31"/>
+        <source>Can&apos;t create directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="34"/>
+        <source>Network access is disabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="35"/>
+        <source>Connection refused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="36"/>
+        <source>Socket operation timed out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/l10n.qml" line="37"/>
+        <source>Network session error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <location filename="../qml/l10n.qml" line="48"/>
+        <source>building</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <location filename="../dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp" line="73"/>
@@ -736,200 +930,6 @@
     <message>
         <location filename="../dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp" line="451"/>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Routing</name>
-    <message>
-        <location filename="../qml/pages/Routing.qml" line="79"/>
-        <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Routing.qml" line="106"/>
-        <source>Search route</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Routing.qml" line="107"/>
-        <source>Route!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Routing.qml" line="114"/>
-        <source>From</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Routing.qml" line="120"/>
-        <source>To</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Routing.qml" line="131"/>
-        <source>By</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="197"/>
-        <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="247"/>
-        <source>Unnamed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="342"/>
-        <source>Restaurant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="343"/>
-        <source>Fast Food</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="344"/>
-        <source>Cafe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="345"/>
-        <source>ATM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="346"/>
-        <source>Drinking water</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="347"/>
-        <source>Toilets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="350"/>
-        <source>Public transport stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="353"/>
-        <source>Fuel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="354"/>
-        <source>Accomodation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="356"/>
-        <source>Camp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Search.qml" line="359"/>
-        <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Utils</name>
-    <message>
-        <location filename="../qml/custom/Utils.js" line="47"/>
-        <source>meters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/custom/Utils.js" line="50"/>
-        <location filename="../qml/custom/Utils.js" line="52"/>
-        <source>km</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/custom/Utils.js" line="56"/>
-        <source>west</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/custom/Utils.js" line="58"/>
-        <source>east</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/custom/Utils.js" line="60"/>
-        <source>south</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/custom/Utils.js" line="62"/>
-        <source>north</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>databaseType</name>
-    <message>
-        <location filename="../qml/l10n.qml" line="39"/>
-        <source>node</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="40"/>
-        <source>way</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="41"/>
-        <source>area</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>message</name>
-    <message>
-        <location filename="../qml/l10n.qml" line="30"/>
-        <source>Directory already exists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="31"/>
-        <source>Can&apos;t create directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="34"/>
-        <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="35"/>
-        <source>Connection refused</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="36"/>
-        <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/l10n.qml" line="37"/>
-        <source>Network session error.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>objectType</name>
-    <message>
-        <location filename="../qml/l10n.qml" line="48"/>
-        <source>building</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

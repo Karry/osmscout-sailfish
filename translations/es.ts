@@ -357,6 +357,164 @@
     </message>
 </context>
 <context>
+    <name>Routing</name>
+    <message>
+        <source>Search route</source>
+        <translation>Definir la ruta</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Desde</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Para</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Por</translation>
+    </message>
+    <message>
+        <source>Route!</source>
+        <translation>Ir!</translation>
+    </message>
+    <message>
+        <source>Swap start and target</source>
+        <translation>Iniciar la ruta</translation>
+    </message>
+</context>
+<context>
+    <name>Search</name>
+    <message>
+        <source>Up to distance %1</source>
+        <translation>Hasta la distancia %1</translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation>Sin nombre</translation>
+    </message>
+    <message>
+        <source>Restaurant</source>
+        <translation>Restaurante</translation>
+    </message>
+    <message>
+        <source>Fast Food</source>
+        <translation>Comida rápida</translation>
+    </message>
+    <message>
+        <source>Cafe</source>
+        <translation>Cafetería</translation>
+    </message>
+    <message>
+        <source>ATM</source>
+        <translation>Cajero automático</translation>
+    </message>
+    <message>
+        <source>Drinking water</source>
+        <translation>Agua potable</translation>
+    </message>
+    <message>
+        <source>Toilets</source>
+        <translation>Baños</translation>
+    </message>
+    <message>
+        <source>Public transport stop</source>
+        <translation>Transporte público</translation>
+    </message>
+    <message>
+        <source>Fuel</source>
+        <translation>Combustible</translation>
+    </message>
+    <message>
+        <source>Accomodation</source>
+        <translation>Hospedaje</translation>
+    </message>
+    <message>
+        <source>Camp</source>
+        <translation>Acampar</translation>
+    </message>
+    <message>
+        <source>Via ferrata route</source>
+        <translation>Vía ferrata</translation>
+    </message>
+</context>
+<context>
+    <name>Utils</name>
+    <message>
+        <source>meters</source>
+        <translation>metros</translation>
+    </message>
+    <message>
+        <source>km</source>
+        <translation>km</translation>
+    </message>
+    <message>
+        <source>west</source>
+        <translation>al oeste</translation>
+    </message>
+    <message>
+        <source>east</source>
+        <translation>al este</translation>
+    </message>
+    <message>
+        <source>south</source>
+        <translation>al sur</translation>
+    </message>
+    <message>
+        <source>north</source>
+        <translation>al norte</translation>
+    </message>
+</context>
+<context>
+    <name>databaseType</name>
+    <message>
+        <source>node</source>
+        <translation>nodo</translation>
+    </message>
+    <message>
+        <source>way</source>
+        <translation>camino</translation>
+    </message>
+    <message>
+        <source>area</source>
+        <translation>área</translation>
+    </message>
+</context>
+<context>
+    <name>message</name>
+    <message>
+        <source>Directory already exists</source>
+        <translation>Directorio existente</translation>
+    </message>
+    <message>
+        <source>Can&apos;t create directory</source>
+        <translation>No se pudo crear el directorio</translation>
+    </message>
+    <message>
+        <source>Network access is disabled.</source>
+        <translation>El acceso a la red está deshabilitado.</translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation>Conexión denegada</translation>
+    </message>
+    <message>
+        <source>Socket operation timed out</source>
+        <translation>La operación de enchufe agotó el tiempo de espera</translation>
+    </message>
+    <message>
+        <source>Network session error.</source>
+        <translation>Error de sesión de red.</translation>
+    </message>
+</context>
+<context>
+    <name>objectType</name>
+    <message>
+        <source>building</source>
+        <translation>edificio</translation>
+    </message>
+</context>
+<context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
@@ -589,164 +747,6 @@
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
         <translation>&lt;strong&gt;Calle cambio de nombre&lt;/strong&gt; para %1</translation>
-    </message>
-</context>
-<context>
-    <name>Routing</name>
-    <message>
-        <source>Search route</source>
-        <translation>Definir la ruta</translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation>Desde</translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation>Para</translation>
-    </message>
-    <message>
-        <source>By</source>
-        <translation>Por</translation>
-    </message>
-    <message>
-        <source>Route!</source>
-        <translation>Ir!</translation>
-    </message>
-    <message>
-        <source>Swap start and target</source>
-        <translation>Iniciar la ruta</translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <source>Up to distance %1</source>
-        <translation>Hasta la distancia %1</translation>
-    </message>
-    <message>
-        <source>Unnamed</source>
-        <translation>Sin nombre</translation>
-    </message>
-    <message>
-        <source>Restaurant</source>
-        <translation>Restaurante</translation>
-    </message>
-    <message>
-        <source>Fast Food</source>
-        <translation>Comida rápida</translation>
-    </message>
-    <message>
-        <source>Cafe</source>
-        <translation>Cafetería</translation>
-    </message>
-    <message>
-        <source>ATM</source>
-        <translation>Cajero automático</translation>
-    </message>
-    <message>
-        <source>Drinking water</source>
-        <translation>Agua potable</translation>
-    </message>
-    <message>
-        <source>Toilets</source>
-        <translation>Baños</translation>
-    </message>
-    <message>
-        <source>Public transport stop</source>
-        <translation>Transporte público</translation>
-    </message>
-    <message>
-        <source>Fuel</source>
-        <translation>Combustible</translation>
-    </message>
-    <message>
-        <source>Accomodation</source>
-        <translation>Hospedaje</translation>
-    </message>
-    <message>
-        <source>Camp</source>
-        <translation>Acampar</translation>
-    </message>
-    <message>
-        <source>Via ferrata route</source>
-        <translation>Vía ferrata</translation>
-    </message>
-</context>
-<context>
-    <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>metros</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
-    <message>
-        <source>west</source>
-        <translation>al oeste</translation>
-    </message>
-    <message>
-        <source>east</source>
-        <translation>al este</translation>
-    </message>
-    <message>
-        <source>south</source>
-        <translation>al sur</translation>
-    </message>
-    <message>
-        <source>north</source>
-        <translation>al norte</translation>
-    </message>
-</context>
-<context>
-    <name>databaseType</name>
-    <message>
-        <source>node</source>
-        <translation>nodo</translation>
-    </message>
-    <message>
-        <source>way</source>
-        <translation>camino</translation>
-    </message>
-    <message>
-        <source>area</source>
-        <translation>área</translation>
-    </message>
-</context>
-<context>
-    <name>message</name>
-    <message>
-        <source>Directory already exists</source>
-        <translation>Directorio existente</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create directory</source>
-        <translation>No se pudo crear el directorio</translation>
-    </message>
-    <message>
-        <source>Network access is disabled.</source>
-        <translation>El acceso a la red está deshabilitado.</translation>
-    </message>
-    <message>
-        <source>Connection refused</source>
-        <translation>Conexión denegada</translation>
-    </message>
-    <message>
-        <source>Socket operation timed out</source>
-        <translation>La operación de enchufe agotó el tiempo de espera</translation>
-    </message>
-    <message>
-        <source>Network session error.</source>
-        <translation>Error de sesión de red.</translation>
-    </message>
-</context>
-<context>
-    <name>objectType</name>
-    <message>
-        <source>building</source>
-        <translation>edificio</translation>
     </message>
 </context>
 <context>
