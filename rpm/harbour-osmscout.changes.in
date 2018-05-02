@@ -209,6 +209,7 @@
 - integration with Transifex service (make translation is simpler now)
 - router now fully support transition between databases (not just two)
 - speedup routing with multiple databases, but routing with single database is little bit slower (~10%)
+- ^^^ it is necessary to update map databases to format 17, router is not backward compatible!
 - minor UI improvements and fixes
 - update (Czech, Spanish, Swedish and Polish) translations
 
@@ -217,3 +218,4 @@
 - fix location info
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.32-1
+- fix translations of route steps
