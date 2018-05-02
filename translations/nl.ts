@@ -443,7 +443,7 @@
     </message>
 </context>
 <context>
-    <name>RouteDescriptionBuilder</name>
+    <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <location filename="../dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp" line="73"/>
         <source>Turn</source>

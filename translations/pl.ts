@@ -357,7 +357,7 @@
     </message>
 </context>
 <context>
-    <name>RouteDescriptionBuilder</name>
+    <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
         <translation>Skręć ostro w lewo</translation>
