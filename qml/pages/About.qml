@@ -147,6 +147,11 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
+                    text: qsTr("Dutch: Nathan Follens")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
                     text: qsTr("French: Pierre-Henri Horrein")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall

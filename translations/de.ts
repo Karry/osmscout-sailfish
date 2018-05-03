@@ -67,6 +67,10 @@
         <source>Privacy notes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Dutch: Nathan Follens</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
