@@ -49,23 +49,23 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation type="unfinished"></translation>
+        <translation>Norvég: Håvard Moen</translation>
     </message>
     <message>
         <source>German: Pawel Spoon</source>
-        <translation type="unfinished"></translation>
+        <translation>Német: Pawel Spoon</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanyol: Carlos Gonzalez</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
-        <translation type="unfinished"></translation>
+        <translation>Francia: Pierre-Henri Horrein</translation>
     </message>
     <message>
         <source>Privacy notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatvédelem</translation>
     </message>
 </context>
 <context>
@@ -76,11 +76,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>méter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -95,27 +95,27 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltött térképek</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes frissítése</translation>
     </message>
     <message>
         <source>Home</source>
@@ -123,7 +123,7 @@
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>SD kártya</translation>
     </message>
 </context>
 <context>
@@ -166,43 +166,43 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Betűtípus</translation>
     </message>
     <message>
         <source>DejaVu Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>DejaVu Sans</translation>
     </message>
     <message>
         <source>Droid Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>Droid Serif</translation>
     </message>
     <message>
         <source>Liberation Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberation Sans</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Betűméret</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normál</translation>
     </message>
     <message>
         <source>Big</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagy</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Hatalmas</translation>
     </message>
     <message>
         <source>Bigger</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagyobb</translation>
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Térképréteg</translation>
     </message>
     <message>
         <source>Hill Shades</source>
@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Keresés</translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Pick a place</source>
@@ -260,15 +260,15 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltve</translation>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
+        <translation>Friss</translation>
     </message>
     <message>
         <source>Home</source>
@@ -276,7 +276,7 @@
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>SD kártya</translation>
     </message>
 </context>
 <context>
@@ -311,11 +311,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>méter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -341,19 +341,19 @@
     </message>
     <message>
         <source>Calculating the route</source>
-        <translation type="unfinished"></translation>
+        <translation>Útvonal kiszámítása</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigálás</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Elfogadás</translation>
     </message>
 </context>
 <context>
@@ -364,15 +364,15 @@
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Innen: </translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Ide: </translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished"></translation>
+        <translation>Így: </translation>
     </message>
     <message>
         <source>Route!</source>
@@ -391,39 +391,39 @@
     </message>
     <message>
         <source>Unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Névtelen</translation>
     </message>
     <message>
         <source>Restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Étterem</translation>
     </message>
     <message>
         <source>Fast Food</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsétterem</translation>
     </message>
     <message>
         <source>Cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kávéház</translation>
     </message>
     <message>
         <source>ATM</source>
-        <translation type="unfinished"></translation>
+        <translation>ATM</translation>
     </message>
     <message>
         <source>Drinking water</source>
-        <translation type="unfinished"></translation>
+        <translation>Ivóvíz</translation>
     </message>
     <message>
         <source>Toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Vécék</translation>
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Buszmegálló</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Benzinkút</translation>
     </message>
     <message>
         <source>Accomodation</source>
@@ -431,38 +431,38 @@
     </message>
     <message>
         <source>Camp</source>
-        <translation type="unfinished"></translation>
+        <translation>Kemping</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasút</translation>
     </message>
 </context>
 <context>
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>méter</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
     <message>
         <source>west</source>
-        <translation type="unfinished"></translation>
+        <translation>nyugat</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished"></translation>
+        <translation>kelet</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished"></translation>
+        <translation>dél</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished"></translation>
+        <translation>észak</translation>
     </message>
 </context>
 <context>
@@ -511,42 +511,42 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Épület</translation>
     </message>
 </context>
 <context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj élesen balra</translation>
     </message>
     <message>
         <source>Turn left</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj balra</translation>
     </message>
     <message>
         <source>Turn slightly left</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj enyhén balra</translation>
     </message>
     <message>
         <source>Straight on</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyenesen</translation>
     </message>
     <message>
         <source>Turn slightly right</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj enyhén jobbra</translation>
     </message>
     <message>
         <source>Turn right</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj jobbra</translation>
     </message>
     <message>
         <source>Turn sharp right</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj élesen jobbra</translation>
     </message>
     <message>
         <source>Turn</source>
-        <translation type="unfinished"></translation>
+        <translation>Fordulj</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
@@ -618,15 +618,15 @@
     </message>
     <message>
         <source>(%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
@@ -768,22 +768,22 @@
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation type="unfinished"></translation>
+        <translation>Autóval</translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Biciklivel</translation>
     </message>
     <message>
         <source>foot</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyalog</translation>
     </message>
 </context>
 <context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation type="unfinished"></translation>
+        <translation>Nappal</translation>
     </message>
     <message>
         <source>waterway</source>
@@ -799,7 +799,7 @@
     </message>
     <message>
         <source>railway</source>
-        <translation type="unfinished"></translation>
+        <translation>Vasút</translation>
     </message>
     <message>
         <source>leisure</source>
@@ -807,11 +807,11 @@
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>Épület</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>Kisebb épület</translation>
     </message>
     <message>
         <source>elevationContours</source>
@@ -830,11 +830,11 @@
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"></translation>
+        <translation>Téli sportok</translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>Tömegközlekedéssel</translation>
     </message>
 </context>
 </TS>

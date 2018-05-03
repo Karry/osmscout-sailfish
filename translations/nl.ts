@@ -100,7 +100,7 @@
     <message>
         <location filename="../qml/pages/Cover.qml" line="140"/>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">km</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@
     <message>
         <location filename="../qml/pages/MapPage.qml" line="345"/>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">km</translation>
     </message>
 </context>
 <context>
