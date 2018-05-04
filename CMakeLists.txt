@@ -276,6 +276,7 @@ set(TRANSLATION_TS_FILES
         translations/hu.ts
         translations/nb.ts
         translations/nl.ts
+        translations/nl_BE.ts
         translations/pl.ts
         translations/sv.ts
         )
