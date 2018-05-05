@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
-        <translation type="unfinished"></translation>
+        <translation>Holandština: Nathan Follens</translation>
     </message>
 </context>
 <context>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -9,7 +7,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout voor Sailfish OS wordt als openbrontoepassing door de ontwikkelaars in hun vrije tijd ontwikkeld. Je kan deze app helpen verbeteren door bugs te melden, vertalingen te maken of nieuwe functies te ontwikkelen. Alle hulp is welkom.</translation>
+        <translation>OSM Scout voor Sailfish OS wordt als openbrontoepassing door vrijwilligers in hun vrije tijd ontwikkeld. Je kan deze app helpen verbeteren door bugs te melden, vertalingen te maken of nieuwe functies te ontwikkelen. Alle hulp is welkom.</translation>
     </message>
     <message>
         <source>About</source>
@@ -364,7 +362,7 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation>Route zoeke</translation>
+        <translation>Route zoeken</translation>
     </message>
     <message>
         <source>From</source>
@@ -658,15 +656,15 @@
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Doel bereikt&lt;/strong&gt; op %1</translation>
+        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt; op %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Doel bereikt&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation>Doel bereikt</translation>
+        <translation>Bestemming bereikt</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>

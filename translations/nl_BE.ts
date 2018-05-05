@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="nl_BE">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_BE" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -9,7 +7,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout voor Sailfish OS wordt als openbrontoepassing door de ontwikkelaars in hun vrije tijd ontwikkeld. Je kan deze app helpen verbeteren door bugs te melden, vertalingen te maken of nieuwe functies te ontwikkelen. Alle hulp is welkom.</translation>
+        <translation>OSM Scout voor Sailfish OS word als openbrontoepassing door vrijwilligers ontwikkeld in hunne vrijen tijd. Ge kund dezen app helpen verbeteren door bugs te melden, vertalingen te maken of nieuwe functies t’ontwikkelen. Alle hulp is welkom.</translation>
     </message>
     <message>
         <source>About</source>
@@ -111,7 +109,7 @@
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Wordt verwijderd</translation>
+        <translation>Word verwijderd</translation>
     </message>
     <message>
         <source>Update</source>
@@ -214,7 +212,7 @@
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation>Aangeboden door de universiteit van Heidelberg, gebaseerd op ASTER GDEM-gegevens</translation>
+        <translation>Aangeboden door d’universiteit van Heidelberg, gebaseerd op ASTER GDEM-gegevens</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
@@ -225,7 +223,7 @@
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation>Kies een locatie…</translation>
+        <translation>Kiesd een locatie…</translation>
     </message>
     <message>
         <source>Current location</source>
@@ -237,7 +235,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation>Kies een plaats</translation>
+        <translation>Kiesd een plek</translation>
     </message>
 </context>
 <context>
@@ -326,11 +324,11 @@
     <name>PlaceDetail</name>
     <message>
         <source>You are here</source>
-        <translation>Je bent hier</translation>
+        <translation>Ge zijd hier</translation>
     </message>
     <message>
         <source>%1 %2 from you</source>
-        <translation>%1 %2 van je</translation>
+        <translation>%1 %2 van u</translation>
     </message>
     <message>
         <source>%1 %2 from</source>
@@ -341,11 +339,11 @@
     <name>RouteDescription</name>
     <message>
         <source>Preparing</source>
-        <translation>Bezig met voorbereiden</translation>
+        <translation>Bezig me’ voorbereiden</translation>
     </message>
     <message>
         <source>Calculating the route</source>
-        <translation>De route wordt berekend</translation>
+        <translation>De route word berekend</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -364,7 +362,7 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation>Route zoeke</translation>
+        <translation>Route zoeken</translation>
     </message>
     <message>
         <source>From</source>
@@ -395,7 +393,7 @@
     </message>
     <message>
         <source>Unnamed</source>
-        <translation>Geen naam</translation>
+        <translation>Gene naam</translation>
     </message>
     <message>
         <source>Restaurant</source>
@@ -492,7 +490,7 @@
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation>Kan map niet aanmaken</translation>
+        <translation>Kan map nie aanmaken</translation>
     </message>
     <message>
         <source>Network access is disabled.</source>
@@ -634,7 +632,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Begin&lt;/strong&gt; op %1</translation>
+        <translation>&lt;strong&gt;Begind&lt;/strong&gt; op %1</translation>
     </message>
     <message>
         <source>Start</source>
@@ -642,115 +640,115 @@
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Ga verder&lt;/strong&gt; langs %1</translation>
+        <translation>&lt;strong&gt;Ga’ verder&lt;/strong&gt; langs %1</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation>Ga verder</translation>
+        <translation>Ga’ verder</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Begin&lt;/strong&gt; langs %1</translation>
+        <translation>&lt;strong&gt;Begind&lt;/strong&gt; langs %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Begin&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Begind&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Doel bereikt&lt;/strong&gt; op %1</translation>
+        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt; op %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Doel bereikt&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation>Doel bereikt</translation>
+        <translation>Bestemming bereikt</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de rotonde op&lt;/strong&gt; bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Rijd op het rondpunt&lt;/strong&gt; bij kruispunt %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de rotonde op&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Rijd op het rondpunt&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation>Rijd de rotonde op</translation>
+        <translation>Rijd op het rondpunt</translation>
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation>Verlaat de rotonde</translation>
+        <translation>Verlaat het rondpunt</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit naar %2</translation>
+        <translation>&lt;strong&gt;Verlaat het rondpunt&lt;/strong&gt; bij de %1e afrit naar %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit</translation>
+        <translation>&lt;strong&gt;Verlaat het rondpunt&lt;/strong&gt; bij de %1e afrit</translation>
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation>Rijd de snelweg op</translation>
+        <translation>Rijd op d’autostrade</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; %2 bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Rijd op d’autostrade&lt;/strong&gt; %2 bij kruispunt %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; %1</translation>
+        <translation>&lt;strong&gt;Rijd op d’autostrade&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Rijd op d’autostrade&lt;/strong&gt; bij kruispunt %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Rijd op d’autostrade&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation>Wijzig de snelweg</translation>
+        <translation>Veranderd van autostrade</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Wijzig de snelweg&lt;/strong&gt; van %1 naar %2</translation>
+        <translation>&lt;strong&gt;Veranderd van autostrade&lt;/strong&gt; van %1 naar %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Wijzig de snelweg&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Veranderd van autostrade&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
-        <translation>Verlaat de snelweg</translation>
+        <translation>Verlaat d’autostrade</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt; %1 naar %2</translation>
+        <translation>&lt;strong&gt;Verlaat d’autostrade&lt;/strong&gt; %1 naar %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt; %1</translation>
+        <translation>&lt;strong&gt;Verlaat d’autostrade&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Verlaat d’autostrade&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Way changes name</source>
-        <translation>Straatnaam verandert</translation>
+        <translation>Weg veranderd van naam</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Straatnaam verandert&lt;/strong&gt; van %1 naar %2</translation>
+        <translation>&lt;strong&gt;Weg veranderd van naam&lt;/strong&gt; van %1 naar %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Straatnaam verandert&lt;/strong&gt; naar %1</translation>
+        <translation>&lt;strong&gt;Weg veranderd van naam&lt;/strong&gt; naar %1</translation>
     </message>
 </context>
 <context>
@@ -776,7 +774,7 @@
     </message>
     <message>
         <source>bicycle</source>
-        <translation>Fiets</translation>
+        <translation>Velo</translation>
     </message>
     <message>
         <source>foot</source>
