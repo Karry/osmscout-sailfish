@@ -1016,6 +1016,33 @@ STYLE
        WAY#rbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: 0.6mm;}
      }
    }
+
+   // Cycleways on way
+   [FEATURE Sideway.cyclewayLaneLeft] {
+     WAY#cyclewayLaneLeft {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: 1mm; priority: 1;}
+   }
+   [FEATURE Sideway.cyclewayLaneRight] {
+     WAY#cyclewayLaneRight {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: -1mm; priority: 1;}
+   }
+
+   // Cycleways besides way
+   [FEATURE Sideway.cyclewayTrackLeft] {
+     WAY#cyclewayTrackLeft {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -1mm; priority: -1;}
+   }
+   [FEATURE Sideway.cyclewayTrackRight] {
+     WAY#cyclewayTrackRight {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 1mm; priority: -1;}
+   }
+
+   // sidewalk besides way
+   [FEATURE Sideway.sidewalkTrackLeft] {
+     WAY#sidewalkTrackLeftOutline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt; offsetRel: leftOutline; displayOffset: -0.5mm; priority: -2;}
+     WAY#sidewalkTrackLeft {color: #f64762; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -0.5mm; priority: -1;}
+   }
+
+   [FEATURE Sideway.sidewalkTrackRight] {
+     WAY#sidewalkTrackRightOutline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt; offsetRel: rightOutline; displayOffset: 0.5mm; priority: -2;}
+     WAY#sidewalkTrackRight {color: #f64762; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 0.5mm; priority: -1;}
+   }
  }
 
  [MAG veryClose-] {
