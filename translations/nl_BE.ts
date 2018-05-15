@@ -528,7 +528,7 @@
     </message>
     <message>
         <source>Turn slightly left</source>
-        <translation>Sla iets linksaf</translation>
+        <translation>Slaad iets linksaf</translation>
     </message>
     <message>
         <source>Straight on</source>
@@ -536,7 +536,7 @@
     </message>
     <message>
         <source>Turn slightly right</source>
-        <translation>Sla iets rechtsaf</translation>
+        <translation>Slaad iets rechtsaf</translation>
     </message>
     <message>
         <source>Turn right</source>
@@ -548,11 +548,11 @@
     </message>
     <message>
         <source>Turn</source>
-        <translation>Sla af</translation>
+        <translation>Slaad af</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla af&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Slaad af&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
@@ -564,7 +564,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla iets linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Slaad iets linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
@@ -572,7 +572,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla iets rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Slaad iets rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
@@ -584,7 +584,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla af&lt;/strong&gt; bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Slaad af&lt;/strong&gt; bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
@@ -596,7 +596,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla iets linksaf&lt;/strong&gt; bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Slaad iets linksaf&lt;/strong&gt; bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
@@ -604,7 +604,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla iets rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
+        <translation>&lt;strong&gt;Slaad iets rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
