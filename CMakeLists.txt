@@ -124,6 +124,14 @@ if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
   add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
   add_definitions(-std=c++11)
 
+  # Do *NOT* turn assertions off in release and rel-with-deb-info modes.
+  # CMakes does that by default despite any recent documentation
+  # recommending against the practice.
+  string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+  string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+  string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+  string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+
   # QT5 definitions
   add_definitions(${QT_DEFINITIONS})
   add_definitions(${Qt5Core_DEFINITIONS})
