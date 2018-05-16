@@ -47,7 +47,7 @@ Image{
         'enter-roundabout': 'enter-roundabout',
         'leave-roundabout': 'leave-roundabout',
 
-        'enter-motorway': 'enter-motorway',
+        'enter-motorway': 'change-motorway',
         'change-motorway': 'change-motorway',
         'leave-motorway': 'leave-motorway',
 
