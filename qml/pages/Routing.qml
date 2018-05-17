@@ -45,6 +45,7 @@ Dialog {
     }
     function computeRoute() {
         if ((fromSelector.location !== null) && (toSelector.location!== null)) {
+            console.log("Routing \"" + Utils.locationStr(fromSelector.location) + "\" -> \"" + Utils.locationStr(toSelector.location) + "\" by " + vehicleComboBox.selected);
             route.setStartAndTarget(fromSelector.location,
                                     toSelector.location,
                                     vehicleComboBox.selected);
@@ -61,7 +62,8 @@ Dialog {
         "mapPage": mapPage,
         "mainMap": mainMap,
         "destination": toSelector.location,
-        "fromCurrentLocation": fromSelector.useCurrentLocation
+        "fromCurrentLocation": fromSelector.useCurrentLocation,
+        "vehicle": vehicleComboBox.selected
     }
 
     onAccepted: {
@@ -147,6 +149,7 @@ Dialog {
                     }
                     var vehicles=route.availableVehicles();
                     selected = vehicles[currentIndex];
+                    console.log("Selected vehicle: "+selected);
                 }
                 Component.onCompleted: {
                     var vehicles=route.availableVehicles()

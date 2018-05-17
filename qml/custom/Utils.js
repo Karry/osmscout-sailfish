@@ -71,3 +71,8 @@ function humanDuration(seconds){
     if (minutes < 10) {minutes = "0"+minutes;}
     return hours+':'+minutes;
 }
+function locationStr(location){
+    return (location.label=="" || location.type=="coordinate") ?
+                Utils.formatCoord(location.lat, location.lon, AppSettings.gpsFormat) :
+                location.label;
+}

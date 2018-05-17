@@ -36,6 +36,14 @@ Dialog {
     property LocationEntry destination
     property var mapPage
     property var mainMap
+    property var vehicle
+
+    onVehicleChanged: {
+        console.log("RouteDescription vehicle changed: " + vehicle);
+    }
+    Component.onCompleted: {
+        console.log("RouteDescription vehicle initialised: " + vehicle);
+    }
 
     canAccept: route.ready
 
@@ -77,8 +85,9 @@ Dialog {
         mainMap.addOverlayObject(0,routeWay);
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
         if (fromCurrentLocation && destination && destination.type != "none"){
-            console.log("navigation destination: " + destination + " (" + destination.label + ")");
+            console.log("navigation destination: \"" + Utils.locationStr(destination) + "\" by " + vehicle);
             mapPage.navigationModel.destination = destination;
+            mapPage.navigationModel.vehicle = vehicle;
         }
     }
 

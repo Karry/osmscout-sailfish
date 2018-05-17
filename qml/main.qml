@@ -24,6 +24,7 @@ import Sailfish.Silica 1.0
 
 import "pages"
 import harbour.osmscout.map 1.0
+import "custom/Utils.js" as Utils
 
 ApplicationWindow {
     id: mainWindow
@@ -34,8 +35,8 @@ ApplicationWindow {
         }
 
         var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
-        console.log("We leave route, reroute from " + startLoc.label + " -> " + navigationModel.destination.label);
-        routingModel.setStartAndTarget(startLoc, navigationModel.destination);
+        console.log("We leave route, rerouting \"" + Utils.locationStr(startLoc) + "\" -> \"" + Utils.locationStr(navigationModel.destination) + "\" by " + navigationModel.vehicle);
+        routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.vehicle);
     }
 
     PositionSource {
@@ -79,6 +80,7 @@ ApplicationWindow {
         route: routingModel.route
 
         property LocationEntry destination
+        property string vehicle: "car"
         property bool destinationSet: destination != null && destination.type != "none"
 
         onDestinationChanged: {

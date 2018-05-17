@@ -217,8 +217,9 @@
 - fix search and routing (namespace issue introduced in 0.30)
 - fix location info
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.32-1
+* 2018-05-17 Lukáš Karas <lukas.karas@centrum.cz> 0.32-1
 - fix translations of route steps
 - add Dutch translations (general and Belgium)
 - update other translations (Czech, Hungarian, Polish)
 - add support for rendering highway sidevalks and cycleways
+- use correct vehicle (car/foot/bicycle) when navigation trigger rerouting
