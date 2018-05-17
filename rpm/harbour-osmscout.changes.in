@@ -221,5 +221,5 @@
 - fix translations of route steps
 - add Dutch translations (general and Belgium)
 - update other translations (Czech, Hungarian, Polish, Spanish)
-- add support for rendering highway sidevalks and cycleways
+- add support for rendering highway sidewalks and cycleways
 - use correct vehicle (car/foot/bicycle) when navigation trigger rerouting
