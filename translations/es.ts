@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
-        <translation type="unfinished"></translation>
+        <translation>Holandés: Nathan Follens</translation>
     </message>
 </context>
 <context>
@@ -123,11 +123,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio principal</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarjeta SD</translation>
     </message>
 </context>
 <context>
@@ -276,11 +276,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio principal</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarjeta SD</translation>
     </message>
 </context>
 <context>
