@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -69,7 +67,7 @@
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
-        <translation type="unfinished"></translation>
+        <translation>Holland: Nathan Follens</translation>
     </message>
 </context>
 <context>
@@ -123,7 +121,7 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>SD card</source>
@@ -166,7 +164,7 @@
     </message>
     <message>
         <source>Style flags</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Font</source>
@@ -210,26 +208,26 @@
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Domborzatárnyékolás</translation>
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="unfinished"></translation>
+        <translation>Szolgáltatja a Heidelberg Egyetem az ASTER GDEM adatok alapján</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Domborzatárnyékolás mértéke</translation>
     </message>
 </context>
 <context>
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hely kiválasztása...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi hely</translation>
     </message>
     <message>
         <source>Search</source>
@@ -237,7 +235,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation type="unfinished"></translation>
+        <translation>Válassz a térképről</translation>
     </message>
 </context>
 <context>
@@ -260,7 +258,7 @@
     </message>
     <message>
         <source>Data Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Adat verzió</translation>
     </message>
     <message>
         <source>Update</source>
@@ -276,7 +274,7 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>SD card</source>
@@ -307,7 +305,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -341,7 +339,7 @@
     <name>RouteDescription</name>
     <message>
         <source>Preparing</source>
-        <translation type="unfinished"></translation>
+        <translation>Előkészítés</translation>
     </message>
     <message>
         <source>Calculating the route</source>
@@ -364,7 +362,7 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Útvonal keresése</translation>
     </message>
     <message>
         <source>From</source>
@@ -380,18 +378,18 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Search</name>
     <message>
         <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unnamed</source>
@@ -427,11 +425,11 @@
     </message>
     <message>
         <source>Fuel</source>
-        <translation>Benzinkút</translation>
+        <translation>Üzemanyag</translation>
     </message>
     <message>
         <source>Accomodation</source>
-        <translation type="unfinished"></translation>
+        <translation>Szállás</translation>
     </message>
     <message>
         <source>Camp</source>
@@ -473,15 +471,15 @@
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>csomópont</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>út</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>terület</translation>
     </message>
 </context>
 <context>
@@ -496,26 +494,26 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>A hálózati hozzáférés ki van kapcsolva.</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolat elutasítva</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">Épület</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -554,71 +552,71 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>unnamed road</source>
-        <translation type="unfinished"></translation>
+        <translation>névelen út</translation>
     </message>
     <message>
         <source>(%1)</source>
@@ -634,123 +632,123 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Indulás</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Folytatás</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Target reached</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Leave motorway</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Way changes name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -791,15 +789,15 @@
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>railway</source>
@@ -807,7 +805,7 @@
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>building</source>
@@ -819,18 +817,18 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>winter-sports</source>
