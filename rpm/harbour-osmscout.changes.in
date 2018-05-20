@@ -223,3 +223,5 @@
 - update other translations (Czech, Hungarian, Polish, Spanish)
 - add support for rendering highway sidewalks and cycleways
 - use correct vehicle (car/foot/bicycle) when navigation trigger rerouting
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.33-1
