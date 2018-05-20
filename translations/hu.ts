@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="hu">
 <context>
     <name>About</name>
     <message>
@@ -164,7 +166,7 @@
     </message>
     <message>
         <source>Style flags</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font</source>
@@ -305,7 +307,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -378,18 +380,18 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Search</name>
     <message>
         <source>Up to distance %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unnamed</source>
@@ -502,18 +504,18 @@
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Épület</translation>
     </message>
 </context>
 <context>
@@ -552,67 +554,67 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unnamed road</source>
@@ -632,7 +634,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start</source>
@@ -640,7 +642,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Continue</source>
@@ -648,107 +650,107 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Leave motorway</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Way changes name</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -789,15 +791,15 @@
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>railway</source>
@@ -805,7 +807,7 @@
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>building</source>
@@ -817,18 +819,18 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>winter-sports</source>
