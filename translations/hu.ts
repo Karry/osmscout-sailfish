@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Offline térkép importálási segédlet</translation>
+        <translation>Offline térképimportálási segédlet</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -134,11 +134,11 @@
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>Térkép beállítások</translation>
+        <translation>Térképbeállítások</translation>
     </message>
     <message>
         <source>Map magnification</source>
-        <translation>Térkép nagyítás</translation>
+        <translation>Térképnagyítás</translation>
     </message>
     <message>
         <source>Online Maps</source>
@@ -303,11 +303,11 @@
     </message>
     <message>
         <source>Map settings</source>
-        <translation>Térkép beállítások</translation>
+        <translation>Térképbeállítások</translation>
     </message>
     <message>
         <source>Routing</source>
-        <translation type="unfinished"></translation>
+        <translation>Útvonaltervezés</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -380,18 +380,18 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tervezés!</translation>
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation>Indulási hely és cél csere</translation>
     </message>
 </context>
 <context>
     <name>Search</name>
     <message>
         <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Legfeljebb %1 távolságra</translation>
     </message>
     <message>
         <source>Unnamed</source>
@@ -678,11 +678,11 @@
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Menj be a körforgalomba</translation>
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Hagyd el a körforgalmat</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
