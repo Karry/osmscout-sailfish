@@ -224,6 +224,7 @@
 - add support for rendering highway sidewalks and cycleways
 - use correct vehicle (car/foot/bicycle) when navigation trigger rerouting
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.33-1
+* 2018-06-02 Lukáš Karas <lukas.karas@centrum.cz> 0.33-1
 - fix distance computation on place detail page
 - update SD card mount point for SFOS >= 2.2
+- update Hungarian translation
