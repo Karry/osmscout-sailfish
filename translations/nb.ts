@@ -121,14 +121,6 @@
         <source>Update all</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -272,14 +264,6 @@
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SD card</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -467,6 +451,14 @@
     <message>
         <source>north</source>
         <translation>nord</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>SD card</source>
+        <translation></translation>
     </message>
 </context>
 <context>

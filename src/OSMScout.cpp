@@ -135,7 +135,12 @@ int main(int argc, char* argv[])
       QStringList parts = QString::fromUtf8(file.readLine()).trimmed().split(" ");
       if (parts.count() > 1) {
         QString mountPoint=parts[1].replace("\\040", " ");
-        if (mountPoint.startsWith("/media") && QFileInfo(mountPoint).isDir()){ // Sailfish OS specific mount point base for SD cards!
+
+        // Sailfish OS specific mount point base for SD cards!
+        if ((mountPoint.startsWith("/media") ||
+             mountPoint.startsWith("/run/media/") /* SFOS >= 2.2 */ ) &&
+            QFileInfo(mountPoint).isDir()){
+
           qDebug() << "Found storage:" << mountPoint;
           databaseLookupDirectories << mountPoint + QDir::separator() + "Maps";
         }

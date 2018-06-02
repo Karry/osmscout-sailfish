@@ -123,11 +123,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Home</translation>
+        <translation type="vanished">Home</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>SD karta</translation>
+        <translation type="vanished">SD karta</translation>
     </message>
 </context>
 <context>
@@ -276,11 +276,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Home</translation>
+        <translation type="vanished">Home</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>SD karta</translation>
+        <translation type="vanished">SD karta</translation>
     </message>
 </context>
 <context>
@@ -467,6 +467,14 @@
     <message>
         <source>north</source>
         <translation>severně</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Home</translation>
+    </message>
+    <message>
+        <source>SD card</source>
+        <translation>SD karta</translation>
     </message>
 </context>
 <context>

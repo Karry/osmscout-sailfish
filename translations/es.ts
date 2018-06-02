@@ -123,11 +123,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Directorio principal</translation>
+        <translation type="vanished">Directorio principal</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>Tarjeta SD</translation>
+        <translation type="vanished">Tarjeta SD</translation>
     </message>
 </context>
 <context>
@@ -276,11 +276,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Directorio principal</translation>
+        <translation type="vanished">Directorio principal</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>Tarjeta SD</translation>
+        <translation type="vanished">Tarjeta SD</translation>
     </message>
 </context>
 <context>
@@ -467,6 +467,14 @@
     <message>
         <source>north</source>
         <translation>al norte</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Directorio principal</translation>
+    </message>
+    <message>
+        <source>SD card</source>
+        <translation>Tarjeta SD</translation>
     </message>
 </context>
 <context>

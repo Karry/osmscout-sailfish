@@ -25,6 +25,7 @@ import QtQml.Models 2.1
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 Page {
     property AvailableMapsModel availableMapsModel
@@ -198,9 +199,7 @@ Page {
                     Repeater {
                         model: destinationDirectoryComboBox.directories
                         MenuItem {
-                            text: dir
-                                .replace(/\/home\/nemo\//i, "["+ qsTr("Home") +"] ")
-                                .replace(/\/media\/sdcard\/[^/]*\//i, "["+ qsTr("SD card") +"] ")
+                            text: Utils.humanDirectory(dir)
                         }
                     }
                 }

@@ -24,6 +24,7 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 Page {
     id: downloadsPage
@@ -179,9 +180,7 @@ Page {
 
                                 width: parent.width
                                 truncationMode: TruncationMode.Fade
-                                text: directory
-                                    .replace(/\/home\/nemo\//i, "["+ qsTr("Home") +"] ")
-                                    .replace(/\/media\/sdcard\/[^/]*\//i, "["+ qsTr("SD card") +"] ")
+                                text: Utils.humanDirectory(directory)
                             }
                         }
 

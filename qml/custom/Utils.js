@@ -44,12 +44,12 @@ function formatCoord(lat, lon, format){
 
 function humanDistance(distance){
     if (distance < 1500){
-        return Math.round(distance) + " "+ qsTr("meters");
+        return Math.round(distance) + " " + qsTr("meters");
     }
     if (distance < 20000){
-        return (Math.round((distance/1000) * 10)/10) + " "+ qsTr("km");
+        return (Math.round((distance/1000) * 10)/10) + " " + qsTr("km");
     }
-    return Math.round(distance/1000) + " "+ qsTr("km");
+    return Math.round(distance/1000) + " " + qsTr("km");
 }
 function humanBearing(bearing){
     if (bearing == "W")
@@ -70,6 +70,12 @@ function humanDuration(seconds){
     if (hours   < 10) {hours   = "0"+hours;}
     if (minutes < 10) {minutes = "0"+minutes;}
     return hours+':'+minutes;
+}
+function humanDirectory(directory){
+    return directory
+        .replace(/^\/home\/nemo\//i, "[" + qsTr("Home") + "] ")
+        .replace(/^\/media\/sdcard\/[^/]*\//i, "[" + qsTr("SD card") + "] ")
+        .replace(/^\/run\/media\/nemo\/[^/]*\//i, "[" + qsTr("SD card") + "] ");
 }
 function locationStr(location){
     return (location.label=="" || location.type=="coordinate") ?

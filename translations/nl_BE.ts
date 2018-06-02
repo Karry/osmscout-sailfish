@@ -123,11 +123,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Persoonlijke map</translation>
+        <translation type="vanished">Persoonlijke map</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>SD-kaart</translation>
+        <translation type="vanished">SD-kaart</translation>
     </message>
 </context>
 <context>
@@ -276,11 +276,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Persoonlijke map</translation>
+        <translation type="vanished">Persoonlijke map</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>SD-kaart</translation>
+        <translation type="vanished">SD-kaart</translation>
     </message>
 </context>
 <context>
@@ -467,6 +467,14 @@
     <message>
         <source>north</source>
         <translation>noord</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Persoonlijke map</translation>
+    </message>
+    <message>
+        <source>SD card</source>
+        <translation>SD-kaart</translation>
     </message>
 </context>
 <context>
