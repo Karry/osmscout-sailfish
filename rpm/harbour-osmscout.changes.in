@@ -228,3 +228,6 @@
 - fix distance computation on place detail page
 - update SD card mount point for SFOS >= 2.2
 - update Hungarian translation
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.34-1
+- fix symbol position
