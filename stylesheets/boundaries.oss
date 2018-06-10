@@ -3,19 +3,19 @@ OSS
     COLOR waterColor                 = #9acffd;
     COLOR landColor                  = #f1eee9;
     COLOR unknownColor               = @waterColor;
-    COLOR highlightedColor                 = #ff000088;
+    COLOR highlightedColor           = #ff000088;
 
   SYMBOL place_city
-    CIRCLE 0,0 1.25 {
+    CIRCLE 0,0 2.5 {
       AREA {color: #ff0000aa; }
     }
 
   SYMBOL place_town
-    CIRCLE 0,0 0.75 {
+    CIRCLE 0,0 1.5 {
       AREA {color: #ff000055; }
     }
   SYMBOL marker
-    CIRCLE 0,0 0.75 {
+    CIRCLE 0,0 1.5 {
       AREA {color: #ff000055; }
     }
 
