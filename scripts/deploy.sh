@@ -20,6 +20,7 @@ export PROJECT_TARGET="harbour-osmscout"
 export MER_SSH_SHARED_SRC="$HOME/SailfishOS/projects"
 ## SDK ROOT
 export SDK_ROOT="$HOME/SailfishOS"
+SDK_VERSION=2.2.0.29
 
 ## build & deploy target
 ## list of configured devices: ~/SailfishOS/vmshare/devices.xml 
@@ -29,7 +30,7 @@ if [ "$TYPE" = "emulator" ] ; then
 	export DEV_SSH_USER=nemo
 	export DEV_SSH_HOST=localhost
 	export DEV_SSH_PORT=2223
-	export MER_SSH_TARGET_NAME=SailfishOS-2.1.4.13-i486
+	export MER_SSH_TARGET_NAME=SailfishOS-${SDK_VERSION}-i486
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo"
 	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/root"
 	
@@ -48,7 +49,7 @@ else
 	export DEV_SSH_USER=nemo
 	export DEV_SSH_HOST=jolla
 	export DEV_SSH_PORT=22
-	export MER_SSH_TARGET_NAME=SailfishOS-2.1.4.13-armv7hl
+	export MER_SSH_TARGET_NAME=SailfishOS-${SDK_VERSION}-armv7hl
 	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Jolla_(ARM)/nemo"
 fi
@@ -116,8 +117,8 @@ echo
 echo "build rpm..."
 
 # HACK: mb2 mapping don't contains gcc libs like libgomp.so
-sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-2.1.4.13/opt/cross/armv7hl-meego-linux-gnueabi/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-2.1.4.13-armv7hl/usr/lib/libgomp.so.1'"
-sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-2.1.4.13/usr/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-2.1.4.13-i486/usr/lib/libgomp.so.1'"
+sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-${SDK_VERSION}/opt/cross/armv7hl-meego-linux-gnueabi/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-${SDK_VERSION}-armv7hl/usr/lib/libgomp.so.1'"
+sdk_cmd "sudo su -c 'cp /srv/mer/toolings/SailfishOS-${SDK_VERSION}/usr/lib/libgomp.so.1.0.0  /srv/mer/targets/SailfishOS-${SDK_VERSION}-i486/usr/lib/libgomp.so.1'"
 
 sdk_cmd "cd /home/mersdk/share/SailfishOS/projects/$PROJECT_NAME/ && mb2 -t $MER_SSH_TARGET_NAME build"
   
