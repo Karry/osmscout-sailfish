@@ -71,6 +71,10 @@
         <source>Dutch: Nathan Follens</source>
         <translation>Holland: Nathan Follens</translation>
     </message>
+    <message>
+        <source>Russian: Вячеслав Диконов</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>

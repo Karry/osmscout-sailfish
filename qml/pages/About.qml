@@ -177,6 +177,11 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
+                    text: qsTr("Russian: Вячеслав Диконов")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
                     text: qsTr("Spanish: Carlos Gonzalez")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
