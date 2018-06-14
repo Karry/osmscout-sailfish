@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryska: Вячеслав Диконов</translation>
     </message>
 </context>
 <context>
@@ -124,14 +124,6 @@
     <message>
         <source>Update all</source>
         <translation>Uppdatera alla</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="vanished">Hem</translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation type="vanished">SD-kort</translation>
     </message>
 </context>
 <context>
@@ -277,14 +269,6 @@
     <message>
         <source>Up-to-date</source>
         <translation>Uppdaterat</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="vanished">Hem</translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation type="vanished">SD-kort</translation>
     </message>
 </context>
 <context>
