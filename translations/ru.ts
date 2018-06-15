@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSM Scout для ОС Sailfish разрабатывается открыто силами добровольцевю Вы можете помочь развитию приложения, сообщая об ошибках, добавляя переводы и новые функции. Мы будем рады вашей помощи.</translation>
+        <translation>OSM Scout для ОС Sailfish разрабатывается открыто силами добровольцев. Вы можете помочь развитию приложения сообщая об ошибках, добавляя переводы и новые функции. Мы будем рады вашей помощи.</translation>
     </message>
     <message>
         <source>About</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation type="unfinished"></translation>
+        <translation>Русский: Вячеслав Диконов</translation>
     </message>
 </context>
 <context>
@@ -95,7 +95,7 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>Процесс загрузки</translation>
+        <translation>Загружено</translation>
     </message>
     <message>
         <source>Download Map</source>
@@ -127,11 +127,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="vanished">Домашний каталог</translation>
+        <translation>Домашний каталог</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="vanished">SD-карта</translation>
+        <translation>SD-карта</translation>
     </message>
 </context>
 <context>
@@ -146,23 +146,23 @@
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>Онлайн карты</translation>
+        <translation>Карты из Интернета</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Включить карты из Интернета</translation>
+        <translation>Использовать Интернет</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>Stil</translation>
+        <translation>Стиль</translation>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Offline-kartor</translation>
+        <translation>Карты на устройстве</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Aktivera offline-kartor</translation>
+        <translation>Включить загруженные карты</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -170,7 +170,7 @@
     </message>
     <message>
         <source>Style flags</source>
-        <translation>Объекты</translation>
+        <translation>Настройка отображения</translation>
     </message>
     <message>
         <source>Font</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Last Update</source>
-        <translation>Обновление</translation>
+        <translation>Обновлено</translation>
     </message>
     <message>
         <source>Download</source>
@@ -280,11 +280,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="vanished">Домашний каталог</translation>
+        <translation>Домашний каталог</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="vanished">SD-карта</translation>
+        <translation>SD-карта</translation>
     </message>
 </context>
 <context>
@@ -349,7 +349,7 @@
     </message>
     <message>
         <source>Calculating the route</source>
-        <translation>Идет расчет маршрута</translation>
+        <translation>Расчет маршрута</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -368,7 +368,7 @@
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation>Поиск маршрута</translation>
+        <translation>Маршрут</translation>
     </message>
     <message>
         <source>From</source>
@@ -384,7 +384,7 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation>Проложить маршрут</translation>
+        <translation type="unfinished">Проложить маршрут</translation>
     </message>
     <message>
         <source>Swap start and target</source>
@@ -458,19 +458,19 @@
     </message>
     <message>
         <source>west</source>
-        <translation>западнее</translation>
+        <translation>к западу</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>восточнее</translation>
+        <translation>к востоку</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>южнее</translation>
+        <translation>к югу</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>севернее</translation>
+        <translation>к северу</translation>
     </message>
     <message>
         <source>Home</source>
@@ -527,7 +527,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation>здания</translation>
+        <translation>Здания</translation>
     </message>
 </context>
 <context>
@@ -762,7 +762,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Дорога меняет название&lt;/strong&gt; н %1</translation>
+        <translation>&lt;strong&gt;Дорога меняет название&lt;/strong&gt; на %1</translation>
     </message>
 </context>
 <context>
@@ -799,39 +799,39 @@
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation>день</translation>
+        <translation>Дневной вид</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation>реки и каналы</translation>
+        <translation>Реки и каналы</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation>леса</translation>
+        <translation>Леса</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation>природные объекты</translation>
+        <translation>Природные объекты</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation>железные дороги</translation>
+        <translation>Железные дороги</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation>места отдыха</translation>
+        <translation>Места отдыха</translation>
     </message>
     <message>
         <source>building</source>
-        <translation>здания</translation>
+        <translation>Здания</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation>мелкие строения</translation>
+        <translation>Мелкие строения</translation>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>контуры рельефа</translation>
+        <translation>Контуры рельефа</translation>
     </message>
 </context>
 <context>
