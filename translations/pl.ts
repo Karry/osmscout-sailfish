@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation type="unfinished"></translation>
+        <translation>rosyjski: Вячеслав Диконов</translation>
     </message>
 </context>
 <context>
