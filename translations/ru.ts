@@ -125,14 +125,6 @@
         <source>Update all</source>
         <translation>Обновить все</translation>
     </message>
-    <message>
-        <source>Home</source>
-        <translation>Домашний каталог</translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation>SD-карта</translation>
-    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -277,14 +269,6 @@
     <message>
         <source>Up-to-date</source>
         <translation>Обновлено</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Домашний каталог</translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation>SD-карта</translation>
     </message>
 </context>
 <context>
