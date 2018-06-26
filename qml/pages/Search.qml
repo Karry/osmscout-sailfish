@@ -26,8 +26,34 @@ import harbour.osmscout.map 1.0
 import "../custom"
 import "../custom/Utils.js" as Utils
 
-/*
+/**
  * Inspired by SearchPage.qml in ComponentGallery - showcase of Silica components
+ *
+ * The main page components are searchField (SearchField type) with binded string
+ * property searchString and suggestionView (SilicaListView type).
+ *
+ * Page can have three states:
+ *
+ * - empty - suggestionView model is setup to poiTypesModel;
+ *           list of POI types is displayed.
+ * - poi - suggestionView model is setup to poiModel;
+ *         list of near POIs of specific types is displayed
+ * - search - suggestionView model is setup to searchModel;
+ *            list of search result is displayed (based on free text lookup and address lookup)
+ *
+ * State is changed in onSearchStringChanged slot - when searchString is empty,
+ * empty state is used; when seach string starts with poi: prefix, given string is parsed
+ * and poi state is used. Search state is used otherwise. Poi string is using
+ * simple syntax:
+ *
+ *      poi:<distance in meters>:<spase separated POI types>.
+ *
+ * Using this, you can search everything that exists in the database, you are not limited
+ * to predefined POI types in poiTypesModel. For example string
+ *
+ *      poi:1000:amenity_post_box amenity_post_office amenity_post_office_building
+ *
+ * will show you post boxes and post offices up to distance 1km around you.
  */
 Page {
     id: searchPage
