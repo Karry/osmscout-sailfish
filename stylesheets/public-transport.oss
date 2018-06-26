@@ -369,7 +369,7 @@ STYLE
       }
     }
   }
-  [TYPE shop] {
+  [TYPE shop, shop_building] {
     [MAG veryClose-] {
       AREA { color: #ffe0e0; }
       AREA.BORDER { color: #d0d0d0; width: 0.1mm;}
