@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMscout para SailfishOS es desarrollado como codigo fuente abierto por voluntarios en tiempo libre. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSMscout es un programa libre desarrollado por voluntarios. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruso: Вячеслав Диконов</translation>
     </message>
 </context>
 <context>
@@ -95,7 +95,7 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>Progreso de la descarga</translation>
+        <translation>Progreso de descarga</translation>
     </message>
     <message>
         <source>Download Map</source>
@@ -127,11 +127,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="vanished">Directorio principal</translation>
+        <translation>Directorio principal</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="vanished">Tarjeta SD</translation>
+        <translation>Tarjeta SD</translation>
     </message>
 </context>
 <context>
@@ -222,7 +222,7 @@
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation>Intensidad de la sombra de colina</translation>
+        <translation>Intensidad de sombra de la colina</translation>
     </message>
 </context>
 <context>
@@ -280,11 +280,11 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="vanished">Directorio principal</translation>
+        <translation>Directorio principal</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="vanished">Tarjeta SD</translation>
+        <translation>Tarjeta SD</translation>
     </message>
 </context>
 <context>
@@ -566,67 +566,67 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Recto&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Recto&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt; en %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt; en %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar a la izquierda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar leve a la izquierda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Recto&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Recto&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar leve a la derecha&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar a la derecha&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>unnamed road</source>
@@ -682,7 +682,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Entrar en la rotonda&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Entrar en la rotonda&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
@@ -710,7 +710,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>Al cruzar %1&lt;strong&gt;Entrar a la autopista&lt;/strong&gt; %2</translation>
+        <translation>Al llegar %1&lt;strong&gt;Entrar a la autopista&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
@@ -718,7 +718,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>Al cruzar %1&lt;strong&gt;Entrar a la autopista&lt;/strong&gt;</translation>
+        <translation>Al llegar %1&lt;strong&gt;Entrar a la autopista&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
