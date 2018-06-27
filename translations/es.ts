@@ -125,14 +125,6 @@
         <source>Update all</source>
         <translation>Actualizar todo</translation>
     </message>
-    <message>
-        <source>Home</source>
-        <translation>Directorio principal</translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation>Tarjeta SD</translation>
-    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -277,14 +269,6 @@
     <message>
         <source>Up-to-date</source>
         <translation>Hasta la fecha</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Directorio principal</translation>
-    </message>
-    <message>
-        <source>SD card</source>
-        <translation>Tarjeta SD</translation>
     </message>
 </context>
 <context>
