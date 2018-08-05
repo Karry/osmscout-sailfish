@@ -39,6 +39,9 @@ Dialog {
 
     RoutingListModel{
         id: route
+
+        property string vehicle: "car";
+
         onRouteFailed: {
             remorse.execute(qsTranslate("message", reason), function() { }, 10 * 1000);
         }
@@ -46,6 +49,7 @@ Dialog {
     function computeRoute() {
         if ((fromSelector.location !== null) && (toSelector.location!== null)) {
             console.log("Routing \"" + Utils.locationStr(fromSelector.location) + "\" -> \"" + Utils.locationStr(toSelector.location) + "\" by " + vehicleComboBox.selected);
+            route.vehicle = vehicleComboBox.selected;
             route.setStartAndTarget(fromSelector.location,
                                     toSelector.location,
                                     vehicleComboBox.selected);
@@ -62,8 +66,7 @@ Dialog {
         "mapPage": mapPage,
         "mainMap": mainMap,
         "destination": toSelector.location,
-        "fromCurrentLocation": fromSelector.useCurrentLocation,
-        "vehicle": vehicleComboBox.selected
+        "fromCurrentLocation": fromSelector.useCurrentLocation
     }
 
     onAccepted: {

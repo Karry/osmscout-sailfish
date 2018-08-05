@@ -86,6 +86,10 @@ ApplicationWindow {
         onDestinationChanged: {
             reroute();
         }
+        onVehicleChanged: {
+            console.log("vehicle changed to " + vehicle);
+            reroute();
+        }
 
         onPositionOnRouteChanged: {
             if (!positionOnRoute){
