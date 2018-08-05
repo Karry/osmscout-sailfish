@@ -233,3 +233,5 @@
 - fix symbol position
 - add Russian translation
 - fix used vehicle when navigation reroute the path
+- new label layouter is able to detect collisions for street (contour) labels
+- performnace improvement in label randering method
