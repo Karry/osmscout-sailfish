@@ -229,9 +229,9 @@
 - update SD card mount point for SFOS >= 2.2
 - update Hungarian translation
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 0.34-1
+* 2018-08-06 Lukáš Karas <lukas.karas@centrum.cz> 0.34-1
 - fix symbol position
 - add Russian translation
 - fix used vehicle when navigation reroute the path
 - new label layouter is able to detect collisions for street (contour) labels
-- performnace improvement in label randering method
+- performance improvement in label randering method
