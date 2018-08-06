@@ -234,4 +234,4 @@
 - add Russian translation
 - fix used vehicle when navigation reroute the path
 - new label layouter is able to detect collisions for street (contour) labels
-- performance improvement in label randering method
+- performance improvement in label rendering method
