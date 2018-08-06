@@ -21,6 +21,8 @@ Builder: none
 PkgBR:
   - cmake
   - chrpath
+  - libxml2-devel
+
 # This section specifies build dependencies that are resolved using pkgconfig.
 PkgConfigBR:
   - sailfishapp >= 1.0.2
@@ -35,6 +37,7 @@ Requires:
   - sailfishsilica-qt5 >= 0.10.9 
   - qt5-qtpositioning >= 5.2.0
   - qt5-qtdeclarative-import-positioning >= 5.2.0
+  - libxml2 >= 2.9.1
 
 # All installed files
 Files:

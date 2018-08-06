@@ -33,12 +33,14 @@ Source100:  harbour-osmscout.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   qt5-qtpositioning >= 5.2.0
 Requires:   qt5-qtdeclarative-import-positioning >= 5.2.0
+Requires:   libxml2 >= 2.9.1
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Positioning)
 BuildRequires:  pkgconfig(Qt5Sql)
+BuildRequires:  libxml2-devel
 BuildRequires:  cmake
 BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils

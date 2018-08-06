@@ -95,14 +95,11 @@ check_function_exists(mmap HAVE_MMAP)
 check_function_exists(posix_fadvise HAVE_POSIX_FADVISE)
 check_function_exists(posix_madvise HAVE_POSIX_MADVISE)
 
-# prepare cmake variables for configuration files
-set(OSMSCOUT_HAVE_INT16_T ${HAVE_INT16_T})
-set(OSMSCOUT_HAVE_INT32_T ${HAVE_INT32_T})
-set(OSMSCOUT_HAVE_INT64_T ${HAVE_INT64_T})
-set(OSMSCOUT_HAVE_INT8_T ${HAVE_INT8_T})
-set(OSMSCOUT_HAVE_SSE2 ${HAVE_SSE2})
 
 # check libraries and tools
+
+find_package(LibXml2)
+
 find_package(iconv QUIET)
 if(ICONV_FOUND)
     set(HAVE_ICONV TRUE)
@@ -112,6 +109,14 @@ if(ICONV_FOUND)
 else()
     message(WARNING "No iconv support")
 endif()
+
+# prepare cmake variables for configuration files
+set(OSMSCOUT_HAVE_INT16_T ${HAVE_INT16_T})
+set(OSMSCOUT_HAVE_INT32_T ${HAVE_INT32_T})
+set(OSMSCOUT_HAVE_INT64_T ${HAVE_INT64_T})
+set(OSMSCOUT_HAVE_INT8_T ${HAVE_INT8_T})
+set(OSMSCOUT_HAVE_SSE2 ${HAVE_SSE2})
+set(OSMSCOUT_GPX_HAVE_LIB_XML ${LIBXML2_FOUND})
 
 function(create_private_config output name)
   string(REPLACE "-" "_" OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME ${name})

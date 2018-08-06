@@ -53,6 +53,7 @@ find_package( Qt5 ${QT_MIN_VERSION}
               Svg
               Qml
               Quick
+              Sql
 )
 find_package(Qt5LinguistTools)
 find_package(OpenMP REQUIRED)
@@ -87,11 +88,13 @@ PRINT_LIBRARY_STATUS("Qt5"                    "http://www.qtsoftware.com"       
 #PRINT_LIBRARY_STATUS("libprotobuf"            "https://github.com/google/protobuf"             ""      PROTOBUF_FOUND)
 PRINT_LIBRARY_STATUS("OpenMP compiler support" "http://openmp.org/wp/openmp-compilers/"         ""      OPENMP_FOUND)
 PRINT_LIBRARY_STATUS("SailfishApp library"     "https://github.com/sailfish-sdk/libsailfishapp" ""      LIBSAILFISHAPP_FOUND)
+PRINT_LIBRARY_STATUS("Xml2 library"            "http://xmlsoft.org/"                            ""      LIBXML2_FOUND)
 
 message(STATUS "")
 
 if(Qt5_FOUND AND
-  LIBSAILFISHAPP_FOUND
+  LIBSAILFISHAPP_FOUND AND
+  LIBXML2_FOUND
   )
     message(STATUS      " OSMScout-Sailfish can be compiled........ YES")
     set(OSMSCOUT_SAILFISH_CAN_BE_COMPILED true)
@@ -199,11 +202,16 @@ set(MARISA_LIBRARIES marisa)
 
 set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
 set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
+set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR}/dependencies/libosmscout)
 
 set(OSMSCOUT_INCLUDE_DIRS
   ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
   ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
   ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+
+  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-gpx/include
+  ${OSMSCOUT_BASE_DIR_BUILD}/libosmscout-gpx/include
+
   ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
 )
 
@@ -216,6 +224,7 @@ add_definitions(${Qt5Core_DEFINITIONS})
 add_subdirectory(dependencies/libosmscout/libosmscout)
 add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
+add_subdirectory(dependencies/libosmscout/libosmscout-gpx)
 add_subdirectory(dependencies/libosmscout/libosmscout-client-qt)
 
 # ==================================================================================================
@@ -268,7 +277,7 @@ set(SOURCE_FILES
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml
-)
+    )
 
 # XML files with translated phrases.
 # You can add new language translation just by adding new entry here, and run build.
@@ -332,11 +341,12 @@ target_link_libraries(harbour-osmscout
         Qt5::Quick
         Qt5::Svg
         Qt5::Positioning
-        
+
         marisa
         OSMScout
         OSMScoutMap
         OSMScoutMapQt
+        OSMScoutGPX
         OSMScoutClientQt
         ${LIBSAILFISHAPP_LIBRARIES}
 )
