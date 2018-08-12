@@ -186,7 +186,7 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  Storage::initInstance(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
+  Storage::initInstance(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
 
   if (!desktop) {
     QScopedPointer<QQuickView> view(SailfishApp::createView());
