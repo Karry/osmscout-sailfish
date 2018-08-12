@@ -52,6 +52,9 @@ Window {
         fontName: "Sans"
     }
 
+    CollectionModel {
+        id: collectionModel
+    }
 
     PositionSource {
         id: positionSource

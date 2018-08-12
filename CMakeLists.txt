@@ -234,12 +234,15 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(HEADER_FILES
-#    src/DBThread.h
-)
+    src/Storage.h
+    src/CollectionModel.h
+    )
 
 set(SOURCE_FILES
     src/AppSettings.cpp
     src/OSMScout.cpp
+    src/Storage.cpp
+    src/CollectionModel.cpp
 
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f
@@ -322,6 +325,7 @@ qt5_create_translation(TRANSLATION_QM_FILES
 add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
+set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 11)
 add_dependencies(harbour-osmscout translations)
 
 # Private config header
@@ -341,6 +345,7 @@ target_link_libraries(harbour-osmscout
         Qt5::Quick
         Qt5::Svg
         Qt5::Positioning
+        Qt5::Sql
 
         marisa
         OSMScout
@@ -414,6 +419,7 @@ set(SOURCE_FILES
 )
 
 add_executable(PerformanceTest ${SOURCE_FILES})
+set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 11)
 
 target_include_directories(PerformanceTest PRIVATE 
         ${OSMSCOUT_INCLUDE_DIRS}
@@ -439,6 +445,7 @@ set(SOURCE_FILES
         )
 
 add_executable(SearchPerfTest ${SOURCE_FILES})
+set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 11)
 
 target_include_directories(SearchPerfTest PRIVATE
         ${OSMSCOUT_INCLUDE_DIRS}

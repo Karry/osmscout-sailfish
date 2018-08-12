@@ -54,6 +54,8 @@
 #include <osmscout/Settings.h>
 // Application settings
 #include "AppSettings.h"
+#include "Storage.h"
+#include "CollectionModel.h"
 
 #include <harbour-osmscout/private/Config.h>
 
@@ -97,12 +99,11 @@ int main(int argc, char* argv[])
 #endif
 
   OSMScoutQt::RegisterQmlTypes("harbour.osmscout.map", 1, 0);
-  qRegisterMetaType<MapView*>();
 
-  qmlRegisterType<LocationInfoModel>("harbour.osmscout.map", 1, 0, "LocationInfoModel");
-  qmlRegisterType<OnlineTileProviderModel>("harbour.osmscout.map", 1, 0, "OnlineTileProviderModel");
-  qmlRegisterType<MapStyleModel>("harbour.osmscout.map", 1, 0, "MapStyleModel");
-  qmlRegisterType<StyleFlagsModel>("harbour.osmscout.map", 1, 0, "StyleFlagsModel");
+  qRegisterMetaType<MapView*>("MapView*");
+  qRegisterMetaType<std::vector<Collection>>("std::vector<Collection>");
+
+  qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 
@@ -110,7 +111,7 @@ int main(int argc, char* argv[])
 
   bool desktop = false;
   for (QString arg: app->arguments()){
-      desktop |= (arg == "--desktop");
+      desktop = (arg == "--desktop");
   }
 
   QString home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
@@ -179,6 +180,8 @@ int main(int argc, char* argv[])
     return 1;
   }
 
+  Storage::initInstance(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
+
   if (!desktop) {
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
@@ -190,6 +193,7 @@ int main(int argc, char* argv[])
     result=app->exec();
   }
 
+  Storage::clearInstance();
   OSMScoutQt::FreeInstance();
 
   return result;
