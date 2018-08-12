@@ -29,6 +29,7 @@
 #include <QDir>
 #include <QtCore/QDateTime>
 
+#include <atomic>
 
 class TrackStatistics
 {
