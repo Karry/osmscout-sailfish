@@ -46,13 +46,13 @@ class Track
 {
 public:
   Track() = default;
-  Track(long id, long collectionId,  QString name,  QString description, bool open,  QDateTime creationTime, const osmscout::Distance &distance
+  Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,  QDateTime creationTime, const osmscout::Distance &distance
   ): id(id), collectionId(collectionId), name(name), description(description), open(open), creationTime(creationTime), statistics(distance)
   {};
 
 public:
-  long id{-1};
-  long collectionId{-1};
+  qint64 id{-1};
+  qint64 collectionId{-1};
   QString name;
   QString description;
   bool open{false};
@@ -62,23 +62,41 @@ public:
   std::shared_ptr<osmscout::gpx::Track> data;
 };
 
+class Waypoint
+{
+public:
+  Waypoint() = default;
+
+  Waypoint(qint64 id, const osmscout::gpx::Waypoint &data):
+    id(id), data(data)
+  {}
+
+  Waypoint(qint64 id, osmscout::gpx::Waypoint &&data):
+    id(id), data(std::move(data))
+  {}
+
+public:
+  qint64 id{-1};
+  osmscout::gpx::Waypoint data{osmscout::GeoCoord()};
+};
+
 class Collection
 {
 public:
   Collection() = default;
-  Collection(long id,
+  Collection(qint64 id,
              const QString &name,
              const QString &description):
     id(id), name(name), description(description)
   {};
 
 public:
-  long id{-1};
+  qint64 id{-1};
   QString name;
   QString description;
 
   std::shared_ptr<std::vector<Track>> tracks;
-  std::shared_ptr<std::vector<osmscout::gpx::Waypoint>> waypoints;
+  std::shared_ptr<std::vector<Waypoint>> waypoints;
 };
 
 class Storage : public QObject{
@@ -135,9 +153,9 @@ public:
   static void clearInstance();
 
 private:
-  std::shared_ptr<std::vector<Track>> loadTracks(long collectionId);
-  std::shared_ptr<std::vector<osmscout::gpx::Waypoint>> loadWaypoints(long collectionId);
-  void loadTrackPoints(long segmentId, osmscout::gpx::TrackSegment &segment);
+  std::shared_ptr<std::vector<Track>> loadTracks(qint64 collectionId);
+  std::shared_ptr<std::vector<Waypoint>> loadWaypoints(qint64 collectionId);
+  void loadTrackPoints(qint64 segmentId, osmscout::gpx::TrackSegment &segment);
   bool checkAccess(QString slotName, bool requireOpen = true);
 
 private :

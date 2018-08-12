@@ -236,6 +236,7 @@ set(CMAKE_AUTORCC ON)
 set(HEADER_FILES
     src/Storage.h
     src/CollectionModel.h
+    src/CollectionListModel.h
     )
 
 set(SOURCE_FILES
@@ -243,6 +244,7 @@ set(SOURCE_FILES
     src/OSMScout.cpp
     src/Storage.cpp
     src/CollectionModel.cpp
+    src/CollectionListModel.cpp
 
     # keep qml files in source list - it makes qtcreator happy
     # find qml -type f

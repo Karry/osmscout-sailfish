@@ -17,8 +17,8 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifndef OSMSCOUT_SAILFISH_COLLECTIONMODEL_H
-#define OSMSCOUT_SAILFISH_COLLECTIONMODEL_H
+#ifndef OSMSCOUT_SAILFISH_COLLECTIONLISTMODEL_H
+#define OSMSCOUT_SAILFISH_COLLECTIONLISTMODEL_H
 
 #include "Storage.h"
 
@@ -26,40 +26,29 @@
 #include <QtCore/QAbstractItemModel>
 #include <QtCore/QSet>
 
-class CollectionModel : public QAbstractListModel {
+class CollectionListModel : public QAbstractListModel {
 
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
-  Q_PROPERTY(qint64 collectionId READ getCollectionId WRITE setCollectionId)
 
 signals:
   void loadingChanged() const;
-  void collectionDetailRequest(Collection) const;
+  void collectionLoadRequest();
 
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
-  void onCollectionDetailsLoaded(Collection collection, bool ok);
+  void onCollectionsLoaded(std::vector<Collection> collections, bool ok);
 
 public:
-  CollectionModel();
+  CollectionListModel();
 
-  virtual ~CollectionModel();
+  virtual ~CollectionListModel();
 
   enum Roles {
     NameRole = Qt::UserRole,
     DescriptionRole = Qt::UserRole+1,
-    TypeRole = Qt::UserRole+2,
-    IdRole = Qt::UserRole+3,
-    TimeRole = Qt::UserRole+4,
-
-    // type == waypoint
-    SymbolRole = Qt::UserRole+5,
-    LatitudeRole = Qt::UserRole+6,
-    LongitudeRole = Qt::UserRole+7,
-
-    // type == track
-    DistanceRole = Qt::UserRole+8
+    IdRole = Qt::UserRole+2
   };
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
@@ -69,18 +58,11 @@ public:
   virtual QHash<int, QByteArray> roleNames() const;
   Q_INVOKABLE virtual Qt::ItemFlags flags(const QModelIndex &index) const;
 
-  qint64 getCollectionId() const
-  {
-    return collection.id;
-  }
-
-  void setCollectionId(qint64 id);
-
   bool isLoading() const;
 
 public:
-  Collection collection;
-  bool collectionLoaded{false};
+  std::vector<Collection> collections;
+  bool collectionsLoaded{false};
 };
 
-#endif //OSMSCOUT_SAILFISH_COLLECTIONMODEL_H
+#endif //OSMSCOUT_SAILFISH_COLLECTIONLISTMODEL_H

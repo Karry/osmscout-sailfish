@@ -165,8 +165,8 @@ bool Storage::updateSchema(){
     }
   }
 
-  if (!tables.contains("track_node")){
-    qDebug()<< "creating track_node table";
+  if (!tables.contains("track_point")){
+    qDebug()<< "creating track_point table";
 
     QString sql("CREATE TABLE `track_point`");
     sql.append("(").append( "`segment_id` int NOT NULL");
@@ -336,11 +336,11 @@ namespace {
 bool Storage::checkAccess(QString slotName, bool requireOpen)
 {
   if (thread != QThread::currentThread()){
-    qWarning() << this << "/" << slotName << "from non incorrect thread;" << thread << "!=" << QThread::currentThread();
+    qWarning() << this << "::" << slotName << "from non incorrect thread;" << thread << "!=" << QThread::currentThread();
     return false;
   }
   if (requireOpen && !ok){
-    qWarning() << "Database is not opened, " << this << "/" << slotName << "";
+    qWarning() << "Database is not open, " << this << "::" << slotName << "";
     return false;
   }
   return true;
@@ -370,11 +370,11 @@ void Storage::loadCollections()
   emit collectionsLoaded(result, true);
 }
 
-std::shared_ptr<std::vector<Track>> Storage::loadTracks(long collectionId)
+std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
 {
   QSqlQuery sqlTrack(db);
   sqlTrack.prepare("SELECT `id`, `name`, `description`, `open`, `creation_time`, `distance` FROM `track` WHERE collection_id = :collectionId;");
-  sqlTrack.bindValue(":collectionId", QVariant::fromValue(collectionId));
+  sqlTrack.bindValue(":collectionId", collectionId);
   sqlTrack.exec();
 
   if (sqlTrack.lastError().isValid()) {
@@ -397,11 +397,11 @@ std::shared_ptr<std::vector<Track>> Storage::loadTracks(long collectionId)
   return result;
 }
 
-std::shared_ptr<std::vector<osmscout::gpx::Waypoint>> Storage::loadWaypoints(long collectionId)
+std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionId)
 {
   QSqlQuery sql(db);
   sql.prepare("SELECT `id`, `name`, `description`, `symbol`, `timestamp`, `latitude`, `longitude`, `elevation` FROM `waypoint` WHERE collection_id = :collectionId;");
-  sql.bindValue(":collectionId", QVariant::fromValue(collectionId));
+  sql.bindValue(":collectionId", collectionId);
   sql.exec();
 
   if (sql.lastError().isValid()) {
@@ -409,7 +409,7 @@ std::shared_ptr<std::vector<osmscout::gpx::Waypoint>> Storage::loadWaypoints(lon
     return nullptr;
   }
 
-  std::shared_ptr<std::vector<osmscout::gpx::Waypoint>> result = std::make_shared<std::vector<osmscout::gpx::Waypoint>>();
+  std::shared_ptr<std::vector<Waypoint>> result = std::make_shared<std::vector<Waypoint>>();
   while (sql.next()) {
     osmscout::gpx::Waypoint wpt(osmscout::GeoCoord(
       VarToDouble(sql.value("latitude")),
@@ -423,7 +423,7 @@ std::shared_ptr<std::vector<osmscout::gpx::Waypoint>> Storage::loadWaypoints(lon
     wpt.time = osmscout::gpx::Optional<Timestamp>::of(DateTimeToTimestamp(VarToDateTime(sql.value("timestamp"))));
     wpt.elevation = VarToDoubleOpt(sql.value("elevation"));
 
-    result->push_back(std::move(wpt));
+    result->emplace_back(VarToLong(sql.value("id")), std::move(wpt));
   }
   return result;
 }
@@ -435,17 +435,36 @@ void Storage::loadCollectionDetails(Collection collection)
     return;
   }
 
+  QSqlQuery sql(db);
+  sql.prepare("SELECT `name`, `description` FROM `collection` WHERE id = :collectionId;");
+  sql.bindValue(":collectionId", collection.id);
+  sql.exec();
+  if (sql.lastError().isValid()) {
+    qWarning() << "Loading collection id" << collection.id << "fails";
+    emit collectionDetailsLoaded(collection, false);
+    return;
+  }
+  std::vector<Collection> result;
+  if (!sql.next()) {
+    qWarning() << "Collection id" << collection.id << "don't exists";
+    emit collectionDetailsLoaded(collection, false);
+    return;
+  }
+
+  collection.name = VarToString(sql.value("name"));
+  collection.description = VarToString(sql.value("description"));
+
   collection.tracks = loadTracks(collection.id);
   collection.waypoints = loadWaypoints(collection.id);
 
   emit collectionDetailsLoaded(collection, true);
 }
 
-void Storage::loadTrackPoints(long segmentId, osmscout::gpx::TrackSegment &segment)
+void Storage::loadTrackPoints(qint64 segmentId, osmscout::gpx::TrackSegment &segment)
 {
   QSqlQuery sql(db);
   sql.prepare("SELECT `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
-  sql.bindValue(":segmentId", QVariant::fromValue(segmentId));
+  sql.bindValue(":segmentId", segmentId);
   sql.exec();
   if (sql.lastError().isValid()) {
     qWarning() << "Loading nodes for segment id" << segmentId << "fails";
@@ -482,7 +501,7 @@ void Storage::loadTrackData(Track track)
 
   QSqlQuery sql(db);
   sql.prepare("SELECT `id` FROM `track_segment` WHERE track_id = :trackId;");
-  sql.bindValue(":trackId", QVariant::fromValue(track.id));
+  sql.bindValue(":trackId", track.id);
   sql.exec();
   if (sql.lastError().isValid()) {
     qWarning() << "Loading segments for track id" << track.id << "fails";
@@ -514,7 +533,7 @@ void Storage::updateOrCreateCollection(Collection collection)
   }else {
     sql.prepare(
       "UPDATE `collection` SET `name` = :name, `description` = :description WHERE (`id` = :id);");
-    sql.bindValue(":id", QVariant::fromValue(collection.id));
+    sql.bindValue(":id", collection.id);
     sql.bindValue(":name", collection.name);
     sql.bindValue(":description", collection.description);
   }

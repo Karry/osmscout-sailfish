@@ -33,16 +33,14 @@ CollectionModel::CollectionModel()
             this, SLOT(storageInitialisationError(QString)),
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(collectionLoadRequest()),
-            storage, SLOT(loadCollections()),
+    connect(this, SIGNAL(collectionDetailRequest(Collection)),
+            storage, SLOT(loadCollectionDetails(Collection)),
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(collectionsLoaded(std::vector<Collection>, bool)),
-            this, SLOT(onCollectionsLoaded(std::vector<Collection>, bool)),
+    connect(storage, SIGNAL(collectionDetailsLoaded(Collection, bool)),
+            this, SLOT(onCollectionDetailsLoaded(Collection, bool)),
             Qt::QueuedConnection);
   }
-
-  emit collectionLoadRequest();
 }
 
 CollectionModel::~CollectionModel()
@@ -52,11 +50,10 @@ CollectionModel::~CollectionModel()
 void CollectionModel::storageInitialised()
 {
   beginResetModel();
-  collections.clear();
   collectionLoaded = false;
-  loadingCollection.clear();
   endResetModel();
-  emit collectionLoadRequest();
+  if (collection.id > 0)
+    emit collectionDetailRequest(collection);
 }
 
 void CollectionModel::storageInitialisationError(QString)
@@ -64,24 +61,11 @@ void CollectionModel::storageInitialisationError(QString)
   storageInitialised();
 }
 
-
-void CollectionModel::requestCollectionLoad(long id) const
-{
-  if (loadingCollection.contains(id))
-    return;
-
-  loadingCollection << id;
-  emit loadingChanged();
-  // TODO: emit collection load
-}
-
-void CollectionModel::onCollectionsLoaded(std::vector<Collection> collections,
-                                          bool ok)
+void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
 {
   beginResetModel();
   collectionLoaded = true;
-  collections = collections;
-  loadingCollection.clear();
+  this->collection = collection;
   endResetModel();
 
   if (!ok){
@@ -92,22 +76,12 @@ void CollectionModel::onCollectionsLoaded(std::vector<Collection> collections,
 
 int CollectionModel::rowCount(const QModelIndex &parentIndex) const
 {
-  QStringList dir;
-  if (parentIndex.isValid()){
-    Collection *parent = static_cast<Collection*>(parentIndex.internalPointer());
-    if (parent == nullptr)
-      return 0;
-    if (parent->tracks && parent->waypoints) {
-      return parent->tracks->size() + parent->waypoints->size();
-    } else {
-      requestCollectionLoad(parent->id);
-    }
-  } else {
-    if (collectionLoaded){
-      return collections.size();
-    }
-  }
-  return 0;
+  int cnt = 0;
+  if (collection.waypoints)
+    cnt += collection.waypoints->size();
+  if (collection.tracks)
+    cnt += collection.tracks->size();
+  return cnt;
 }
 
 int CollectionModel::columnCount(const QModelIndex &parent) const
@@ -118,21 +92,56 @@ int CollectionModel::columnCount(const QModelIndex &parent) const
   return 0;
 }
 
-QModelIndex CollectionModel::index(int row, int column, const QModelIndex &parent) const
-{
-  // TODO
-  return QModelIndex();
-}
-
-QModelIndex CollectionModel::parent(const QModelIndex &index) const
-{
-  // TODO
-  return QModelIndex();
+namespace {
+  QDateTime timestampToDateTime(const osmscout::gpx::Optional<osmscout::Timestamp> timestamp)
+  {
+    if (timestamp.hasValue()){
+      return QDateTime::fromMSecsSinceEpoch(timestamp.get().time_since_epoch().count());
+    }
+    return QDateTime();
+  }
 }
 
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
 {
-  // TODO
+  if(index.row() < 0) {
+    return QVariant();
+  }
+  size_t row = index.row();
+
+  if (collection.waypoints) {
+    if (row < collection.waypoints->size()){
+      const Waypoint &waypoint = collection.waypoints->at(row);
+      switch(role){
+        case TypeRole: return "waypoint";
+        case NameRole: return QString::fromStdString(waypoint.data.name.getOrElse(""));
+        case DescriptionRole: return QString::fromStdString(waypoint.data.description.getOrElse(""));
+        case IdRole: return waypoint.id;
+
+        case SymbolRole: return QString::fromStdString(waypoint.data.symbol.getOrElse(""));
+        case LatitudeRole: return waypoint.data.coord.GetLat();
+        case LongitudeRole: return waypoint.data.coord.GetLon();
+        case TimeRole: return timestampToDateTime(waypoint.data.time);
+      }
+    } else {
+      row -= collection.waypoints->size();
+    }
+  }
+  if (collection.tracks) {
+    if (row < collection.tracks->size()){
+      const Track &track = collection.tracks->at(row);
+      switch(role){
+        case TypeRole: return "track";
+        case NameRole: return track.name;
+        case DescriptionRole: return track.description;
+        case IdRole: return track.id;
+
+        case TimeRole: return track.creationTime;
+        case DistanceRole: return track.statistics.distance.AsMeter();
+      }
+    }
+  }
+
   return QVariant();
 }
 
@@ -140,10 +149,19 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
 {
   QHash<int, QByteArray> roles=QAbstractItemModel::roleNames();
 
-  roles[NameRole]="name";
-  roles[DescriptionRole]="description";
-  roles[TypeRole]="type";
-  roles[IdRole]="id";
+  roles[NameRole] = "name";
+  roles[DescriptionRole] = "description";
+  roles[TypeRole] = "type";
+  roles[IdRole] = "id";
+  roles[TimeRole] = "time";
+
+  // waypoint
+  roles[SymbolRole] = "symbol";
+  roles[LatitudeRole] = "latitude";
+  roles[LongitudeRole] = "longitude";
+
+  // track
+  roles[DistanceRole] = "distance";
 
   return roles;
 }
@@ -157,8 +175,14 @@ Qt::ItemFlags CollectionModel::flags(const QModelIndex &index) const
   return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
+void CollectionModel::setCollectionId(qint64 id)
+{
+  collection.id = id;
+  emit collectionDetailRequest(collection);
+}
+
 bool CollectionModel::isLoading() const
 {
-  return !loadingCollection.empty() || !collectionLoaded;
+  return !collectionLoaded;
 }
 

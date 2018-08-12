@@ -52,8 +52,11 @@ Window {
         fontName: "Sans"
     }
 
-    CollectionModel {
+    CollectionListModel {
         id: collectionModel
+        onLoadingChanged: {
+            console.log("onLoadingChanged: " + loading);
+        }
     }
 
     PositionSource {

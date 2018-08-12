@@ -50,12 +50,14 @@
 #include <osmscout/util/Logger.h>
 #include <osmscout/OSMScoutQt.h>
 
-// Library settings
-#include <osmscout/Settings.h>
-// Application settings
-#include "AppSettings.h"
+
+#include <osmscout/Settings.h> // Library settings
+#include "AppSettings.h" // Application settings
+
+// collections
 #include "Storage.h"
 #include "CollectionModel.h"
+#include "CollectionListModel.h"
 
 #include <harbour-osmscout/private/Config.h>
 
@@ -103,6 +105,7 @@ int main(int argc, char* argv[])
   qRegisterMetaType<MapView*>("MapView*");
   qRegisterMetaType<std::vector<Collection>>("std::vector<Collection>");
 
+  qmlRegisterType<CollectionListModel>("harbour.osmscout.map", 1, 0, "CollectionListModel");
   qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
