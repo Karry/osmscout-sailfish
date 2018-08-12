@@ -63,8 +63,6 @@ public:
   };
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-  Q_INVOKABLE virtual int columnCount(const QModelIndex &parent = QModelIndex()) const;
-
   Q_INVOKABLE virtual QVariant data(const QModelIndex &index, int role) const;
   virtual QHash<int, QByteArray> roleNames() const;
   Q_INVOKABLE virtual Qt::ItemFlags flags(const QModelIndex &index) const;

@@ -40,6 +40,14 @@ CollectionListModel::CollectionListModel()
     connect(storage, SIGNAL(collectionsLoaded(std::vector<Collection>, bool)),
             this, SLOT(onCollectionsLoaded(std::vector<Collection>, bool)),
             Qt::QueuedConnection);
+
+    connect(this, SIGNAL(updateCollectionRequest(Collection)),
+            storage, SLOT(updateOrCreateCollection(Collection)),
+            Qt::QueuedConnection);
+
+    connect(this, SIGNAL(deleteCollectionRequest(qint64)),
+            storage, SLOT(deleteCollection(qint64)),
+            Qt::QueuedConnection);
   }
 
   emit collectionLoadRequest();
@@ -81,14 +89,6 @@ int CollectionListModel::rowCount(const QModelIndex &parentIndex) const
   return collections.size();
 }
 
-int CollectionListModel::columnCount(const QModelIndex &parent) const
-{
-  if (parent.isValid()){
-    return 1;
-  }
-  return 0;
-}
-
 QVariant CollectionListModel::data(const QModelIndex &index, int role) const
 {
   if(index.row() < 0 || index.row() >= (int)collections.size()) {
@@ -126,5 +126,26 @@ Qt::ItemFlags CollectionListModel::flags(const QModelIndex &index) const
 bool CollectionListModel::isLoading() const
 {
   return !collectionsLoaded;
+}
+
+void CollectionListModel::createCollection(QString name, QString description)
+{
+  collectionsLoaded=false;
+  emit loadingChanged();
+  emit updateCollectionRequest(Collection(-1, name, description));
+}
+
+void CollectionListModel::deleteCollection(qint64 id)
+{
+  collectionsLoaded=false;
+  emit loadingChanged();
+  emit deleteCollectionRequest(id);
+}
+
+void CollectionListModel::editCollection(qint64 id, QString name, QString description)
+{
+  collectionsLoaded=false;
+  emit loadingChanged();
+  emit updateCollectionRequest(Collection(id, name, description));
 }
 

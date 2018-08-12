@@ -141,6 +141,12 @@ public slots:
    */
   void updateOrCreateCollection(Collection collection);
 
+  /**
+   * delete collection
+   * emits collectionsLoaded signal
+   */
+  void deleteCollection(qint64 id);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);

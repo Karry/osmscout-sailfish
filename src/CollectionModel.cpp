@@ -84,14 +84,6 @@ int CollectionModel::rowCount(const QModelIndex &parentIndex) const
   return cnt;
 }
 
-int CollectionModel::columnCount(const QModelIndex &parent) const
-{
-  if (parent.isValid()){
-    return 1;
-  }
-  return 0;
-}
-
 namespace {
   QDateTime timestampToDateTime(const osmscout::gpx::Optional<osmscout::Timestamp> timestamp)
   {

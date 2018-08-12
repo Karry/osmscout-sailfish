@@ -104,6 +104,9 @@ int main(int argc, char* argv[])
 
   qRegisterMetaType<MapView*>("MapView*");
   qRegisterMetaType<std::vector<Collection>>("std::vector<Collection>");
+  qRegisterMetaType<Collection>("Collection");
+  qRegisterMetaType<Track>("Track");
+  qRegisterMetaType<Waypoint>("Waypoint");
 
   qmlRegisterType<CollectionListModel>("harbour.osmscout.map", 1, 0, "CollectionListModel");
   qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");

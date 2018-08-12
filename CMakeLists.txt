@@ -279,6 +279,7 @@ set(SOURCE_FILES
     qml/pages/MapObjects.qml
     qml/pages/Routing.qml
     qml/pages/RouteDescription.qml
+    qml/pages/Collections.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml

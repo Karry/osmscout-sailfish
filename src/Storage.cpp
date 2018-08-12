@@ -112,7 +112,7 @@ bool Storage::updateSchema(){
     qDebug()<< "creating collection table";
 
     QString sql("CREATE TABLE `collection`");
-    sql.append("(").append( "`id`   int NOT NULL PRIMARY KEY");
+    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
     sql.append(",").append( "`name` varchar(255) NOT NULL ");
     sql.append(",").append( "`description` varchar(255) NULL ");
     sql.append(");");
@@ -129,7 +129,7 @@ bool Storage::updateSchema(){
     qDebug()<< "creating track table";
 
     QString sql("CREATE TABLE `track`");
-    sql.append("(").append( "`id`   int NOT NULL PRIMARY KEY");
+    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
     sql.append(",").append( "`collection_id` int NULL");
     sql.append(",").append( "`name` varchar(255) NOT NULL");
     sql.append(",").append( "`description` varchar(255) NOT NULL");
@@ -150,7 +150,7 @@ bool Storage::updateSchema(){
     qDebug()<< "creating track_segment table";
 
     QString sql("CREATE TABLE `track_segment`");
-    sql.append("(").append( "`id` int NOT NULL PRIMARY KEY");
+    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
     sql.append(",").append( "`track_id` int NOT NULL");
     sql.append(",").append( "`name` varchar(255) NOT NULL");
     sql.append(",").append( "`open` tinyint(1) NOT NULL");
@@ -192,7 +192,7 @@ bool Storage::updateSchema(){
     qDebug()<< "creating waypoints table";
 
     QString sql("CREATE TABLE `waypoint`");
-    sql.append("(").append( "`id` int NOT NULL PRIMARY KEY");
+    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
     sql.append(",").append( "`collection_id` int NOT NULL");
     sql.append(",").append( "`timestamp` datetime NOT NULL");
     sql.append(",").append( "`latitude` double NOT NULL");
@@ -537,6 +537,25 @@ void Storage::updateOrCreateCollection(Collection collection)
     sql.bindValue(":name", collection.name);
     sql.bindValue(":description", collection.description);
   }
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Creating version table entry failed" << sql.lastError();
+  }
+
+  loadCollections();
+}
+
+void Storage::deleteCollection(qint64 id)
+{
+  if (!checkAccess("deleteCollection")){
+    emit collectionsLoaded(std::vector<Collection>(), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare(
+    "DELETE FROM `collection` WHERE (`id` = :id)");
+  sql.bindValue(":id", id);
   sql.exec();
   if (sql.lastError().isValid()){
     qWarning() << "Creating version table entry failed" << sql.lastError();

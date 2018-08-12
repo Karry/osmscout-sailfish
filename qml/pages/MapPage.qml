@@ -1,5 +1,5 @@
 /*
- OSMScout - a Qt backend for libosmscout and libosmscout-map
+ OSM Scout - a Qt backend for libosmscout and libosmscout-map
  Copyright (C) 2016  Lukas Karas
 
  This program is free software; you can redistribute it and/or modify
@@ -140,8 +140,8 @@ Page {
                 ListElement { itemtext: QT_TR_NOOP("Routing");      itemicon: "image://theme/icon-m-shortcut";       action: "routing";  }
                 ListElement { itemtext: QT_TR_NOOP("Map downloads");itemicon: "image://theme/icon-m-cloud-download"; action: "downloads";}
                 ListElement { itemtext: QT_TR_NOOP("Map settings"); itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+                ListElement { itemtext: QT_TR_NOOP("Collections");  itemicon: "image://theme/icon-m-favorite";       action: "collections";}
                 ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
-                ListElement { itemtext: QT_TR_NOOP("Bookmarks");    itemicon: "image://theme/icon-m-favorite";       action: "bookmarks";}
             }
 
             delegate: ListItem{
@@ -150,7 +150,7 @@ Page {
                 function isEnabled(action){
                     return ((action == "whereami" && positionSource.valid) ||
                             action == "about" || action == "layers" || action == "search" || 
-                            action == "downloads" || action == "routing");
+                            action == "downloads" || action == "routing" || action == "collections");
                 }
 
                 function onAction(action){
@@ -192,6 +192,8 @@ Page {
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
                     }else if (action == "downloads"){
                         pageStack.push(Qt.resolvedUrl("Downloads.qml"))
+                    }else if (action == "collections") {
+                        pageStack.push(Qt.resolvedUrl("Collections.qml"))
                     }else{
                         console.log("TODO: "+ action)
                     }

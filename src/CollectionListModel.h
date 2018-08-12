@@ -34,11 +34,16 @@ class CollectionListModel : public QAbstractListModel {
 signals:
   void loadingChanged() const;
   void collectionLoadRequest();
+  void updateCollectionRequest(Collection);
+  void deleteCollectionRequest(qint64);
 
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
   void onCollectionsLoaded(std::vector<Collection> collections, bool ok);
+  void createCollection(QString name, QString description);
+  void deleteCollection(qint64 id);
+  void editCollection(qint64 id, QString name, QString description);
 
 public:
   CollectionListModel();
@@ -52,8 +57,6 @@ public:
   };
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-  Q_INVOKABLE virtual int columnCount(const QModelIndex &parent = QModelIndex()) const;
-
   Q_INVOKABLE virtual QVariant data(const QModelIndex &index, int role) const;
   virtual QHash<int, QByteArray> roleNames() const;
   Q_INVOKABLE virtual Qt::ItemFlags flags(const QModelIndex &index) const;
