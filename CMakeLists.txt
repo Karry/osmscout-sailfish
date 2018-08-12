@@ -11,8 +11,8 @@ project(osmscout-sailfish C CXX)
 # Information to update before to release this package.
 
 # project version
-set(OSMSCOUT_SAILFISH_MAJOR_VERSION "0")
-set(OSMSCOUT_SAILFISH_MINOR_VERSION "34")
+set(OSMSCOUT_SAILFISH_MAJOR_VERSION "1")
+set(OSMSCOUT_SAILFISH_MINOR_VERSION "0")
 set(OSMSCOUT_SAILFISH_PATCH_VERSION "0")
 
 set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "")

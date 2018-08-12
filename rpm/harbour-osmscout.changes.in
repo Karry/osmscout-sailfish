@@ -235,3 +235,5 @@
 - fix used vehicle when navigation reroute the path
 - new label layouter is able to detect collisions for street (contour) labels
 - performance improvement in label rendering method
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.0-1
