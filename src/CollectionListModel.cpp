@@ -41,12 +41,20 @@ CollectionListModel::CollectionListModel()
             this, SLOT(onCollectionsLoaded(std::vector<Collection>, bool)),
             Qt::QueuedConnection);
 
+    connect(storage, SIGNAL(error(QString)),
+            this, SIGNAL(error(QString)),
+            Qt::QueuedConnection);
+
     connect(this, SIGNAL(updateCollectionRequest(Collection)),
             storage, SLOT(updateOrCreateCollection(Collection)),
             Qt::QueuedConnection);
 
     connect(this, SIGNAL(deleteCollectionRequest(qint64)),
             storage, SLOT(deleteCollection(qint64)),
+            Qt::QueuedConnection);
+
+    connect(this, SIGNAL(importCollectionRequest(QString)),
+            storage, SLOT(importCollection(QString)),
             Qt::QueuedConnection);
   }
 
@@ -149,3 +157,9 @@ void CollectionListModel::editCollection(qint64 id, QString name, QString descri
   emit updateCollectionRequest(Collection(id, name, description));
 }
 
+void CollectionListModel::importCollection(QString filePath)
+{
+  collectionsLoaded=false;
+  emit loadingChanged();
+  emit importCollectionRequest(filePath);
+}

@@ -18,19 +18,30 @@
 */
 
 #include "Storage.h"
+#include "QVariantConverters.h"
+
+#include <osmscout/OSMScoutQt.h>
+#include <osmscout/gpx/GpxFile.h>
+#include <osmscout/gpx/Import.h>
 
 #include <QDebug>
 #include <QThread>
 #include <QtSql/QSqlQuery>
-#include <osmscout/OSMScoutQt.h>
 
 namespace {
   static constexpr int DbSchema = 1;
 }
 
 using namespace osmscout;
+using namespace converters;
 
 static Storage* storage = nullptr;
+
+void ErrorCallback::Error(std::string err)
+{
+  gpx::ProcessCallback::Error(err);
+  emit error(QString::fromStdString(err));
+}
 
 Storage::Storage(QThread *thread,
                  const QDir &directory)
@@ -52,6 +63,7 @@ Storage::~Storage()
     if (db.isOpen()) {
       db.close();
     }
+    db = QSqlDatabase(); // invalidate instance
     QSqlDatabase::removeDatabase("storage");
   }
   qDebug() << "Storage is closed";
@@ -251,88 +263,6 @@ void Storage::init()
   }
 }
 
-namespace {
-  long VarToLong(const QVariant &var, long def = -1)
-  {
-    bool ok;
-    qlonglong val = var.toLongLong(&ok);
-    return ok ? val : def;
-  }
-
-  QString VarToString(const QVariant &var, QString def = "")
-  {
-    if (!var.isNull() &&
-        var.isValid() &&
-        var.canConvert(QMetaType::QString)) {
-      return var.toString();
-    }
-
-    return def;
-  }
-
-  osmscout::gpx::Optional<std::string> VarToStringOpt(const QVariant &var)
-  {
-    if (!var.isNull() &&
-        var.isValid() &&
-        var.canConvert(QMetaType::QString)) {
-      return osmscout::gpx::Optional<std::string>::of(var.toString().toStdString());
-    }
-
-    return osmscout::gpx::Optional<std::string>();
-  }
-
-  bool VarToBool(const QVariant &var, bool def = false)
-  {
-    if (!var.isNull() &&
-        var.isValid() &&
-        var.canConvert(QMetaType::Bool)) {
-      return var.toBool();
-    }
-
-    return def;
-  }
-
-  QDateTime VarToDateTime(const QVariant &var, QDateTime def = QDateTime())
-  {
-    if (!var.isNull() &&
-        var.isValid() &&
-        var.canConvert(QMetaType::QDateTime)) {
-      return var.toDateTime();
-    }
-
-    return def;
-  }
-
-  Timestamp DateTimeToTimestamp(const QDateTime &datetime)
-  {
-    int64_t millis = datetime.toMSecsSinceEpoch();
-    auto duration = std::chrono::milliseconds(millis);
-    return Timestamp(duration);
-  }
-
-  double VarToDouble(const QVariant &var, double def = 0)
-  {
-    if (!var.isNull() &&
-        var.isValid() &&
-        var.canConvert(QMetaType::Double)) {
-      return var.toDouble();
-    }
-
-    return def;
-  }
-
-  osmscout::gpx::Optional<double> VarToDoubleOpt(const QVariant &var)
-  {
-    if (!var.isNull() &&
-        var.isValid() &&
-        var.canConvert(QMetaType::Double)) {
-      return osmscout::gpx::Optional<double>::of(var.toDouble());
-    }
-
-    return osmscout::gpx::Optional<double>();
-  }
-}
-
 bool Storage::checkAccess(QString slotName, bool requireOpen)
 {
   if (thread != QThread::currentThread()){
@@ -362,9 +292,9 @@ void Storage::loadCollections()
   std::vector<Collection> result;
   while (q.next()) {
     result.emplace_back(
-      VarToLong(q.value("id")),
-      VarToString(q.value("name")),
-      VarToString(q.value("description"))
+      varToLong(q.value("id")),
+      varToString(q.value("name")),
+      varToString(q.value("description"))
     );
   }
   emit collectionsLoaded(result, true);
@@ -379,19 +309,20 @@ std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
 
   if (sqlTrack.lastError().isValid()) {
     qWarning() << "Loading tracks for collection id" << collectionId << "fails";
+    emit error(tr("Loading tracks for collection id %1 fails").arg(collectionId));
     return nullptr;
   }
 
   std::shared_ptr<std::vector<Track>> result = std::make_shared<std::vector<Track>>();
   while (sqlTrack.next()) {
     result->emplace_back(
-      VarToLong(sqlTrack.value("id")),
+      varToLong(sqlTrack.value("id")),
       collectionId,
-      VarToString(sqlTrack.value("name")),
-      VarToString(sqlTrack.value("description")),
-      VarToBool(sqlTrack.value("open")),
-      VarToDateTime(sqlTrack.value("creationTime")),
-      osmscout::Distance::Of<osmscout::Meter>(VarToDouble(sqlTrack.value("distance")))
+      varToString(sqlTrack.value("name")),
+      varToString(sqlTrack.value("description")),
+      varToBool(sqlTrack.value("open")),
+      varToDateTime(sqlTrack.value("creationTime")),
+      osmscout::Distance::Of<osmscout::Meter>(varToDouble(sqlTrack.value("distance")))
     );
   }
   return result;
@@ -406,24 +337,25 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
 
   if (sql.lastError().isValid()) {
     qWarning() << "Loading waypoints for collection id" << collectionId << "fails";
+    emit error(tr("Loading waypoints for collection id %1 fails").arg(collectionId));
     return nullptr;
   }
 
   std::shared_ptr<std::vector<Waypoint>> result = std::make_shared<std::vector<Waypoint>>();
   while (sql.next()) {
-    osmscout::gpx::Waypoint wpt(osmscout::GeoCoord(
-      VarToDouble(sql.value("latitude")),
-      VarToDouble(sql.value("longitude"))
+    gpx::Waypoint wpt(osmscout::GeoCoord(
+      varToDouble(sql.value("latitude")),
+      varToDouble(sql.value("longitude"))
       ));
 
-    wpt.name = VarToStringOpt(VarToString(sql.value("name")));
-    wpt.description = VarToStringOpt(sql.value("description"));
-    wpt.symbol = VarToStringOpt(sql.value("symbol"));
+    wpt.name = varToStringOpt(varToString(sql.value("name")));
+    wpt.description = varToStringOpt(sql.value("description"));
+    wpt.symbol = varToStringOpt(sql.value("symbol"));
 
-    wpt.time = osmscout::gpx::Optional<Timestamp>::of(DateTimeToTimestamp(VarToDateTime(sql.value("timestamp"))));
-    wpt.elevation = VarToDoubleOpt(sql.value("elevation"));
+    wpt.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(sql.value("timestamp"))));
+    wpt.elevation = varToDoubleOpt(sql.value("elevation"));
 
-    result->emplace_back(VarToLong(sql.value("id")), std::move(wpt));
+    result->emplace_back(varToLong(sql.value("id")), std::move(wpt));
   }
   return result;
 }
@@ -441,18 +373,20 @@ void Storage::loadCollectionDetails(Collection collection)
   sql.exec();
   if (sql.lastError().isValid()) {
     qWarning() << "Loading collection id" << collection.id << "fails";
+    emit error(tr("Loading collection id %1 fails").arg(collection.id));
     emit collectionDetailsLoaded(collection, false);
     return;
   }
   std::vector<Collection> result;
   if (!sql.next()) {
     qWarning() << "Collection id" << collection.id << "don't exists";
+    emit error(tr("Collection id %1 don't exists").arg(collection.id));
     emit collectionDetailsLoaded(collection, false);
     return;
   }
 
-  collection.name = VarToString(sql.value("name"));
-  collection.description = VarToString(sql.value("description"));
+  collection.name = varToString(sql.value("name"));
+  collection.description = varToString(sql.value("description"));
 
   collection.tracks = loadTracks(collection.id);
   collection.waypoints = loadWaypoints(collection.id);
@@ -460,30 +394,32 @@ void Storage::loadCollectionDetails(Collection collection)
   emit collectionDetailsLoaded(collection, true);
 }
 
-void Storage::loadTrackPoints(qint64 segmentId, osmscout::gpx::TrackSegment &segment)
+void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
 {
   QSqlQuery sql(db);
   sql.prepare("SELECT `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
   sql.bindValue(":segmentId", segmentId);
   sql.exec();
   if (sql.lastError().isValid()) {
-    qWarning() << "Loading nodes for segment id" << segmentId << "fails";
-  }else{
-    while (sql.next()) {
-      osmscout::gpx::TrackPoint point(osmscout::GeoCoord(
-        VarToDouble(sql.value("latitude")),
-        VarToDouble(sql.value("longitude"))
-      ));
+    qWarning() << "Loading nodes for segment id" << segmentId << "failed";
+    emit error(tr("Loading nodes for segment id %1 failed: %2").arg(segmentId).arg(sql.lastError().text()));
+    return;
+  }
 
-      point.time = osmscout::gpx::Optional<Timestamp>::of(DateTimeToTimestamp(VarToDateTime(sql.value("timestamp"))));
-      point.elevation = VarToDoubleOpt(sql.value("elevation"));
+  while (sql.next()) {
+    gpx::TrackPoint point(osmscout::GeoCoord(
+      varToDouble(sql.value("latitude")),
+      varToDouble(sql.value("longitude"))
+    ));
 
-      // see TrackPoint notes
-      point.hdop = VarToDoubleOpt(sql.value("horiz_accuracy"));
-      point.vdop = VarToDoubleOpt(sql.value("vert_accuracy"));
+    point.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(sql.value("timestamp"))));
+    point.elevation = varToDoubleOpt(sql.value("elevation"));
 
-      segment.points.push_back(std::move(point));
-    }
+    // see TrackPoint notes
+    point.hdop = varToDoubleOpt(sql.value("horiz_accuracy"));
+    point.vdop = varToDoubleOpt(sql.value("vert_accuracy"));
+
+    segment.points.push_back(std::move(point));
   }
 }
 
@@ -494,21 +430,22 @@ void Storage::loadTrackData(Track track)
     return;
   }
 
-  track.data = std::make_shared<osmscout::gpx::Track>();
+  track.data = std::make_shared<gpx::Track>();
 
-  track.data->name = osmscout::gpx::Optional<std::string>::of(track.name.toStdString());
-  track.data->desc = osmscout::gpx::Optional<std::string>::of(track.description.toStdString());
+  track.data->name = gpx::Optional<std::string>::of(track.name.toStdString());
+  track.data->desc = gpx::Optional<std::string>::of(track.description.toStdString());
 
   QSqlQuery sql(db);
   sql.prepare("SELECT `id` FROM `track_segment` WHERE track_id = :trackId;");
   sql.bindValue(":trackId", track.id);
   sql.exec();
   if (sql.lastError().isValid()) {
-    qWarning() << "Loading segments for track id" << track.id << "fails";
+    qWarning() << "Loading segments for track id" << track.id << "failed";
+    emit error(tr("Loading segments for track id %1 failed: %2").arg(track.id).arg(sql.lastError().text()));
   }else{
     while (sql.next()) {
-      osmscout::gpx::TrackSegment segment;
-      long segmentId = VarToLong(sql.value("id"));
+      gpx::TrackSegment segment;
+      long segmentId = varToLong(sql.value("id"));
       loadTrackPoints(segmentId, segment);
       track.data->segments.push_back(std::move(segment));
     }
@@ -539,7 +476,13 @@ void Storage::updateOrCreateCollection(Collection collection)
   }
   sql.exec();
   if (sql.lastError().isValid()){
-    qWarning() << "Creating version table entry failed" << sql.lastError();
+    if (collection.id < 0) {
+      qWarning() << "Creating collection failed: " << sql.lastError();
+      emit error(tr("Creating collection failed: %1").arg(sql.lastError().text()));
+    }else {
+      qWarning() << "Updating collection failed: " << sql.lastError();
+      emit error(tr("Updating collection failed: %1").arg(sql.lastError().text()));
+    }
   }
 
   loadCollections();
@@ -558,8 +501,102 @@ void Storage::deleteCollection(qint64 id)
   sql.bindValue(":id", id);
   sql.exec();
   if (sql.lastError().isValid()){
-    qWarning() << "Creating version table entry failed" << sql.lastError();
+    qWarning() << "Deleting collection failed: " << sql.lastError();
+    emit error(tr("Deleting collection failed: %1").arg(sql.lastError().text()));
   }
+
+  loadCollections();
+}
+
+void Storage::importCollection(QString filePath)
+{
+  gpx::GpxFile gpxFile;
+  std::shared_ptr<ErrorCallback> callback = std::make_shared<ErrorCallback>();
+  connect(callback.get(), SIGNAL(error(QString)), this, SIGNAL(error(QString)));
+
+  if (!gpx::ImportGpx(filePath.toStdString(),
+                      gpxFile,
+                      nullptr,
+                      std::static_pointer_cast<gpx::ProcessCallback, ErrorCallback>(callback))){
+
+    qWarning() << "Gpx import failed " << filePath;
+    loadCollections();
+    return;
+  }
+
+  // import collection
+  QSqlQuery sql(db);
+  sql.prepare("INSERT INTO `collection` (`name`, `description`) VALUES (:name, :description);");
+  sql.bindValue(":name", QFileInfo(filePath).baseName());
+  sql.bindValue(":description", tr("Imported from %1").arg(filePath));
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Creating collection failed" << sql.lastError();
+    emit error(tr("Creating collection failed: %1").arg(sql.lastError().text()));
+    loadCollections();
+    return;
+  }
+  qint64 collectionId = varToLong(sql.lastInsertId());
+  if (collectionId < 0){
+    qWarning() << "Invalid collection id" << collectionId;
+    emit error(tr("Invalid collection id: %1").arg(collectionId));
+    loadCollections();
+    return;
+  }
+
+  // import waypoints
+  if (!gpxFile.waypoints.empty()) {
+    int wptNum = 0;
+    db.transaction();
+    QSqlQuery sqlWpt(db);
+    sqlWpt.prepare(
+      "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`) VALUES (:collection_id, :timestamp, :latitude, :longitude, :elevation, :name, :description, :symbol)");
+    for (const auto &wpt: gpxFile.waypoints) {
+      wptNum++;
+
+      sqlWpt.bindValue(":collection_id", collectionId);
+      sqlWpt.bindValue(":timestamp",
+                       wpt.time.hasValue() ? timestampToDateTime(wpt.time) : QDateTime::currentDateTime());
+      sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
+      sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
+      sqlWpt.bindValue(":elevation", (wpt.elevation.hasValue() ? wpt.elevation.get() : QVariant()));
+      sqlWpt.bindValue(":name", QString::fromStdString(wpt.name.getOrElse(
+        [&]() { return (QString("waypoint ") + wptNum).toStdString(); }
+      )));
+      sqlWpt.bindValue(":description",
+                       (wpt.description.hasValue() ? QString::fromStdString(wpt.description.get()) : QVariant()));
+      sqlWpt.bindValue(":symbol", (wpt.symbol.hasValue() ? QString::fromStdString(wpt.symbol.get()) : QVariant()));
+
+      sqlWpt.exec();
+      if (sqlWpt.lastError().isValid()) {
+        qWarning() << "Import of waypoints failed" << sqlWpt.lastError();
+        emit error(tr("Import of waypoints failed: %1").arg(sqlWpt.lastError().text()));
+        if (!db.rollback()) {
+          qWarning() << "Transaction rollback failed" << db.lastError();
+        }
+        loadCollections();
+        return;
+      }
+      // commit batch 100 queries
+      if (wptNum % 100 == 0) {
+        if (!db.commit()) {
+          emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
+          qWarning() << "Transaction commit failed" << db.lastError();
+          loadCollections();
+          return;
+        }
+        db.transaction();
+      }
+    }
+    if (!db.commit()) {
+      emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
+      qWarning() << "Transaction commit failed" << db.lastError();
+      loadCollections();
+      return;
+    }
+  }
+
+  // TODO: import tracks
 
   loadCollections();
 }

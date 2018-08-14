@@ -237,7 +237,7 @@ set(HEADER_FILES
     src/Storage.h
     src/CollectionModel.h
     src/CollectionListModel.h
-    )
+    src/QVariantConverters.h)
 
 set(SOURCE_FILES
     src/AppSettings.cpp
@@ -309,6 +309,7 @@ set(TRANSLATION_TS_FILES
 set(TRANSLATION_SOURCE_FILES
         ${SOURCE_FILES}
         src/OSMScout.cpp
+        src/Storage.cpp
         dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp
         )
 

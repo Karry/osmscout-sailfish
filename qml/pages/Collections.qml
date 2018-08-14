@@ -19,6 +19,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Sailfish.Pickers 1.0
 import QtPositioning 5.2
 import QtQml.Models 2.1
 
@@ -129,6 +130,12 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Import")
+                onClicked: {
+                    pageStack.push(filePickerPage)
+                }
+            }
+            MenuItem {
                 text: qsTr("Create new")
                 onClicked: {
                     console.log("Create new collection...")
@@ -147,6 +154,17 @@ Page {
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+        }
+    }
+
+    Component {
+        id: filePickerPage
+        FilePickerPage {
+            nameFilters: [ '*.gpx' ]
+            onSelectedContentPropertiesChanged: {
+                console.log("Importing " + selectedContentProperties.filePath);
+                collectionListModel.importCollection(selectedContentProperties.filePath);
+            }
         }
     }
 

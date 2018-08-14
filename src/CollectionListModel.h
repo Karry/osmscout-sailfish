@@ -36,6 +36,8 @@ signals:
   void collectionLoadRequest();
   void updateCollectionRequest(Collection);
   void deleteCollectionRequest(qint64);
+  void importCollectionRequest(QString);
+  void error(QString);
 
 public slots:
   void storageInitialised();
@@ -44,6 +46,7 @@ public slots:
   void createCollection(QString name, QString description);
   void deleteCollection(qint64 id);
   void editCollection(qint64 id, QString name, QString description);
+  void importCollection(QString filePath);
 
 public:
   CollectionListModel();

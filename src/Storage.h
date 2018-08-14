@@ -21,6 +21,7 @@
 
 #include <osmscout/gpx/Track.h>
 #include <osmscout/gpx/Waypoint.h>
+#include <osmscout/gpx/Utils.h>
 
 #include <QObject>
 
@@ -30,6 +31,21 @@
 #include <QtCore/QDateTime>
 
 #include <atomic>
+
+class ErrorCallback: public QObject, public osmscout::gpx::ProcessCallback
+{
+  Q_OBJECT
+  Q_DISABLE_COPY(ErrorCallback)
+
+signals:
+  void error(QString);
+
+public:
+  ErrorCallback() = default;
+  virtual ~ErrorCallback() = default;
+
+  virtual void Error(std::string error);
+};
 
 class TrackStatistics
 {
@@ -114,6 +130,7 @@ signals:
   void collectionsLoaded(std::vector<Collection> collections, bool ok);
   void collectionDetailsLoaded(Collection collection, bool ok);
   void trackDataLoaded(Track track, bool ok);
+  void error(QString);
 
 public slots:
   void init();
@@ -147,6 +164,12 @@ public slots:
    * emits collectionsLoaded signal
    */
   void deleteCollection(qint64 id);
+
+  /**
+   * import collection from gpx file
+   * emits collectionsLoaded signal
+   */
+  void importCollection(QString filePath);
 
 public:
   Storage(QThread *thread,

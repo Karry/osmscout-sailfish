@@ -18,6 +18,7 @@
 */
 
 #include "CollectionModel.h"
+#include "QVariantConverters.h"
 
 #include <QDebug>
 
@@ -84,18 +85,10 @@ int CollectionModel::rowCount(const QModelIndex &parentIndex) const
   return cnt;
 }
 
-namespace {
-  QDateTime timestampToDateTime(const osmscout::gpx::Optional<osmscout::Timestamp> timestamp)
-  {
-    if (timestamp.hasValue()){
-      return QDateTime::fromMSecsSinceEpoch(timestamp.get().time_since_epoch().count());
-    }
-    return QDateTime();
-  }
-}
-
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
 {
+  using namespace converters;
+
   if(index.row() < 0) {
     return QVariant();
   }
