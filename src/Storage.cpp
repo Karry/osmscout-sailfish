@@ -142,9 +142,9 @@ bool Storage::updateSchema(){
 
     QString sql("CREATE TABLE `track`");
     sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`collection_id` int NULL");
+    sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
     sql.append(",").append( "`name` varchar(255) NOT NULL");
-    sql.append(",").append( "`description` varchar(255) NOT NULL");
+    sql.append(",").append( "`description` varchar(255) NULL");
     sql.append(",").append( "`open` tinyint(1) NOT NULL");
     sql.append(",").append( "`creation_time` datetime NOT NULL");
     sql.append(",").append( "`distance` double NOT NULL");
@@ -163,10 +163,10 @@ bool Storage::updateSchema(){
 
     QString sql("CREATE TABLE `track_segment`");
     sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`track_id` int NOT NULL");
-    sql.append(",").append( "`name` varchar(255) NOT NULL");
+    sql.append(",").append( "`track_id` INTEGER NOT NULL REFERENCES track(id) ON DELETE CASCADE");
     sql.append(",").append( "`open` tinyint(1) NOT NULL");
     sql.append(",").append( "`creation_time` datetime NOT NULL");
+    sql.append(",").append( "`distance` double NOT NULL");
     sql.append(");");
 
     QSqlQuery q = db.exec(sql);
@@ -181,7 +181,7 @@ bool Storage::updateSchema(){
     qDebug()<< "creating track_point table";
 
     QString sql("CREATE TABLE `track_point`");
-    sql.append("(").append( "`segment_id` int NOT NULL");
+    sql.append("(").append( "`segment_id` INTEGER NOT NULL REFERENCES track_segment(id) ON DELETE CASCADE");
     sql.append(",").append( "`timestamp` datetime NOT NULL");
     sql.append(",").append( "`latitude` double NOT NULL");
     sql.append(",").append( "`longitude` double NOT NULL");
@@ -205,7 +205,7 @@ bool Storage::updateSchema(){
 
     QString sql("CREATE TABLE `waypoint`");
     sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`collection_id` int NOT NULL");
+    sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
     sql.append(",").append( "`timestamp` datetime NOT NULL");
     sql.append(",").append( "`latitude` double NOT NULL");
     sql.append(",").append( "`longitude` double NOT NULL");
@@ -255,12 +255,18 @@ void Storage::init()
     return;
   }
   qDebug() << "Storage database opened:" << path;
-  if (updateSchema()){
-    ok = db.isValid() && db.isOpen();
-    emit initialised();
-  } else {
+  if (!updateSchema()){
     emit initialisationError("update schema");
+    return;
   }
+
+  QSqlQuery q = db.exec("PRAGMA foreign_keys = ON;");
+  if (q.lastError().isValid()){
+    qWarning() << "Enabling foreign keys fails:" << q.lastError();
+  }
+
+  ok = db.isValid() && db.isOpen();
+  emit initialised();
 }
 
 bool Storage::checkAccess(QString slotName, bool requireOpen)
@@ -508,8 +514,177 @@ void Storage::deleteCollection(qint64 id)
   loadCollections();
 }
 
+bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 collectionId)
+{
+  int wptNum = 0;
+  db.transaction();
+  QSqlQuery sqlWpt(db);
+  sqlWpt.prepare(
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`) VALUES (:collection_id, :timestamp, :latitude, :longitude, :elevation, :name, :description, :symbol)");
+  for (const auto &wpt: gpxFile.waypoints) {
+    wptNum++;
+
+    QString wptName = QString::fromStdString(wpt.name.getOrElse(""));
+    if (wptName.isEmpty())
+      wptName = tr("waypoint %1").arg(wptNum);
+
+    sqlWpt.bindValue(":collection_id", collectionId);
+    sqlWpt.bindValue(":timestamp",
+                     wpt.time.hasValue() ? timestampToDateTime(wpt.time) : QDateTime::currentDateTime());
+    sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
+    sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
+    sqlWpt.bindValue(":elevation", (wpt.elevation.hasValue() ? wpt.elevation.get() : QVariant()));
+    sqlWpt.bindValue(":name", wptName);
+    sqlWpt.bindValue(":description",
+                     (wpt.description.hasValue() ? QString::fromStdString(wpt.description.get()) : QVariant()));
+    sqlWpt.bindValue(":symbol", (wpt.symbol.hasValue() ? QString::fromStdString(wpt.symbol.get()) : QVariant()));
+
+    sqlWpt.exec();
+    if (sqlWpt.lastError().isValid()) {
+      qWarning() << "Import of waypoints failed" << sqlWpt.lastError();
+      emit error(tr("Import of waypoints failed: %1").arg(sqlWpt.lastError().text()));
+      if (!db.rollback()) {
+        qWarning() << "Transaction rollback failed" << db.lastError();
+      }
+      return false;
+    }
+    // commit batch 100 queries
+    if (wptNum % 100 == 0) {
+      if (!db.commit()) {
+        emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
+        qWarning() << "Transaction commit failed" << db.lastError();
+        return false;
+      }
+      db.transaction();
+    }
+  }
+  if (!db.commit()) {
+    emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
+    qWarning() << "Transaction commit failed" << db.lastError();
+    return false;
+  }
+  return true;
+}
+
+bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collectionId)
+{
+  int trkNum = 0;
+  QSqlQuery sqlTrk(db);
+  QSqlQuery sqlSeg(db);
+  sqlTrk.prepare("INSERT INTO `track` (`collection_id`, `name`, `description`, `open`, `creation_time`, `distance`) VALUES (:collection_id, :name, :description, :open, :creation_time, :distance)");
+  sqlSeg.prepare("INSERT INTO `track_segment` (`track_id`, `open`, `creation_time`, `distance`) VALUES (:track_id, :open, :creation_time, :distance)");
+  for (const auto &trk: gpxFile.tracks){
+    trkNum++;
+
+    QString trackName = QString::fromStdString(trk.name.getOrElse(""));
+    if (trackName.isEmpty())
+      trackName = tr("track %1").arg(trkNum);
+
+    sqlTrk.bindValue(":collection_id", collectionId);
+    sqlTrk.bindValue(":name", trackName);
+    sqlTrk.bindValue(":description",
+                     (trk.desc.hasValue() ? QString::fromStdString(trk.desc.get()) : QVariant()));
+    sqlTrk.bindValue(":open", false);
+
+    // TODO: compute statistics (time, distance...)
+    sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
+    sqlTrk.bindValue(":distance", 0);
+
+    sqlTrk.exec();
+    if (sqlTrk.lastError().isValid()) {
+      qWarning() << "Import of tracks failed" << sqlTrk.lastError();
+      emit error(tr("Import of tracks failed: %1").arg(sqlTrk.lastError().text()));
+      return false;
+    }
+
+    qint64 trackId = varToLong(sqlTrk.lastInsertId());
+
+    for (auto const &seg: trk.segments){
+      sqlSeg.bindValue(":track_id", trackId);
+      sqlSeg.bindValue(":open", false);
+
+      // TODO: compute statistics (time, distance...)
+      sqlSeg.bindValue(":creation_time", QDateTime::currentDateTime());
+      sqlSeg.bindValue(":distance", 0);
+      sqlSeg.exec();
+      if (sqlSeg.lastError().isValid()) {
+        qWarning() << "Import of segments failed" << sqlSeg.lastError();
+        emit error(tr("Import of segments failed: %1").arg(sqlSeg.lastError().text()));
+        return false;
+      }
+      qint64 segmentId = varToLong(sqlSeg.lastInsertId());
+
+      if (!importTrackPoints(seg.points, segmentId)){
+        qWarning() << "Import of track points failed" << sqlSeg.lastError();
+        emit error(tr("Import of track points failed: %1").arg(sqlSeg.lastError().text()));
+        return false;
+      }
+      qDebug() << "Imported" << seg.points.size() << "points to segment" << segmentId << "for track" << trackId;
+    }
+    qDebug() << "Imported track " << trackId;
+  }
+  return true;
+}
+
+bool Storage::importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &points, qint64 segmentId)
+{
+  size_t pointNum = 0;
+  db.transaction();
+  QSqlQuery sql(db);
+  sql.prepare("INSERT INTO `track_point` (`segment_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy`) VALUES (:segment_id, :timestamp, :latitude, :longitude, :elevation, :horiz_accuracy, :vert_accuracy)");
+
+  for (const auto &point: points){
+    pointNum ++;
+
+    if (!point.time.hasValue()){
+      qWarning() << "Track point without timestammp";
+      continue;
+    }
+    sql.bindValue(":segment_id", segmentId);
+    sql.bindValue(":timestamp", timestampToDateTime(point.time));
+    sql.bindValue(":latitude", point.coord.GetLat());
+    sql.bindValue(":longitude", point.coord.GetLon());
+    sql.bindValue(":elevation", point.elevation.hasValue() ? point.elevation.get() : QVariant());
+    // read TrackPoint notes
+    sql.bindValue(":horiz_accuracy", point.hdop.hasValue() ? point.hdop.get() : QVariant());
+    sql.bindValue(":vert_accuracy", point.vdop.hasValue() ? point.vdop.get(): QVariant());
+
+    sql.exec();
+    if (sql.lastError().isValid()) {
+      qWarning() << "Import of track points failed" << sql.lastError();
+      emit error(tr("Import of track points failed: %1").arg(sql.lastError().text()));
+      if (!db.rollback()) {
+        qWarning() << "Transaction rollback failed" << db.lastError();
+      }
+      return false;
+    }
+    // commit batch 100 queries
+    if (pointNum % 100 == 0) {
+      if (!db.commit()) {
+        emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
+        qWarning() << "Transaction commit failed" << db.lastError();
+        return false;
+      }
+      db.transaction();
+    }
+  }
+  if (!db.commit()) {
+    emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
+    qWarning() << "Transaction commit failed" << db.lastError();
+    return false;
+  }
+  return true;
+}
+
 void Storage::importCollection(QString filePath)
 {
+  if (!checkAccess("importCollection")){
+    emit collectionsLoaded(std::vector<Collection>(), false);
+    return;
+  }
+
+  qDebug() << "Importing collection from" << filePath;
+
   gpx::GpxFile gpxFile;
   std::shared_ptr<ErrorCallback> callback = std::make_shared<ErrorCallback>();
   connect(callback.get(), SIGNAL(error(QString)), this, SIGNAL(error(QString)));
@@ -546,57 +721,21 @@ void Storage::importCollection(QString filePath)
 
   // import waypoints
   if (!gpxFile.waypoints.empty()) {
-    int wptNum = 0;
-    db.transaction();
-    QSqlQuery sqlWpt(db);
-    sqlWpt.prepare(
-      "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`) VALUES (:collection_id, :timestamp, :latitude, :longitude, :elevation, :name, :description, :symbol)");
-    for (const auto &wpt: gpxFile.waypoints) {
-      wptNum++;
-
-      sqlWpt.bindValue(":collection_id", collectionId);
-      sqlWpt.bindValue(":timestamp",
-                       wpt.time.hasValue() ? timestampToDateTime(wpt.time) : QDateTime::currentDateTime());
-      sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
-      sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
-      sqlWpt.bindValue(":elevation", (wpt.elevation.hasValue() ? wpt.elevation.get() : QVariant()));
-      sqlWpt.bindValue(":name", QString::fromStdString(wpt.name.getOrElse(
-        [&]() { return (QString("waypoint ") + wptNum).toStdString(); }
-      )));
-      sqlWpt.bindValue(":description",
-                       (wpt.description.hasValue() ? QString::fromStdString(wpt.description.get()) : QVariant()));
-      sqlWpt.bindValue(":symbol", (wpt.symbol.hasValue() ? QString::fromStdString(wpt.symbol.get()) : QVariant()));
-
-      sqlWpt.exec();
-      if (sqlWpt.lastError().isValid()) {
-        qWarning() << "Import of waypoints failed" << sqlWpt.lastError();
-        emit error(tr("Import of waypoints failed: %1").arg(sqlWpt.lastError().text()));
-        if (!db.rollback()) {
-          qWarning() << "Transaction rollback failed" << db.lastError();
-        }
-        loadCollections();
-        return;
-      }
-      // commit batch 100 queries
-      if (wptNum % 100 == 0) {
-        if (!db.commit()) {
-          emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
-          qWarning() << "Transaction commit failed" << db.lastError();
-          loadCollections();
-          return;
-        }
-        db.transaction();
-      }
-    }
-    if (!db.commit()) {
-      emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
-      qWarning() << "Transaction commit failed" << db.lastError();
+    if (!importWaypoints(gpxFile, collectionId)){
       loadCollections();
       return;
     }
   }
+  qDebug() << "Imported" << gpxFile.waypoints.size() << "waypoints to collection" << collectionId << "from" << filePath;
 
-  // TODO: import tracks
+  // import tracks
+  if (!gpxFile.tracks.empty()) {
+    if (!importTracks(gpxFile, collectionId)){
+      loadCollections();
+      return;
+    }
+  }
+  qDebug() << "Imported" << gpxFile.tracks.size() << "tracks to collection" << collectionId << "from" << filePath;
 
   loadCollections();
 }

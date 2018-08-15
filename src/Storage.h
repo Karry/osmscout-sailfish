@@ -31,6 +31,7 @@
 #include <QtCore/QDateTime>
 
 #include <atomic>
+#include <osmscout/gpx/GpxFile.h>
 
 class ErrorCallback: public QObject, public osmscout::gpx::ProcessCallback
 {
@@ -187,6 +188,9 @@ private:
   std::shared_ptr<std::vector<Waypoint>> loadWaypoints(qint64 collectionId);
   void loadTrackPoints(qint64 segmentId, osmscout::gpx::TrackSegment &segment);
   bool checkAccess(QString slotName, bool requireOpen = true);
+  bool importWaypoints(const osmscout::gpx::GpxFile &file, qint64 collectionId);
+  bool importTracks(const osmscout::gpx::GpxFile &file, qint64 collectionId);
+  bool importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &points, qint64 segId);
 
 private :
   QSqlDatabase db;
