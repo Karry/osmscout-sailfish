@@ -120,6 +120,11 @@ Window {
                 overlayWay.addPoint(lat, lon);
                 map.addOverlayObject(0, overlayWay);
 
+                var wpt = map.createOverlayNode("_waypoint");
+                wpt.addPoint(lat, lon);
+                wpt.name = "Pos: " + lat + " " +lon;
+                map.addOverlayObject(1, wpt);
+
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon+ " (map center "+ map.view.lat + " " + map.view.lon + ")");
             }
             onLongTap: {

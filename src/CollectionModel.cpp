@@ -171,3 +171,12 @@ bool CollectionModel::isLoading() const
   return !collectionLoaded;
 }
 
+QString CollectionModel::getCollectionName() const
+{
+  return collectionLoaded? collection.name : "";
+}
+
+QString CollectionModel::getCollectionDescription() const
+{
+  return collectionLoaded? collection.description : "";
+}

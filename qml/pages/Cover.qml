@@ -193,7 +193,7 @@ CoverBackground {
         enabled: true
         iconBackground: true
         CoverAction {
-            iconSource: "file:///usr/share/harbour-osmscout/pics/icon-cover-remove.png"
+            iconSource: "../../pics/icon-cover-remove.png"
             onTriggered: {
                 map.zoomOut(2.0);
                 bindToCurrentPositionTimer.restart();

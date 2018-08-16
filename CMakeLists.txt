@@ -280,6 +280,7 @@ set(SOURCE_FILES
     qml/pages/Routing.qml
     qml/pages/RouteDescription.qml
     qml/pages/Collections.qml
+    qml/pages/Collection.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml

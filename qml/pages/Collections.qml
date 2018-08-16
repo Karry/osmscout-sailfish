@@ -95,7 +95,11 @@ Page {
                 }
             }
             onClicked: {
-                console.log("selected collection: " + name);
+                console.log("selected collection: " + model.name);
+                pageStack.push(Qt.resolvedUrl("Collection.qml"),
+                               {
+                                   collectionId: model.id
+                               })
             }
             menu: ContextMenu {
                 MenuItem {

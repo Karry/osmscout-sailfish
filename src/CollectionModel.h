@@ -31,6 +31,8 @@ class CollectionModel : public QAbstractListModel {
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
   Q_PROPERTY(qint64 collectionId READ getCollectionId WRITE setCollectionId)
+  Q_PROPERTY(QString name READ getCollectionName NOTIFY loadingChanged)
+  Q_PROPERTY(QString description READ getCollectionDescription NOTIFY loadingChanged)
 
 signals:
   void loadingChanged() const;
@@ -75,6 +77,8 @@ public:
   void setCollectionId(qint64 id);
 
   bool isLoading() const;
+  QString getCollectionName() const;
+  QString getCollectionDescription() const;
 
 public:
   Collection collection;
