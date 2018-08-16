@@ -5,6 +5,9 @@ OSS
     COLOR unknownColor               = @waterColor;
     COLOR highlightedColor           = #ff000088;
 
+    // Label priorities
+    UINT labelPrioWaypoint            = 0;
+
   SYMBOL place_city
     CIRCLE 0,0 2.5 {
       AREA {color: #ff0000aa; }
@@ -33,6 +36,11 @@ OSS
     [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
     [TYPE _highlighted] AREA.BORDER {color: @highlightedColor; width: 1.0mm; }
     [TYPE _highlighted] NODE.ICON { symbol: marker; }
+
+    [TYPE _waypoint] {
+        NODE.ICON { symbol: marker; }
+        NODE.TEXT { label: Name.name; color: #ff0000; size: 1.0; priority: @labelPrioWaypoint; }
+    }
   }
 
   [TYPE boundary_administrative] {

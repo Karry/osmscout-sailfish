@@ -73,6 +73,7 @@ CONST
   MAG minorBuildingMag             = veryClose;
 
   // Label priorities
+  UINT labelPrioWaypoint            = 0;
   UINT labelPrioContinent           = 1;
   UINT labelPrioIsland              = 1;
   UINT labelPrioCountry             = 2;
@@ -490,6 +491,11 @@ STYLE
     [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
     [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
     [TYPE _highlighted] NODE.ICON { symbol: marker; }
+
+    [TYPE _waypoint] {
+        NODE.ICON { symbol: marker; }
+        NODE.TEXT { label: Name.name; color: #ff0000; size: 1.0; priority: @labelPrioWaypoint; }
+    }
 
     [TYPE _tile_sea] AREA {color: @waterColor;}
     //[TYPE _tile_coast] AREA {color: @waterColor;}
