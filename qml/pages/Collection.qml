@@ -131,7 +131,13 @@ Page {
                         var idx = model.id
                         Remorse.itemAction(collectionItem,
                                            qsTr("Deleting"),
-                                           function() { console.log("TODO delete collection entry") });
+                                           function() {
+                                               if (model.type == "waypoint"){
+                                                   collectionModel.deleteWaypoint(model.id);
+                                               }else{
+                                                   collectionModel.deleteTrack(model.id);
+                                               }
+                                           });
                     }
                 }
             }

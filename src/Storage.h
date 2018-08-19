@@ -102,6 +102,10 @@ class Collection
 {
 public:
   Collection() = default;
+  Collection(qint64 id):
+    id(id)
+  {};
+
   Collection(qint64 id,
              const QString &name,
              const QString &description):
@@ -171,6 +175,18 @@ public slots:
    * emits collectionsLoaded signal
    */
   void importCollection(QString filePath);
+
+  /**
+   * delete waypoint
+   * emits collectionDetailsLoaded
+   */
+  void deleteWaypoint(qint64 collectionId, qint64 waypointId);
+
+  /**
+   * delete waypoint
+   * emits collectionDetailsLoaded
+   */
+  void deleteTrack(qint64 collectionId, qint64 trackId);
 
 public:
   Storage(QThread *thread,

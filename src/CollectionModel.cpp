@@ -41,6 +41,14 @@ CollectionModel::CollectionModel()
     connect(storage, SIGNAL(collectionDetailsLoaded(Collection, bool)),
             this, SLOT(onCollectionDetailsLoaded(Collection, bool)),
             Qt::QueuedConnection);
+
+    connect(this, SIGNAL(deleteWaypointRequest(qint64, qint64)),
+            storage, SLOT(deleteWaypoint(qint64, qint64)),
+            Qt::QueuedConnection);
+
+    connect(this, SIGNAL(deleteTrackRequest(qint64, qint64)),
+            storage, SLOT(deleteTrack(qint64, qint64)),
+            Qt::QueuedConnection);
   }
 }
 
@@ -180,3 +188,18 @@ QString CollectionModel::getCollectionDescription() const
 {
   return collectionLoaded? collection.description : "";
 }
+
+void CollectionModel::deleteWaypoint(qint64 id)
+{
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit deleteWaypointRequest(collection.id, id);
+}
+
+void CollectionModel::deleteTrack(qint64 id)
+{
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit deleteTrackRequest(collection.id, id);
+}
+

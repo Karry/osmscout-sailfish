@@ -327,7 +327,7 @@ std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
       varToString(sqlTrack.value("name")),
       varToString(sqlTrack.value("description")),
       varToBool(sqlTrack.value("open")),
-      varToDateTime(sqlTrack.value("creationTime")),
+      varToDateTime(sqlTrack.value("creation_time")),
       osmscout::Distance::Of<osmscout::Meter>(varToDouble(sqlTrack.value("distance")))
     );
   }
@@ -738,6 +738,50 @@ void Storage::importCollection(QString filePath)
   qDebug() << "Imported" << gpxFile.tracks.size() << "tracks to collection" << collectionId << "from" << filePath;
 
   loadCollections();
+}
+
+void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
+{
+  if (!checkAccess("deleteWaypoint")){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("DELETE FROM `waypoint` WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.bindValue(":id", waypointId);
+  sql.bindValue(":collection_id", collectionId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Deleting waypoint failed" << sql.lastError();
+    emit error(tr("Deleting waypoint failed: %1").arg(sql.lastError().text()));
+    loadCollectionDetails(Collection(collectionId));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
+void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
+{
+  if (!checkAccess("deleteTrack")){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("DELETE FROM `track` WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.bindValue(":id", trackId);
+  sql.bindValue(":collection_id", collectionId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Deleting track failed" << sql.lastError();
+    emit error(tr("Deleting track failed: %1").arg(sql.lastError().text()));
+    loadCollectionDetails(Collection(collectionId));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
 }
 
 Storage::operator bool() const

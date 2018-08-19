@@ -37,11 +37,15 @@ class CollectionModel : public QAbstractListModel {
 signals:
   void loadingChanged() const;
   void collectionDetailRequest(Collection) const;
+  void deleteWaypointRequest(qint64 collectionId, qint64 id);
+  void deleteTrackRequest(qint64 collectionId, qint64 id);
 
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
   void onCollectionDetailsLoaded(Collection collection, bool ok);
+  void deleteWaypoint(qint64 id);
+  void deleteTrack(qint64 id);
 
 public:
   CollectionModel();
