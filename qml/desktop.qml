@@ -4,6 +4,7 @@ import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.1
 import QtQuick.Window 2.0
+import QtQml.Models 2.2
 
 import QtPositioning 5.2
 
@@ -56,6 +57,41 @@ Window {
         id: collectionModel
         onLoadingChanged: {
             console.log("onLoadingChanged: " + loading);
+        }
+    }
+
+    DelegateModel {
+        id: delegateModel
+    }
+    LocationInfoModel {
+        id: locationInfoModel
+        Component.onCompleted: {
+            locationInfoModel.setLocation(50.08923, 14.49837);
+        }
+        onReadyChanged: {
+            if (!ready){
+                console.log("Loading objects around...");
+                return;
+            }
+            console.log("objects around: " + locationInfoModel.rowCount());
+            delegateModel.model = locationInfoModel;
+            for (var row = 0; row < locationInfoModel.rowCount(); row++) {
+                var item = delegateModel.items.get(row).model;
+                console.log("  " + row + ":");
+                console.log("    label: " + item.label);
+                console.log("    region: " + item.region);
+                console.log("    address: " + item.address);
+                console.log("    inPlace: " + item.inPlace);
+                console.log("    distance: " + item.distance);
+                console.log("    bearing: " + item.bearing);
+                console.log("    poi: " + item.poi);
+                console.log("    type: " + item.type);
+                console.log("    postalCode: " + item.postalCode);
+                console.log("    website: " + item.website);
+                console.log("    phone: " + item.phone);
+                console.log("    addressLocation: " + item.addressLocation);
+                console.log("    addressNumber: " + item.addressNumber);
+            }
         }
     }
 
