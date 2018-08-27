@@ -30,6 +30,9 @@ import "../custom"
 Page {
     id: collectionPage
     property int collectionId: -1
+    signal selectWaypoint(double lat, double lon)
+    signal selectWay(LocationEntry selectWay);
+    property var acceptDestination;
 
     CollectionModel {
         id: collectionModel
@@ -105,6 +108,8 @@ Page {
                 if (model.type == "waypoint"){
                     waypointDialog.name = model.name;
                     waypointDialog.description = model.description;
+                    waypointDialog.latitude = model.latitude;
+                    waypointDialog.longitude = model.longitude;
 
                     wptPreviewMap.removeAllOverlayObjects();
                     wptPreviewMap.showCoordinatesInstantly(model.latitude, model.longitude);
@@ -115,7 +120,13 @@ Page {
                     wptPreviewMap.addOverlayObject(0, wpt);
                     waypointDialog.open();
                 }else{
+                    var wayPage = pageStack.push(Qt.resolvedUrl("CollectionWay.qml"),
+                                   {
+                                        collectionId: model.id,
+                                        acceptPage: acceptDestination
+                                   })
 
+                    wayPage.selectWay.connect(selectWay);
                 }
             }
             menu: ContextMenu {
@@ -181,11 +192,18 @@ Page {
 
         property string name;
         property string description;
+        property double latitude;
+        property double longitude;
 
+        acceptDestination: collectionPage.acceptDestination
+        acceptDestinationAction: PageStackAction.Pop
+        onAccepted: {
+            selectWaypoint(latitude, longitude);
+        }
         DialogHeader {
             id: waypointDialogheader
             title: waypointDialog.name
-            //acceptText : qsTr("Accept")
+            acceptText : qsTr("Show")
             //cancelText : qsTr("Cancel")
 
             Label {

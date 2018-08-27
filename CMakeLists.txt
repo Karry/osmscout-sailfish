@@ -281,6 +281,7 @@ set(SOURCE_FILES
     qml/pages/RouteDescription.qml
     qml/pages/Collections.qml
     qml/pages/Collection.qml
+    qml/pages/CollectionWay.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml

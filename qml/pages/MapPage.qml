@@ -33,10 +33,21 @@ Page {
     property RoutingListModel routingModel
 
     signal selectLocation(LocationEntry location)
+    signal showWaypoint(double lat, double lon)
+    signal showWay(LocationEntry selectWay);
 
     onSelectLocation: {
         console.log("selectLocation: " + location);
         map.showLocation(location);
+        drawer.open = false;
+    }
+    onShowWaypoint: {
+        console.log("selectWaypoint: " + lat + ", " + lon);
+        map.showCoordinates(lat, lon);
+        drawer.open = false;
+    }
+    onShowWay: {
+        console.log("TODO: show Way");
         drawer.open = false;
     }
 
@@ -193,7 +204,11 @@ Page {
                     }else if (action == "downloads"){
                         pageStack.push(Qt.resolvedUrl("Downloads.qml"))
                     }else if (action == "collections") {
-                        pageStack.push(Qt.resolvedUrl("Collections.qml"))
+                        var collectionsPage = pageStack.push(Qt.resolvedUrl("Collections.qml"),{
+                                                                acceptDestination: mapPage
+                                                            });
+                        collectionsPage.selectWaypoint.connect(showWaypoint);
+                        collectionsPage.selectWay.connect(showWay);
                     }else{
                         console.log("TODO: "+ action)
                     }

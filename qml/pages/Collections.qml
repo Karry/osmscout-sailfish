@@ -30,6 +30,10 @@ import "../custom"
 Page {
     id: collectionListPage
 
+    signal selectWaypoint(double lat, double lon)
+    signal selectWay(LocationEntry way);
+    property var acceptDestination;
+
     CollectionListModel {
         id: collectionListModel
         onLoadingChanged: {
@@ -96,10 +100,13 @@ Page {
             }
             onClicked: {
                 console.log("selected collection: " + model.name);
-                pageStack.push(Qt.resolvedUrl("Collection.qml"),
+                var collectionPage = pageStack.push(Qt.resolvedUrl("Collection.qml"),
                                {
-                                   collectionId: model.id
+                                    collectionId: model.id,
+                                    acceptDestination: acceptDestination
                                })
+                collectionPage.selectWaypoint.connect(selectWaypoint);
+                collectionPage.selectWay.connect(selectWay);
             }
             menu: ContextMenu {
                 MenuItem {
