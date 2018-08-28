@@ -109,7 +109,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
         case TypeRole: return "waypoint";
         case NameRole: return QString::fromStdString(waypoint.data.name.getOrElse(""));
         case DescriptionRole: return QString::fromStdString(waypoint.data.description.getOrElse(""));
-        case IdRole: return waypoint.id;
+        case IdRole: return QString::number(waypoint.id);
 
         case SymbolRole: return QString::fromStdString(waypoint.data.symbol.getOrElse(""));
         case LatitudeRole: return waypoint.data.coord.GetLat();
@@ -127,7 +127,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
         case TypeRole: return "track";
         case NameRole: return track.name;
         case DescriptionRole: return track.description;
-        case IdRole: return track.id;
+        case IdRole: return QString::number(track.id);
 
         case TimeRole: return track.creationTime;
         case DistanceRole: return track.statistics.distance.AsMeter();
@@ -168,9 +168,13 @@ Qt::ItemFlags CollectionModel::flags(const QModelIndex &index) const
   return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
-void CollectionModel::setCollectionId(qint64 id)
+void CollectionModel::setCollectionId(QString id)
 {
-  collection.id = id;
+  bool ok;
+  collection.id = id.toLongLong(&ok);
+  if (!ok)
+    collection.id = -1;
+
   emit collectionDetailRequest(collection);
 }
 

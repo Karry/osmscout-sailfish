@@ -30,31 +30,37 @@
 class CollectionTrackModel : public QObject {
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
-  Q_PROPERTY(qint64 trackId READ getTrackId WRITE setTrackId NOTIFY loadingChanged)
+  Q_PROPERTY(QString trackId READ getTrackId WRITE setTrackId NOTIFY loadingChanged)
   Q_PROPERTY(QString name READ getName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY loadingChanged)
   Q_PROPERTY(double distance READ getDistance NOTIFY loadingChanged)
+  Q_PROPERTY(QObject *boundingBox READ getBBox NOTIFY bboxChanged)
+  Q_PROPERTY(int segmentCount READ getSegmentCount NOTIFY loadingChanged)
 
 signals:
   void loadingChanged();
+  void bboxChanged();
   void trackDataRequest(Track track);
 
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
-  void onTrackDataLoaded(Track track, bool ok);
+  void onTrackDataLoaded(Track track, bool complete, bool ok);
 
 public:
   CollectionTrackModel();
   ~CollectionTrackModel(){};
 
   bool isLoading() const;
-  qint64 getTrackId() const;
-  void setTrackId(qint64 id);
+  QString getTrackId() const;
+  void setTrackId(QString id);
 
   QString getName() const;
   QString getDescription() const;
   double getDistance() const;
+  QObject *getBBox() const;
+  int getSegmentCount() const;
+  Q_INVOKABLE QObject* createOverlayForSegment(int segment);
 
 private:
   bool loading{false};

@@ -148,6 +148,13 @@ bool Storage::updateSchema(){
     sql.append(",").append( "`open` tinyint(1) NOT NULL");
     sql.append(",").append( "`creation_time` datetime NOT NULL");
     sql.append(",").append( "`distance` double NOT NULL");
+
+    // bbox
+    sql.append(",").append( "`bbox_min_lat` double NOT NULL");
+    sql.append(",").append( "`bbox_min_lon` double NOT NULL");
+    sql.append(",").append( "`bbox_max_lat` double NOT NULL");
+    sql.append(",").append( "`bbox_max_lon` double NOT NULL");
+
     sql.append(");");
 
     QSqlQuery q = db.exec(sql);
@@ -306,10 +313,25 @@ void Storage::loadCollections()
   emit collectionsLoaded(result, true);
 }
 
+Track Storage::makeTrack(QSqlQuery &sqlTrack) const
+{
+  return Track(varToLong(sqlTrack.value("id")),
+               varToLong(sqlTrack.value("collection_id")),
+               varToString(sqlTrack.value("name")),
+               varToString(sqlTrack.value("description")),
+               varToBool(sqlTrack.value("open")),
+               varToDateTime(sqlTrack.value("creation_time")),
+               osmscout::Distance::Of<osmscout::Meter>(varToDouble(sqlTrack.value("distance"))),
+               osmscout::GeoBox(osmscout::GeoCoord(varToDouble(sqlTrack.value("bbox_min_lat")),
+                                                   varToDouble(sqlTrack.value("bbox_min_lon"))),
+                                osmscout::GeoCoord(varToDouble(sqlTrack.value("bbox_max_lat")),
+                                                   varToDouble(sqlTrack.value("bbox_max_lon")))));
+}
+
 std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
 {
   QSqlQuery sqlTrack(db);
-  sqlTrack.prepare("SELECT `id`, `name`, `description`, `open`, `creation_time`, `distance` FROM `track` WHERE collection_id = :collectionId;");
+  sqlTrack.prepare("SELECT * FROM `track` WHERE collection_id = :collectionId;");
   sqlTrack.bindValue(":collectionId", collectionId);
   sqlTrack.exec();
 
@@ -321,15 +343,7 @@ std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
 
   std::shared_ptr<std::vector<Track>> result = std::make_shared<std::vector<Track>>();
   while (sqlTrack.next()) {
-    result->emplace_back(
-      varToLong(sqlTrack.value("id")),
-      collectionId,
-      varToString(sqlTrack.value("name")),
-      varToString(sqlTrack.value("description")),
-      varToBool(sqlTrack.value("open")),
-      varToDateTime(sqlTrack.value("creation_time")),
-      osmscout::Distance::Of<osmscout::Meter>(varToDouble(sqlTrack.value("distance")))
-    );
+    result->emplace_back(makeTrack(sqlTrack));
   }
   return result;
 }
@@ -432,9 +446,31 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
 void Storage::loadTrackData(Track track)
 {
   if (!checkAccess("loadTrackData")){
-    emit trackDataLoaded(track, false);
+    emit trackDataLoaded(track, true, false);
     return;
   }
+
+  QSqlQuery sqlTrack(db);
+  sqlTrack.prepare("SELECT * FROM `track` WHERE id = :trackId;");
+  sqlTrack.bindValue(":trackId", track.id);
+  sqlTrack.exec();
+
+  if (sqlTrack.lastError().isValid()) {
+    qWarning() << "Loading tracks id" << track.id << "fails: " << sqlTrack.lastError();
+    emit error(tr("Loading tracks id %1 fails").arg(track.id));
+    emit trackDataLoaded(track, true, false);
+    return;
+  }
+
+  if (!sqlTrack.next()) {
+    qWarning() << "Tracks id" << track.id << "don't exists";
+    emit error(tr("Tracks id %1 don't exists").arg(track.id));
+    emit trackDataLoaded(track, true, false);
+    return;
+  }
+  track = makeTrack(sqlTrack);
+
+  emit trackDataLoaded(track, false, true);
 
   track.data = std::make_shared<gpx::Track>();
 
@@ -457,7 +493,7 @@ void Storage::loadTrackData(Track track)
     }
   }
 
-  emit trackDataLoaded(track, true);
+  emit trackDataLoaded(track, true, true);
 }
 
 void Storage::updateOrCreateCollection(Collection collection)
@@ -565,13 +601,31 @@ bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 coll
   }
   return true;
 }
+TrackStatistics Storage::computeTrackStatistics(const osmscout::gpx::Track &trk) const
+{
+  GeoBox bbox;
+  for (const auto &seg:trk.segments){
+    for (const auto &p:seg.points){
+      bbox.Include(GeoBox(p.coord, p.coord));
+    }
+  }
+  return TrackStatistics(trk.GetLength(), bbox);
+}
 
 bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collectionId)
 {
   int trkNum = 0;
   QSqlQuery sqlTrk(db);
   QSqlQuery sqlSeg(db);
-  sqlTrk.prepare("INSERT INTO `track` (`collection_id`, `name`, `description`, `open`, `creation_time`, `distance`) VALUES (:collection_id, :name, :description, :open, :creation_time, :distance)");
+  sqlTrk.prepare(QString("INSERT INTO `track` (")
+    .append("`collection_id`, `name`, `description`, `open`, `creation_time`, ")
+    .append("`distance`, `bbox_min_lat`, `bbox_min_lon`, `bbox_max_lat`, `bbox_max_lon`")
+    .append(") ")
+    .append("VALUES (")
+    .append(":collection_id, :name, :description, :open, :creation_time, ")
+    .append(":distance, :bboxMinLat, :bboxMinLon, :bboxMaxLat, :bboxMaxLon")
+    .append(")"));
+
   sqlSeg.prepare("INSERT INTO `track_segment` (`track_id`, `open`, `creation_time`, `distance`) VALUES (:track_id, :open, :creation_time, :distance)");
   for (const auto &trk: gpxFile.tracks){
     trkNum++;
@@ -587,8 +641,14 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
     sqlTrk.bindValue(":open", false);
 
     // TODO: compute statistics (time, distance...)
+    TrackStatistics stat = computeTrackStatistics(trk);
     sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
-    sqlTrk.bindValue(":distance", 0);
+    sqlTrk.bindValue(":distance", stat.distance.AsMeter());
+
+    sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
+    sqlTrk.bindValue(":bboxMinLon", stat.bbox.GetMinLon());
+    sqlTrk.bindValue(":bboxMaxLat", stat.bbox.GetMaxLat());
+    sqlTrk.bindValue(":bboxMaxLon", stat.bbox.GetMaxLon());
 
     sqlTrk.exec();
     if (sqlTrk.lastError().isValid()) {
@@ -605,7 +665,7 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
 
       // TODO: compute statistics (time, distance...)
       sqlSeg.bindValue(":creation_time", QDateTime::currentDateTime());
-      sqlSeg.bindValue(":distance", 0);
+      sqlSeg.bindValue(":distance", seg.GetLength().AsMeter());
       sqlSeg.exec();
       if (sqlSeg.lastError().isValid()) {
         qWarning() << "Import of segments failed" << sqlSeg.lastError();

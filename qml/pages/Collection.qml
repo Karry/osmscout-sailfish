@@ -29,9 +29,9 @@ import "../custom"
 
 Page {
     id: collectionPage
-    property int collectionId: -1
+    property string collectionId: "-1"
     signal selectWaypoint(double lat, double lon)
-    signal selectWay(LocationEntry selectWay);
+    signal selectTrack(LocationEntry bbox, var trackId);
     property var acceptDestination;
 
     CollectionModel {
@@ -122,12 +122,11 @@ Page {
                 }else{
                     var wayPage = pageStack.push(Qt.resolvedUrl("CollectionTrack.qml"),
                                    {
-                                        collectionId: model.id,
                                         trackId: model.id,
                                         acceptPage: acceptDestination
                                    })
 
-                    wayPage.selectWay.connect(selectWay);
+                    wayPage.selectTrack.connect(selectTrack);
                 }
             }
             menu: ContextMenu {

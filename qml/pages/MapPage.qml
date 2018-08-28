@@ -34,7 +34,7 @@ Page {
 
     signal selectLocation(LocationEntry location)
     signal showWaypoint(double lat, double lon)
-    signal showWay(LocationEntry selectWay);
+    signal showTrack(LocationEntry bbox, var trackId);
 
     onSelectLocation: {
         console.log("selectLocation: " + location);
@@ -46,8 +46,9 @@ Page {
         map.showCoordinates(lat, lon);
         drawer.open = false;
     }
-    onShowWay: {
-        console.log("TODO: show Way");
+    onShowTrack: {
+        console.log("TODO: show Track "+ trackId);
+        map.showLocation(bbox);
         drawer.open = false;
     }
 
@@ -208,7 +209,7 @@ Page {
                                                                 acceptDestination: mapPage
                                                             });
                         collectionsPage.selectWaypoint.connect(showWaypoint);
-                        collectionsPage.selectWay.connect(showWay);
+                        collectionsPage.selectTrack.connect(showTrack);
                     }else{
                         console.log("TODO: "+ action)
                     }

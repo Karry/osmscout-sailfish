@@ -31,7 +31,7 @@ Page {
     id: collectionListPage
 
     signal selectWaypoint(double lat, double lon)
-    signal selectWay(LocationEntry way);
+    signal selectTrack(LocationEntry bbox, var trackId);
     property var acceptDestination;
 
     CollectionListModel {
@@ -106,7 +106,7 @@ Page {
                                     acceptDestination: acceptDestination
                                })
                 collectionPage.selectWaypoint.connect(selectWaypoint);
-                collectionPage.selectWay.connect(selectWay);
+                collectionPage.selectTrack.connect(selectTrack);
             }
             menu: ContextMenu {
                 MenuItem {

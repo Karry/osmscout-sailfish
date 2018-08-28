@@ -106,7 +106,7 @@ QVariant CollectionListModel::data(const QModelIndex &index, int role) const
   switch(role){
     case NameRole: return collection.name;
     case DescriptionRole: return collection.description;
-    case IdRole: return collection.id;
+    case IdRole: return QString::number(collection.id);
   }
   return QVariant();
 }

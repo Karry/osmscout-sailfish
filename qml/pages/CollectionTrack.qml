@@ -26,31 +26,49 @@ import QtQml.Models 2.1
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 Dialog{
     id: trackDialog
 
-    property string name;
-    property string description;
-    signal selectWay(LocationEntry selectWay);
+    signal selectTrack(LocationEntry bbox, var trackId);
     property var acceptPage;
     property var trackId;
 
     acceptDestination: trackDialog.acceptPage
     acceptDestinationAction: PageStackAction.Pop
+
+    canAccept: !trackModel.loading
     onAccepted: {
-        // TODO
-        selectWay(null);
+        selectTrack(trackModel.boundingBox, trackId);
     }
 
     CollectionTrackModel{
-        id: wayModel
+        id: trackModel
         trackId: trackDialog.trackId
+
+        onBoundingBoxChanged: {
+           wayPreviewMap.showLocation(trackModel.boundingBox);
+        }
+
+        onLoadingChanged: {
+            console.log("loading chagned: " + loading+ " segments: "+trackModel.segmentCount);
+            if (!loading){
+                var cnt=trackModel.segmentCount;
+                for (var segment=0; segment<cnt; segment++){
+                    var obj=trackModel.createOverlayForSegment(segment);
+                    obj.type="_highlighted";
+                    console.log("add overlay for segment "+segment+": "+obj);
+                    //console.log("object "+row+": "+obj);
+                    wayPreviewMap.addOverlayObject(segment, obj);
+                }
+            }
+        }
     }
 
     DialogHeader {
         id: trackDialogheader
-        //title: trackDialog.name
+        title: trackModel.name
         acceptText : qsTr("Show")
         //cancelText : qsTr("Cancel")
     }
@@ -70,22 +88,21 @@ Dialog{
 
             dock: trackDialog.isPortrait ? Dock.Top : Dock.Left
             open: true
-            backgroundSize: trackDialog.isPortrait ? drawer.height * 0.6 : drawer.width * 0.6
+            backgroundSize: trackDialog.isPortrait ? (trackDialog.height * 0.5) - trackDialogheader.height : drawer.width * 0.5
 
             background:  Rectangle{
 
                 anchors.fill: parent
                 color: "transparent"
 
-                /*
                 OpacityRampEffect {
                     //enabled: !placeLocationComboBox._menuOpen //true
                     offset: 1 - 1 / slope
-                    slope: locationInfoView.height / (Theme.paddingLarge * 4)
+                    slope: flickable.height / (Theme.paddingLarge * 4)
                     direction: 2
-                    sourceItem: locationInfoView
+                    sourceItem: flickable
                 }
-                */
+
                 SilicaFlickable{
                     id: flickable
                     anchors.fill: parent
@@ -94,13 +111,26 @@ Dialog{
                     VerticalScrollDecorator {}
 
                     Column {
+                        x: Theme.paddingMedium
+                        width: parent.width - 2*Theme.paddingMedium
+
                         Label {
-                            text: trackDialog.description
-                            x: Theme.paddingMedium
-                            width: parent.width - 2*Theme.paddingMedium
-                            //visible: text != ""
+                            text: trackModel.description
+                            visible: text != ""
                             color: Theme.secondaryColor
+                            width: parent.width
                             wrapMode: Text.WordWrap
+                        }
+                        DetailItem {
+                            id: distanceItem
+                            label: qsTrId("Distance")
+                            value: trackModel.distance < 0 ? "?" :Utils.humanDistance(trackModel.distance)
+                        }
+                        Rectangle {
+                            id: footer
+                            color: "transparent"
+                            width: parent.width
+                            height: 2*Theme.paddingLarge
                         }
                     }
                 }
@@ -115,7 +145,7 @@ Dialog{
     }
     BusyIndicator {
         id: busyIndicator
-        running: wayModel.loading
+        running: trackModel.loading
         size: BusyIndicatorSize.Large
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter

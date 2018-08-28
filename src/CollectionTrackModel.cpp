@@ -17,7 +17,11 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+#include <osmscout/LocationEntry.h>
+#include <osmscout/OverlayObject.h>
 #include "CollectionTrackModel.h"
+
+using namespace osmscout;
 
 CollectionTrackModel::CollectionTrackModel()
 {
@@ -35,8 +39,8 @@ CollectionTrackModel::CollectionTrackModel()
             storage, SLOT(loadTrackData(Track)),
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(trackDataLoaded(Track, bool)),
-            this, SLOT(onTrackDataLoaded(Track, bool)),
+    connect(storage, SIGNAL(trackDataLoaded(Track, bool, bool)),
+            this, SLOT(onTrackDataLoaded(Track, bool, bool)),
             Qt::QueuedConnection);
   }
 }
@@ -60,14 +64,17 @@ bool CollectionTrackModel::isLoading() const
   return loading;
 }
 
-qint64 CollectionTrackModel::getTrackId() const
+QString CollectionTrackModel::getTrackId() const
 {
-  return track.id;
+  return QString::number(track.id);
 }
 
-void CollectionTrackModel::setTrackId(qint64 id)
+void CollectionTrackModel::setTrackId(QString id)
 {
-  track.id = id;
+  bool ok;
+  track.id = id.toLongLong(&ok);
+  if (!ok)
+    track.id = -1;
   storageInitialised();
 }
 
@@ -86,9 +93,48 @@ double CollectionTrackModel::getDistance() const
   return track.statistics.distance.AsMeter();
 }
 
-void CollectionTrackModel::onTrackDataLoaded(Track track, bool /*ok*/)
+QObject *CollectionTrackModel::getBBox() const
 {
-  loading = false;
+  // QML will take ownership
+  return new LocationEntry(LocationEntry::Type::typeNone,
+                           "bbox",
+                           "bbox",
+                           QStringList(),
+                           "",
+                           track.statistics.bbox.GetCenter(),
+                           track.statistics.bbox);
+}
+
+void CollectionTrackModel::onTrackDataLoaded(Track track, bool complete, bool /*ok*/)
+{
+  loading = !complete;
+  GeoBox originalBox = this->track.statistics.bbox;
   this->track = track;
+  if (originalBox.IsValid() != track.statistics.bbox.IsValid() ||
+      originalBox.GetMinCoord() != track.statistics.bbox.GetMinCoord() ||
+      originalBox.GetMaxCoord() != track.statistics.bbox.GetMaxCoord() ){
+    emit bboxChanged();
+  }
   emit loadingChanged();
+}
+
+int CollectionTrackModel::getSegmentCount() const
+{
+  return track.data ? track.data->segments.size() : 0;
+}
+
+QObject* CollectionTrackModel::createOverlayForSegment(int segment)
+{
+  if (!track.data)
+    return nullptr;
+  if (segment < 0 || (size_t)segment >= track.data->segments.size())
+    return nullptr;
+
+  gpx::TrackSegment &seg = track.data->segments[segment];
+  std::vector<osmscout::Point> points;
+  points.reserve(seg.points.size());
+  for (auto const &p:seg.points){
+    points.emplace_back(0, p.coord);
+  }
+  return new OverlayWay(points);
 }

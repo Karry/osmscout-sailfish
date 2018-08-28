@@ -30,7 +30,7 @@ class CollectionModel : public QAbstractListModel {
 
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
-  Q_PROPERTY(qint64 collectionId READ getCollectionId WRITE setCollectionId)
+  Q_PROPERTY(QString collectionId READ getCollectionId WRITE setCollectionId)
   Q_PROPERTY(QString name READ getCollectionName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getCollectionDescription NOTIFY loadingChanged)
 
@@ -73,12 +73,12 @@ public:
   virtual QHash<int, QByteArray> roleNames() const;
   Q_INVOKABLE virtual Qt::ItemFlags flags(const QModelIndex &index) const;
 
-  qint64 getCollectionId() const
+  QString getCollectionId() const
   {
-    return collection.id;
+    return QString::number(collection.id);
   }
 
-  void setCollectionId(qint64 id);
+  void setCollectionId(QString id);
 
   bool isLoading() const;
   QString getCollectionName() const;

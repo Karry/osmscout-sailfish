@@ -22,6 +22,8 @@
 #include <osmscout/gpx/Track.h>
 #include <osmscout/gpx/Waypoint.h>
 #include <osmscout/gpx/Utils.h>
+#include <osmscout/gpx/GpxFile.h>
+#include <osmscout/util/GeoBox.h>
 
 #include <QObject>
 
@@ -31,7 +33,6 @@
 #include <QtCore/QDateTime>
 
 #include <atomic>
-#include <osmscout/gpx/GpxFile.h>
 
 class ErrorCallback: public QObject, public osmscout::gpx::ProcessCallback
 {
@@ -52,20 +53,35 @@ class TrackStatistics
 {
 public:
   TrackStatistics() = default;
-  TrackStatistics(const osmscout::Distance &distance):
-    distance(distance)
+
+  TrackStatistics(const osmscout::Distance &distance,
+                  const osmscout::GeoBox &bbox):
+    distance(distance), bbox(bbox)
+  {};
+
+  TrackStatistics(const TrackStatistics &o):
+    distance(o.distance), bbox(o.bbox)
   {};
 
 public:
   osmscout::Distance distance;
+  osmscout::GeoBox   bbox;
 };
 
 class Track
 {
 public:
   Track() = default;
-  Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,  QDateTime creationTime, const osmscout::Distance &distance
-  ): id(id), collectionId(collectionId), name(name), description(description), open(open), creationTime(creationTime), statistics(distance)
+  Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,  QDateTime creationTime,
+        const osmscout::Distance &distance,
+        const osmscout::GeoBox &bbox):
+    id(id), collectionId(collectionId), name(name), description(description), open(open), creationTime(creationTime),
+    statistics(distance, bbox)
+  {};
+
+  Track(const Track &o):
+    id(o.id), collectionId(o.collectionId), name(o.name), description(o.description), open(o.open), creationTime(o.creationTime),
+    statistics(o.statistics), data(o.data)
   {};
 
 public:
@@ -134,7 +150,7 @@ signals:
 
   void collectionsLoaded(std::vector<Collection> collections, bool ok);
   void collectionDetailsLoaded(Collection collection, bool ok);
-  void trackDataLoaded(Track track, bool ok);
+  void trackDataLoaded(Track track, bool complete, bool ok);
   void error(QString);
 
 public slots:
@@ -200,6 +216,7 @@ public:
   static void clearInstance();
 
 private:
+  Track makeTrack(QSqlQuery &sqlTrack) const;
   std::shared_ptr<std::vector<Track>> loadTracks(qint64 collectionId);
   std::shared_ptr<std::vector<Waypoint>> loadWaypoints(qint64 collectionId);
   void loadTrackPoints(qint64 segmentId, osmscout::gpx::TrackSegment &segment);
@@ -207,6 +224,7 @@ private:
   bool importWaypoints(const osmscout::gpx::GpxFile &file, qint64 collectionId);
   bool importTracks(const osmscout::gpx::GpxFile &file, qint64 collectionId);
   bool importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &points, qint64 segId);
+  TrackStatistics computeTrackStatistics(const osmscout::gpx::Track &trk) const;
 
 private :
   QSqlDatabase db;
