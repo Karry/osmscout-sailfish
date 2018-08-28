@@ -120,9 +120,10 @@ Page {
                     wptPreviewMap.addOverlayObject(0, wpt);
                     waypointDialog.open();
                 }else{
-                    var wayPage = pageStack.push(Qt.resolvedUrl("CollectionWay.qml"),
+                    var wayPage = pageStack.push(Qt.resolvedUrl("CollectionTrack.qml"),
                                    {
                                         collectionId: model.id,
+                                        trackId: model.id,
                                         acceptPage: acceptDestination
                                    })
 
@@ -184,6 +185,14 @@ Page {
                     console.log("TODO: Export")
                 }
             }
+        }
+
+        BusyIndicator {
+            id: busyIndicator
+            running: collectionModel.loading
+            size: BusyIndicatorSize.Large
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
         }
     }
 

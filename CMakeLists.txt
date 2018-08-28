@@ -237,17 +237,11 @@ set(HEADER_FILES
     src/Storage.h
     src/CollectionModel.h
     src/CollectionListModel.h
-    src/QVariantConverters.h)
+    src/QVariantConverters.h src/CollectionTrackModel.h)
 
-set(SOURCE_FILES
-    src/AppSettings.cpp
-    src/OSMScout.cpp
-    src/Storage.cpp
-    src/CollectionModel.cpp
-    src/CollectionListModel.cpp
-
-    # keep qml files in source list - it makes qtcreator happy
-    # find qml -type f
+# keep qml files in source list - it makes qtcreator happy
+# find qml -type f
+set(QML_FILES
     qml/AboutDialog.qml
     qml/SearchDialog.qml
     qml/custom/DialogActionButton.qml
@@ -281,11 +275,18 @@ set(SOURCE_FILES
     qml/pages/RouteDescription.qml
     qml/pages/Collections.qml
     qml/pages/Collection.qml
-    qml/pages/CollectionWay.qml
+    qml/pages/CollectionTrack.qml
     qml/main.qml
     qml/l10n.qml
-    qml/desktop.qml
-    )
+    qml/desktop.qml)
+
+set(SOURCE_FILES
+    src/AppSettings.cpp
+    src/OSMScout.cpp
+    src/Storage.cpp
+    src/CollectionModel.cpp
+    src/CollectionListModel.cpp
+    src/CollectionTrackModel.cpp)
 
 # XML files with translated phrases.
 # You can add new language translation just by adding new entry here, and run build.
@@ -310,8 +311,7 @@ set(TRANSLATION_TS_FILES
 # source files that may contains translatable phrases (see tr, qsTr, QT_TRANSLATE_NOOP functions)
 set(TRANSLATION_SOURCE_FILES
         ${SOURCE_FILES}
-        src/OSMScout.cpp
-        src/Storage.cpp
+        ${QML_FILES}
         dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp
         )
 
@@ -330,7 +330,7 @@ qt5_create_translation(TRANSLATION_QM_FILES
 
 add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 
-add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${QML_FILES})
 set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 11)
 add_dependencies(harbour-osmscout translations)
 

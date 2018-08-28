@@ -58,6 +58,7 @@
 #include "Storage.h"
 #include "CollectionModel.h"
 #include "CollectionListModel.h"
+#include "CollectionTrackModel.h"
 
 #include <harbour-osmscout/private/Config.h>
 
@@ -110,6 +111,7 @@ int main(int argc, char* argv[])
 
   qmlRegisterType<CollectionListModel>("harbour.osmscout.map", 1, 0, "CollectionListModel");
   qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");
+  qmlRegisterType<CollectionTrackModel>("harbour.osmscout.map", 1, 0, "CollectionTrackModel");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 
