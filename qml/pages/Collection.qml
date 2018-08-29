@@ -111,13 +111,13 @@ Page {
                     waypointDialog.latitude = model.latitude;
                     waypointDialog.longitude = model.longitude;
 
-                    wptPreviewMap.removeAllOverlayObjects();
-                    wptPreviewMap.showCoordinatesInstantly(model.latitude, model.longitude);
+                    waypointDialog.previewMap.removeAllOverlayObjects();
+                    waypointDialog.previewMap.showCoordinatesInstantly(model.latitude, model.longitude);
 
-                    var wpt = wptPreviewMap.createOverlayNode("_waypoint");
+                    var wpt = waypointDialog.previewMap.createOverlayNode("_waypoint");
                     wpt.addPoint(model.latitude, model.longitude);
                     wpt.name = model.name;
-                    wptPreviewMap.addOverlayObject(0, wpt);
+                    waypointDialog.previewMap.addOverlayObject(0, wpt);
                     waypointDialog.open();
                 }else{
                     var wayPage = pageStack.push(Qt.resolvedUrl("CollectionTrack.qml"),
@@ -195,43 +195,7 @@ Page {
         }
     }
 
-    Dialog{
+    CollectionWaypoint{
         id: waypointDialog
-
-        property string name;
-        property string description;
-        property double latitude;
-        property double longitude;
-
-        acceptDestination: collectionPage.acceptDestination
-        acceptDestinationAction: PageStackAction.Pop
-        onAccepted: {
-            selectWaypoint(latitude, longitude);
-        }
-        DialogHeader {
-            id: waypointDialogheader
-            title: waypointDialog.name
-            acceptText : qsTr("Show")
-            //cancelText : qsTr("Cancel")
-
-            Label {
-                text: waypointDialog.description
-                x: Theme.paddingMedium
-                width: parent.width - 2*Theme.paddingMedium
-                //visible: text != ""
-                color: Theme.secondaryColor
-                wrapMode: Text.WordWrap
-            }
-        }
-        MapComponent{
-            id: wptPreviewMap
-            anchors{
-                top: waypointDialogheader.bottom
-                right: parent.right
-                left: parent.left
-                bottom: parent.bottom
-            }
-            showCurrentPosition: true
-        }
     }
 }

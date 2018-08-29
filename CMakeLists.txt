@@ -277,6 +277,7 @@ set(QML_FILES
     qml/pages/Collections.qml
     qml/pages/Collection.qml
     qml/pages/CollectionTrack.qml
+    qml/pages/CollectionWaypoint.qml
     qml/pages/NewWaypoint.qml
     qml/main.qml
     qml/l10n.qml
