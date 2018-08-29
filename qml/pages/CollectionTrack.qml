@@ -96,7 +96,6 @@ Dialog{
                 color: "transparent"
 
                 OpacityRampEffect {
-                    //enabled: !placeLocationComboBox._menuOpen //true
                     offset: 1 - 1 / slope
                     slope: flickable.height / (Theme.paddingLarge * 4)
                     direction: 2

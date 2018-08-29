@@ -204,6 +204,12 @@ public slots:
    */
   void deleteTrack(qint64 collectionId, qint64 trackId);
 
+  /**
+   * create waypoint
+   * emits collectionDetailsLoaded
+   */
+  void createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);

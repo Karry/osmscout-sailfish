@@ -260,6 +260,7 @@ set(QML_FILES
     qml/custom/LocationSelector.qml
     qml/custom/RoutingStep.qml
     qml/custom/RouteStepIcon.qml
+    qml/custom/CollectionEditDialog.qml
     qml/custom/Utils.js
     qml/pages/Cover.qml
     qml/pages/Search.qml
@@ -276,6 +277,7 @@ set(QML_FILES
     qml/pages/Collections.qml
     qml/pages/Collection.qml
     qml/pages/CollectionTrack.qml
+    qml/pages/NewWaypoint.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml)

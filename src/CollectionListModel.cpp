@@ -143,15 +143,27 @@ void CollectionListModel::createCollection(QString name, QString description)
   emit updateCollectionRequest(Collection(-1, name, description));
 }
 
-void CollectionListModel::deleteCollection(qint64 id)
+void CollectionListModel::deleteCollection(QString idStr)
 {
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
   collectionsLoaded=false;
   emit loadingChanged();
   emit deleteCollectionRequest(id);
 }
 
-void CollectionListModel::editCollection(qint64 id, QString name, QString description)
+void CollectionListModel::editCollection(QString idStr, QString name, QString description)
 {
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
   collectionsLoaded=false;
   emit loadingChanged();
   emit updateCollectionRequest(Collection(id, name, description));

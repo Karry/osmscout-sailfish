@@ -44,8 +44,8 @@ public slots:
   void storageInitialisationError(QString);
   void onCollectionsLoaded(std::vector<Collection> collections, bool ok);
   void createCollection(QString name, QString description);
-  void deleteCollection(qint64 id);
-  void editCollection(qint64 id, QString name, QString description);
+  void deleteCollection(QString id);
+  void editCollection(QString id, QString name, QString description);
   void importCollection(QString filePath);
 
 public:

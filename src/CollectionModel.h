@@ -39,13 +39,15 @@ signals:
   void collectionDetailRequest(Collection) const;
   void deleteWaypointRequest(qint64 collectionId, qint64 id);
   void deleteTrackRequest(qint64 collectionId, qint64 id);
+  void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
 
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
   void onCollectionDetailsLoaded(Collection collection, bool ok);
-  void deleteWaypoint(qint64 id);
-  void deleteTrack(qint64 id);
+  void createWaypoint(double lat, double lon, QString name, QString description);
+  void deleteWaypoint(QString id);
+  void deleteTrack(QString id);
 
 public:
   CollectionModel();

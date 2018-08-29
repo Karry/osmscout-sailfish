@@ -114,8 +114,8 @@ Page {
                     onClicked: {
                         console.log("Edit " + model.id + " " + model.name + ", " + model.description + "...");
                         editCollectionDialog.collectionId =  model.id;
-                        nameTextField.text = model.name;
-                        descriptionTextArea.text = model.description;
+                        editCollectionDialog.name = model.name;
+                        editCollectionDialog.description = model.description;
                         editCollectionDialog.open();
                         nameTextField.focus = true;
                     }
@@ -151,8 +151,8 @@ Page {
                 onClicked: {
                     console.log("Create new collection...")
                     editCollectionDialog.collectionId = -1;
-                    nameTextField.text = "";
-                    descriptionTextArea.text = "";
+                    editCollectionDialog.name = "";
+                    editCollectionDialog.description = "";
                     editCollectionDialog.open();
                     nameTextField.focus = true;
                 }
@@ -179,59 +179,7 @@ Page {
         }
     }
 
-    Dialog{
+    CollectionEditDialog {
         id: editCollectionDialog
-
-        property int collectionId: -1
-
-        onAccepted: {
-            if (collectionId < 0){
-                console.log("Create new collection: " + nameTextField.text + " / " + descriptionTextArea.text);
-                collectionListModel.createCollection(nameTextField.text, descriptionTextArea.text);
-            }else{
-                console.log("Edit collection " + collectionId + ": " + nameTextField.text + " / " + descriptionTextArea.text);
-                collectionListModel.editCollection(collectionId, nameTextField.text, descriptionTextArea.text);
-            }
-            parent.focus = true;
-        }
-        onRejected: {
-            parent.focus = true;
-        }
-
-        canAccept: nameTextField.text.length > 0
-
-        DialogHeader {
-            id: newCollectionheader
-            title: editCollectionDialog.collectionId < 0 ? qsTr("New collection"): qsTr("Edit collection")
-            //acceptText : qsTr("Accept")
-            //cancelText : qsTr("Cancel")
-        }
-
-        Column{
-            width: parent.width
-            anchors{
-                top: newCollectionheader.bottom
-            }
-
-            TextField {
-                id: nameTextField
-                width: parent.width
-                label: qsTr("Name")
-                placeholderText: qsTr("Name")
-                //horizontalAlignment: textAlignment
-                EnterKey.onClicked: {
-                    //text = "Return key pressed";
-                    descriptionTextArea.focus = true;
-                }
-            }
-
-            TextArea {
-                id: descriptionTextArea
-                width: parent.width
-                height: 300
-                label: qsTr("Description")
-                placeholderText: qsTr("Description")
-            }
-        }
     }
 }

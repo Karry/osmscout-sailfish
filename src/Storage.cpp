@@ -822,6 +822,33 @@ void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
   loadCollectionDetails(Collection(collectionId));
 }
 
+void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description)
+{
+  if (!checkAccess("deleteTrack")){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sqlWpt(db);
+  sqlWpt.prepare(
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `latitude`, `longitude`, `name`, `description`) VALUES (:collection_id, :timestamp, :latitude, :longitude, :name, :description)");
+
+  sqlWpt.bindValue(":collection_id", collectionId);
+  sqlWpt.bindValue(":timestamp", QDateTime::currentDateTime());
+  sqlWpt.bindValue(":latitude", lat);
+  sqlWpt.bindValue(":longitude", lon);
+  sqlWpt.bindValue(":name", name);
+  sqlWpt.bindValue(":description", (description.isEmpty() ? QVariant() : description));
+
+  sqlWpt.exec();
+  if (sqlWpt.lastError().isValid()) {
+    qWarning() << "Creation of waypoint failed" << sqlWpt.lastError();
+    emit error(tr("Creation of waypoint failed: %1").arg(sqlWpt.lastError().text()));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
 void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
 {
   if (!checkAccess("deleteTrack")){

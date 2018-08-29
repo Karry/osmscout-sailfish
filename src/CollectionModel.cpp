@@ -49,6 +49,10 @@ CollectionModel::CollectionModel()
     connect(this, SIGNAL(deleteTrackRequest(qint64, qint64)),
             storage, SLOT(deleteTrack(qint64, qint64)),
             Qt::QueuedConnection);
+
+    connect(this, SIGNAL(createWaypointRequest(qint64, double, double, QString, QString)),
+            storage, SLOT(createWaypoint(qint64, double, double, QString, QString)),
+            Qt::QueuedConnection);
   }
 }
 
@@ -193,15 +197,36 @@ QString CollectionModel::getCollectionDescription() const
   return collectionLoaded? collection.description : "";
 }
 
-void CollectionModel::deleteWaypoint(qint64 id)
+void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description)
 {
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit createWaypointRequest(collection.id, lat, lon, name, description);
+}
+
+void CollectionModel::deleteWaypoint(QString idStr)
+{
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+
   collectionLoaded = true;
   emit loadingChanged();
   emit deleteWaypointRequest(collection.id, id);
 }
 
-void CollectionModel::deleteTrack(qint64 id)
+void CollectionModel::deleteTrack(QString idStr)
 {
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+
   collectionLoaded = true;
   emit loadingChanged();
   emit deleteTrackRequest(collection.id, id);

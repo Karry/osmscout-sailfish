@@ -20,6 +20,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtPositioning 5.2
+import QtQml.Models 2.2
 
 import harbour.osmscout.map 1.0
 
@@ -376,11 +377,42 @@ Page {
 
             Row{
                 id : placeTools
-                width: osmNoteBtn.width+searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
+                width: waypointBtn.width+osmNoteBtn.width+searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
                 height: objectsBtn.height
                 anchors{
                     bottom: parent.bottom
                     right: parent.right
+                }
+
+                IconButton{
+                    id: waypointBtn
+
+                    DelegateModel {
+                        id: delegateModel
+                    }
+                    icon.source: "image://theme/icon-m-favorite"
+                    onClicked: {
+                        var address = "";
+                        if (locationInfoModel.ready){
+                            delegateModel.model = locationInfoModel;
+                            for (var row = 0; row < locationInfoModel.rowCount(); row++) {
+                                var item = delegateModel.items.get(row).model;
+                                if (item.address != ""){
+                                    address = item.address;
+                                    break;
+                                }
+                            }
+                        }
+                        console.log("add waypoint on address: " + address);
+
+                        pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
+                                      {
+                                        latitude: placeLat,
+                                        longitude: placeLon,
+                                        acceptDestination: mapPage,
+                                        description: address
+                                      });
+                    }
                 }
 
                 IconButton{
