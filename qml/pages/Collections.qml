@@ -113,11 +113,11 @@ Page {
                     text: qsTr("Edit")
                     onClicked: {
                         console.log("Edit " + model.id + " " + model.name + ", " + model.description + "...");
-                        editCollectionDialog.collectionId =  model.id;
+                        editCollectionDialog.collectionId = model.id;
                         editCollectionDialog.name = model.name;
                         editCollectionDialog.description = model.description;
                         editCollectionDialog.open();
-                        nameTextField.focus = true;
+                        //editCollectionDialog.nameTextField.focus = true;
                     }
                 }
                 MenuItem {
@@ -150,11 +150,11 @@ Page {
                 text: qsTr("Create new")
                 onClicked: {
                     console.log("Create new collection...")
-                    editCollectionDialog.collectionId = -1;
+                    editCollectionDialog.collectionId = "";
                     editCollectionDialog.name = "";
                     editCollectionDialog.description = "";
                     editCollectionDialog.open();
-                    nameTextField.focus = true;
+                    //editCollectionDialog.nameTextField.focus = true;
                 }
             }
         }
@@ -181,5 +181,22 @@ Page {
 
     CollectionEditDialog {
         id: editCollectionDialog
+
+        property string collectionId: ""
+        title: collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
+
+        onAccepted: {
+            if (collectionId.length == 0){
+                console.log("Create new collection: " + name + " / " + description);
+                collectionListModel.createCollection(name, description);
+            }else{
+                console.log("Edit collection " + collectionId + ": " + name + " / " + description);
+                collectionListModel.editCollection(collectionId, name, description);
+            }
+            parent.focus = true;
+        }
+        onRejected: {
+            parent.focus = true;
+        }
     }
 }

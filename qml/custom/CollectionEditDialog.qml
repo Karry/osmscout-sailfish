@@ -28,35 +28,24 @@ import harbour.osmscout.map 1.0
 Dialog{
     id: editCollectionDialog
 
-    property string collectionId: ""
     property alias name: nameTextField.text
     property alias description: descriptionTextArea.text
-
-    CollectionListModel {
-        id: collectionListModel
-    }
-
-    onAccepted: {
-        if (collectionId.length == 0){
-            console.log("Create new collection: " + nameTextField.text + " / " + descriptionTextArea.text);
-            collectionListModel.createCollection(nameTextField.text, descriptionTextArea.text);
-        }else{
-            console.log("Edit collection " + collectionId + ": " + nameTextField.text + " / " + descriptionTextArea.text);
-            collectionListModel.editCollection(collectionId, nameTextField.text, descriptionTextArea.text);
-        }
-        parent.focus = true;
-    }
-    onRejected: {
-        parent.focus = true;
-    }
+    property alias title: newCollectionheader.title
 
     canAccept: nameTextField.text.length > 0
 
     DialogHeader {
         id: newCollectionheader
-        title: editCollectionDialog.collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
+        //title: editCollectionDialog.collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
         //acceptText : qsTr("Accept")
         //cancelText : qsTr("Cancel")
+    }
+
+    onStatusChanged: {
+        console.log("dialog status: "+ editCollectionDialog.status);
+        if (editCollectionDialog.status == DialogStatus.Opening) {
+            nameTextField.focus = true;
+        }
     }
 
     Column{
