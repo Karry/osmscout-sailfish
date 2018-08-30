@@ -456,15 +456,15 @@ void Storage::loadTrackData(Track track)
   sqlTrack.exec();
 
   if (sqlTrack.lastError().isValid()) {
-    qWarning() << "Loading tracks id" << track.id << "fails: " << sqlTrack.lastError();
-    emit error(tr("Loading tracks id %1 fails").arg(track.id));
+    qWarning() << "Loading track id" << track.id << "fails: " << sqlTrack.lastError();
+    emit error(tr("Loading track id %1 fails").arg(track.id));
     emit trackDataLoaded(track, true, false);
     return;
   }
 
   if (!sqlTrack.next()) {
-    qWarning() << "Tracks id" << track.id << "don't exists";
-    emit error(tr("Tracks id %1 don't exists").arg(track.id));
+    qWarning() << "Track id" << track.id << "don't exists";
+    emit error(tr("Track id %1 don't exists").arg(track.id));
     emit trackDataLoaded(track, true, false);
     return;
   }

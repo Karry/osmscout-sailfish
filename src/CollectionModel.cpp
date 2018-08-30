@@ -62,6 +62,9 @@ CollectionModel::CollectionModel()
             storage, SLOT(editTrack(qint64, qint64, QString, QString)),
             Qt::QueuedConnection);
 
+    connect(storage, SIGNAL(error(QString)),
+            this, SIGNAL(error(QString)),
+            Qt::QueuedConnection);
   }
 }
 

@@ -34,10 +34,15 @@ Page {
     signal selectTrack(LocationEntry bbox, var trackId);
     property var acceptDestination;
 
+    RemorsePopup { id: remorse }
+
     CollectionListModel {
         id: collectionListModel
         onLoadingChanged: {
             console.log("onLoadingChanged: " + loading);
+        }
+        onError: {
+            remorse.execute(message, function() { }, 10 * 1000);
         }
     }
 

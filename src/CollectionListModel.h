@@ -37,7 +37,7 @@ signals:
   void updateCollectionRequest(Collection);
   void deleteCollectionRequest(qint64);
   void importCollectionRequest(QString);
-  void error(QString);
+  void error(QString message);
 
 public slots:
   void storageInitialised();

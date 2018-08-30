@@ -42,6 +42,7 @@ signals:
   void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
   void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void error(QString message);
 
 public slots:
   void storageInitialised();
