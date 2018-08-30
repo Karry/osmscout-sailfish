@@ -1,8 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="cs">
 <context>
-    <name/>
+    <name></name>
     <message id="Distance">
-        <source/>
+        <source></source>
         <translation>Vzdálenost</translation>
     </message>
 </context>
@@ -573,11 +575,11 @@
     </message>
     <message>
         <source>Loading tracks id %1 fails</source>
-        <translation>Nahrávání trasy id %1 selhalo</translation>
+        <translation type="vanished">Nahrávání trasy id %1 selhalo</translation>
     </message>
     <message>
         <source>Tracks id %1 don&apos;t exists</source>
-        <translation>Trasa id %1 neexistuje</translation>
+        <translation type="vanished">Trasa id %1 neexistuje</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
@@ -650,6 +652,14 @@
     <message>
         <source>Edit track failed: %1</source>
         <translation>Aktualizace trasy selhala: %1</translation>
+    </message>
+    <message>
+        <source>Loading track id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track id %1 don&apos;t exists</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
