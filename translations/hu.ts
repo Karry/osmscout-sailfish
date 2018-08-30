@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu">
 <context>
+    <name></name>
+    <message id="Distance">
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>About</name>
     <message>
         <source>OSM Scout %1</source>
@@ -73,6 +80,97 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Collection</name>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit track</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEditDialog</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CollectionTrack</name>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CollectionWaypoint</name>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Collections</name>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit collection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -315,7 +413,7 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Könyvjelzők</translation>
+        <translation type="vanished">Könyvjelzők</translation>
     </message>
     <message>
         <source>meters</source>
@@ -324,6 +422,33 @@
     <message>
         <source>km</source>
         <translation>km</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewWaypoint</name>
+    <message>
+        <source>New waypoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -444,6 +569,109 @@
     <message>
         <source>Via ferrata route</source>
         <translation>Vasút</translation>
+    </message>
+</context>
+<context>
+    <name>Storage</name>
+    <message>
+        <source>Loading tracks for collection id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading waypoints for collection id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading collection id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collection id %1 don&apos;t exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading nodes for segment id %1 failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading tracks id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracks id %1 don&apos;t exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading segments for track id %1 failed: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creating collection failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating collection failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting collection failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waypoint %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import of waypoints failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transaction commit failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>track %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import of tracks failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import of segments failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import of track points failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imported from %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid collection id: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting waypoint failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creation of waypoint failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit waypoint failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit track failed: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
