@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="cs">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
 <context>
-    <name></name>
+    <name/>
     <message id="Distance">
-        <source></source>
-        <translation type="unfinished"></translation>
+        <source/>
+        <translation>Vzdálenost</translation>
     </message>
 </context>
 <context>
@@ -87,91 +85,91 @@
     <name>Collection</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravit</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Smazat</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Mažu</translation>
+        <translation>Odstraňuji</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávám sbírky</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportovat</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravit místo</translation>
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravit trasu</translation>
     </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Popis</translation>
     </message>
 </context>
 <context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit</translation>
     </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit</translation>
     </message>
 </context>
 <context>
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravit</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Smazat</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Mažu</translation>
+        <translation>Odstraňuji</translation>
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Sbírky</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importovat</translation>
     </message>
     <message>
         <source>Create new</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvořit novou</translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nová sbírka</translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravit sbírku</translation>
     </message>
 </context>
 <context>
@@ -396,10 +394,6 @@
         <translation>Navigace</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation type="vanished">Oblíbená místa</translation>
-    </message>
-    <message>
         <source>meters</source>
         <translation>metrů</translation>
     </message>
@@ -409,30 +403,30 @@
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Sbírky</translation>
     </message>
 </context>
 <context>
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Nové místo</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí</translation>
     </message>
     <message>
         <source>Collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Sbírka</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Popis</translation>
     </message>
 </context>
 <context>
@@ -559,103 +553,103 @@
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávání trasy pro sbírku id %1 selhalo</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávání místa pro sbírku id %1 selhalo</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávání sbírky id %1 selhalo</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Sbírka id %1 neexistuje</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávání bodů pro segment id %1 selhalo: %2</translation>
     </message>
     <message>
         <source>Loading tracks id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávání trasy id %1 selhalo</translation>
     </message>
     <message>
         <source>Tracks id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasa id %1 neexistuje</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávání segmentů pro grasu id %1 selhalo: %2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytváření sbírky selhalo: %1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizace sbírky selhalo: %1</translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranění sbírky selhalo: %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation type="unfinished"></translation>
+        <translation>místo %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import míst selhal: %1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Commit transakce selhal: %1</translation>
     </message>
     <message>
         <source>track %1</source>
-        <translation type="unfinished"></translation>
+        <translation>trasa %1</translation>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import tras selhal: %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import segmentů selhal: %1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import bodů cesty selhal: %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Importováno z %1</translation>
     </message>
     <message>
         <source>Invalid collection id: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Neplatná id sbírky: %1</translation>
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranění místa selhalo: %1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvoření místa selhalo: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranění trasy selhalo: %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizace místa selhalo: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizace trasy selhala: %1</translation>
     </message>
 </context>
 <context>

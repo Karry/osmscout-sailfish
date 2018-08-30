@@ -574,14 +574,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Loading tracks id %1 fails</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tracks id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Loading segments for track id %1 failed: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -651,6 +643,14 @@
     </message>
     <message>
         <source>Edit track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading track id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track id %1 don&apos;t exists</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
