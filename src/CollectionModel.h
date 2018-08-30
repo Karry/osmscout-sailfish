@@ -40,6 +40,8 @@ signals:
   void deleteWaypointRequest(qint64 collectionId, qint64 id);
   void deleteTrackRequest(qint64 collectionId, qint64 id);
   void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
+  void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
 
 public slots:
   void storageInitialised();
@@ -48,6 +50,8 @@ public slots:
   void createWaypoint(double lat, double lon, QString name, QString description);
   void deleteWaypoint(QString id);
   void deleteTrack(QString id);
+  void editWaypoint(QString id, QString name, QString description);
+  void editTrack(QString id, QString name, QString description);
 
 public:
   CollectionModel();

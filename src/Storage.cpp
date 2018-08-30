@@ -871,6 +871,55 @@ void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
   loadCollectionDetails(Collection(collectionId));
 }
 
+void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString description)
+{
+  if (!checkAccess("editWaypoint")){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("UPDATE `waypoint` SET `name` = :name, description = :description WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.bindValue(":id", id);
+  sql.bindValue(":collection_id", collectionId);
+  sql.bindValue(":name", name);
+  sql.bindValue(":description", description);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Edit waypoint failed" << sql.lastError();
+    emit error(tr("Edit waypoint failed: %1").arg(sql.lastError().text()));
+    loadCollectionDetails(Collection(collectionId));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
+void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString description)
+{
+  if (!checkAccess("editTrack")){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("UPDATE `track` SET `name` = :name, description = :description WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.bindValue(":id", id);
+  sql.bindValue(":collection_id", collectionId);
+  sql.bindValue(":name", name);
+  sql.bindValue(":description", description);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Edit track failed" << sql.lastError();
+    emit error(tr("Edit track failed: %1").arg(sql.lastError().text()));
+    loadCollectionDetails(Collection(collectionId));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
+
 Storage::operator bool() const
 {
   return ok;

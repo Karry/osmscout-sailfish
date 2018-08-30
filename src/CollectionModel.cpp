@@ -53,6 +53,15 @@ CollectionModel::CollectionModel()
     connect(this, SIGNAL(createWaypointRequest(qint64, double, double, QString, QString)),
             storage, SLOT(createWaypoint(qint64, double, double, QString, QString)),
             Qt::QueuedConnection);
+
+    connect(this, SIGNAL(editWaypointRequest(qint64, qint64, QString, QString)),
+            storage, SLOT(editWaypoint(qint64, qint64, QString, QString)),
+            Qt::QueuedConnection);
+
+    connect(this, SIGNAL(editTrackRequest(qint64, qint64, QString, QString)),
+            storage, SLOT(editTrack(qint64, qint64, QString, QString)),
+            Qt::QueuedConnection);
+
   }
 }
 
@@ -230,5 +239,33 @@ void CollectionModel::deleteTrack(QString idStr)
   collectionLoaded = true;
   emit loadingChanged();
   emit deleteTrackRequest(collection.id, id);
+}
+
+void CollectionModel::editWaypoint(QString idStr, QString name, QString description)
+{
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit editWaypointRequest(collection.id, id, name, description);
+}
+
+void CollectionModel::editTrack(QString idStr, QString name, QString description)
+{
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit editTrackRequest(collection.id, id, name, description);
 }
 

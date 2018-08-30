@@ -210,6 +210,18 @@ public slots:
    */
   void createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description);
 
+  /**
+   * edit waypoint
+   * emits collectionDetailsLoaded
+   */
+  void editWaypoint(qint64 collectionId, qint64 id, QString name, QString description);
+
+  /**
+   * edit track
+   * emits collectionDetailsLoaded
+   */
+  void editTrack(qint64 collectionId, qint64 id, QString name, QString description);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);

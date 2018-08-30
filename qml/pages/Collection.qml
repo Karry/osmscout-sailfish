@@ -133,7 +133,12 @@ Page {
                 MenuItem {
                     text: qsTr("Edit")
                     onClicked: {
-                        console.log("TODO: Edit " + model.type + " " + model.id + " " + model.name + ", " + model.description + "...");
+                        console.log("Edit " + model.type + " " + model.id + " " + model.name + ", " + model.description + "...");
+                        editDialog.itemId = model.id;
+                        editDialog.itemType = model.type;
+                        editDialog.name = model.name;
+                        editDialog.description = model.description;
+                        editDialog.open();
                     }
                 }
                 MenuItem {
@@ -192,6 +197,28 @@ Page {
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+        }
+    }
+
+    CollectionEditDialog {
+        id: editDialog
+
+        property string itemType
+        property string itemId: ""
+        title: itemType == "waypoint" ? qsTr("Edit waypoint"): qsTr("Edit track")
+
+        onAccepted: {
+            if (itemType == "waypoint"){
+                console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
+                collectionModel.editWaypoint(itemId, name, description);
+            }else{
+                console.log("Edit track " + itemId + ": " + name + " / " + description);
+                collectionModel.editTrack(itemId, name, description);
+            }
+            parent.focus = true;
+        }
+        onRejected: {
+            parent.focus = true;
         }
     }
 
