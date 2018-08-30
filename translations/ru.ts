@@ -2,13 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
-    <name></name>
-    <message id="Distance">
-        <source></source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>About</name>
     <message>
         <source>OSM Scout %1</source>
@@ -129,6 +122,10 @@
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

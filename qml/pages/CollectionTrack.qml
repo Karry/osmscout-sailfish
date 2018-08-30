@@ -122,7 +122,7 @@ Dialog{
                         }
                         DetailItem {
                             id: distanceItem
-                            label: qsTrId("Distance")
+                            label: qsTr("Distance")
                             value: trackModel.distance < 0 ? "?" :Utils.humanDistance(trackModel.distance)
                         }
                         Rectangle {

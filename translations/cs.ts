@@ -5,7 +5,7 @@
     <name></name>
     <message id="Distance">
         <source></source>
-        <translation>Vzdálenost</translation>
+        <translation type="vanished">Vzdálenost</translation>
     </message>
 </context>
 <context>
@@ -130,6 +130,10 @@
     <message>
         <source>Show</source>
         <translation>Zobrazit</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Vzdálenost</translation>
     </message>
 </context>
 <context>
@@ -574,14 +578,6 @@
         <translation>Nahrávání bodů pro segment id %1 selhalo: %2</translation>
     </message>
     <message>
-        <source>Loading tracks id %1 fails</source>
-        <translation type="vanished">Nahrávání trasy id %1 selhalo</translation>
-    </message>
-    <message>
-        <source>Tracks id %1 don&apos;t exists</source>
-        <translation type="vanished">Trasa id %1 neexistuje</translation>
-    </message>
-    <message>
         <source>Loading segments for track id %1 failed: %2</source>
         <translation>Nahrávání segmentů pro grasu id %1 selhalo: %2</translation>
     </message>
@@ -655,11 +651,11 @@
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Načtení trasy id %1 selhalo</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasa id %1 neexistuje</translation>
     </message>
 </context>
 <context>
