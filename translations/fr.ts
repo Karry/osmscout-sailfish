@@ -52,8 +52,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>German: Pawel Spoon</source>
-        <translation>Allemand : Pawel Spoon</translation>
+        <source>German: Pawel Spoon, Uli M.</source>
+        <translation>Allemand : Pawel Spoon, Uli M.</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>

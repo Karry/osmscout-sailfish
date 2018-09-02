@@ -157,7 +157,7 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
-                    text: qsTr("German: Pawel Spoon, Uli M")
+                    text: qsTr("German: Pawel Spoon, Uli M.")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
                 }

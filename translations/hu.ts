@@ -52,8 +52,8 @@
         <translation>Norvég: Håvard Moen</translation>
     </message>
     <message>
-        <source>German: Pawel Spoon</source>
-        <translation>Német: Pawel Spoon</translation>
+        <source>German: Pawel Spoon, Uli M.</source>
+        <translation>Német: Pawel Spoon, Uli M.</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>

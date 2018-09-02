@@ -52,10 +52,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>German: Pawel Spoon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Spanish: Carlos Gonzalez</source>
         <translation type="unfinished"></translation>
     </message>
@@ -73,6 +69,10 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>German: Pawel Spoon, Uli M.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

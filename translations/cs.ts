@@ -2,13 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="cs">
 <context>
-    <name></name>
-    <message id="Distance">
-        <source></source>
-        <translation type="vanished">Vzdálenost</translation>
-    </message>
-</context>
-<context>
     <name>About</name>
     <message>
         <source>OSM Scout %1</source>
@@ -59,8 +52,8 @@
         <translation>Norština, Bokmål: Håvard Moen</translation>
     </message>
     <message>
-        <source>German: Pawel Spoon</source>
-        <translation>Němčina: Pawel Spoon</translation>
+        <source>German: Pawel Spoon, Uli M.</source>
+        <translation>Němčina: Pawel Spoon, Uli M.</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
