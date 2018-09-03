@@ -52,10 +52,6 @@
         <translation>Norska (Bokmål): Håvard Moen</translation>
     </message>
     <message>
-        <source>German: Pawel Spoon, Uli M.</source>
-        <translation>Tyska: Pawel Spoon, Uli M.</translation>
-    </message>
-    <message>
         <source>Spanish: Carlos Gonzalez</source>
         <translation>Spanska: Carlos Gonzalez</translation>
     </message>
@@ -74,6 +70,10 @@
     <message>
         <source>Russian: Вячеслав Диконов</source>
         <translation>Ryska: Вячеслав Диконов</translation>
+    </message>
+    <message>
+        <source>German: Pawel Spoon, Uli M.</source>
+        <translation>Tyska: Pawel Spoon, Uli M.</translation>
     </message>
 </context>
 <context>
