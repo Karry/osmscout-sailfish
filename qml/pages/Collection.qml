@@ -201,11 +201,13 @@ Page {
 
                 onClicked: {
                     console.log("Opening export dialog...")
-                    var dirs = collectionModel.getExportSuggestedDirectories();
-                    for (var i in dirs){
-                        var dir = dirs[i];
-                        console.log("Suggested dir: " + dir);
-                        directories.append({"dir": dir});
+                    if (directories.count == 0){
+                        var dirs = collectionModel.getExportSuggestedDirectories();
+                        for (var i in dirs){
+                            var dir = dirs[i];
+                            console.log("Suggested dir: " + dir);
+                            directories.append({"dir": dir});
+                        }
                     }
 
                     var exportPage = pageStack.push(Qt.resolvedUrl("CollectionExport.qml"),
