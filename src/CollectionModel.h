@@ -30,18 +30,22 @@ class CollectionModel : public QAbstractListModel {
 
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
+  Q_PROPERTY(bool exporting READ isExporting NOTIFY exportingChanged)
   Q_PROPERTY(QString collectionId READ getCollectionId WRITE setCollectionId)
   Q_PROPERTY(QString name READ getCollectionName NOTIFY loadingChanged)
+  Q_PROPERTY(QString filesystemName READ getCollectionFilesystemName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getCollectionDescription NOTIFY loadingChanged)
 
 signals:
-  void loadingChanged() const;
-  void collectionDetailRequest(Collection) const;
+  void loadingChanged();
+  void exportingChanged();
+  void collectionDetailRequest(Collection);
   void deleteWaypointRequest(qint64 collectionId, qint64 id);
   void deleteTrackRequest(qint64 collectionId, qint64 id);
   void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
   void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void exportCollectionRequest(qint64 collectionId, QString file);
   void error(QString message);
 
 public slots:
@@ -53,6 +57,8 @@ public slots:
   void deleteTrack(QString id);
   void editWaypoint(QString id, QString name, QString description);
   void editTrack(QString id, QString name, QString description);
+  void exportToFile(QString fileName, QString directory);
+  void onCollectionExported(bool);
 
 public:
   CollectionModel();
@@ -89,11 +95,16 @@ public:
 
   bool isLoading() const;
   QString getCollectionName() const;
+  QString getCollectionFilesystemName() const;
   QString getCollectionDescription() const;
+
+  bool isExporting();
+  Q_INVOKABLE QStringList getExportSuggestedDirectories();
 
 public:
   Collection collection;
   bool collectionLoaded{false};
+  bool collectionExporting{false};
 };
 
 #endif //OSMSCOUT_SAILFISH_COLLECTIONMODEL_H

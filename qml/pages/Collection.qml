@@ -190,15 +190,38 @@ Page {
         PullDownMenu {
             MenuItem {
                 text: qsTr("Export")
+
+                property ListModel directories: ListModel {}
+                signal exportCollection(string directory, string name)
+
+                onExportCollection: {
+                    console.log("Exporting to file " + name + " to " + directory);
+                    collectionModel.exportToFile(name, directory);
+                }
+
                 onClicked: {
-                    console.log("TODO: Export")
+                    console.log("Opening export dialog...")
+                    var dirs = collectionModel.getExportSuggestedDirectories();
+                    for (var i in dirs){
+                        var dir = dirs[i];
+                        console.log("Suggested dir: " + dir);
+                        directories.append({"dir": dir});
+                    }
+
+                    var exportPage = pageStack.push(Qt.resolvedUrl("CollectionExport.qml"),
+                                   {
+                                        name: collectionModel.filesystemName,
+                                        directories: directories
+                                   })
+
+                    exportPage.selected.connect(exportCollection);
                 }
             }
         }
 
         BusyIndicator {
             id: busyIndicator
-            running: collectionModel.loading
+            running: collectionModel.loading || collectionModel.exporting
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter

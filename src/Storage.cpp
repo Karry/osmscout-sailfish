@@ -919,6 +919,18 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   loadCollectionDetails(Collection(collectionId));
 }
 
+void Storage::exportCollection(qint64 collectionId, QString file)
+{
+  if (!checkAccess("exportCollection")){
+    emit collectionExported(false);
+    return;
+  }
+
+  qDebug() << "Exporting collection" << collectionId << "to" << file;
+
+  // TODO
+  emit collectionExported(false);
+}
 
 Storage::operator bool() const
 {

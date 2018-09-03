@@ -73,6 +73,10 @@ function humanDuration(seconds){
 }
 function humanDirectory(directory){
     return directory
+        .replace(/^\/home\/nemo$/i, qsTr("Home"))
+        .replace(/^\/home\/nemo\/Documents$/i, qsTr("Documents"))
+        .replace(/^\/media\/sdcard\/[^/]*$/i, qsTr("SD card"))
+        .replace(/^\/run\/media\/nemo\/[^/]*$/i, qsTr("SD card"))
         .replace(/^\/home\/nemo\//i, "[" + qsTr("Home") + "] ")
         .replace(/^\/media\/sdcard\/[^/]*\//i, "[" + qsTr("SD card") + "] ")
         .replace(/^\/run\/media\/nemo\/[^/]*\//i, "[" + qsTr("SD card") + "] ");

@@ -21,6 +21,8 @@
 #include "QVariantConverters.h"
 
 #include <QDebug>
+#include <QtCore/QStandardPaths>
+#include <QStorageInfo>
 
 CollectionModel::CollectionModel()
 {
@@ -60,6 +62,14 @@ CollectionModel::CollectionModel()
 
     connect(this, SIGNAL(editTrackRequest(qint64, qint64, QString, QString)),
             storage, SLOT(editTrack(qint64, qint64, QString, QString)),
+            Qt::QueuedConnection);
+
+    connect(this, SIGNAL(exportCollectionRequest(qint64, QString)),
+            storage, SLOT(exportCollection(qint64, QString)),
+            Qt::QueuedConnection);
+
+    connect(storage, SIGNAL(collectionExported(bool)),
+            this, SLOT(onCollectionExported(bool)),
             Qt::QueuedConnection);
 
     connect(storage, SIGNAL(error(QString)),
@@ -199,9 +209,24 @@ bool CollectionModel::isLoading() const
   return !collectionLoaded;
 }
 
+bool CollectionModel::isExporting()
+{
+  return collectionExporting;
+}
+
 QString CollectionModel::getCollectionName() const
 {
   return collectionLoaded? collection.name : "";
+}
+
+QString safeFileName(QString name)
+{
+  return name.replace(QRegExp("[" + QRegExp::escape( "\\/:*?\"<>|" ) + "]"), QString("_"));
+}
+
+QString CollectionModel::getCollectionFilesystemName() const
+{
+  return safeFileName(getCollectionName());
 }
 
 QString CollectionModel::getCollectionDescription() const
@@ -272,3 +297,48 @@ void CollectionModel::editTrack(QString idStr, QString name, QString description
   emit editTrackRequest(collection.id, id, name, description);
 }
 
+void CollectionModel::exportToFile(QString fileName, QString directory)
+{
+  QFileInfo dir(directory);
+  if (!dir.isDir() || !dir.isWritable()){
+    qWarning() << "Invalid export directory:" << dir.absoluteFilePath();
+    emit error(tr("Invalid export directory"));
+    return;
+  }
+  QString safeName = safeFileName(fileName);
+  if (safeName.isEmpty()){
+    qWarning() << "Invalid file name:" << fileName << "/" << safeName;
+    emit error(tr("Invalid file name"));
+    return;
+  }
+  QFileInfo file(QDir(dir.absoluteFilePath()), safeName + ".gpx");
+  collectionExporting = true;
+  emit exportingChanged();
+  emit exportCollectionRequest(collection.id, file.absoluteFilePath());
+}
+
+void CollectionModel::onCollectionExported(bool)
+{
+  collectionExporting = false;
+  emit exportingChanged();
+}
+
+QStringList CollectionModel::getExportSuggestedDirectories()
+{
+  QStringList result;
+  result << QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+  result << QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+
+  for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
+      if (storage.isValid() &&
+          storage.isReady() &&
+          !storage.isReadOnly() &&
+          ( // Sailfish OS specific mount point base for SD cards!
+            storage.rootPath().startsWith("/media") ||
+            storage.rootPath().startsWith("/run/media/") /* SFOS >= 2.2 */
+            )) {
+        result << storage.rootPath();
+      }
+  }
+  return result;
+}

@@ -151,6 +151,7 @@ signals:
   void collectionsLoaded(std::vector<Collection> collections, bool ok);
   void collectionDetailsLoaded(Collection collection, bool ok);
   void trackDataLoaded(Track track, bool complete, bool ok);
+  void collectionExported(bool success);
   void error(QString);
 
 public slots:
@@ -221,6 +222,11 @@ public slots:
    * emits collectionDetailsLoaded
    */
   void editTrack(qint64 collectionId, qint64 id, QString name, QString description);
+
+  /**
+   * emits collectionExported
+   */
+  void exportCollection(qint64 collectionId, QString file);
 
 public:
   Storage(QThread *thread,
