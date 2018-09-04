@@ -18,23 +18,6 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-// std
-#include <iostream>
-
-// Qt includes
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQuickView>
-#include <QStandardPaths>
-#include <QQmlContext>
-#include <QFileInfo>
-
-#ifdef QT_QML_DEBUG
-#include <QtQuick>
-#endif
-
-#include <sailfishapp/sailfishapp.h>
-
 // Custom QML objects
 #include <osmscout/MapWidget.h>
 #include <osmscout/SearchLocationModel.h>
@@ -61,6 +44,29 @@
 #include "CollectionTrackModel.h"
 
 #include <harbour-osmscout/private/Config.h>
+
+// SFOS
+#include <sailfishapp/sailfishapp.h>
+
+// Qt includes
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQuickView>
+#include <QStandardPaths>
+#include <QQmlContext>
+#include <QFileInfo>
+
+#ifdef QT_QML_DEBUG
+#include <QtQuick>
+#endif
+
+#if QT_VERSION >= 0x050400
+#define HAS_QSTORAGE
+#include <QStorageInfo>
+#endif
+
+// std
+#include <iostream>
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
 #warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
@@ -137,27 +143,24 @@ int main(int argc, char* argv[])
     databaseLookupDirectories << home + QDir::separator() + "Maps";
   }
 
-  // we should use QStorageInfo for Qt >= 5.4
-  QFile file("/etc/mtab"); // Linux specific
-  if (file.open(QFile::ReadOnly)) {
-    while(true) {
-      QStringList parts = QString::fromUtf8(file.readLine()).trimmed().split(" ");
-      if (parts.count() > 1) {
-        QString mountPoint=parts[1].replace("\\040", " ");
+  // QStorageInfo available from Qt >= 5.4
+#ifdef HAS_QSTORAGE
+  for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
 
-        // Sailfish OS specific mount point base for SD cards!
-        if ((mountPoint.startsWith("/media") ||
-             mountPoint.startsWith("/run/media/") /* SFOS >= 2.2 */ ) &&
-            QFileInfo(mountPoint).isDir()){
+    QString mountPoint = storage.rootPath();
 
-          qDebug() << "Found storage:" << mountPoint;
-          databaseLookupDirectories << mountPoint + QDir::separator() + "Maps";
-        }
-      } else {
-        break;
-      }
+    // Sailfish OS specific mount point base for SD cards!
+    if (storage.isValid() &&
+        storage.isReady() &&
+        (mountPoint.startsWith("/media") ||
+         mountPoint.startsWith("/run/media/") /* SFOS >= 2.2 */ )
+         ) {
+
+      qDebug() << "Found storage:" << mountPoint;
+      databaseLookupDirectories << mountPoint + QDir::separator() + "Maps";
     }
   }
+#endif
 
   // install translator
   QTranslator translator;

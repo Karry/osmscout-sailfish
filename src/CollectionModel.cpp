@@ -22,7 +22,11 @@
 
 #include <QDebug>
 #include <QtCore/QStandardPaths>
+
+#if QT_VERSION >= 0x050400
+#define HAS_QSTORAGE
 #include <QStorageInfo>
+#endif
 
 CollectionModel::CollectionModel()
 {
@@ -329,6 +333,7 @@ QStringList CollectionModel::getExportSuggestedDirectories()
   result << QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
   result << QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
 
+#ifdef HAS_QSTORAGE
   for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
       if (storage.isValid() &&
           storage.isReady() &&
@@ -340,5 +345,6 @@ QStringList CollectionModel::getExportSuggestedDirectories()
         result << storage.rootPath();
       }
   }
+#endif
   return result;
 }
