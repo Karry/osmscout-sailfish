@@ -31,6 +31,8 @@
 
 namespace {
   static constexpr int DbSchema = 1;
+  static constexpr int TrackPointBatchSize = 10000;
+  static constexpr int WayPointBatchSize = 100;
 }
 
 using namespace osmscout;
@@ -597,8 +599,8 @@ bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 coll
       }
       return false;
     }
-    // commit batch 100 queries
-    if (wptNum % 100 == 0) {
+    // commit batch WayPointBatchSize queries
+    if (wptNum % WayPointBatchSize == 0) {
       if (!db.commit()) {
         emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
         qWarning() << "Transaction commit failed" << db.lastError();
@@ -731,8 +733,8 @@ bool Storage::importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &po
       }
       return false;
     }
-    // commit batch 100 queries
-    if (pointNum % 100 == 0) {
+    // commit batch TrackPointBatchSize queries
+    if (pointNum % TrackPointBatchSize == 0) {
       if (!db.commit()) {
         emit error(tr("Transaction commit failed: %1").arg(db.lastError().text()));
         qWarning() << "Transaction commit failed" << db.lastError();
@@ -756,6 +758,8 @@ void Storage::importCollection(QString filePath)
     return;
   }
 
+  QTime timer;
+  timer.start();
   qDebug() << "Importing collection from" << filePath;
 
   gpx::GpxFile gpxFile;
@@ -812,7 +816,8 @@ void Storage::importCollection(QString filePath)
       return;
     }
   }
-  qDebug() << "Imported" << gpxFile.tracks.size() << "tracks to collection" << collectionId << "from" << filePath;
+  qDebug() << "Imported" << gpxFile.tracks.size() << "tracks to collection" << collectionId
+           << "from" << filePath << "in" << timer.elapsed() << "ms";
 
   loadCollections();
 }
@@ -943,6 +948,8 @@ void Storage::exportCollection(qint64 collectionId, QString file)
     return;
   }
 
+  QTime timer;
+  timer.start();
   qDebug() << "Exporting collection" << collectionId << "to" << file;
 
   // load data
@@ -990,6 +997,8 @@ void Storage::exportCollection(qint64 collectionId, QString file)
                                 file.toStdString(),
                                 nullptr,
                                 std::static_pointer_cast<gpx::ProcessCallback, ErrorCallback>(callback));
+
+  qDebug() << "Exported in" << timer.elapsed() << "ms";
 
   emit collectionExported(success);
 }
