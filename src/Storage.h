@@ -249,6 +249,8 @@ private:
   bool importTracks(const osmscout::gpx::GpxFile &file, qint64 collectionId);
   bool importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &points, qint64 segId);
   TrackStatistics computeTrackStatistics(const osmscout::gpx::Track &trk) const;
+  bool loadCollectionDetailsPrivate(Collection &collection);
+  bool loadTrackDataPrivate(Track &track);
 
 private :
   QSqlDatabase db;

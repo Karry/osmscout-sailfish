@@ -27,6 +27,7 @@
 #include <QDebug>
 #include <QThread>
 #include <QtSql/QSqlQuery>
+#include <osmscout/gpx/Export.h>
 
 namespace {
   static constexpr int DbSchema = 1;
@@ -380,13 +381,8 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
   return result;
 }
 
-void Storage::loadCollectionDetails(Collection collection)
+bool Storage::loadCollectionDetailsPrivate(Collection &collection)
 {
-  if (!checkAccess("loadCollectionDetails")){
-    emit collectionDetailsLoaded(collection, false);
-    return;
-  }
-
   QSqlQuery sql(db);
   sql.prepare("SELECT `name`, `description` FROM `collection` WHERE id = :collectionId;");
   sql.bindValue(":collectionId", collection.id);
@@ -394,15 +390,13 @@ void Storage::loadCollectionDetails(Collection collection)
   if (sql.lastError().isValid()) {
     qWarning() << "Loading collection id" << collection.id << "fails";
     emit error(tr("Loading collection id %1 fails").arg(collection.id));
-    emit collectionDetailsLoaded(collection, false);
-    return;
+    return false;
   }
   std::vector<Collection> result;
   if (!sql.next()) {
     qWarning() << "Collection id" << collection.id << "don't exists";
     emit error(tr("Collection id %1 don't exists").arg(collection.id));
-    emit collectionDetailsLoaded(collection, false);
-    return;
+    return false;
   }
 
   collection.name = varToString(sql.value("name"));
@@ -410,8 +404,21 @@ void Storage::loadCollectionDetails(Collection collection)
 
   collection.tracks = loadTracks(collection.id);
   collection.waypoints = loadWaypoints(collection.id);
+  return true;
+}
 
-  emit collectionDetailsLoaded(collection, true);
+void Storage::loadCollectionDetails(Collection collection)
+{
+  if (!checkAccess("loadCollectionDetails")){
+    emit collectionDetailsLoaded(collection, false);
+    return;
+  }
+
+  if (loadCollectionDetailsPrivate(collection)) {
+    emit collectionDetailsLoaded(collection, true);
+  }else{
+    emit collectionDetailsLoaded(collection, false);
+  }
 }
 
 void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
@@ -443,13 +450,8 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
   }
 }
 
-void Storage::loadTrackData(Track track)
+bool Storage::loadTrackDataPrivate(Track &track)
 {
-  if (!checkAccess("loadTrackData")){
-    emit trackDataLoaded(track, true, false);
-    return;
-  }
-
   QSqlQuery sqlTrack(db);
   sqlTrack.prepare("SELECT * FROM `track` WHERE id = :trackId;");
   sqlTrack.bindValue(":trackId", track.id);
@@ -458,15 +460,13 @@ void Storage::loadTrackData(Track track)
   if (sqlTrack.lastError().isValid()) {
     qWarning() << "Loading track id" << track.id << "fails: " << sqlTrack.lastError();
     emit error(tr("Loading track id %1 fails").arg(track.id));
-    emit trackDataLoaded(track, true, false);
-    return;
+    return false;
   }
 
   if (!sqlTrack.next()) {
     qWarning() << "Track id" << track.id << "don't exists";
     emit error(tr("Track id %1 don't exists").arg(track.id));
-    emit trackDataLoaded(track, true, false);
-    return;
+    return false;
   }
   track = makeTrack(sqlTrack);
 
@@ -492,8 +492,21 @@ void Storage::loadTrackData(Track track)
       track.data->segments.push_back(std::move(segment));
     }
   }
+  return true;
+}
 
-  emit trackDataLoaded(track, true, true);
+void Storage::loadTrackData(Track track)
+{
+  if (!checkAccess("loadTrackData")){
+    emit trackDataLoaded(track, true, false);
+    return;
+  }
+
+  if (loadTrackDataPrivate(track)) {
+    emit trackDataLoaded(track, true, true);
+  }else{
+    emit trackDataLoaded(track, true, false);
+  }
 }
 
 void Storage::updateOrCreateCollection(Collection collection)
@@ -762,8 +775,12 @@ void Storage::importCollection(QString filePath)
   // import collection
   QSqlQuery sql(db);
   sql.prepare("INSERT INTO `collection` (`name`, `description`) VALUES (:name, :description);");
-  sql.bindValue(":name", QFileInfo(filePath).baseName());
-  sql.bindValue(":description", tr("Imported from %1").arg(filePath));
+  sql.bindValue(":name", gpxFile.name.hasValue() ?
+                         QString::fromStdString(gpxFile.name.get()) : QFileInfo(filePath).baseName());
+  sql.bindValue(":description", gpxFile.desc.hasValue() ?
+                                QString::fromStdString(gpxFile.desc.get()) :
+                                tr("Imported from %1").arg(filePath));
+
   sql.exec();
   if (sql.lastError().isValid()){
     qWarning() << "Creating collection failed" << sql.lastError();
@@ -928,8 +945,53 @@ void Storage::exportCollection(qint64 collectionId, QString file)
 
   qDebug() << "Exporting collection" << collectionId << "to" << file;
 
-  // TODO
-  emit collectionExported(false);
+  // load data
+  Collection collection(collectionId);
+  gpx::GpxFile gpxFile;
+  if (!loadCollectionDetailsPrivate(collection)){
+    emit collectionExported(false);
+    return;
+  }
+
+  if (!collection.name.isEmpty()) {
+    gpxFile.name = gpx::Optional<std::string>::of(collection.name.toStdString());
+  }
+  if (!collection.description.isEmpty()) {
+    gpxFile.desc = gpx::Optional<std::string>::of(collection.description.toStdString());
+  }
+
+  assert(collection.waypoints);
+  gpxFile.waypoints.reserve(collection.waypoints->size());
+  for (const Waypoint &w: *(collection.waypoints)){
+    gpxFile.waypoints.push_back(w.data);
+  }
+  collection.waypoints.reset();
+
+  // load track data
+  assert(collection.tracks);
+  gpxFile.tracks.reserve(collection.tracks->size());
+  for (Track &t : *(collection.tracks)){
+    qDebug() << "Loading track data" << t.id;
+    if (!loadTrackDataPrivate(t)){
+      emit collectionExported(false);
+      return;
+    }
+    assert(t.data);
+    gpxFile.tracks.push_back(*(t.data));
+    t.data.reset();
+  }
+
+  // export
+  qDebug() << "Writing gpx file" << file;
+  std::shared_ptr<ErrorCallback> callback = std::make_shared<ErrorCallback>();
+  connect(callback.get(), SIGNAL(error(QString)), this, SIGNAL(error(QString)));
+
+  bool success = gpx::ExportGpx(gpxFile,
+                                file.toStdString(),
+                                nullptr,
+                                std::static_pointer_cast<gpx::ProcessCallback, ErrorCallback>(callback));
+
+  emit collectionExported(success);
 }
 
 Storage::operator bool() const
