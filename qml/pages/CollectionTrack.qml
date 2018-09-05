@@ -105,11 +105,12 @@ Dialog{
                 SilicaFlickable{
                     id: flickable
                     anchors.fill: parent
-                    //contentHeight: content.height + header.height + 2*Theme.paddingLarge
+                    contentHeight: content.height + Theme.paddingMedium
 
                     VerticalScrollDecorator {}
 
                     Column {
+                        id: content
                         x: Theme.paddingMedium
                         width: parent.width - 2*Theme.paddingMedium
 
