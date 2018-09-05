@@ -330,8 +330,8 @@ void CollectionModel::onCollectionExported(bool)
 QStringList CollectionModel::getExportSuggestedDirectories()
 {
   QStringList result;
-  result << QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
   result << QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+  result << QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 
 #ifdef HAS_QSTORAGE
   for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
