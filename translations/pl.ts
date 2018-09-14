@@ -80,23 +80,23 @@
     <name>Collection</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Usuń mapę</translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Usuwanie</translation>
+        <translation>Usuwanie</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie kolekcji</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksportuj</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
@@ -111,64 +111,64 @@
     <name>CollectionEditDialog</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Opis</translation>
     </message>
 </context>
 <context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Dystans</translation>
     </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż</translation>
     </message>
 </context>
 <context>
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Usuń mapę</translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Usuwanie</translation>
+        <translation>Usuwanie</translation>
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolekcje</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importuj</translation>
     </message>
     <message>
         <source>Create new</source>
-        <translation type="unfinished"></translation>
+        <translation>Utwórz nową</translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nowa kolekcja</translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj kolekcję</translation>
     </message>
 </context>
 <context>
@@ -402,7 +402,7 @@
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolekcje</translation>
     </message>
 </context>
 <context>
@@ -413,19 +413,19 @@
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślny</translation>
     </message>
     <message>
         <source>Collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolekcja</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Opis</translation>
     </message>
 </context>
 <context>
