@@ -1679,22 +1679,38 @@ STYLE
 
 
  // Buildings
- [MAG @specialBuildingMag-] {
-   [TYPE christian_church_building] {
-     AREA { color: @churchBuildingColor;}
-     AREA.BORDER { color: @churchBuildingBorderColor; width: 0.1mm;}
-   }
-
-   [TYPE amenity_hospital_building] {
-     AREA { color: @hospitalBuildingColor;}
-     AREA.BORDER { color: @hospitalBuildingBorderColor; width: 0.1mm; }
-   }
-
-   [TYPE railway_station] AREA { color: @railwayStationColor; }
-   [TYPE leisure_stadium] AREA { color: #33cb98; }
- }
-
  IF building {
+
+   [MAG @specialBuildingMag-] {
+     [TYPE christian_church_building] {
+       AREA { color: @churchBuildingColor;}
+       AREA.BORDER { color: @churchBuildingBorderColor; width: 0.1mm;}
+     }
+
+     [TYPE amenity_hospital_building] {
+       AREA { color: @hospitalBuildingColor;}
+       AREA.BORDER { color: @hospitalBuildingBorderColor; width: 0.1mm; }
+     }
+
+     [TYPE railway_station] AREA { color: @railwayStationColor; }
+     [TYPE leisure_stadium] AREA { color: #33cb98; }
+
+     [TYPE tourism_attraction_building] {
+       AREA { color: @tourismBuildingColor; }
+       AREA.BORDER { color: @tourismBuildingBorderColor; width: 0.1mm; }
+     }
+
+     [GROUP tourism, building] {
+       AREA { color: @tourismBuildingColor; }
+       AREA.BORDER { color: @tourismBuildingBorderColor; width: 0.1mm; }
+     }
+
+     [GROUP historic, building] {
+       AREA { color: @tourismBuildingColor; }
+       AREA.BORDER { color: @tourismBuildingBorderColor; width: 0.1mm; }
+     }
+   }
+
    [MAG @buildingMag-] {
      [TYPE landuse_farmyard_building] {
        AREA { color: #bcbcbc;}
@@ -1747,21 +1763,6 @@ STYLE
      [TYPE amenity_parking_building] {
        AREA { color: @parkingBuildingColor; }
        AREA.BORDER { color: @parkingBuildingBorderColor; width: 0.1mm; }
-     }
-
-     [TYPE tourism_attraction_building] {
-       AREA { color: @tourismBuildingColor; }
-       AREA.BORDER { color: @tourismBuildingBorderColor; width: 0.1mm; }
-     }
-
-     [GROUP tourism, building] {
-       AREA { color: @tourismBuildingColor; }
-       AREA.BORDER { color: @tourismBuildingBorderColor; width: 0.1mm; }
-     }
-
-     [GROUP historic, building] {
-       AREA { color: @tourismBuildingColor; }
-       AREA.BORDER { color: @tourismBuildingBorderColor; width: 0.1mm; }
      }
 
      [TYPE building] {
