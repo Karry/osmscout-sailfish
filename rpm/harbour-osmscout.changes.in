@@ -237,9 +237,10 @@
 - performance improvement in label rendering method
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.0-1
-- initial support for collection (folders with tracks a waypoints)
-- allow import collection from local gpx file
+- initial support for collections (folders with tracks a waypoints)
+- support for importing and exporting collection from/to local gpx file
 - sync core library with upstream
     - initial support for highway lanes, add support to stylesheets
     - increased database format version ( + added patch for backward compatibility)
+    - support for SVG map icons, better support for HiDPI displays
 - update translations (Czech, German, Dutch, Swedish, Spanish...)

@@ -405,15 +405,9 @@ install(DIRECTORY icons/routestep/
         DESTINATION share/${HARBOUR_APP_NAME}/routestep
         FILES_MATCHING PATTERN "*.svg")
 
-install(FILES
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/bus_stop.png
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/cemetery.png
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/forest.png
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/hospital.png
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/parking.png
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/pharmacy.png
-  dependencies/libosmscout/libosmscout/data/icons/14x14/standard/scrub.png
-DESTINATION share/${HARBOUR_APP_NAME}/map-icons)
+install(DIRECTORY dependencies/libosmscout/libosmscout/data/icons/svg/standard/
+        DESTINATION share/${HARBOUR_APP_NAME}/map-icons
+        FILES_MATCHING PATTERN "*.svg")
 
 install(FILES 
   stylesheets/boundaries.oss
