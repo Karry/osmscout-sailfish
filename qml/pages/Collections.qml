@@ -121,6 +121,7 @@ Page {
                         editCollectionDialog.collectionId = model.id;
                         editCollectionDialog.name = model.name;
                         editCollectionDialog.description = model.description;
+                        editCollectionDialog.collectionVisible = model.visible;
                         editCollectionDialog.open();
                         //editCollectionDialog.nameTextField.focus = true;
                     }
@@ -158,6 +159,7 @@ Page {
                     editCollectionDialog.collectionId = "";
                     editCollectionDialog.name = "";
                     editCollectionDialog.description = "";
+                    editCollectionDialog.collectionVisible = false;
                     editCollectionDialog.open();
                     //editCollectionDialog.nameTextField.focus = true;
                 }
@@ -188,6 +190,7 @@ Page {
         id: editCollectionDialog
 
         property string collectionId: ""
+        property bool collectionVisible: false
         title: collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
 
         onAccepted: {
@@ -196,7 +199,7 @@ Page {
                 collectionListModel.createCollection(name, description);
             }else{
                 console.log("Edit collection " + collectionId + ": " + name + " / " + description);
-                collectionListModel.editCollection(collectionId, name, description);
+                collectionListModel.editCollection(collectionId, collectionVisible, name, description);
             }
             parent.focus = true;
         }

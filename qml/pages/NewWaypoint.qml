@@ -41,7 +41,7 @@ Dialog{
     acceptDestinationAction: PageStackAction.Pop
     canAccept: nameTextField.text.length > 0 && collectionId.length > 0
     onAccepted: {
-        console.log("TODO: add waypoint " + nameTextField.text + " to collection " + collectionId);
+        console.log("Adding waypoint " + nameTextField.text + " to collection " + collectionId);
         collectionModel.createWaypoint(latitude, longitude, name, description);
     }
     Component.onCompleted: {

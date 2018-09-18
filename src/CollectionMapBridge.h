@@ -32,6 +32,7 @@ class CollectionMapBridge : public QObject {
   Q_OBJECT
   Q_PROPERTY(QObject* map READ getMap WRITE setMap)
   Q_PROPERTY(QString waypointType READ getWaypointType WRITE setWaypointType)
+  Q_PROPERTY(QString trackType READ getTrackType WRITE setTrackType)
 
 signals:
   void collectionLoadRequest();
@@ -65,10 +66,22 @@ public:
 
   void setWaypointType(QString name);
 
+  inline QString getTrackType() const
+  {
+    return trackTypeName;
+  }
+
+  void setTrackType(QString type);
+
 private:
   osmscout::MapWidget *delegatedMap{nullptr};
   QString waypointTypeName{"_waypoint"};
-  long overlayIdBase{10000};
+  QString trackTypeName{"_route"};
+  qint64 overlayWptIdBase{10000};
+  qint64 overlayTrkIdBase{50000};
+
+  QMap<qint64, QSet<qint64>> displayedWaypoints;
+  QMap<qint64, QSet<qint64>> displayedTracks;
 };
 
 #endif //OSMSCOUT_SAILFISH_COLLECTIONMAPBRIDGE_H

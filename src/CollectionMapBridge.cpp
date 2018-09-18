@@ -52,6 +52,14 @@ CollectionMapBridge::CollectionMapBridge(QObject *parent):
             this, SLOT(onCollectionDetailsLoaded(Collection, bool)),
             Qt::QueuedConnection);
 
+    connect(this, SIGNAL(trackDataRequest(Track)),
+            storage, SLOT(loadTrackData(Track)),
+            Qt::QueuedConnection);
+
+    connect(storage, SIGNAL(trackDataLoaded(Track, bool, bool)),
+            this, SLOT(onTrackDataLoaded(Track, bool, bool)),
+            Qt::QueuedConnection);
+
     init();
   }
 }
@@ -76,32 +84,95 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
     return;
   }
 
+  qDebug() << "Display collection" << collection.name << "(" << collection.id << ")";
+
+  QSet<qint64> wptToHide = displayedWaypoints[collection.id];
+  QSet<qint64> trkToHide = displayedTracks[collection.id];
+  QSet<qint64> &wptVisible = displayedWaypoints[collection.id];
+  QSet<qint64> &trkVisible = displayedTracks[collection.id];
+  wptVisible.clear();
+  trkVisible.clear();
+
   if (collection.tracks){
     for (const auto &trk: *(collection.tracks)){
-      trackDataRequest(trk);
+      emit trackDataRequest(trk);
+
+      trkVisible.insert(trk.id);
+      trkToHide.remove(trk.id);
     }
   }
 
   if (collection.waypoints){
     for (const auto &wpt: *(collection.waypoints)){
+      qDebug() << "Adding overlay waypoint" <<
+               QString::fromStdString(wpt.data.name.getOrElse("<empty>")) <<
+               "(" << wpt.id << ")";
 
       osmscout::OverlayNode wptOverlay;
       wptOverlay.setTypeName(waypointTypeName);
       wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
       wptOverlay.setName(QString::fromStdString(wpt.data.name.getOrElse("")));
-      delegatedMap->addOverlayObject(overlayIdBase + wpt.id, &wptOverlay);
+      delegatedMap->addOverlayObject(overlayWptIdBase + wpt.id, &wptOverlay);
+
+      wptVisible.insert(wpt.id);
+      wptToHide.remove(wpt.id);
     }
+  }
+
+  for (const auto &id :wptToHide){
+    delegatedMap->removeOverlayObject(id + overlayWptIdBase);
+  }
+  for (const auto &id :trkToHide){
+    delegatedMap->removeOverlayObject(id + overlayTrkIdBase);
   }
 }
 
 void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
 {
-  // TODO: display track
+  if (delegatedMap == nullptr ||
+      !complete ||
+      !ok ||
+      !displayedTracks.contains(track.collectionId)){
+    return;
+  }
+
+  qDebug() << "Adding overlay track" <<
+           track.name <<
+           "(" << track.id << ")";
+
+  for (const osmscout::gpx::TrackSegment &seg : track.data->segments) {
+    std::vector<osmscout::Point> points;
+    points.reserve(seg.points.size());
+    for (auto const &p:seg.points) {
+      points.emplace_back(0, p.coord);
+    }
+    osmscout::OverlayWay trkOverlay(points);
+    trkOverlay.setTypeName(trackTypeName);
+    trkOverlay.setName(track.name);
+    delegatedMap->addOverlayObject(overlayTrkIdBase + track.id, &trkOverlay);
+  }
 }
 
 void CollectionMapBridge::onCollectionsLoaded(std::vector<Collection> collections, bool /*ok*/)
 {
-  qDebug() << "loaded" << collections.size() << "collections";
+  qDebug() << "Loaded" << collections.size() << "collections";
+
+  // clear map
+  if (delegatedMap!=nullptr) {
+    for (const auto &wptSet: displayedWaypoints) {
+      for (const auto &wptId: wptSet) {
+        delegatedMap->removeOverlayObject(overlayWptIdBase + wptId);
+      }
+    }
+    for (const auto &trkSet: displayedTracks) {
+      for (const auto &trkId: trkSet) {
+        delegatedMap->removeOverlayObject(overlayTrkIdBase + trkId);
+      }
+    }
+  }
+  displayedTracks.clear();
+  displayedWaypoints.clear();
+
   for (const auto &c: collections){
     if (c.visible){
       collectionDetailRequest(c);
@@ -115,12 +186,18 @@ void CollectionMapBridge::setMap(QObject *map)
   if (delegatedMap == nullptr){
     return;
   }
-  qDebug() << "map:" << delegatedMap;
+  qDebug() << "CollectionMapBridge map:" << delegatedMap;
   init();
 }
 
 void CollectionMapBridge::setWaypointType(QString name)
 {
   waypointTypeName = name;
+  init();
+}
+
+void CollectionMapBridge::setTrackType(QString type)
+{
+  trackTypeName = type;
   init();
 }

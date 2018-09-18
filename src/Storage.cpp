@@ -388,7 +388,7 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
 bool Storage::loadCollectionDetailsPrivate(Collection &collection)
 {
   QSqlQuery sql(db);
-  sql.prepare("SELECT `name`, `description` FROM `collection` WHERE id = :collectionId;");
+  sql.prepare("SELECT `name`, `description`, `visible` FROM `collection` WHERE id = :collectionId;");
   sql.bindValue(":collectionId", collection.id);
   sql.exec();
   if (sql.lastError().isValid()) {
@@ -405,6 +405,7 @@ bool Storage::loadCollectionDetailsPrivate(Collection &collection)
 
   collection.name = varToString(sql.value("name"));
   collection.description = varToString(sql.value("description"));
+  collection.visible = varToBool(sql.value("visible"));
 
   collection.tracks = loadTracks(collection.id);
   collection.waypoints = loadWaypoints(collection.id);
