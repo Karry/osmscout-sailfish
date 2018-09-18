@@ -123,13 +123,15 @@ public:
   {};
 
   Collection(qint64 id,
+             bool visible,
              const QString &name,
              const QString &description):
-    id(id), name(name), description(description)
+    id(id), visible(visible), name(name), description(description)
   {};
 
 public:
   qint64 id{-1};
+  bool visible{false};
   QString name;
   QString description;
 

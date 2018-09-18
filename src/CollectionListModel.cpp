@@ -107,6 +107,7 @@ QVariant CollectionListModel::data(const QModelIndex &index, int role) const
     case NameRole: return collection.name;
     case DescriptionRole: return collection.description;
     case IdRole: return QString::number(collection.id);
+    case VisibleRole: return collection.visible;
   }
   return QVariant();
 }
@@ -118,6 +119,7 @@ QHash<int, QByteArray> CollectionListModel::roleNames() const
   roles[NameRole]="name";
   roles[DescriptionRole]="description";
   roles[IdRole]="id";
+  roles[VisibleRole]="visible";
 
   return roles;
 }
@@ -140,7 +142,7 @@ void CollectionListModel::createCollection(QString name, QString description)
 {
   collectionsLoaded=false;
   emit loadingChanged();
-  emit updateCollectionRequest(Collection(-1, name, description));
+  emit updateCollectionRequest(Collection(-1, false, name, description));
 }
 
 void CollectionListModel::deleteCollection(QString idStr)
@@ -156,7 +158,7 @@ void CollectionListModel::deleteCollection(QString idStr)
   emit deleteCollectionRequest(id);
 }
 
-void CollectionListModel::editCollection(QString idStr, QString name, QString description)
+void CollectionListModel::editCollection(QString idStr, bool visible, QString name, QString description)
 {
   bool ok;
   qint64 id = idStr.toLongLong(&ok);
@@ -166,7 +168,7 @@ void CollectionListModel::editCollection(QString idStr, QString name, QString de
   }
   collectionsLoaded=false;
   emit loadingChanged();
-  emit updateCollectionRequest(Collection(id, name, description));
+  emit updateCollectionRequest(Collection(id, visible, name, description));
 }
 
 void CollectionListModel::importCollection(QString filePath)

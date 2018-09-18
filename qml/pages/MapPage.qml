@@ -247,6 +247,10 @@ Page {
 
             showCurrentPosition: true
 
+            CollectionMapBridge{
+                map: map
+            }
+
             onTap: {
 
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");

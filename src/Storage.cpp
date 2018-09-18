@@ -130,6 +130,7 @@ bool Storage::updateSchema(){
     sql.append("(").append( "`id` INTEGER PRIMARY KEY");
     sql.append(",").append( "`name` varchar(255) NOT NULL ");
     sql.append(",").append( "`description` varchar(255) NULL ");
+    sql.append(",").append( "`visible` tinyint(1) NOT NULL");
     sql.append(");");
 
     QSqlQuery q = db.exec(sql);
@@ -299,7 +300,7 @@ void Storage::loadCollections()
     return;
   }
 
-  QString sql("SELECT `id`, `name`, `description` FROM `collection`;");
+  QString sql("SELECT `id`, `visible`, `name`, `description` FROM `collection`;");
 
   QSqlQuery q = db.exec(sql);
   if (q.lastError().isValid()) {
@@ -309,6 +310,7 @@ void Storage::loadCollections()
   while (q.next()) {
     result.emplace_back(
       varToLong(q.value("id")),
+      varToBool(q.value("visible")),
       varToString(q.value("name")),
       varToString(q.value("description"))
     );
@@ -521,15 +523,17 @@ void Storage::updateOrCreateCollection(Collection collection)
   QSqlQuery sql(db);
   if (collection.id < 0){
     sql.prepare(
-      "INSERT INTO `collection` (`name`, `description`) VALUES (:name, :description);");
+      "INSERT INTO `collection` (`name`, `description`, `visible`) VALUES (:name, :description, :visible);");
     sql.bindValue(":name", collection.name);
     sql.bindValue(":description", collection.description);
+    sql.bindValue(":visible", collection.visible);
   }else {
     sql.prepare(
-      "UPDATE `collection` SET `name` = :name, `description` = :description WHERE (`id` = :id);");
+      "UPDATE `collection` SET `name` = :name, `description` = :description, `visible` = :visible WHERE (`id` = :id);");
     sql.bindValue(":id", collection.id);
     sql.bindValue(":name", collection.name);
     sql.bindValue(":description", collection.description);
+    sql.bindValue(":visible", collection.visible);
   }
   sql.exec();
   if (sql.lastError().isValid()){
@@ -778,7 +782,7 @@ void Storage::importCollection(QString filePath)
 
   // import collection
   QSqlQuery sql(db);
-  sql.prepare("INSERT INTO `collection` (`name`, `description`) VALUES (:name, :description);");
+  sql.prepare("INSERT INTO `collection` (`name`, `description`, `visible`) VALUES (:name, :description, 0);");
   sql.bindValue(":name", gpxFile.name.hasValue() ?
                          QString::fromStdString(gpxFile.name.get()) : QFileInfo(filePath).baseName());
   sql.bindValue(":description", gpxFile.desc.hasValue() ?

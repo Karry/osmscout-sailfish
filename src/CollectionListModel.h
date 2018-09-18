@@ -45,7 +45,7 @@ public slots:
   void onCollectionsLoaded(std::vector<Collection> collections, bool ok);
   void createCollection(QString name, QString description);
   void deleteCollection(QString id);
-  void editCollection(QString id, QString name, QString description);
+  void editCollection(QString id, bool visible, QString name, QString description);
   void importCollection(QString filePath);
 
 public:
@@ -56,7 +56,8 @@ public:
   enum Roles {
     NameRole = Qt::UserRole,
     DescriptionRole = Qt::UserRole+1,
-    IdRole = Qt::UserRole+2
+    IdRole = Qt::UserRole+2,
+    VisibleRole = Qt::UserRole+3
   };
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;

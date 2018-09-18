@@ -148,6 +148,10 @@ Window {
             Layout.fillHeight: true
             focus: true
 
+            CollectionMapBridge{
+                map: map
+            }
+
             renderingType: "tiled" // plane or tiled
 
             //property var overlayWay: map.createOverlayArea("_route");
