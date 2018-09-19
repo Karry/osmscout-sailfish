@@ -72,15 +72,18 @@ class Track
 {
 public:
   Track() = default;
-  Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,  QDateTime creationTime,
+  Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,
+        const QDateTime &creationTime, const QDateTime &lastModification,
         const osmscout::Distance &distance,
         const osmscout::GeoBox &bbox):
-    id(id), collectionId(collectionId), name(name), description(description), open(open), creationTime(creationTime),
+    id(id), collectionId(collectionId), name(name), description(description), open(open),
+    creationTime(creationTime), lastModification(lastModification),
     statistics(distance, bbox)
   {};
 
   Track(const Track &o):
-    id(o.id), collectionId(o.collectionId), name(o.name), description(o.description), open(o.open), creationTime(o.creationTime),
+    id(o.id), collectionId(o.collectionId), name(o.name), description(o.description), open(o.open),
+    creationTime(o.creationTime), lastModification(o.lastModification),
     statistics(o.statistics), data(o.data)
   {};
 
@@ -91,6 +94,7 @@ public:
   QString description;
   bool open{false};
   QDateTime creationTime;
+  QDateTime lastModification;
 
   TrackStatistics statistics;
   std::shared_ptr<osmscout::gpx::Track> data;
@@ -101,16 +105,17 @@ class Waypoint
 public:
   Waypoint() = default;
 
-  Waypoint(qint64 id, const osmscout::gpx::Waypoint &data):
-    id(id), data(data)
+  Waypoint(qint64 id, const QDateTime &lastModification, const osmscout::gpx::Waypoint &data):
+    id(id), lastModification(lastModification), data(data)
   {}
 
-  Waypoint(qint64 id, osmscout::gpx::Waypoint &&data):
-    id(id), data(std::move(data))
+  Waypoint(qint64 id, const QDateTime &lastModification, osmscout::gpx::Waypoint &&data):
+    id(id), lastModification(lastModification), data(std::move(data))
   {}
 
 public:
   qint64 id{-1};
+  QDateTime lastModification;
   osmscout::gpx::Waypoint data{osmscout::GeoCoord()};
 };
 

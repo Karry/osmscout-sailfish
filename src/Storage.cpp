@@ -151,6 +151,7 @@ bool Storage::updateSchema(){
     sql.append(",").append( "`description` varchar(255) NULL");
     sql.append(",").append( "`open` tinyint(1) NOT NULL");
     sql.append(",").append( "`creation_time` datetime NOT NULL");
+    sql.append(",").append( "`modification_time` datetime NOT NULL");
     sql.append(",").append( "`distance` double NOT NULL");
 
     // bbox
@@ -217,6 +218,7 @@ bool Storage::updateSchema(){
     QString sql("CREATE TABLE `waypoint`");
     sql.append("(").append( "`id` INTEGER PRIMARY KEY");
     sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
+    sql.append(",").append( "`modification_time` datetime NOT NULL");
     sql.append(",").append( "`timestamp` datetime NOT NULL");
     sql.append(",").append( "`latitude` double NOT NULL");
     sql.append(",").append( "`longitude` double NOT NULL");
@@ -326,6 +328,7 @@ Track Storage::makeTrack(QSqlQuery &sqlTrack) const
                varToString(sqlTrack.value("description")),
                varToBool(sqlTrack.value("open")),
                varToDateTime(sqlTrack.value("creation_time")),
+               varToDateTime(sqlTrack.value("modification_time")),
                osmscout::Distance::Of<osmscout::Meter>(varToDouble(sqlTrack.value("distance"))),
                osmscout::GeoBox(osmscout::GeoCoord(varToDouble(sqlTrack.value("bbox_min_lat")),
                                                    varToDouble(sqlTrack.value("bbox_min_lon"))),
@@ -356,7 +359,7 @@ std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
 std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionId)
 {
   QSqlQuery sql(db);
-  sql.prepare("SELECT `id`, `name`, `description`, `symbol`, `timestamp`, `latitude`, `longitude`, `elevation` FROM `waypoint` WHERE collection_id = :collectionId;");
+  sql.prepare("SELECT `id`, `name`, `description`, `symbol`, `timestamp`, `modification_time`, `latitude`, `longitude`, `elevation` FROM `waypoint` WHERE collection_id = :collectionId;");
   sql.bindValue(":collectionId", collectionId);
   sql.exec();
 
@@ -380,7 +383,7 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
     wpt.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(sql.value("timestamp"))));
     wpt.elevation = varToDoubleOpt(sql.value("elevation"));
 
-    result->emplace_back(varToLong(sql.value("id")), std::move(wpt));
+    result->emplace_back(varToLong(sql.value("id")), varToDateTime(sql.value("modification_time")), std::move(wpt));
   }
   return result;
 }
@@ -576,7 +579,8 @@ bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 coll
   db.transaction();
   QSqlQuery sqlWpt(db);
   sqlWpt.prepare(
-    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`) VALUES (:collection_id, :timestamp, :latitude, :longitude, :elevation, :name, :description, :symbol)");
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`) "
+    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :elevation,  :name,  :description,  :symbol)");
   for (const auto &wpt: gpxFile.waypoints) {
     wptNum++;
 
@@ -587,6 +591,7 @@ bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 coll
     sqlWpt.bindValue(":collection_id", collectionId);
     sqlWpt.bindValue(":timestamp",
                      wpt.time.hasValue() ? timestampToDateTime(wpt.time) : QDateTime::currentDateTime());
+    sqlWpt.bindValue(":modification_time", QDateTime::currentDateTime());
     sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
     sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
     sqlWpt.bindValue(":elevation", (wpt.elevation.hasValue() ? wpt.elevation.get() : QVariant()));
@@ -638,11 +643,11 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
   QSqlQuery sqlTrk(db);
   QSqlQuery sqlSeg(db);
   sqlTrk.prepare(QString("INSERT INTO `track` (")
-    .append("`collection_id`, `name`, `description`, `open`, `creation_time`, ")
+    .append("`collection_id`, `name`, `description`, `open`, `creation_time`, `modification_time`, ")
     .append("`distance`, `bbox_min_lat`, `bbox_min_lon`, `bbox_max_lat`, `bbox_max_lon`")
     .append(") ")
     .append("VALUES (")
-    .append(":collection_id, :name, :description, :open, :creation_time, ")
+    .append(":collection_id,  :name,  :description,  :open,  :creation_time,  :modification_time, ")
     .append(":distance, :bboxMinLat, :bboxMinLon, :bboxMaxLat, :bboxMaxLon")
     .append(")"));
 
@@ -663,6 +668,7 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
     // TODO: compute statistics (time, distance...)
     TrackStatistics stat = computeTrackStatistics(trk);
     sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
+    sqlTrk.bindValue(":modification_time", QDateTime::currentDateTime());
     sqlTrk.bindValue(":distance", stat.distance.AsMeter());
 
     sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
@@ -858,10 +864,12 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
 
   QSqlQuery sqlWpt(db);
   sqlWpt.prepare(
-    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `latitude`, `longitude`, `name`, `description`) VALUES (:collection_id, :timestamp, :latitude, :longitude, :name, :description)");
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`) "
+    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description)");
 
   sqlWpt.bindValue(":collection_id", collectionId);
   sqlWpt.bindValue(":timestamp", QDateTime::currentDateTime());
+  sqlWpt.bindValue(":modification_time", QDateTime::currentDateTime());
   sqlWpt.bindValue(":latitude", lat);
   sqlWpt.bindValue(":longitude", lon);
   sqlWpt.bindValue(":name", name);
@@ -906,11 +914,12 @@ void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString
   }
 
   QSqlQuery sql(db);
-  sql.prepare("UPDATE `waypoint` SET `name` = :name, description = :description WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.prepare("UPDATE `waypoint` SET `name` = :name, `description` = :description, `modification_time` = :modification_time WHERE `id` = :id AND `collection_id` = :collection_id;");
   sql.bindValue(":id", id);
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
   sql.bindValue(":description", description);
+  sql.bindValue(":modification_time", QDateTime::currentDateTime());
   sql.exec();
 
   if (sql.lastError().isValid()) {
@@ -930,11 +939,12 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   }
 
   QSqlQuery sql(db);
-  sql.prepare("UPDATE `track` SET `name` = :name, description = :description WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.prepare("UPDATE `track` SET `name` = :name, `description` = :description, `modification_time` = :modification_time WHERE `id` = :id AND `collection_id` = :collection_id;");
   sql.bindValue(":id", id);
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
   sql.bindValue(":description", description);
+  sql.bindValue(":modification_time", QDateTime::currentDateTime());
   sql.exec();
 
   if (sql.lastError().isValid()) {

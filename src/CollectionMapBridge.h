@@ -80,8 +80,8 @@ private:
   qint64 overlayWptIdBase{10000};
   qint64 overlayTrkIdBase{50000};
 
-  QMap<qint64, QSet<qint64>> displayedWaypoints;
-  QMap<qint64, QSet<qint64>> displayedTracks;
+  QMap<qint64, QMap<qint64, QDateTime>> displayedWaypoints;
+  QMap<qint64, QMap<qint64, QDateTime>> displayedTracks;
 };
 
 #endif //OSMSCOUT_SAILFISH_COLLECTIONMAPBRIDGE_H
