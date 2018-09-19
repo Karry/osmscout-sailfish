@@ -52,10 +52,6 @@
         <translation>Noruego: Håvard Moen</translation>
     </message>
     <message>
-        <source>German: Pawel Spoon, Uli M.</source>
-        <translation>Alemán: Pawel Spoon, Uli M.</translation>
-    </message>
-    <message>
         <source>Spanish: Carlos Gonzalez</source>
         <translation>Español: Carlos Gonzalez</translation>
     </message>
@@ -74,6 +70,10 @@
     <message>
         <source>Russian: Вячеслав Диконов</source>
         <translation>Ruso: Вячеслав Диконов</translation>
+    </message>
+    <message>
+        <source>German: Pawel Spoon, Uli M.</source>
+        <translation>Alemán: Pawel Spoon, Uli M.</translation>
     </message>
 </context>
 <context>
@@ -116,6 +116,36 @@
     <message>
         <source>Description</source>
         <translation>Descripción</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionExport</name>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Directorio</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Exportar</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nombre</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CollectionModel</name>
+    <message>
+        <source>Invalid export directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid file name</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -169,6 +199,14 @@
     <message>
         <source>Edit collection</source>
         <translation>Editar colección</translation>
+    </message>
+    <message>
+        <source>Hide on map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -684,6 +722,10 @@
     <message>
         <source>SD card</source>
         <translation>Tarjeta SD</translation>
+    </message>
+    <message>
+        <source>Documents</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

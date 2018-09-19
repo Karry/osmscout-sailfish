@@ -119,6 +119,36 @@
     </message>
 </context>
 <context>
+    <name>CollectionExport</name>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CollectionModel</name>
+    <message>
+        <source>Invalid export directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid file name</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
@@ -168,6 +198,14 @@
     </message>
     <message>
         <source>Edit collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide on map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show on map</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -683,6 +721,10 @@
     </message>
     <message>
         <source>SD card</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Documents</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
