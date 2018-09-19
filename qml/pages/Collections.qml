@@ -69,7 +69,7 @@ Page {
             Image{
                 id: entryIcon
 
-                source: "image://theme/icon-m-favorite"
+                source: model.visible ? "image://theme/icon-m-favorite-selected" : "image://theme/icon-m-favorite"
 
                 width: Theme.iconSizeMedium
                 fillMode: Image.PreserveAspectFit
@@ -77,6 +77,14 @@ Page {
                 verticalAlignment: Image.AlignVCenter
                 height: width
                 x: Theme.paddingMedium
+
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("Changing collection (" + model.id + ") visibility to: " + !model.visible);
+                        collectionListModel.editCollection(model.id, !model.visible, model.name, model.description);
+                    }
+                }
             }
             Column{
                 id: entryDescription
@@ -114,6 +122,13 @@ Page {
                 collectionPage.selectTrack.connect(selectTrack);
             }
             menu: ContextMenu {
+                MenuItem {
+                    text: model.visible ? qsTr("Hide on map") : qsTr("Show on map")
+                    onClicked: {
+                        console.log("Changing collection (" + model.id + ") visibility to: " + !model.visible);
+                        collectionListModel.editCollection(model.id, !model.visible, model.name, model.description);
+                    }
+                }
                 MenuItem {
                     text: qsTr("Edit")
                     onClicked: {
