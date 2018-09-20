@@ -122,30 +122,30 @@
     <name>CollectionExport</name>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Složka</translation>
+        <translation>Složka</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished">Exportovat</translation>
+        <translation>Export</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Jméno</translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno souboru</translation>
     </message>
 </context>
 <context>
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Nevalidní složka pro export</translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nevalidní jméno souboru</translation>
     </message>
 </context>
 <context>
@@ -202,11 +202,11 @@
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Nezobrazovat na mapě</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit na mapě</translation>
     </message>
 </context>
 <context>
@@ -725,7 +725,7 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumenty</translation>
     </message>
 </context>
 <context>

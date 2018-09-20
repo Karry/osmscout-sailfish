@@ -121,20 +121,20 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Export</source>
-        <translation type="unfinished">Eksportuj</translation>
+        <source>Directory</source>
+        <translation type="unfinished">Katalog</translation>
     </message>
     <message>
-        <source>File name</source>
-        <translation type="unfinished"></translation>
+        <source>Export</source>
+        <translation type="unfinished">Eksportuj</translation>
     </message>
     <message>
         <source>Name</source>
         <translation type="unfinished">Nazwa</translation>
     </message>
     <message>
-        <source>Directory</source>
-        <translation type="unfinished">Katalog</translation>
+        <source>File name</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
