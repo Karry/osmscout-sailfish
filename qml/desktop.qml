@@ -60,37 +60,56 @@ Window {
         }
     }
 
-    DelegateModel {
-        id: delegateModel
+    InstalledMapsModel{
+        id: installedMapsModel
+
+        function getData(row, role){
+            return installedMapsModel.data(installedMapsModel.index(row, 0), role);
+        }
+
+        function listMaps(){
+            console.log("list maps " + installedMapsModel.rowCount());
+            for (var row = 0; row < installedMapsModel.rowCount(); row++){
+                console.log(" map " + row +": "+ getData(row, InstalledMapsModel.NameRole) + " (" + getData(row, InstalledMapsModel.PathRole) + ")");
+            }
+            console.log("done");
+        }
+
+        Component.onCompleted: listMaps()
+        onDatabaseListChanged: listMaps()
     }
+
     LocationInfoModel {
         id: locationInfoModel
         Component.onCompleted: {
             locationInfoModel.setLocation(50.08923, 14.49837);
         }
+
+        function getData(row, role){
+            return locationInfoModel.data(locationInfoModel.index(row, 0), role);
+        }
+
         onReadyChanged: {
             if (!ready){
                 console.log("Loading objects around...");
                 return;
             }
             console.log("objects around: " + locationInfoModel.rowCount());
-            delegateModel.model = locationInfoModel;
             for (var row = 0; row < locationInfoModel.rowCount(); row++) {
-                var item = delegateModel.items.get(row).model;
                 console.log("  " + row + ":");
-                console.log("    label: " + item.label);
-                console.log("    region: " + item.region);
-                console.log("    address: " + item.address);
-                console.log("    inPlace: " + item.inPlace);
-                console.log("    distance: " + item.distance);
-                console.log("    bearing: " + item.bearing);
-                console.log("    poi: " + item.poi);
-                console.log("    type: " + item.type);
-                console.log("    postalCode: " + item.postalCode);
-                console.log("    website: " + item.website);
-                console.log("    phone: " + item.phone);
-                console.log("    addressLocation: " + item.addressLocation);
-                console.log("    addressNumber: " + item.addressNumber);
+                console.log("    label: " + getData(row, LocationInfoModel.LabelRole));
+                console.log("    region: " + getData(row, LocationInfoModel.RegionRole));
+                console.log("    address: " + getData(row, LocationInfoModel.AddressRole));
+                console.log("    inPlace: " + getData(row, LocationInfoModel.InPlaceRole));
+                console.log("    distance: " + getData(row, LocationInfoModel.DistanceRole));
+                console.log("    bearing: " + getData(row, LocationInfoModel.BearingRole));
+                console.log("    poi: " + getData(row, LocationInfoModel.PoiRole));
+                console.log("    type: " + getData(row, LocationInfoModel.TypeRole));
+                console.log("    postalCode: " + getData(row, LocationInfoModel.PostalCodeRole));
+                console.log("    website: " + getData(row, LocationInfoModel.WebsiteRole));
+                console.log("    phone: " + getData(row, LocationInfoModel.PhoneRole));
+                console.log("    addressLocation: " + getData(row, LocationInfoModel.AddressLocationRole));
+                console.log("    addressNumber: " + getData(row, LocationInfoModel.AddressNumberRole));
             }
         }
     }

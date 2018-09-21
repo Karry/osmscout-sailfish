@@ -80,6 +80,7 @@ public:
     // type == track
     DistanceRole = Qt::UserRole+8
   };
+  Q_ENUM(Roles)
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
   Q_INVOKABLE virtual QVariant data(const QModelIndex &index, int role) const;
@@ -101,8 +102,56 @@ public:
   bool isExporting();
   Q_INVOKABLE QStringList getExportSuggestedDirectories();
 
+
+  template <class T>
+  void handleChanges(int rowOffset, QList<T> &old, const std::vector<T> &current)
+  {
+    // process removals
+    QMap<qint64, T> currentDirMap;
+    for (auto entry: current){
+      currentDirMap[entry.id] = entry;
+    }
+
+    bool deleteDone=false;
+    while (!deleteDone){
+      deleteDone=true;
+      for (int row=0;row<old.size(); row++){
+        if (!currentDirMap.contains(old.at(row).id)){
+          beginRemoveRows(QModelIndex(), row+rowOffset, row+rowOffset);
+          old.removeAt(row);
+          endRemoveRows();
+          deleteDone = false;
+          break;
+        }
+      }
+    }
+
+    // process adds
+    QMap<qint64, T> oldDirMap;
+    for (auto entry: old){
+      oldDirMap[entry.id] = entry;
+    }
+
+    for (size_t row = 0; row < current.size(); row++) {
+      auto entry = current.at(row);
+      if (!oldDirMap.contains(entry.id)){
+        beginInsertRows(QModelIndex(), row+rowOffset, row+rowOffset);
+        old.insert(row, entry);
+        endInsertRows();
+        oldDirMap[entry.id] = entry;
+      }else{
+        old[row] = entry;
+        // TODO: check changed roles
+        dataChanged(index(row+rowOffset), index(row+rowOffset), roleNames().keys().toVector());
+      }
+    }
+  }
+
 public:
   Collection collection;
+  QList<Track> tracks;
+  QList<Waypoint> waypoints;
+
   bool collectionLoaded{false};
   bool collectionExporting{false};
 };

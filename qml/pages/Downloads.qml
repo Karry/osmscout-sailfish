@@ -284,9 +284,12 @@ Page {
                     }
                 }
                 Component.onCompleted: {
-                    installedMapsModel.modelReset.connect(onModelReset);
+                    installedMapsModel.modelReset.connect(onModelChange);
+                    installedMapsModel.databaseListChanged.connect(onModelChange);
+                    onModelChange()
                 }
-                function onModelReset() {
+
+                function onModelChange() {
                     console.log("installedMapsModel rows: "+installedMapsModel.rowCount());
                     installedMapsColumn.visible = installedMapsModel.rowCount() > 0
                 }

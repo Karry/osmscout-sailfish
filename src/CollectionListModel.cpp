@@ -81,10 +81,50 @@ void CollectionListModel::storageInitialisationError(QString)
 
 void CollectionListModel::onCollectionsLoaded(std::vector<Collection> collections, bool ok)
 {
-  beginResetModel();
   collectionsLoaded = true;
-  this->collections = collections;
-  endResetModel();
+
+  // following process is little bit complicated, but we don't want to call
+  // model reset - it breaks UI animations for changes
+
+  // process removals
+  QMap<qint64, Collection> currentColMap;
+  for (auto col: collections){
+    currentColMap[col.id] = col;
+  }
+
+  bool deleteDone=false;
+  while (!deleteDone){
+    deleteDone=true;
+    for (int row=0;row<this->collections.size(); row++){
+      if (!currentColMap.contains(this->collections.at(row).id)){
+        beginRemoveRows(QModelIndex(), row, row);
+        this->collections.removeAt(row);
+        endRemoveRows();
+        deleteDone = false;
+        break;
+      }
+    }
+  }
+
+  // process adds
+  QMap<qint64, Collection> oldColMap;
+  for (auto col: this->collections){
+    oldColMap[col.id] = col;
+  }
+
+  for (int row = 0; row < collections.size(); row++) {
+    auto col = collections.at(row);
+    if (!oldColMap.contains(col.id)){
+      beginInsertRows(QModelIndex(), row, row);
+      this->collections.insert(row, col);
+      endInsertRows();
+      oldColMap[col.id] = col;
+    }else{
+      this->collections[row] = col;
+      // TODO: check changed roles
+      dataChanged(index(row), index(row), roleNames().keys().toVector());
+    }
+  }
 
   if (!ok){
     qWarning() << "Collection load fails";

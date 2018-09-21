@@ -59,6 +59,7 @@ public:
     IdRole = Qt::UserRole+2,
     VisibleRole = Qt::UserRole+3
   };
+  Q_ENUM(Roles)
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
   Q_INVOKABLE virtual QVariant data(const QModelIndex &index, int role) const;
@@ -68,7 +69,7 @@ public:
   bool isLoading() const;
 
 public:
-  std::vector<Collection> collections;
+  QList<Collection> collections;
   bool collectionsLoaded{false};
 };
 

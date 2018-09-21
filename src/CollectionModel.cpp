@@ -102,10 +102,11 @@ void CollectionModel::storageInitialisationError(QString)
 
 void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
 {
-  beginResetModel();
   collectionLoaded = true;
   this->collection = collection;
-  endResetModel();
+
+  handleChanges<Waypoint>(0, waypoints, collection.waypoints ? *(collection.waypoints): std::vector<Waypoint>());
+  handleChanges<Track>(waypoints.size(), tracks, collection.tracks ? *(collection.tracks): std::vector<Track>());
 
   if (!ok){
     qWarning() << "Collection load fails";
@@ -115,12 +116,7 @@ void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
 
 int CollectionModel::rowCount(const QModelIndex &parentIndex) const
 {
-  int cnt = 0;
-  if (collection.waypoints)
-    cnt += collection.waypoints->size();
-  if (collection.tracks)
-    cnt += collection.tracks->size();
-  return cnt;
+  return tracks.size() + waypoints.size();
 }
 
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
@@ -130,38 +126,34 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
   if(index.row() < 0) {
     return QVariant();
   }
-  size_t row = index.row();
+  int row = index.row();
 
-  if (collection.waypoints) {
-    if (row < collection.waypoints->size()){
-      const Waypoint &waypoint = collection.waypoints->at(row);
-      switch(role){
-        case TypeRole: return "waypoint";
-        case NameRole: return QString::fromStdString(waypoint.data.name.getOrElse(""));
-        case DescriptionRole: return QString::fromStdString(waypoint.data.description.getOrElse(""));
-        case IdRole: return QString::number(waypoint.id);
+  if (row < waypoints.size()){
+    const Waypoint &waypoint = waypoints.at(row);
+    switch(role){
+      case TypeRole: return "waypoint";
+      case NameRole: return QString::fromStdString(waypoint.data.name.getOrElse(""));
+      case DescriptionRole: return QString::fromStdString(waypoint.data.description.getOrElse(""));
+      case IdRole: return QString::number(waypoint.id);
 
-        case SymbolRole: return QString::fromStdString(waypoint.data.symbol.getOrElse(""));
-        case LatitudeRole: return waypoint.data.coord.GetLat();
-        case LongitudeRole: return waypoint.data.coord.GetLon();
-        case TimeRole: return timestampToDateTime(waypoint.data.time);
-      }
-    } else {
-      row -= collection.waypoints->size();
+      case SymbolRole: return QString::fromStdString(waypoint.data.symbol.getOrElse(""));
+      case LatitudeRole: return waypoint.data.coord.GetLat();
+      case LongitudeRole: return waypoint.data.coord.GetLon();
+      case TimeRole: return timestampToDateTime(waypoint.data.time);
     }
+  } else {
+    row -= waypoints.size();
   }
-  if (collection.tracks) {
-    if (row < collection.tracks->size()){
-      const Track &track = collection.tracks->at(row);
-      switch(role){
-        case TypeRole: return "track";
-        case NameRole: return track.name;
-        case DescriptionRole: return track.description;
-        case IdRole: return QString::number(track.id);
+  if (row < tracks.size()){
+    const Track &track = tracks.at(row);
+    switch(role){
+      case TypeRole: return "track";
+      case NameRole: return track.name;
+      case DescriptionRole: return track.description;
+      case IdRole: return QString::number(track.id);
 
-        case TimeRole: return track.creationTime;
-        case DistanceRole: return track.statistics.distance.AsMeter();
-      }
+      case TimeRole: return track.creationTime;
+      case DistanceRole: return track.statistics.distance.AsMeter();
     }
   }
 
