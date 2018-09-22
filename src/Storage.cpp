@@ -46,6 +46,21 @@ void ErrorCallback::Error(std::string err)
   emit error(QString::fromStdString(err));
 }
 
+void MaxSpeedBuffer::flush()
+{
+  // TODO
+}
+
+void MaxSpeedBuffer::insert(const gpx::TrackPoint &p)
+{
+  // TODO
+}
+
+double MaxSpeedBuffer::maxSpeed() const
+{
+  return -1; // TODO
+}
+
 Storage::Storage(QThread *thread,
                  const QDir &directory)
   :thread(thread),
@@ -152,13 +167,25 @@ bool Storage::updateSchema(){
     sql.append(",").append( "`open` tinyint(1) NOT NULL");
     sql.append(",").append( "`creation_time` datetime NOT NULL");
     sql.append(",").append( "`modification_time` datetime NOT NULL");
-    sql.append(",").append( "`distance` double NOT NULL");
+
+    // statistics
+    sql.append(",").append( "`distance` DOUBLE NOT NULL");
+    sql.append(",").append( "`raw_distance` DOUBLE NOT NULL");
+    sql.append(",").append( "`duration` INTEGER NOT NULL");
+    sql.append(",").append( "`moving_duration` INTEGER NOT NULL");
+    sql.append(",").append( "`max_speed` DOUBLE NOT NULL");
+    sql.append(",").append( "`average_speed` DOUBLE NOT NULL");
+    sql.append(",").append( "`moving_average_speed` DOUBLE NOT NULL");
+    sql.append(",").append( "`ascent` DOUBLE NOT NULL");
+    sql.append(",").append( "`descent` DOUBLE NOT NULL");
+    sql.append(",").append( "`min_elevation` DOUBLE NULL");
+    sql.append(",").append( "`max_elevation` DOUBLE NULL");
 
     // bbox
-    sql.append(",").append( "`bbox_min_lat` double NOT NULL");
-    sql.append(",").append( "`bbox_min_lon` double NOT NULL");
-    sql.append(",").append( "`bbox_max_lat` double NOT NULL");
-    sql.append(",").append( "`bbox_max_lon` double NOT NULL");
+    sql.append(",").append( "`bbox_min_lat` DOUBLE NOT NULL");
+    sql.append(",").append( "`bbox_min_lon` DOUBLE NOT NULL");
+    sql.append(",").append( "`bbox_max_lat` DOUBLE NOT NULL");
+    sql.append(",").append( "`bbox_max_lon` DOUBLE NOT NULL");
 
     sql.append(");");
 
@@ -329,11 +356,24 @@ Track Storage::makeTrack(QSqlQuery &sqlTrack) const
                varToBool(sqlTrack.value("open")),
                varToDateTime(sqlTrack.value("creation_time")),
                varToDateTime(sqlTrack.value("modification_time")),
-               osmscout::Distance::Of<osmscout::Meter>(varToDouble(sqlTrack.value("distance"))),
-               osmscout::GeoBox(osmscout::GeoCoord(varToDouble(sqlTrack.value("bbox_min_lat")),
-                                                   varToDouble(sqlTrack.value("bbox_min_lon"))),
-                                osmscout::GeoCoord(varToDouble(sqlTrack.value("bbox_max_lat")),
-                                                   varToDouble(sqlTrack.value("bbox_max_lon")))));
+               TrackStatistics(
+                 Distance::Of<Meter>(varToDouble(sqlTrack.value("distance"))),
+                 Distance::Of<Meter>(varToDouble(sqlTrack.value("raw_distance"))),
+                 std::chrono::milliseconds(varToLong(sqlTrack.value("duration"))),
+                 std::chrono::milliseconds(varToLong(sqlTrack.value("moving_duration"))),
+                 varToDouble(sqlTrack.value("max_speed")),
+                 varToDouble(sqlTrack.value("average_speed")),
+                 varToDouble(sqlTrack.value("moving_average_speed")),
+                 Distance::Of<Meter>(varToDouble(sqlTrack.value("ascent"))),
+                 Distance::Of<Meter>(varToDouble(sqlTrack.value("descent"))),
+                 varToDistanceOpt(sqlTrack.value("min_elevation")),
+                 varToDistanceOpt(sqlTrack.value("max_elevation")),
+
+                 GeoBox(GeoCoord(varToDouble(sqlTrack.value("bbox_min_lat")),
+                                                     varToDouble(sqlTrack.value("bbox_min_lon"))),
+                                  GeoCoord(varToDouble(sqlTrack.value("bbox_max_lat")),
+                                                     varToDouble(sqlTrack.value("bbox_max_lon"))))
+                                                   ));
 }
 
 std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
@@ -371,7 +411,7 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
 
   std::shared_ptr<std::vector<Waypoint>> result = std::make_shared<std::vector<Waypoint>>();
   while (sql.next()) {
-    gpx::Waypoint wpt(osmscout::GeoCoord(
+    gpx::Waypoint wpt(GeoCoord(
       varToDouble(sql.value("latitude")),
       varToDouble(sql.value("longitude"))
       ));
@@ -442,7 +482,7 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
   }
 
   while (sql.next()) {
-    gpx::TrackPoint point(osmscout::GeoCoord(
+    gpx::TrackPoint point(GeoCoord(
       varToDouble(sql.value("latitude")),
       varToDouble(sql.value("longitude"))
     ));
@@ -573,7 +613,7 @@ void Storage::deleteCollection(qint64 id)
   loadCollections();
 }
 
-bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 collectionId)
+bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
 {
   int wptNum = 0;
   db.transaction();
@@ -626,29 +666,166 @@ bool Storage::importWaypoints(const osmscout::gpx::GpxFile &gpxFile, qint64 coll
   }
   return true;
 }
-TrackStatistics Storage::computeTrackStatistics(const osmscout::gpx::Track &trk) const
+
+TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
 {
+  // filter inaccurate nodes - filter nodes with dilution > 30 and with delta (from previous) less than 5 m
+  gpx::Track filtered(trk);
+  filtered.FilterPoints([](std::vector<gpx::TrackPoint> &points){
+    gpx::FilterInaccuratePoints(points, 30);
+    gpx::FilterNearPoints(points, Distance::Of<Meter>(5));
+  });
+
+  // time - just time diference between first and last node
+  std::chrono::milliseconds duration;
+  gpx::Optional<Timestamp> from;
+  gpx::Optional<Timestamp> to;
+  for (const auto &seg:trk.segments){
+    if (!seg.points.empty()){
+      from = seg.points.begin()->time;
+      break;
+    }
+  }
+  for (auto it = trk.segments.rbegin(); it != trk.segments.rend(); it++){
+    if (!it->points.empty()){
+      to = it->points.rbegin()->time;
+      break;
+    }
+  }
+  if (from.hasValue() && to.hasValue()){
+    duration = to.get() - from.get();
+  }
+
+  // moving time - sum time of segments when time difference between two points
+  // (of filtered track) is less then 5 minutes.
+  // ...filters are removing points with same coordinates - when there is no move.
+
+  // with moving duration is computed maximum speed...
+  MaxSpeedBuffer maxSpeedBuf;
+  std::chrono::milliseconds movingDuration; // ms
+  for (const auto &seg:filtered.segments) {
+    if (seg.points.empty()){
+      continue;
+    }
+    if (seg.points.begin()->time.hasValue()){
+      // first point of segment has no time - dont count it to statistics
+      continue;
+    }
+    Timestamp from = seg.points.begin()->time.get();
+    Timestamp previous = from;
+    for (const auto &p:seg.points) {
+      if (!p.time.hasValue()){
+        continue;
+      }
+      Timestamp current = p.time.get();
+      if (current - previous > std::chrono::minutes(5)){
+        movingDuration += previous - from;
+        from = current;
+        previous = from;
+        maxSpeedBuf.flush();
+      }else{
+        previous = current;
+      }
+      maxSpeedBuf.insert(p);
+    }
+    movingDuration += previous - from;
+    maxSpeedBuf.flush();
+  }
+
+  // elevation
+  gpx::Optional<Distance> minElevation;
+  gpx::Optional<Distance> maxElevation;
+  double ascent=0;
+  double descent=0;
+  bool first = true;
+  double previous = 0;
+  for (const auto &seg:filtered.segments) {
+    for (const auto &p:seg.points) {
+      if (!p.elevation.hasValue()){
+        continue;
+      }
+      double current = p.elevation.get();
+      if (!minElevation.hasValue() || minElevation.get().AsMeter() > current){
+        minElevation = gpx::Optional<Distance>::of(Distance::Of<Meter>(current));
+      }
+      if (!maxElevation.hasValue() || maxElevation.get().AsMeter() < current){
+        maxElevation = gpx::Optional<Distance>::of(Distance::Of<Meter>(current));
+      }
+      if (first){
+        first=false;
+      }else{
+        // TODO: is some filter necessary here?
+        if (current > previous){
+          ascent += (current - previous);
+        }else{
+          descent += (previous - current);
+        }
+      }
+      previous=current;
+    }
+  }
+
+  // compute bbox
   GeoBox bbox;
   for (const auto &seg:trk.segments){
     for (const auto &p:seg.points){
       bbox.Include(GeoBox(p.coord, p.coord));
     }
   }
-  return TrackStatistics(trk.GetLength(), bbox);
+
+  Distance length = filtered.GetLength();
+  double durationInHours = ((double)duration.count() / 3600000.0);
+  double movingDurationInHours = ((double)movingDuration.count() / 3600000.0);
+
+  return TrackStatistics(
+    length,
+    /*rawDistance*/ trk.GetLength(),
+    duration,
+    movingDuration,
+    maxSpeedBuf.maxSpeed(),
+    /*averageSpeed*/ durationInHours == 0 ? -1 : length.As<Kilometer>() / durationInHours,
+    /*movingAverageSpeed*/ movingDurationInHours == 0 ? -1 : length.As<Kilometer>() / movingDurationInHours,
+    Distance::Of<Meter>(ascent),
+    Distance::Of<Meter>(descent),
+    minElevation,
+    maxElevation,
+    bbox);
 }
 
-bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collectionId)
+bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
 {
   int trkNum = 0;
   QSqlQuery sqlTrk(db);
   QSqlQuery sqlSeg(db);
   sqlTrk.prepare(QString("INSERT INTO `track` (")
     .append("`collection_id`, `name`, `description`, `open`, `creation_time`, `modification_time`, ")
-    .append("`distance`, `bbox_min_lat`, `bbox_min_lon`, `bbox_max_lat`, `bbox_max_lon`")
+    .append("`distance`, ")
+    .append("`raw_distance`, ")
+    .append("`duration`, ")
+    .append("`moving_duration`, ")
+    .append("`max_speed`, ")
+    .append("`average_speed`, ")
+    .append("`moving_average_speed`, ")
+    .append("`ascent`, ")
+    .append("`descent`, ")
+    .append("`min_elevation`, ")
+    .append("`max_elevation`, ")
+    .append("`bbox_min_lat`, `bbox_min_lon`, `bbox_max_lat`, `bbox_max_lon`")
     .append(") ")
     .append("VALUES (")
     .append(":collection_id,  :name,  :description,  :open,  :creation_time,  :modification_time, ")
-    .append(":distance, :bboxMinLat, :bboxMinLon, :bboxMaxLat, :bboxMaxLon")
+    .append(":distance, ")
+    .append(":raw_distance, ")
+    .append(":duration, ")
+    .append(":moving_duration, ")
+    .append(":max_speed, ")
+    .append(":average_speed, ")
+    .append(":moving_average_speed, ")
+    .append(":ascent, ")
+    .append(":descent, ")
+    .append(":min_elevation, ")
+    .append(":max_elevation, ")
+    .append(":bboxMinLat, :bboxMinLon, :bboxMaxLat, :bboxMaxLon")
     .append(")"));
 
   sqlSeg.prepare("INSERT INTO `track_segment` (`track_id`, `open`, `creation_time`, `distance`) VALUES (:track_id, :open, :creation_time, :distance)");
@@ -665,11 +842,21 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
                      (trk.desc.hasValue() ? QString::fromStdString(trk.desc.get()) : QVariant()));
     sqlTrk.bindValue(":open", false);
 
-    // TODO: compute statistics (time, distance...)
     TrackStatistics stat = computeTrackStatistics(trk);
     sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
     sqlTrk.bindValue(":modification_time", QDateTime::currentDateTime());
+
     sqlTrk.bindValue(":distance", stat.distance.AsMeter());
+    sqlTrk.bindValue(":raw_distance", stat.rawDistance.AsMeter());
+    sqlTrk.bindValue(":duration", (qint64)stat.duration.count());
+    sqlTrk.bindValue(":moving_duration", (qint64)stat.movingDuration.count());
+    sqlTrk.bindValue(":max_speed", stat.maxSpeed);
+    sqlTrk.bindValue(":average_speed", stat.averageSpeed);
+    sqlTrk.bindValue(":moving_average_speed", stat.movingAverageSpeed);
+    sqlTrk.bindValue(":ascent", stat.ascent.AsMeter());
+    sqlTrk.bindValue(":descent", stat.descent.AsMeter());
+    sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant(): QVariant::fromValue(stat.minElevation.get().AsMeter()));
+    sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant(): QVariant::fromValue(stat.maxElevation.get().AsMeter()));
 
     sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
     sqlTrk.bindValue(":bboxMinLon", stat.bbox.GetMinLon());
@@ -689,7 +876,7 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
       sqlSeg.bindValue(":track_id", trackId);
       sqlSeg.bindValue(":open", false);
 
-      // TODO: compute statistics (time, distance...)
+      // TODO: do we need segment statics?
       sqlSeg.bindValue(":creation_time", QDateTime::currentDateTime());
       sqlSeg.bindValue(":distance", seg.GetLength().AsMeter());
       sqlSeg.exec();
@@ -712,7 +899,7 @@ bool Storage::importTracks(const osmscout::gpx::GpxFile &gpxFile, qint64 collect
   return true;
 }
 
-bool Storage::importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &points, qint64 segmentId)
+bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint64 segmentId)
 {
   size_t pointNum = 0;
   db.transaction();

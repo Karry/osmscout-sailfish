@@ -93,6 +93,60 @@ double CollectionTrackModel::getDistance() const
   return track.statistics.distance.AsMeter();
 }
 
+double CollectionTrackModel::getRawDistance() const
+{
+  return track.statistics.rawDistance.AsMeter();
+}
+
+qint64 CollectionTrackModel::getDuration() const
+{
+  return track.statistics.duration.count();
+}
+
+qint64 CollectionTrackModel::getMovingDuration() const
+{
+  return track.statistics.movingDuration.count();
+}
+
+double CollectionTrackModel::getMaxSpeed() const
+{
+  return track.statistics.maxSpeed;
+}
+
+double CollectionTrackModel::getAverageSpeed() const
+{
+  return track.statistics.averageSpeed;
+}
+
+double CollectionTrackModel::getMovingAverageSpeed() const
+{
+  return track.statistics.movingAverageSpeed;
+}
+
+double CollectionTrackModel::getAscent() const
+{
+  return track.statistics.ascent.AsMeter();
+}
+
+double CollectionTrackModel::getDescent() const
+{
+  return track.statistics.descent.AsMeter();
+}
+
+double CollectionTrackModel::getMinElevation() const
+{
+  if (track.statistics.minElevation.hasValue())
+    return track.statistics.minElevation.get().AsMeter();
+  return std::numeric_limits<double>::min();
+}
+
+double CollectionTrackModel::getMaxElevation() const
+{
+  if (track.statistics.maxElevation.hasValue())
+    return track.statistics.maxElevation.get().AsMeter();
+  return std::numeric_limits<double>::min();
+}
+
 QObject *CollectionTrackModel::getBBox() const
 {
   // QML will take ownership

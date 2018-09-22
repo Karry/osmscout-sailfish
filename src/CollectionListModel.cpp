@@ -112,7 +112,7 @@ void CollectionListModel::onCollectionsLoaded(std::vector<Collection> collection
     oldColMap[col.id] = col;
   }
 
-  for (int row = 0; row < collections.size(); row++) {
+  for (size_t row = 0; row < collections.size(); row++) {
     auto col = collections.at(row);
     if (!oldColMap.contains(col.id)){
       beginInsertRows(QModelIndex(), row, row);

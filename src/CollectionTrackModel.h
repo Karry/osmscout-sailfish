@@ -33,7 +33,19 @@ class CollectionTrackModel : public QObject {
   Q_PROPERTY(QString trackId READ getTrackId WRITE setTrackId NOTIFY loadingChanged)
   Q_PROPERTY(QString name READ getName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY loadingChanged)
+
   Q_PROPERTY(double distance READ getDistance NOTIFY loadingChanged)
+  Q_PROPERTY(double rawDistance READ getRawDistance() NOTIFY loadingChanged)
+  Q_PROPERTY(qint64 duration READ getDuration() NOTIFY loadingChanged)
+  Q_PROPERTY(qint64 movingDuration READ getMovingDuration() NOTIFY loadingChanged)
+  Q_PROPERTY(double maxSpeed READ getMaxSpeed() NOTIFY loadingChanged)
+  Q_PROPERTY(double averageSpeed READ getAverageSpeed() NOTIFY loadingChanged)
+  Q_PROPERTY(double movingAverageSpeed READ getMovingAverageSpeed() NOTIFY loadingChanged)
+  Q_PROPERTY(double ascent READ getAscent() NOTIFY loadingChanged)
+  Q_PROPERTY(double descent READ getDescent() NOTIFY loadingChanged)
+  Q_PROPERTY(double minElevation READ getMinElevation() NOTIFY loadingChanged)
+  Q_PROPERTY(double maxElevation READ getMaxElevation() NOTIFY loadingChanged)
+
   Q_PROPERTY(QObject *boundingBox READ getBBox NOTIFY bboxChanged)
   Q_PROPERTY(int segmentCount READ getSegmentCount NOTIFY loadingChanged)
 
@@ -57,7 +69,19 @@ public:
 
   QString getName() const;
   QString getDescription() const;
+
   double getDistance() const;
+  double getRawDistance() const;
+  qint64 getDuration() const;
+  qint64 getMovingDuration() const;
+  double getMaxSpeed() const;
+  double getAverageSpeed() const;
+  double getMovingAverageSpeed() const;
+  double getAscent() const;
+  double getDescent() const;
+  double getMinElevation() const;
+  double getMaxElevation() const;
+
   QObject *getBBox() const;
   int getSegmentCount() const;
   Q_INVOKABLE QObject* createOverlayForSegment(int segment);

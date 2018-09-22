@@ -55,16 +55,58 @@ public:
   TrackStatistics() = default;
 
   TrackStatistics(const osmscout::Distance &distance,
+                  const osmscout::Distance &rawDistance,
+                  const std::chrono::milliseconds &duration,
+                  const std::chrono::milliseconds &movingDuration,
+                  const double &maxSpeed,
+                  const double &averageSpeed,
+                  const double &movingAverageSpeed,
+                  const osmscout::Distance &ascent,
+                  const osmscout::Distance &descent,
+                  const osmscout::gpx::Optional<osmscout::Distance> &minElevation,
+                  const osmscout::gpx::Optional<osmscout::Distance> &maxElevation,
                   const osmscout::GeoBox &bbox):
-    distance(distance), bbox(bbox)
+    distance(distance),
+    rawDistance(rawDistance),
+    duration(duration),
+    movingDuration(movingDuration),
+    maxSpeed(maxSpeed),
+    averageSpeed(averageSpeed),
+    movingAverageSpeed(movingAverageSpeed),
+    ascent(ascent),
+    descent(descent),
+    minElevation(minElevation),
+    maxElevation(maxElevation),
+    bbox(bbox)
   {};
 
   TrackStatistics(const TrackStatistics &o):
-    distance(o.distance), bbox(o.bbox)
+    distance(o.distance),
+    rawDistance(o.rawDistance),
+    duration(o.duration),
+    movingDuration(o.movingDuration),
+    maxSpeed(o.maxSpeed),
+    averageSpeed(o.averageSpeed),
+    movingAverageSpeed(o.movingAverageSpeed),
+    ascent(o.ascent),
+    descent(o.descent),
+    minElevation(o.minElevation),
+    maxElevation(o.maxElevation),
+    bbox(o.bbox)
   {};
 
 public:
   osmscout::Distance distance;
+  osmscout::Distance rawDistance;
+  std::chrono::milliseconds duration;
+  std::chrono::milliseconds movingDuration;
+  double maxSpeed; // km/h
+  double averageSpeed; // km/h
+  double movingAverageSpeed; // km/h
+  osmscout::Distance ascent;
+  osmscout::Distance descent;
+  osmscout::gpx::Optional<osmscout::Distance> minElevation;
+  osmscout::gpx::Optional<osmscout::Distance> maxElevation;
   osmscout::GeoBox   bbox;
 };
 
@@ -74,11 +116,10 @@ public:
   Track() = default;
   Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,
         const QDateTime &creationTime, const QDateTime &lastModification,
-        const osmscout::Distance &distance,
-        const osmscout::GeoBox &bbox):
+        const TrackStatistics &statistics):
     id(id), collectionId(collectionId), name(name), description(description), open(open),
     creationTime(creationTime), lastModification(lastModification),
-    statistics(distance, bbox)
+    statistics(statistics)
   {};
 
   Track(const Track &o):
@@ -142,6 +183,16 @@ public:
 
   std::shared_ptr<std::vector<Track>> tracks;
   std::shared_ptr<std::vector<Waypoint>> waypoints;
+};
+
+class MaxSpeedBuffer{
+public:
+  MaxSpeedBuffer() = default;
+  ~MaxSpeedBuffer() = default;
+
+  void flush();
+  void insert(const osmscout::gpx::TrackPoint &p);
+  double maxSpeed() const;
 };
 
 class Storage : public QObject{

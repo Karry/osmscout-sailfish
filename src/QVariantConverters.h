@@ -21,6 +21,7 @@
 #define OSMSCOUT_SAILFISH_QVARIANTCONVERTERS_H
 
 #include <osmscout/util/String.h>
+#include <osmscout/util/Distance.h>
 #include <osmscout/gpx/Optional.h>
 
 #include <QVariant>
@@ -114,6 +115,15 @@ inline osmscout::gpx::Optional<double> varToDoubleOpt(const QVariant &var)
   }
 
   return osmscout::gpx::Optional<double>();
+}
+
+inline osmscout::gpx::Optional<osmscout::Distance> varToDistanceOpt(const QVariant &var)
+{
+  auto m = varToDoubleOpt(var);
+  if (m.hasValue()) {
+    return osmscout::gpx::Optional<osmscout::Distance>::of(osmscout::Distance::Of<osmscout::Meter>(m.get()));
+  }
+  return osmscout::gpx::Optional<osmscout::Distance>();
 }
 
 }

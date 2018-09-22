@@ -126,6 +126,47 @@ Dialog{
                             label: qsTr("Distance")
                             value: trackModel.distance < 0 ? "?" :Utils.humanDistance(trackModel.distance)
                         }
+                        DetailItem {
+                            id: rawDistanceItem
+                            label: qsTr("Raw distance")
+                            value: trackModel.rawDistance < 0 ? "?" :Utils.humanDistance(trackModel.rawDistance)
+                        }
+                        DetailItem {
+                            id: duration
+                            label: qsTr("Duration")
+                            value: Utils.humanDurationLong(trackModel.duration / 1000)
+                        }
+                        DetailItem {
+                            id: movingDuration
+                            label: qsTr("Moving duration")
+                            value: Utils.humanDurationLong(trackModel.movingDuration / 1000)
+                        }
+                        DetailItem {
+                            id: speed
+                            label: qsTr("Speed max / ⌀")
+                            value: trackModel.maxSpeed + " / " + trackModel.averageSpeed +" km"
+                        }
+                        DetailItem {
+                            id: movingSpeed
+                            label: qsTr("Moving ⌀ speed")
+                            value: trackModel.movingAverageSpeed +" km"
+                        }
+                        DetailItem {
+                            id: ascent
+                            label: qsTr("Ascent")
+                            value: trackModel.ascent + " m"
+                        }
+                        DetailItem {
+                            id: descent
+                            label: qsTr("Descent")
+                            value: trackModel.descent + " m"
+                        }
+                        DetailItem {
+                            id: elevation
+                            visible: trackModel.minElevation > -100000 && trackModel.maxElevation > -100000
+                            label: qsTr("Elevation min/max")
+                            value: trackModel.minElevation + " / " + trackModel.maxElevation + " m"
+                        }
                         Rectangle {
                             id: footer
                             color: "transparent"
