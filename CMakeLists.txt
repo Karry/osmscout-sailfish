@@ -22,7 +22,7 @@ set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCO
 # ==================================================================================================
 
 set(CMAKE_MIN_VERSION    "2.8.11")
-set(QT_MIN_VERSION       "5.6.0")
+set(QT_MIN_VERSION       "5.5.0")
 option(OSMSCOUT_ENABLE_SSE "Enable SSE support (not working on all platforms!)" ON)
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
