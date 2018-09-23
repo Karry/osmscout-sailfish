@@ -160,15 +160,47 @@
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruwe afstand</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>Klim</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Afdaling</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Hoogteverschil min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation>%1 / %2 km/u</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/u</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">Van</translation>
+        <translation>Van</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">Naar</translation>
+        <translation>Tot</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation>Snelheid ⌀/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
@@ -179,39 +211,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ascent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Descent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
