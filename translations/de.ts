@@ -163,14 +163,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Duration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Moving duration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ascent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -184,10 +176,6 @@
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Moving speed ⌀</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -212,6 +200,18 @@
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
