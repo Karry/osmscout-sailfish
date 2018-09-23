@@ -160,39 +160,39 @@
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distancia cruda</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Subida</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Descenso</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Elevación min/max</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 m</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">Desde</translation>
+        <translation>Desde</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">Para</translation>
+        <translation>Para</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -200,7 +200,7 @@
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m a.s.l.</translation>
     </message>
     <message>
         <source>Time</source>
@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
