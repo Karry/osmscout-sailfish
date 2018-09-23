@@ -235,7 +235,12 @@ Page {
                     pageStack.pop(downloadsPage);
                 }
             }
-
+            Rectangle {
+                id: footer
+                color: "transparent"
+                width: parent.width
+                height: 2*Theme.paddingLarge
+            }
         }
 
     }
