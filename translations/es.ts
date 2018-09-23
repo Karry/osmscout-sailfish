@@ -196,7 +196,7 @@
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidad ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
@@ -204,15 +204,15 @@
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiempo</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation></translation>
+        <translation>Tiempo de movimiento</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidad de movimiento</translation>
     </message>
 </context>
 <context>
