@@ -54,7 +54,9 @@ class TrackStatistics
 public:
   TrackStatistics() = default;
 
-  TrackStatistics(const osmscout::Distance &distance,
+  TrackStatistics(const QDateTime &from,
+                  const QDateTime &to,
+                  const osmscout::Distance &distance,
                   const osmscout::Distance &rawDistance,
                   const std::chrono::milliseconds &duration,
                   const std::chrono::milliseconds &movingDuration,
@@ -66,6 +68,8 @@ public:
                   const osmscout::gpx::Optional<osmscout::Distance> &minElevation,
                   const osmscout::gpx::Optional<osmscout::Distance> &maxElevation,
                   const osmscout::GeoBox &bbox):
+    from(from),
+    to(to),
     distance(distance),
     rawDistance(rawDistance),
     duration(duration),
@@ -81,6 +85,8 @@ public:
   {};
 
   TrackStatistics(const TrackStatistics &o):
+    from(o.from),
+    to(o.to),
     distance(o.distance),
     rawDistance(o.rawDistance),
     duration(o.duration),
@@ -96,6 +102,8 @@ public:
   {};
 
 public:
+  QDateTime from;
+  QDateTime to;
   osmscout::Distance distance;
   osmscout::Distance rawDistance;
   std::chrono::milliseconds duration;

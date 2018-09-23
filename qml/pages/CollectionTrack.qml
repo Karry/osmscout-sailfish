@@ -114,6 +114,10 @@ Dialog{
                         x: Theme.paddingMedium
                         width: parent.width - 2*Theme.paddingMedium
 
+                        function round10(d){
+                            return Math.round(d * 10)/10;
+                        }
+
                         Label {
                             text: trackModel.description
                             visible: text != ""
@@ -132,40 +136,57 @@ Dialog{
                             value: trackModel.rawDistance < 0 ? "?" :Utils.humanDistance(trackModel.rawDistance)
                         }
                         DetailItem {
+                            id: fromTime
+                            label: qsTr("From")
+                            value: Qt.formatDateTime(trackModel.from)
+                        }
+                        DetailItem {
+                            id: toTime
+                            label: qsTr("To")
+                            value: Qt.formatDateTime(trackModel.to)
+                        }
+                        DetailItem {
                             id: duration
-                            label: qsTr("Duration")
+                            label: qsTr("Time")
                             value: Utils.humanDurationLong(trackModel.duration / 1000)
                         }
                         DetailItem {
                             id: movingDuration
-                            label: qsTr("Moving duration")
+                            label: qsTr("Moving Time")
                             value: Utils.humanDurationLong(trackModel.movingDuration / 1000)
                         }
                         DetailItem {
                             id: speed
-                            label: qsTr("Speed max / ⌀")
-                            value: trackModel.maxSpeed + " / " + trackModel.averageSpeed +" km"
+                            label: qsTr("Speed ⌀/max")
+                            value: qsTr("%1 / %2 km/h")
+                                .arg(content.round10(trackModel.averageSpeed))
+                                .arg(content.round10(trackModel.maxSpeed))
                         }
                         DetailItem {
                             id: movingSpeed
-                            label: qsTr("Moving ⌀ speed")
-                            value: trackModel.movingAverageSpeed +" km"
-                        }
-                        DetailItem {
-                            id: ascent
-                            label: qsTr("Ascent")
-                            value: trackModel.ascent + " m"
-                        }
-                        DetailItem {
-                            id: descent
-                            label: qsTr("Descent")
-                            value: trackModel.descent + " m"
+                            label: qsTr("Moving Speed ⌀")
+                            value: qsTr("%1 km/h")
+                                .arg(content.round10(trackModel.movingAverageSpeed))
                         }
                         DetailItem {
                             id: elevation
                             visible: trackModel.minElevation > -100000 && trackModel.maxElevation > -100000
                             label: qsTr("Elevation min/max")
-                            value: trackModel.minElevation + " / " + trackModel.maxElevation + " m"
+                            value: qsTr("%1 / %2 m a.s.l.")
+                                .arg(Math.round(trackModel.minElevation))
+                                .arg(Math.round(trackModel.maxElevation))
+                        }
+                        DetailItem {
+                            id: ascent
+                            label: qsTr("Ascent")
+                            value: qsTr("%1 m")
+                                .arg(Math.round(trackModel.ascent))
+                        }
+                        DetailItem {
+                            id: descent
+                            label: qsTr("Descent")
+                            value: qsTr("%1 m")
+                                .arg(Math.round(trackModel.descent))
                         }
                         Rectangle {
                             id: footer

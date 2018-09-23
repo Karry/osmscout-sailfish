@@ -34,6 +34,8 @@ class CollectionTrackModel : public QObject {
   Q_PROPERTY(QString name READ getName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY loadingChanged)
 
+  Q_PROPERTY(QDateTime from READ getFrom NOTIFY loadingChanged)
+  Q_PROPERTY(QDateTime to READ getTo NOTIFY loadingChanged)
   Q_PROPERTY(double distance READ getDistance NOTIFY loadingChanged)
   Q_PROPERTY(double rawDistance READ getRawDistance() NOTIFY loadingChanged)
   Q_PROPERTY(qint64 duration READ getDuration() NOTIFY loadingChanged)
@@ -70,6 +72,8 @@ public:
   QString getName() const;
   QString getDescription() const;
 
+  QDateTime getFrom() const;
+  QDateTime getTo() const;
   double getDistance() const;
   double getRawDistance() const;
   qint64 getDuration() const;

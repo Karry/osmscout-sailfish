@@ -169,6 +169,8 @@ bool Storage::updateSchema(){
     sql.append(",").append( "`modification_time` datetime NOT NULL");
 
     // statistics
+    sql.append(",").append( "`from_time` datetime NULL");
+    sql.append(",").append( "`to_time` datetime NULL");
     sql.append(",").append( "`distance` DOUBLE NOT NULL");
     sql.append(",").append( "`raw_distance` DOUBLE NOT NULL");
     sql.append(",").append( "`duration` INTEGER NOT NULL");
@@ -357,6 +359,8 @@ Track Storage::makeTrack(QSqlQuery &sqlTrack) const
                varToDateTime(sqlTrack.value("creation_time")),
                varToDateTime(sqlTrack.value("modification_time")),
                TrackStatistics(
+                 varToDateTime(sqlTrack.value("from_time")),
+                 varToDateTime(sqlTrack.value("to_time")),
                  Distance::Of<Meter>(varToDouble(sqlTrack.value("distance"))),
                  Distance::Of<Meter>(varToDouble(sqlTrack.value("raw_distance"))),
                  std::chrono::milliseconds(varToLong(sqlTrack.value("duration"))),
@@ -669,15 +673,23 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
 
 TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
 {
+  QTime timer;
+  timer.restart();
+
+  qDebug() << "Computing track statistics...";
+
   // filter inaccurate nodes - filter nodes with dilution > 30 and with delta (from previous) less than 5 m
+  QTime filterTimer;
+  filterTimer.restart();
   gpx::Track filtered(trk);
   filtered.FilterPoints([](std::vector<gpx::TrackPoint> &points){
     gpx::FilterInaccuratePoints(points, 30);
     gpx::FilterNearPoints(points, Distance::Of<Meter>(5));
   });
+  qDebug() << "Filtering nodes" << filterTimer.elapsed() << "ms";
 
   // time - just time diference between first and last node
-  std::chrono::milliseconds duration;
+  std::chrono::milliseconds duration(0);
   gpx::Optional<Timestamp> from;
   gpx::Optional<Timestamp> to;
   for (const auto &seg:trk.segments){
@@ -700,15 +712,18 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
   // (of filtered track) is less then 5 minutes.
   // ...filters are removing points with same coordinates - when there is no move.
 
+  QTime movingTimeTimer;
+  movingTimeTimer.restart();
+
   // with moving duration is computed maximum speed...
   MaxSpeedBuffer maxSpeedBuf;
-  std::chrono::milliseconds movingDuration; // ms
+  std::chrono::milliseconds movingDuration(0); // ms
   for (const auto &seg:filtered.segments) {
     if (seg.points.empty()){
       continue;
     }
-    if (seg.points.begin()->time.hasValue()){
-      // first point of segment has no time - dont count it to statistics
+    if (!seg.points.begin()->time.hasValue()){
+      // first point of segment has no time - don't count it to statistics, sorry
       continue;
     }
     Timestamp from = seg.points.begin()->time.get();
@@ -731,8 +746,12 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
     movingDuration += previous - from;
     maxSpeedBuf.flush();
   }
+  qDebug() << "Moving time" << movingTimeTimer.elapsed() << "ms";
 
   // elevation
+  QTime elevationTimer;
+  elevationTimer.restart();
+
   gpx::Optional<Distance> minElevation;
   gpx::Optional<Distance> maxElevation;
   double ascent=0;
@@ -744,6 +763,10 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
       if (!p.elevation.hasValue()){
         continue;
       }
+      if (p.vdop.hasValue() && p.vdop.get() > 50.0){
+        // when vertical accuracy is too low, ignore in statistics
+        continue;
+      }
       double current = p.elevation.get();
       if (!minElevation.hasValue() || minElevation.get().AsMeter() > current){
         minElevation = gpx::Optional<Distance>::of(Distance::Of<Meter>(current));
@@ -753,31 +776,43 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
       }
       if (first){
         first=false;
+        previous=current;
       }else{
-        // TODO: is some filter necessary here?
-        if (current > previous){
-          ascent += (current - previous);
-        }else{
-          descent += (previous - current);
+        // when difference is less than 9 meters, don't count to ascent/descent
+        // this threshold was experimentally set to get similar ascent like on strava.com :-)
+        if (std::abs(current - previous) >= 9.0) {
+          if (current > previous) {
+            ascent += (current - previous);
+          } else {
+            descent += (previous - current);
+          }
+          previous = current;
         }
       }
-      previous=current;
     }
   }
+  qDebug() << "Elevation" << elevationTimer.elapsed() << "ms";
 
   // compute bbox
+  QTime bboxTimer;
+  bboxTimer.restart();
   GeoBox bbox;
   for (const auto &seg:trk.segments){
     for (const auto &p:seg.points){
       bbox.Include(GeoBox(p.coord, p.coord));
     }
   }
+  qDebug() << "BBox" << bboxTimer.elapsed() << "ms";
 
   Distance length = filtered.GetLength();
   double durationInHours = ((double)duration.count() / 3600000.0);
   double movingDurationInHours = ((double)movingDuration.count() / 3600000.0);
 
+  qDebug() << "Track statistics computation tooks" << timer.elapsed() << "ms";
+
   return TrackStatistics(
+    timestampToDateTime(from),
+    timestampToDateTime(to),
     length,
     /*rawDistance*/ trk.GetLength(),
     duration,
@@ -799,6 +834,8 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
   QSqlQuery sqlSeg(db);
   sqlTrk.prepare(QString("INSERT INTO `track` (")
     .append("`collection_id`, `name`, `description`, `open`, `creation_time`, `modification_time`, ")
+    .append("`from_time`, ")
+    .append("`to_time`, ")
     .append("`distance`, ")
     .append("`raw_distance`, ")
     .append("`duration`, ")
@@ -814,6 +851,8 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
     .append(") ")
     .append("VALUES (")
     .append(":collection_id,  :name,  :description,  :open,  :creation_time,  :modification_time, ")
+    .append(":from_time, ")
+    .append(":to_time, ")
     .append(":distance, ")
     .append(":raw_distance, ")
     .append(":duration, ")
@@ -846,6 +885,8 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
     sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
     sqlTrk.bindValue(":modification_time", QDateTime::currentDateTime());
 
+    sqlTrk.bindValue(":from_time", stat.from);
+    sqlTrk.bindValue(":to_time", stat.to);
     sqlTrk.bindValue(":distance", stat.distance.AsMeter());
     sqlTrk.bindValue(":raw_distance", stat.rawDistance.AsMeter());
     sqlTrk.bindValue(":duration", (qint64)stat.duration.count());
@@ -855,8 +896,8 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
     sqlTrk.bindValue(":moving_average_speed", stat.movingAverageSpeed);
     sqlTrk.bindValue(":ascent", stat.ascent.AsMeter());
     sqlTrk.bindValue(":descent", stat.descent.AsMeter());
-    sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant(): QVariant::fromValue(stat.minElevation.get().AsMeter()));
-    sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant(): QVariant::fromValue(stat.maxElevation.get().AsMeter()));
+    sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant::fromValue(stat.minElevation.get().AsMeter()) : QVariant());
+    sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant::fromValue(stat.maxElevation.get().AsMeter()) : QVariant());
 
     sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
     sqlTrk.bindValue(":bboxMinLon", stat.bbox.GetMinLon());

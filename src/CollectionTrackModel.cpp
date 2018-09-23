@@ -88,6 +88,16 @@ QString CollectionTrackModel::getDescription() const
   return track.description;
 }
 
+QDateTime CollectionTrackModel::getFrom() const
+{
+  return track.statistics.from;
+}
+
+QDateTime CollectionTrackModel::getTo() const
+{
+  return track.statistics.to;
+}
+
 double CollectionTrackModel::getDistance() const
 {
   return track.statistics.distance.AsMeter();
@@ -137,14 +147,14 @@ double CollectionTrackModel::getMinElevation() const
 {
   if (track.statistics.minElevation.hasValue())
     return track.statistics.minElevation.get().AsMeter();
-  return std::numeric_limits<double>::min();
+  return -1000000; // JS numeric limits may be different from C++
 }
 
 double CollectionTrackModel::getMaxElevation() const
 {
   if (track.statistics.maxElevation.hasValue())
     return track.statistics.maxElevation.get().AsMeter();
-  return std::numeric_limits<double>::min();
+  return -1000000; // JS numeric limits may be different from C++
 }
 
 QObject *CollectionTrackModel::getBBox() const
