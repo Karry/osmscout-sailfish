@@ -58,6 +58,9 @@ Window {
         onLoadingChanged: {
             console.log("onLoadingChanged: " + loading);
         }
+        Component.onCompleted: {
+            collectionModel.importCollection("test.gpx");
+        }
     }
 
     InstalledMapsModel{
