@@ -122,30 +122,30 @@
     <name>CollectionExport</name>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Map</translation>
+        <translation>Map</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished">Exporteren</translation>
+        <translation>Exporteren</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Naam</translation>
+        <translation>Naam</translation>
     </message>
     <message>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestandsnaam</translation>
     </message>
 </context>
 <context>
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongeldige exportmap</translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongeldige bestandsnaam</translation>
     </message>
 </context>
 <context>
@@ -163,42 +163,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Duration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Moving duration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ascent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Descent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Moving speed ⌀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>From</source>
         <translation type="unfinished">Van</translation>
     </message>
@@ -207,11 +171,47 @@
         <translation type="unfinished">Naar</translation>
     </message>
     <message>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Speed ⌀/max</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 / %2 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Descent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -258,11 +258,11 @@
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbergen op kaart</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Tonen op kaart</translation>
     </message>
 </context>
 <context>
@@ -781,7 +781,7 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Documenten</translation>
     </message>
 </context>
 <context>
