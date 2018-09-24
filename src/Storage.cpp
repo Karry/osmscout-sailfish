@@ -48,17 +48,43 @@ void ErrorCallback::Error(std::string err)
 
 void MaxSpeedBuffer::flush()
 {
-  // TODO
+  lastPoint.reset();
+  bufferTime.zero();
+  bufferDistance = Distance::Of<Meter>(0);
 }
 
 void MaxSpeedBuffer::insert(const gpx::TrackPoint &p)
 {
-  // TODO
+  if (!p.time.hasValue()){
+    return;
+  }
+  if (lastPoint){
+    std::chrono::milliseconds timeDiff = p.time.get() - lastPoint->time.get();
+    if (timeDiff.count() < 0){
+      qWarning() << "Traveling in time is not supported";
+      return;
+    }
+    Distance distanceDiff = GetEllipsoidalDistance(lastPoint->coord, p.coord);
+    distanceFifo.push_back(distanceDiff);
+    timeFifo.push_back(timeDiff);
+    bufferDistance += distanceDiff;
+    bufferTime += timeDiff;
+
+    while (bufferTime > std::chrono::milliseconds(5000) && !distanceFifo.empty()){
+      double speed = bufferDistance.AsMeter() / ((double)bufferTime.count() / 1000.0);
+      maxSpeed = std::max(maxSpeed, speed);
+      bufferDistance = bufferDistance - distanceFifo.front(); // it can be inaccurate!
+      bufferTime -= timeFifo.front();
+      distanceFifo.pop_front();
+      timeFifo.pop_front();
+    }
+  }
+  lastPoint=std::make_shared<osmscout::gpx::TrackPoint>(p);
 }
 
-double MaxSpeedBuffer::maxSpeed() const
+double MaxSpeedBuffer::getMaxSpeed() const
 {
-  return -1; // TODO
+  return maxSpeed;
 }
 
 Storage::Storage(QThread *thread,
@@ -805,8 +831,8 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
   qDebug() << "BBox" << bboxTimer.elapsed() << "ms";
 
   Distance length = filtered.GetLength();
-  double durationInHours = ((double)duration.count() / 3600000.0);
-  double movingDurationInHours = ((double)movingDuration.count() / 3600000.0);
+  double durationInSeconds = ((double)duration.count() / 1000.0);
+  double movingDurationInSeconds = ((double)movingDuration.count() / 1000.0);
 
   qDebug() << "Track statistics computation tooks" << timer.elapsed() << "ms";
 
@@ -817,9 +843,9 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
     /*rawDistance*/ trk.GetLength(),
     duration,
     movingDuration,
-    maxSpeedBuf.maxSpeed(),
-    /*averageSpeed*/ durationInHours == 0 ? -1 : length.As<Kilometer>() / durationInHours,
-    /*movingAverageSpeed*/ movingDurationInHours == 0 ? -1 : length.As<Kilometer>() / movingDurationInHours,
+    maxSpeedBuf.getMaxSpeed(),
+    /*averageSpeed*/ durationInSeconds == 0 ? -1 : length.AsMeter() / durationInSeconds,
+    /*movingAverageSpeed*/ movingDurationInSeconds == 0 ? -1 : length.AsMeter() / movingDurationInSeconds,
     Distance::Of<Meter>(ascent),
     Distance::Of<Meter>(descent),
     minElevation,

@@ -159,14 +159,14 @@ Dialog{
                             id: speed
                             label: qsTr("Speed ⌀/max")
                             value: qsTr("%1 / %2 km/h")
-                                .arg(content.round10(trackModel.averageSpeed))
-                                .arg(content.round10(trackModel.maxSpeed))
+                                .arg(content.round10(trackModel.averageSpeed*3.6))
+                                .arg(content.round10(trackModel.maxSpeed*3.6))
                         }
                         DetailItem {
                             id: movingSpeed
                             label: qsTr("Moving Speed ⌀")
                             value: qsTr("%1 km/h")
-                                .arg(content.round10(trackModel.movingAverageSpeed))
+                                .arg(content.round10(trackModel.movingAverageSpeed*3.6))
                         }
                         DetailItem {
                             id: elevation

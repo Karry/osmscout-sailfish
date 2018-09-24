@@ -108,9 +108,9 @@ public:
   osmscout::Distance rawDistance;
   std::chrono::milliseconds duration;
   std::chrono::milliseconds movingDuration;
-  double maxSpeed; // km/h
-  double averageSpeed; // km/h
-  double movingAverageSpeed; // km/h
+  double maxSpeed; // m/s
+  double averageSpeed; // m/s
+  double movingAverageSpeed; // m/s
   osmscout::Distance ascent;
   osmscout::Distance descent;
   osmscout::gpx::Optional<osmscout::Distance> minElevation;
@@ -200,7 +200,17 @@ public:
 
   void flush();
   void insert(const osmscout::gpx::TrackPoint &p);
-  double maxSpeed() const;
+
+  // return maximum computed speed in m / s
+  double getMaxSpeed() const;
+
+private:
+  QList<osmscout::Distance> distanceFifo;
+  QList<std::chrono::milliseconds> timeFifo;
+  osmscout::Distance bufferDistance;
+  std::chrono::milliseconds bufferTime{0};
+  std::shared_ptr<osmscout::gpx::TrackPoint> lastPoint;
+  double maxSpeed{0}; // m / s
 };
 
 class Storage : public QObject{
