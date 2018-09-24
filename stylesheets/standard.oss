@@ -35,7 +35,7 @@ FLAG
   }
 
 ORDER WAYS
-  GROUP _route
+  GROUP _route, _track
   GROUP highway_motorway
   GROUP highway_motorway_trunk
   GROUP highway_motorway_primary
@@ -129,6 +129,7 @@ CONST
 
   // Pseudo types
   COLOR routeColor                 = #ff000088;
+  COLOR trackColor                 = #10a000a0;
 
   // Ground tiles
 
@@ -502,6 +503,7 @@ STYLE
 
   [MAG world-] {
     [TYPE _route] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
+    [TYPE _track] WAY {color: @trackColor; displayWidth: 1.1mm; priority: 100; }
 
     [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
     [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }

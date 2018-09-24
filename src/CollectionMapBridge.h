@@ -76,7 +76,7 @@ public:
 private:
   osmscout::MapWidget *delegatedMap{nullptr};
   QString waypointTypeName{"_waypoint"};
-  QString trackTypeName{"_route"};
+  QString trackTypeName{"_track"};
   qint64 overlayWptIdBase{10000};
   qint64 overlayTrkIdBase{50000};
 

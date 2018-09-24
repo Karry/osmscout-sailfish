@@ -1,7 +1,7 @@
 OSS
 
 ORDER WAYS
-  GROUP _route
+  GROUP _route, _track
   GROUP railway_rail, railway_tram, railway_light_rail, 
       railway_narrow_gauge, railway_preserved, 
       railway_funicular
@@ -21,6 +21,7 @@ CONST
   COLOR unknownColor               = @landColor;
 
   COLOR routeColor                 = #ff000088;
+  COLOR trackColor                 = #10a000a0;
 
   // Label priorities
   UINT labelPrioWaypoint            = 0;
@@ -73,6 +74,7 @@ STYLE
   // [TYPE _tile_unknown] AREA {color: @unknownColor;}
 
   [TYPE _route] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
+  [TYPE _track] WAY {color: @trackColor; displayWidth: 1.1mm; priority: 100; }
 
   [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
   [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }

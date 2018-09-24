@@ -57,7 +57,7 @@ Dialog{
                 var cnt=trackModel.segmentCount;
                 for (var segment=0; segment<cnt; segment++){
                     var obj=trackModel.createOverlayForSegment(segment);
-                    obj.type="_highlighted";
+                    obj.type="_track";
                     console.log("add overlay for segment "+segment+": "+obj);
                     //console.log("object "+row+": "+obj);
                     wayPreviewMap.addOverlayObject(segment, obj);
