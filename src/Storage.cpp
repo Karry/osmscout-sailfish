@@ -1046,7 +1046,7 @@ void Storage::importCollection(QString filePath)
   sql.prepare("INSERT INTO `collection` (`name`, `description`, `visible`) VALUES (:name, :description, 0);");
   sql.bindValue(":name", gpxFile.name.hasValue() ?
                          QString::fromStdString(gpxFile.name.get()) : QFileInfo(filePath).baseName());
-  sql.bindValue(":description", gpxFile.desc.hasValue() ?
+  sql.bindValue(":description", gpxFile.desc.hasValue() && !gpxFile.desc.get().empty() ?
                                 QString::fromStdString(gpxFile.desc.get()) :
                                 tr("Imported from %1").arg(filePath));
 
