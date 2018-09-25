@@ -156,6 +156,10 @@ CoverBackground {
         focus: true
         anchors.fill: parent
 
+        CollectionMapBridge{
+            map: map
+        }
+
         TiledMapOverlay {
           anchors.fill: parent
           view: map.view
