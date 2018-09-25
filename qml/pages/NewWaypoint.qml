@@ -83,6 +83,10 @@ Dialog{
             rejectRequested = true;
             waypointDialog.reject();
         }
+        onAccepted: {
+            console.log("Create new collection: " + name + " / " + description);
+            collectionListModel.createCollection(name, description);
+        }
     }
     SilicaFlickable {
         id: flickable
@@ -105,24 +109,22 @@ Dialog{
 
                 property bool initialised: false
 
-                DelegateModel {
-                    id: delegateModel
-                }
                 CollectionListModel {
                     id: collectionListModel
                     onLoadingChanged: {
                         console.log("onLoadingChanged: " + loading);
                         if (!loading){
-                            delegateModel.model = collectionListModel;
                             if (collectionListModel.rowCount()==0){
                                 console.log("there is no collection, openning newCollectionDialog...");
                                 newCollectionRequested = true;
                                 newCollectionDialog.open();
                             }else{
-                                var collection = delegateModel.items.get(collectionComboBox.currentIndex).model;
-                                console.log("Selected collection: "+collection);
-                                waypointDialog.collectionId = collection.id;
-                                collectionComboBox.value = collection.name;
+                                var rowIndex = collectionListModel.index(collectionComboBox.currentIndex, 0);
+                                var collectionId = collectionListModel.data(rowIndex, CollectionListModel.IdRole);
+                                var collectionName = collectionListModel.data(rowIndex, CollectionListModel.NameRole);
+                                console.log("Selected collection " + collectionId + ": " + collectionName);
+                                waypointDialog.collectionId = collectionId;
+                                collectionComboBox.value = collectionName;
                                 collectionComboBox.initialised = true;
                             }
                         }
