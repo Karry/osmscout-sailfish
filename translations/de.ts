@@ -117,6 +117,14 @@
         <source>Description</source>
         <translation>Beschreibung</translation>
     </message>
+    <message>
+        <source>New collection</source>
+        <translation type="obsolete">Neue Sammlung</translation>
+    </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="obsolete">Bearbeite Sammlung</translation>
+    </message>
 </context>
 <context>
     <name>CollectionExport</name>
@@ -520,6 +528,10 @@
     <message>
         <source>Description</source>
         <translation>Beschreibung</translation>
+    </message>
+    <message>
+        <source>New collection</source>
+        <translation>Neue Sammlung</translation>
     </message>
 </context>
 <context>

@@ -117,6 +117,14 @@
         <source>Description</source>
         <translation>Beskrivning</translation>
     </message>
+    <message>
+        <source>New collection</source>
+        <translation type="obsolete">Ny samling</translation>
+    </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="obsolete">Redigera samling</translation>
+    </message>
 </context>
 <context>
     <name>CollectionExport</name>
@@ -520,6 +528,10 @@
     <message>
         <source>Description</source>
         <translation>Beskrivning</translation>
+    </message>
+    <message>
+        <source>New collection</source>
+        <translation>Ny samling</translation>
     </message>
 </context>
 <context>

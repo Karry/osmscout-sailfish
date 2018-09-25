@@ -117,6 +117,14 @@
         <source>Description</source>
         <translation>Popis</translation>
     </message>
+    <message>
+        <source>New collection</source>
+        <translation type="obsolete">Nová sbírka</translation>
+    </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="obsolete">Upravit sbírku</translation>
+    </message>
 </context>
 <context>
     <name>CollectionExport</name>
@@ -520,6 +528,10 @@
     <message>
         <source>Description</source>
         <translation>Popis</translation>
+    </message>
+    <message>
+        <source>New collection</source>
+        <translation>Nová sbírka</translation>
     </message>
 </context>
 <context>

@@ -36,9 +36,8 @@ Dialog{
 
     DialogHeader {
         id: newCollectionheader
-        //title: editCollectionDialog.collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
-        //acceptText : qsTr("Accept")
-        //cancelText : qsTr("Cancel")
+        // title and accept/cancel texts should be setup by "user" of this component,
+        // this dialog is used for everything - collections, tracks and waypoints
     }
 
     onStatusChanged: {

@@ -77,6 +77,7 @@ Dialog{
 
     CollectionEditDialog {
         id: newCollectionDialog
+        title: qsTr("New collection")
         name: qsTr("Default")
         onRejected: {
             rejectRequested = true;
