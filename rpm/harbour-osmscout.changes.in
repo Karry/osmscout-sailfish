@@ -236,7 +236,7 @@
 - new label layouter is able to detect collisions for street (contour) labels
 - performance improvement in label rendering method
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.0-1
+* 2018-09-26 Lukáš Karas <lukas.karas@centrum.cz> 1.0-1
 - initial support for collections (folders with tracks a waypoints)
 - support for importing and exporting collection from/to local gpx file
 - sync core library with upstream
