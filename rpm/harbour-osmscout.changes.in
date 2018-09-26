@@ -243,4 +243,6 @@
     - initial support for highway lanes, add support to stylesheets
     - increased database format version ( + added patch for backward compatibility)
     - support for SVG map icons, better support for HiDPI displays
+    - don't flush tile cache on POI data change or DPI change. Just invalidate it.
+      It fixes map blinking on data change and renderer race condition.
 - update translations (Czech, German, Dutch, Swedish, Spanish...)
