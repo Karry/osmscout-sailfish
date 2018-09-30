@@ -117,43 +117,35 @@
         <source>Description</source>
         <translation>Beschreibung</translation>
     </message>
-    <message>
-        <source>New collection</source>
-        <translation type="obsolete">Neue Sammlung</translation>
-    </message>
-    <message>
-        <source>Edit collection</source>
-        <translation type="obsolete">Bearbeite Sammlung</translation>
-    </message>
 </context>
 <context>
     <name>CollectionExport</name>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Ordner</translation>
+        <translation>Ordner</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished">Exportieren</translation>
+        <translation>Exportieren</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateiname</translation>
     </message>
 </context>
 <context>
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültiger Export-Ordner</translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültiger Dateiname</translation>
     </message>
 </context>
 <context>
@@ -168,59 +160,59 @@
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungefähre Entfernung</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Anstieg</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Abstieg</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Höhe min/max</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 m</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">Von</translation>
+        <translation>Von</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">Nach</translation>
+        <translation>Nach</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m ü. M.</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Reisedauer</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Reisegeschwindigkeit ⌀</translation>
     </message>
 </context>
 <context>
@@ -266,11 +258,11 @@
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf der Karte ausblenden</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige auf Karte</translation>
     </message>
 </context>
 <context>
@@ -793,7 +785,7 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumente</translation>
     </message>
 </context>
 <context>
