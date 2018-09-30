@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj ślad</translation>
     </message>
 </context>
 <context>
@@ -130,19 +130,19 @@
     <name>CollectionExport</name>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Katalog</translation>
+        <translation>Katalog</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished">Eksportuj</translation>
+        <translation>Eksportuj</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nazwa</translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa pliku</translation>
     </message>
 </context>
 <context>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Niepoprawna nazwa pliku</translation>
     </message>
 </context>
 <context>
@@ -172,55 +172,55 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Wznios</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Spadek</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Wznios min/max</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 m</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">Z</translation>
+        <translation>Z</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">Do</translation>
+        <translation>Do</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Prędkość ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m.n.p.m.</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Czas</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Czas ruchu</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Prędkość ruchu ⌀</translation>
     </message>
 </context>
 <context>
@@ -266,11 +266,11 @@
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj na mapie</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż na mapie</translation>
     </message>
 </context>
 <context>
@@ -658,7 +658,7 @@
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie śladu do kolekcji id %1 nie powiodlo się </translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
@@ -666,11 +666,11 @@
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie kolekcji id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolekcja id %1 nie istnieje</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
@@ -706,7 +706,7 @@
     </message>
     <message>
         <source>track %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ślad %1</translation>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
@@ -722,7 +722,7 @@
     </message>
     <message>
         <source>Imported from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaimportowane z %1</translation>
     </message>
     <message>
         <source>Invalid collection id: %1</source>
@@ -793,7 +793,7 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumenty</translation>
     </message>
 </context>
 <context>
