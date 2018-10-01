@@ -102,6 +102,9 @@ void CollectionModel::storageInitialisationError(QString)
 
 void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
 {
+  if (this->collection.id != collection.id){
+    return;
+  }
   collectionLoaded = true;
   this->collection = collection;
 
