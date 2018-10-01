@@ -366,7 +366,7 @@ void CollectionModel::moveWaypoint(QString waypointIdStr, QString collectionIdSt
     return;
   }
 
-  collectionLoaded = true;
+  collectionLoaded = false;
   emit loadingChanged();
   emit moveWaypointRequest(waypointId, collectionId);
 }
@@ -385,7 +385,7 @@ void CollectionModel::moveTrack(QString trackIdStr, QString collectionIdStr)
     return;
   }
 
-  collectionLoaded = true;
+  collectionLoaded = false;
   emit loadingChanged();
   emit moveTrackRequest(trackId, collectionId);
 }
