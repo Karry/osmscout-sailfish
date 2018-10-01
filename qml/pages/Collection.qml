@@ -143,7 +143,6 @@ Page {
                         editDialog.itemType = model.type;
                         editDialog.name = model.name;
                         editDialog.description = model.description;
-                        editDialog.collectionId = collectionPage.collectionId;
                         editDialog.open();
                     }
                 }
@@ -165,7 +164,7 @@ Page {
                         Remorse.itemAction(collectionItem,
                                            qsTr("Deleting"),
                                            function() {
-                                               if (model.type == "waypoint"){
+                                               if (model.type === "waypoint"){
                                                    collectionModel.deleteWaypoint(model.id);
                                                }else{
                                                    collectionModel.deleteTrack(model.id);
@@ -276,10 +275,17 @@ Page {
         property string name
         property string description
 
-        title: name
+        canAccept : collectionId != collectionPage.collectionId
+
+        title: qsTr("Move \"%1\" to").arg(name)
 
         onAccepted: {
-            console.log("TODO: move to " + itemType + " (" + itemId + ") to collection " + collectionId);
+            console.log("Move " + itemType + " id " + itemId + " to collection id " + moveDialog.collectionId);
+            if (itemType === "waypoint"){
+                collectionModel.moveWaypoint(itemId, moveDialog.collectionId);
+            }else{
+                collectionModel.moveTrack(itemId, moveDialog.collectionId);
+            }
         }
     }
 

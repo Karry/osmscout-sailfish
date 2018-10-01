@@ -304,6 +304,15 @@ public slots:
    */
   void exportCollection(qint64 collectionId, QString file);
 
+  /**
+   * emit collectionDetailsLoaded for source and target collection
+   *
+   * @param waypointId
+   * @param collectionId
+   */
+  void moveWaypoint(qint64 waypointId, qint64 collectionId);
+  void moveTrack(qint64 trackId, qint64 collectionId);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);

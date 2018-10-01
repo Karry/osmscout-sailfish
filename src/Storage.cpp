@@ -1272,6 +1272,112 @@ void Storage::exportCollection(qint64 collectionId, QString file)
   emit collectionExported(success);
 }
 
+void Storage::moveWaypoint(qint64 waypointId, qint64 collectionId)
+{
+  if (!checkAccess("moveWaypoint")){
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("SELECT `collection_id` FROM `waypoint` WHERE `id` = :id;");
+  sql.bindValue(":id", waypointId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Loading waypoint id" << waypointId << "fails";
+    emit error(tr("Loading waypoint id %1 fails").arg(waypointId));
+    return;
+  }
+
+  if (!sql.next()) {
+    qWarning() << "Waypoint id" << waypointId << "not found";
+    emit error(tr("Waypoint id %1 not found").arg(waypointId));
+    return;
+  }
+  qint64 sourceCollectionId = varToLong(sql.value("collection_id"));
+
+  qDebug() << "Moving waypoint" << waypointId << "from collection" << sourceCollectionId << "to" << collectionId;
+
+  QSqlQuery sqlUpdate(db);
+  sqlUpdate.prepare("UPDATE `waypoint` SET `collection_id` = :collection_id  WHERE `id` = :id;");
+  sqlUpdate.bindValue(":id", waypointId);
+  sqlUpdate.bindValue(":collection_id", collectionId);
+  sqlUpdate.exec();
+
+  if (sqlUpdate.lastError().isValid()) {
+    qWarning() << "Move waypoint id" << waypointId << "fails";
+    emit error(tr("Move waypoint id %1 fails").arg(waypointId));
+    return;
+  }
+
+  Collection collection(sourceCollectionId);
+  if (loadCollectionDetailsPrivate(collection)) {
+    emit collectionDetailsLoaded(collection, true);
+  }else{
+    emit collectionDetailsLoaded(collection, false);
+  }
+
+  collection.id = collectionId;
+  if (loadCollectionDetailsPrivate(collection)) {
+    emit collectionDetailsLoaded(collection, true);
+  }else{
+    emit collectionDetailsLoaded(collection, false);
+  }
+}
+
+void Storage::moveTrack(qint64 trackId, qint64 collectionId)
+{
+  if (!checkAccess("moveTrack")){
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("SELECT `collection_id` FROM `track` WHERE `id` = :id;");
+  sql.bindValue(":id", trackId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Loading track id" << trackId << "fails";
+    emit error(tr("Loading track id %1 fails").arg(trackId));
+    return;
+  }
+
+  if (!sql.next()) {
+    qWarning() << "Track id" << trackId << "not found";
+    emit error(tr("Track id %1 not found").arg(trackId));
+    return;
+  }
+  qint64 sourceCollectionId = varToLong(sql.value("collection_id"));
+
+  qDebug() << "Moving track" << trackId << "from collection" << sourceCollectionId << "to" << collectionId;
+
+  QSqlQuery sqlUpdate(db);
+  sqlUpdate.prepare("UPDATE `track` SET `collection_id` = :collection_id  WHERE `id` = :id;");
+  sqlUpdate.bindValue(":id", trackId);
+  sqlUpdate.bindValue(":collection_id", collectionId);
+  sqlUpdate.exec();
+
+  if (sqlUpdate.lastError().isValid()) {
+    qWarning() << "Move track id" << trackId << "fails";
+    emit error(tr("Move track id %1 fails").arg(trackId));
+    return;
+  }
+
+  Collection collection(sourceCollectionId);
+  if (loadCollectionDetailsPrivate(collection)) {
+    emit collectionDetailsLoaded(collection, true);
+  }else{
+    emit collectionDetailsLoaded(collection, false);
+  }
+
+  collection.id = collectionId;
+  if (loadCollectionDetailsPrivate(collection)) {
+    emit collectionDetailsLoaded(collection, true);
+  }else{
+    emit collectionDetailsLoaded(collection, false);
+  }
+}
+
 Storage::operator bool() const
 {
   return ok;

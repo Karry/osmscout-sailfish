@@ -32,6 +32,7 @@ Dialog{
 
     property string collectionId: "-1"
     property alias title: moveDialogheader.title
+    property bool acceptOnSelect: true
 
     DialogHeader {
         id: moveDialogheader
@@ -110,7 +111,9 @@ Dialog{
             onClicked: {
                 console.log("selected collection: " + model.name);
                 collectionSelectorDialog.collectionId = model.id;
-                collectionSelectorDialog.accept();
+                if (acceptOnSelect){
+                    collectionSelectorDialog.accept();
+                }
             }
         }
 

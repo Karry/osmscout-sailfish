@@ -79,6 +79,14 @@ CollectionModel::CollectionModel()
     connect(storage, SIGNAL(error(QString)),
             this, SIGNAL(error(QString)),
             Qt::QueuedConnection);
+
+    connect(this, SIGNAL(moveWaypointRequest(qint64, qint64)),
+            storage, SLOT(moveWaypoint(qint64, qint64)),
+            Qt::QueuedConnection);
+
+    connect(this, SIGNAL(moveTrackRequest(qint64, qint64)),
+            storage, SLOT(moveTrack(qint64, qint64)),
+            Qt::QueuedConnection);
   }
 }
 
@@ -342,4 +350,42 @@ QStringList CollectionModel::getExportSuggestedDirectories()
   }
 #endif
   return result;
+}
+
+void CollectionModel::moveWaypoint(QString waypointIdStr, QString collectionIdStr)
+{
+  bool ok;
+  qint64 waypointId = waypointIdStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << waypointIdStr << "to number";
+    return;
+  }
+  qint64 collectionId = collectionIdStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << collectionIdStr << "to number";
+    return;
+  }
+
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit moveWaypointRequest(waypointId, collectionId);
+}
+
+void CollectionModel::moveTrack(QString trackIdStr, QString collectionIdStr)
+{
+  bool ok;
+  qint64 trackId = trackIdStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << trackIdStr << "to number";
+    return;
+  }
+  qint64 collectionId = collectionIdStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << collectionIdStr << "to number";
+    return;
+  }
+
+  collectionLoaded = true;
+  emit loadingChanged();
+  emit moveTrackRequest(trackId, collectionId);
 }
