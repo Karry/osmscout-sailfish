@@ -112,7 +112,7 @@ Page {
                 }
             }
             onClicked: {
-                console.log("selected collection: " + model.name);
+                console.log("selected collection: " + model.name + " (" + model.id + ")");
                 var collectionPage = pageStack.push(Qt.resolvedUrl("Collection.qml"),
                                {
                                     collectionId: model.id,

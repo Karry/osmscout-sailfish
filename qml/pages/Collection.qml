@@ -40,7 +40,7 @@ Page {
         id: collectionModel
         collectionId: collectionPage.collectionId
         onLoadingChanged: {
-            console.log("onLoadingChanged: " + loading);
+            console.log("onLoadingChanged: " + loading + ", collection " + collectionModel.name + " (" + collectionModel.collectionId + ")");
         }
         onError: {
             remorse.execute(message, function() { }, 10 * 1000);
@@ -48,7 +48,7 @@ Page {
     }
 
     SilicaListView {
-        id: collectionListView
+        id: collectionView
         anchors.fill: parent
         spacing: Theme.paddingMedium
         x: Theme.paddingMedium
@@ -143,7 +143,19 @@ Page {
                         editDialog.itemType = model.type;
                         editDialog.name = model.name;
                         editDialog.description = model.description;
+                        editDialog.collectionId = collectionPage.collectionId;
                         editDialog.open();
+                    }
+                }
+                MenuItem {
+                    text: qsTr("Move to")
+                    onClicked: {
+                        moveDialog.itemId = model.id;
+                        moveDialog.itemType = model.type;
+                        moveDialog.name = model.name;
+                        moveDialog.description = model.description;
+                        moveDialog.collectionId = collectionPage.collectionId;
+                        moveDialog.open();
                     }
                 }
                 MenuItem {
@@ -255,4 +267,21 @@ Page {
     CollectionWaypoint{
         id: waypointDialog
     }
+
+    CollectionSelector{
+        id: moveDialog
+
+        property string itemType
+        property string itemId: ""
+        property string name
+        property string description
+
+        title: name
+
+        onAccepted: {
+            console.log("TODO: move to " + itemType + " (" + itemId + ") to collection " + collectionId);
+        }
+    }
+
+
 }
