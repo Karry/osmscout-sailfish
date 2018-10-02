@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj punkt drogi</translation>
     </message>
     <message>
         <source>Edit track</source>
@@ -149,7 +149,7 @@
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Niepoprawny katalog eksportu</translation>
     </message>
     <message>
         <source>Invalid file name</source>
@@ -511,7 +511,7 @@
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Nowy punkt drogi</translation>
     </message>
     <message>
         <source>Default</source>
@@ -658,11 +658,11 @@
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation>Ładowanie śladu do kolekcji id %1 nie powiodlo się </translation>
+        <translation>Ładowanie śladu do kolekcji id %1 nie powiodlo się</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie punktów drogi do kolekcji id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
@@ -682,27 +682,27 @@
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tworzenie kolekcji nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja kolekcji nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie kolekcji nie powiodło się: %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation type="unfinished"></translation>
+        <translation>punkt drogi %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import punktów drogi nie powiódł się: %1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Transakcja nie powiodła się: %1</translation>
     </message>
     <message>
         <source>track %1</source>
@@ -710,15 +710,15 @@
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import śladów nie powiódł się: %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import segmentów nie powiódł się: %1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Import punktów ścieżki nie powiódł się: %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
@@ -726,35 +726,35 @@
     </message>
     <message>
         <source>Invalid collection id: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Niepoprawne id kolekcji: %1</translation>
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie punktu drogi nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tworzenie punktu drogi nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie śladu nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Edycja punktu drogi nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Edycja śladu nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie śladu od %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Ślad id %1 nie istnieje</translation>
     </message>
 </context>
 <context>
