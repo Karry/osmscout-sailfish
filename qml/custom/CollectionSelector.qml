@@ -33,11 +33,11 @@ Dialog{
     property string collectionId: "-1"
     property alias title: moveDialogheader.title
     property bool acceptOnSelect: true
+    property alias acceptText: moveDialogheader.acceptText
+    property alias cancelText: moveDialogheader.cancelText
 
     DialogHeader {
         id: moveDialogheader
-        acceptText : qsTr("Move")
-        //cancelText : qsTr("Cancel")
     }
 
     CollectionListModel {

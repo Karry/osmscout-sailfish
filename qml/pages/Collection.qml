@@ -275,6 +275,8 @@ Page {
         property string name
         property string description
 
+        acceptText : qsTr("Move")
+
         canAccept : collectionId != collectionPage.collectionId
 
         title: qsTr("Move \"%1\" to").arg(name)
