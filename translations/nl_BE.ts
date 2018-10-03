@@ -129,14 +129,6 @@
         <source>Description</source>
         <translation>Beschrijving</translation>
     </message>
-    <message>
-        <source>New collection</source>
-        <translation type="obsolete">Nieuwe verzameling</translation>
-    </message>
-    <message>
-        <source>Edit collection</source>
-        <translation type="obsolete">Verzameling bewerken</translation>
-    </message>
 </context>
 <context>
     <name>CollectionExport</name>
@@ -183,12 +175,44 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>From</source>
         <translation type="unfinished">Van</translation>
     </message>
     <message>
         <source>To</source>
         <translation type="unfinished">Naar</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
@@ -199,39 +223,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ascent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Descent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

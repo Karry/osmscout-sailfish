@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es_GT">
+<TS version="2.1" language="es">
 <context>
     <name>About</name>
     <message>
@@ -128,14 +128,6 @@
     <message>
         <source>Description</source>
         <translation>Descripción</translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation type="obsolete">Nueva Colección</translation>
-    </message>
-    <message>
-        <source>Edit collection</source>
-        <translation type="obsolete">Editar colección</translation>
     </message>
 </context>
 <context>

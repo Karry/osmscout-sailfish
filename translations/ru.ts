@@ -535,7 +535,7 @@
     </message>
     <message>
         <source>New collection</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

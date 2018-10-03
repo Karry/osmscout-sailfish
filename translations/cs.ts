@@ -108,15 +108,15 @@
     </message>
     <message>
         <source>Move to</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesunout do</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesunout</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesunout &quot;%1&quot; do</translation>
     </message>
 </context>
 <context>
@@ -128,14 +128,6 @@
     <message>
         <source>Description</source>
         <translation>Popis</translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation type="obsolete">Nová sbírka</translation>
-    </message>
-    <message>
-        <source>Edit collection</source>
-        <translation type="obsolete">Upravit sbírku</translation>
     </message>
 </context>
 <context>
@@ -770,23 +762,23 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Načítání místa id %1 selhalo</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Místo id %1 nenalezeno</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesun místa id %1 sehal</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasa id %1 nebyla nalezena</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesun trasy id %1 selhal</translation>
     </message>
 </context>
 <context>

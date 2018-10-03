@@ -129,14 +129,6 @@
         <source>Description</source>
         <translation>Opis</translation>
     </message>
-    <message>
-        <source>New collection</source>
-        <translation type="obsolete">Nowa kolekcja</translation>
-    </message>
-    <message>
-        <source>Edit collection</source>
-        <translation type="obsolete">Edytuj kolekcję</translation>
-    </message>
 </context>
 <context>
     <name>CollectionExport</name>
