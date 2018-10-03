@@ -106,6 +106,18 @@
         <source>Edit track</source>
         <translation>Spoor bewerken</translation>
     </message>
+    <message>
+        <source>Move to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move &quot;%1&quot; to</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
@@ -755,6 +767,26 @@
     <message>
         <source>Track id %1 don&apos;t exists</source>
         <translation>Spoor-ID %1 bestaat niet</translation>
+    </message>
+    <message>
+        <source>Loading waypoint id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waypoint id %1 not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move waypoint id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track id %1 not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move track id %1 fails</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
