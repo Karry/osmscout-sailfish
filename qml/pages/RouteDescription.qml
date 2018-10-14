@@ -117,13 +117,22 @@ Dialog {
 
         header: Column{
             visible: route.count>0
-            spacing: Theme.paddingMedium
+            width: parent.width - 2*Theme.paddingMedium
             x: Theme.paddingMedium
-            Label{
-                text: Utils.humanDistance(route.length)
+
+            DetailItem {
+                id: distanceItem
+                label: qsTr("Distance")
+                value: Utils.humanDistance(route.length)
             }
-            Label{
-                text: Utils.humanDuration(route.duration)
+            DetailItem {
+                id: durationItem
+                label: qsTr("Duration")
+                value: Utils.humanDuration(route.duration)
+            }
+            SectionHeader{
+                id: translatorsHeader
+                text: qsTr("Route steps")
             }
         }
 

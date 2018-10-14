@@ -575,6 +575,18 @@
         <source>Accept</source>
         <translation>Akceptuj</translation>
     </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished">Dystans</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Route steps</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Routing</name>

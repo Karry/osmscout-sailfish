@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es_GT">
+<TS version="2.1" language="es">
 <context>
     <name>About</name>
     <message>
@@ -574,6 +574,18 @@
     <message>
         <source>Accept</source>
         <translation>Aceptar</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished">Distancia</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Route steps</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
