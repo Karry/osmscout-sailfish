@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es">
+<TS version="2.1" language="es_GT">
 <context>
     <name>About</name>
     <message>
@@ -108,15 +108,15 @@
     </message>
     <message>
         <source>Move to</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover para</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover &quot;%1&quot; para</translation>
     </message>
 </context>
 <context>
@@ -666,7 +666,7 @@
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>Error al cargar los puntos-definidos para el id %1 de colección</translation>
+        <translation>Error al cargar los puntos definidos para el id %1 de colección</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
@@ -698,7 +698,7 @@
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation>puntos-definido %1</translation>
+        <translation>puntos definido %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>Error al crear un punto-definido: %1</translation>
+        <translation>Error al crear un punto definido: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
@@ -762,23 +762,23 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Falla al cargar el Id  %1 de los puntos definidos</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>El id del punto definido %1 no se encontró</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Falla %1 al mover el id de los puntos definidos</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>No se encontró %1 el id de pista</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Falla %1 al mover Id de pista</translation>
     </message>
 </context>
 <context>
@@ -1112,7 +1112,7 @@
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation>Caminata &amp; Mapa para bici</translation>
+        <translation>Caminata &amp; Mapa de bici</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
@@ -1185,11 +1185,11 @@
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>deportes-invierno</translation>
+        <translation>deportes invierno</translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation>transporte-público</translation>
+        <translation>transporte público</translation>
     </message>
 </context>
 </TS>
