@@ -249,4 +249,6 @@
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.1-1
 - make possible to move track or waypoint to different collection
-- update translations (Czech, Polish...)
+- update translations (Czech, Polish, Spanish...)
+- fix rendering of way and area styles with lines using non-zero offset
+
