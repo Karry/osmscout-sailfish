@@ -108,15 +108,15 @@
     </message>
     <message>
         <source>Move to</source>
-        <translation type="unfinished"></translation>
+        <translation>Przenieś do</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Przenieś</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Przenieś &quot;%1&quot; do</translation>
     </message>
 </context>
 <context>
@@ -577,15 +577,15 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Dystans</translation>
+        <translation>Dystans</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Czas trwania</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Etapy trasy</translation>
     </message>
 </context>
 <context>
@@ -690,11 +690,11 @@
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie węzłów dla segmentu id %1 nie powiodło się: %2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie sentów dla śladu id %1 nie powiodło się: %2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
@@ -774,23 +774,23 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie punktu drogi id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie znaleziono punktu drogi id %1</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeniesienie punktu drogi id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie znaleziono śladu id %1</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeniesienie śladu id %1 nie powiodło się</translation>
     </message>
 </context>
 <context>
