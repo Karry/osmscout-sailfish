@@ -247,7 +247,7 @@
       It fixes map blinking on data change and renderer race condition.
 - update translations (Czech, German, Dutch, Swedish, Spanish...)
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.1-1
+* 2018-10-21 Lukáš Karas <lukas.karas@centrum.cz> 1.1-1
 - make possible to move track or waypoint to different collection
 - update translations (Czech, Polish, Spanish...)
 - fix rendering of way and area styles with lines using non-zero offset
