@@ -251,4 +251,4 @@
 - make possible to move track or waypoint to different collection
 - update translations (Czech, Polish, Spanish...)
 - fix rendering of way and area styles with lines using non-zero offset
-
+- improve label rendering with multiple databases
