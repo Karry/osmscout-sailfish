@@ -31,6 +31,7 @@ class CollectionModel : public QAbstractListModel {
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
   Q_PROPERTY(bool exporting READ isExporting NOTIFY exportingChanged)
+  Q_PROPERTY(bool collectionVisible READ isVisible NOTIFY loadingChanged)
   Q_PROPERTY(QString collectionId READ getCollectionId WRITE setCollectionId)
   Q_PROPERTY(QString name READ getCollectionName NOTIFY loadingChanged)
   Q_PROPERTY(QString filesystemName READ getCollectionFilesystemName NOTIFY loadingChanged)
@@ -102,6 +103,7 @@ public:
   QString getCollectionName() const;
   QString getCollectionFilesystemName() const;
   QString getCollectionDescription() const;
+  bool isVisible() const;
 
   bool isExporting();
   Q_INVOKABLE QStringList getExportSuggestedDirectories();

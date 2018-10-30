@@ -31,6 +31,7 @@ class CollectionTrackModel : public QObject {
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
   Q_PROPERTY(QString trackId READ getTrackId WRITE setTrackId NOTIFY loadingChanged)
+  Q_PROPERTY(QString collectionId READ getCollectionId NOTIFY loadingChanged)
   Q_PROPERTY(QString name READ getName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY loadingChanged)
 
@@ -68,6 +69,8 @@ public:
   bool isLoading() const;
   QString getTrackId() const;
   void setTrackId(QString id);
+
+  QString getCollectionId() const;
 
   QString getName() const;
   QString getDescription() const;

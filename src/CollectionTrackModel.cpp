@@ -78,6 +78,11 @@ void CollectionTrackModel::setTrackId(QString id)
   storageInitialised();
 }
 
+QString CollectionTrackModel::getCollectionId() const
+{
+  return QString::number(track.collectionId);
+}
+
 QString CollectionTrackModel::getName() const
 {
   return track.name;

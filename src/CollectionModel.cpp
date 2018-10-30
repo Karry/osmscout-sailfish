@@ -241,6 +241,11 @@ QString CollectionModel::getCollectionDescription() const
   return collectionLoaded? collection.description : "";
 }
 
+bool CollectionModel::isVisible() const
+{
+  return collectionLoaded? collection.visible : false;
+}
+
 void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description)
 {
   collectionLoaded = true;

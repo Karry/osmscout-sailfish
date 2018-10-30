@@ -36,6 +36,25 @@ Page {
 
     RemorsePopup { id: remorse }
 
+    function makeVisible(){
+        collectionListModel.editCollection(
+                    collectionModel.collectionId,
+                    true,
+                    collectionModel.name,
+                    collectionModel.description);
+    }
+
+    onSelectTrack: {
+        makeVisible();
+    }
+    onSelectWaypoint: {
+        makeVisible();
+    }
+
+    CollectionListModel {
+        id: collectionListModel
+    }
+
     CollectionModel {
         id: collectionModel
         collectionId: collectionPage.collectionId
