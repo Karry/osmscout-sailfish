@@ -252,3 +252,7 @@
 - update translations (Czech, Polish, Spanish...)
 - fix rendering of way and area styles with lines using non-zero offset
 - improve label rendering with multiple databases
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.2-1
+- make collection visible when waypoint or track is displayed
+
