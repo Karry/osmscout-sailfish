@@ -299,7 +299,6 @@ set(SOURCE_FILES
 # XML files with translated phrases.
 # You can add new language translation just by adding new entry here, and run build.
 # Newly created *.ts file may be edited by linguist tool.
-# Please don't forget to add new *.ts file to Meson-based build.
 set(TRANSLATION_TS_FILES
         translations/en.ts
 
@@ -314,6 +313,7 @@ set(TRANSLATION_TS_FILES
         translations/pl.ts
         translations/ru.ts
         translations/sv.ts
+        translations/zh_CN.ts
         )
 
 # source files that may contains translatable phrases (see tr, qsTr, QT_TRANSLATE_NOOP functions)
