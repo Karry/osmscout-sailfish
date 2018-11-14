@@ -265,6 +265,7 @@ set(QML_FILES
     qml/custom/RouteStepIcon.qml
     qml/custom/CollectionEditDialog.qml
     qml/custom/CollectionSelector.qml
+    qml/custom/Global.qml
     qml/custom/Utils.js
     qml/pages/Cover.qml
     qml/pages/Search.qml

@@ -25,6 +25,7 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import ".." // Global singleton
 
 Page {
     id: mapPage
@@ -75,6 +76,9 @@ Page {
                 map.addOverlayObject(0,routingModel.routeWay);
             }
         });
+
+        Global.mapPage = mapPage;
+        Global.mainMap = map;
     }
 
     Settings {
@@ -177,9 +181,7 @@ Page {
                             pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
                                            {
                                                placeLat: positionSource.lat,
-                                               placeLon: positionSource.lon,
-                                               mapPage: mapPage,
-                                               mainMap: map
+                                               placeLon: positionSource.lon
                                            })
                         }else{
                             console.log("I can't say where you are. Position is not valid!")
@@ -195,11 +197,7 @@ Page {
                                                       });
                         searchPage.selectLocation.connect(selectLocation);
                     }else if (action == "routing"){
-                        pageStack.push(Qt.resolvedUrl("Routing.qml"),
-                                       {
-                                           mapPage: mapPage,
-                                           mainMap: map
-                                       })
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"))
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
                     }else if (action == "downloads"){

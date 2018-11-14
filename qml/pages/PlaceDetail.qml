@@ -26,6 +26,7 @@ import harbour.osmscout.map 1.0
 
 import "../custom"
 import "../custom/Utils.js" as Utils
+import ".." // Global singleton
 
 Page {
     id: placeDetailPage
@@ -36,9 +37,6 @@ Page {
     property bool currentLocValid: false;
     property double currentLocLat: 0;
     property double currentLocLon: 0;
-
-    property var mapPage
-    property var mainMap
 
     onStatusChanged: {
         if (status == PageStatus.Activating){
@@ -409,7 +407,7 @@ Page {
                                       {
                                         latitude: placeLat,
                                         longitude: placeLon,
-                                        acceptDestination: mapPage,
+                                        acceptDestination: Global.mapPage,
                                         description: address
                                       });
                     }
@@ -432,9 +430,9 @@ Page {
                                       {
                                         searchCenterLat: placeLat,
                                         searchCenterLon: placeLon,
-                                        acceptDestination: mapPage
+                                        acceptDestination: Global.mapPage
                                       });
-                        searchPage.selectLocation.connect(mapPage.selectLocation);
+                        searchPage.selectLocation.connect(Global.mapPage.selectLocation);
                     }
                 }
 
@@ -447,9 +445,7 @@ Page {
                         pageStack.push(Qt.resolvedUrl("Routing.qml"),
                                        {
                                            toLat: placeLat,
-                                           toLon: placeLon,
-                                           mapPage: mapPage,
-                                           mainMap: mainMap
+                                           toLon: placeLon
                                        })
                     }
                 }

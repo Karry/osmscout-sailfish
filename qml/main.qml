@@ -101,6 +101,7 @@ ApplicationWindow {
         id: routingModel
     }
 
+    // TODO: move to Global.qml
     property alias globalNavigationModel: navigationModel
     property alias globalRoutingModel: routingModel
 

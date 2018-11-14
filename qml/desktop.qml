@@ -12,6 +12,7 @@ import harbour.osmscout.map 1.0
 //import net.sf.libosmscout.map 1.0
 
 import "custom"
+import "." // Global singleton
 
 Window {
     id: mainWindow
@@ -52,6 +53,13 @@ Window {
         //fontName: "Comic Sans MS"
         fontName: "Sans"
     }
+
+    Component.onCompleted: {
+        Global.mapPage = mainWindow;
+        Global.mainMap = map;
+        console.log("completed: " + map + " / " + Global.mainMap);
+    }
+
 
     CollectionListModel {
         id: collectionModel

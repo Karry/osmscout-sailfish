@@ -26,14 +26,14 @@ import harbour.osmscout.map 1.0
 
 import "../custom"
 import "../custom/Utils.js" as Utils
+import ".." // Global singleton
 
 Dialog {
     id: routingPage
 
     property double toLat: -1000
     property double toLon: -1000
-    property var mapPage
-    property var mainMap
+    property string toName: ""
 
     RemorsePopup { id: remorse }
 
@@ -63,8 +63,8 @@ Dialog {
     acceptDestinationAction: PageStackAction.Push
     acceptDestinationProperties: {
         "route": route,
-        "mapPage": mapPage,
-        "mainMap": mainMap,
+        "mapPage": Global.mapPage,
+        "mainMap": Global.mainMap,
         "destination": toSelector.location,
         "fromCurrentLocation": fromSelector.useCurrentLocation
     }
@@ -127,7 +127,11 @@ Dialog {
                 Component.onCompleted: {
                     if (toLat!=-1000 && toLon!=-1000){
                         toSelector.location=route.locationEntryFromPosition(toLat, toLon);
-                        toSelector.value=Utils.formatCoord(toLat, toLon, AppSettings.gpsFormat);
+                        if (toName!=""){
+                            toSelector.value=toName;
+                        }else{
+                            toSelector.value=Utils.formatCoord(toLat, toLon, AppSettings.gpsFormat);
+                        }
                     }
                 }
             }
