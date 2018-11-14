@@ -118,6 +118,10 @@
         <source>Move &quot;%1&quot; to</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Route to</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
