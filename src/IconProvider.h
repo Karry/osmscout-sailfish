@@ -1,12 +1,10 @@
 /**
- * Copyright (C) 2014	Kimmo Lindholm ( https://together.jolla.com/users/196/kimmoli/ )
- *
  * https://together.jolla.com/question/44325/iconbutton-how-to-use-own-icons-with-highlight/
  *
  *             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
  *                    Version 2, December 2004
  *
- * Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+ * Copyright (C) 2014	Kimmo Lindholm ( https://together.jolla.com/users/196/kimmoli/ )
  *
  * Everyone is permitted to copy and distribute verbatim or modified
  * copies of this license document, and changing it is allowed as long
