@@ -32,6 +32,8 @@ CoverBackground {
     property NavigationModel navigationModel
     property RoutingListModel routingModel
 
+    property bool isLightTheme: Theme.colorScheme == Theme.DarkOnLight
+
     property bool initialized: false;
     onStatusChanged: {
         if (status == PageStatus.Activating){
@@ -198,7 +200,7 @@ CoverBackground {
         iconBackground: true
         CoverAction {
             // installed custom image provider is not available in cover page
-            iconSource: Theme.primaryColor == "#000000" ? "../../pics/icon-cover-remove-dark.png" : "../../pics/icon-cover-remove.png"
+            iconSource: isLightTheme ? "../../pics/icon-cover-remove-dark.png" : "../../pics/icon-cover-remove.png"
             onTriggered: {
                 map.zoomOut(2.0);
                 bindToCurrentPositionTimer.restart();
