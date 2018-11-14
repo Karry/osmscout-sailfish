@@ -175,6 +175,18 @@ Page {
                     }
                 }
                 MenuItem {
+                    text: qsTr("Route to")
+                    visible: model.type == "waypoint"
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"),
+                                       {
+                                           toLat: model.latitude,
+                                           toLon: model.longitude,
+                                           toName: model.name
+                                       })
+                    }
+                }
+                MenuItem {
                     text: qsTr("Delete")
                     onClicked: {
                         var idx = model.id
