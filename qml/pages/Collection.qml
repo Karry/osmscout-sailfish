@@ -89,9 +89,7 @@ Page {
             Image{
                 id: entryIcon
 
-                source: model.type == "waypoint" ?
-                            '../../poi-icons/marker.svg' :
-                            "../../pics/route.svg"
+                source: 'image://harbour-osmscout/' + (model.type == "waypoint" ? 'poi-icons/marker.svg' :'pics/route.svg') + '?' + Theme.primaryColor
 
                 width: Theme.iconSizeMedium
                 fillMode: Image.PreserveAspectFit

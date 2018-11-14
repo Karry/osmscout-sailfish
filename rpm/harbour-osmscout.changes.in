@@ -256,3 +256,4 @@
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.2-1
 - make collection visible when waypoint or track is displayed
 - add Chinese translation
+- add support for inverted ambiences (black icons)

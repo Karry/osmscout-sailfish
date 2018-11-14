@@ -36,6 +36,7 @@
 
 #include <osmscout/Settings.h> // Library settings
 #include "AppSettings.h" // Application settings
+#include "IconProvider.h" // IconProvider
 
 // collections
 #include "Storage.h"
@@ -127,7 +128,7 @@ int main(int argc, char* argv[])
 
   bool desktop = false;
   for (QString arg: app->arguments()){
-      desktop = (arg == "--desktop");
+      desktop |= (arg == "--desktop");
   }
 
   QString home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
@@ -200,6 +201,7 @@ int main(int argc, char* argv[])
   if (!desktop) {
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
+    view->engine()->addImageProvider(QLatin1String("harbour-osmscout"), new IconProvider());
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->showFullScreen();
     result=app->exec();

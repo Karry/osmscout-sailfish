@@ -55,7 +55,7 @@ Image{
     }
 
     function iconUrl(icon){
-        return '../../routestep/' + icon + '.svg';
+        return 'image://harbour-osmscout/routestep/' + icon + '.svg?' + Theme.primaryColor;
     }
 
     function typeIcon(type){

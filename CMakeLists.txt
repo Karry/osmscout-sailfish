@@ -239,7 +239,8 @@ set(HEADER_FILES
     src/CollectionListModel.h
     src/QVariantConverters.h
     src/CollectionTrackModel.h
-    src/CollectionMapBridge.h)
+    src/CollectionMapBridge.h
+    src/IconProvider.h)
 
 # keep qml files in source list - it makes qtcreator happy
 # find qml -type f

@@ -139,7 +139,7 @@ Image{
         }
 
     function iconUrl(icon){
-        return '../../poi-icons/' + icon + '.svg';
+        return 'image://harbour-osmscout/poi-icons/' + icon + '.svg?' + Theme.primaryColor;
     }
 
     function typeIcon(type){
