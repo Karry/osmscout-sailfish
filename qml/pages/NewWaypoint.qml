@@ -142,10 +142,20 @@ Dialog{
                     if (!initialised){
                         return;
                     }
-                    var collection = delegateModel.items.get(currentIndex).model;
-                    console.log("Selected collection: "+collection);
-                    waypointDialog.collectionId = collection.id;
-                    collectionComboBox.value = collection.name;
+                    var rowIndex = collectionListModel.index(currentIndex, 0);
+                    var collectionId = collectionListModel.data(rowIndex, CollectionListModel.IdRole);
+                    var collectionName = collectionListModel.data(rowIndex, CollectionListModel.NameRole);
+                    console.log("Selected collection: " + collectionName + " (" + collectionId + ")");
+                    waypointDialog.collectionId = collectionId;
+                    collectionComboBox.value = collectionName;
+                }
+
+                BusyIndicator {
+                    id: busyIndicator
+                    running: collectionListModel.loading
+                    size: BusyIndicatorSize.Small
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                 }
             }
 

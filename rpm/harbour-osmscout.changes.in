@@ -257,3 +257,4 @@
 - make collection visible when waypoint or track is displayed
 - add Chinese translation
 - add support for inverted ambiences (black icons)
+- fix collection selector in NewWaypoint page
