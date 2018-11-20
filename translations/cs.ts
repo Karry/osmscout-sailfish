@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigovat</translation>
     </message>
 </context>
 <context>

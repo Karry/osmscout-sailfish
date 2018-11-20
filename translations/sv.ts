@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Beräkna rutt till</translation>
     </message>
 </context>
 <context>
@@ -581,15 +581,15 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distans</translation>
+        <translation>Distans</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Varaktighet</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruttsteg</translation>
     </message>
 </context>
 <context>
