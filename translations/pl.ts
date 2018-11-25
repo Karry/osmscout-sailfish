@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasa do</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Dystans zgrubny</translation>
     </message>
     <message>
         <source>Ascent</source>
