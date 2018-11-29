@@ -26,6 +26,9 @@
 #define HAVE_LIB_OSMSCOUTMAPQT
 //#define HAVE_LIB_OSMSCOUTMAPCAIRO
 
+/* Define to 1 if you have the `mallinfo' function. */
+#define HAVE_MALLINFO 1
+
 #include <osmscout/Database.h>
 #include <osmscout/MapService.h>
 
