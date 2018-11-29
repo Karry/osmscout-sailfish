@@ -75,6 +75,10 @@
         <source>German: Pawel Spoon, Uli M.</source>
         <translation>Duits: Pawel Spoon, Uli M.</translation>
     </message>
+    <message>
+        <source>Chinese: Rui Kon</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collection</name>
