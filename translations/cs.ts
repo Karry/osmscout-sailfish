@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation type="unfinished"></translation>
+        <translation>Čínština: Rui Kon</translation>
     </message>
 </context>
 <context>
