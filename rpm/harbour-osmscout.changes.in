@@ -255,6 +255,9 @@
 
 * 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.2-1
 - make collection visible when waypoint or track is displayed
-- add Chinese translation
+- add Chinese translation, update other translations
 - add support for inverted ambiences (black icons)
 - fix collection selector in NewWaypoint page
+- upstream: optimise rendering of huge areas
+- enable country boundaries in stylesheets ^^^
+- increase size of data caches
