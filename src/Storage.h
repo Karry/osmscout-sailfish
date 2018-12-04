@@ -58,8 +58,8 @@ public:
                   const QDateTime &to,
                   const osmscout::Distance &distance,
                   const osmscout::Distance &rawDistance,
-                  const std::chrono::milliseconds &duration,
-                  const std::chrono::milliseconds &movingDuration,
+                  const osmscout::Timestamp::duration &duration,
+                  const osmscout::Timestamp::duration &movingDuration,
                   const double &maxSpeed,
                   const double &averageSpeed,
                   const double &movingAverageSpeed,
@@ -101,13 +101,23 @@ public:
     bbox(o.bbox)
   {};
 
+  qint64 durationMillis() const
+  {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
+  }
+
+  qint64 movingDurationMillis() const
+  {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(movingDuration).count();
+  }
+
 public:
   QDateTime from;
   QDateTime to;
   osmscout::Distance distance;
   osmscout::Distance rawDistance;
-  std::chrono::milliseconds duration;
-  std::chrono::milliseconds movingDuration;
+  osmscout::Timestamp::duration duration;
+  osmscout::Timestamp::duration movingDuration;
   double maxSpeed; // m/s
   double averageSpeed; // m/s
   double movingAverageSpeed; // m/s
@@ -206,9 +216,9 @@ public:
 
 private:
   QList<osmscout::Distance> distanceFifo;
-  QList<std::chrono::milliseconds> timeFifo;
+  QList<osmscout::Timestamp::duration> timeFifo;
   osmscout::Distance bufferDistance;
-  std::chrono::milliseconds bufferTime{0};
+  osmscout::Timestamp::duration bufferTime{0};
   std::shared_ptr<osmscout::gpx::TrackPoint> lastPoint;
   double maxSpeed{0}; // m / s
 };

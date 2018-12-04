@@ -115,12 +115,12 @@ double CollectionTrackModel::getRawDistance() const
 
 qint64 CollectionTrackModel::getDuration() const
 {
-  return track.statistics.duration.count();
+  return track.statistics.durationMillis();
 }
 
 qint64 CollectionTrackModel::getMovingDuration() const
 {
-  return track.statistics.movingDuration.count();
+  return track.statistics.movingDurationMillis();
 }
 
 double CollectionTrackModel::getMaxSpeed() const

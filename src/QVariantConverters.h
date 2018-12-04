@@ -32,7 +32,9 @@ namespace converters {
 inline QDateTime timestampToDateTime(const osmscout::gpx::Optional<osmscout::Timestamp> timestamp)
 {
   if (timestamp.hasValue()){
-    return QDateTime::fromMSecsSinceEpoch(timestamp.get().time_since_epoch().count());
+    using namespace std::chrono;
+    milliseconds millisSinceEpoch = duration_cast<milliseconds>(timestamp.get().time_since_epoch());
+    return QDateTime::fromMSecsSinceEpoch(millisSinceEpoch.count());
   }
   return QDateTime();
 }

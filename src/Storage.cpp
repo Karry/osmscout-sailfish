@@ -33,6 +33,12 @@ namespace {
   static constexpr int DbSchema = 1;
   static constexpr int TrackPointBatchSize = 10000;
   static constexpr int WayPointBatchSize = 100;
+
+  double durationSeconds(const osmscout::Timestamp::duration &d)
+  {
+    using namespace std::chrono;
+    return duration_cast<duration<double,std::ratio<1,1>>>(d).count();
+  }
 }
 
 using namespace osmscout;
@@ -59,7 +65,7 @@ void MaxSpeedBuffer::insert(const gpx::TrackPoint &p)
     return;
   }
   if (lastPoint){
-    std::chrono::milliseconds timeDiff = p.time.get() - lastPoint->time.get();
+    Timestamp::duration timeDiff = p.time.get() - lastPoint->time.get();
     if (timeDiff.count() < 0){
       qWarning() << "Traveling in time is not supported";
       return;
@@ -70,8 +76,8 @@ void MaxSpeedBuffer::insert(const gpx::TrackPoint &p)
     bufferDistance += distanceDiff;
     bufferTime += timeDiff;
 
-    while (bufferTime > std::chrono::milliseconds(5000) && !distanceFifo.empty()){
-      double speed = bufferDistance.AsMeter() / ((double)bufferTime.count() / 1000.0);
+    while (bufferTime > std::chrono::seconds(5) && !distanceFifo.empty()){
+      double speed = bufferDistance.AsMeter() / durationSeconds(bufferTime);
       maxSpeed = std::max(maxSpeed, speed);
       bufferDistance = bufferDistance - distanceFifo.front(); // it can be inaccurate!
       bufferTime -= timeFifo.front();
@@ -712,10 +718,10 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
     gpx::FilterInaccuratePoints(points, 30);
     gpx::FilterNearPoints(points, Distance::Of<Meter>(5));
   });
-  qDebug() << "Filtering nodes" << filterTimer.elapsed() << "ms";
+  qDebug() << "Filtering nodes:" << filterTimer.elapsed() << "ms";
 
   // time - just time diference between first and last node
-  std::chrono::milliseconds duration(0);
+  Timestamp::duration duration(0);
   gpx::Optional<Timestamp> from;
   gpx::Optional<Timestamp> to;
   for (const auto &seg:trk.segments){
@@ -743,7 +749,7 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
 
   // with moving duration is computed maximum speed...
   MaxSpeedBuffer maxSpeedBuf;
-  std::chrono::milliseconds movingDuration(0); // ms
+  Timestamp::duration movingDuration(0); // ms
   for (const auto &seg:filtered.segments) {
     if (seg.points.empty()){
       continue;
@@ -772,7 +778,7 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
     movingDuration += previous - from;
     maxSpeedBuf.flush();
   }
-  qDebug() << "Moving time" << movingTimeTimer.elapsed() << "ms";
+  qDebug() << "Moving time computation:" << movingTimeTimer.elapsed() << "ms";
 
   // elevation
   QTime elevationTimer;
@@ -817,7 +823,7 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
       }
     }
   }
-  qDebug() << "Elevation" << elevationTimer.elapsed() << "ms";
+  qDebug() << "Elevation computation:" << elevationTimer.elapsed() << "ms";
 
   // compute bbox
   QTime bboxTimer;
@@ -831,8 +837,8 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
   qDebug() << "BBox" << bboxTimer.elapsed() << "ms";
 
   Distance length = filtered.GetLength();
-  double durationInSeconds = ((double)duration.count() / 1000.0);
-  double movingDurationInSeconds = ((double)movingDuration.count() / 1000.0);
+  double durationInSeconds = durationSeconds(duration);
+  double movingDurationInSeconds = durationSeconds(movingDuration);
 
   qDebug() << "Track statistics computation tooks" << timer.elapsed() << "ms";
 
@@ -915,8 +921,8 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
     sqlTrk.bindValue(":to_time", stat.to);
     sqlTrk.bindValue(":distance", stat.distance.AsMeter());
     sqlTrk.bindValue(":raw_distance", stat.rawDistance.AsMeter());
-    sqlTrk.bindValue(":duration", (qint64)stat.duration.count());
-    sqlTrk.bindValue(":moving_duration", (qint64)stat.movingDuration.count());
+    sqlTrk.bindValue(":duration", stat.durationMillis());
+    sqlTrk.bindValue(":moving_duration", stat.movingDurationMillis());
     sqlTrk.bindValue(":max_speed", stat.maxSpeed);
     sqlTrk.bindValue(":average_speed", stat.averageSpeed);
     sqlTrk.bindValue(":moving_average_speed", stat.movingAverageSpeed);
