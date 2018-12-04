@@ -261,3 +261,5 @@
 - upstream: optimise rendering of huge areas
 - enable country boundaries in stylesheets ^^^
 - increase size of data caches
+
+* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.3-1
