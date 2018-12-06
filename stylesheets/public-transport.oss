@@ -27,6 +27,9 @@ CONST
   // Label priorities
   UINT labelPrioWaypoint            = 0;
 
+  // Borders
+  COLOR countryBorderColor         = #ff0000;
+
 SYMBOL place_city
   CIRCLE 0,0 2.5 {
     AREA {color: #ff000050; }
