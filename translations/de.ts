@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinesisch: Rui Kon</translation>
     </message>
 </context>
 <context>
@@ -112,19 +112,19 @@
     </message>
     <message>
         <source>Move to</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschiebe nach</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschiebe</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschiebe &quot;%1&quot; nach</translation>
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigiere zu</translation>
     </message>
 </context>
 <context>
@@ -585,15 +585,15 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Entfernung</translation>
+        <translation>Entfernung</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Dauer</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigationsschritte</translation>
     </message>
 </context>
 <context>
@@ -782,23 +782,23 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden der Wegpunkt ID %1 fehlgeschlagen</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Wegpunkt ID %1 nicht gefunden</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschieben von Wegpunkt ID %1 fehlgeschlagen</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Strecke ID %1 nicht gefunden</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschieben von Strecke ID %1 fehlgeschlagen</translation>
     </message>
 </context>
 <context>
