@@ -266,3 +266,4 @@
 - fix public transport stylesheet (missing color constant for country_boundary type)
 - fix crash with invalid stylesheet
 - update Polish and German translations
+- fix parallel downloads of one overlay tile
