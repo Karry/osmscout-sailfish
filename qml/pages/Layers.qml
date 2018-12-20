@@ -151,7 +151,7 @@ Page {
 
                         checked: AppSettings.hillShades
                         text: qsTr("Hill Shades")
-                        description: qsTr("Provided by Heidelberg University, based on ASTER GDEM data")
+                        description: qsTr("Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org")
 
                         onCheckedChanged: {
                             AppSettings.hillShades = checked;

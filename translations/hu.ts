@@ -419,11 +419,15 @@
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation>Szolgáltatja a Heidelberg Egyetem az ASTER GDEM adatok alapján</translation>
+        <translation type="vanished">Szolgáltatja a Heidelberg Egyetem az ASTER GDEM adatok alapján</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
         <translation>Domborzatárnyékolás mértéke</translation>
+    </message>
+    <message>
+        <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

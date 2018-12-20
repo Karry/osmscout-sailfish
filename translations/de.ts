@@ -419,11 +419,15 @@
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation>Bereitgestellt von der Universität Heidelberg, basierend auf ASTER GDEM Daten</translation>
+        <translation type="vanished">Bereitgestellt von der Universität Heidelberg, basierend auf ASTER GDEM Daten</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
         <translation>Stärke der Schattierung</translation>
+    </message>
+    <message>
+        <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

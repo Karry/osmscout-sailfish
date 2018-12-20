@@ -419,11 +419,15 @@
     </message>
     <message>
         <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation>由Heidelberg University提供, 基于 ASTER GDEM 数据。</translation>
+        <translation type="vanished">由Heidelberg University提供, 基于 ASTER GDEM 数据。</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
         <translation>斜坡阴影强度</translation>
+    </message>
+    <message>
+        <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

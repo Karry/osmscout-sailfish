@@ -418,11 +418,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
+        <source>Hill shades intensity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hill shades intensity</source>
+        <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
