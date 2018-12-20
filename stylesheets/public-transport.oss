@@ -89,8 +89,10 @@ STYLE
         NODE.TEXT { label: Name.name; color: #ff0000; size: 1.0; priority: @labelPrioWaypoint; }
     }
 
+  [MAG continent-] {
     [TYPE boundary_country] WAY {color: @countryBorderColor; displayWidth: 0.4mm; dash: 3,7;}
     [TYPE boundary_country] AREA.BORDER {color: @countryBorderColor; width: 0.4mm; dash: 3,7;}
+  }
 
   // -------------------------------------------------------
   //

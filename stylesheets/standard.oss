@@ -524,7 +524,9 @@ STYLE
     //[TYPE _osm_subtile_border] WAY {color: #444444; displayWidth: 0.1mm; }
 
     // [TYPE _tile_coastline] WAY {color: #ff0000; displayWidth: 0.1mm;}
+  }
 
+  [MAG continent-] {
     [TYPE boundary_country] WAY {color: @countryBorderColor; displayWidth: 0.4mm; dash: 3,7;}
     [TYPE boundary_country] AREA.BORDER {color: @countryBorderColor; width: 0.4mm; dash: 3,7;}
   }

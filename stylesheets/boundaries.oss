@@ -29,8 +29,11 @@ OSS
    //[TYPE _tile_unknown] AREA {color: @unknownColor;}
 
   [TYPE _tile_coastline] WAY {color: #ff0000; displayWidth: 0.2mm;}
-  [TYPE boundary_country] WAY {color: #800080; displayWidth: 0.4mm; dash: 3,7;}
-  [TYPE boundary_country] AREA.BORDER {color: #800080; width: 0.4mm; dash: 3,7;}
+
+  [MAG continent-] {
+    [TYPE boundary_country] WAY {color: #800080; displayWidth: 0.4mm; dash: 3,7;}
+    [TYPE boundary_country] AREA.BORDER {color: #800080; width: 0.4mm; dash: 3,7;}
+  }
 
   [MAG world-] {
     [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
