@@ -263,7 +263,8 @@ Window {
                       "id": "ASTER_GDEM",
                       "name": "Hillshade",
                       "servers": [
-                        "https://korona.geog.uni-heidelberg.de/tiles/asterh/x=%2&y=%3&z=%1"
+                          //"https://korona.geog.uni-heidelberg.de/tiles/asterh/x=%2&y=%3&z=%1"
+                          "https://osmscout.karry.cz/hillshade/tile.php?z=%1&x=%2&y=%3"
                       ],
                       "maximumZoomLevel": 18,
                       "copyright": "© IAT, METI, NASA, NOAA",
