@@ -418,10 +418,6 @@
         <translation>Bergsskuggning</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Tillhandahållet av Heidelberg University, baserat på ASTER GDEM data</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Bergsskuggningens intensitet</translation>
     </message>

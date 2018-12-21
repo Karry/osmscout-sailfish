@@ -418,10 +418,6 @@
         <translation>Рельеф</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Предоставляется Гейдельбергским университетом на основе данных ASTER GDEM</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Интенсивность рельефа</translation>
     </message>

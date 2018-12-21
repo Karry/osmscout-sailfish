@@ -418,16 +418,12 @@
         <translation>Stínování kopců</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Poskytována univerzitou v Heidelbergu, založena na ASTER GDEM datech</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Intenzita stínů</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Založeno na datech SRTM, ASTER GDEM a dalších volně šiřitelných zdrojích zpracovaných viewfinderpanoramas.org</translation>
     </message>
 </context>
 <context>
@@ -1144,23 +1140,23 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Terén</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Vodovky</translation>
     </message>
 </context>
 <context>

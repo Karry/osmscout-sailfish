@@ -418,10 +418,6 @@
         <translation>Schattierung</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Bereitgestellt von der Universität Heidelberg, basierend auf ASTER GDEM Daten</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Stärke der Schattierung</translation>
     </message>

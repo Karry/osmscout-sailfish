@@ -418,10 +418,6 @@
         <translation>Cienie wzgórz</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Dostarczone przez Heidelberg University, na bazie danych ASTER GDEM</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Intensywność cieni wzgórz</translation>
     </message>

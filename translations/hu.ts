@@ -418,10 +418,6 @@
         <translation>Domborzatárnyékolás</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Szolgáltatja a Heidelberg Egyetem az ASTER GDEM adatok alapján</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Domborzatárnyékolás mértéke</translation>
     </message>

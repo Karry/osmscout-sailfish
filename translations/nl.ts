@@ -418,10 +418,6 @@
         <translation>Heuvelschaduw</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Aangeboden door de universiteit van Heidelberg, gebaseerd op ASTER GDEM-gegevens</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Heuvelschaduwintensiteit</translation>
     </message>

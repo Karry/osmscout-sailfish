@@ -418,10 +418,6 @@
         <translation>斜坡阴影</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">由Heidelberg University提供, 基于 ASTER GDEM 数据。</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>斜坡阴影强度</translation>
     </message>

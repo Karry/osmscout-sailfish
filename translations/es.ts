@@ -418,10 +418,6 @@
         <translation>Sombras de colina</translation>
     </message>
     <message>
-        <source>Provided by Heidelberg University, based on ASTER GDEM data</source>
-        <translation type="vanished">Dado por la Universidad de Heidelberg, basado en datos ASTER GDEM</translation>
-    </message>
-    <message>
         <source>Hill shades intensity</source>
         <translation>Intensidad de sombra de la colina</translation>
     </message>
