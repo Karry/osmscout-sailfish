@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Oparte o SRTM, ASTER GDEM oraz inne darmowe źródła danych zebranych przez viewfinderpanoramas.org</translation>
     </message>
 </context>
 <context>
