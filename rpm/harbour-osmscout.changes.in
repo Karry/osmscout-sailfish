@@ -262,8 +262,10 @@
 - enable country boundaries in stylesheets ^^^
 - increase size of data caches
 
-* 2018-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.3-1
+* 2018-12-21 Lukáš Karas <lukas.karas@centrum.cz> 1.3-1
 - fix public transport stylesheet (missing color constant for country_boundary type)
 - fix crash with invalid stylesheet
 - update Polish and German translations
 - fix parallel downloads of one overlay tile
+- add style definition for protected areas (nature parks)
+- setup own, experimental hillshade provider
