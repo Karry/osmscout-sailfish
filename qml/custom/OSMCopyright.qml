@@ -39,7 +39,7 @@ Rectangle{
         }
 
         onOnlineTileProviderIdChanged: {
-            copyrightText = settings.onlineProviderCopyright();
+            copyrightText = qsTranslate("resource", settings.onlineProviderCopyright());
             update();
         }
         onOnlineTilesChanged: {
@@ -47,7 +47,7 @@ Rectangle{
         }
         Component.onCompleted: {
             defaultOpacity = osmCopyright.opacity
-            copyrightText = settings.onlineProviderCopyright();
+            copyrightText = qsTranslate("resource", settings.onlineProviderCopyright());
             update();
         }
     }

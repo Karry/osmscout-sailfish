@@ -9,6 +9,12 @@
 Item{
   property variant strings: [
         QT_TRANSLATE_NOOP("resource", "© OpenStreetMap contributors"),
+        QT_TRANSLATE_NOOP("resource", "© Stamen Design, OSM"),
+        QT_TRANSLATE_NOOP("resource", "© Leaflet, OSM, NASA"),
+
+        QT_TRANSLATE_NOOP("resource", "Terrain"),
+        QT_TRANSLATE_NOOP("resource", "Toner"),
+        QT_TRANSLATE_NOOP("resource", "Watercolor"),
         QT_TRANSLATE_NOOP("resource", "Hike & Bike Map"),
         QT_TRANSLATE_NOOP("resource", "OSM Mapnik"),
 

@@ -1142,6 +1142,26 @@
         <source>OSM Mapnik</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>© Stamen Design, OSM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>© Leaflet, OSM, NASA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Terrain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watercolor</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>routerVehicle</name>
