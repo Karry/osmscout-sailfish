@@ -423,7 +423,7 @@ CONST
     }
 
   SYMBOL amenity_hospital
-    CIRCLE 0,0 2 {
+    CIRCLE 0,0 1.2 {
       AREA.BORDER {color: @hospitalSymbolColor; width: 0.2mm; }
     }
     // Horizontal bar
@@ -437,7 +437,7 @@ CONST
 
   SYMBOL amenity_pharmacy
     // Box
-    RECTANGLE -1,1 2 x 2 {
+    RECTANGLE -1,-1 2 x 2 {
       AREA.BORDER {color: @pharmacySymbolColor; width: 0.2mm; }
     }
     // Horizontal bar
