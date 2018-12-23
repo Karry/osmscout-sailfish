@@ -675,561 +675,561 @@
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
+        <translation>通过ferrata路线</translation>
     </message>
 </context>
 <context>
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>加载收集 id% 1 的轨道失败</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>加载收集 id% 1 的航点失败</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>加载收集 id% 1 失败</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>收集 id% 1 不存在</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>分段 id% 1 的加载节点失败:% 2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>轨道 id% 1 的加载分段失败:% 2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>创建收集失败:% 1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>更新收集失败:% 1</translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>删除收集失败: %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation type="unfinished"></translation>
+        <translation>航点% 1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>导入航点失败:% 1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>事务提交失败:% 1</translation>
     </message>
     <message>
         <source>track %1</source>
-        <translation type="unfinished"></translation>
+        <translation>路径% 1</translation>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>导入路径失败:% 1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>导入分段失败:% 1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>导入跟踪点失败:% 1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>从% 1 导入</translation>
     </message>
     <message>
         <source>Invalid collection id: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>无效的收集 id:% 1</translation>
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>删除航点失败:% 1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>创建航点失败:% 1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>删除路径失败:% 1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑航点失败:% 1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑路径失败:% 1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>加载路径 id% 1 失败</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>路径id% 1 不存在</translation>
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>加载航点 id% 1 失败</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到航点 id% 1</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>移动航点 id% 1 失败</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到路径 id% 1</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>移动路径id% 1 失败</translation>
     </message>
 </context>
 <context>
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished">米</translation>
+        <translation>米</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished">km</translation>
+        <translation>km</translation>
     </message>
     <message>
         <source>west</source>
-        <translation type="unfinished"></translation>
+        <translation>西</translation>
     </message>
     <message>
         <source>east</source>
-        <translation type="unfinished"></translation>
+        <translation>东</translation>
     </message>
     <message>
         <source>south</source>
-        <translation type="unfinished"></translation>
+        <translation>南</translation>
     </message>
     <message>
         <source>north</source>
-        <translation type="unfinished"></translation>
+        <translation>北</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>主页</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>储存卡</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>文件</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>节点</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>路</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>区域</translation>
     </message>
 </context>
 <context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>目录已存在</translation>
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建目录</translation>
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>网络访问被禁用。</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>连接被拒绝</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>插槽操作超时</translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>网络会话错误。</translation>
     </message>
 </context>
 <context>
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>建筑</translation>
     </message>
 </context>
 <context>
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
-        <translation type="unfinished"></translation>
+        <translation>向左急转弯</translation>
     </message>
     <message>
         <source>Turn left</source>
-        <translation type="unfinished"></translation>
+        <translation>左转</translation>
     </message>
     <message>
         <source>Turn slightly left</source>
-        <translation type="unfinished"></translation>
+        <translation>稍微向左转</translation>
     </message>
     <message>
         <source>Straight on</source>
-        <translation type="unfinished"></translation>
+        <translation>直行</translation>
     </message>
     <message>
         <source>Turn slightly right</source>
-        <translation type="unfinished"></translation>
+        <translation>稍微向右转</translation>
     </message>
     <message>
         <source>Turn right</source>
-        <translation type="unfinished"></translation>
+        <translation>向右转</translation>
     </message>
     <message>
         <source>Turn sharp right</source>
-        <translation type="unfinished"></translation>
+        <translation>向右急转弯</translation>
     </message>
     <message>
         <source>Turn</source>
-        <translation type="unfinished"></translation>
+        <translation>转</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口&lt;strong&gt;% 1 &lt;/strong&gt;转到% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;急转到&lt;/strong&gt;% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;左转&lt;/strong&gt;进入% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口&lt;strong&gt;% 1 稍微左转&lt;/strong&gt;至% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口%1&lt;strong&gt;直行&lt;/strong&gt;至% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;稍微右转&lt;/strong&gt;至% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;右转进入&lt;/strong&gt;% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;至% 2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1&lt;strong&gt; 向左急转弯&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;左转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;稍微左转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;直行&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;稍微右转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;向右转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>unnamed road</source>
-        <translation type="unfinished"></translation>
+        <translation>无名道路</translation>
     </message>
     <message>
         <source>(%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;开始&lt;/strong&gt; 在 %1</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>开始</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;继续&lt;/strong&gt; 沿着%1</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"></translation>
+        <translation>继续</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;开始&lt;/strong&gt; along沿着%1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;开始&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;已抵达目的地&lt;/strong&gt;在%1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;已抵达目的地&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation type="unfinished"></translation>
+        <translation>已抵达目的地</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口% 1 &lt;strong&gt;进入转盘&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;进入转盘&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>进入转盘</translation>
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>离开转盘</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在 %1. 拐入街道 %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在%1. 离开</translation>
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>进入高速公路</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口 %1&lt;strong&gt;进入高速公路&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;进入高速公路&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>在十字路口%1&lt;strong&gt;进入高速公路&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;进入高速公路&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>更换高速公路</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;更换高速公路&lt;/strong&gt; 从%1 变到 %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;更换高速公路&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>驶离高速公路</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt; %1 到 %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt; %1 </translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Way changes name</source>
-        <translation type="unfinished"></translation>
+        <translation>道路更改名称</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;道路更换名称&lt;/strong&gt; 从%1 到 %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;道路更换名称&lt;/strong&gt;  到 %2</translation>
     </message>
 </context>
 <context>
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>© OpenStreetMap 贡献者</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Hike &amp; Bike Map</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Mapnik</translation>
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Terrain</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>水彩</translation>
     </message>
 </context>
 <context>
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation type="unfinished"></translation>
+        <translation>汽车</translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation type="unfinished"></translation>
+        <translation>自行车</translation>
     </message>
     <message>
         <source>foot</source>
-        <translation type="unfinished"></translation>
+        <translation>步行</translation>
     </message>
 </context>
 <context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation type="unfinished"></translation>
+        <translation>日光</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation>水路</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>树林</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation>自然</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation type="unfinished"></translation>
+        <translation>铁路</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation>休闲</translation>
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>建筑</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>小型建筑</translation>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>高程轮廓</translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"></translation>
+        <translation>边界 (用于调试)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"></translation>
+        <translation>标准</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"></translation>
+        <translation>冬季运动</translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>公共交通</translation>
     </message>
 </context>
 </TS>
