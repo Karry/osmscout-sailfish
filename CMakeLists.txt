@@ -258,6 +258,7 @@ set(QML_FILES
     qml/custom/OSMCopyright.qml
     qml/custom/POIIcon.qml
     qml/custom/AvailableMapsView.qml
+    qml/custom/MapBase.qml
     qml/custom/MapComponent.qml
     qml/custom/ScaleIndicator.qml
     qml/custom/LocationSelector.qml
