@@ -269,3 +269,9 @@
 - fix parallel downloads of one overlay tile
 - add style definition for protected areas (nature parks)
 - setup own, experimental hillshade provider
+
+* 2018-12-24 Lukáš Karas <lukas.karas@centrum.cz> 1.4-1
+- update translations (Polish, Chinese and Swedish)
+- fix hillshade overlay:
+    - return it to application Cover
+    - fix deadlock in tiled overlay
