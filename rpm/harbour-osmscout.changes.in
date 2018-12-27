@@ -275,3 +275,5 @@
 - fix hillshade overlay:
     - return it to application Cover
     - fix deadlock in tiled overlay
+
+* 201x-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.5-1
