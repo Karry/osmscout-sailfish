@@ -1140,23 +1140,23 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Teren</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Akwarela</translation>
     </message>
 </context>
 <context>
