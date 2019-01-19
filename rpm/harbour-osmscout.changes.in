@@ -279,3 +279,4 @@
 * 201x-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.5-1
 - improved node index, it has better "area hit" that speedup loading when cache is empty
 - update translations (Polish)
+- fix displaying of (collection) tracks with multiple segments

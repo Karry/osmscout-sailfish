@@ -77,11 +77,23 @@ private:
   osmscout::MapWidget *delegatedMap{nullptr};
   QString waypointTypeName{"_waypoint"};
   QString trackTypeName{"_track"};
-  qint64 overlayWptIdBase{10000};
-  qint64 overlayTrkIdBase{50000};
 
-  QMap<qint64, QMap<qint64, QDateTime>> displayedWaypoints;
-  QMap<qint64, QMap<qint64, QDateTime>> displayedTracks;
+  qint64 nextObjectId{50000};
+
+  struct DisplayedTrack {
+    QDateTime lastModification;
+    QSet<qint64> ids; // overlay object ids (object for every segment)
+  };
+  struct DisplayedWaypoint {
+    QDateTime lastModification;
+    qint64 id; // overlay object id
+  };
+  struct DisplayedCollection {
+    QMap<qint64, DisplayedTrack> tracks;
+    QMap<qint64, DisplayedWaypoint> waypoints;
+  };
+
+  QMap<qint64, DisplayedCollection> displayedCollection;
 };
 
 #endif //OSMSCOUT_SAILFISH_COLLECTIONMAPBRIDGE_H

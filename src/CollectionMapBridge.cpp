@@ -86,18 +86,20 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
 
   qDebug() << "Display collection" << collection.name << "(" << collection.id << ")";
 
-  QMap<qint64, QDateTime> wptToHide = displayedWaypoints[collection.id];
-  QMap<qint64, QDateTime> &wptVisible = displayedWaypoints[collection.id];
+  DisplayedCollection &dispColl = displayedCollection[collection.id];
 
-  QMap<qint64, QDateTime> trkToHide = displayedTracks[collection.id];
-  QMap<qint64, QDateTime> &trkVisible = displayedTracks[collection.id];
+  QMap<qint64, DisplayedWaypoint> wptToHide = dispColl.waypoints;
+  QMap<qint64, DisplayedWaypoint> &wptVisible = dispColl.waypoints;
+
+  QMap<qint64, DisplayedTrack> trkToHide = dispColl.tracks;
+  QMap<qint64, DisplayedTrack> &trkVisible = dispColl.tracks;
 
   if (collection.tracks){
     for (const auto &trk: *(collection.tracks)){
       trkToHide.remove(trk.id);
-      if (!trkVisible.contains(trk.id) || trkVisible[trk.id] != trk.lastModification) {
+      if (!trkVisible.contains(trk.id) || trkVisible[trk.id].lastModification != trk.lastModification) {
         qDebug() << "Request track data (" << trk.id << ")"
-                 << trkVisible[trk.id] << "/" << trk.lastModification;
+                 << trkVisible[trk.id].lastModification << "/" << trk.lastModification;
         emit trackDataRequest(trk);
       }
     }
@@ -106,31 +108,34 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
   if (collection.waypoints){
     for (const auto &wpt: *(collection.waypoints)){
       wptToHide.remove(wpt.id);
-      if (!wptVisible.contains(wpt.id) || wptVisible[wpt.id] != wpt.lastModification) {
+      if (!wptVisible.contains(wpt.id) || wptVisible[wpt.id].lastModification != wpt.lastModification) {
         qDebug() << "Adding overlay waypoint"
                  << QString::fromStdString(wpt.data.name.getOrElse("<empty>"))
                  << "(" << wpt.id << ")"
-                 << wptVisible[wpt.id] << "/" << wpt.lastModification;
+                 << wptVisible[wpt.id].lastModification << "/" << wpt.lastModification;
 
         osmscout::OverlayNode wptOverlay;
         wptOverlay.setTypeName(waypointTypeName);
         wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
         wptOverlay.setName(QString::fromStdString(wpt.data.name.getOrElse("")));
-        delegatedMap->addOverlayObject(overlayWptIdBase + wpt.id, &wptOverlay);
+        if (!wptVisible.contains(wpt.id)){
+          wptVisible[wpt.id]=DisplayedWaypoint{wpt.lastModification, nextObjectId++};
+        }
+        delegatedMap->addOverlayObject(wptVisible[wpt.id].id, &wptOverlay);
       }
-
-      wptVisible.insert(wpt.id, wpt.lastModification);
     }
   }
 
   for (const auto &id :wptToHide.keys()){
-    qDebug() << "Removing overlay waypoint" << id << wptToHide[id];
-    delegatedMap->removeOverlayObject(id + overlayWptIdBase);
+    qDebug() << "Removing overlay waypoint" << id << wptToHide[id].lastModification;
+    delegatedMap->removeOverlayObject(wptToHide[id].id);
     wptVisible.remove(id);
   }
   for (const auto &id :trkToHide.keys()){
-    qDebug() << "Removing overlay track" << id << trkToHide[id];
-    delegatedMap->removeOverlayObject(id + overlayTrkIdBase);
+    qDebug() << "Removing overlay track" << id << trkToHide[id].lastModification;
+    for (const auto &did: trkToHide[id].ids) {
+      delegatedMap->removeOverlayObject(did);
+    }
     trkVisible.remove(id);
   }
 }
@@ -140,8 +145,8 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
   if (delegatedMap == nullptr ||
       !complete ||
       !ok ||
-      !displayedTracks.contains(track.collectionId) ||
-      displayedTracks[track.collectionId][track.id] == track.lastModification
+      !displayedCollection.contains(track.collectionId) ||
+      displayedCollection[track.collectionId].tracks[track.id].lastModification == track.lastModification
       ){
     return;
   }
@@ -149,8 +154,9 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
   qDebug() << "Adding overlay track"
            << track.name
            << "(" << track.id << ")"
-           << displayedTracks[track.collectionId][track.id] << "/" << track.lastModification;
+           << displayedCollection[track.collectionId].tracks[track.id].lastModification << "/" << track.lastModification;
 
+  QSet<qint64> ids;
   for (const osmscout::gpx::TrackSegment &seg : track.data->segments) {
     std::vector<osmscout::Point> points;
     points.reserve(seg.points.size());
@@ -160,9 +166,14 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
     osmscout::OverlayWay trkOverlay(points);
     trkOverlay.setTypeName(trackTypeName);
     trkOverlay.setName(track.name);
-    delegatedMap->addOverlayObject(overlayTrkIdBase + track.id, &trkOverlay);
+
+    delegatedMap->addOverlayObject(nextObjectId,&trkOverlay);
+    ids.insert(nextObjectId++);
   }
-  displayedTracks[track.collectionId][track.id] = track.lastModification;
+  displayedCollection[track.collectionId].tracks[track.id]=DisplayedTrack{
+    track.lastModification,
+    ids
+  };
 }
 
 void CollectionMapBridge::onCollectionsLoaded(std::vector<Collection> collections, bool /*ok*/)
@@ -171,28 +182,26 @@ void CollectionMapBridge::onCollectionsLoaded(std::vector<Collection> collection
 
   // clear deleted collections on map
   if (delegatedMap == nullptr) {
-    displayedTracks.clear();
-    displayedWaypoints.clear();
+    displayedCollection.clear();
   }else{
-    QMap<qint64, QMap<qint64, QDateTime>> tracksToHide = displayedTracks;
-    QMap<qint64, QMap<qint64, QDateTime>> waypointsToHide = displayedWaypoints;
+    QMap<qint64, DisplayedCollection> collectionToHide = displayedCollection;
 
     for (const auto &c: collections){
       if (c.visible){
-        tracksToHide.remove(c.id);
-        waypointsToHide.remove(c.id);
+        collectionToHide.remove(c.id);
         collectionDetailRequest(c);
       }
     }
 
-    for (const auto &colId: waypointsToHide.keys()) {
-      for (const auto &wptId: displayedWaypoints.take(colId).keys()) {
-        delegatedMap->removeOverlayObject(overlayWptIdBase + wptId);
+    for (const auto &colId: collectionToHide.keys()) {
+      DisplayedCollection col=displayedCollection.take(colId);
+      for (const auto &wpt: col.waypoints) {
+        delegatedMap->removeOverlayObject(wpt.id);
       }
-    }
-    for (const auto &colId: tracksToHide.keys()) {
-      for (const auto &trkId: displayedTracks.take(colId).keys()) {
-        delegatedMap->removeOverlayObject(overlayTrkIdBase + trkId);
+      for (const auto &trk:col.tracks){
+        for (const auto &id:trk.ids){
+          delegatedMap->removeOverlayObject(id);
+        }
       }
     }
   }
