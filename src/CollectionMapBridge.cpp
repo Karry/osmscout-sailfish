@@ -109,18 +109,20 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
     for (const auto &wpt: *(collection.waypoints)){
       wptToHide.remove(wpt.id);
       if (!wptVisible.contains(wpt.id) || wptVisible[wpt.id].lastModification != wpt.lastModification) {
+        if (!wptVisible.contains(wpt.id)){
+          wptVisible[wpt.id]=DisplayedWaypoint{wpt.lastModification, nextObjectId++};
+        }else{
+          wptVisible[wpt.id].lastModification=wpt.lastModification;
+        }
         qDebug() << "Adding overlay waypoint"
                  << QString::fromStdString(wpt.data.name.getOrElse("<empty>"))
                  << "(" << wpt.id << ")"
-                 << wptVisible[wpt.id].lastModification << "/" << wpt.lastModification;
+                 << wpt.lastModification;
 
         osmscout::OverlayNode wptOverlay;
         wptOverlay.setTypeName(waypointTypeName);
         wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
         wptOverlay.setName(QString::fromStdString(wpt.data.name.getOrElse("")));
-        if (!wptVisible.contains(wpt.id)){
-          wptVisible[wpt.id]=DisplayedWaypoint{wpt.lastModification, nextObjectId++};
-        }
         delegatedMap->addOverlayObject(wptVisible[wpt.id].id, &wptOverlay);
       }
     }
