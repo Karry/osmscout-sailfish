@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es">
+<TS version="2.1" language="es_GT">
 <context>
     <name>About</name>
     <message>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation type="unfinished"></translation>
+        <translation>Chino: Rui Kon</translation>
     </message>
 </context>
 <context>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Basado en SRTM, ASTER GDEM y otras fuentes de datos libres y recopiladas por viewfinderpanoramas.org</translation>
     </message>
 </context>
 <context>
@@ -585,15 +585,15 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distancia</translation>
+        <translation>Distancia</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Duración</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasos de ruta</translation>
     </message>
 </context>
 <context>
@@ -682,11 +682,11 @@
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation>Error al cargar los rastros del id %1 de colección</translation>
+        <translation>Error al cargar los rastros de id %1 de colección</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>Error al cargar los puntos definidos para el id %1 de colección</translation>
+        <translation>Error al cargar los puntos-definidos para el id %1 de colección</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
@@ -718,7 +718,7 @@
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation>puntos definido %1</translation>
+        <translation>puntos-definido %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
@@ -758,7 +758,7 @@
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>Error al crear un punto definido: %1</translation>
+        <translation>Error al crear un punto-definido: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
@@ -1140,23 +1140,23 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Terreno</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Tonador</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Acuarela</translation>
     </message>
 </context>
 <context>
