@@ -315,8 +315,8 @@ void Storage::init()
   }
   QString path=directory.path();
   if (!directory.mkpath(path)){
-    qWarning() << "Failed to cretate directory" << directory;
-    emit initialisationError(QString("Failed to cretate directory ") + directory.path());
+    qWarning() << "Failed to create directory" << directory;
+    emit initialisationError(QString("Failed to create directory ") + directory.path());
     return;
   }
   path.append(QDir::separator()).append("storage.db");
