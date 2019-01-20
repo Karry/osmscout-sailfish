@@ -47,7 +47,7 @@ MapView *AppSettings::GetMapView()
 
 void AppSettings::SetMapView(QObject *o)
 {
-  MapView *updated = dynamic_cast<MapView*>(o);
+  MapView *updated = qobject_cast<MapView*>(o);
   if (updated == nullptr){
     qWarning() << "Failed to cast " << o << " to MapView*.";
     return;

@@ -211,7 +211,7 @@ void CollectionMapBridge::onCollectionsLoaded(std::vector<Collection> collection
 
 void CollectionMapBridge::setMap(QObject *map)
 {
-  delegatedMap = dynamic_cast<osmscout::MapWidget*>(map);
+  delegatedMap = qobject_cast<osmscout::MapWidget*>(map);
   if (delegatedMap == nullptr){
     return;
   }
