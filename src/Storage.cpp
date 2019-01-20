@@ -1035,7 +1035,7 @@ void Storage::importCollection(QString filePath)
 
   gpx::GpxFile gpxFile;
   std::shared_ptr<ErrorCallback> callback = std::make_shared<ErrorCallback>();
-  connect(callback.get(), SIGNAL(error(QString)), this, SIGNAL(error(QString)));
+  connect(callback.get(), &ErrorCallback::error, this, &Storage::error);
 
   if (!gpx::ImportGpx(filePath.toStdString(),
                       gpxFile,
@@ -1266,7 +1266,7 @@ void Storage::exportCollection(qint64 collectionId, QString file)
   // export
   qDebug() << "Writing gpx file" << file;
   std::shared_ptr<ErrorCallback> callback = std::make_shared<ErrorCallback>();
-  connect(callback.get(), SIGNAL(error(QString)), this, SIGNAL(error(QString)));
+  connect(callback.get(), &ErrorCallback::error, this, &Storage::error);
 
   bool success = gpx::ExportGpx(gpxFile,
                                 file.toStdString(),
@@ -1400,8 +1400,8 @@ void Storage::initInstance(const QDir &directory)
     QThread *thread = OSMScoutQt::GetInstance().makeThread("OverlayTileLoader");
     storage = new Storage(thread, directory);
     storage->moveToThread(thread);
-    connect(thread, SIGNAL(started()),
-            storage, SLOT(init()));
+    connect(thread, &QThread::started,
+            storage, &Storage::init);
     thread->start();
   }
 }

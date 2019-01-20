@@ -24,40 +24,40 @@ CollectionMapBridge::CollectionMapBridge(QObject *parent):
 {
   Storage *storage = Storage::getInstance();
   if (storage) {
-    connect(storage, SIGNAL(initialised()),
-            this, SLOT(init()),
+    connect(storage, &Storage::initialised,
+            this, &CollectionMapBridge::init,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(initialisationError(QString)),
-            this, SLOT(storageInitialisationError(QString)),
+    connect(storage, &Storage::initialisationError,
+            this, &CollectionMapBridge::storageInitialisationError,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(collectionLoadRequest()),
-            storage, SLOT(loadCollections()),
+    connect(this, &CollectionMapBridge::collectionLoadRequest,
+            storage, &Storage::loadCollections,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(collectionsLoaded(std::vector<Collection>, bool)),
-            this, SLOT(onCollectionsLoaded(std::vector<Collection>, bool)),
+    connect(storage, &Storage::collectionsLoaded,
+            this, &CollectionMapBridge::onCollectionsLoaded,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(error(QString)),
-            this, SIGNAL(error(QString)),
+    connect(storage, &Storage::error,
+            this, &CollectionMapBridge::error,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(collectionDetailRequest(Collection)),
-            storage, SLOT(loadCollectionDetails(Collection)),
+    connect(this, &CollectionMapBridge::collectionDetailRequest,
+            storage, &Storage::loadCollectionDetails,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(collectionDetailsLoaded(Collection, bool)),
-            this, SLOT(onCollectionDetailsLoaded(Collection, bool)),
+    connect(storage, &Storage::collectionDetailsLoaded,
+            this, &CollectionMapBridge::onCollectionDetailsLoaded,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(trackDataRequest(Track)),
-            storage, SLOT(loadTrackData(Track)),
+    connect(this, &CollectionMapBridge::trackDataRequest,
+            storage, &Storage::loadTrackData,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(trackDataLoaded(Track, bool, bool)),
-            this, SLOT(onTrackDataLoaded(Track, bool, bool)),
+    connect(storage, &Storage::trackDataLoaded,
+            this, &CollectionMapBridge::onTrackDataLoaded,
             Qt::QueuedConnection);
 
     init();

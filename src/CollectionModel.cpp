@@ -32,60 +32,60 @@ CollectionModel::CollectionModel()
 {
   Storage *storage = Storage::getInstance();
   if (storage){
-    connect(storage, SIGNAL(initialised()),
-            this, SLOT(storageInitialised()),
+    connect(storage, &Storage::initialised,
+            this, &CollectionModel::storageInitialised,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(initialisationError(QString)),
-            this, SLOT(storageInitialisationError(QString)),
+    connect(storage, &Storage::initialisationError,
+            this, &CollectionModel::storageInitialisationError,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(collectionDetailRequest(Collection)),
-            storage, SLOT(loadCollectionDetails(Collection)),
+    connect(this, &CollectionModel::collectionDetailRequest,
+            storage, &Storage::loadCollectionDetails,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(collectionDetailsLoaded(Collection, bool)),
-            this, SLOT(onCollectionDetailsLoaded(Collection, bool)),
+    connect(storage, &Storage::collectionDetailsLoaded,
+            this, &CollectionModel::onCollectionDetailsLoaded,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(deleteWaypointRequest(qint64, qint64)),
-            storage, SLOT(deleteWaypoint(qint64, qint64)),
+    connect(this, &CollectionModel::deleteWaypointRequest,
+            storage, &Storage::deleteWaypoint,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(deleteTrackRequest(qint64, qint64)),
-            storage, SLOT(deleteTrack(qint64, qint64)),
+    connect(this, &CollectionModel::deleteTrackRequest,
+            storage, &Storage::deleteTrack,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(createWaypointRequest(qint64, double, double, QString, QString)),
-            storage, SLOT(createWaypoint(qint64, double, double, QString, QString)),
+    connect(this, &CollectionModel::createWaypointRequest,
+            storage, &Storage::createWaypoint,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(editWaypointRequest(qint64, qint64, QString, QString)),
-            storage, SLOT(editWaypoint(qint64, qint64, QString, QString)),
+    connect(this, &CollectionModel::editWaypointRequest,
+            storage, &Storage::editWaypoint,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(editTrackRequest(qint64, qint64, QString, QString)),
-            storage, SLOT(editTrack(qint64, qint64, QString, QString)),
+    connect(this, &CollectionModel::editTrackRequest,
+            storage, &Storage::editTrack,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(exportCollectionRequest(qint64, QString)),
-            storage, SLOT(exportCollection(qint64, QString)),
+    connect(this, &CollectionModel::exportCollectionRequest,
+            storage, &Storage::exportCollection,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(collectionExported(bool)),
-            this, SLOT(onCollectionExported(bool)),
+    connect(storage, &Storage::collectionExported,
+            this, &CollectionModel::onCollectionExported,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(error(QString)),
-            this, SIGNAL(error(QString)),
+    connect(storage, &Storage::error,
+            this, &CollectionModel::error,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(moveWaypointRequest(qint64, qint64)),
-            storage, SLOT(moveWaypoint(qint64, qint64)),
+    connect(this, &CollectionModel::moveWaypointRequest,
+            storage, &Storage::moveWaypoint,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(moveTrackRequest(qint64, qint64)),
-            storage, SLOT(moveTrack(qint64, qint64)),
+    connect(this, &CollectionModel::moveTrackRequest,
+            storage, &Storage::moveTrack,
             Qt::QueuedConnection);
   }
 }

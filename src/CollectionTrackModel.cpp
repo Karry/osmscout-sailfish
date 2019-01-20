@@ -27,20 +27,20 @@ CollectionTrackModel::CollectionTrackModel()
 {
   Storage *storage = Storage::getInstance();
   if (storage) {
-    connect(storage, SIGNAL(initialised()),
-            this, SLOT(storageInitialised()),
+    connect(storage, &Storage::initialised,
+            this, &CollectionTrackModel::storageInitialised,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(initialisationError(QString)),
-            this, SLOT(storageInitialisationError(QString)),
+    connect(storage, &Storage::initialisationError,
+            this, &CollectionTrackModel::storageInitialisationError,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(trackDataRequest(Track)),
-            storage, SLOT(loadTrackData(Track)),
+    connect(this, &CollectionTrackModel::trackDataRequest,
+            storage, &Storage::loadTrackData,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(trackDataLoaded(Track, bool, bool)),
-            this, SLOT(onTrackDataLoaded(Track, bool, bool)),
+    connect(storage, &Storage::trackDataLoaded,
+            this, &CollectionTrackModel::onTrackDataLoaded,
             Qt::QueuedConnection);
   }
 }
