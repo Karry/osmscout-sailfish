@@ -121,7 +121,7 @@ if (SANITIZE)
 endif()
 
 add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
-add_definitions(-std=c++11)
+set(CMAKE_CXX_STANDARD 11)
 
 # Do *NOT* turn assertions off in release and rel-with-deb-info modes.
 # CMakes does that by default despite any recent documentation
