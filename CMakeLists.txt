@@ -131,10 +131,6 @@ string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_
 string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
-# QT5 definitions
-add_definitions(${QT_DEFINITIONS})
-add_definitions(${Qt5Core_DEFINITIONS})
-
 add_definitions(${LIBXML2_DEFINITIONS})
 add_definitions(${LIBSAILFISHAPP_DEFINITIONS})
 
@@ -209,10 +205,6 @@ set(OSMSCOUT_INCLUDE_DIRS
 
   ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
 )
-
-# QT5 definitions
-add_definitions(${QT_DEFINITIONS})
-add_definitions(${Qt5Core_DEFINITIONS})
 
 # we are including libosmscout subdirectories directly, we are responsible
 # to setup all variables correctly
