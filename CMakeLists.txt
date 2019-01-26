@@ -97,10 +97,8 @@ if(Qt5_FOUND AND
   LIBXML2_FOUND
   )
     message(STATUS      " OSMScout-Sailfish can be compiled........ YES")
-    set(OSMSCOUT_SAILFISH_CAN_BE_COMPILED true)
 else()
     message(FATAL_ERROR " OSMScout-Sailfish will be compiled....... NO  (Look README file for more details about dependencies)")
-    set(OSMSCOUT_SAILFISH_CAN_BE_COMPILED false)
 endif()
 
 message(STATUS "----------------------------------------------------------------------------------")
@@ -108,47 +106,40 @@ message(STATUS "")
 
 # ==================================================================================================
 
-if (OSMSCOUT_SAILFISH_CAN_BE_COMPILED)
-
-  if (LABEL_LAYOUTER_DEBUG)
-    add_definitions( -DLABEL_LAYOUTER_DEBUG)
-  endif()
-  if (DEBUG_GROUNDTILES)
-    add_definitions( -DDEBUG_GROUNDTILES)
-  endif()
-  if (QT_QML_DEBUG)
-    add_definitions( -DQT_QML_DEBUG)
-  endif()
-  if (SANITIZE)
-    # -fsanitize=address
-    add_definitions( -fno-omit-frame-pointer -fstack-protector-all)
-  endif()
-
-  add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
-  add_definitions(-std=c++11)
-
-  # Do *NOT* turn assertions off in release and rel-with-deb-info modes.
-  # CMakes does that by default despite any recent documentation
-  # recommending against the practice.
-  string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
-  string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
-  string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-  string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-
-  # QT5 definitions
-  add_definitions(${QT_DEFINITIONS})
-  add_definitions(${Qt5Core_DEFINITIONS})
-
-  add_definitions(${LIBXML2_DEFINITIONS})
-  add_definitions(${LIBSAILFISHAPP_DEFINITIONS})
-
-  # OpenMP definitions
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
-
-  set(HARBOUR_APP_NAME harbour-osmscout)
+if (LABEL_LAYOUTER_DEBUG)
+  add_definitions( -DLABEL_LAYOUTER_DEBUG)
 endif()
+if (DEBUG_GROUNDTILES)
+  add_definitions( -DDEBUG_GROUNDTILES)
+endif()
+if (QT_QML_DEBUG)
+  add_definitions( -DQT_QML_DEBUG)
+endif()
+if (SANITIZE)
+  # -fsanitize=address
+  add_definitions( -fno-omit-frame-pointer -fstack-protector-all)
+endif()
+
+add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
+set(CMAKE_CXX_STANDARD 11)
+
+# Do *NOT* turn assertions off in release and rel-with-deb-info modes.
+# CMakes does that by default despite any recent documentation
+# recommending against the practice.
+string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+
+add_definitions(${LIBXML2_DEFINITIONS})
+add_definitions(${LIBSAILFISHAPP_DEFINITIONS})
+
+# OpenMP definitions
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+
+set(HARBOUR_APP_NAME harbour-osmscout)
 
 
 # ==================================================================================================
@@ -214,10 +205,6 @@ set(OSMSCOUT_INCLUDE_DIRS
 
   ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
 )
-
-# QT5 definitions
-add_definitions(${QT_DEFINITIONS})
-add_definitions(${Qt5Core_DEFINITIONS})
 
 # we are including libosmscout subdirectories directly, we are responsible
 # to setup all variables correctly

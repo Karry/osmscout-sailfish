@@ -25,13 +25,13 @@
 
 using namespace osmscout;
 
-AppSettings::AppSettings(): view(NULL)
+AppSettings::AppSettings(): view(nullptr)
 {
 }
 
 MapView *AppSettings::GetMapView()
 {
-  if (view == NULL){
+  if (view == nullptr){
     double lat   = settings.value("settings/map/lat",   0).toDouble();
     double lon   = settings.value("settings/map/lon",   0).toDouble();
     double angle = settings.value("settings/map/angle", 0).toDouble();
@@ -47,13 +47,13 @@ MapView *AppSettings::GetMapView()
 
 void AppSettings::SetMapView(QObject *o)
 {
-  MapView *updated = dynamic_cast<MapView*>(o);
-  if (updated == NULL){
+  MapView *updated = qobject_cast<MapView*>(o);
+  if (updated == nullptr){
     qWarning() << "Failed to cast " << o << " to MapView*.";
     return;
   }
   bool changed = false;
-  if (view == NULL){
+  if (view == nullptr){
     view = new MapView(this,
                        osmscout::GeoCoord(updated->GetLat(), updated->GetLon()),
                        updated->GetAngle(),

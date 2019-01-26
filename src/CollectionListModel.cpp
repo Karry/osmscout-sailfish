@@ -25,36 +25,36 @@ CollectionListModel::CollectionListModel()
 {
   Storage *storage = Storage::getInstance();
   if (storage){
-    connect(storage, SIGNAL(initialised()),
-            this, SLOT(storageInitialised()),
+    connect(storage, &Storage::initialised,
+            this, &CollectionListModel::storageInitialised,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(initialisationError(QString)),
-            this, SLOT(storageInitialisationError(QString)),
+    connect(storage, &Storage::initialisationError,
+            this, &CollectionListModel::storageInitialisationError,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(collectionLoadRequest()),
-            storage, SLOT(loadCollections()),
+    connect(this, &CollectionListModel::collectionLoadRequest,
+            storage, &Storage::loadCollections,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(collectionsLoaded(std::vector<Collection>, bool)),
-            this, SLOT(onCollectionsLoaded(std::vector<Collection>, bool)),
+    connect(storage, &Storage::collectionsLoaded,
+            this, &CollectionListModel::onCollectionsLoaded,
             Qt::QueuedConnection);
 
-    connect(storage, SIGNAL(error(QString)),
-            this, SIGNAL(error(QString)),
+    connect(storage, &Storage::error,
+            this, &CollectionListModel::error,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(updateCollectionRequest(Collection)),
-            storage, SLOT(updateOrCreateCollection(Collection)),
+    connect(this, &CollectionListModel::updateCollectionRequest,
+            storage, &Storage::updateOrCreateCollection,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(deleteCollectionRequest(qint64)),
-            storage, SLOT(deleteCollection(qint64)),
+    connect(this, &CollectionListModel::deleteCollectionRequest,
+            storage, &Storage::deleteCollection,
             Qt::QueuedConnection);
 
-    connect(this, SIGNAL(importCollectionRequest(QString)),
-            storage, SLOT(importCollection(QString)),
+    connect(this, &CollectionListModel::importCollectionRequest,
+            storage, &Storage::importCollection,
             Qt::QueuedConnection);
   }
 
