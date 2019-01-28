@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinees: Rui Kon</translation>
     </message>
 </context>
 <context>
@@ -112,19 +112,19 @@
     </message>
     <message>
         <source>Move to</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsen naar</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsen</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>‘%s’ verplaatsen naar</translation>
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Route naar</translation>
     </message>
 </context>
 <context>
@@ -220,19 +220,19 @@
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m boven NAP</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tijd</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsingstijd</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsingssnelheid ⌀</translation>
     </message>
 </context>
 <context>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebaseerd op SRTM, ASTER GDEM en andere gratis gegevensbronnen verzameld door viewfinderpanoramas.org</translation>
     </message>
 </context>
 <context>
@@ -585,15 +585,15 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Afstand</translation>
+        <translation>Afstand</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Duur</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Routestappen</translation>
     </message>
 </context>
 <context>
@@ -782,23 +782,23 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden van routepunt-ID %1 mislukt</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Routepunt-ID %1 niet gevonden</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsen van routepunt-ID %1 mislukt</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Spoor-ID %1 niet gevonden</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsen van spoor-ID %1 mislukt</translation>
     </message>
 </context>
 <context>
@@ -1140,23 +1140,23 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Terrein</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Aquarel</translation>
     </message>
 </context>
 <context>

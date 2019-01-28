@@ -276,7 +276,7 @@
     - return it to application Cover
     - fix deadlock in tiled overlay
 
-* 201x-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.5-1
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.5-1
 - improved node index, it has better "area hit" that speedup loading when cache is empty
-- update translations (Polish)
+- update translations (Polish, Dutch + Belgium)
 - fix displaying of (collection) tracks with multiple segments
