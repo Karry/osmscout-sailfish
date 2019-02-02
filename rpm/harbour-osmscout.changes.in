@@ -280,3 +280,5 @@
 - improved node index, it has better "area hit" that speedup loading when cache is empty
 - update translations (Polish, Dutch + Belgium)
 - fix displaying of (collection) tracks with multiple segments
+
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.6-1
