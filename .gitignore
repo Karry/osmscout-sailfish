@@ -60,7 +60,7 @@
 /build-SailfishOS-armv7hl
 /build-qtcreator
 /build-qtcreator-prod
-/cmake-build-debug
+/cmake-build-*
 /dependencies/libosmscout-build
 /qmllive-workspace
 /rpmbuilddir
