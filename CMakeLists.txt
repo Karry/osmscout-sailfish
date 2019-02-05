@@ -391,6 +391,9 @@ DESTINATION share/icons/hicolor/128x128/apps)
 install(FILES icons/256x256/harbour-osmscout.png
 DESTINATION share/icons/hicolor/256x256/apps)
 
+install(FILES icons/172x172/harbour-osmscout.png
+DESTINATION share/icons/hicolor/172x172/apps)
+
 install(DIRECTORY icons/poi/
         DESTINATION share/${HARBOUR_APP_NAME}/poi-icons
         FILES_MATCHING PATTERN "*.svg")

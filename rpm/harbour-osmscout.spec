@@ -139,6 +139,7 @@ sha1sum    %{buildroot}%{_bindir}/%{name}
 %{_datadir}/icons/hicolor/86x86/apps/%{name}.png
 %{_datadir}/icons/hicolor/108x108/apps/%{name}.png
 %{_datadir}/icons/hicolor/128x128/apps/%{name}.png
+%{_datadir}/icons/hicolor/172x172/apps/%{name}.png
 %{_datadir}/icons/hicolor/256x256/apps/%{name}.png
 # >> files
 # << files
