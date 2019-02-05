@@ -57,6 +57,7 @@
 #include <QStandardPaths>
 #include <QQmlContext>
 #include <QFileInfo>
+#include <QtCore/QtGlobal>
 
 #ifdef QT_QML_DEBUG
 #include <QtQuick>
@@ -84,7 +85,7 @@ static QObject *appSettingsSingletontypeProvider(QQmlEngine *engine, QJSEngine *
   return new AppSettings();
 }
 
-int main(int argc, char* argv[])
+Q_DECL_EXPORT int main(int argc, char* argv[])
 {
 #ifdef Q_WS_X11
   QCoreApplication::setAttribute(Qt::AA_X11InitThreads);

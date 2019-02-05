@@ -97,7 +97,7 @@ rm %{buildroot}%{_datadir}/%{name}/qml/desktop.qml
 ## Jolla harbour rules:
 
 # -- strip symbols app
-strip %{buildroot}%{_bindir}/%{name}
+strip --keep-symbol=main %{buildroot}%{_bindir}/%{name}
 
 # -- ship all shared unallowed libraries with the app
 mkdir -p %{buildroot}%{_datadir}/%{name}/lib

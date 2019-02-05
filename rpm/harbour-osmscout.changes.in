@@ -281,4 +281,5 @@
 - update translations (Polish, Dutch + Belgium)
 - fix displaying of (collection) tracks with multiple segments
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.6-1
+* 2019-02-05 Lukáš Karas <lukas.karas@centrum.cz> 1.6-1
+- don't strip main symbol (new harbour check)
