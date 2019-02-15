@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Basierend auf SRTM, ASTER GDEM und anderen freien Datenquellen, die von viewfinderpanoramas.org erfasst wurden</translation>
     </message>
 </context>
 <context>
@@ -1140,23 +1140,23 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Gelände</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbe des Wassers</translation>
     </message>
 </context>
 <context>
