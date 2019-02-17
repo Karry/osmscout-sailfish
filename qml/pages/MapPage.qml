@@ -1,5 +1,5 @@
 /*
- OSM Scout - a Qt backend for libosmscout and libosmscout-map
+ OSM Scout for Sailfish OS
  Copyright (C) 2016  Lukas Karas
 
  This program is free software; you can redistribute it and/or modify
@@ -30,12 +30,9 @@ import ".." // Global singleton
 Page {
     id: mapPage
 
-    property NavigationModel navigationModel
-    property RoutingListModel routingModel
-
     signal selectLocation(LocationEntry location)
     signal showWaypoint(double lat, double lon)
-    signal showTrack(LocationEntry bbox, var trackId);
+    signal showTrack(LocationEntry bbox, var trackId)
 
     onSelectLocation: {
         console.log("selectLocation: " + location);
@@ -48,12 +45,17 @@ Page {
         drawer.open = false;
     }
     onShowTrack: {
-        console.log("TODO: show Track "+ trackId);
+        console.log("show Track "+ trackId);
         map.showLocation(bbox);
         drawer.open = false;
     }
 
-    RemorsePopup { id: remorse }
+    RemorsePopup {
+        id: remorse
+        Component.onCompleted: {
+            Global.remorse = remorse;
+        }
+    }
 
     MapDownloadsModel{
         id:mapDownloadsModel
@@ -71,10 +73,8 @@ Page {
         console.log("restore map position");
         map.view = AppSettings.mapView;
 
-        routingModel.computingChanged.connect(function(){
-            if (routingModel.ready){
-                map.addOverlayObject(0,routingModel.routeWay);
-            }
+        Global.navigationModel.onRouteChanged.connect(function(){
+            map.addOverlayObject(0,Global.navigationModel.routeWay);
         });
 
         Global.mapPage = mapPage;
@@ -336,14 +336,14 @@ Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
-                visible: navigationModel.destinationSet
+                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
+                visible: Global.navigationModel.destinationSet
 
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.8)
 
                 RouteStepIcon{
                     id: nextStepIcon
-                    stepType: navigationModel.nextRouteStep.type
+                    stepType: Global.navigationModel.nextRouteStep.type
                     height: Theme.iconSizeLarge
                     width: height
                     anchors{
@@ -364,7 +364,7 @@ Page {
                         }
                         return Math.round(distance/1000) + " "+ qsTr("km");
                     }
-                    text: humanDistance(navigationModel.nextRouteStep.distanceTo)
+                    text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
                     color: Theme.primaryColor
                     font.pixelSize: Theme.fontSizeLarge
                     anchors{
@@ -376,7 +376,7 @@ Page {
                 }
                 Text{
                     id: nextStepDescription
-                    text: navigationModel.nextRouteStep.shortDescription
+                    text: Global.navigationModel.nextRouteStep.shortDescription
                     font.pixelSize: Theme.fontSizeMedium
                     color: Theme.secondaryColor
                     wrapMode: Text.Wrap

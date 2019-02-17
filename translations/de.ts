@@ -336,6 +336,14 @@
     </message>
 </context>
 <context>
+    <name>Global</name>
+    <message>
+        <source>Target reached, in %1 %2. Closing navigation.</source>
+        <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>

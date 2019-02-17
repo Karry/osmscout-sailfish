@@ -24,98 +24,17 @@ import Sailfish.Silica 1.0
 
 import "pages"
 import harbour.osmscout.map 1.0
-import "custom/Utils.js" as Utils
 
 ApplicationWindow {
     id: mainWindow
 
-    function reroute(){
-        if (!navigationModel.destinationSet){
-            return;
-        }
-
-        var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
-        console.log("We leave route, rerouting \"" + Utils.locationStr(startLoc) + "\" -> \"" + Utils.locationStr(navigationModel.destination) + "\" by " + navigationModel.vehicle);
-        routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.vehicle);
-    }
-
-    PositionSource {
-        id: positionSource
-
-        active: true
-
-        property bool valid: false;
-        property double lat: 0.0;
-        property double lon: 0.0;
-
-        onValidChanged: {
-            console.log("Positioning is " + valid)
-            console.log("Last error " + sourceError)
-
-            for (var m in supportedPositioningMethods) {
-                console.log("Method " + m)
-            }
-        }
-
-        onPositionChanged: {
-            positionSource.valid = position.latitudeValid && position.longitudeValid;
-            positionSource.lat = position.coordinate.latitude;
-            positionSource.lon = position.coordinate.longitude;
-
-            navigationModel.locationChanged(valid, // valid
-                                            lat, lon,
-                                            position.horizontalAccuracyValid, position.horizontalAccuracy);
-            // console.log("position: " + latitude + " " + longitude);
-
-            if ((!navigationModel.positionOnRoute) &&
-                    routingModel.ready &&
-                    navigationModel.destinationSet){
-                reroute();
-            }
-        }
-    }
-
-    NavigationModel {
-        id: navigationModel
-        route: routingModel.route
-
-        property LocationEntry destination
-        property string vehicle: "car"
-        property bool destinationSet: destination != null && destination.type != "none"
-
-        onDestinationChanged: {
-            reroute();
-        }
-        onVehicleChanged: {
-            console.log("vehicle changed to " + vehicle);
-            reroute();
-        }
-
-        onPositionOnRouteChanged: {
-            if (!positionOnRoute){
-                reroute();
-            }
-        }
-    }
-    RoutingListModel {
-        id: routingModel
-    }
-
-    // TODO: move to Global.qml
-    property alias globalNavigationModel: navigationModel
-    property alias globalRoutingModel: routingModel
-
     initialPage: Component {
         MapPage{
-            navigationModel: globalNavigationModel
-            routingModel: globalRoutingModel
         }
     }
 
     cover: Component {
         Cover{
-            navigationModel: globalNavigationModel
-            routingModel: globalRoutingModel
         }
     }
 

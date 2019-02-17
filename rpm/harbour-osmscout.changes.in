@@ -286,4 +286,4 @@
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.7-1
 - update translations (German)
-
+- rewrite navigation module and UI internals

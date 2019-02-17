@@ -26,11 +26,13 @@ import harbour.osmscout.map 1.0
 
 import "../custom"
 import "../custom/Utils.js" as Utils
+import ".." // Global singleton
 
 Dialog {
     id: routeDescription
 
     property RoutingListModel route
+    property bool routeReady: route != null && route.ready
     property bool failed: false
     property bool fromCurrentLocation: false
     property LocationEntry destination
@@ -41,7 +43,7 @@ Dialog {
         console.log("RouteDescription vehicle initialised: " + route.vehicle);
     }
 
-    canAccept: route.ready
+    canAccept: routeReady
 
     acceptDestination: mapPage
     acceptDestinationAction: PageStackAction.Pop
@@ -51,7 +53,7 @@ Dialog {
     Connections {
         target: route
         onComputingChanged: {
-            progressBar.opacity = route.ready ? 0:1;
+            progressBar.opacity = routeReady ? 0:1;
         }
 
         onRouteFailed: {
@@ -81,9 +83,10 @@ Dialog {
         mainMap.addOverlayObject(0,routeWay);
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
         if (fromCurrentLocation && destination && destination.type != "none"){
-            console.log("navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle);
-            mapPage.navigationModel.destination = destination;
-            mapPage.navigationModel.vehicle = route.vehicle;
+            console.log("Navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle);
+            Global.navigationModel.vehicle = route.vehicle;
+            Global.navigationModel.route = route.route;
+            Global.navigationModel.destination = destination;
         }
     }
 
@@ -95,7 +98,7 @@ Dialog {
         id: header
         //title: "Route"
         acceptText : fromCurrentLocation ? qsTr("Navigate") : qsTr("Accept")
-        cancelText : route.ready ? "" : qsTr("Cancel")
+        cancelText : routeReady ? "" : qsTr("Cancel")
     }
 
 
@@ -116,19 +119,19 @@ Dialog {
         x: Theme.paddingMedium
 
         header: Column{
-            visible: route.count>0
+            visible: routeReady && route.count>0
             width: parent.width - 2*Theme.paddingMedium
             x: Theme.paddingMedium
 
             DetailItem {
                 id: distanceItem
                 label: qsTr("Distance")
-                value: Utils.humanDistance(route.length)
+                value: routeReady ? Utils.humanDistance(route.length) : "?"
             }
             DetailItem {
                 id: durationItem
                 label: qsTr("Duration")
-                value: Utils.humanDuration(route.duration)
+                value: routeReady ? Utils.humanDuration(route.duration) : "?"
             }
             SectionHeader{
                 id: translatorsHeader

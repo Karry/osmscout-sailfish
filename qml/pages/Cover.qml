@@ -25,12 +25,10 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import ".." // Global singleton
 
 CoverBackground {
     id: cover
-
-    property NavigationModel navigationModel
-    property RoutingListModel routingModel
 
     property bool isLightTheme: Theme.colorScheme == Theme.DarkOnLight
 
@@ -50,10 +48,8 @@ CoverBackground {
     }
 
     Component.onCompleted: {
-        routingModel.computingChanged.connect(function(){
-            if (routingModel.ready){
-                map.addOverlayObject(0,routingModel.routeWay);
-            }
+        Global.navigationModel.onRouteChanged.connect(function(){
+            map.addOverlayObject(0,Global.navigationModel.routeWay);
         });
     }
 
@@ -90,7 +86,7 @@ CoverBackground {
         id: header
 
         height: icon.height + 2* Theme.paddingMedium
-        visible: !navigationModel.destinationSet
+        visible: !Global.navigationModel.destinationSet
         x: Theme.paddingMedium
 
         Image{
@@ -118,12 +114,12 @@ CoverBackground {
 
         x: Theme.paddingMedium
         height: nextStepIcon.height + 2* Theme.paddingMedium
-        visible: navigationModel.destinationSet
+        visible: Global.navigationModel.destinationSet
         color: "transparent"
 
         RouteStepIcon{
             id: nextStepIcon
-            stepType: navigationModel.nextRouteStep.type
+            stepType: Global.navigationModel.nextRouteStep.type
             x: 0
             y: Theme.paddingMedium
             height: Theme.fontSizeMedium * 1.5
@@ -141,7 +137,7 @@ CoverBackground {
                 }
                 return Math.round(distance/1000) + " "+ qsTr("km");
             }
-            text: humanDistance(navigationModel.nextRouteStep.distanceTo)
+            text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
             color: Theme.primaryColor
             font.pixelSize: Theme.fontSizeMedium
             anchors{
