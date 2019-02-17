@@ -84,6 +84,15 @@ Item {
             routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.vehicle);
         }
 
+        function stop(){
+            //: remorse dialog
+            remorse.execute(qsTr("Stopping navigation."),
+                            function() {
+                                clear();
+                            },
+                            5 * 1000);
+        }
+
         function clear(){
             navigationModel.destination = null;
             navigationModel.route = null;

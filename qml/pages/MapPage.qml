@@ -336,61 +336,82 @@ Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
+                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) + navigationContextMenu.height : 0
                 visible: Global.navigationModel.destinationSet
+                color: "transparent"
 
-                color: Theme.rgba(Theme.highlightDimmerColor, 0.8)
+                Rectangle {
+                    id: nextStepBackground
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
 
-                RouteStepIcon{
-                    id: nextStepIcon
-                    stepType: Global.navigationModel.nextRouteStep.type
-                    height: Theme.iconSizeLarge
-                    width: height
-                    anchors{
-                        left: parent.left
-                        margins: Theme.paddingMedium
-                        verticalCenter: parent.verticalCenter
-                    }
-                }
-                Text{
-                    id: distanceToNextStep
+                    color: nextStepMouseArea.pressed ? Theme.rgba(Theme.highlightDimmerColor, 0.5) : Theme.rgba(Theme.highlightDimmerColor, 0.8)
 
-                    function humanDistance(distance){
-                        if (distance < 150){
-                            return Math.round(distance/10)*10 + " "+ qsTr("meters");
+                    RouteStepIcon{
+                        id: nextStepIcon
+                        stepType: Global.navigationModel.nextRouteStep.type
+                        height: Theme.iconSizeLarge
+                        width: height
+                        anchors{
+                            left: parent.left
+                            margins: Theme.paddingMedium
+                            verticalCenter: parent.verticalCenter
                         }
-                        if (distance < 2000){
-                            return Math.round(distance/100)*100 + " "+ qsTr("meters");
+                    }
+                    Text{
+                        id: distanceToNextStep
+
+                        function humanDistance(distance){
+                            if (distance < 150){
+                                return Math.round(distance/10)*10 + " "+ qsTr("meters");
+                            }
+                            if (distance < 2000){
+                                return Math.round(distance/100)*100 + " "+ qsTr("meters");
+                            }
+                            return Math.round(distance/1000) + " "+ qsTr("km");
                         }
-                        return Math.round(distance/1000) + " "+ qsTr("km");
+                        text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
+                        color: Theme.primaryColor
+                        font.pixelSize: Theme.fontSizeLarge
+                        anchors{
+                            top: parent.top
+                            left: nextStepIcon.right
+                            topMargin: Theme.paddingMedium
+                            leftMargin: Theme.paddingMedium
+                        }
                     }
-                    text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
-                    color: Theme.primaryColor
-                    font.pixelSize: Theme.fontSizeLarge
-                    anchors{
-                        top: parent.top
-                        left: nextStepIcon.right
-                        topMargin: Theme.paddingMedium
-                        leftMargin: Theme.paddingMedium
+                    Text{
+                        id: nextStepDescription
+                        text: Global.navigationModel.nextRouteStep.shortDescription
+                        font.pixelSize: Theme.fontSizeMedium
+                        color: Theme.secondaryColor
+                        wrapMode: Text.Wrap
+                        anchors{
+                            top: distanceToNextStep.bottom
+                            left: distanceToNextStep.left
+                            right: parent.right
+                            margins: Theme.paddingSmall
+                        }
+                    }
+
+                    MouseArea{
+                        id: nextStepMouseArea
+                        anchors.fill: parent
+                        onClicked: {
+                            pageStack.push(Qt.resolvedUrl("NavigationInstructions.qml"),{})
+                        }
+                        onPressAndHold: {
+                            navigationContextMenu.open(nextStepBox);
+                        }
                     }
                 }
-                Text{
-                    id: nextStepDescription
-                    text: Global.navigationModel.nextRouteStep.shortDescription
-                    font.pixelSize: Theme.fontSizeMedium
-                    color: Theme.secondaryColor
-                    wrapMode: Text.Wrap
-                    anchors{
-                        top: distanceToNextStep.bottom
-                        left: distanceToNextStep.left
-                        right: parent.right
-                        margins: Theme.paddingSmall
-                    }
-                }
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        pageStack.push(Qt.resolvedUrl("NavigationInstructions.qml"),{})
+                ContextMenu {
+                    id: navigationContextMenu
+                    MenuItem {
+                        text: qsTr("Stop navigation")
+                        onClicked: Global.navigationModel.stop();
                     }
                 }
             }

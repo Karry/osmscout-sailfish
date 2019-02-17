@@ -38,7 +38,7 @@ Page {
             MenuItem {
                 text: qsTr("Stop navigation")
                 onClicked: {
-                    Global.navigationModel.clear();
+                    Global.navigationModel.stop();
                     pageStack.pop();
                 }
             }
