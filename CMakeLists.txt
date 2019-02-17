@@ -263,6 +263,7 @@ set(QML_FILES
     qml/pages/About.qml
     qml/pages/PlaceDetail.qml
     qml/pages/MapPage.qml
+    qml/pages/NavigationInstructions.qml
     qml/pages/Layers.qml
     qml/pages/MapObjects.qml
     qml/pages/Routing.qml

@@ -387,6 +387,12 @@ Page {
                         margins: Theme.paddingSmall
                     }
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("NavigationInstructions.qml"),{})
+                    }
+                }
             }
 
             Rectangle {

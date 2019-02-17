@@ -43,6 +43,9 @@ Item {
 
         onDestinationChanged: {
             destinationSet = destination != null && destination.type != "none";
+            if (!destinationSet){
+                navigationModel.route = null;
+            }
         }
         onVehicleChanged: {
             console.log("vehicle changed to " + vehicle);
@@ -55,11 +58,35 @@ Item {
         }
         onTargetReached: {
             //: %1 is distance, %2 is bearing (north, south...)
-            remorse.execute(qsTr("Target reached, in %1 %2. Closing navigation.").arg(Utils.humanDistance(targetDistance)).arg(Utils.humanBearing(targetBearing)),
+            remorse.execute(qsTr("Target reached, in %1 %2. Closing navigation.")
+                                .arg(Utils.humanDistance(targetDistance))
+                                .arg(Utils.humanBearing(targetBearing)),
                             function() {
-                                navigationModel.destination = null;
+                                clear();
                             },
                             10 * 1000);
+        }
+
+        function setup(vehicle, route, destination){
+            navigationModel.vehicle = vehicle;
+            navigationModel.route = route;
+            navigationModel.destination = destination;
+        }
+
+        function reroute(){
+            if (!navigationModel.destinationSet){
+                return;
+            }
+
+            var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
+            console.log("Navigation rerouting \"" + Utils.locationStr(startLoc) + "\" -> \"" + Utils.locationStr(navigationModel.destination) + "\" by " + navigationModel.vehicle);
+            routingModel.rerouteRequested = true;
+            routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.vehicle);
+        }
+
+        function clear(){
+            navigationModel.destination = null;
+            navigationModel.route = null;
         }
     }
 
@@ -74,17 +101,6 @@ Item {
                 navigationModel.route = routingModel.route;
             }
         }
-    }
-
-    function reroute(){
-        if (!navigationModel.destinationSet){
-            return;
-        }
-
-        var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
-        console.log("Navigation rerouting \"" + Utils.locationStr(startLoc) + "\" -> \"" + Utils.locationStr(navigationModel.destination) + "\" by " + navigationModel.vehicle);
-        routingModel.rerouteRequested = true;
-        routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.vehicle);
     }
 
     PositionSource {

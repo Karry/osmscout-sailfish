@@ -528,6 +528,17 @@
     </message>
 </context>
 <context>
+    <name>NavigationInstructions</name>
+    <message>
+        <source>Stop navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Itinerary</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>

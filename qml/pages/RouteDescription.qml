@@ -84,9 +84,7 @@ Dialog {
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
         if (fromCurrentLocation && destination && destination.type != "none"){
             console.log("Navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle);
-            Global.navigationModel.vehicle = route.vehicle;
-            Global.navigationModel.route = route.route;
-            Global.navigationModel.destination = destination;
+            Global.navigationModel.setup(route.vehicle, route.route, destination)
         }
     }
 
@@ -134,7 +132,7 @@ Dialog {
                 value: routeReady ? Utils.humanDuration(route.duration) : "?"
             }
             SectionHeader{
-                id: translatorsHeader
+                id: routeStepsHeader
                 text: qsTr("Route steps")
             }
         }
