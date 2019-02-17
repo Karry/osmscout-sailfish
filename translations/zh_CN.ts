@@ -21,15 +21,15 @@
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>GitHub 页面OSMScout 许可权</translation>
+        <translation>OSMScout软件库 GitHub页面</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>离线地图导入教程</translation>
+        <translation>离线地图导入指导</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation>翻译者</translation>
+        <translation>译者</translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
@@ -124,7 +124,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation>路线去</translation>
+        <translation>导航到</translation>
     </message>
 </context>
 <context>
@@ -172,7 +172,7 @@
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
-        <translation>展示</translation>
+        <translation>显示</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -228,11 +228,11 @@
     </message>
     <message>
         <source>Moving Time</source>
-        <translation>运动时间</translation>
+        <translation>移动时间</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation>运动速度 ⌀</translation>
+        <translation>移动速度 ⌀</translation>
     </message>
 </context>
 <context>
@@ -367,11 +367,11 @@
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>海洋绘制</translation>
+        <translation>海洋渲染</translation>
     </message>
     <message>
         <source>Style flags</source>
-        <translation>样式旗帜</translation>
+        <translation>样式标志</translation>
     </message>
     <message>
         <source>Font</source>
@@ -411,7 +411,7 @@
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation>地图覆盖</translation>
+        <translation>地图叠加</translation>
     </message>
     <message>
         <source>Hill Shades</source>
@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation>斜坡阴影强度</translation>
+        <translation>山色色调强度</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
@@ -844,7 +844,7 @@
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation>节点</translation>
+        <translation>结点</translation>
     </message>
     <message>
         <source>way</source>
@@ -867,7 +867,7 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation>网络访问被禁用。</translation>
+        <translation>网络访问已禁用</translation>
     </message>
     <message>
         <source>Connection refused</source>
@@ -879,7 +879,7 @@
     </message>
     <message>
         <source>Network session error.</source>
-        <translation>网络会话错误。</translation>
+        <translation>网络会话错误</translation>
     </message>
 </context>
 <context>
@@ -1148,11 +1148,11 @@
     </message>
     <message>
         <source>Terrain</source>
-        <translation>Terrain</translation>
+        <translation>地形</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation>Toner</translation>
+        <translation>碳粉</translation>
     </message>
     <message>
         <source>Watercolor</source>
@@ -1210,14 +1210,14 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>高程轮廓</translation>
+        <translation>海拔轮廓</translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>边界 (用于调试)</translation>
+        <translation>边界</translation>
     </message>
     <message>
         <source>standard</source>
