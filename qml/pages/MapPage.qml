@@ -74,7 +74,12 @@ Page {
         map.view = AppSettings.mapView;
 
         Global.navigationModel.onRouteChanged.connect(function(){
-            map.addOverlayObject(0,Global.navigationModel.routeWay);
+            var way = Global.navigationModel.routeWay;
+            if (way==null){
+                map.removeOverlayObject(0);
+            }else{
+                map.addOverlayObject(0,way);
+            }
         });
 
         Global.mapPage = mapPage;
