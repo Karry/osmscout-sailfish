@@ -93,7 +93,8 @@ ComboBox {
                                           {
                                               searchCenterLat: positionSource.lat,
                                               searchCenterLon: positionSource.lon,
-                                              acceptDestination: pageStack.currentPage
+                                              acceptDestination: pageStack.currentPage,
+                                              enableContextMenu: false
                                           });
             searchPage.selectLocation.connect(selectLocation);
             value=selectLocationStr;

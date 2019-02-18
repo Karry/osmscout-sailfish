@@ -63,6 +63,7 @@ Page {
     property var acceptDestination;
     property double searchCenterLat
     property double searchCenterLon
+    property bool enableContextMenu: true
 
     property string postponedSearchString
 
@@ -241,7 +242,8 @@ Page {
 
         BackgroundItem {
             id: backgroundItem
-            height: Math.max(entryIcon.height,entryDescription.height)
+            height: Math.max(entryIcon.height,entryDescription.height) + contextMenu.height
+            highlighted: mouseArea.pressed
 
             ListView.onAdd: AddAnimation {
                 target: backgroundItem
@@ -310,6 +312,7 @@ Page {
                 }
             }
             MouseArea{
+                id: mouseArea
                 anchors.fill: parent
                 onClicked: {
                     var selectedLocation = suggestionView.model.get(index)
@@ -320,6 +323,41 @@ Page {
                         previewDialog.acceptDestination = acceptDestination;
 
                         previewDialog.open();
+                    }
+                }
+                onPressAndHold: {
+                    if (enableContextMenu){
+                        contextMenu.open(backgroundItem);
+                    }
+                }
+            }
+            ContextMenu {
+                id: contextMenu
+                MenuItem {
+                    text: qsTr("Route to")
+                    visible: enableContextMenu
+                    onClicked: {
+                        var selectedLocation = suggestionView.model.get(index)
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"),
+                                       {
+                                           toLat: selectedLocation.lat,
+                                           toLon: selectedLocation.lon,
+                                           toName: labelLabel.text
+                                       })
+                    }
+                }
+                MenuItem {
+                    text: qsTr("Add as waypoint")
+                    visible: enableContextMenu
+                    onClicked: {
+                        var selectedLocation = suggestionView.model.get(index)
+                        pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
+                                      {
+                                        latitude: selectedLocation.lat,
+                                        longitude: selectedLocation.lon,
+                                        acceptDestination: searchPage,
+                                        description: labelLabel.text
+                                      });
                     }
                 }
             }
