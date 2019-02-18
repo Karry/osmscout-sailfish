@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Målet nått, %1 %2. Stänger navigeringen.</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Avslutar navigering.</translation>
     </message>
 </context>
 <context>
@@ -533,19 +533,19 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta navigering</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta navigering</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Resväg</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,11 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Beräkna rutt till</translation>
+        <translation>Beräkna rutt till</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Läg till som vägpunkt</translation>
     </message>
 </context>
 <context>
