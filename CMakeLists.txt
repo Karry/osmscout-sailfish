@@ -22,7 +22,7 @@ set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCO
 # ==================================================================================================
 
 set(CMAKE_MIN_VERSION    "3.9.2") # CMake availabe on Travis CI is 3.9.2
-set(QT_MIN_VERSION       "5.5.0")
+set(QT_MIN_VERSION       "5.6.0") # QList::constBegin was introduced in Qt 5.6
 option(OSMSCOUT_ENABLE_SSE "Enable SSE support (not working on all platforms!)" ON)
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
