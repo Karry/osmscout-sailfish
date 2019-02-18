@@ -342,6 +342,11 @@
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stopping navigation.</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Layers</name>
@@ -526,6 +531,10 @@
         <source>Collections</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -535,6 +544,7 @@
     </message>
     <message>
         <source>Itinerary</source>
+        <extracomment>header of section with navigation instructions</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -694,6 +704,14 @@
     </message>
     <message>
         <source>Via ferrata route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Route to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add as waypoint</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
