@@ -1,18 +1,22 @@
 os: linux
-dist: trusty
+dist: xenial
 language: cpp
 
 before_install:
  - sudo apt-get update
+ - sudo apt-get remove -y mysql-client mysql-common mysql-server postgresql-client
+ - sudo apt autoremove -y
+ - sudo apt-get upgrade -y
+ - sudo apt-get dist-upgrade
  - sudo apt-get install -y ubuntu-release-upgrader-core
 
   # upgrade from Trusty (14.04) to Xenial (16.04)
- - sudo do-release-upgrade --quiet --frontend=DistUpgradeViewNonInteractive
+  # - sudo do-release-upgrade --quiet --frontend=DistUpgradeViewNonInteractive
   # upgrade from Xenial (16.04) to Bionic (18.04)
-  #sudo do-release-upgrade --quiet --frontend=DistUpgradeViewNonInteractive
+ - sudo do-release-upgrade --frontend=DistUpgradeViewNonInteractive
 
   # install packages finally
- - sudo apt-get install -y  git make libtool pkg-config cmake libxml2-dev libprotobuf-dev protobuf-compiler libagg-dev libfreetype6-dev libcairo2-dev libpangocairo-1.0-0 libpango1.0-dev freeglut3 freeglut3-dev qt5-default qtdeclarative5-dev libqt5svg5-dev qtlocation5-dev qtpositioning5-dev qttools5-dev-tools qttools5-dev
+ - sudo apt-get --fix-broken install -y  git make libtool pkg-config cmake libxml2-dev libprotobuf-dev protobuf-compiler libagg-dev libfreetype6-dev libcairo2-dev libpangocairo-1.0-0 libpango1.0-dev freeglut3 freeglut3-dev qt5-default qtdeclarative5-dev libqt5svg5-dev qtlocation5-dev qtpositioning5-dev qttools5-dev-tools qttools5-dev
 
 install:
  # desktop dependencies (libsailfishapp):
