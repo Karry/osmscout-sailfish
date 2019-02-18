@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Cel osiągnięty, %1 %2. Zamykanie nawigacji.</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zatrzymywanie nawigacji</translation>
     </message>
 </context>
 <context>
@@ -533,19 +533,19 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zatrzymaj nawigację</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zatrzymaj nawigację</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Plan podróży</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,11 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Trasa do</translation>
+        <translation>Trasa do</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj jako punkt drogi</translation>
     </message>
 </context>
 <context>
