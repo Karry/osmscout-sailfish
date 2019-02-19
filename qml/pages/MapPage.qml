@@ -21,6 +21,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 import QtPositioning 5.2
+import QtGraphicalEffects 1.0
 
 import harbour.osmscout.map 1.0
 
@@ -336,125 +337,6 @@ Page {
             }
 
             Rectangle {
-                id: nextStepBox
-
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: parent.top
-                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) + navigationContextMenu.height : 0
-                visible: Global.navigationModel.destinationSet
-                color: "transparent"
-
-                Rectangle {
-                    id: nextStepBackground
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
-
-                    color: nextStepMouseArea.pressed ? Theme.rgba(Theme.highlightDimmerColor, 0.5) : Theme.rgba(Theme.highlightDimmerColor, 0.8)
-
-                    RouteStepIcon{
-                        id: nextStepIcon
-                        stepType: Global.navigationModel.nextRouteStep.type
-                        height: Theme.iconSizeLarge
-                        width: height
-                        anchors{
-                            left: parent.left
-                            margins: Theme.paddingMedium
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    Text{
-                        id: distanceToNextStep
-
-                        function humanDistance(distance){
-                            if (distance < 150){
-                                return Math.round(distance/10)*10 + " "+ qsTr("meters");
-                            }
-                            if (distance < 2000){
-                                return Math.round(distance/100)*100 + " "+ qsTr("meters");
-                            }
-                            return Math.round(distance/1000) + " "+ qsTr("km");
-                        }
-                        text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
-                        color: Theme.primaryColor
-                        font.pixelSize: Theme.fontSizeLarge
-                        anchors{
-                            top: parent.top
-                            left: nextStepIcon.right
-                            topMargin: Theme.paddingMedium
-                            leftMargin: Theme.paddingMedium
-                        }
-                    }
-                    Text{
-                        id: nextStepDescription
-                        text: Global.navigationModel.nextRouteStep.shortDescription
-                        font.pixelSize: Theme.fontSizeMedium
-                        color: Theme.secondaryColor
-                        wrapMode: Text.Wrap
-                        anchors{
-                            top: distanceToNextStep.bottom
-                            left: distanceToNextStep.left
-                            right: parent.right
-                            margins: Theme.paddingSmall
-                        }
-                    }
-
-                    MouseArea{
-                        id: nextStepMouseArea
-                        anchors.fill: parent
-                        onClicked: {
-                            pageStack.push(Qt.resolvedUrl("NavigationInstructions.qml"),{})
-                        }
-                        onPressAndHold: {
-                            navigationContextMenu.open(nextStepBox);
-                        }
-                    }
-                }
-                ContextMenu {
-                    id: navigationContextMenu
-                    MenuItem {
-                        text: qsTr("Stop navigation")
-                        onClicked: Global.navigationModel.stop();
-                    }
-                }
-            }
-
-            Rectangle {
-                id : menuBtn
-                anchors{
-                    right: parent.right
-                    top: nextStepBox.bottom
-
-                    topMargin: Theme.paddingMedium
-                    rightMargin: Theme.paddingMedium
-                    bottomMargin: Theme.paddingMedium
-                    leftMargin: Theme.paddingMedium
-                }
-                width: Theme.iconSizeLarge
-                height: width
-                radius: Theme.paddingMedium
-
-                color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
-
-                IconButton{
-                    icon.source: "image://theme/icon-m-menu"
-                    anchors{
-                        horizontalCenter: parent.horizontalCenter
-                        verticalCenter: parent.verticalCenter
-                    }
-                }
-                MouseArea {
-                    id: menuBtnMouseArea
-                    anchors.fill: parent
-                    onClicked: {
-                        drawer.open = !drawer.open
-                    }
-                }
-            }
-
-            Rectangle {
                 id : currentPositionBtn
 
                 anchors{
@@ -526,5 +408,151 @@ Page {
 
             }
         }
+
+
+        ShaderEffectSource {
+            id: blurSource
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            height: nextStepBox.height
+            visible: nextStepBox.visible
+
+            //color: "transparent"
+
+            sourceItem: map
+            recursive: true
+            live: true
+            sourceRect: Qt.rect(nextStepBox.x, nextStepBox.y, nextStepBox.width, nextStepBox.height)
+        }
+
+        Rectangle {
+            id: nextStepBox
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) + navigationContextMenu.height : 0
+            visible: Global.navigationModel.destinationSet
+            color: "transparent"
+
+            FastBlur {
+                id: blur
+                anchors.fill: parent
+                source: blurSource
+                radius: 32
+            }
+
+            Rectangle {
+                id: nextStepBackground
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
+
+                //color: "transparent"
+                color: nextStepMouseArea.pressed ? Theme.rgba(Theme.highlightDimmerColor, 0.5) : Theme.rgba(Theme.highlightDimmerColor, 0.7)
+
+                RouteStepIcon{
+                    id: nextStepIcon
+                    stepType: Global.navigationModel.nextRouteStep.type
+                    height: Theme.iconSizeLarge
+                    width: height
+                    anchors{
+                        left: parent.left
+                        margins: Theme.paddingMedium
+                        verticalCenter: parent.verticalCenter
+                    }
+                }
+                Text{
+                    id: distanceToNextStep
+
+                    function humanDistance(distance){
+                        if (distance < 150){
+                            return Math.round(distance/10)*10 + " "+ qsTr("meters");
+                        }
+                        if (distance < 2000){
+                            return Math.round(distance/100)*100 + " "+ qsTr("meters");
+                        }
+                        return Math.round(distance/1000) + " "+ qsTr("km");
+                    }
+                    text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
+                    color: Theme.primaryColor
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors{
+                        top: parent.top
+                        left: nextStepIcon.right
+                        topMargin: Theme.paddingMedium
+                        leftMargin: Theme.paddingMedium
+                    }
+                }
+                Text{
+                    id: nextStepDescription
+                    text: Global.navigationModel.nextRouteStep.shortDescription
+                    font.pixelSize: Theme.fontSizeMedium
+                    color: Theme.secondaryColor
+                    wrapMode: Text.Wrap
+                    anchors{
+                        top: distanceToNextStep.bottom
+                        left: distanceToNextStep.left
+                        right: parent.right
+                        margins: Theme.paddingSmall
+                    }
+                }
+
+                MouseArea{
+                    id: nextStepMouseArea
+                    anchors.fill: parent
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("NavigationInstructions.qml"),{})
+                    }
+                    onPressAndHold: {
+                        navigationContextMenu.open(nextStepBox);
+                    }
+                }
+            }
+            ContextMenu {
+                id: navigationContextMenu
+                MenuItem {
+                    text: qsTr("Stop navigation")
+                    onClicked: Global.navigationModel.stop();
+                }
+            }
+        }
+
+        Rectangle {
+            id : menuBtn
+            anchors{
+                right: parent.right
+                top: nextStepBox.bottom
+
+                topMargin: Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
+                bottomMargin: Theme.paddingMedium
+                leftMargin: Theme.paddingMedium
+            }
+            width: Theme.iconSizeLarge
+            height: width
+            radius: Theme.paddingMedium
+
+            color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+            IconButton{
+                icon.source: "image://theme/icon-m-menu"
+                anchors{
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+            MouseArea {
+                id: menuBtnMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    drawer.open = !drawer.open
+                }
+            }
+        }
+
     }
 }
