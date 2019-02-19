@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMscout es un programa libre desarrollado por voluntarios. Usted puede ayudar a mejorar esta aplicación reportando errores, creando traducciones o creando nuevas características en su github, toda ayuda es bienvenida.</translation>
+        <translation>OSMScout es un programa libre desarrollado por voluntarios. Lo cual se pude ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en la fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -17,15 +17,15 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>GitHub de OSMscout</translation>
+        <translation>Fuente de OSMScout</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>GitHub de libOSMscout</translation>
+        <translation>Fuente de libOSMScout</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial de como importar el mapa</translation>
+        <translation>Tutorial de importar el mapa</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -180,11 +180,11 @@
     </message>
     <message>
         <source>Raw distance</source>
-        <translation>Distancia cruda</translation>
+        <translation>Distancia real</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Subida</translation>
+        <translation>ascenso</translation>
     </message>
     <message>
         <source>Descent</source>
@@ -289,7 +289,7 @@
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
-        <translation>OSMscout</translation>
+        <translation>OSMScout</translation>
     </message>
     <message>
         <source>meters</source>
@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Destino alcazado,en %1 %2. cerrando navegación.</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Parando navegación</translation>
     </message>
 </context>
 <context>
@@ -533,19 +533,19 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar navegación</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar navegación</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Itinerario</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,11 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Ruta para</translation>
+        <translation>Ruta para</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregar como punto-definido</translation>
     </message>
 </context>
 <context>
@@ -850,19 +850,19 @@
     </message>
     <message>
         <source>west</source>
-        <translation>al oeste</translation>
+        <translation>oeste</translation>
     </message>
     <message>
         <source>east</source>
-        <translation>al este</translation>
+        <translation>este</translation>
     </message>
     <message>
         <source>south</source>
-        <translation>al sur</translation>
+        <translation>sur</translation>
     </message>
     <message>
         <source>north</source>
-        <translation>al norte</translation>
+        <translation>norte</translation>
     </message>
     <message>
         <source>Home</source>
@@ -904,7 +904,7 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation>El acceso a la red está deshabilitado.</translation>
+        <translation>Acceso a la red está deshabilitado.</translation>
     </message>
     <message>
         <source>Connection refused</source>
@@ -912,7 +912,7 @@
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation>La operación de enchufe agotó el tiempo de espera</translation>
+        <translation>Operación socket fuera de tiempo</translation>
     </message>
     <message>
         <source>Network session error.</source>
