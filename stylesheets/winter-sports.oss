@@ -225,6 +225,7 @@ CONST
 
   COLOR peakSymbolColor            = #9c5e29;
   COLOR peakLabelColor             = #9c5329;
+  COLOR cliffColor                 = #440000;
 
   // Ways
   COLOR bridgeColor                = #000000; // black
@@ -487,6 +488,10 @@ CONST
       AREA {color: #ff0000; }
     }
 
+  SYMBOL cliff
+    POLYGON 0,0 1,0 0.5,1.5 { 
+      AREA { color: @cliffColor;}
+    }
 STYLE
   // -------------------------------------------------------
   //
@@ -595,6 +600,11 @@ STYLE
       [TYPE natural_peak] {
         NODE.TEXT#peakName { label: Name.name; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 1; }
         NODE.TEXT#ele { label: Ele.inMeter; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
+      }
+      
+      [TYPE natural_cliff] {
+        WAY {color: @cliffColor; displayWidth: 0.13mm; }
+        WAY.SYMBOL { symbol: cliff; displayOffset: 1.5mm;}
       }
     }
 
