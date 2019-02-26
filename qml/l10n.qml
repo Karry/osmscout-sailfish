@@ -20,8 +20,9 @@ Item{
 
         QT_TRANSLATE_NOOP("stylesheet", "boundaries"),
         QT_TRANSLATE_NOOP("stylesheet", "standard"),
-        QT_TRANSLATE_NOOP("stylesheet", "winter-sports"),
         QT_TRANSLATE_NOOP("stylesheet", "public-transport"),
+        QT_TRANSLATE_NOOP("stylesheet", "outdoor"),
+        QT_TRANSLATE_NOOP("stylesheet", "winter-sports"),
 
         QT_TRANSLATE_NOOP("styleflag", "daylight"),
         QT_TRANSLATE_NOOP("styleflag", "waterway"),

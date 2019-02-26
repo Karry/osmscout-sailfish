@@ -1268,5 +1268,9 @@
         <source>public-transport</source>
         <translation>allmänt färdmedel</translation>
     </message>
+    <message>
+        <source>outdoor</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -407,11 +407,12 @@ install(DIRECTORY dependencies/libosmscout/libosmscout/data/icons/svg/standard/
         DESTINATION share/${HARBOUR_APP_NAME}/map-icons
         FILES_MATCHING PATTERN "*.svg")
 
-install(FILES 
-  stylesheets/boundaries.oss
-  stylesheets/standard.oss
-  stylesheets/winter-sports.oss
-  stylesheets/public-transport.oss
+install(FILES
+        stylesheets/boundaries.oss
+        stylesheets/public-transport.oss
+        stylesheets/standard.oss
+        stylesheets/outdoor.oss
+        stylesheets/winter-sports.oss
 DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
 
 # ==================================================================================================

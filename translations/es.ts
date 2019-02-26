@@ -1268,5 +1268,9 @@
         <source>public-transport</source>
         <translation>transporte público</translation>
     </message>
+    <message>
+        <source>outdoor</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
