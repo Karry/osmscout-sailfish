@@ -1270,7 +1270,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>Outdoor</translation>
     </message>
 </context>
 </TS>
