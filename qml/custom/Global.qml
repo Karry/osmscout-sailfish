@@ -45,7 +45,11 @@ Item {
             destinationSet = destination != null && destination.type != "none";
             if (!destinationSet){
                 navigationModel.route = null;
+                if (!routingModel.ready){
+                    routingModel.cancel();
+                }
             }
+            console.log("Navigation destination changed: " + Utils.locationStr(navigationModel.destination));
         }
         onVehicleChanged: {
             console.log("vehicle changed to " + vehicle);
@@ -105,7 +109,8 @@ Item {
         property bool rerouteRequested: false
 
         onComputingChanged: {
-            if (routingModel.ready && routingModel.rerouteRequested){
+            console.log("Rerouting destination: " + Utils.locationStr(navigationModel.destination));
+            if (routingModel.ready && routingModel.rerouteRequested && navigationModel.destinationSet){
                 routingModel.rerouteRequested = false;
                 navigationModel.route = routingModel.route;
             }
