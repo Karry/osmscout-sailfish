@@ -93,6 +93,9 @@ function humanDirectory(directory){
         .replace(/^\/run\/media\/nemo\/[^/]*\//i, "[" + qsTr("SD card") + "] ");
 }
 function locationStr(location){
+    if (location==null){
+        return "";
+    }
     return (location.label=="" || location.type=="coordinate") ?
                 Utils.formatCoord(location.lat, location.lon, AppSettings.gpsFormat) :
                 location.label;
