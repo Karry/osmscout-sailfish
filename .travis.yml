@@ -10,9 +10,8 @@ before_install:
  - sudo apt-get dist-upgrade
  - sudo apt-get install -y ubuntu-release-upgrader-core
 
-  # upgrade from Trusty (14.04) to Xenial (16.04)
-  # - sudo do-release-upgrade --quiet --frontend=DistUpgradeViewNonInteractive
   # upgrade from Xenial (16.04) to Bionic (18.04)
+ - sudo rm /var/run/reboot-required*
  - sudo do-release-upgrade --frontend=DistUpgradeViewNonInteractive
 
   # install packages finally
