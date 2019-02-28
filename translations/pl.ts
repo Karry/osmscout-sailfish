@@ -1271,7 +1271,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>na zewnątrz</translation>
     </message>
 </context>
 </TS>
