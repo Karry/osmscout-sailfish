@@ -53,6 +53,7 @@ Dialog {
             route.setStartAndTarget(fromSelector.location,
                                     toSelector.location,
                                     vehicleComboBox.selected);
+            AppSettings.lastVehicle = vehicleComboBox.selected;
         } else {
             route.clear();
         }
@@ -164,6 +165,9 @@ Dialog {
                         var vehicle = vehicles[i];
                         console.log("Vehicle: "+vehicle);
                         vehiclesModel.append({"vehicle": vehicle});
+                        if (vehicle==AppSettings.lastVehicle){
+                            currentIndex = i;
+                        }
                     }
                     initialized = true;
                 }

@@ -30,12 +30,14 @@ class AppSettings: public QObject{
   Q_PROPERTY(QString  gpsFormat         READ GetGpsFormat         WRITE SetGpsFormat         NOTIFY GpsFormatChanged)
   Q_PROPERTY(bool     hillShades        READ GetHillShades        WRITE SetHillShades        NOTIFY HillShadesChanged)
   Q_PROPERTY(double   hillShadesOpacity READ GetHillShadesOpacity WRITE SetHillShadesOpacity NOTIFY HillShadesOpacityChanged)
+  Q_PROPERTY(QString  lastVehicle       READ GetLastVehicle       WRITE SetLastVehicle       NOTIFY LastVehicleChanged)
 
 signals:
   void MapViewChanged(osmscout::MapView *view);
   void GpsFormatChanged(const QString formatId);
   void HillShadesChanged(bool);
   void HillShadesOpacityChanged(double);
+  void LastVehicleChanged(const QString vehicle);
 
 public:
   AppSettings();
@@ -52,6 +54,9 @@ public:
 
   double GetHillShadesOpacity() const;
   void SetHillShadesOpacity(double);
+
+  QString GetLastVehicle() const;
+  void SetLastVehicle(const QString vehicle);
 
 private:
   QSettings         settings;

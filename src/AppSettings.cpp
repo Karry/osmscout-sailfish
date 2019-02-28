@@ -113,3 +113,16 @@ void AppSettings::SetHillShadesOpacity(double d)
     emit HillShadesOpacityChanged(d);
   }
 }
+
+QString AppSettings::GetLastVehicle() const
+{
+  return settings.value("lastVehicle", "car").toString();
+}
+
+void AppSettings::SetLastVehicle(const QString vehicle)
+{
+  if (GetLastVehicle() != vehicle){
+    settings.setValue("lastVehicle", vehicle);
+    emit LastVehicleChanged(vehicle);
+  }
+}
