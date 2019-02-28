@@ -1271,7 +1271,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>Utomhus</translation>
     </message>
 </context>
 </TS>

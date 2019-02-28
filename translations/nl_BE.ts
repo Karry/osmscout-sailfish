@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Doel bereikt binnen %1 %2. Navigatie wordt gesloten.</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Navigatie wordt gestopt.</translation>
     </message>
 </context>
 <context>
@@ -533,19 +533,19 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigatie stoppen</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigatie stoppen</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Route</translation>
     </message>
 </context>
 <context>
@@ -708,12 +708,12 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Route naar</translation>
+        <translation>Route naar</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Routepunt toevoegen</translation>
     </message>
 </context>
 <context>
@@ -1271,7 +1271,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>Openlucht</translation>
     </message>
 </context>
 </TS>
