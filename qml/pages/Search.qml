@@ -347,6 +347,7 @@ Page {
                     }
                 }
                 MenuItem {
+                    //: "Add to collection" alternatively
                     text: qsTr("Add as waypoint")
                     visible: enableContextMenu
                     onClicked: {

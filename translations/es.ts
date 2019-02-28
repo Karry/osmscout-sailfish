@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es_GT">
+<TS version="2.1" language="es">
 <context>
     <name>About</name>
     <message>
@@ -712,6 +712,7 @@
     </message>
     <message>
         <source>Add as waypoint</source>
+        <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
         <translation>Agregar como punto-definido</translation>
     </message>
 </context>

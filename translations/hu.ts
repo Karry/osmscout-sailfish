@@ -712,6 +712,7 @@
     </message>
     <message>
         <source>Add as waypoint</source>
+        <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
