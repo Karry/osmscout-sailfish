@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dosaženo cíle, %1 %2. Zastavuji navigaci</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zastavuji navigaci.</translation>
     </message>
 </context>
 <context>
@@ -533,19 +533,19 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastavit navigaci</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastavit navigaci</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Itinerář</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,12 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Navigovat</translation>
+        <translation>Navigovat do</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
-        <translation type="unfinished"></translation>
+        <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
+        <translation>Přidat do sbírky</translation>
     </message>
 </context>
 <context>
