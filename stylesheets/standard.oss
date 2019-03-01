@@ -489,6 +489,11 @@ CONST
       AREA {color: #ff0000; }
     }
 
+  SYMBOL cliff_small
+    POLYGON 0,0 0.5,0 0.25,0.75 { 
+      AREA { color: lighten(@cliffColor, 0.5);}
+    }
+
   SYMBOL cliff
     POLYGON 0,0 1,0 0.5,1.5 { 
       AREA { color: @cliffColor;}
@@ -603,6 +608,14 @@ STYLE
         NODE.TEXT#ele { label: Ele.inMeter; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
       }
 
+    }
+    [MAG detail-close] {
+      [TYPE natural_cliff] {
+        WAY {color: lighten(@cliffColor,0.5); displayWidth: 0.10mm; }
+        WAY.SYMBOL { symbol: cliff_small; displayOffset: 0.8mm; symbolSpace: 6mm;}
+      }
+    }
+    [MAG closer-] {
       [TYPE natural_cliff] {
         WAY {color: @cliffColor; displayWidth: 0.13mm; }
         WAY.SYMBOL { symbol: cliff; displayOffset: 1.5mm;}
