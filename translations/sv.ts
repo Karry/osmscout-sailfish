@@ -547,6 +547,14 @@
         <extracomment>header of section with navigation instructions</extracomment>
         <translation>Resväg</translation>
     </message>
+    <message>
+        <source>Arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance to target</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>

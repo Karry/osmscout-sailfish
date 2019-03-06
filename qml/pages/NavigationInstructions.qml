@@ -25,6 +25,7 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 import ".." // Global singleton
 
 Page {
@@ -52,22 +53,33 @@ Page {
         x: Theme.paddingMedium
 
         header: Column{
-            //visible: routeReady && route.count>0
             width: parent.width - 2*Theme.paddingMedium
-            x: Theme.paddingMedium
 
-            /*
+            Rectangle {
+                id: headerPadding
+                color: "transparent"
+                height: Theme.paddingMedium
+                width: parent.width
+            }
+
             DetailItem {
-                id: distanceItem
-                label: qsTr("Distance")
-                value: routeReady ? Utils.humanDistance(route.length) : "?"
+                id: arrivalItem
+
+                function formatArrivalTime(arrivalTime){
+                    return Qt.formatDate(arrivalTime) == Qt.formatDate(new Date()) ? Qt.formatTime(arrivalTime) : Qt.formatDateTime(arrivalTime);
+                }
+
+                label: qsTr("Arrival")
+                visible: !isNaN(Global.navigationModel.arrivalEstimate.getTime())
+                value: formatArrivalTime(Global.navigationModel.arrivalEstimate)
             }
             DetailItem {
-                id: durationItem
-                label: qsTr("Duration")
-                value: routeReady ? Utils.humanDuration(route.duration) : "?"
+                id: remainingDistanceItem
+                label: qsTr("Distance to target")
+                visible: Global.navigationModel.remainingDistance > 0
+                value: Utils.humanDistance(Global.navigationModel.remainingDistance)
             }
-            */
+
             SectionHeader{
                 id: itineraryHeader
                 //: header of section with navigation instructions
