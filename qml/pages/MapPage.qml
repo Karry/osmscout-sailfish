@@ -488,6 +488,18 @@ Page {
                     }
                 }
                 Text{
+                    id: arrivalTime
+                    text: isNaN(Global.navigationModel.arrivalEstimate.getTime()) ? "" : Qt.formatTime(Global.navigationModel.arrivalEstimate)
+                    color: Theme.secondaryColor
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors{
+                        top: parent.top
+                        right: parent.right
+                        topMargin: Theme.paddingMedium
+                        rightMargin: Theme.paddingMedium
+                    }
+                }
+                Text{
                     id: nextStepDescription
                     text: Global.navigationModel.nextRouteStep.shortDescription
                     font.pixelSize: Theme.fontSizeMedium
