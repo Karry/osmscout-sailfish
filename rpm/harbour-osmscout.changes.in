@@ -285,5 +285,8 @@
 - don't strip main symbol (new harbour check)
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.7-1
-- update translations (German)
+- update translations, see Github and Transifex for details: https://www.transifex.com/osm-scout/osm-scout/
 - rewrite navigation module and UI internals
+- make possible to stop navigation (context menu on next step)
+- add navigation itinerary (tap on next step)
+- compute distance to target and estimated arrival time
