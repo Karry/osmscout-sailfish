@@ -549,11 +549,11 @@
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Příjezd</translation>
     </message>
     <message>
         <source>Distance to target</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzdálenost do cíle</translation>
     </message>
 </context>
 <context>

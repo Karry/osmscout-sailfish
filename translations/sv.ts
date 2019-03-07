@@ -549,11 +549,11 @@
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Ankomst</translation>
     </message>
     <message>
         <source>Distance to target</source>
-        <translation type="unfinished"></translation>
+        <translation>Avstånd till målet</translation>
     </message>
 </context>
 <context>
