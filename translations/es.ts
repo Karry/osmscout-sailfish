@@ -1171,19 +1171,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Tomar la primera salida</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Tomar la segunda salida</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Tomar la tercera salida</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Tomar la %1 salida</translation>
     </message>
 </context>
 <context>
@@ -1295,7 +1295,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>al aire libre</translation>
     </message>
 </context>
 </TS>
