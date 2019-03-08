@@ -31,7 +31,8 @@ Item {
 
     RouteStepIcon{
         id: icon
-        stepType: type
+        stepType: model.type
+        roundaboutExit: model.roundaboutExit
         width: Theme.iconSizeLarge
         height: width
 
@@ -47,7 +48,7 @@ Item {
 
         anchors.left: icon.right
         width: parent.width - (2*Theme.paddingMedium) - icon.width
-        text: description
+        text: model.description
         //font.pixelSize: Theme.textFontSize
         wrapMode: Text.Wrap
     }

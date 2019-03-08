@@ -1099,7 +1099,7 @@
     </message>
     <message>
         <source>Leave roundabout</source>
-        <translation>Hagyd el a körforgalmat</translation>
+        <translation type="vanished">Hagyd el a körforgalmat</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
@@ -1167,6 +1167,22 @@
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

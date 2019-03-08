@@ -457,12 +457,27 @@ Page {
                 RouteStepIcon{
                     id: nextStepIcon
                     stepType: Global.navigationModel.nextRouteStep.type
+                    roundaboutExit: Global.navigationModel.nextRouteStep.roundaboutExit
                     height: Theme.iconSizeLarge
                     width: height
                     anchors{
                         left: parent.left
                         margins: Theme.paddingMedium
                         verticalCenter: parent.verticalCenter
+                    }
+
+                    BusyIndicator{
+                        id: reroutingIndicator
+                        running: Global.routingModel.rerouteRequested
+                        size: BusyIndicatorSize.Medium
+                        anchors.centerIn: parent
+                    }
+                    Text{
+                        id: roundaboutExit
+                        text: Global.navigationModel.nextRouteStep.type == "leave-roundabout" ? Global.navigationModel.nextRouteStep.roundaboutExit : ""
+                        anchors.centerIn: parent
+                        font.pixelSize: Theme.fontSizeLarge
+                        color: Theme.primaryColor
                     }
                 }
                 Text{
