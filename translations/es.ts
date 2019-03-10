@@ -1098,10 +1098,6 @@
         <translation>Entrar en la rotonda</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Salir de la rotonda</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Salir de la rotonda&lt;/strong&gt; en %1. salir de la calle %2</translation>
     </message>

@@ -1098,10 +1098,6 @@
         <translation>Rijd de rotonde op</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Verlaat de rotonde</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit naar %2</translation>
     </message>
@@ -1171,19 +1167,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Neem de eerste afrit</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Neem de tweede afrit</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Neem de derde afrit</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Neem de %1e afrit</translation>
     </message>
 </context>
 <context>

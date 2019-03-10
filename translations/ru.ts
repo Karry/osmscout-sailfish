@@ -1098,10 +1098,6 @@
         <translation>Двигайтесь по круговой развязке</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Покиньте круговую развязку</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Выберите съезд&lt;/strong&gt; %1 на улицу %2</translation>
     </message>

@@ -1098,10 +1098,6 @@
         <translation>Menj be a körforgalomba</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Hagyd el a körforgalmat</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation type="unfinished"></translation>
     </message>

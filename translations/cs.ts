@@ -1098,10 +1098,6 @@
         <translation>Vjeďte na kruhový objezd</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Sjeďte z kruhového objezdu</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Sjeďte z kruhového objezdu&lt;/strong&gt; na %1. výjezdu na ulici %2</translation>
     </message>
@@ -1171,19 +1167,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Použijte první výjezd</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Použijte druhý výjezd</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Použijte třetí výjezd</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Použijte %1. výjezd</translation>
     </message>
 </context>
 <context>

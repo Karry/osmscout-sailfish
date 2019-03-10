@@ -1098,10 +1098,6 @@
         <translation>进入转盘</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">离开转盘</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在 %1. 拐入街道 %2</translation>
     </message>

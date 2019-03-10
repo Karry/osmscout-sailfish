@@ -1098,10 +1098,6 @@
         <translation>Fahren Sie in den Kreisverkehr</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Verlassen Sie den Kreisverkehr</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Verlassen Sie dien Kreisverkehr&lt;/strong&gt; bei der %1. Ausfahrt auf die Straße %2</translation>
     </message>

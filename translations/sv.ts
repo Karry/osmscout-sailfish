@@ -1098,10 +1098,6 @@
         <translation>Kör in i rondellen</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Kör ut ur rondellen</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Kör ut ur rondellen&lt;/strong&gt;vid avfart %1 in på %2</translation>
     </message>
@@ -1171,19 +1167,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta första avfarten</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta andra avfarten</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta tredje avfarten</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta %1:e avfarten</translation>
     </message>
 </context>
 <context>

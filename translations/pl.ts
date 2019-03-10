@@ -549,11 +549,11 @@
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Przybycie</translation>
     </message>
     <message>
         <source>Distance to target</source>
-        <translation type="unfinished"></translation>
+        <translation>Dystans do celu</translation>
     </message>
 </context>
 <context>
@@ -1098,10 +1098,6 @@
         <translation>Wjedź na rondo</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Opuść rondo</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
         <translation>&lt;strong&gt;Opuść rondo&lt;/strong&gt; na %1. wyjazd na ulicę %2</translation>
     </message>
@@ -1171,19 +1167,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz pierwszy zjazd</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz drugi zjazd</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz trzeci zjazd</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz zjazd numer %1</translation>
     </message>
 </context>
 <context>

@@ -1098,16 +1098,12 @@
         <translation>Rijdt op het rondpunt</translation>
     </message>
     <message>
-        <source>Leave roundabout</source>
-        <translation type="vanished">Verlaat het rondpunt</translation>
-    </message>
-    <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Verlaat het rondpunt&lt;/strong&gt; bij de %1e afrit naar %2</translation>
+        <translation>&lt;strong&gt;Verlaat het rondpunt&lt;/strong&gt; bij de(n) %1e afslag naar %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Verlaat het rondpunt&lt;/strong&gt; bij de %1e afrit</translation>
+        <translation>&lt;strong&gt;Verlaat het rondpunt&lt;/strong&gt; bij de(n) %1e afslag</translation>
     </message>
     <message>
         <source>Enter motorway</source>
@@ -1171,19 +1167,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakt den eersten afslag</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakt den tweeden afslag</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakt den derden afslag</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakt de(n) %1en afslag</translation>
     </message>
 </context>
 <context>
