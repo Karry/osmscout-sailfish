@@ -51,28 +51,50 @@ function humanDistance(distance){
     }
     return Math.round(distance/1000) + " " + qsTr("km");
 }
+
+/**
+ * Localise bearing in sense indicating location of some place
+ * "this place is located XX meters northeast from you"
+ */
 function humanBearing(bearing){
     // N, NE, E, SE, S, SW, W, NW
-    if (bearing == "W")
+    if (bearing == "W") {
+        //: in sense indicating location of some place: "place is located WEST"
         return qsTr("west");
-    if (bearing == "E")
+    }
+    if (bearing == "E") {
+        //: in sense indicating location of some place: "place is located EAST"
         return qsTr("east");
-    if (bearing == "S")
+    }
+    if (bearing == "S") {
+        //: in sense indicating location of some place: "place is located SOUTH"
         return qsTr("south");
-    if (bearing == "N")
+    }
+    if (bearing == "N") {
+        //: in sense indicating location of some place: "place is located NORTH"
         return qsTr("north");
+    }
 
-    if (bearing == "NE")
+    if (bearing == "NE") {
+        //: in sense indicating location of some place: "place is located NORTHEAST"
         return qsTr("northeast");
-    if (bearing == "SE")
+    }
+    if (bearing == "SE") {
+        //: in sense indicating location of some place: "place is located SOUTHEAST"
         return qsTr("southeast");
-    if (bearing == "SW")
+    }
+    if (bearing == "SW") {
+        //: in sense indicating location of some place: "place is located SOUTHWEST"
         return qsTr("southwest");
-    if (bearing == "NW")
+    }
+    if (bearing == "NW") {
+        //: in sense indicating location of some place: "place is located NORTHWEST"
         return qsTr("northwest");
+    }
 
     return bearing;
 }
+
 function humanDuration(seconds){
     var hours   = Math.floor(seconds / 3600);
     var minutes = Math.floor((seconds - (hours * 3600)) / 60);
@@ -81,6 +103,7 @@ function humanDuration(seconds){
     if (minutes < 10) {minutes = "0"+minutes;}
     return hours+':'+minutes;
 }
+
 function humanDurationLong(seconds){
     var hours   = Math.floor(seconds / 3600);
     var rest    = seconds - (hours * 3600);
@@ -92,6 +115,7 @@ function humanDurationLong(seconds){
     if (sec     < 10) {sec = "0"+sec;}
     return hours+':'+minutes+':'+sec;
 }
+
 function humanDirectory(directory){
     return directory
         .replace(/^\/home\/nemo$/i, qsTr("Home"))
@@ -102,6 +126,7 @@ function humanDirectory(directory){
         .replace(/^\/media\/sdcard\/[^/]*\//i, "[" + qsTr("SD card") + "] ")
         .replace(/^\/run\/media\/nemo\/[^/]*\//i, "[" + qsTr("SD card") + "] ");
 }
+
 function locationStr(location){
     if (location==null){
         return "";

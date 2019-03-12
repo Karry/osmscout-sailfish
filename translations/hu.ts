@@ -859,18 +859,22 @@
     </message>
     <message>
         <source>west</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
         <translation>nyugat</translation>
     </message>
     <message>
         <source>east</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located EAST&quot;</extracomment>
         <translation>kelet</translation>
     </message>
     <message>
         <source>south</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located SOUTH&quot;</extracomment>
         <translation>dél</translation>
     </message>
     <message>
         <source>north</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located NORTH&quot;</extracomment>
         <translation>észak</translation>
     </message>
     <message>
@@ -887,18 +891,22 @@
     </message>
     <message>
         <source>northeast</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>southeast</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>southwest</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>northwest</source>
+        <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
