@@ -52,6 +52,7 @@ function humanDistance(distance){
     return Math.round(distance/1000) + " " + qsTr("km");
 }
 function humanBearing(bearing){
+    // N, NE, E, SE, S, SW, W, NW
     if (bearing == "W")
         return qsTr("west");
     if (bearing == "E")
@@ -60,6 +61,15 @@ function humanBearing(bearing){
         return qsTr("south");
     if (bearing == "N")
         return qsTr("north");
+
+    if (bearing == "NE")
+        return qsTr("northeast");
+    if (bearing == "SE")
+        return qsTr("southeast");
+    if (bearing == "SW")
+        return qsTr("southwest");
+    if (bearing == "NW")
+        return qsTr("northwest");
 
     return bearing;
 }

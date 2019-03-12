@@ -885,6 +885,22 @@
         <source>Documents</source>
         <translation>Documentos</translation>
     </message>
+    <message>
+        <source>northeast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>southeast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>southwest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>northwest</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>databaseType</name>
