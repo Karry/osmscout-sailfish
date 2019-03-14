@@ -892,22 +892,22 @@
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>północny wschód</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>południowy wschód</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>południowy zachód</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>północny zachód</translation>
     </message>
 </context>
 <context>
