@@ -290,3 +290,4 @@
 - make possible to stop navigation (context menu on next step)
 - add navigation itinerary (tap on next step)
 - compute distance to target and estimated arrival time
+- fix object disappearing when map style is switched
