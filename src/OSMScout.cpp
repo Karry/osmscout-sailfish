@@ -63,10 +63,7 @@
 #include <QtQuick>
 #endif
 
-#if QT_VERSION >= 0x050400
-#define HAS_QSTORAGE
 #include <QStorageInfo>
-#endif
 
 // std
 #include <iostream>
@@ -147,8 +144,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     databaseLookupDirectories << home + QDir::separator() + "Maps";
   }
 
-  // QStorageInfo available from Qt >= 5.4
-#ifdef HAS_QSTORAGE
   for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
 
     QString mountPoint = storage.rootPath();
@@ -164,7 +159,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
       databaseLookupDirectories << mountPoint + QDir::separator() + "Maps";
     }
   }
-#endif
 
   // install translator
   QTranslator translator;
