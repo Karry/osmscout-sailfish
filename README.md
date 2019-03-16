@@ -8,9 +8,15 @@ Goal of this project is to bring offline maps and navigation to Sailfish OS
 with native look and feel. OSM Scout for Sailfish OS is based 
 on [OSM Scout](http://libosmscout.sourceforge.net/) library.
 
-<img alt="Standard style" width="237" height="422" src="https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-04-prague.png" />
-<img alt="Winter Sports style" width="237" height="422" src="https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-05-winter-sports.png" />
-<img alt="Track detail" width="237" height="422" src="https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-05-track.png" />
+<img alt="Standard style" 
+  width="237" height="422" 
+  src="https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-04-prague.png" />
+<img alt="Winter Sports style" 
+  width="237" height="422" 
+  src="https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-05-winter-sports.png" />
+<img alt="Track detail" 
+  width="237" height="422" 
+  src="https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-06-track.png" />
 
 You can choose one from multiple map styles: *standard*, *outdoor*, *public transport* or *winter sports*. 
 All with the same database that can be downloaded (per state) directly from the application for offline usage.
