@@ -96,7 +96,7 @@
     </message>
     <message>
         <source>Loading collection</source>
-        <translation>收藏加载中</translation>
+        <translation>正在搜藏中</translation>
     </message>
     <message>
         <source>Export</source>
@@ -124,7 +124,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation>路线去</translation>
+        <translation>导航去</translation>
     </message>
 </context>
 <context>
@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>已抵达目的地, 距离 %1 方向 %2 。正在关闭导航。</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>正在停止导航</translation>
     </message>
 </context>
 <context>
@@ -533,27 +533,27 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>停止导航</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>停止导航</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>路线</translation>
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>抵达</translation>
     </message>
     <message>
         <source>Distance to target</source>
-        <translation type="unfinished"></translation>
+        <translation>距离目的地</translation>
     </message>
 </context>
 <context>
@@ -716,12 +716,12 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">路线去</translation>
+        <translation>导航去</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>添加为路标</translation>
     </message>
 </context>
 <context>
@@ -732,7 +732,7 @@
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>加载收集 id% 1 的航点失败</translation>
+        <translation>加载收集 id% 1 的路标失败</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
@@ -764,11 +764,11 @@
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation>航点% 1</translation>
+        <translation>路标% 1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation>导入航点失败:% 1</translation>
+        <translation>导入路标失败:% 1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
@@ -800,11 +800,11 @@
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation>删除航点失败:% 1</translation>
+        <translation>删除路标失败:% 1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>创建航点失败:% 1</translation>
+        <translation>创建路标失败:% 1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
@@ -812,7 +812,7 @@
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation>编辑航点失败:% 1</translation>
+        <translation>编辑路标失败:% 1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
@@ -828,15 +828,15 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation>加载航点 id% 1 失败</translation>
+        <translation>加载路标 id% 1 失败</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation>找不到航点 id% 1</translation>
+        <translation>找不到路标 id% 1</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation>移动航点 id% 1 失败</translation>
+        <translation>移动路标 id% 1 失败</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
@@ -892,22 +892,22 @@
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>东北</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>东南</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>西南</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>西北</translation>
     </message>
 </context>
 <context>
@@ -1191,19 +1191,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>选择第一个通道</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>选择第二个通道</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>选择第三个通道</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>选择第 %1th 个通道</translation>
     </message>
 </context>
 <context>
@@ -1315,7 +1315,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>户外</translation>
     </message>
 </context>
 </TS>

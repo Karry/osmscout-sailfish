@@ -340,12 +340,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Target reached in %1 %2. Beende Navigation.</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Beende Navigation</translation>
     </message>
 </context>
 <context>
@@ -517,7 +517,7 @@
     </message>
     <message>
         <source>Routing</source>
-        <translation>Kalkuliere</translation>
+        <translation>Navigation</translation>
     </message>
     <message>
         <source>meters</source>
@@ -533,27 +533,27 @@
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Beende Navigation</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Beende Navigation</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Reiseroute</translation>
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Ankunft</translation>
     </message>
     <message>
         <source>Distance to target</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernung zum Ziel</translation>
     </message>
 </context>
 <context>
@@ -653,7 +653,7 @@
     </message>
     <message>
         <source>Route!</source>
-        <translation>Kalkuliere!</translation>
+        <translation>Starte Navigation</translation>
     </message>
     <message>
         <source>Swap start and target</source>
@@ -716,12 +716,12 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Navigiere zu</translation>
+        <translation>Navigiere zu</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Wegpunkt hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -892,22 +892,22 @@
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nordost</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Südost</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Südwest</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Norwest</translation>
     </message>
 </context>
 <context>
@@ -1191,19 +1191,19 @@
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die erste Ausfahrt</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die zweite Ausfahrt</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die dritte Ausfahrt</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die %1te Ausfahrt</translation>
     </message>
 </context>
 <context>
@@ -1315,7 +1315,7 @@
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>Outdoor</translation>
     </message>
 </context>
 </TS>
