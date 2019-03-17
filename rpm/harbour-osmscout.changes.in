@@ -292,3 +292,5 @@
 - compute distance to target and estimated arrival time
 - improve roundabout exit icons and description
 - fix object disappearing when map style is switched
+
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.8-1
