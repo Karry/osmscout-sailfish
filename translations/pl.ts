@@ -552,7 +552,8 @@
         <translation>Przybycie</translation>
     </message>
     <message>
-        <source>Distance to target</source>
+        <source>Distance</source>
+        <extracomment>Distance to target, itinerary page</extracomment>
         <translation>Dystans do celu</translation>
     </message>
 </context>

@@ -552,7 +552,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Distance to target</source>
+        <source>Distance</source>
+        <extracomment>Distance to target, itinerary page</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

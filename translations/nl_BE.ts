@@ -552,7 +552,8 @@
         <translation>Aankomst</translation>
     </message>
     <message>
-        <source>Distance to target</source>
+        <source>Distance</source>
+        <extracomment>Distance to target, itinerary page</extracomment>
         <translation>Afstand tot bestemming</translation>
     </message>
 </context>

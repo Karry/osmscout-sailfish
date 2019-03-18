@@ -552,7 +552,8 @@
         <translation>抵达</translation>
     </message>
     <message>
-        <source>Distance to target</source>
+        <source>Distance</source>
+        <extracomment>Distance to target, itinerary page</extracomment>
         <translation>距离目的地</translation>
     </message>
 </context>

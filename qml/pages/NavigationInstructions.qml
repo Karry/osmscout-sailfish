@@ -75,7 +75,8 @@ Page {
             }
             DetailItem {
                 id: remainingDistanceItem
-                label: qsTr("Distance to target")
+                //: Distance to target, itinerary page
+                label: qsTr("Distance")
                 visible: Global.navigationModel.remainingDistance > 0
                 value: Utils.humanDistance(Global.navigationModel.remainingDistance)
             }
