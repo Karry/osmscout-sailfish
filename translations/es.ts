@@ -549,11 +549,11 @@
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>llegada</translation>
     </message>
     <message>
         <source>Distance to target</source>
-        <translation type="unfinished"></translation>
+        <translation>Distancia</translation>
     </message>
 </context>
 <context>
@@ -708,7 +708,7 @@
     </message>
     <message>
         <source>Camp</source>
-        <translation>Acampar</translation>
+        <translation>Campamento</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
@@ -892,22 +892,22 @@
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>noreste</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>sureste</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>suroeste</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>noroeste</translation>
     </message>
 </context>
 <context>
