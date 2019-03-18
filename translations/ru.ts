@@ -516,7 +516,7 @@
         <translation>Настройка карты</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>Навигация</translation>
     </message>
     <message>

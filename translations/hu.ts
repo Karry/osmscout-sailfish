@@ -516,7 +516,7 @@
         <translation>Térképbeállítások</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>Útvonaltervezés</translation>
     </message>
     <message>

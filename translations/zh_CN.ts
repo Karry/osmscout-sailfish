@@ -516,7 +516,7 @@
         <translation>地图设置</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>路径</translation>
     </message>
     <message>

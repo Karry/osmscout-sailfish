@@ -516,7 +516,7 @@
         <translation>Ajustes</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>Navegar</translation>
     </message>
     <message>

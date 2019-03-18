@@ -516,7 +516,7 @@
         <translation>Ustawienia mapy</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>Wytyczanie trasy</translation>
     </message>
     <message>

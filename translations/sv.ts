@@ -516,7 +516,7 @@
         <translation>Kartinställningar</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>Vägval</translation>
     </message>
     <message>

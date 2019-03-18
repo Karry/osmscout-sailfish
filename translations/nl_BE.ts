@@ -516,7 +516,7 @@
         <translation>Kaartinstellingen</translation>
     </message>
     <message>
-        <source>Routing</source>
+        <source>Navigation</source>
         <translation>Routering</translation>
     </message>
     <message>
