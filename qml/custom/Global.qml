@@ -20,7 +20,8 @@
 pragma Singleton
 
 import QtQuick 2.0
-import Sailfish.Silica 1.0
+// Sailfish.Silica components are not available on desktop, don't import it here...
+// import Sailfish.Silica 1.0
 import QtPositioning 5.2
 
 import harbour.osmscout.map 1.0
