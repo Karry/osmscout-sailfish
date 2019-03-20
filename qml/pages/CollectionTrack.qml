@@ -137,26 +137,31 @@ Dialog{
                         }
                         DetailItem {
                             id: fromTime
+                            visible: trackModel.from.getTime() > 0
                             label: qsTr("From")
                             value: Qt.formatDateTime(trackModel.from)
                         }
                         DetailItem {
                             id: toTime
+                            visible: trackModel.to.getTime() > 0
                             label: qsTr("To")
                             value: Qt.formatDateTime(trackModel.to)
                         }
                         DetailItem {
                             id: duration
+                            visible: trackModel.duration > 0
                             label: qsTr("Time")
                             value: Utils.humanDurationLong(trackModel.duration / 1000)
                         }
                         DetailItem {
                             id: movingDuration
+                            visible: trackModel.movingDuration > 0
                             label: qsTr("Moving Time")
                             value: Utils.humanDurationLong(trackModel.movingDuration / 1000)
                         }
                         DetailItem {
                             id: speed
+                            visible: trackModel.averageSpeed >= 0
                             label: qsTr("Speed ⌀/max")
                             value: qsTr("%1 / %2 km/h")
                                 .arg(content.round10(trackModel.averageSpeed*3.6))
@@ -164,6 +169,7 @@ Dialog{
                         }
                         DetailItem {
                             id: movingSpeed
+                            visible: trackModel.movingAverageSpeed >= 0
                             label: qsTr("Moving Speed ⌀")
                             value: qsTr("%1 km/h")
                                 .arg(content.round10(trackModel.movingAverageSpeed*3.6))

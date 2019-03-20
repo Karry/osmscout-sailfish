@@ -30,7 +30,7 @@
 #include <osmscout/gpx/Export.h>
 
 namespace {
-  static constexpr int DbSchema = 1;
+  static constexpr int DbSchema = 2;
   static constexpr int TrackPointBatchSize = 10000;
   static constexpr int WayPointBatchSize = 100;
 
@@ -93,6 +93,98 @@ double MaxSpeedBuffer::getMaxSpeed() const
   return maxSpeed;
 }
 
+namespace {
+QString sqlCreateCollection() {
+  QString sql("CREATE TABLE `collection`");
+  sql.append("(").append( "`id` INTEGER PRIMARY KEY");
+  sql.append(",").append( "`name` varchar(255) NOT NULL ");
+  sql.append(",").append( "`description` varchar(255) NULL ");
+  sql.append(",").append( "`visible` tinyint(1) NOT NULL");
+  sql.append(");");
+  return sql;
+}
+
+QString sqlCreateTrack(){
+  QString sql("CREATE TABLE `track`");
+  sql.append("(").append( "`id` INTEGER PRIMARY KEY");
+  sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
+  sql.append(",").append( "`name` varchar(255) NOT NULL");
+  sql.append(",").append( "`description` varchar(255) NULL");
+  sql.append(",").append( "`open` tinyint(1) NOT NULL");
+  sql.append(",").append( "`creation_time` datetime NOT NULL");
+  sql.append(",").append( "`modification_time` datetime NOT NULL");
+
+  // statistics
+  sql.append(",").append( "`from_time` datetime NULL");
+  sql.append(",").append( "`to_time` datetime NULL");
+  sql.append(",").append( "`distance` DOUBLE NOT NULL");
+  sql.append(",").append( "`raw_distance` DOUBLE NOT NULL");
+  sql.append(",").append( "`duration` INTEGER NOT NULL");
+  sql.append(",").append( "`moving_duration` INTEGER NOT NULL");
+  sql.append(",").append( "`max_speed` DOUBLE NOT NULL");
+  sql.append(",").append( "`average_speed` DOUBLE NOT NULL");
+  sql.append(",").append( "`moving_average_speed` DOUBLE NOT NULL");
+  sql.append(",").append( "`ascent` DOUBLE NOT NULL");
+  sql.append(",").append( "`descent` DOUBLE NOT NULL");
+  sql.append(",").append( "`min_elevation` DOUBLE NULL");
+  sql.append(",").append( "`max_elevation` DOUBLE NULL");
+
+  // bbox
+  sql.append(",").append( "`bbox_min_lat` DOUBLE NOT NULL");
+  sql.append(",").append( "`bbox_min_lon` DOUBLE NOT NULL");
+  sql.append(",").append( "`bbox_max_lat` DOUBLE NOT NULL");
+  sql.append(",").append( "`bbox_max_lon` DOUBLE NOT NULL");
+
+  sql.append(");");
+
+  return sql;
+}
+
+QString sqlCreateTrackSegment(){
+  QString sql("CREATE TABLE `track_segment`");
+  sql.append("(").append( "`id` INTEGER PRIMARY KEY");
+  sql.append(",").append( "`track_id` INTEGER NOT NULL REFERENCES track(id) ON DELETE CASCADE");
+  sql.append(",").append( "`open` tinyint(1) NOT NULL");
+  sql.append(",").append( "`creation_time` datetime NOT NULL");
+  sql.append(",").append( "`distance` double NOT NULL");
+  sql.append(");");
+  return sql;
+}
+
+QString sqlCreateTrackPoint(){
+  QString sql("CREATE TABLE `track_point`");
+  sql.append("(").append( "`segment_id` INTEGER NOT NULL REFERENCES track_segment(id) ON DELETE CASCADE");
+  sql.append(",").append( "`timestamp` datetime NULL");
+  sql.append(",").append( "`latitude` double NOT NULL");
+  sql.append(",").append( "`longitude` double NOT NULL");
+  sql.append(",").append( "`elevation` double NULL ");
+  sql.append(",").append( "`horiz_accuracy` double NULL ");
+  sql.append(",").append( "`vert_accuracy` double NULL ");
+  sql.append(");");
+
+  // TODO: what satelites and compas?
+
+  return sql;
+}
+
+QString sqlCreateWaypoint(){
+  QString sql("CREATE TABLE `waypoint`");
+  sql.append("(").append( "`id` INTEGER PRIMARY KEY");
+  sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
+  sql.append(",").append( "`modification_time` datetime NOT NULL");
+  sql.append(",").append( "`timestamp` datetime NULL");
+  sql.append(",").append( "`latitude` double NOT NULL");
+  sql.append(",").append( "`longitude` double NOT NULL");
+  sql.append(",").append( "`elevation` double NULL");
+  sql.append(",").append( "`name` varchar(255) NOT NULL ");
+  sql.append(",").append( "`description` varchar(255) NULL ");
+  sql.append(",").append( "`symbol` varchar(255) NULL ");
+  sql.append(");");
+
+  return sql;
+}
+}
+
 Storage::Storage(QThread *thread,
                  const QDir &directory)
   :thread(thread),
@@ -136,7 +228,7 @@ bool Storage::updateSchema(){
           if (!ok) {
             qWarning() << "Loading currentSchema value failed" << val;
           }
-          qDebug()<<"last schema: "<<currentSchema;
+          qDebug() << "last schema: " << currentSchema;
         }
       } else {
         qWarning() << "Loading currentSchema value failed (no entry)";
@@ -166,21 +258,62 @@ bool Storage::updateSchema(){
     }
     currentSchema = DbSchema;
   }
+
+  // upgrade schema
+  QStringList updateQueries;
+  if (currentSchema < 2){
+    // from schema v2 may be timestamps null
+
+    // alter track_point
+    updateQueries << "ALTER TABLE `track_point` RENAME TO `_track_point`";
+    updateQueries << sqlCreateTrackPoint();
+    updateQueries << "INSERT INTO `track_point` SELECT * FROM `_track_point`";
+    updateQueries << "DROP TABLE `_track_point`";
+
+    // alter waypoint
+    updateQueries << "ALTER TABLE `waypoint` RENAME TO `_waypoint`";
+    updateQueries << sqlCreateWaypoint();
+    updateQueries << "INSERT INTO `waypoint` SELECT * FROM `_waypoint`";
+    updateQueries << "DROP TABLE `_waypoint`";
+
+    updateQueries << "INSERT INTO `version` (`version`) VALUES (2)";
+    currentSchema = 2;
+  }
+
+  // do upgrade commands
+  if (!updateQueries.empty()) {
+    db.transaction();
+    updateQueries.prepend("PRAGMA foreign_keys=off");
+    updateQueries << "PRAGMA foreign_keys=on";
+
+    for (QString query: updateQueries) {
+      QSqlQuery sqlUpdate(db);
+      sqlUpdate.prepare(query);
+      qDebug() << "Update database:" << query;
+      sqlUpdate.exec();
+      if (sqlUpdate.lastError().isValid()) {
+        qWarning() << "Update database failed" << sqlUpdate.lastError();
+        db.rollback();
+        db.close();
+        return false;
+      }
+    }
+    if (!db.commit()) {
+      qWarning() << "Commit database update failed";
+      db.close();
+      return false;
+    }
+  }
+
   if (currentSchema > DbSchema) {
     qWarning() << "newer database schema; " << currentSchema << " > " << DbSchema;
   }
 
+  tables = db.tables();
   if (!tables.contains("collection")){
     qDebug()<< "creating collection table";
 
-    QString sql("CREATE TABLE `collection`");
-    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`name` varchar(255) NOT NULL ");
-    sql.append(",").append( "`description` varchar(255) NULL ");
-    sql.append(",").append( "`visible` tinyint(1) NOT NULL");
-    sql.append(");");
-
-    QSqlQuery q = db.exec(sql);
+    QSqlQuery q = db.exec(sqlCreateCollection());
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating collection table failed" << q.lastError();
       db.close();
@@ -191,39 +324,7 @@ bool Storage::updateSchema(){
   if (!tables.contains("track")){
     qDebug()<< "creating track table";
 
-    QString sql("CREATE TABLE `track`");
-    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
-    sql.append(",").append( "`name` varchar(255) NOT NULL");
-    sql.append(",").append( "`description` varchar(255) NULL");
-    sql.append(",").append( "`open` tinyint(1) NOT NULL");
-    sql.append(",").append( "`creation_time` datetime NOT NULL");
-    sql.append(",").append( "`modification_time` datetime NOT NULL");
-
-    // statistics
-    sql.append(",").append( "`from_time` datetime NULL");
-    sql.append(",").append( "`to_time` datetime NULL");
-    sql.append(",").append( "`distance` DOUBLE NOT NULL");
-    sql.append(",").append( "`raw_distance` DOUBLE NOT NULL");
-    sql.append(",").append( "`duration` INTEGER NOT NULL");
-    sql.append(",").append( "`moving_duration` INTEGER NOT NULL");
-    sql.append(",").append( "`max_speed` DOUBLE NOT NULL");
-    sql.append(",").append( "`average_speed` DOUBLE NOT NULL");
-    sql.append(",").append( "`moving_average_speed` DOUBLE NOT NULL");
-    sql.append(",").append( "`ascent` DOUBLE NOT NULL");
-    sql.append(",").append( "`descent` DOUBLE NOT NULL");
-    sql.append(",").append( "`min_elevation` DOUBLE NULL");
-    sql.append(",").append( "`max_elevation` DOUBLE NULL");
-
-    // bbox
-    sql.append(",").append( "`bbox_min_lat` DOUBLE NOT NULL");
-    sql.append(",").append( "`bbox_min_lon` DOUBLE NOT NULL");
-    sql.append(",").append( "`bbox_max_lat` DOUBLE NOT NULL");
-    sql.append(",").append( "`bbox_max_lon` DOUBLE NOT NULL");
-
-    sql.append(");");
-
-    QSqlQuery q = db.exec(sql);
+    QSqlQuery q = db.exec(sqlCreateTrack());
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating track table failed" << q.lastError();
       db.close();
@@ -234,15 +335,7 @@ bool Storage::updateSchema(){
   if (!tables.contains("track_segment")){
     qDebug()<< "creating track_segment table";
 
-    QString sql("CREATE TABLE `track_segment`");
-    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`track_id` INTEGER NOT NULL REFERENCES track(id) ON DELETE CASCADE");
-    sql.append(",").append( "`open` tinyint(1) NOT NULL");
-    sql.append(",").append( "`creation_time` datetime NOT NULL");
-    sql.append(",").append( "`distance` double NOT NULL");
-    sql.append(");");
-
-    QSqlQuery q = db.exec(sql);
+    QSqlQuery q = db.exec(sqlCreateTrackSegment());
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating track segment table failed" << q.lastError();
       db.close();
@@ -253,19 +346,7 @@ bool Storage::updateSchema(){
   if (!tables.contains("track_point")){
     qDebug()<< "creating track_point table";
 
-    QString sql("CREATE TABLE `track_point`");
-    sql.append("(").append( "`segment_id` INTEGER NOT NULL REFERENCES track_segment(id) ON DELETE CASCADE");
-    sql.append(",").append( "`timestamp` datetime NOT NULL");
-    sql.append(",").append( "`latitude` double NOT NULL");
-    sql.append(",").append( "`longitude` double NOT NULL");
-    sql.append(",").append( "`elevation` double NULL ");
-    sql.append(",").append( "`horiz_accuracy` double NULL ");
-    sql.append(",").append( "`vert_accuracy` double NULL ");
-    sql.append(");");
-
-    // TODO: what satelites and compas?
-
-    QSqlQuery q = db.exec(sql);
+    QSqlQuery q = db.exec(sqlCreateTrackPoint());
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating track node table failed" << q.lastError();
       db.close();
@@ -276,20 +357,7 @@ bool Storage::updateSchema(){
   if (!tables.contains("waypoint")){
     qDebug()<< "creating waypoints table";
 
-    QString sql("CREATE TABLE `waypoint`");
-    sql.append("(").append( "`id` INTEGER PRIMARY KEY");
-    sql.append(",").append( "`collection_id` INTEGER NOT NULL REFERENCES collection(id) ON DELETE CASCADE");
-    sql.append(",").append( "`modification_time` datetime NOT NULL");
-    sql.append(",").append( "`timestamp` datetime NOT NULL");
-    sql.append(",").append( "`latitude` double NOT NULL");
-    sql.append(",").append( "`longitude` double NOT NULL");
-    sql.append(",").append( "`elevation` double NULL");
-    sql.append(",").append( "`name` varchar(255) NOT NULL ");
-    sql.append(",").append( "`description` varchar(255) NULL ");
-    sql.append(",").append( "`symbol` varchar(255) NULL ");
-    sql.append(");");
-
-    QSqlQuery q = db.exec(sql);
+    QSqlQuery q = db.exec(sqlCreateWaypoint());
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating waypoints table failed" << q.lastError();
       db.close();
@@ -456,7 +524,10 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
     wpt.description = varToStringOpt(sql.value("description"));
     wpt.symbol = varToStringOpt(sql.value("symbol"));
 
-    wpt.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(sql.value("timestamp"))));
+    QVariant timestampVar = sql.value("timestamp");
+    if (!timestampVar.isNull()) {
+      wpt.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(timestampVar)));
+    }
     wpt.elevation = varToDoubleOpt(sql.value("elevation"));
 
     result->emplace_back(varToLong(sql.value("id")), varToDateTime(sql.value("modification_time")), std::move(wpt));
@@ -523,7 +594,10 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
       varToDouble(sql.value("longitude"))
     ));
 
-    point.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(sql.value("timestamp"))));
+    QVariant timestampVar = sql.value("timestamp");
+    if (!timestampVar.isNull()) {
+      point.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(timestampVar)));
+    }
     point.elevation = varToDoubleOpt(sql.value("elevation"));
 
     // see TrackPoint notes
@@ -665,8 +739,7 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
       wptName = tr("waypoint %1").arg(wptNum);
 
     sqlWpt.bindValue(":collection_id", collectionId);
-    sqlWpt.bindValue(":timestamp",
-                     wpt.time.hasValue() ? timestampToDateTime(wpt.time) : QDateTime::currentDateTime());
+    sqlWpt.bindValue(":timestamp", timestampToDateTime(wpt.time));
     sqlWpt.bindValue(":modification_time", QDateTime::currentDateTime());
     sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
     sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
@@ -982,10 +1055,6 @@ bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint
   for (const auto &point: points){
     pointNum ++;
 
-    if (!point.time.hasValue()){
-      qWarning() << "Track point without timestammp";
-      continue;
-    }
     sql.bindValue(":segment_id", segmentId);
     sql.bindValue(":timestamp", timestampToDateTime(point.time));
     sql.bindValue(":latitude", point.coord.GetLat());
