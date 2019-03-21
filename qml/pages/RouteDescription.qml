@@ -80,7 +80,8 @@ Dialog {
 
     onAccepted: {
         var routeWay=route.routeWay;
-        mainMap.addOverlayObject(0,routeWay);
+        //mainMap.addOverlayObject(0,routeWay);
+        mapPage.showRoute(routeWay, 0);
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
         if (fromCurrentLocation && destination && destination.type != "none"){
             console.log("Navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle);

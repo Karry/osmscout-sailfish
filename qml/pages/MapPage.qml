@@ -34,6 +34,7 @@ Page {
     signal selectLocation(LocationEntry location)
     signal showWaypoint(double lat, double lon)
     signal showTrack(LocationEntry bbox, var trackId)
+    signal showRoute(OverlayWay route, var routeId)
 
     onSelectLocation: {
         console.log("selectLocation: " + location);
@@ -48,6 +49,10 @@ Page {
     onShowTrack: {
         console.log("show Track "+ trackId);
         map.showLocation(bbox);
+        drawer.open = false;
+    }
+    onShowRoute: {
+        map.addOverlayObject(routeId, route);
         drawer.open = false;
     }
 
