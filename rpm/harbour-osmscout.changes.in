@@ -293,6 +293,6 @@
 - improve roundabout exit icons and description
 - fix object disappearing when map style is switched
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.8-1
+* 2019-03-21 Lukáš Karas <lukas.karas@centrum.cz> 1.8-1
 - update translations (Spanish, German, Chinese...)
 - fix importing of tracks without point timestamps
