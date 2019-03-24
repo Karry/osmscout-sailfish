@@ -151,6 +151,10 @@ Dialog {
                         MenuItem { text: qsTranslate("routerVehicle", vehicle) }
                     }
                 }
+                onPressAndHold: {
+                    // improve default ComboBox UX :-)
+                    vehicleComboBox.clicked(mouse);
+                }
                 onCurrentItemChanged: {
                     if (!initialized){
                         return;

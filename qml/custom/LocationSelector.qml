@@ -127,6 +127,10 @@ ComboBox {
         }
     }
 
+    onPressAndHold: {
+        // improve default ComboBox UX :-)
+        selector.clicked(mouse);
+    }
     onCurrentItemChanged: {
         console.log("CurrentItemChanged, initialised: "+initialized+", index: "+currentIndex);
     }
