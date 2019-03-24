@@ -302,6 +302,7 @@ set(TRANSLATION_TS_FILES
         translations/nl.ts
         translations/nl_BE.ts
         translations/pl.ts
+        translations/pt_BR.ts
         translations/ru.ts
         translations/sv.ts
         translations/zh_CN.ts
