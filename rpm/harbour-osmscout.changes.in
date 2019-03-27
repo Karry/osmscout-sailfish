@@ -298,3 +298,4 @@
 - fix importing of tracks without point timestamps
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.9-1
+- fix lookup o route start/destination on boundary of multiple databases
