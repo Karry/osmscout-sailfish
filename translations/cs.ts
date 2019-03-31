@@ -732,6 +732,10 @@
         <source>Bar</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Pharmacy</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Storage</name>
