@@ -1798,6 +1798,8 @@ STYLE
            amenity_kindergarten_building,
            amenity_library_building,
            amenity_restaurant_building,
+           amenity_pub_building,
+           amenity_bar_building,
            amenity_school_building] {
        AREA { color: @amenityBuildingColor; }
        AREA.BORDER { color: @amenityBuildingBorderColor; width: 0.1mm;}
@@ -1905,7 +1907,6 @@ STYLE
            amenity_building,
            amenity_bank_building,
            amenity_bank,
-           amenity_building,
            amenity_cafe_building,
            amenity_cafe,
            amenity_fast_food_building,
@@ -1916,6 +1917,10 @@ STYLE
            amenity_kindergarten,
            amenity_restaurant_building,
            amenity_restaurant,
+           amenity_pub_building,
+           amenity_pub,
+           amenity_bar_building,
+           amenity_bar,
            amenity_school_building,
            amenity_school,
            amenity_taxi] {
