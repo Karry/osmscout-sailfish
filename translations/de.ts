@@ -724,6 +724,14 @@
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
         <translation>Wegpunkt hinzufügen</translation>
     </message>
+    <message>
+        <source>Pub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bar</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Storage</name>
