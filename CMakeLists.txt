@@ -43,8 +43,8 @@ include(features)
 # ==================================================================================================
 # Find dependencies
 
-find_package( Qt5 ${QT_MIN_VERSION} 
-              REQUIRED NO_MODULE COMPONENTS 
+find_package( Qt5 ${QT_MIN_VERSION}
+              REQUIRED NO_MODULE COMPONENTS
               Core
               Network
               Gui
@@ -57,67 +57,47 @@ find_package( Qt5 ${QT_MIN_VERSION}
 )
 find_package(Qt5LinguistTools)
 find_package(OpenMP REQUIRED)
-#find_package(LibXml2)
-#find_package(BZip2)
-find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp 
-
-# ==================================================================================================
-# Dependencies Rules
-# TODO
-
-# ==================================================================================================
-
-# ==================================================================================================
-# Print build configuration
-
-## print all variables
-#message(STATUS "contractionhierarchies: "contractionhierarchies)
-#get_cmake_property(_variableNames VARIABLES)
-#foreach (_variableName ${_variableNames})
-#    message(STATUS "${_variableName}=${${_variableName}}")
-#endforeach()
-
-message(STATUS "")
-message(STATUS "----------------------------------------------------------------------------------")
-message(STATUS "OSMScout-Sailfish ${OSMSCOUT_SAILFISH_VERSION_STRING} build configuration results")
-
-message(STATUS "")
-message(STATUS "Requiered dependencies:")
-
-PRINT_LIBRARY_STATUS("Qt5"                    "http://www.qtsoftware.com"                       "(version >= ${QT_MIN_VERSION})"     Qt5_FOUND)
-#PRINT_LIBRARY_STATUS("libprotobuf"            "https://github.com/google/protobuf"             ""      PROTOBUF_FOUND)
-PRINT_LIBRARY_STATUS("OpenMP compiler support" "http://openmp.org/wp/openmp-compilers/"         ""      OPENMP_FOUND)
-PRINT_LIBRARY_STATUS("SailfishApp library"     "https://github.com/sailfish-sdk/libsailfishapp" ""      LIBSAILFISHAPP_FOUND)
-PRINT_LIBRARY_STATUS("Xml2 library"            "http://xmlsoft.org/"                            ""      LIBXML2_FOUND)
-
-message(STATUS "")
-
-if(Qt5_FOUND AND
-  LIBSAILFISHAPP_FOUND AND
-  LIBXML2_FOUND
-  )
-    message(STATUS      " OSMScout-Sailfish can be compiled........ YES")
-else()
-    message(FATAL_ERROR " OSMScout-Sailfish will be compiled....... NO  (Look README file for more details about dependencies)")
-endif()
-
-message(STATUS "----------------------------------------------------------------------------------")
-message(STATUS "")
+find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp
 
 # ==================================================================================================
 
 if (LABEL_LAYOUTER_DEBUG)
-  add_definitions( -DLABEL_LAYOUTER_DEBUG)
+    add_definitions( -DLABEL_LAYOUTER_DEBUG)
+else()
+    set(LABEL_LAYOUTER_DEBUG FALSE)
 endif()
+
 if (DEBUG_GROUNDTILES)
-  add_definitions( -DDEBUG_GROUNDTILES)
+    add_definitions( -DDEBUG_GROUNDTILES)
+else()
+    set(DEBUG_GROUNDTILES FALSE)
 endif()
+
 if (QT_QML_DEBUG)
-  add_definitions( -DQT_QML_DEBUG)
+    add_definitions( -DQT_QML_DEBUG)
+else()
+    set(QT_QML_DEBUG FALSE)
 endif()
+
 if (SANITIZE)
-  # -fsanitize=address
-  add_definitions( -fno-omit-frame-pointer -fstack-protector-all)
+    # -fsanitize=address
+    add_definitions( -fno-omit-frame-pointer -fstack-protector-all)
+else()
+    set(SANITIZE FALSE)
+endif()
+
+string(TOLOWER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_LOWER)
+if (NOT BUILD_TYPE_LOWER STREQUAL "debug")
+    include(CheckIPOSupported)
+    check_ipo_supported(RESULT result OUTPUT output)
+    if(result)
+        set(OSMSCOUT_ENABLE_IPO TRUE)
+    else()
+        message(WARNING "IPO is not supported")
+        set(OSMSCOUT_ENABLE_IPO FALSE)
+    endif()
+else()
+    set(OSMSCOUT_ENABLE_IPO FALSE)
 endif()
 
 add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
@@ -141,6 +121,53 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}
 
 set(HARBOUR_APP_NAME harbour-osmscout)
 
+# ==================================================================================================
+# Print build configuration
+
+## print all variables
+#message(STATUS "contractionhierarchies: "contractionhierarchies)
+#get_cmake_property(_variableNames VARIABLES)
+#foreach (_variableName ${_variableNames})
+#    message(STATUS "${_variableName}=${${_variableName}}")
+#endforeach()
+
+message(STATUS "")
+message(STATUS "----------------------------------------------------------------------------------")
+message(STATUS "OSMScout-Sailfish ${OSMSCOUT_SAILFISH_VERSION_STRING} build configuration results")
+
+message(STATUS "")
+message(STATUS "Build options:")
+
+message(STATUS " Build type .............................. ${CMAKE_BUILD_TYPE}")
+message(STATUS " Interprocedural optimizations ........... ${OSMSCOUT_ENABLE_IPO}")
+message(STATUS " Compiler flags .......................... ${CMAKE_CXX_FLAGS}")
+message(STATUS " Sanitize ................................ ${SANITIZE}")
+message(STATUS " LABEL_LAYOUTER_DEBUG .................... ${LABEL_LAYOUTER_DEBUG}")
+message(STATUS " DEBUG_GROUNDTILES ....................... ${DEBUG_GROUNDTILES}")
+message(STATUS " QT_QML_DEBUG ............................ ${QT_QML_DEBUG}")
+
+message(STATUS "")
+message(STATUS "Requiered dependencies:")
+
+PRINT_LIBRARY_STATUS("Qt5"                    "http://www.qtsoftware.com"                       "(version >= ${QT_MIN_VERSION})"     Qt5_FOUND)
+#PRINT_LIBRARY_STATUS("libprotobuf"            "https://github.com/google/protobuf"             ""      PROTOBUF_FOUND)
+PRINT_LIBRARY_STATUS("OpenMP compiler support" "http://openmp.org/wp/openmp-compilers/"         ""      OPENMP_FOUND)
+PRINT_LIBRARY_STATUS("SailfishApp library"     "https://github.com/sailfish-sdk/libsailfishapp" ""      LIBSAILFISHAPP_FOUND)
+PRINT_LIBRARY_STATUS("Xml2 library"            "http://xmlsoft.org/"                            ""      LIBXML2_FOUND)
+
+message(STATUS "")
+
+if(Qt5_FOUND AND
+        LIBSAILFISHAPP_FOUND AND
+        LIBXML2_FOUND
+        )
+    message(STATUS      " OSMScout-Sailfish can be compiled ....... YES")
+else()
+    message(FATAL_ERROR " OSMScout-Sailfish will be compiled ...... NO  (Look README file for more details about dependencies)")
+endif()
+
+message(STATUS "----------------------------------------------------------------------------------")
+message(STATUS "")
 
 # ==================================================================================================
 # libmarisa
@@ -190,6 +217,7 @@ set(MARISA_FOUND TRUE)
 set(MARISA_LIBRARIES marisa)
 
 # ==================================================================================================
+# OSM Scout library
 
 set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
 set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
@@ -213,6 +241,12 @@ add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
 add_subdirectory(dependencies/libosmscout/libosmscout-gpx)
 add_subdirectory(dependencies/libosmscout/libosmscout-client-qt)
+
+set_property(TARGET OSMScout         PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutMap      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutMapQt    PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutGPX      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutClientQt PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
 
 # ==================================================================================================
 # harbour-osmscout
@@ -332,6 +366,7 @@ add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${QML_FILES})
 set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 11)
+set_property(TARGET harbour-osmscout PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
 add_dependencies(harbour-osmscout translations)
 
 # Private config header
