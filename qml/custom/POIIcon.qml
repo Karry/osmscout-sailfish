@@ -20,6 +20,8 @@ Image{
                 'amenity_bank': 'bank',
                 'amenity_cafe_building': 'cafe',
                 'amenity_cafe': 'cafe',
+                'amenity_pub': 'pub',
+                'amenity_bar': 'bar',
                 'amenity_fast_food_building': 'fast-food',
                 'amenity_fast_food': 'fast-food',
                 'amenity_fuel_building': 'fuel',
