@@ -20,19 +20,19 @@ export PROJECT_TARGET="harbour-osmscout"
 export MER_SSH_SHARED_SRC="$HOME/SailfishOS/projects"
 ## SDK ROOT
 export SDK_ROOT="$HOME/SailfishOS"
-SDK_VERSION=3.0.1.11
+SDK_VERSION=3.0.2.8
 
 ## build & deploy target
 ## list of configured devices: ~/SailfishOS/vmshare/devices.xml 
 if [ "$TYPE" = "emulator" ] ; then
-	export MER_SSH_DEVICE_NAME="Sailfish OS Emulator"
-	# 	ssh nemo@localhost -p 2223 -i ~/SailfishOS/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo
+	export MER_SSH_DEVICE_NAME="Sailfish OS Emulator ${SDK_VERSION}"
+	# 	ssh nemo@localhost -p 2223 -i ~/SailfishOS/vmshare/ssh/private_keys/Sailfish_OS-Emulator-latest/nemo
 	export DEV_SSH_USER=nemo
 	export DEV_SSH_HOST=localhost
 	export DEV_SSH_PORT=2223
 	export MER_SSH_TARGET_NAME=SailfishOS-${SDK_VERSION}-i486
-	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/nemo"
-	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/SailfishOS_Emulator/root"
+	export DEV_SSH_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Sailfish_OS-Emulator-latest/nemo"
+	export DEV_SSH_ROOT_KEY="$SDK_ROOT/vmshare/ssh/private_keys/Sailfish_OS-Emulator-latest/root"
 	
 	## emulator vm
 	if [ `VBoxManage list runningvms | grep -c "$MER_SSH_DEVICE_NAME"` -eq 0 ] ; then
