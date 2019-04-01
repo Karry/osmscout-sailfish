@@ -182,6 +182,11 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
+                    text: qsTr("Portuguese (Brazil): Leonardo Moura")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
                     text: qsTr("Russian: Вячеслав Диконов")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall

@@ -79,6 +79,10 @@
         <source>Chinese: Rui Kon</source>
         <translation>Čínština: Rui Kon</translation>
     </message>
+    <message>
+        <source>Portuguese (Brazil): Leonardo Moura</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collection</name>
