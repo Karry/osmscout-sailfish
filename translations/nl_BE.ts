@@ -730,15 +730,15 @@
     </message>
     <message>
         <source>Pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Pub</translation>
     </message>
     <message>
         <source>Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar</translation>
     </message>
     <message>
         <source>Pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Apotheek</translation>
     </message>
 </context>
 <context>
