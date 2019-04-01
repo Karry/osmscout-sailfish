@@ -730,7 +730,7 @@
     </message>
     <message>
         <source>Pub</source>
-        <translation>Bar</translation>
+        <translation>Pub</translation>
     </message>
     <message>
         <source>Bar</source>
