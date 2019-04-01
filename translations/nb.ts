@@ -438,6 +438,10 @@
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LocationSelector</name>

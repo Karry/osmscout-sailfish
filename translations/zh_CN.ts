@@ -438,6 +438,10 @@
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
         <translation>基于SRTM, ASTER GDEM 和其它由viewfinderpanoramas.org收集的数据源</translation>
     </message>
+    <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LocationSelector</name>

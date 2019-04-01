@@ -296,6 +296,18 @@ Page {
                     }
 
                     TextSwitch{
+                        id: altLangSwitch
+                        width: parent.width
+
+                        checked: settings.showAltLanguage
+                        text: qsTr("Prefer English names")
+
+                        onCheckedChanged: {
+                            settings.showAltLanguage = checked;
+                        }
+                    }
+
+                    TextSwitch{
                         id: renderSeaSwitch
                         width: parent.width
 

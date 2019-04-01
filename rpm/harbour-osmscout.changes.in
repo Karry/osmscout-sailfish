@@ -299,3 +299,5 @@
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.9-1
 - fix lookup o route start/destination on boundary of multiple databases
+- add new POI types to search (pharmacy, pub, bar)
+- setting option for preference of English names instead of local
