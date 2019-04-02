@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugalština (Brazilská): Leonardo Moura</translation>
     </message>
 </context>
 <context>

@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugisiska (Brasilien): Leonardo Moura</translation>
     </message>
 </context>
 <context>
@@ -444,7 +444,7 @@
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished"></translation>
+        <translation>Föredra Engelska namn</translation>
     </message>
 </context>
 <context>
