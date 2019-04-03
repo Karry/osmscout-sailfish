@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial0</translation>
+        <translation>Tutorial</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation>portugues: Leonardo Moura </translation>
+        <translation>Portugués: Leonardo Moura </translation>
     </message>
 </context>
 <context>
