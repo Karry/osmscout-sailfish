@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMScout es un programa libre desarrollado por voluntarios. Lo cual se pude ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en la fuente, toda ayuda es bienvenida.</translation>
+        <translation>OSMScout es un programa libre desarrollado por voluntarios; lo cual se pude ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en su fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>About</source>
@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>Fuente de libOSMScout</translation>
+        <translation>Fuente</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial de importar el mapa</translation>
+        <translation>Tutorial0</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Privacy notes</source>
-        <translation>Notas de privacidad</translation>
+        <translation>Notas</translation>
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation type="unfinished"></translation>
+        <translation>portugues: Leonardo Moura </translation>
     </message>
 </context>
 <context>
@@ -444,7 +444,7 @@
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished"></translation>
+        <translation>Prefiere nombres en inglés</translation>
     </message>
 </context>
 <context>
@@ -734,7 +734,7 @@
     </message>
     <message>
         <source>Pub</source>
-        <translation type="unfinished"></translation>
+        <translation>cantina</translation>
     </message>
     <message>
         <source>Bar</source>
