@@ -268,6 +268,7 @@ set(HEADER_FILES
 set(QML_FILES
     qml/AboutDialog.qml
     qml/SearchDialog.qml
+
     qml/custom/DialogActionButton.qml
     qml/custom/LineEdit.qml
     qml/custom/LocationSearch.qml
@@ -289,6 +290,8 @@ set(QML_FILES
     qml/custom/CollectionSelector.qml
     qml/custom/Global.qml
     qml/custom/Utils.js
+    qml/custom/SpeedIndicator.qml
+
     qml/pages/Cover.qml
     qml/pages/Search.qml
     qml/pages/MapList.qml

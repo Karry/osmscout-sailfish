@@ -746,6 +746,13 @@
     </message>
 </context>
 <context>
+    <name>SpeedIndicator</name>
+    <message>
+        <source>km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>

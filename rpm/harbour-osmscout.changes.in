@@ -301,3 +301,4 @@
 - fix lookup o route start/destination on boundary of multiple databases
 - add new POI types to search (pharmacy, pub, bar)
 - setting option for preference of English names instead of local
+- show current and maximum allowed speed during navigation

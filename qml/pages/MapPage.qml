@@ -252,7 +252,7 @@ Page {
             focus: true
             anchors.fill: parent
 
-            topMargin: nextStepBox.height
+            topMargin: nextStepBox.height + speedIndicator.height
 
             showCurrentPosition: true
 
@@ -551,6 +551,19 @@ Page {
                     onClicked: Global.navigationModel.stop();
                 }
             }
+        }
+
+        SpeedIndicator {
+            id: speedIndicator
+            currentSpeed: Global.navigationModel.currentSpeed
+            maximumSpeed: Global.navigationModel.maxAllowedSpeed
+            visible: Global.navigationModel.destinationSet
+
+            anchors.left: parent.left
+            anchors.top: nextStepBox.bottom
+            anchors.margins: Theme.paddingMedium
+            height: visible ? Theme.iconSizeLarge : 0
+            width: height
         }
 
         Rectangle {
