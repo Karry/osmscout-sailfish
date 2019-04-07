@@ -302,3 +302,5 @@
 - add new POI types to search (pharmacy, pub, bar)
 - setting option for preference of English names instead of local
 - show current and maximum allowed speed during navigation
+
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.10-1
