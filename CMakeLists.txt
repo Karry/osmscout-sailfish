@@ -291,6 +291,8 @@ set(QML_FILES
     qml/custom/Global.qml
     qml/custom/Utils.js
     qml/custom/SpeedIndicator.qml
+    qml/custom/WebsiteRow.qml
+    qml/custom/PhoneRow.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml

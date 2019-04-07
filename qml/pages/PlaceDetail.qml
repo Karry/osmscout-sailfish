@@ -272,96 +272,15 @@ Page {
                             font.pixelSize: Theme.fontSizeMedium
                             visible: region.length > 0 || postalCode != ""
                         }
-                        Row {
+                        PhoneRow {
                             id: phoneRow
-                            visible: phone != ""
-                            width: locationInfoView.width
-                            height: phoneIcon.height
-
-                            IconButton{
-                                id: phoneIcon
-                                visible: phone != ""
-                                icon.source: "image://theme/icon-m-dialpad"
-
-                                MouseArea{
-                                    onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
-                                    anchors.fill: parent
-                                }
-                            }
-                            Label {
-                                id: phoneLabel
-                                anchors.left: phoneIcon.right
-                                anchors.verticalCenter: phoneIcon.verticalCenter
-                                visible: phone != ""
-                                text: phone
-
-                                color: Theme.highlightColor
-                                truncationMode: TruncationMode.Fade
-
-                                MouseArea{
-                                    onClicked: Qt.openUrlExternally("tel:%1".arg(phone))
-                                    anchors.fill: parent
-                                }
-                            }
+                            phone: model.phone
                         }
-                        Row {
+                        WebsiteRow {
                             id: websiteRow
-                            visible: website != ""
-                            width: locationInfoView.width
-                            height: websiteIcon.height
-
-                            IconButton{
-                                id: websiteIcon
-                                visible: website != ""
-                                icon.source: "image://theme/icon-m-region"
-
-                                MouseArea{
-                                    onClicked: Qt.openUrlExternally(website)
-                                    anchors.fill: parent
-                                }
-                            }
-                            Label {
-                                id: websiteLabel
-                                anchors.left: websiteIcon.right
-                                anchors.verticalCenter: websiteIcon.verticalCenter
-                                visible: website != ""
-                                text: {
-                                    // simple url normalisation for view
-                                    var str=website.toString();
-
-                                    // remove standard protocols
-                                    if (str.indexOf("http://")===0){
-                                        str=str.substring(7);
-                                    }else if (str.indexOf("https://")===0){
-                                        str=str.substring(8);
-                                    }
-
-                                    // remove last slash
-                                    if (str.lastIndexOf("/")===(str.length-1)){
-                                        str=str.substring(0,str.length-1);
-                                    }
-                                    return str;
-                                }
-
-                                font.underline: true
-                                color: Theme.highlightColor
-                                truncationMode: TruncationMode.Fade
-
-                                MouseArea{
-                                    onClicked: {
-                                        var url=website;
-                                        if (url.indexOf("://")===-1){
-                                            // if there is no protocol defined, add default one to make Qt.openUrlExternally function happy
-                                            // https should be standard these days
-                                            url = "https://" + url;
-                                        }
-                                        console.log("opening url: " + url);
-                                        Qt.openUrlExternally(url);
-                                    }
-                                    anchors.fill: parent
-                                }
-                            }
+                            website: model.website
                         }
+
 
                     }
                     }
