@@ -82,7 +82,6 @@ mkdir -p %{_bindir}
 # << install pre
 
 # >> install post
-# << install post
 
 desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
@@ -121,6 +120,7 @@ cp /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
 
 # -- shared libraries without executable flag
 chmod -x %{buildroot}%{_datadir}/%{name}/lib/*
+# << install post
 
 # -- check app rpath to find its libs
 #patchelf --force-rpath --set-rpath '/usr/share/%{name}/lib:' %{buildroot}%{_bindir}/%{name}
