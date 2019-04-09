@@ -1640,6 +1640,8 @@ STYLE
    [TYPE amenity,
          amenity_bank,
          amenity_cafe,
+         amenity_bar,
+         amenity_pub,
          amenity_fast_food,
          amenity_fuel,
          amenity_kindergarten,

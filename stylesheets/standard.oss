@@ -1694,6 +1694,8 @@ STYLE
    [TYPE amenity,
          amenity_bank,
          amenity_cafe,
+         amenity_bar,
+         amenity_pub,
          amenity_fast_food,
          amenity_fuel,
          amenity_kindergarten,
@@ -1927,7 +1929,7 @@ STYLE
            amenity_school_building,
            amenity_school,
            amenity_taxi] {
-       NODE.TEXT {label: Name.name; style: emphasize;color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
+       NODE.TEXT { label: Name.name; style: emphasize; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
        AREA.TEXT { label: Name.name; style: emphasize; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
      }
 
