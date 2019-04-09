@@ -63,8 +63,8 @@ Page {
                 POIIcon{
                     id: poiIcon
                     poiType: (typeof label=="undefined")?"":label
-                    width: 64
-                    height: 64
+                    width: Theme.iconSizeMedium
+                    height: Theme.iconSizeMedium
                 }
                 Column{
                     Row{
