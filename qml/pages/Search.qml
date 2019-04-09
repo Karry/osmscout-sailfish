@@ -502,12 +502,13 @@ Page {
             previewMap.showLocation(selectedLocation);
             previewMap.addPositionMark(0, selectedLocation.lat, selectedLocation.lon);
             previewMap.removeAllOverlayObjects();
+            //console.log("clear map: "+previewMap);
 
             mapObjectInfo.setLocationEntry(selectedLocation);
 
-            header.title = (selectedLocation.type=="coordinate") ?
-                        Utils.formatCoord(selectedLocation.lat, selectedLocation.lon, AppSettings.gpsFormat) :
-                        selectedLocation.label;
+            //header.title = (selectedLocation.type=="coordinate") ?
+            //            Utils.formatCoord(selectedLocation.lat, selectedLocation.lon, AppSettings.gpsFormat) :
+            //            selectedLocation.label;
         }
 
         acceptDestinationAction: PageStackAction.Pop
@@ -528,7 +529,7 @@ Page {
                     for (var row=0; row<cnt; row++){
                         var obj=mapObjectInfo.createOverlayObject(row);
                         obj.type="_highlighted";
-                        //console.log("object "+row+": "+obj);
+                        //console.log("object "+row+": "+obj+" map: "+previewMap);
                         previewMap.addOverlayObject(row, obj);
                     }
                 }
@@ -536,21 +537,126 @@ Page {
         }
 
         DialogHeader {
-            id: header
+            id: previewDialogHeader
             //title: qsTr("Search result")
             //acceptText : qsTr("Accept")
             //cancelText : qsTr("Cancel")
         }
 
+        SilicaListView {
+            id: locationInfoView
+
+            anchors.top: previewDialogHeader.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: Math.min(Math.max(Theme.iconSizeMedium, contentHeight + 2*Theme.paddingMedium), parent.height/2)
+
+            spacing: Theme.paddingMedium
+            model: mapObjectInfo
+
+            VerticalScrollDecorator {}
+            clip: true
+
+            BusyIndicator {
+                id: locationInfoBusyIndicator
+                running: !mapObjectInfo.ready
+                size: BusyIndicatorSize.Medium
+                anchors.horizontalCenter: locationInfoView.horizontalCenter
+                anchors.verticalCenter: locationInfoView.verticalCenter
+            }
+
+            delegate: BackgroundItem{
+                height: objectDetailRow.height
+                highlighted: previewMouseArea.pressed
+
+                MouseArea{
+                    id: previewMouseArea
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("Put position mark to "+model.lat+" "+model.lon+" map: "+previewMap);
+                        previewMap.addPositionMark(0,model.lat,model.lon);
+                    }
+                }
+
+                Row {
+                    id: objectDetailRow
+                    spacing: Theme.paddingMedium
+                    x: Theme.paddingMedium
+                    width: parent.width -2*Theme.paddingMedium
+                    POIIcon{
+                        id: poiIcon
+                        poiType: type
+                        y: Theme.paddingMedium
+                        width: Theme.iconSizeMedium
+                        height: Theme.iconSizeMedium
+                    }
+                    Column{
+                        Label {
+                            font.pixelSize: Theme.fontSizeExtraLarge
+                            wrapMode: Text.Wrap
+                            color: Theme.highlightColor
+
+                            text: (previewDialog.selectedLocation.type=="coordinate") ?
+                                      Utils.formatCoord(previewDialog.selectedLocation.lat, previewDialog.selectedLocation.lon, AppSettings.gpsFormat) :
+                                      (previewDialog.selectedLocation.label==""? qsTr("Unnamed"):previewDialog.selectedLocation.label);
+                        }
+                        Label {
+                            id: entryAddress
+
+                            width: locationInfoView.width - poiIcon.width - (2*Theme.paddingMedium)
+
+                            text: addressLocation + (addressLocation!="" && addressNumber!="" ? " ":"") + addressNumber
+                            font.pixelSize: Theme.fontSizeLarge
+                            visible: addressLocation != "" || addressNumber != ""
+                        }
+                        Label {
+                            id: entryRegion
+
+                            width: locationInfoView.width - poiIcon.width - (2*Theme.paddingMedium)
+                            wrapMode: Text.WordWrap
+
+                            text: {
+                                if (region.length > 0){
+                                    var str = region[0];
+                                    if (postalCode != ""){
+                                        str += ", "+ postalCode;
+                                    }
+                                    if (region.length > 1){
+                                        for (var i=1; i<region.length; i++){
+                                            str += ", "+ region[i];
+                                        }
+                                    }
+                                    return str;
+                                }else if (postalCode!=""){
+                                    return postalCode;
+                                }
+                            }
+                            font.pixelSize: Theme.fontSizeMedium
+                            visible: region.length > 0 || postalCode != ""
+                        }
+                        PhoneRow {
+                            id: phoneRow
+                            phone: model.phone
+                        }
+                        WebsiteRow {
+                            id: websiteRow
+                            website: model.website
+                        }
+                    }
+                }
+            }
+        }
         MapComponent{
             id: previewMap
-            anchors{
-                top: header.bottom
-                right: parent.right
-                left: parent.left
-                bottom: parent.bottom
-            }
             showCurrentPosition: true
+
+             anchors{
+                 top: locationInfoView.bottom
+                 right: parent.right
+                 left: parent.left
+                 bottom: parent.bottom
+             }
         }
+
     }
 }
