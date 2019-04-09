@@ -66,7 +66,7 @@ cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTA
 # cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=DEBUG -DQT_QML_DEBUG=yes -DSANITIZE=yes -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
 
 cd ..
-make -C rpmbuilddir-%{_arch} VERBOSE=1 # %{?_smp_mflags}
+make -C rpmbuilddir-%{_arch} VERBOSE=1 %{?_smp_mflags}
 # << build pre
 
 
