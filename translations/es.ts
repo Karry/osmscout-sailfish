@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>Fuente de OSMScout</translation>
+        <translation>Fuente</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>Fuente</translation>
+        <translation>Libreria</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation>Español: Carlos Gonzalez</translation>
+        <translation>Español: Carlos Gonz</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein</source>
@@ -368,7 +368,7 @@
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Mapas con línea</translation>
+        <translation>Mapas enlínea</translation>
     </message>
     <message>
         <source>Style</source>
@@ -380,7 +380,7 @@
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Mapas sin  línea</translation>
+        <translation>Mapas sinlínea</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -428,7 +428,7 @@
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation>Sobreponer mapa</translation>
+        <translation>Superponer el mapa</translation>
     </message>
     <message>
         <source>Hill Shades</source>
@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation>Intensidad de sombra de la colina</translation>
+        <translation>Intensidad de sombreado</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
@@ -444,7 +444,7 @@
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation>Prefiere nombres en inglés</translation>
+        <translation>Preferir nombres en inglés</translation>
     </message>
 </context>
 <context>
