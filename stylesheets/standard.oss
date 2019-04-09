@@ -518,10 +518,10 @@ STYLE
 
     [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
     [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
-    [TYPE _highlighted] NODE.ICON { symbol: marker; }
+    [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
 
     [TYPE _waypoint] {
-        NODE.ICON { symbol: marker; }
+        NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
         NODE.TEXT { label: Name.name; color: #ff0000; size: 1.0; priority: @labelPrioWaypoint; }
     }
 

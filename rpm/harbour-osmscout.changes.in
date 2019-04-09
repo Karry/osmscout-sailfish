@@ -304,3 +304,4 @@
 - show current and maximum allowed speed during navigation
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.10-1
+- display waypoint and marker symbols with highest priority (on top)
