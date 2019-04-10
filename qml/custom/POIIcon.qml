@@ -38,6 +38,7 @@ Image{
                 'amenity_pharmacy': 'pharmacy',
                 'amenity_post_office_building': 'post',
                 'amenity_post_office': 'post',
+                'amenity_post_box': 'post',
                 'amenity_restaurant_building': 'restaurant',
                 'amenity_restaurant': 'restaurant',
                 'amenity_school_building': 'school',
@@ -46,8 +47,11 @@ Image{
                 'amenity_toilets': 'toilet',
 
                 'railway_station': 'rail',
+                'railway_subway': 'rail',
+                'railway_rail': 'rail',
                 'highway_bus_stop': 'bus',
                 'railway_tram_stop': 'rail-light',
+                'railway_tram': 'rail-light',
                 'aeroway_aerodrome': 'airport',
                 'aeroway_terminal': 'airport',
 
@@ -59,6 +63,7 @@ Image{
                 'leisure_swimming_pool': 'swimming',
                 'leisure_marina': 'harbor',
                 'leisure_park': 'park',
+                'leisure_garden': 'garden',
                 'leisure_playground': 'playground',
 
                 'tourism_aquarium': 'aquarium',
@@ -135,6 +140,7 @@ Image{
                 'waterway_stream': 'waterway_stream',
                 'waterway_river': 'waterway_river',
                 'waterway_canal': 'waterway_river',
+                'waterway_riverbank': 'waterway_river',
                 'landuse_reservoir': 'landuse_reservoir',
                 'natural_water': 'natural_water',
                 'natural_spring': 'water',

@@ -59,10 +59,20 @@ Page {
         delegate: Column{
             spacing: Theme.paddingSmall
 
+            // model roles:
+            //  label: object type (node / way / area)
+            //  type:  database type (amenity_hospital, parking...)
+            //  id:    file offset osed for unique identification (with object type and database instance)
+            //  name
+            //  object: overlay object
+            //  phone
+            //  website
+            //  lat
+            //  lon
             Row {
                 POIIcon{
                     id: poiIcon
-                    poiType: (typeof label=="undefined")?"":label
+                    poiType: (typeof type=="undefined")?"":type
                     width: Theme.iconSizeMedium
                     height: Theme.iconSizeMedium
                 }
@@ -92,6 +102,7 @@ Page {
                     Label {
                         id: idLabel
                         font.pixelSize: Theme.fontSizeExtraSmall
+                        color: Theme.secondaryColor
                         text: ""+id+""
                     }
               }

@@ -288,7 +288,8 @@ Page {
                 footer: Rectangle {
                     color: "transparent"
                     width: locationInfoView.width
-                    height: 2*Theme.paddingLarge
+                    // Theme.itemSizeSmall is size of IconButton
+                    height:  Theme.itemSizeSmall+Theme.paddingLarge
                 }
             }
 
