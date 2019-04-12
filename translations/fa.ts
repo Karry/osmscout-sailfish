@@ -879,78 +879,78 @@
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>متر</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>کیلومتر</translation>
     </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>غرب</translation>
     </message>
     <message>
         <source>east</source>
         <extracomment>in sense indicating location of some place: &quot;place is located EAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>شرق</translation>
     </message>
     <message>
         <source>south</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTH&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>جنوب</translation>
     </message>
     <message>
         <source>north</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTH&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>شمال</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>خانه</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>کارت اس‌دی</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>مستندات</translation>
     </message>
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>شمال شرق</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>جنوب شرق</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>جنوب غرب</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>شمال غرب</translation>
     </message>
 </context>
 <context>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>گره</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>راه</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>محیط</translation>
     </message>
 </context>
 <context>
@@ -984,7 +984,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">Building</translation>
+        <translation>ساختمان</translation>
     </message>
 </context>
 <context>
