@@ -83,6 +83,10 @@
         <source>Portuguese (Brazil): Leonardo Moura</source>
         <translation>Portugués: Leonardo Moura </translation>
     </message>
+    <message>
+        <source>Persian: Abtin Shervinmo</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collection</name>

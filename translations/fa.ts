@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fa">
+<TS version="2.1" language="fa">
 <context>
     <name>About</name>
     <message>
@@ -82,6 +82,10 @@
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
         <translation>پرتغالی: Leonardo Moura</translation>
+    </message>
+    <message>
+        <source>Persian: Abtin Shervinmo</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -562,7 +566,7 @@
     <message>
         <source>Distance</source>
         <extracomment>Distance to target, itinerary page</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">فاصله</translation>
     </message>
 </context>
 <context>
@@ -581,15 +585,15 @@
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">نام</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">توضیح</translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">مجموعه جدید</translation>
     </message>
 </context>
 <context>
@@ -631,7 +635,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">فاصله</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -650,11 +654,11 @@
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">از</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">به</translation>
     </message>
     <message>
         <source>By</source>
@@ -725,7 +729,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">مسیریابی به</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
