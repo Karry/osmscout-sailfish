@@ -84,7 +84,7 @@
         <translation>Português (Brasil) : Leonardo Moura</translation>
     </message>
     <message>
-        <source>Persian: Abtin Shervinmo</source>
+        <source>Persian: Abtin mo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

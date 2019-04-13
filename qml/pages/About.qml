@@ -177,7 +177,7 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
-                    text: qsTr("Persian: Abtin Shervinmo")
+                    text: qsTr("Persian: Abtin mo")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
                 }

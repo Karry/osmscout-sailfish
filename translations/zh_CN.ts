@@ -84,7 +84,7 @@
         <translation>葡萄牙语(巴西): Leonardo Moura</translation>
     </message>
     <message>
-        <source>Persian: Abtin Shervinmo</source>
+        <source>Persian: Abtin mo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

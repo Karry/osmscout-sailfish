@@ -84,7 +84,7 @@
         <translation>پرتغالی: Leonardo Moura</translation>
     </message>
     <message>
-        <source>Persian: Abtin Shervinmo</source>
+        <source>Persian: Abtin mo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -467,7 +467,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation type="unfinished">انتخاب محل</translation>
+        <translation>انتخاب محل</translation>
     </message>
 </context>
 <context>
