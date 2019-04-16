@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation type="unfinished"></translation>
+        <translation>Perština: Abtin mo</translation>
     </message>
 </context>
 <context>
