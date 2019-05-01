@@ -1961,6 +1961,8 @@ STYLE
    [TYPE place_millioncity] NODE.TEXT {size: 1.0; scaleMag: county;}
    [TYPE place_bigcity] NODE.TEXT {size: 1.0; scaleMag: county;}
    [TYPE place_city] NODE.TEXT {scaleMag: region;}
+ }
+ [MAG proximity-suburb] {
    [TYPE place_town] NODE.TEXT {label: IName; style: emphasize; size: 1.3; priority: @labelPrioTown;}
  }
 
