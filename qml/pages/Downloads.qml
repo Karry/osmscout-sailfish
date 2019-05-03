@@ -274,10 +274,9 @@ Page {
                             MenuItem {
                                 text: qsTr("Delete")
                                 onClicked: {
-                                    var idx = index
                                     Remorse.itemAction(installedMapItem,
                                                        qsTr("Deleting"),
-                                                       function() { installedMapsModel.deleteMap(idx) });
+                                                       function() { installedMapsModel.deleteMap(model.index) });
                                 }
                             }
                         }

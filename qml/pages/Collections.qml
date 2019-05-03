@@ -144,10 +144,9 @@ Page {
                 MenuItem {
                     text: qsTr("Delete")
                     onClicked: {
-                        var idx = model.id
                         Remorse.itemAction(collectionItem,
                                            qsTr("Deleting"),
-                                           function() { collectionListModel.deleteCollection(idx) });
+                                           function() { collectionListModel.deleteCollection(model.id) });
                     }
                 }
             }
