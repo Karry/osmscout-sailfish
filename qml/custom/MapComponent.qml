@@ -23,22 +23,21 @@ import Sailfish.Silica 1.0
 import QtPositioning 5.2
 
 import harbour.osmscout.map 1.0
+import ".." // Global singleton
 
 MapBase {
   id: map
 
   property double topMargin:0
 
-  PositionSource {
-      id: positionSource
-      active: true
-
-      onPositionChanged: {
-          map.locationChanged(
-                      position.latitudeValid && position.longitudeValid,
-                      position.coordinate.latitude, position.coordinate.longitude,
-                      position.horizontalAccuracyValid, position.horizontalAccuracy);
-      }
+  Component.onCompleted: {
+      Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+          map.locationChanged(positionValid,
+                              lat, lon,
+                              horizontalAccuracyValid, horizontalAccuracy,
+                              lastUpdate);
+      });
+      Global.positionSource.updateRequest();
   }
 
   MapRenderingIndicator{

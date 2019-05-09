@@ -41,9 +41,11 @@ CoverBackground {
             }
             map.lockToPosition = true;
             //console.log("cover activating... " + positionSource.active)
-            positionSource.active = true;
-        }else if (status == PageStatus.Deactivating){
-            positionSource.active = false;
+            //positionSource.active = true;
+            map.locationChanged(Global.positionSource.positionValid,
+                                Global.positionSource.lat, Global.positionSource.lon,
+                                Global.positionSource.horizontalAccuracyValid, Global.positionSource.horizontalAccuracy,
+                                Global.positionSource.lastUpdate);
         }
     }
 
@@ -56,30 +58,18 @@ CoverBackground {
                 map.addOverlayObject(0,way);
             }
         });
+
+        //Global.positionSource.onUpdate.connect(function(){});
+        Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+            if (cover.status == PageStatus.Active){
+                map.locationChanged(positionValid,
+                                    lat, lon,
+                                    horizontalAccuracyValid, horizontalAccuracy,
+                                    lastUpdate);
+            }
+        });
     }
 
-    PositionSource {
-        id: positionSource
-
-        active: true
-
-        property bool valid: false;
-        property double lat: 0.0;
-        property double lon: 0.0;
-
-        onPositionChanged: {
-            positionSource.valid = position.latitudeValid && position.longitudeValid;
-            positionSource.lat = position.coordinate.latitude;
-            positionSource.lon = position.coordinate.longitude;
-
-            map.locationChanged(
-               position.latitudeValid && position.longitudeValid,
-               position.coordinate.latitude, position.coordinate.longitude,
-               position.horizontalAccuracyValid, position.horizontalAccuracy);
-
-            //console.log("cover map position changed")
-        }
-    }
     OpacityRampEffect {
         enabled: true
         offset: 1. - (header.height + Theme.paddingLarge) / map.height

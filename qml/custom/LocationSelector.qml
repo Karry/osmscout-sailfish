@@ -25,28 +25,10 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "Utils.js" as Utils
+import ".." // Global singleton
 
 ComboBox {
-    PositionSource {
-        id: positionSource
 
-        active: true
-
-        property bool valid: false;
-        property double lat: 0.0;
-        property double lon: 0.0;
-
-        onPositionChanged: {
-            positionSource.valid = position.latitudeValid && position.longitudeValid;
-            positionSource.lat = position.coordinate.latitude;
-            positionSource.lon = position.coordinate.longitude;
-
-            if (useCurrentLocation){
-                location=routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
-                console.log("Update and use current position: "+positionSource.lat + " " + positionSource.lon);
-            }
-        }
-    }
     RoutingListModel{
         id: routingModel
     }
@@ -83,16 +65,16 @@ ComboBox {
         console.log("Activated, index: "+activeIndex);
         if (activeIndex==0){
             value=currentLocationStr;
-            location=routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
+            location=routingModel.locationEntryFromPosition(Global.positionSource.lat, Global.positionSource.lon);
             useCurrentLocation=true;
-            console.log("Use current position: "+positionSource.lat + " " + positionSource.lon);
+            console.log("Use current position: " + Global.positionSource.lat + " " + Global.positionSource.lon);
         }
         if (activeIndex==1){
             location=null; // in case of search cancel
             var searchPage=pageStack.push(Qt.resolvedUrl("../pages/Search.qml"),
                                           {
-                                              searchCenterLat: positionSource.lat,
-                                              searchCenterLon: positionSource.lon,
+                                              searchCenterLat: Global.positionSource.lat,
+                                              searchCenterLon: Global.positionSource.lon,
                                               acceptDestination: pageStack.currentPage,
                                               enableContextMenu: false
                                           });
@@ -104,8 +86,8 @@ ComboBox {
             location=null; // in case of search cancel
             var pickPage=pageStack.push(Qt.resolvedUrl("../pages/PlacePicker.qml"),
                                           {
-                                              mapLat: positionSource.lat,
-                                              mapLon: positionSource.lon
+                                              mapLat: Global.positionSource.lat,
+                                              mapLon: Global.positionSource.lon
                                           });
             pickPage.pickPlace.connect(pickPlace);
             value=selectLocationStr;
@@ -139,12 +121,20 @@ ComboBox {
         currentIndex = -1;
         console.log("onCompleted, initialised: "+initialized+", index: "+currentIndex);
         if (initWithCurrentLocation){
-            if (positionSource.valid){
+            if (Global.positionSource.positionValid){
                 currentIndex=0;
                 activated(0);
             }else{
                 console.log("Position is not valid yet")
             }
         }
+
+        Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+            if (useCurrentLocation && positionValid){
+                location=routingModel.locationEntryFromPosition(lat, lon);
+                console.log("Update and use current position: " + lat + " " + lon);
+            }
+        });
+        Global.positionSource.updateRequest();
     }
 }

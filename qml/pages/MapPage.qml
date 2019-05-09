@@ -96,59 +96,6 @@ Page {
         id: settings
     }
 
-    PositionSource {
-        id: positionSource
-
-        active: true
-
-        property bool valid: false;
-        property double lat: 0.0;
-        property double lon: 0.0;
-
-        onValidChanged: {
-            console.log("Positioning is " + valid)
-            console.log("Last error " + sourceError)
-
-            for (var m in supportedPositioningMethods) {
-                console.log("Method " + m)
-            }
-        }
-
-        onPositionChanged: {
-            /*
-            console.log("Position changed:")
-
-            if (position.latitudeValid) {
-                console.log("  latitude: " + position.coordinate.latitude)
-            }
-
-            if (position.longitudeValid) {
-                console.log("  longitude: " + position.coordinate.longitude)
-            }
-
-            if (position.altitudeValid) {
-                console.log("  altitude: " + position.coordinate.altitude)
-            }
-
-            if (position.speedValid) {
-                console.log("  speed: " + position.speed)
-            }
-
-            if (position.horizontalAccuracyValid) {
-                console.log("  horizontal accuracy: " + position.horizontalAccuracy)
-            }
-
-            if (position.verticalAccuracyValid) {
-                console.log("  vertical accuracy: " + position.verticalAccuracy)
-            }
-            */
-
-            positionSource.valid = position.latitudeValid && position.longitudeValid;
-            positionSource.lat = position.coordinate.latitude;
-            positionSource.lon = position.coordinate.longitude;
-        }
-    }
-
     Drawer {
         id: drawer
         anchors.fill: parent
@@ -175,7 +122,7 @@ Page {
                 id: searchRow
 
                 function isEnabled(action){
-                    return ((action == "whereami" && positionSource.valid) ||
+                    return ((action == "whereami" && Global.positionSource.positionValid) ||
                             action == "about" || action == "layers" || action == "search" || 
                             action == "downloads" || action == "routing" || action == "collections");
                 }
@@ -188,11 +135,11 @@ Page {
                     AppSettings.mapView = map.view;
 
                     if (action == "whereami"){
-                        if (positionSource.valid){
+                        if (Global.positionSource.positionValid){
                             pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
                                            {
-                                               placeLat: positionSource.lat,
-                                               placeLon: positionSource.lon
+                                               placeLat: Global.positionSource.lat,
+                                               placeLon: Global.positionSource.lon
                                            })
                         }else{
                             console.log("I can't say where you are. Position is not valid!")
@@ -202,8 +149,8 @@ Page {
                     }else if (action == "search"){
                         var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
                                                       {
-                                                          searchCenterLat: positionSource.lat,
-                                                          searchCenterLon: positionSource.lon,
+                                                          searchCenterLat: Global.positionSource.lat,
+                                                          searchCenterLon: Global.positionSource.lon,
                                                           acceptDestination: mapPage
                                                       });
                         searchPage.selectLocation.connect(selectLocation);
@@ -366,7 +313,10 @@ Page {
                     width: 20
                     height: 20
 
-                    color: positionSource.valid ? "#6000FF00" : "#60FF0000"
+                    color: Global.positionSource.positionValid &&
+                           ((new Date()).getTime() - Global.positionSource.lastUpdate.getTime() < 60000) ?
+                               "#6000FF00" : "#60738d73"
+
                     border.color: Theme.rgba(Theme.primaryColor, 0.8)
                     border.width: 1
                     radius: width*0.5
@@ -393,8 +343,8 @@ Page {
                       running: false
                       repeat: false
                       onTriggered: {
-                          if (positionSource.valid){
-                              map.showCoordinates(positionSource.lat, positionSource.lon);
+                          if (Global.positionSource.positionValid){
+                              map.showCoordinates(Global.positionSource.lat, Global.positionSource.lon);
                           }
                       }
                   }
@@ -404,7 +354,7 @@ Page {
                   }
                   onDoubleClicked: {
                       showCurrentPositionTimer.running = false;
-                      if (positionSource.valid){
+                      if (Global.positionSource.positionValid){
                           map.lockToPosition = !map.lockToPosition;
                           console.log(map.lockToPosition ? "bound map with current possition" : "unbound map from current possition");
                       }

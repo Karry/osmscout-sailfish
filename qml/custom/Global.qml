@@ -34,6 +34,7 @@ Item {
     property var remorse
     property alias routingModel: routingModel
     property alias navigationModel: navigationModel
+    property alias positionSource: positionSource
 
     NavigationModel {
         id: navigationModel
@@ -121,26 +122,65 @@ Item {
     PositionSource {
         id: positionSource
 
-        active: navigationModel.destinationSet
+        active: true
 
-        property bool valid: false;
-        property double lat: 0.0;
-        property double lon: 0.0;
+        updateInterval: 1000 // ms
 
-        onValidChanged: {
-            console.log("Positioning is " + valid)
+        property bool positionValid: false
+        property double lat: 0.0
+        property double lon: 0.0
+
+        property date lastUpdate: new Date()
+
+        property bool horizontalAccuracyValid: false
+        property double horizontalAccuracy: 0
+
+        property double altitude: 0
+        property bool altitudeValid: false
+        property date lastAltitudeUpdate: new Date()
+
+        property double verticalAccuracy: 0
+        property bool verticalAccuracyValid: false
+
+        signal update(bool positionValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy, date lastUpdate)
+
+        function updateRequest(){
+            update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
+        }
+
+        onPositionValidChanged: {
+            console.log("Positioning is " + (positionValid ? "valid":"invalid"))
             console.log("Last error " + sourceError)
+            console.log("Last update " + lastUpdate)
 
             for (var m in supportedPositioningMethods) {
                 console.log("Method " + m)
             }
+            update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
         }
 
         onPositionChanged: {
-            positionSource.valid = position.latitudeValid && position.longitudeValid;
             positionSource.lat = position.coordinate.latitude;
             positionSource.lon = position.coordinate.longitude;
+            positionSource.horizontalAccuracyValid = position.horizontalAccuracyValid;
+            positionSource.horizontalAccuracy = position.horizontalAccuracy;
 
+            positionSource.positionValid = position.latitudeValid &&
+                                           position.longitudeValid &&
+                                           !isNaN(lat) && !isNaN(lon);
+
+            if (position.altitudeValid){
+                altitude = position.coordinate.altitude;
+                altitudeValid = true;
+                lastAltitudeUpdate = position.timestamp ? position.timestamp : new Date();
+                verticalAccuracy = position.verticalAccuracy;
+                verticalAccuracyValid = position.verticalAccuracyValid;
+            }
+
+            lastUpdate = position.timestamp ? position.timestamp : new Date();
+            update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
+
+            // update location for navigation
             if (navigationModel.destinationSet){
                 navigationModel.locationChanged(valid, // valid
                                                 lat, lon,
@@ -148,12 +188,6 @@ Item {
                                                 position.horizontalAccuracy);
             }
             // console.log("position: " + latitude + " " + longitude);
-
-            //if ((!navigationModel.positionOnRoute) &&
-            //        routingModel.ready &&
-            //        navigationModel.destinationSet){
-            //    reroute();
-            //}
         }
     }
 

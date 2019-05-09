@@ -60,15 +60,13 @@ Page {
         id: settings
     }
 
-    PositionSource {
-        id: positionSource
-        active: true
-
-        onPositionChanged: {
-            currentLocValid = position.latitudeValid && position.longitudeValid;
-            currentLocLat = position.coordinate.latitude;
-            currentLocLon = position.coordinate.longitude;
-        }
+    Component.onCompleted: {
+        Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+            currentLocValid = positionValid;
+            currentLocLat = lat;
+            currentLocLon = lon;
+        });
+        Global.positionSource.updateRequest();
     }
 
     LocationInfoModel{
@@ -178,6 +176,7 @@ Page {
                     color: Theme.highlightColor
                     //width: parent.width
                     font.pixelSize: Theme.fontSizeSmall
+                    visible: currentLocValid
                     anchors{
                         right: clipboardBtn.left
                         bottom: parent.bottom
