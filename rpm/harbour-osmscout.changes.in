@@ -303,7 +303,7 @@
 - setting option for preference of English names instead of local
 - show current and maximum allowed speed during navigation
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.10-1
+* 2019-05-10 Lukáš Karas <lukas.karas@centrum.cz> 1.10-1
 - update translations, added Persian
 - display waypoint and marker symbols with highest priority (on top)
 - show more details about search item on preview dialog
