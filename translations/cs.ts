@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout %1</source>
-        <translation>OSM Scout %1</translation>
+        <translation type="vanished">OSM Scout %1</translation>
     </message>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>About</source>
-        <translation>O OSM Scout</translation>
+        <translation type="vanished">O OSM Scout</translation>
     </message>
     <message>
         <source>GitHub page</source>

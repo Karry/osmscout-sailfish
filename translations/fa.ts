@@ -4,16 +4,12 @@
 <context>
     <name>About</name>
     <message>
-        <source>OSM Scout %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>او‌اس‌ام اسکات برای سیستم‌عامل سیلفیش به عنوان نرم‌آفزار آزاد بوسیله داوطلبان در زمان آزادشان توسعه یافته.شما میتوانید با گزارش باگ‌ها ،یا ساختن ترجمه‌ها یا توسعه ویژگی‌های جدید به ارتقاء این برنامه کمک کنید. </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>درباره</translation>
+        <translation type="vanished">درباره</translation>
     </message>
     <message>
         <source>GitHub page</source>
