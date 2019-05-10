@@ -36,22 +36,18 @@ Page {
 
         VerticalScrollDecorator {}
 
-        Rectangle{
+        Image{
             id: header
 
-            height: icon.height + 2* Theme.paddingLarge
-            Image{
-                id: icon
-                source: "image://theme/harbour-osmscout"
-                x: 2* Theme.paddingLarge
-                y: Theme.paddingLarge
-            }
-            PageHeader {
-                id: headerText
-                anchors.left: icon.right
-                anchors.verticalCenter: parent.verticalCenter
-                title: qsTr("OSM Scout %1").arg(OSMScoutVersionString)
-            }
+            source: 'image://harbour-osmscout/pics/cover.png'
+
+            width: parent.width
+            x:0
+            y:0
+            fillMode: Image.PreserveAspectCrop
+            horizontalAlignment: Image.AlignHCenter
+            verticalAlignment: Image.AlignTop
+            height: Math.min((width / 1920) * 1080, 512)
         }
 
         Column {
@@ -59,9 +55,10 @@ Page {
             width: parent.width
             anchors.top: header.bottom
 
-            SectionHeader{
-                id: aboutHeader
-                text: qsTr("About")
+            Rectangle{
+                color: "transparent"
+                width: parent.width
+                height: Theme.paddingLarge
             }
 
             Label{
