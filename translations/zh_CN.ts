@@ -4,16 +4,8 @@
 <context>
     <name>About</name>
     <message>
-        <source>OSM Scout %1</source>
-        <translation type="vanished">OSM Scout %1</translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>旗鱼系统的OSM Scout是作为开源软件在志愿者们的闲暇时间开发的、你可以通过报告漏洞帮助改善此应用，创建翻译或开发新特性。欢迎任何帮助！</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="vanished">关于</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -85,7 +77,7 @@
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation type="unfinished"></translation>
+        <translation>波斯语: Abtin mo</translation>
     </message>
 </context>
 <context>
