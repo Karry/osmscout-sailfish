@@ -4,16 +4,8 @@
 <context>
     <name>About</name>
     <message>
-        <source>OSM Scout %1</source>
-        <translation type="vanished">OSM Scout %1</translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSM Scout für Sailfish OS wird als Open-Source-Projekt von Freiwilligen in ihrer Freizeit entwickelt. Sie können helfen diese Applikation zu verbessern, in dem Sie Fehler melden, diese App in eine neue Sprache übersetzen oder neue Funktionen implementieren. Jede Hilfe ist willkommen.</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="vanished">Über OSM Scout</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -81,11 +73,11 @@
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugiesisch (Brasilianisch): Leonardo Moura</translation>
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation type="unfinished"></translation>
+        <translation>Persisch: Abtin mo</translation>
     </message>
 </context>
 <context>
@@ -448,7 +440,7 @@
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevorzuge Englische Bezeichnungen</translation>
     </message>
 </context>
 <context>
@@ -738,15 +730,15 @@
     </message>
     <message>
         <source>Pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Kneipe</translation>
     </message>
     <message>
         <source>Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar</translation>
     </message>
     <message>
         <source>Pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Apotheke</translation>
     </message>
 </context>
 <context>
@@ -1270,7 +1262,7 @@
     </message>
     <message>
         <source>Watercolor</source>
-        <translation>Farbe des Wassers</translation>
+        <translation>Wasserfarbe</translation>
     </message>
 </context>
 <context>
