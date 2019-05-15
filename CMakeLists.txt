@@ -101,7 +101,7 @@ else()
 endif()
 
 add_definitions( -Wall -pedantic -fPIC -Wno-unused-function)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON) # build should fail when compiler don't support standard defined by CMAKE_CXX_STANDARD
 
 # Do *NOT* turn assertions off in release and rel-with-deb-info modes.
 # CMakes does that by default despite any recent documentation
@@ -371,7 +371,7 @@ qt5_create_translation(TRANSLATION_QM_FILES
 add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${QML_FILES})
-set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 11)
+set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 14)
 set_property(TARGET harbour-osmscout PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
 add_dependencies(harbour-osmscout translations)
 
@@ -464,7 +464,7 @@ set(SOURCE_FILES
 )
 
 add_executable(PerformanceTest ${SOURCE_FILES})
-set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 11)
+set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 14)
 
 target_include_directories(PerformanceTest PRIVATE 
         ${OSMSCOUT_INCLUDE_DIRS}
@@ -490,7 +490,7 @@ set(SOURCE_FILES
         )
 
 add_executable(SearchPerfTest ${SOURCE_FILES})
-set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 11)
+set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 14)
 
 target_include_directories(SearchPerfTest PRIVATE
         ${OSMSCOUT_INCLUDE_DIRS}
@@ -513,7 +513,7 @@ target_link_libraries(SearchPerfTest
 # MultiDBRouting
 
 add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRouting.cpp)
-set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 11)
+set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 14)
 target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(MultiDBRouting
         OSMScout
@@ -523,7 +523,7 @@ target_link_libraries(MultiDBRouting
 # Routing
 
 add_executable(Routing ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/Routing.cpp)
-set_property(TARGET Routing PROPERTY CXX_STANDARD 11)
+set_property(TARGET Routing PROPERTY CXX_STANDARD 14)
 target_include_directories(Routing PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(Routing
         OSMScout
