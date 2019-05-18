@@ -25,11 +25,11 @@
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation>Чешский: Lukáš Karas</translation>
+        <translation>Чешский: Lukas Karas</translation>
     </message>
     <message>
         <source>Hungarian: Miklós Márton</source>
-        <translation>Венгерский: Miklós Márton</translation>
+        <translation>Венгерский: Miklos Marton</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
@@ -37,11 +37,11 @@
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
-        <translation>Шведский: Åke Engelbrektson</translation>
+        <translation>Шведский: Ake Engelbrektson</translation>
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation>Норвежский (Bokmål): Håvard Moen</translation>
+        <translation>Норвежский (Букмол): Havard Moen</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
