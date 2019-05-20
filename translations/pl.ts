@@ -4,16 +4,8 @@
 <context>
     <name>About</name>
     <message>
-        <source>OSM Scout %1</source>
-        <translation type="vanished">OSM Scout %1</translation>
-    </message>
-    <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSM Scout jest rozwijany jako otwarte oprogramowanie przez wolontariuszy w ich wolnym czasie. Możesz pomóc rozwijać tą aplikację przez raportowanie błędów, tłumaczenie oraz pisanie nowych funkcji.</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="vanished">O OSM Scout</translation>
     </message>
     <message>
         <source>GitHub page</source>

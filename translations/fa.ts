@@ -8,10 +8,6 @@
         <translation>او‌اس‌ام اسکات برای سیستم‌عامل سیلفیش به عنوان نرم‌آفزار آزاد بوسیله داوطلبان در زمان آزادشان توسعه یافته.شما میتوانید با گزارش باگ‌ها ،یا ساختن ترجمه‌ها یا توسعه ویژگی‌های جدید به ارتقاء این برنامه کمک کنید. </translation>
     </message>
     <message>
-        <source>About</source>
-        <translation type="vanished">درباره</translation>
-    </message>
-    <message>
         <source>GitHub page</source>
         <translation>صفحه گیتهاب</translation>
     </message>

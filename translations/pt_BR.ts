@@ -8,10 +8,6 @@
         <translation>OSM Scout para Sailfish OS é desenvolvido como open-source por voluntários em seu tempo livre. Você pode ajudar a melhorar este aplicativo reportando bugs, traduzindo ou desenvolvendo novas funções. Toda ajuda é  bem-vinda.</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation type="vanished">Sobre</translation>
-    </message>
-    <message>
         <source>GitHub page</source>
         <translation>GitHub</translation>
     </message>
