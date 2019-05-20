@@ -1,3 +1,3 @@
 #!/bin/bash
 set -xe
-/usr/local/bin/tx -d push -st "$@"
+/usr/bin/tx -d push -st "$@"
