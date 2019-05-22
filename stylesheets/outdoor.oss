@@ -17,7 +17,7 @@ OSS
         leisure_track,
       waterway_stream, route_ferry
   GROUP highway_steps, barrier_fence
-  GROUP waterway_river, waterway_canal, waterway_drain
+  GROUP waterway_river, waterway_canal, waterway_drain, waterway_ditch
   GROUP elevation_contour_major, elevation_contour_medium, elevation_contour_minor
 
 CONST
@@ -494,7 +494,7 @@ STYLE
      [SIZE 2m <0.15mm:3px] WAY {color: @waterColor; displayWidth: 0.15mm;}
    }
 
-   [TYPE waterway_drain, waterway_intermittent_drain] {
+   [TYPE waterway_drain, waterway_intermittent_drain, waterway_ditch] {
      [SIZE 3m 0.1mm:3px<] WAY {color: @waterColor; width: 3m;}
      [SIZE 3m <0.1mm:3px] WAY {color: @waterColor; displayWidth: 0.1mm; }
    }
@@ -512,7 +512,7 @@ STYLE
 
  [MAG block-] {
    [TYPE waterway_stream, waterway_intermittent_stream,
-         waterway_drain, waterway_intermittent_drain]
+         waterway_drain, waterway_ditch, waterway_intermittent_drain]
      WAY.TEXT { label: Name.name;}
  }
 
