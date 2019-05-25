@@ -460,7 +460,8 @@ Page {
                 }
                 Text{
                     id: arrivalTime
-                    text: isNaN(Global.navigationModel.arrivalEstimate.getTime()) ? "" : Qt.formatTime(Global.navigationModel.arrivalEstimate)
+                    text: qsTr("ETA %1").arg(Qt.formatTime(Global.navigationModel.arrivalEstimate))
+                    visible: !isNaN(Global.navigationModel.arrivalEstimate.getTime())
                     color: Theme.secondaryColor
                     font.pixelSize: Theme.fontSizeLarge
                     anchors{

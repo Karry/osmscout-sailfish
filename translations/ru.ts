@@ -539,6 +539,10 @@
         <source>Stop navigation</source>
         <translation>Отменить маршрут</translation>
     </message>
+    <message>
+        <source>ETA %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
