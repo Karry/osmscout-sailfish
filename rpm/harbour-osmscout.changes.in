@@ -309,7 +309,7 @@
 - show more details about search item on preview dialog
 - fixed crashes when GPS is disabled
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.11-1
+* 2019-05-25 Lukáš Karas <lukas.karas@centrum.cz> 1.11-1
 - update translations (German, Chinese, Russian...)
 - fix race condition in node index
 - show estimated car (vehicle) position during navigation
