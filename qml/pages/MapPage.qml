@@ -202,6 +202,7 @@ Page {
             topMargin: nextStepBox.height + speedIndicator.height
 
             showCurrentPosition: true
+            vehiclePosition: Global.navigationModel.vehiclePosition
 
             CollectionMapBridge{
                 map: map

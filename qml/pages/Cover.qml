@@ -154,8 +154,10 @@ CoverBackground {
             map: map
         }
 
-        showCurrentPosition: true
+        showCurrentPosition: Global.navigationModel.vehiclePosition == null
         lockToPosition: true
+        vehiclePosition: Global.navigationModel.vehiclePosition
+        vehicleIconSize: 10
     }
 
     Timer {
