@@ -2105,6 +2105,7 @@
      preserveAspectRatio="none"
      height="1080"
      width="1920" />
+  <!--
   <g
      id="icon"
      transform="translate(337.513,46.15)"
@@ -2126,6 +2127,7 @@
        y="835.81036"
        id="text4187">OSM Scout</text>
   </g>
+  -->
   <g
      id="label-3"
      transform="matrix(3.6981734,0,0,3.6981734,686.53304,-2788.1802)"
