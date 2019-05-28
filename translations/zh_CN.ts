@@ -551,7 +551,7 @@
     </message>
     <message>
         <source>ETA %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ETA %1</translation>
     </message>
 </context>
 <context>
