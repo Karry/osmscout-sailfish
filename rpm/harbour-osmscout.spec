@@ -30,10 +30,6 @@ License:    GPLv2
 URL:        https://github.com/Karry/osmscout-sailfish
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-osmscout.yaml
-Requires:   sailfishsilica-qt5 >= 0.10.9
-Requires:   qt5-qtpositioning >= 5.2.0
-Requires:   qt5-qtdeclarative-import-positioning >= 5.2.0
-Requires:   libxml2 >= 2.9.1
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
