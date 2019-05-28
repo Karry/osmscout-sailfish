@@ -95,6 +95,7 @@ Page {
                     model:mapDownloadsModel
 
                     delegate: ListItem{
+                        id: downloadingItem
                         Row{
                             spacing: Theme.paddingMedium
                             x: Theme.paddingMedium
@@ -126,6 +127,18 @@ Page {
                                                   qsTranslate("message", errorString) :
                                                   (progressDescription!="" ? "(" + progressDescription + ")": "")
                                     }
+                                }
+                            }
+                        }
+                        menu: ContextMenu {
+                            MenuItem {
+                                //: Context menu for downloading map
+                                text: qsTr("Cancel")
+                                onClicked: {
+                                    Remorse.itemAction(downloadingItem,
+                                                       //: label for remorse timer when canceling the download
+                                                       qsTr("Canceling"),
+                                                       function() { mapDownloadsModel.cancel(model.index); });
                                 }
                             }
                         }

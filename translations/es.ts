@@ -334,6 +334,16 @@
         <source>Update all</source>
         <translation>Actualizar todo</translation>
     </message>
+    <message>
+        <source>Cancel</source>
+        <extracomment>Context menu for downloading map</extracomment>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Canceling</source>
+        <extracomment>label for remorse timer when canceling the download</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Global</name>
