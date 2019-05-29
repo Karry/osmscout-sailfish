@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation type="unfinished"></translation>
+        <translation>Persa: Abtin mo</translation>
     </message>
 </context>
 <context>
@@ -337,12 +337,12 @@
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Cancelando</translation>
     </message>
 </context>
 <context>
@@ -355,7 +355,7 @@
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>Parando navegación</translation>
+        <translation>Deteniendo navegación</translation>
     </message>
 </context>
 <context>
@@ -461,7 +461,7 @@
     </message>
     <message>
         <source>Current location</source>
-        <translation>Ubicación actual</translation>
+        <translation>Ubicación</translation>
     </message>
     <message>
         <source>Search</source>
@@ -469,7 +469,7 @@
     </message>
     <message>
         <source>Pick a place</source>
-        <translation>Marcar un lugar</translation>
+        <translation>Marcar</translation>
     </message>
 </context>
 <context>
@@ -551,14 +551,14 @@
     </message>
     <message>
         <source>ETA %1</source>
-        <translation type="unfinished"></translation>
+        <translation>HEA %1</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation>Parar navegación</translation>
+        <translation>Detener navegación</translation>
     </message>
     <message>
         <source>Itinerary</source>
@@ -567,7 +567,7 @@
     </message>
     <message>
         <source>Arrival</source>
-        <translation>llegada</translation>
+        <translation>Arribo</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -1145,7 +1145,7 @@
     </message>
     <message>
         <source>Target reached</source>
-        <translation>A llegado a su destino</translation>
+        <translation>A llegado al destino</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
