@@ -315,5 +315,6 @@
 - show estimated car (vehicle) position during navigation
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.12-1
+- update translations
 - rewrite downloader internals
 - make possible to cancel running map download

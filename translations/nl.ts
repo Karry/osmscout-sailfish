@@ -337,12 +337,12 @@
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished">Annuleren</translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Wordt geannuleerd</translation>
     </message>
 </context>
 <context>
@@ -551,7 +551,7 @@
     </message>
     <message>
         <source>ETA %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ETA %1</translation>
     </message>
 </context>
 <context>
