@@ -45,6 +45,7 @@ Image{
                 'amenity_school': 'school',
                 'amenity_ferry_terminal': 'ferry',
                 'amenity_toilets': 'toilet',
+                'amenity_drinking_water': 'drinking-water',
 
                 'railway_station': 'rail',
                 'railway_subway': 'rail',
@@ -143,8 +144,7 @@ Image{
                 'waterway_riverbank': 'waterway_river',
                 'landuse_reservoir': 'landuse_reservoir',
                 'natural_water': 'natural_water',
-                'natural_spring': 'water',
-                'amenity_drinking_water': 'water'
+                'natural_spring': 'water'
 
         }
 

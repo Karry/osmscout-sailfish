@@ -319,3 +319,4 @@
 - rewrite downloader internals
 - make possible to cancel running map download
 - display springs in standard and outdoor stylesheets
+- add spring to POI search

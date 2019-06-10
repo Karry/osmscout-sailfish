@@ -754,6 +754,10 @@
         <source>Pharmacy</source>
         <translation>Apotheke</translation>
     </message>
+    <message>
+        <source>Spring</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
