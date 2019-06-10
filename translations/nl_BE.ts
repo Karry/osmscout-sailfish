@@ -757,7 +757,7 @@
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Bron</translation>
     </message>
 </context>
 <context>
