@@ -191,6 +191,11 @@ SYMBOL natural_spring
     AREA {color: @waterLabelColor; }
   }
 
+SYMBOL amenity_drinking_water
+  CIRCLE 0,0 0.3 {
+    AREA {color: @waterLabelColor; }
+  }
+
 SYMBOL border
   RECTANGLE 0,0.45 0.1 x 1 { 
     AREA { color: #000000; }
@@ -1460,6 +1465,8 @@ STYLE
    [TYPE amenity_post_box] NODE.ICON { symbol: amenity_post_box; }
 
    [TYPE amenity_post_office] NODE.ICON { symbol: amenity_post_office; }
+
+   [TYPE amenity_drinking_water] NODE.ICON { symbol: amenity_drinking_water; }
 
    [TYPE amenity] NODE.ICON { symbol: amenity; }
 
