@@ -399,7 +399,7 @@ CONST
     }
 
   SYMBOL amenity_drinking_water
-    CIRCLE 0,0 0.3 {
+    CIRCLE 0,0 0.4 {
       AREA {color: @waterLabelColor; }
     }
 
