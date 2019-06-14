@@ -42,6 +42,8 @@ Item{
         QT_TRANSLATE_NOOP("message", "Connection refused"),
         QT_TRANSLATE_NOOP("message", "Socket operation timed out"),
         QT_TRANSLATE_NOOP("message", "Network session error."),
+        // MapDownloadJob
+        QT_TRANSLATE_NOOP("message", "Not enough space"),
 
         QT_TRANSLATE_NOOP("databaseType", "node"),
         QT_TRANSLATE_NOOP("databaseType", "way"),

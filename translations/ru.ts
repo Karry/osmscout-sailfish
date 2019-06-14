@@ -994,6 +994,10 @@
         <source>Network session error.</source>
         <translation>Ошибка сети.</translation>
     </message>
+    <message>
+        <source>Not enough space</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>objectType</name>
