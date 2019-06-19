@@ -316,7 +316,7 @@
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.12-1
 - update translations
-- rewrite downloader internals
+- rewrite downloader internals, improve error handling
 - make possible to cancel running map download
 - display springs in standard and outdoor stylesheets
 - add spring to POI search

@@ -25,6 +25,7 @@ import harbour.osmscout.map 1.0
 
 import "../custom"
 import "../custom/Utils.js" as Utils
+import ".." // Global singleton
 
 Page {
     id: downloadsPage
@@ -36,7 +37,11 @@ Page {
     MapDownloadsModel{
         id:mapDownloadsModel
         onMapDownloadFails: {
-            remorse.execute(qsTranslate("message", message), function() { }, 10 * 1000);
+            var msg = qsTranslate("message", message);
+            console.log("Map download fail: " + msg);
+
+            remorse.execute(msg, function() { }, 10 * 1000);
+            Global.remorse.execute(msg, function() { }, 10 * 1000);
         }
     }
     AvailableMapsModel{

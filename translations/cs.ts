@@ -996,7 +996,7 @@
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedostatek volného místa</translation>
     </message>
 </context>
 <context>
