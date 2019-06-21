@@ -183,6 +183,14 @@ SYMBOL cliff
     AREA { color: @cliffColor;}
   }
 
+SYMBOL natural_tree
+  CIRCLE 0,0 1 {
+    AREA {color: #9acd32; }
+  }
+  CIRCLE 0,0 0.3 {
+    AREA {color: #8b4513; }
+  }
+
 SYMBOL natural_spring
   CIRCLE 0,0 1.0 {
     AREA.BORDER {color: @waterLabelColor; width: 0.2mm; }
@@ -1019,6 +1027,8 @@ STYLE
        WAY#rbridge {color: @bridgeColor; displayWidth: 0.1mm; displayOffset: 0.35mm;}
      }
    }
+
+   [TYPE natural_tree] NODE.ICON { symbol: natural_tree; name: tree; }
  }
 
  [MAG 17-] {
