@@ -314,9 +314,9 @@
 - fix race condition in node index
 - show estimated car (vehicle) position during navigation
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.12-1
+* 2019-06-21 Lukáš Karas <lukas.karas@centrum.cz> 1.12-1
 - update translations
 - rewrite downloader internals, improve error handling
 - make possible to cancel running map download
-- display springs in standard and outdoor stylesheets
+- display springs, trees in standard and outdoor stylesheets
 - add spring to POI search
