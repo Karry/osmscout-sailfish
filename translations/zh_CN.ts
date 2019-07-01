@@ -337,12 +337,12 @@
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>正在取消</translation>
     </message>
 </context>
 <context>
@@ -757,7 +757,7 @@
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>泉水</translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>空间不足</translation>
     </message>
 </context>
 <context>
