@@ -759,6 +759,10 @@
         <extracomment>start of stream/river, drining water sometimes</extracomment>
         <translation>Pramen</translation>
     </message>
+    <message>
+        <source>Castle, Manor</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

@@ -422,6 +422,8 @@ Page {
         ListElement { label: QT_TR_NOOP("Accomodation");  iconType: "tourism_hotel";      distance: 10000;
             types: "tourism_hotel tourism_hotel_building tourism_hostel tourism_hostel_building tourism_motel tourism_motel_building tourism_alpine_hut tourism_alpine_hut_building"; }
         ListElement { label: QT_TR_NOOP("Camp");          iconType: "tourism_camp_site";  distance: 10000; types: "tourism_camp_site tourism_caravan_site"; }
+        ListElement { label: QT_TR_NOOP("Castle, Manor"); iconType: "historic_castle";    distance: 10000;
+            types: "historic_castle historic_castle_building historic_manor historic_manor_building historic_ruins historic_ruins_building"; }
         //: start of stream/river, drining water sometimes
         ListElement { label: QT_TR_NOOP("Spring");        iconType: "natural_spring";     distance: 2000; types: "natural_spring"; }
 
