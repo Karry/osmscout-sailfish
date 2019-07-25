@@ -34,6 +34,9 @@ Dialog{
     property string description;
     property double latitude;
     property double longitude;
+    property date time;
+    property var elevation;
+
     property alias previewMap: wptPreviewMap
 
     acceptDestination: collectionPage.acceptDestination
@@ -96,6 +99,21 @@ Dialog{
                             //visible: text != ""
                             color: Theme.secondaryColor
                             wrapMode: Text.WordWrap
+                        }
+                        DetailItem {
+                            id: duration
+                            visible: Qt.formatDateTime(waypointDialog.time) != ""
+                            //: date time when waypoint was created
+                            label: qsTr("Created")
+                            value: Qt.formatDateTime(waypointDialog.time)
+                        }
+                        DetailItem {
+                            id: elevation
+                            visible: waypointDialog.elevation != null
+                            label: qsTr("Elevation")
+                            //: elevation - meters above sea level
+                            value: qsTr("%1 m a.s.l.")
+                                .arg(Math.round(waypointDialog.elevation))
                         }
                         Rectangle {
                             id: footer

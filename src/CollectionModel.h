@@ -81,9 +81,10 @@ public:
     SymbolRole = Qt::UserRole+5,
     LatitudeRole = Qt::UserRole+6,
     LongitudeRole = Qt::UserRole+7,
+    ElevationRole = Qt::UserRole+8,
 
     // type == track
-    DistanceRole = Qt::UserRole+8
+    DistanceRole = Qt::UserRole+9
   };
   Q_ENUM(Roles)
 

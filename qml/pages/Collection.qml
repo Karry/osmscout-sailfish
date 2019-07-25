@@ -26,6 +26,7 @@ import QtQml.Models 2.1
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 
 Page {
     id: collectionPage
@@ -105,13 +106,14 @@ Page {
                 id: entryDescription
                 x: Theme.paddingMedium
                 anchors.left: entryIcon.right
-                anchors.right: parent.right
+                anchors.right: detailColumn.left
                 anchors.verticalCenter: entryIcon.verticalCenter
 
                 Label {
                     id: nameLabel
 
                     width: parent.width
+                    truncationMode: TruncationMode.Fade
                     textFormat: Text.StyledText
                     text: name
                 }
@@ -126,12 +128,38 @@ Page {
                     truncationMode: TruncationMode.Fade
                 }
             }
+            Column{
+                id: detailColumn
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.rightMargin: Theme.paddingMedium
+                //width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
+
+                Label{
+                    id: dateLabel
+                    anchors.right: parent.right
+                    text: Qt.formatDate(time)
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryColor
+                    visible: Qt.formatDate(time) != ""
+                }
+                Label{
+                    id: lengthLabel
+                    anchors.right: parent.right
+                    visible: model.distance > 0
+                    text: model.distance < 0 ? "?" :Utils.humanDistance(model.distance)
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryColor
+                }
+            }
             onClicked: {
                 if (model.type == "waypoint"){
                     waypointDialog.name = model.name;
                     waypointDialog.description = model.description;
                     waypointDialog.latitude = model.latitude;
                     waypointDialog.longitude = model.longitude;
+                    waypointDialog.time = model.time;
+                    waypointDialog.elevation = model.elevation;
 
                     waypointDialog.previewMap.removeAllOverlayObjects();
                     waypointDialog.previewMap.showCoordinatesInstantly(model.latitude, model.longitude);

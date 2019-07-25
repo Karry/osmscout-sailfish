@@ -146,7 +146,10 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case SymbolRole: return QString::fromStdString(waypoint.data.symbol.getOrElse(""));
       case LatitudeRole: return waypoint.data.coord.GetLat();
       case LongitudeRole: return waypoint.data.coord.GetLon();
+      case ElevationRole: return waypoint.data.elevation.hasValue() ? waypoint.data.elevation.get() : QVariant();
+
       case TimeRole: return timestampToDateTime(waypoint.data.time);
+      default: return QVariant();
     }
   } else {
     row -= waypoints.size();
@@ -161,6 +164,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
 
       case TimeRole: return track.creationTime;
       case DistanceRole: return track.statistics.distance.AsMeter();
+      default: return QVariant();
     }
   }
 
@@ -181,6 +185,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   roles[SymbolRole] = "symbol";
   roles[LatitudeRole] = "latitude";
   roles[LongitudeRole] = "longitude";
+  roles[ElevationRole] = "elevation";
 
   // track
   roles[DistanceRole] = "distance";

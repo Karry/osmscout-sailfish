@@ -241,6 +241,24 @@
         <source>Show</source>
         <translation>Visa</translation>
     </message>
+    <message>
+        <source>Time</source>
+        <translation type="obsolete">Tid</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m a.s.l.</source>
+        <extracomment>elevation - meters above sea level</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created</source>
+        <extracomment>date time when waypoint was created</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collections</name>
