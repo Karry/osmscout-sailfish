@@ -30,7 +30,7 @@ import ".." // Global singleton
 Page {
     id: downloadsPage
 
-    property ListModel allUpdates: ListModel {}
+    property var allUpdates: []
 
     RemorsePopup { id: remorse }
 
@@ -59,6 +59,45 @@ Page {
         anchors.verticalCenter: parent.verticalCenter
     }
 
+    function checkUpdates(){
+        allUpdates = [];
+            for (var row=0; row < installedMapsModel.rowCount(); row++){
+            var index=installedMapsModel.index(row, 0);
+            var path=installedMapsModel.data(index, InstalledMapsModel.PathRole);
+            var directory=installedMapsModel.data(index, InstalledMapsModel.DirectoryRole);
+            var name=installedMapsModel.data(index, InstalledMapsModel.NameRole);
+            var time=installedMapsModel.data(index, InstalledMapsModel.TimeRole);
+
+            console.log("checking updates for map " + name + " (" + path + ")");
+            if (path.length==0){
+                continue;
+            }
+            var latestReleaseTime=availableMapsModel.timeOfMap(path);
+            console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
+            var updateAvailable = latestReleaseTime != null && latestReleaseTime > time;
+            if (updateAvailable){
+                console.log("append to allUpdates: " + path + " / " + directory);
+                allUpdates.push({
+                                  path: path,
+                                  directory: directory
+                                });
+                console.log("allUpdates.length: " + allUpdates.length);
+            }
+        }
+        // it seems that array length is not notifiable
+        updateAllMenuItem.enabled = allUpdates.length > 0;
+    }
+
+    Component.onCompleted: {
+        checkUpdates();
+
+        availableMapsModel.modelReset.connect(checkUpdates);
+        availableMapsModel.loadingChanged.connect(checkUpdates);
+
+        installedMapsModel.modelReset.connect(checkUpdates);
+        installedMapsModel.databaseListChanged.connect(checkUpdates);
+    }
+
     SilicaFlickable{
         anchors.fill: parent
         contentHeight: contentColumn.childrenRect.height
@@ -66,15 +105,23 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                id: updateAllMenuItem
                 text: qsTr("Update all")
-                enabled: allUpdates.count > 0
+                enabled: allUpdates.length > 0
                 onClicked: {
-                    for (var i=0; i<allUpdates.count; i++){
-                        var item=allUpdates.get(i);
-                        var map=item.map;
+                    for (var i=0; i<allUpdates.length; i++){
+                        var item=allUpdates[i];
                         var directory=item.directory;
+                        var path=item.path;
+                        var map=availableMapsModel.mapByPath(path);
+                        console.log("request to update: " + path + " / " + directory + " / " + map);
                         var baseDir = directory.substring(0, directory.lastIndexOf("/"));
+                        if (map === undefined || map === null){
+                            console.log("cannot update null map! " + directory);
+                            continue;
+                        }
                         var dir=mapDownloadsModel.suggestedDirectory(map, baseDir);
+                        console.log("Start update of " + map + " / " + directory);
                         mapDownloadsModel.downloadMap(map, dir);
                     }
                 }
@@ -237,17 +284,11 @@ Page {
                             var latestReleaseTime=availableMapsModel.timeOfMap(path);
                             console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
                             updateAvailable = latestReleaseTime != null && latestReleaseTime > time;
-                            if (updateAvailable){
-                                var map=availableMapsModel.mapByPath(path);
-                                allUpdates.append({
-                                                      map: map,
-                                                      directory: directory
-                                                  });
-                            }
                         }
                         Component.onCompleted: {
                             checkUpdate();
                             availableMapsModel.modelReset.connect(checkUpdate);
+                            availableMapsModel.loadingChanged.connect(checkUpdate);
                         }
                         onClicked: {
                             //console.log("click for update: " + updateAvailable);

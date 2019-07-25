@@ -82,8 +82,9 @@ Page {
         if (updateAvailable){
             //console.log("Installed count: "+installedMapsModel.rowCount());
             for (var row=0; row < installedMapsModel.rowCount(); row++){
-                var p=installedMapsModel.data(installedMapsModel.index(row, 0), /*path*/ 0x0101);
-                var directory=installedMapsModel.data(installedMapsModel.index(row, 0), /*directory*/ 0x0102);
+                var p=installedMapsModel.data(installedMapsModel.index(row, 0), InstalledMapsModel.PathRole);
+                var directory=installedMapsModel.data(installedMapsModel.index(row, 0), InstalledMapsModel.DirectoryRole);
+
                 //console.log("Installed "+row+": "+p+" == "+path+" = "+equalPath(p,path));
                 if (equalPath(p,path)){
                     updateDirectory = directory.substring(0, directory.lastIndexOf("/"));
