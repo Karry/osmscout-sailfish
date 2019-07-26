@@ -76,15 +76,16 @@ public:
     TypeRole = Qt::UserRole+2,
     IdRole = Qt::UserRole+3,
     TimeRole = Qt::UserRole+4,
+    LastModificationRole = Qt::UserRole+5,
 
     // type == waypoint
-    SymbolRole = Qt::UserRole+5,
-    LatitudeRole = Qt::UserRole+6,
-    LongitudeRole = Qt::UserRole+7,
-    ElevationRole = Qt::UserRole+8,
+    SymbolRole = Qt::UserRole+6,
+    LatitudeRole = Qt::UserRole+7,
+    LongitudeRole = Qt::UserRole+8,
+    ElevationRole = Qt::UserRole+9,
 
     // type == track
-    DistanceRole = Qt::UserRole+9
+    DistanceRole = Qt::UserRole+10
   };
   Q_ENUM(Roles)
 

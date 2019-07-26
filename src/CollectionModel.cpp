@@ -149,6 +149,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case ElevationRole: return waypoint.data.elevation.hasValue() ? waypoint.data.elevation.get() : QVariant();
 
       case TimeRole: return timestampToDateTime(waypoint.data.time);
+      case LastModificationRole: return waypoint.lastModification;
       default: return QVariant();
     }
   } else {
@@ -162,7 +163,8 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case DescriptionRole: return track.description;
       case IdRole: return QString::number(track.id);
 
-      case TimeRole: return track.creationTime;
+      case TimeRole: return track.statistics.from;
+      case LastModificationRole: return track.lastModification;
       case DistanceRole: return track.statistics.distance.AsMeter();
       default: return QVariant();
     }
@@ -180,6 +182,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   roles[TypeRole] = "type";
   roles[IdRole] = "id";
   roles[TimeRole] = "time";
+  roles[LastModificationRole] = "lastModification";
 
   // waypoint
   roles[SymbolRole] = "symbol";
