@@ -31,6 +31,7 @@ class AppSettings: public QObject{
   Q_PROPERTY(bool     hillShades        READ GetHillShades        WRITE SetHillShades        NOTIFY HillShadesChanged)
   Q_PROPERTY(double   hillShadesOpacity READ GetHillShadesOpacity WRITE SetHillShadesOpacity NOTIFY HillShadesOpacityChanged)
   Q_PROPERTY(QString  lastVehicle       READ GetLastVehicle       WRITE SetLastVehicle       NOTIFY LastVehicleChanged)
+  Q_PROPERTY(QString  lastCollection    READ GetLastCollection    WRITE SetLastCollection    NOTIFY LastCollectionChanged)
 
 signals:
   void MapViewChanged(osmscout::MapView *view);
@@ -38,6 +39,7 @@ signals:
   void HillShadesChanged(bool);
   void HillShadesOpacityChanged(double);
   void LastVehicleChanged(const QString vehicle);
+  void LastCollectionChanged(const QString collectionId);
 
 public:
   AppSettings();
@@ -57,6 +59,9 @@ public:
 
   QString GetLastVehicle() const;
   void SetLastVehicle(const QString vehicle);
+
+  QString GetLastCollection() const;
+  void SetLastCollection(const QString id);
 
 private:
   QSettings         settings;

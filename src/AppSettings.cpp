@@ -126,3 +126,15 @@ void AppSettings::SetLastVehicle(const QString vehicle)
     emit LastVehicleChanged(vehicle);
   }
 }
+
+QString AppSettings::GetLastCollection() const
+{
+  return settings.value("lastCollection", "-1").toString();
+}
+void AppSettings::SetLastCollection(const QString id)
+{
+  if (GetLastCollection() != id){
+    settings.setValue("lastCollection", id);
+    emit LastCollectionChanged(id);
+  }
+}

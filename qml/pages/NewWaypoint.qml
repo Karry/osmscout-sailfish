@@ -32,7 +32,7 @@ Dialog{
 
     property double latitude
     property double longitude
-    property string collectionId
+    property string collectionId: AppSettings.lastCollection
     property alias name: nameTextField.text
     property alias description: descriptionTextArea.text
     property bool rejectRequested: false;
@@ -42,6 +42,7 @@ Dialog{
     canAccept: nameTextField.text.length > 0 && collectionId.length > 0
     onAccepted: {
         console.log("Adding waypoint " + nameTextField.text + " to collection " + collectionId);
+        AppSettings.lastCollection = collectionId;
         collectionModel.createWaypoint(latitude, longitude, name, description);
     }
     Component.onCompleted: {
@@ -122,6 +123,19 @@ Dialog{
                                 var rowIndex = collectionListModel.index(collectionComboBox.currentIndex, 0);
                                 var collectionId = collectionListModel.data(rowIndex, CollectionListModel.IdRole);
                                 var collectionName = collectionListModel.data(rowIndex, CollectionListModel.NameRole);
+
+                                for (var row=0; row < collectionListModel.rowCount(); row++){
+                                    rowIndex = collectionListModel.index(row, 0);
+                                    var id = collectionListModel.data(rowIndex, CollectionListModel.IdRole);
+                                    console.log("test row " + row + " id " + id + " == " + AppSettings.lastCollection);
+                                    if (id == AppSettings.lastCollection){
+                                        collectionId = id;
+                                        collectionName = collectionListModel.data(rowIndex, CollectionListModel.NameRole);
+                                        collectionComboBox.currentIndex = row;
+                                        break;
+                                    }
+                                }
+
                                 console.log("Selected collection " + collectionId + ": " + collectionName);
                                 waypointDialog.collectionId = collectionId;
                                 collectionComboBox.value = collectionName;
