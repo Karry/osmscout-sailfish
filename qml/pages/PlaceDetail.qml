@@ -60,12 +60,15 @@ Page {
         id: settings
     }
 
-    Component.onCompleted: {
-        Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+    Connections {
+        target: Global.positionSource
+        onUpdate: {
             currentLocValid = positionValid;
             currentLocLat = lat;
             currentLocLon = lon;
-        });
+        }
+    }
+    Component.onCompleted: {
         Global.positionSource.updateRequest();
     }
 

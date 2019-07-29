@@ -49,25 +49,27 @@ CoverBackground {
         }
     }
 
-    Component.onCompleted: {
-        Global.navigationModel.onRouteChanged.connect(function(){
-            var way = Global.navigationModel.routeWay;
-            if (way==null){
-                map.removeOverlayObject(0);
-            }else{
-                map.addOverlayObject(0,way);
-            }
-        });
-
-        //Global.positionSource.onUpdate.connect(function(){});
-        Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+    Connections {
+        target: Global.positionSource
+        onUpdate: {
             if (cover.status == PageStatus.Active){
                 map.locationChanged(positionValid,
                                     lat, lon,
                                     horizontalAccuracyValid, horizontalAccuracy,
                                     lastUpdate);
             }
-        });
+        }
+    }
+    Connections {
+        target: Global.navigationModel
+        onRouteChanged: {
+            var way = Global.navigationModel.routeWay;
+            if (way==null){
+                map.removeOverlayObject(0);
+            }else{
+                map.addOverlayObject(0,way);
+            }
+        }
     }
 
     OpacityRampEffect {

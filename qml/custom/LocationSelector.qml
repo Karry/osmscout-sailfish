@@ -116,6 +116,15 @@ ComboBox {
     onCurrentItemChanged: {
         console.log("CurrentItemChanged, initialised: "+initialized+", index: "+currentIndex);
     }
+    Connections {
+        target: Global.positionSource
+        onUpdate: {
+            if (useCurrentLocation && positionValid){
+                location=routingModel.locationEntryFromPosition(lat, lon);
+                console.log("Update and use current position: " + lat + " " + lon);
+            }
+        }
+    }
     Component.onCompleted: {
         initialized = true;
         currentIndex = -1;
@@ -129,12 +138,6 @@ ComboBox {
             }
         }
 
-        Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
-            if (useCurrentLocation && positionValid){
-                location=routingModel.locationEntryFromPosition(lat, lon);
-                console.log("Update and use current position: " + lat + " " + lon);
-            }
-        });
         Global.positionSource.updateRequest();
     }
 }

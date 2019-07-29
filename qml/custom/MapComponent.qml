@@ -30,13 +30,16 @@ MapBase {
 
   property double topMargin:0
 
-  Component.onCompleted: {
-      Global.positionSource.onUpdate.connect(function(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate){
+  Connections {
+      target: Global.positionSource
+      onUpdate: {
           map.locationChanged(positionValid,
                               lat, lon,
                               horizontalAccuracyValid, horizontalAccuracy,
                               lastUpdate);
-      });
+      }
+  }
+  Component.onCompleted: {
       Global.positionSource.updateRequest();
   }
 
