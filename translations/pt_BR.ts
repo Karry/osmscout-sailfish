@@ -242,10 +242,6 @@
         <translation>Exibir</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="obsolete">Tempo</translation>
-    </message>
-    <message>
         <source>Elevation</source>
         <translation type="unfinished"></translation>
     </message>

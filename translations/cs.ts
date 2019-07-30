@@ -242,22 +242,18 @@
         <translation>Zobrazit</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="obsolete">Čas</translation>
-    </message>
-    <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nadmořská výška</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m n.m.</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vytvoření</translation>
     </message>
 </context>
 <context>
@@ -779,7 +775,7 @@
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>Hrad, Zámek</translation>
     </message>
 </context>
 <context>

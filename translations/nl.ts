@@ -242,10 +242,6 @@
         <translation>Tonen</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="obsolete">Tijd</translation>
-    </message>
-    <message>
         <source>Elevation</source>
         <translation type="unfinished"></translation>
     </message>

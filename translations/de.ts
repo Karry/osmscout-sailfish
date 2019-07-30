@@ -242,10 +242,6 @@
         <translation>Zeige</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="obsolete">Zeit</translation>
-    </message>
-    <message>
         <source>Elevation</source>
         <translation type="unfinished"></translation>
     </message>

@@ -242,10 +242,6 @@
         <translation>نمایش</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="obsolete">زمان</translation>
-    </message>
-    <message>
         <source>Elevation</source>
         <translation type="unfinished"></translation>
     </message>

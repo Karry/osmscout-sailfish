@@ -242,10 +242,6 @@
         <translation>展示</translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="obsolete">时间</translation>
-    </message>
-    <message>
         <source>Elevation</source>
         <translation type="unfinished"></translation>
     </message>
