@@ -252,7 +252,7 @@
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation>Przewyższenie - m.n.p.m.</translation>
+        <translation>%1 m n.p.m.</translation>
     </message>
     <message>
         <source>Created</source>
