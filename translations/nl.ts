@@ -243,17 +243,17 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoogteverschil</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m boven NAP</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Aangemaakt</translation>
     </message>
 </context>
 <context>
@@ -775,7 +775,7 @@
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasteel, landhuis</translation>
     </message>
 </context>
 <context>
@@ -1014,7 +1014,7 @@
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>Onvoldoende ruimte</translation>
     </message>
 </context>
 <context>
