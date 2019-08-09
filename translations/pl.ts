@@ -257,7 +257,7 @@
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation>data utworzenia punktu drogi</translation>
+        <translation>Utworzony</translation>
     </message>
 </context>
 <context>
