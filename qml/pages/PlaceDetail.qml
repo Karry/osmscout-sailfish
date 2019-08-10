@@ -313,9 +313,24 @@ Page {
                     icon.source: "image://theme/icon-m-favorite"
                     onClicked: {
                         var address = "";
+                        var name = "";
                         if (locationInfoModel.ready){
                             delegateModel.model = locationInfoModel;
+                            // if there is poi, use it as waypoint name
+                            // if poi has address, use it as waypoint description
                             for (var row = 0; row < locationInfoModel.rowCount(); row++) {
+                                var item = delegateModel.items.get(row).model;
+                                if (item.poi != ""){
+                                    name = item.poi;
+                                    if (item.address != ""){
+                                        address = item.address;
+                                    }
+                                    break;
+                                }
+                            }
+                            // when address is still empty, try to find
+                            // nearest addressable object and use its adddress
+                            for (var row = 0; address == "" && row < locationInfoModel.rowCount(); row++) {
                                 var item = delegateModel.items.get(row).model;
                                 if (item.address != ""){
                                     address = item.address;
@@ -323,14 +338,15 @@ Page {
                                 }
                             }
                         }
-                        console.log("add waypoint on address: " + address);
+                        console.log("add waypoint \"" + name + "\" on address: " + address);
 
                         pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
                                       {
                                         latitude: placeLat,
                                         longitude: placeLon,
                                         acceptDestination: Global.mapPage,
-                                        description: address
+                                        description: address,
+                                        name: name
                                       });
                     }
                 }
