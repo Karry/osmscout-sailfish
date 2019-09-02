@@ -38,7 +38,7 @@ MapView *AppSettings::GetMapView()
     double mag   = settings.value("settings/map/mag",   osmscout::Magnification(osmscout::Magnification::magContinent).GetMagnification()).toDouble();
     view = new MapView(this,
                        osmscout::GeoCoord(lat, lon),
-                       angle,
+                       Bearing(),
                        osmscout::Magnification(mag),
                        OSMScoutQt::GetInstance().GetSettings()->GetMapDPI());
   }
@@ -56,7 +56,7 @@ void AppSettings::SetMapView(QObject *o)
   if (view == nullptr){
     view = new MapView(this,
                        osmscout::GeoCoord(updated->GetLat(), updated->GetLon()),
-                       updated->GetAngle(),
+                       Bearing(), // keep angle zero in settings
                        osmscout::Magnification(updated->GetMag()),
                        updated->GetMapDpi());
     changed = true;

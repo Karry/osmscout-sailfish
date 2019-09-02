@@ -203,6 +203,18 @@ Page {
 
             showCurrentPosition: true
             vehiclePosition: Global.navigationModel.vehiclePosition
+            followVehicle: Global.navigationModel.destinationSet
+            renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
+
+            Connections {
+                target: Global.navigationModel
+                onDestinationSetChanged: {
+                    if (!Global.navigationModel.destinationSet){
+                        console.log("Rotate back to 0");
+                        map.rotateTo(0);
+                    }
+                }
+            }
 
             CollectionMapBridge{
                 map: map

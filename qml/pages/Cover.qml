@@ -156,6 +156,19 @@ CoverBackground {
             map: map
         }
 
+        followVehicle: Global.navigationModel.destinationSet
+        renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
+
+        Connections {
+            target: Global.navigationModel
+            onDestinationSetChanged: {
+                if (!Global.navigationModel.destinationSet){
+                    console.log("Rotate back to 0");
+                    map.rotateTo(0);
+                }
+            }
+        }
+
         showCurrentPosition: Global.navigationModel.vehiclePosition == null
         lockToPosition: true
         vehiclePosition: Global.navigationModel.vehiclePosition

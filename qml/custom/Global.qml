@@ -77,6 +77,7 @@ Item {
             navigationModel.vehicle = vehicle;
             navigationModel.route = route;
             navigationModel.destination = destination;
+            routingModel.rerouteRequested = false;
         }
 
         function reroute(){

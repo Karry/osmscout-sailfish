@@ -52,7 +52,7 @@ MapBase {
       }
 
       zoomLevel: map.zoomLevel
-      finished: map.finished
+      finished: map.finished || map.renderingType === "plane"
   }
 
   ScaleIndicator{
