@@ -540,7 +540,7 @@
         <translation>Om</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Kartnedlasting</translation>
     </message>
     <message>

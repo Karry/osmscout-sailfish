@@ -540,7 +540,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

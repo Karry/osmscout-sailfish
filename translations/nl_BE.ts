@@ -540,7 +540,7 @@
         <translation>Over</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Kaartdownloads</translation>
     </message>
     <message>

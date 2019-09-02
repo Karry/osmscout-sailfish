@@ -540,7 +540,7 @@
         <translation>O OSM Scout</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Mapy do pobrania</translation>
     </message>
     <message>

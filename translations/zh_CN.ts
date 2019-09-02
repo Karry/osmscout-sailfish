@@ -540,7 +540,7 @@
         <translation>关于</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>地图下载</translation>
     </message>
     <message>

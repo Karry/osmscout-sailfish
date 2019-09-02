@@ -540,8 +540,8 @@
         <translation>O OSM Scout</translation>
     </message>
     <message>
-        <source>Map downloads</source>
-        <translation>Stahování map</translation>
+        <source>Offline maps</source>
+        <translation>Offline mapy</translation>
     </message>
     <message>
         <source>Map settings</source>

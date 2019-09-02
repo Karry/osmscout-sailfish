@@ -540,7 +540,7 @@
         <translation>A propos</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Téléchargements de carte</translation>
     </message>
     <message>

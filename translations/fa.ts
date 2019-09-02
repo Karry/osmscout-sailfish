@@ -540,7 +540,7 @@
         <translation>درباره</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>بارگیری‌های نقشه</translation>
     </message>
     <message>

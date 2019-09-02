@@ -540,7 +540,7 @@
         <translation>Über OSM Scout</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Kartendownloads</translation>
     </message>
     <message>

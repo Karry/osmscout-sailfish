@@ -540,7 +540,7 @@
         <translation>Az alkalmazásról</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Letölthető térképek</translation>
     </message>
     <message>

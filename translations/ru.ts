@@ -540,7 +540,7 @@
         <translation>О программе</translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation>Загрузка карт</translation>
     </message>
     <message>
