@@ -545,6 +545,9 @@ Page {
             height: width
             radius: Theme.paddingMedium
 
+            rotation: drawer.open ? 180 : 0
+            Behavior on rotation { PropertyAnimation {} }
+
             color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 
             IconButton{
