@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en">
+<TS version="2.1" language="it">
 <context>
     <name>About</name>
     <message>
@@ -540,7 +540,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Map downloads</source>
+        <source>Offline maps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1025,7 +1025,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">Building</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1314,77 +1314,77 @@
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation>Car</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation>Bicycle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>foot</source>
-        <translation>Foot</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation>Daylight</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation>Waterway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>wood</source>
-        <translation>Wood</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>natural</source>
-        <translation>Natural</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>railway</source>
-        <translation>Railway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation>Leisure</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>building</source>
-        <translation>Building</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation>Minor Building</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>Elevation Contour</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>Boundaries (for debugging)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>standard</source>
-        <translation>Standard</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>Winter sports</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation>Public transport</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>outdoor</source>
-        <translation>Outdoor</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -79,6 +79,10 @@
         <source>Persian: Abtin mo</source>
         <translation>Фарси: Абтин мо</translation>
     </message>
+    <message>
+        <source>Italian: Armin Maier</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collection</name>

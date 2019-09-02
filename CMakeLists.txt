@@ -338,6 +338,7 @@ set(TRANSLATION_TS_FILES
         translations/fa.ts
         translations/fr.ts
         translations/hu.ts
+        translations/it.ts
         translations/nb.ts
         translations/nl.ts
         translations/nl_BE.ts
