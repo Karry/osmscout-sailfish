@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>Italština: Armin Maier</translation>
     </message>
 </context>
 <context>
