@@ -130,6 +130,10 @@
         <source>Route to</source>
         <translation>Маршрут к этой точке</translation>
     </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="unfinished">Редактирование коллекции</translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>

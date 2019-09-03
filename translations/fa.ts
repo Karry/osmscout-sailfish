@@ -130,6 +130,10 @@
         <source>Route to</source>
         <translation>مسیریابی به</translation>
     </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="unfinished">تغییر مجموعه</translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>

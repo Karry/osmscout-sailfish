@@ -130,6 +130,10 @@
         <source>Route to</source>
         <translation>Beräkna rutt till</translation>
     </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="unfinished">Redigera samling</translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>

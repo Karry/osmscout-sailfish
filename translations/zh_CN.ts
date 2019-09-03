@@ -130,6 +130,10 @@
         <source>Route to</source>
         <translation>导航去</translation>
     </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="unfinished">编辑收藏</translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>

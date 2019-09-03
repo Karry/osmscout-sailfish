@@ -130,6 +130,10 @@
         <source>Route to</source>
         <translation>Rota para</translation>
     </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="unfinished">Editar coleção</translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>

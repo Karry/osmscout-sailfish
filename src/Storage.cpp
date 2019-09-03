@@ -698,9 +698,14 @@ void Storage::updateOrCreateCollection(Collection collection)
       qWarning() << "Updating collection failed: " << sql.lastError();
       emit error(tr("Updating collection failed: %1").arg(sql.lastError().text()));
     }
+  } else {
+    if (collection.id < 0){
+      collection.id = varToLong(sql.lastInsertId());
+    }
   }
 
   loadCollections();
+  loadCollectionDetails(Collection(collection.id));
 }
 
 void Storage::deleteCollection(qint64 id)

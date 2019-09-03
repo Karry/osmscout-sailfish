@@ -286,6 +286,16 @@ Page {
                     exportPage.selected.connect(exportCollection);
                 }
             }
+            MenuItem {
+                text: qsTr("Edit")
+                onClicked: {
+                    editDialog.itemType = "collection";
+                    editDialog.itemId = collectionModel.collectionId;
+                    editDialog.name = collectionModel.name;
+                    editDialog.description = collectionModel.description;
+                    editDialog.open();
+                }
+            }
         }
 
         BusyIndicator {
@@ -302,15 +312,18 @@ Page {
 
         property string itemType
         property string itemId: ""
-        title: itemType == "waypoint" ? qsTr("Edit waypoint"): qsTr("Edit track")
+        title: itemType == "waypoint" ? qsTr("Edit waypoint"): (itemType === "track" ? qsTr("Edit track") : qsTr("Edit collection"))
 
         onAccepted: {
             if (itemType == "waypoint"){
                 console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
                 collectionModel.editWaypoint(itemId, name, description);
-            }else{
+            }else if (itemType === "track"){
                 console.log("Edit track " + itemId + ": " + name + " / " + description);
                 collectionModel.editTrack(itemId, name, description);
+            } else { // collection
+                console.log("Edit collection " + itemId + ": " + name + " / " + description);
+                collectionListModel.editCollection(itemId, collectionModel.collectionVisible, name, description);
             }
             parent.focus = true;
         }

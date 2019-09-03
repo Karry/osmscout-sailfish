@@ -130,6 +130,10 @@
         <source>Route to</source>
         <translation>Navigovat</translation>
     </message>
+    <message>
+        <source>Edit collection</source>
+        <translation type="unfinished">Upravit sbírku</translation>
+    </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
