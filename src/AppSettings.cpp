@@ -34,7 +34,7 @@ MapView *AppSettings::GetMapView()
   if (view == nullptr){
     double lat   = settings.value("settings/map/lat",   0).toDouble();
     double lon   = settings.value("settings/map/lon",   0).toDouble();
-    double angle = settings.value("settings/map/angle", 0).toDouble();
+    //double angle = settings.value("settings/map/angle", 0).toDouble();
     double mag   = settings.value("settings/map/mag",   osmscout::Magnification(osmscout::Magnification::magContinent).GetMagnification()).toDouble();
     view = new MapView(this,
                        osmscout::GeoCoord(lat, lon),
