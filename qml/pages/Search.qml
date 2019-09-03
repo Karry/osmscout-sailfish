@@ -357,7 +357,8 @@ Page {
                                         latitude: selectedLocation.lat,
                                         longitude: selectedLocation.lon,
                                         acceptDestination: searchPage,
-                                        description: labelLabel.text
+                                        name: model.label,
+                                        description: entryRegion.text
                                       });
                     }
                 }
