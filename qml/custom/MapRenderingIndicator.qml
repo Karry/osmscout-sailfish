@@ -3,14 +3,14 @@ import Sailfish.Silica 1.0
 
 Rectangle{
 
-    property int zoomLevel: 0;
-    property bool finished: false;
+    property int zoomLevel: 0
+    property bool finished: false
 
     width: busyIndicator.width + Theme.paddingMedium
     height: busyIndicator.height + Theme.paddingMedium
 
     color: "transparent"
-    opacity: map.finished ? 0 : 0.9
+    opacity: finished ? 0 : 0.9
     Behavior on opacity { NumberAnimation {} }
 
     BusyIndicator{
