@@ -26,6 +26,7 @@ import QtGraphicalEffects 1.0
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 import ".." // Global singleton
 
 Page {
@@ -342,6 +343,7 @@ Page {
                     y: parent.height - (height * 0.75)
 
                     opacity: map.lockToPosition ? 1 : 0
+                    Behavior on opacity { PropertyAnimation {} }
                 }
 
                 MouseArea {
@@ -375,8 +377,50 @@ Page {
                 }
 
             }
-        }
 
+            Rectangle {
+                id : compassBtn
+
+                anchors{
+                    right: parent.right
+                    bottom: currentPositionBtn.top
+                    rightMargin: Theme.paddingMedium
+                    bottomMargin: Theme.paddingMedium
+                }
+                width: Theme.iconSizeLarge
+                height: width
+
+                color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+                radius: width*0.5
+                rotation: Utils.rad2Deg(map.view.angle)
+                opacity: map.view.angle === 0 ? (Global.navigationModel.destinationSet ? 0.4 : 0.0) : 1.0
+                Behavior on opacity { PropertyAnimation {} }
+
+                Image {
+                    id: compassIcon
+                    anchors.fill: parent
+                    source: "image://harbour-osmscout/pics/compass.svg?" + Theme.primaryColor
+                    fillMode: Image.PreserveAspectFit
+                    horizontalAlignment: Image.AlignHCenter
+                    verticalAlignment: Image.AlignVCenter
+                    sourceSize.width: width
+                    sourceSize.height: height
+                }
+
+                MouseArea {
+                  id: compasBtnMouseArea
+                  anchors.fill: parent
+
+                  hoverEnabled: true
+
+                  onClicked: {
+                      console.log("Rotate back to 0");
+                      map.rotateTo(0);
+                  }
+                }
+            }
+        }
 
         ShaderEffectSource {
             id: blurSource

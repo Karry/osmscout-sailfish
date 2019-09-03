@@ -135,3 +135,11 @@ function locationStr(location){
                 Utils.formatCoord(location.lat, location.lon, AppSettings.gpsFormat) :
                 location.label;
 }
+
+function rad2Deg(radians){
+    return radians * 180.0 / Math.PI;
+}
+
+function deg2Rad(degrees){
+    return degrees * Math.PI / 180.0;
+}

@@ -327,3 +327,4 @@
 - show creation datetime in waypoint detail, date and track length in collection page
 - rotate map to vehicle direction during navigation
 - update translations, add Italian
+- show compass when map north is not pointing top (when navigation is running)
