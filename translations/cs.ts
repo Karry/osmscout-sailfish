@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Upravit sbírku</translation>
+        <translation>Upravit sbírku</translation>
     </message>
 </context>
 <context>

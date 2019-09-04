@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Redigera samling</translation>
+        <translation>Redigera samling</translation>
     </message>
 </context>
 <context>
