@@ -558,6 +558,19 @@ Page {
                     text: qsTr("Stop navigation")
                     onClicked: Global.navigationModel.stop();
                 }
+                MenuItem {
+                    //: menu item: open routing page with current navigation destination
+                    text: qsTr("Change vehicle");
+                    enabled: Global.navigationModel.destinationSet
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"),
+                                       {
+                                           toLat: Global.navigationModel.destination.lat,
+                                           toLon: Global.navigationModel.destination.lon,
+                                           toName: Global.navigationModel.destination.label
+                                       });
+                    }
+                }
             }
         }
 

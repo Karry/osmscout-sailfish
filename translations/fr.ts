@@ -575,6 +575,11 @@
         <source>ETA %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -594,6 +599,11 @@
     <message>
         <source>Distance</source>
         <extracomment>Distance to target, itinerary page</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
