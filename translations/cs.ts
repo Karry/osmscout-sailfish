@@ -578,7 +578,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Změnit prostředek</translation>
     </message>
 </context>
 <context>
@@ -604,7 +604,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Změnit prostředek</translation>
     </message>
 </context>
 <context>
