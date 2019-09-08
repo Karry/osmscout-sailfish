@@ -321,7 +321,7 @@
 - display springs, trees in standard and outdoor stylesheets
 - add spring to POI search
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.13-1
+* 2019-09-08 Lukáš Karas <lukas.karas@centrum.cz> 1.13-1
 - harden map downloader: better error handling, fix "update all" action
 - add Castle / Manor / Ruins (historic) to POI search
 - show creation datetime in waypoint detail, date and track length in collection page
