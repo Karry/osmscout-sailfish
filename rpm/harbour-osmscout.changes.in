@@ -328,3 +328,5 @@
 - rotate map to vehicle direction during navigation
 - update translations, add Italian
 - show compass when map north is not pointing top (when navigation is running)
+
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.14-1
