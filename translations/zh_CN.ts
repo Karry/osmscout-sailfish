@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>旗鱼系统的OSM Scout是作为开源软件在志愿者们的闲暇时间开发的、你可以通过报告漏洞帮助改善此应用，创建翻译或开发新特性。欢迎任何帮助！</translation>
+        <translation>旗鱼系统的 OSM Scout 是作为开源软件在志愿者们的闲暇时间开发的、你可以通过报告漏洞帮助改善此应用，创建翻译或开发新特性。欢迎任何帮助！</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>GitHub 页面OSMScout 许可权</translation>
+        <translation>GitHub 页面 OSMScout 库</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>意大利语: Armin Maier</translation>
     </message>
 </context>
 <context>
@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">编辑收藏</translation>
+        <translation>编辑收藏</translation>
     </message>
 </context>
 <context>
@@ -251,17 +251,17 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>海拔</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m a.s.l.</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>创建日期</translation>
     </message>
 </context>
 <context>
@@ -578,7 +578,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>换乘</translation>
     </message>
 </context>
 <context>
@@ -604,7 +604,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>换乘</translation>
     </message>
 </context>
 <context>
@@ -793,7 +793,7 @@
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>城堡及庄园</translation>
     </message>
 </context>
 <context>
@@ -1375,7 +1375,7 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>高程轮廓</translation>
+        <translation>等高线</translation>
     </message>
 </context>
 <context>
