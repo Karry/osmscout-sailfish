@@ -648,6 +648,11 @@
         <source>%1 %2 from</source>
         <translation>从%1 %2 </translation>
     </message>
+    <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RouteDescription</name>

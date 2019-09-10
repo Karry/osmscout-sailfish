@@ -297,11 +297,44 @@ Page {
 
             Row{
                 id : placeTools
-                width: waypointBtn.width+osmNoteBtn.width+searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
+                width: shareBtn.width+waypointBtn.width+osmNoteBtn.width+searchBtn.width+routeBtn.width+objectsBtn.width+Theme.paddingLarge
                 height: objectsBtn.height
                 anchors{
                     bottom: parent.bottom
                     right: parent.right
+                }
+
+                IconButton{
+                    id: shareBtn
+                    icon.source: "image://theme/icon-m-share"
+
+                    function shortCoord(deg){
+                        return (Math.round(deg * 100000)/100000).toString();
+                    }
+
+                    onClicked: {
+                        var fileName = "place.txt";
+                        var mimeType = "text/x-url";
+                        var placeLink = "https://osm.org/?mlat=" + shortCoord(placeLat) + "&mlon=" + shortCoord(placeLon);
+                        var content = {
+                            "name": fileName,
+                            "data": placeLink,
+                            "type": mimeType
+                        }
+
+                        // also some non-standard fields for Twitter/Facebook status sharing:
+                        content["status"] = placeLink
+                        content["linkTitle"] = fileName
+
+                        pageStack.animatorPush("Sailfish.TransferEngine.SharePage",
+                                               {
+                                                   //: Page header for share method selection
+                                                   "header": qsTr("Share place link"),
+                                                   "serviceFilter": ["sharing", "e-mail", "IM"],
+                                                   "mimeType": mimeType,
+                                                   "content": content
+                                               })
+                    }
                 }
 
                 IconButton{
