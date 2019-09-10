@@ -388,7 +388,7 @@ Page {
                     id: osmNoteBtn
 
                     icon.source: "image://theme/icon-m-edit"
-                    onClicked: Qt.openUrlExternally("http://www.openstreetmap.org/note/new#map="+map.view.magLevel+"/"+placeLat.toString()+"/"+placeLon.toString()+"")
+                    onClicked: Qt.openUrlExternally("https://www.openstreetmap.org/note/new#map="+map.view.magLevel+"/"+placeLat.toString()+"/"+placeLon.toString()+"")
                 }
 
                 IconButton{
