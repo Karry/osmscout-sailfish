@@ -19,6 +19,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Nemo.KeepAlive 1.2
 
 import QtPositioning 5.2
 import QtGraphicalEffects 1.0
@@ -61,6 +62,19 @@ Page {
         id: remorse
         Component.onCompleted: {
             Global.remorse = remorse;
+        }
+    }
+    KeepAlive {
+        id: keepAlive
+        enabled: Global.navigationModel.destinationSet &&
+                 ((Global.navigationModel.vehicle === "car" && Global.navigationModel.nextRouteStep < 700) ||
+                  (Global.navigationModel.vehicle === "bicycle" && Global.navigationModel.nextRouteStep < 200) ||
+                  (Global.navigationModel.nextRouteStep < 30))
+
+        onEnabledChanged: {
+            console.log((enabled ? "Enabling" : "Disabling") +
+                        " keepAlive, " +
+                        (Global.navigationModel.destinationSet ? ("next navigation step in " + Utils.humanDistance(Global.navigationModel.nextRouteStep)) : "no navigation in progress"));
         }
     }
 
