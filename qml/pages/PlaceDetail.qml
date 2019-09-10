@@ -304,6 +304,31 @@ Page {
                     right: parent.right
                 }
 
+                function placeInfo(){
+                    var address = "";
+                    var name = "";
+                    if (locationInfoModel.ready){
+                        delegateModel.model = locationInfoModel;
+                        // if there is poi, use it as waypoint name
+                        // if poi has address, use it as waypoint description
+                        for (var row = 0; row < locationInfoModel.rowCount(); row++) {
+                            var item = delegateModel.items.get(row).model;
+                            if (item.poi != ""){
+                                name = item.poi;
+                                if (item.address != ""){
+                                    address = item.address;
+                                }
+                                break;
+                            }
+                            if (item.address != ""){
+                                address = item.address;
+                                break;
+                            }
+                        }
+                    }
+                    return {"address": address, "name": name};
+                }
+
                 IconButton{
                     id: shareBtn
                     icon.source: "image://theme/icon-m-share"
@@ -316,6 +341,11 @@ Page {
                         var fileName = "place.txt";
                         var mimeType = "text/x-url";
                         var placeLink = "https://osm.org/?mlat=" + shortCoord(placeLat) + "&mlon=" + shortCoord(placeLon);
+                        var info = placeTools.placeInfo();
+                        var name = info.name;
+                        var address = info.address;
+                        var status = (address === "" ?  placeLink : address + ": " + placeLink);
+                        var linkTitle = (name === "" ?  placeLocationLabel.text : name);
                         var content = {
                             "name": fileName,
                             "data": placeLink,
@@ -323,8 +353,8 @@ Page {
                         }
 
                         // also some non-standard fields for Twitter/Facebook status sharing:
-                        content["status"] = placeLink
-                        content["linkTitle"] = fileName
+                        content["status"] = status;
+                        content["linkTitle"] = linkTitle;
 
                         pageStack.animatorPush("Sailfish.TransferEngine.SharePage",
                                                {
@@ -345,32 +375,9 @@ Page {
                     }
                     icon.source: "image://theme/icon-m-favorite"
                     onClicked: {
-                        var address = "";
-                        var name = "";
-                        if (locationInfoModel.ready){
-                            delegateModel.model = locationInfoModel;
-                            // if there is poi, use it as waypoint name
-                            // if poi has address, use it as waypoint description
-                            for (var row = 0; row < locationInfoModel.rowCount(); row++) {
-                                var item = delegateModel.items.get(row).model;
-                                if (item.poi != ""){
-                                    name = item.poi;
-                                    if (item.address != ""){
-                                        address = item.address;
-                                    }
-                                    break;
-                                }
-                            }
-                            // when address is still empty, try to find
-                            // nearest addressable object and use its adddress
-                            for (var row = 0; address == "" && row < locationInfoModel.rowCount(); row++) {
-                                var item = delegateModel.items.get(row).model;
-                                if (item.address != ""){
-                                    address = item.address;
-                                    break;
-                                }
-                            }
-                        }
+                        var info = placeTools.placeInfo();
+                        var name = info.name;
+                        var address = info.address;
                         console.log("add waypoint \"" + name + "\" on address: " + address);
 
                         pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
