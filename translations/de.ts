@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -81,7 +79,7 @@
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>Italienisch: Armin Maier</translation>
     </message>
 </context>
 <context>
@@ -132,7 +130,7 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Bearbeite Sammlung</translation>
+        <translation>Bearbeite Sammlung</translation>
     </message>
 </context>
 <context>
@@ -251,17 +249,17 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Höhe</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m ü. M.</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Erstellt</translation>
     </message>
 </context>
 <context>
@@ -359,12 +357,12 @@
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished">Abbrechen</translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Breche ab</translation>
     </message>
 </context>
 <context>
@@ -573,12 +571,12 @@
     </message>
     <message>
         <source>ETA %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ETA%1</translation>
     </message>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ändere Verkehrsmittel</translation>
     </message>
 </context>
 <context>
@@ -604,7 +602,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ändere Verkehrsmittel</translation>
     </message>
 </context>
 <context>
@@ -647,11 +645,6 @@
     <message>
         <source>%1 %2 from</source>
         <translation>%1 %2 von</translation>
-    </message>
-    <message>
-        <source>Share place link</source>
-        <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -794,11 +787,11 @@
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Quelle</translation>
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>Burg, Herrenhaus</translation>
     </message>
 </context>
 <context>
@@ -1037,7 +1030,7 @@
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht genug Platz</translation>
     </message>
 </context>
 <context>
