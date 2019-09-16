@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiaans: Armin Maier</translation>
     </message>
 </context>
 <context>
@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Verzameling bewerken</translation>
+        <translation>Verzameling bewerken</translation>
     </message>
 </context>
 <context>
@@ -578,7 +578,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Voertuig wijzigen</translation>
     </message>
 </context>
 <context>
@@ -604,7 +604,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Voertuig wijzigen</translation>
     </message>
 </context>
 <context>
