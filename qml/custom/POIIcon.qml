@@ -119,6 +119,7 @@ Image{
                 'boundary_administrative': 'square-stroked',
                 'boundary_state': 'square-stroked',
                 'boundary_country': 'square-stroked',
+                'boundary_county': 'square-stroked',
                 'place_island': 'circle-stroked',
 
                 'landuse_farm':'farm',
