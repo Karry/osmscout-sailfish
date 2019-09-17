@@ -651,7 +651,7 @@
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Udostępnij link do miejsca</translation>
     </message>
 </context>
 <context>
