@@ -533,8 +533,12 @@ Page {
                     var cnt=rowCount();
                     for (var row=0; row<cnt; row++){
                         var obj=mapObjectInfo.createOverlayObject(row);
+                        if (obj===null){
+                            console.log("Cannot create overlay object for row " + row + "!");
+                            continue;
+                        }
+                        console.log("object "+row+": "+obj+" map: "+previewMap);
                         obj.type="_highlighted";
-                        //console.log("object "+row+": "+obj+" map: "+previewMap);
                         previewMap.addOverlayObject(row, obj);
                     }
                 }
