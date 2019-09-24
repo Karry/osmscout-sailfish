@@ -46,7 +46,7 @@ public:
   ErrorCallback() = default;
   virtual ~ErrorCallback() = default;
 
-  virtual void Error(std::string error);
+  virtual void Error(const std::string &error) override;
 };
 
 class TrackStatistics

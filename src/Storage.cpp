@@ -46,7 +46,7 @@ using namespace converters;
 
 static Storage* storage = nullptr;
 
-void ErrorCallback::Error(std::string err)
+void ErrorCallback::Error(const std::string &err)
 {
   gpx::ProcessCallback::Error(err);
   emit error(QString::fromStdString(err));
