@@ -18,6 +18,7 @@ OSS
       waterway_stream, route_ferry
   GROUP highway_steps, barrier_fence
   GROUP waterway_river, waterway_canal, waterway_drain, waterway_ditch
+  GROUP waterway_weir, waterway_waterfall
   GROUP elevation_contour_major, elevation_contour_medium, elevation_contour_minor
 
 CONST
@@ -202,6 +203,34 @@ SYMBOL natural_spring
 SYMBOL amenity_drinking_water
   CIRCLE 0,0 0.4 {
     AREA {color: @waterLabelColor; }
+  }
+
+SYMBOL waterway_waterfall
+  RECTANGLE 0,0 1.75 x 0.5 {
+    AREA { color: darken(@waterColor, 0.4); }
+  }
+  POLYGON 1.75,0.5 2.0,1 {
+    AREA.BORDER { width: 0.25mm; color: darken(@waterColor, 0.2);  }
+  }
+  POLYGON 1.25,0.5 1.5,1 {
+    AREA.BORDER { width: 0.25mm; color: darken(@waterColor, 0.2);  }
+  }
+  POLYGON 0.75,0.5 1,1 {
+    AREA.BORDER { width: 0.25mm; color: darken(@waterColor, 0.2);  }
+  }
+
+SYMBOL waterway_weir
+  RECTANGLE 0,0 2 x 0.5 {
+    AREA { color: darken(@waterColor, 0.4); }
+  }
+  CIRCLE 0.25,0.8 0.25 {
+    AREA {color: darken(@waterColor, 0.2); }
+  }
+  CIRCLE 1,0.8 0.25 {
+    AREA {color: darken(@waterColor, 0.2); }
+  }
+  CIRCLE 1.75,0.8 0.25 {
+    AREA {color: darken(@waterColor, 0.2); }
   }
 
 SYMBOL border
@@ -530,17 +559,31 @@ STYLE
      WAY {dash: 2,1; joinCap: butt; }
    }
 
-  [TYPE waterway_waterfall] {
-    NODE.ICON { name: waterfall; }
-    NODE.TEXT { label: Name.name; size: 1.0; }
-  }
+   [TYPE waterway_weir] {
+     WAY {color: lighten(@waterColor, 0.3); width: 3m; dash: 0.5,2;}
 
+     AREA { color: lighten(@waterColor, 0.3);}
+
+     NODE.ICON { symbol: waterway_weir;}
+   }
+   [TYPE waterway_waterfall] {
+     WAY {color: lighten(@waterColor, 0.3); width: 3m; dash: 0.5,2;}
+
+     AREA { color: lighten(@waterColor, 0.3);}
+
+     NODE.ICON { symbol: waterway_waterfall;}
+    }
  }
 
  [MAG block-] {
    [TYPE waterway_stream, waterway_intermittent_stream,
-         waterway_drain, waterway_ditch, waterway_intermittent_drain]
-     WAY.TEXT { label: Name.name;}
+       waterway_weir, waterway_waterfall,
+       waterway_drain, waterway_ditch, waterway_intermittent_drain]
+     WAY.TEXT { label: Name.name; color: @waterLabelColor; priority: @labelPrioNatural;}
+
+  [TYPE waterway_weir,
+        waterway_waterfall]
+    NODE.TEXT { label: Name.name; color: @waterLabelColor; priority: @labelPrioNatural; }
  }
 
  // -------------------------------------------------------
