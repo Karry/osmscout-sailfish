@@ -138,3 +138,15 @@ void AppSettings::SetLastCollection(const QString id)
     emit LastCollectionChanged(id);
   }
 }
+
+QString AppSettings::GetLastMapDirectory() const
+{
+  return settings.value("lastMapDirectory", "").toString();
+}
+void AppSettings::SetLastMapDirectory(const QString directory)
+{
+  if (GetLastCollection() != directory){
+    settings.setValue("lastMapDirectory", directory);
+    emit LastMapDirectoryChanged(directory);
+  }
+}

@@ -58,6 +58,28 @@ Page {
         return false;
     }
 
+    function updateDownloadDir(){
+        console.log("Download directory: " + updateDirectory);
+
+        var dirFound = false;
+        if (destinationDirectoryComboBox.initialized){
+            var directories=mapDownloadsModel.getLookupDirectories();
+            console.log("directories: " + directories);
+            for (var dirRow=0; dirRow < directories.length; dirRow++){
+                if (updateDirectory==directories[dirRow]){
+                    destinationDirectoryComboBox.currentIndex=dirRow;
+                    dirFound = true;
+                    break;
+                }
+            }
+        }
+
+        if (!dirFound){
+            console.log("Not present: " + updateDirectory);
+            updateDirectory = "";
+        }
+    }
+
     Component.onCompleted: {
         var path=mapItem.path;
         var time=installedMapsModel.timeOfMap(path);
@@ -68,18 +90,20 @@ Page {
         console.log("checking updates for map " + mapName + " (" + path + ")");
         if ((typeof time === "undefined") || path.length==0){
             console.log("Not installed (" + path + ")");
-            return;
-        }
-        var latestReleaseTime=availableMapsModel.timeOfMap(path);
-        console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
-        if (latestReleaseTime == null){
-            console.log("This should not happen, map (" + path + ") is not available");
-            return;
-        }
+            // if this map is not installed yet, use last directory
+            updateDirectory = AppSettings.lastMapDirectory
+        } else {
+            // try to evaluate update directory
+            var latestReleaseTime=availableMapsModel.timeOfMap(path);
+            console.log("map time: " + time + " latestReleaseTime: " + latestReleaseTime +" (" + typeof(latestReleaseTime) + ")");
+            if (latestReleaseTime == null){
+                console.log("This should not happen, map (" + path + ") is not available");
+                return;
+            }
 
-        upToDate = latestReleaseTime.getTime() == time.getTime();
-        updateAvailable = latestReleaseTime > time;
-        if (updateAvailable){
+            upToDate = latestReleaseTime.getTime() == time.getTime();
+            updateAvailable = latestReleaseTime > time;
+
             //console.log("Installed count: "+installedMapsModel.rowCount());
             for (var row=0; row < installedMapsModel.rowCount(); row++){
                 var p=installedMapsModel.data(installedMapsModel.index(row, 0), InstalledMapsModel.PathRole);
@@ -88,20 +112,18 @@ Page {
                 //console.log("Installed "+row+": "+p+" == "+path+" = "+equalPath(p,path));
                 if (equalPath(p,path)){
                     updateDirectory = directory.substring(0, directory.lastIndexOf("/"));
-                    console.log("Update directory: "+updateDirectory);
-                    if (destinationDirectoryComboBox.initialized){
-                        var directories=mapDownloadsModel.getLookupDirectories();
-                        //console.log("directories: "+directories);
-                        for (var dirRow=0; dirRow < directories.length; dirRow++){
-                            if (updateDirectory==directories[dirRow]){
-                                destinationDirectoryComboBox.currentIndex=dirRow;
-                            }
-                        }
-                    }
-                    return;
+                    break;
                 }
             }
         }
+
+        // uff, seems that there is some race condition and I cannot call
+        // updateDownloadDir(); function here, but have to postpone it
+        var timer = Qt.createQmlObject("import QtQuick 2.0; Timer {}", root);
+        timer.interval = 1;
+        timer.repeat = false;
+        timer.triggered.connect(updateDownloadDir)
+        timer.start();
     }
 
     SilicaFlickable{
@@ -204,13 +226,16 @@ Page {
                         }
                     }
                 }
+
                 onCurrentItemChanged: {
                     if (!initialized){
+                        console.log("NOT initialized");
                         return;
                     }
                     var dirs=mapDownloadsModel.getLookupDirectories();
                     selected = dirs[currentIndex];
                     //selected = directories[currentIndex].dir
+                    console.log("changed, currentIndex=" + destinationDirectoryComboBox.currentIndex + " selected: " + selected);
                 }
                 Component.onCompleted: {
                     var dirs=mapDownloadsModel.getLookupDirectories();
@@ -223,6 +248,7 @@ Page {
                         directories.append({"dir": dir});
                     }
                     initialized = true;
+                    console.log("initialized, currentIndex=" + destinationDirectoryComboBox.currentIndex);
                 }
             }
             Button{
@@ -233,6 +259,8 @@ Page {
                     var dir=mapDownloadsModel.suggestedDirectory(mapItem.map, destinationDirectoryComboBox.selected);
                     mapDownloadsModel.downloadMap(mapItem.map, dir);
                     console.log("downloading to " + dir);
+                    AppSettings.lastMapDirectory = destinationDirectoryComboBox.selected;
+                    console.log("AppSettings.lastMapDirectory = " + AppSettings.lastMapDirectory);
                     pageStack.pop(downloadsPage);
                 }
             }
