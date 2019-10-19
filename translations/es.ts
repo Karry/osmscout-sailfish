@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiano: Armin Maier</translation>
     </message>
 </context>
 <context>
@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Editar colección</translation>
+        <translation>Editar colección</translation>
     </message>
 </context>
 <context>
@@ -251,17 +251,17 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Elevación</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m a.n.m.</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Creado</translation>
     </message>
 </context>
 <context>
@@ -396,7 +396,7 @@
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Mapas enlínea</translation>
+        <translation>Mapas en línea</translation>
     </message>
     <message>
         <source>Style</source>
@@ -408,7 +408,7 @@
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Mapas sinlínea</translation>
+        <translation>Mapas sin línea</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -578,7 +578,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar carro</translation>
     </message>
 </context>
 <context>
@@ -604,7 +604,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar carro</translation>
     </message>
 </context>
 <context>
@@ -651,7 +651,7 @@
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Compartir enlace de lugar</translation>
     </message>
 </context>
 <context>
@@ -794,11 +794,11 @@
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Primavera</translation>
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>Castillo, Manor</translation>
     </message>
 </context>
 <context>
@@ -1037,7 +1037,7 @@
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>No hay suficiente espacio</translation>
     </message>
 </context>
 <context>
