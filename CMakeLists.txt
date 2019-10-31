@@ -61,24 +61,29 @@ find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp
 
 # ==================================================================================================
 
+option(DEBUG_LABEL_LAYOUTER "Print extra debug messages during label layouting" OFF)
 if (LABEL_LAYOUTER_DEBUG)
     add_definitions( -DLABEL_LAYOUTER_DEBUG)
 else()
     set(LABEL_LAYOUTER_DEBUG FALSE)
 endif()
 
+option(DEBUG_GROUNDTILES "Print extra debug messages while rendering ground tiles" OFF)
 if (DEBUG_GROUNDTILES)
     add_definitions( -DDEBUG_GROUNDTILES)
 else()
     set(DEBUG_GROUNDTILES FALSE)
 endif()
 
+# see https://doc.qt.io/qtcreator/creator-debugging-qml.html for more details
+option(QT_QML_DEBUG "Build with QML debugger support" OFF)
 if (QT_QML_DEBUG)
     add_definitions( -DQT_QML_DEBUG)
 else()
     set(QT_QML_DEBUG FALSE)
 endif()
 
+option(SANITIZE "Build with extra sanitizers" OFF)
 if (SANITIZE)
     # -fsanitize=address
     add_definitions( -fno-omit-frame-pointer -fstack-protector-all)
