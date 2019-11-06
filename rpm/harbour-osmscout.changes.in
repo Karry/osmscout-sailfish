@@ -335,3 +335,5 @@
 - small fixes around...
 - update translations
 - remember last used directory for map download
+- don't clear map when route is recomputed, just render it again
+- avoid random turnarounds during navigation
