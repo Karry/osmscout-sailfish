@@ -165,6 +165,7 @@ CoverBackground {
                 if (!Global.navigationModel.destinationSet){
                     console.log("Rotate back to 0");
                     map.rotateTo(0);
+                    bindToCurrentPositionTimer.restart();
                 }
             }
         }
@@ -181,7 +182,9 @@ CoverBackground {
         running: false
         repeat: false
         onTriggered: {
-            map.lockToPosition = true;
+            if (!Global.navigationModel.destinationSet){
+                map.lockToPosition = true;
+            }
         }
     }
     CoverActionList {
