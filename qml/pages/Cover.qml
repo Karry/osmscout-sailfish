@@ -165,6 +165,7 @@ CoverBackground {
                 if (!Global.navigationModel.destinationSet){
                     console.log("Rotate back to 0");
                     map.rotateTo(0);
+                    bindToCurrentPositionTimer.interval = 1200; // rotate animation duration
                     bindToCurrentPositionTimer.restart();
                 }
             }
@@ -177,13 +178,30 @@ CoverBackground {
     }
 
     Timer {
+        // MapWidget (its input handlers) cannot compose animations now.
+        // So when there is progressing animation, it may be interrupted
+        // by another... To avoid weird view states, this timer
+        // setup expected map state when all animations are finished...
+        // When we are not in navigation, map should pointto the north
+        // (angle==0) and we should be locked to current position.
         id: bindToCurrentPositionTimer
         interval: 600 // zoom duration
         running: false
         repeat: false
         onTriggered: {
+            // dont pin to current position, during navigation
+            // is view updated automatically by Widget
             if (!Global.navigationModel.destinationSet){
-                map.lockToPosition = true;
+                if (map.view.angle != 0){
+                    // there is possible race condition between zoom and rotate
+                    // animation.. North is not directing to top right now,
+                    // rotate map first and re-trigger timer
+                    map.rotateTo(0);
+                    bindToCurrentPositionTimer.interval = 1200; // rotate animation duration
+                    bindToCurrentPositionTimer.restart();
+                }else{
+                    map.lockToPosition = true;
+                }
             }
         }
     }
@@ -196,6 +214,7 @@ CoverBackground {
             iconSource: isLightTheme ? "../../pics/icon-cover-remove-dark.png" : "../../pics/icon-cover-remove.png"
             onTriggered: {
                 map.zoomOut(2.0);
+                bindToCurrentPositionTimer.interval = 600; // move animation duration
                 bindToCurrentPositionTimer.restart();
             }
         }
@@ -203,6 +222,7 @@ CoverBackground {
             iconSource: "image://theme/icon-cover-new"
             onTriggered: {
                 map.zoomIn(2.0);
+                bindToCurrentPositionTimer.interval = 600; // move animation duration
                 bindToCurrentPositionTimer.restart();
             }
         }
