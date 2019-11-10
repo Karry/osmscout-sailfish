@@ -572,14 +572,6 @@
         <translation>Ruter</translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="obsolete">meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="obsolete">km</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation type="unfinished"></translation>
     </message>

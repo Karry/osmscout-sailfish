@@ -572,14 +572,6 @@
         <translation>مسیریابی</translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="vanished">متر</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">کیلومتر</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation>مجموعه‌ها</translation>
     </message>

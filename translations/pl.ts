@@ -572,14 +572,6 @@
         <translation>Wytyczanie trasy</translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="vanished">metry</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation>Kolekcje</translation>
     </message>

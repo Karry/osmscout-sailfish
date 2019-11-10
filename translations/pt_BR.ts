@@ -572,14 +572,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="vanished">metros</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation type="unfinished">Coleções</translation>
     </message>

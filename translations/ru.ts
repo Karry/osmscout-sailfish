@@ -572,14 +572,6 @@
         <translation>Навигация</translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="vanished">метров</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">км</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation>Точки и пути</translation>
     </message>

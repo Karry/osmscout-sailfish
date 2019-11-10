@@ -572,14 +572,6 @@
         <translation>路径</translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="vanished">米</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation>收藏</translation>
     </message>

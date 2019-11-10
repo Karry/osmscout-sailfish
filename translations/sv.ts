@@ -572,14 +572,6 @@
         <translation>Vägval</translation>
     </message>
     <message>
-        <source>meters</source>
-        <translation type="vanished">meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>Collections</source>
         <translation>Samlingar</translation>
     </message>
@@ -671,7 +663,7 @@
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dela platslänk</translation>
     </message>
 </context>
 <context>
