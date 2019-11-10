@@ -318,6 +318,7 @@ set(QML_FILES
     qml/pages/CollectionWaypoint.qml
     qml/pages/NewWaypoint.qml
     qml/pages/CollectionExport.qml
+    qml/pages/Settings.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml)

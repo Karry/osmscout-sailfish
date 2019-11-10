@@ -163,36 +163,53 @@ Dialog{
                             id: speed
                             visible: trackModel.averageSpeed >= 0
                             label: qsTr("Speed ⌀/max")
-                            value: qsTr("%1 / %2 km/h")
-                                .arg(content.round10(trackModel.averageSpeed*3.6))
-                                .arg(content.round10(trackModel.maxSpeed*3.6))
+                            value: Utils.distanceUnits == "imperial" ?
+                                        (qsTr("%1 / %2 mi/h")
+                                            .arg(content.round10((trackModel.averageSpeed*3.6 * 1000) / 1609.344))
+                                            .arg(content.round10((trackModel.maxSpeed*3.6 * 1000) / 1609.344))) :
+                                        (qsTr("%1 / %2 km/h")
+                                            .arg(content.round10(trackModel.averageSpeed*3.6))
+                                            .arg(content.round10(trackModel.maxSpeed*3.6)))
                         }
                         DetailItem {
                             id: movingSpeed
                             visible: trackModel.movingAverageSpeed >= 0
                             label: qsTr("Moving Speed ⌀")
-                            value: qsTr("%1 km/h")
-                                .arg(content.round10(trackModel.movingAverageSpeed*3.6))
+                            value: Utils.distanceUnits == "imperial" ?
+                                        (qsTr("%1 mi/h")
+                                            .arg(content.round10((trackModel.movingAverageSpeed*3.6 * 1000) / 1609.344))) :
+                                        (qsTr("%1 km/h")
+                                            .arg(content.round10(trackModel.movingAverageSpeed*3.6)))
                         }
                         DetailItem {
                             id: elevation
                             visible: trackModel.minElevation > -100000 && trackModel.maxElevation > -100000
                             label: qsTr("Elevation min/max")
-                            value: qsTr("%1 / %2 m a.s.l.")
-                                .arg(Math.round(trackModel.minElevation))
-                                .arg(Math.round(trackModel.maxElevation))
+                            value: Utils.distanceUnits == "imperial" ?
+                                       (qsTr("%1 / %2 ft a.s.l.")
+                                            .arg(Math.round(trackModel.minElevation * 3.2808))
+                                            .arg(Math.round(trackModel.maxElevation * 3.2808))):
+                                       (qsTr("%1 / %2 m a.s.l.")
+                                            .arg(Math.round(trackModel.minElevation))
+                                            .arg(Math.round(trackModel.maxElevation)))
                         }
                         DetailItem {
                             id: ascent
                             label: qsTr("Ascent")
-                            value: qsTr("%1 m")
-                                .arg(Math.round(trackModel.ascent))
+                            value: Utils.distanceUnits == "imperial" ?
+                                        qsTr("%1 ft")
+                                            .arg(Math.round(trackModel.ascent * 3.2808)) :
+                                        qsTr("%1 m")
+                                            .arg(Math.round(trackModel.ascent))
                         }
                         DetailItem {
                             id: descent
                             label: qsTr("Descent")
-                            value: qsTr("%1 m")
-                                .arg(Math.round(trackModel.descent))
+                            value: Utils.distanceUnits == "imperial" ?
+                                        qsTr("%1 ft")
+                                            .arg(Math.round(trackModel.descent * 3.2808)) :
+                                        qsTr("%1 m")
+                                            .arg(Math.round(trackModel.descent))
                         }
                         Rectangle {
                             id: footer

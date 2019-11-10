@@ -21,16 +21,23 @@ import QtQuick 2.2
 import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
 
+import harbour.osmscout.map 1.0
+
+import "Utils.js" as Utils
+
 Item{
     id: speedIndicator
     property double currentSpeed: -1
     property double maximumSpeed: -1
-    property double roundedCurrentSpeed: Math.round(speedIndicator.currentSpeed)
+    property double roundedCurrentSpeed: Utils.humanSpeed(speedIndicator.currentSpeed)
 
     property double dimension: Math.min(width, height)
 
     visible: roundedCurrentSpeed >= 0 || maximumSpeed > 0;
 
+    Settings {
+        id: settings
+    }
     Rectangle {
         id: currentSpeedBackground
         anchors.left: parent.left
@@ -62,7 +69,7 @@ Item{
                 font.pixelSize: currentSpeedBackground.height * 0.5
             }
             Text{
-                text: qsTr("km/h")
+                text: settings.units=="imperial" ? qsTr("mi/h") : qsTr("km/h")
                 color: Theme.primaryColor
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pixelSize: currentSpeedBackground.height * 0.2
@@ -93,7 +100,7 @@ Item{
             radius: width*0.5
             color: "white"
             Text{
-                text: Math.round(speedIndicator.maximumSpeed)
+                text: Utils.humanSpeed(speedIndicator.maximumSpeed)
                 color: "black"
                 font.pixelSize: parent.height /2
                 font.bold: true

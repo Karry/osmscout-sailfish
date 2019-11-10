@@ -242,6 +242,22 @@
         <source>Moving Speed ⌀</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
@@ -557,11 +573,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation>متر</translation>
+        <translation type="vanished">متر</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>کیلومتر</translation>
+        <translation type="vanished">کیلومتر</translation>
     </message>
     <message>
         <source>Collections</source>
@@ -578,6 +594,10 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -802,10 +822,37 @@
     </message>
 </context>
 <context>
+    <name>Settings</name>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Metrics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imperial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coordinates</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeedIndicator</name>
     <message>
         <source>km/h</source>
         <translation>کیلومتر در ساعت</translation>
+    </message>
+    <message>
+        <source>mi/h</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -992,6 +1039,14 @@
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
         <translation>شمال غرب</translation>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

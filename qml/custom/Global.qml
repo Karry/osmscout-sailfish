@@ -36,6 +36,20 @@ Item {
     property alias navigationModel: navigationModel
     property alias positionSource: positionSource
 
+    Settings {
+        id: settings
+        onUnitsChanged: {
+            Utils.distanceUnits = settings.units;
+        }
+        Component.onCompleted: {
+            Utils.distanceUnits = settings.units;
+            Utils.gpsFormat = AppSettings.gpsFormat;
+            AppSettings.onGpsFormatChanged.connect(function(){
+                Utils.gpsFormat = AppSettings.gpsFormat;
+            });
+        }
+    }
+
     NavigationModel {
         id: navigationModel
 

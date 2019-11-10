@@ -17,6 +17,12 @@
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+.pragma library
+
+// variables from setting are synchonised from Global signleton
+var distanceUnits = "metrics";
+var gpsFormat = "numeric"
+
 function formatDegree(degree){
     var minutes = (degree - Math.floor(degree)) * 60;
     var seconds = (minutes - Math.floor(minutes )) * 60;
@@ -43,13 +49,55 @@ function formatCoord(lat, lon, format){
 }
 
 function humanDistance(distance){
-    if (distance < 1500){
-        return Math.round(distance) + " " + qsTr("meters");
+    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
+        var feet = distance * 3.2808;
+        if (feet < 1500){
+            return Math.round(feet) + " " + qsTr("feet");
+        }
+        var miles = distance / 1609.344;
+        if (miles < 2000){
+            return (Math.round(miles * 10)/10) + " " + qsTr("miles");
+        }
+        return Math.round(miles) + " " + qsTr("miles");
+    }else{
+        if (distance < 1500){
+            return Math.round(distance) + " " + qsTr("meters");
+        }
+        if (distance < 20000){
+            return (Math.round((distance/1000) * 10)/10) + " " + qsTr("km");
+        }
+        return Math.round(distance/1000) + " " + qsTr("km");
     }
-    if (distance < 20000){
-        return (Math.round((distance/1000) * 10)/10) + " " + qsTr("km");
+}
+function humanDistanceVerbose(distance){
+    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
+        var feet = distance * 3.2808;
+        if (feet < 150){
+            return (Math.round(feet * 10)/10) + " " + qsTr("feet");
+        }
+        var miles = distance / 1609.344;
+        if (miles < 2000){
+            return (Math.round(miles * 100)/100) + " " + qsTr("miles");
+        }
+        return Math.round(miles) + " " + qsTr("miles");
+    }else{
+        if (distance < 150){
+            return Math.round(distance/10)*10 + " "+ qsTr("meters");
+        }
+        if (distance < 2000){
+            return Math.round(distance/100)*100 + " "+ qsTr("meters");
+        }
+        return Math.round(distance/1000) + " "+ qsTr("km");
     }
-    return Math.round(distance/1000) + " " + qsTr("km");
+}
+
+function humanSpeed(kmph){
+    if ((typeof distanceUnits) != "undefined" && distanceUnits == "imperial"){
+        var mph = (kmph * 1000) / 1609.344;
+        return Math.round(mph);
+    }else{
+        return Math.round(kmph);
+    }
 }
 
 /**
@@ -132,7 +180,7 @@ function locationStr(location){
         return "";
     }
     return (location.label=="" || location.type=="coordinate") ?
-                Utils.formatCoord(location.lat, location.lon, AppSettings.gpsFormat) :
+                formatCoord(location.lat, location.lon, gpsFormat) :
                 location.label;
 }
 

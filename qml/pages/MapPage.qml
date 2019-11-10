@@ -130,6 +130,7 @@ Page {
                 ListElement { itemtext: QT_TR_NOOP("Collections");  itemicon: "image://theme/icon-m-favorite";       action: "collections";}
                 ListElement { itemtext: QT_TR_NOOP("Offline maps"); itemicon: "image://theme/icon-m-cloud-download"; action: "downloads";}
                 ListElement { itemtext: QT_TR_NOOP("Map settings"); itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+                ListElement { itemtext: QT_TR_NOOP("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
                 ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
             }
 
@@ -138,8 +139,9 @@ Page {
 
                 function isEnabled(action){
                     return ((action == "whereami" && Global.positionSource.positionValid) ||
-                            action == "about" || action == "layers" || action == "search" || 
-                            action == "downloads" || action == "routing" || action == "collections");
+                            action == "about" || action == "layers" || action == "search" ||
+                            action == "settings" || action == "downloads" || action == "routing" ||
+                            action == "collections");
                 }
 
                 function onAction(action){
@@ -173,6 +175,8 @@ Page {
                         pageStack.push(Qt.resolvedUrl("Routing.qml"))
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
+                    }else if (action == "settings"){
+                        pageStack.push(Qt.resolvedUrl("Settings.qml"))
                     }else if (action == "downloads"){
                         pageStack.push(Qt.resolvedUrl("Downloads.qml"))
                     }else if (action == "collections") {
@@ -508,17 +512,7 @@ Page {
                 }
                 Text{
                     id: distanceToNextStep
-
-                    function humanDistance(distance){
-                        if (distance < 150){
-                            return Math.round(distance/10)*10 + " "+ qsTr("meters");
-                        }
-                        if (distance < 2000){
-                            return Math.round(distance/100)*100 + " "+ qsTr("meters");
-                        }
-                        return Math.round(distance/1000) + " "+ qsTr("km");
-                    }
-                    text: humanDistance(Global.navigationModel.nextRouteStep.distanceTo)
+                    text: Utils.humanDistanceVerbose(Global.navigationModel.nextRouteStep.distanceTo)
                     color: Theme.primaryColor
                     font.pixelSize: Theme.fontSizeLarge
                     anchors{
