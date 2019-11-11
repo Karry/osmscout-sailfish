@@ -244,19 +244,19 @@
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 ft n.p.m.</translation>
     </message>
     <message>
         <source>%1 ft</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ft</translation>
     </message>
 </context>
 <context>
@@ -590,7 +590,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia</translation>
     </message>
 </context>
 <context>
@@ -817,23 +817,23 @@
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Units</source>
-        <translation type="unfinished"></translation>
+        <translation>Jednostki</translation>
     </message>
     <message>
         <source>Metrics</source>
-        <translation type="unfinished"></translation>
+        <translation>Metryczne</translation>
     </message>
     <message>
         <source>Imperial</source>
-        <translation type="unfinished"></translation>
+        <translation>Imperialne</translation>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation type="unfinished"></translation>
+        <translation>Współrzędne</translation>
     </message>
 </context>
 <context>
@@ -844,7 +844,7 @@
     </message>
     <message>
         <source>mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>mi/h</translation>
     </message>
 </context>
 <context>
@@ -1034,11 +1034,11 @@
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"></translation>
+        <translation>stóp</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"></translation>
+        <translation>mile</translation>
     </message>
 </context>
 <context>
