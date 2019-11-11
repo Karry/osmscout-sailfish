@@ -260,6 +260,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(HEADER_FILES
+    src/AppSettings.h
+    src/Arguments.h
     src/Storage.h
     src/CollectionModel.h
     src/CollectionListModel.h

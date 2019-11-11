@@ -33,10 +33,11 @@
 #include <osmscout/util/Logger.h>
 #include <osmscout/OSMScoutQt.h>
 
-
 #include <osmscout/Settings.h> // Library settings
+
 #include "AppSettings.h" // Application settings
 #include "IconProvider.h" // IconProvider
+#include "Arguments.h"
 
 // collections
 #include "Storage.h"
@@ -93,8 +94,27 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   app->setOrganizationDomain("libosmscout.sf.net");
   app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
   app->setApplicationVersion(OSMSCOUT_SAILFISH_VERSION_STRING);
-    
-  int           result;  
+
+  ArgParser argParser(app, argc, argv);
+
+  osmscout::CmdLineParseResult argResult=argParser.Parse();
+  if (argResult.HasError()) {
+    std::cerr << "ERROR: " << argResult.GetErrorDescription() << std::endl;
+    std::cout << argParser.GetHelp() << std::endl;
+    return 1;
+  }
+
+  Arguments args=argParser.GetArguments();
+  if (args.help) {
+    std::cout << argParser.GetHelp() << std::endl;
+    return 0;
+  }
+  if (args.version) {
+    std::cout << OSMSCOUT_SAILFISH_VERSION_STRING << std::endl;
+    return 0;
+  }
+
+  osmscout::log.Debug(args.debug);
 
 #if defined(HAVE_MMAP)
   qDebug() << "Usage of memory mapped files is supported.";
@@ -121,13 +141,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qmlRegisterType<CollectionMapBridge>("harbour.osmscout.map", 1, 0, "CollectionMapBridge");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
-
-  osmscout::log.Debug(true);
-
-  bool desktop = false;
-  for (QString arg: app->arguments()){
-      desktop |= (arg == "--desktop");
-  }
 
   QString home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
@@ -182,7 +195,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     .WithCacheLocation(cache + QDir::separator() + "OsmTileCache")
     .WithIconDirectory(SailfishApp::pathTo("map-icons").toLocalFile())
     .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
-    .WithTileCacheSizes(/* online */ desktop ?  60 : 50, /* offline */ desktop ? 200 : 60)
+    .WithTileCacheSizes(/* online */ args.desktop ?  60 : 50, /* offline */ args.desktop ? 200 : 60)
     .WithUserAgent("OSMScoutForSFOS", OSMSCOUT_SAILFISH_VERSION_STRING)
     .Init();
 
@@ -193,7 +206,8 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   Storage::initInstance(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
 
-  if (!desktop) {
+  int result;
+  if (!args.desktop) {
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
     view->engine()->addImageProvider(QLatin1String("harbour-osmscout"), new IconProvider());
