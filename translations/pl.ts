@@ -1034,7 +1034,7 @@
     </message>
     <message>
         <source>feet</source>
-        <translation>stopa</translation>
+        <translation>stóp</translation>
     </message>
     <message>
         <source>miles</source>
