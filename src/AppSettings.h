@@ -1,5 +1,5 @@
 /*
-  OSMScout - a Qt backend for libosmscout and libosmscout-map
+  OSMScout for SFOS
   Copyright (C) 2017 Lukas Karas
 
   This program is free software; you can redistribute it and/or modify
@@ -17,8 +17,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifndef APPSETTINGS_H
-#define APPSETTINGS_H
+#pragma once
 
 #include <QSettings>
 
@@ -72,6 +71,4 @@ private:
   QSettings         settings;
   osmscout::MapView *view;
 };
-
-#endif /* APPSETTINGS_H */
 

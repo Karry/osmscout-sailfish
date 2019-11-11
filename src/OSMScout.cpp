@@ -1,5 +1,5 @@
 /*
-  OSMScout - a Qt backend for libosmscout and libosmscout-map
+  OSMScout for SFOS
   Copyright (C) 2010  Tim Teulings
   Copyright (C) 2016  Lukáš Karas
 
@@ -18,22 +18,8 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-// Custom QML objects
-#include <osmscout/MapWidget.h>
-#include <osmscout/SearchLocationModel.h>
-#include <osmscout/LocationInfoModel.h>
-#include <osmscout/OnlineTileProviderModel.h>
-#include <osmscout/RoutingModel.h>
-#include <osmscout/AvailableMapsModel.h>
-#include <osmscout/MapDownloadsModel.h>
-#include <osmscout/MapStyleModel.h>
-#include <osmscout/StyleFlagsModel.h>
-#include <osmscout/MapObjectInfoModel.h>
-
 #include <osmscout/util/Logger.h>
 #include <osmscout/OSMScoutQt.h>
-
-#include <osmscout/Settings.h> // Library settings
 
 #include "AppSettings.h" // Application settings
 #include "IconProvider.h" // IconProvider

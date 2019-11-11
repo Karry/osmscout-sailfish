@@ -17,8 +17,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifndef OSMSCOUT_SAILFISH_QVARIANTCONVERTERS_H
-#define OSMSCOUT_SAILFISH_QVARIANTCONVERTERS_H
+#pragma once
 
 #include <osmscout/util/String.h>
 #include <osmscout/util/Distance.h>
@@ -129,5 +128,3 @@ inline osmscout::gpx::Optional<osmscout::Distance> varToDistanceOpt(const QVaria
 }
 
 }
-
-#endif //OSMSCOUT_SAILFISH_QVARIANTCONVERTERS_H

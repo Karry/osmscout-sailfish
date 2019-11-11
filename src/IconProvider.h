@@ -16,8 +16,7 @@
  *  0. You just DO WHAT THE FUCK YOU WANT TO.
  */
 
-#ifndef ICONPROVIDER_H
-#define ICONPROVIDER_H
+#pragma once
 
 #include <sailfishapp/sailfishapp.h>
 
@@ -78,6 +77,3 @@ public:
     }
   }
 };
-
-#endif // ICONPROVIDER_H
-

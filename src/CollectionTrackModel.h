@@ -17,9 +17,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifndef OSMSCOUT_SAILFISH_COLLECTIONWAYMODEL_H
-#define OSMSCOUT_SAILFISH_COLLECTIONWAYMODEL_H
-
+#pragma once
 
 #include "Storage.h"
 
@@ -97,5 +95,3 @@ private:
   bool loading{false};
   Track track;
 };
-
-#endif //OSMSCOUT_SAILFISH_COLLECTIONWAYMODEL_H

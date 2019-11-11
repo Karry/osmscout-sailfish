@@ -17,8 +17,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifndef OSMSCOUT_SAILFISH_COLLECTIONMAPBRIDGE_H
-#define OSMSCOUT_SAILFISH_COLLECTIONMAPBRIDGE_H
+#pragma once
 
 #include "Storage.h"
 
@@ -95,5 +94,3 @@ private:
 
   QMap<qint64, DisplayedCollection> displayedCollection;
 };
-
-#endif //OSMSCOUT_SAILFISH_COLLECTIONMAPBRIDGE_H
