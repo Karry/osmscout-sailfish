@@ -33,6 +33,7 @@ Item {
         id: icon
         stepType: model.type
         roundaboutExit: model.roundaboutExit
+        roundaboutClockwise: model.roundaboutClockwise
         width: Theme.iconSizeLarge
         height: width
 

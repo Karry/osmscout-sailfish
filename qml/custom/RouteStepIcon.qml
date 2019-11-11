@@ -26,6 +26,7 @@ Image{
     property string stepType: 'unknown'
     property string unknownTypeIcon: 'information'
     property int roundaboutExit: -1
+    property bool roundaboutClockwise: false
 
     /*
      * This is mapping libosmscout route step types and step icons.
@@ -52,6 +53,12 @@ Image{
         'leave-roundabout-3': 'leave-roundabout-3',
         'leave-roundabout-4': 'leave-roundabout-4',
 
+        'enter-roundabout-lhd': 'enter-roundabout-lhd',
+        'leave-roundabout-1-lhd': 'leave-roundabout-1-lhd',
+        'leave-roundabout-2-lhd': 'leave-roundabout-2-lhd',
+        'leave-roundabout-3-lhd': 'leave-roundabout-3-lhd',
+        'leave-roundabout-4-lhd': 'leave-roundabout-4-lhd',
+
         'enter-motorway': 'change-motorway',
         'change-motorway': 'change-motorway',
         'leave-motorway': 'leave-motorway',
@@ -66,6 +73,12 @@ Image{
     function typeIcon(type){
       if (type == "leave-roundabout"){
           type += "-" + Math.max(1, Math.min(roundaboutExit, 4));
+          if (roundaboutClockwise){
+            type += "-lhd"
+          }
+      }
+      if (type == "enter-roundabout" && roundaboutClockwise){
+        type += "-lhd"
       }
 
       if (typeof iconMapping[type] === 'undefined'){

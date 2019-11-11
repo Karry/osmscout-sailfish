@@ -338,3 +338,4 @@
 - don't clear map when route is recomputed, just render it again
 - avoid random turnarounds during navigation
 - support for imperial units
+- show correct icons for clockwise roundabounts (used in Britain and Ireland)
