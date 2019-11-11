@@ -817,7 +817,7 @@
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation>Settings</translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <source>Units</source>
