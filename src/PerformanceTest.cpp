@@ -194,6 +194,8 @@ std::string formatAlloc(double size)
 
 class PerformanceTestBackend {
 public:
+  virtual ~PerformanceTestBackend() = default;
+
   virtual void DrawMap(const osmscout::TileProjection &/*projection*/,
                        const osmscout::MapParameter &/*drawParameter*/,
                        const osmscout::MapData &/*data*/)
@@ -225,7 +227,7 @@ public:
     cairoMapPainter = new osmscout::MapPainterCairo(styleConfig);
   }
 
-  ~PerformanceTestBackendCairo()
+  virtual ~PerformanceTestBackendCairo()
   {
     cairo_destroy(cairo);
     cairo_surface_destroy(cairoSurface);
@@ -259,6 +261,8 @@ public:
   {
   }
 
+  virtual ~PerformanceTestBackendQt() = default;
+
   virtual void DrawMap(const osmscout::TileProjection &projection,
                        const osmscout::MapParameter &drawParameter,
                        const osmscout::MapData &data) {
@@ -286,7 +290,7 @@ public:
   {
   }
 
-  ~PerformanceTestBackendAGG()
+  virtual ~PerformanceTestBackendAGG()
   {
     delete pf;
     delete rbuf;
@@ -344,7 +348,7 @@ public:
                                                     "/usr/share/fonts/TTF/DejaVuSans.ttf");
   }
 
-  ~PerformanceTestBackendOGL()
+  virtual ~PerformanceTestBackendOGL()
   {
     //leaks openglMapPainter;
   }
@@ -366,6 +370,8 @@ public:
   PerformanceTestBackendNoOp(osmscout::StyleConfigRef styleConfig):
     noOpMapPainter(styleConfig)
   {}
+
+  virtual ~PerformanceTestBackendNoOp() = default;
 
   virtual void DrawMap(const osmscout::TileProjection &projection,
                        const osmscout::MapParameter &drawParameter,
