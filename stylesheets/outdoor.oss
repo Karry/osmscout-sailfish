@@ -431,12 +431,12 @@ STYLE
 
    [TYPE natural_peak] {
      NODE.TEXT#peakName { label: Name.name; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 1; }
-     NODE.TEXT#ele { label: Ele.inMeter; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
+     NODE.TEXT#ele { label: Ele.inLocaleUnit; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
    }
 
    [TYPE highway_mountain_pass] {
      NODE.TEXT#passName { label: Name.name; style: emphasize; color: #9c5329; priority: @labelPrioPeak; size: 0.9; position: 1;}
-     NODE.TEXT#ele { label: Ele.inMeter; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
+     NODE.TEXT#ele { label: Ele.inLocaleUnit; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
    }
 
   [TYPE natural_cave_entrance] {
@@ -484,16 +484,16 @@ STYLE
 
  [MAG 15-] {
    [TYPE elevation_contour_major] {
-     WAY.TEXT { label: Ele.inMeter; color: @majorContourColor; displayOffset: -1.2mm; size: 0.7;}
+     WAY.TEXT { label: Ele.inLocaleUnit; color: @majorContourColor; displayOffset: -1.2mm; size: 0.7;}
    }
    [TYPE elevation_contour_medium] {
-     WAY.TEXT { label: Ele.inMeter; color: @mediumContourColor; displayOffset: -1.2mm; size: 0.7;}
+     WAY.TEXT { label: Ele.inLocaleUnit; color: @mediumContourColor; displayOffset: -1.2mm; size: 0.7;}
    }
  }
 
  [MAG 19-] {
    [TYPE elevation_contour_minor] {
-     WAY.TEXT { label: Ele.inMeter; color: @minorContourColor;  displayOffset: -1.2mm; size: 0.7;}
+     WAY.TEXT { label: Ele.inLocaleUnit; color: @minorContourColor;  displayOffset: -1.2mm; size: 0.7;}
    }
  }
 
