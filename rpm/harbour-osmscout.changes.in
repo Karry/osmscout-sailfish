@@ -329,7 +329,7 @@
 - update translations, add Italian
 - show compass when map north is not pointing top (when navigation is running)
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.14-1
+* 2019-11-18 Lukáš Karas <lukas.karas@centrum.cz> 1.14-1
 - add button for sharing place link
 - define style for waterfall and add weir (node) symbol
 - small fixes around...
