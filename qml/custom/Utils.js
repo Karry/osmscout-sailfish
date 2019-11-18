@@ -55,7 +55,7 @@ function humanDistance(distance){
             return Math.round(feet) + " " + qsTr("feet");
         }
         var miles = distance / 1609.344;
-        if (miles < 2000){
+        if (miles < 20){
             return (Math.round(miles * 10)/10) + " " + qsTr("miles");
         }
         return Math.round(miles) + " " + qsTr("miles");
@@ -73,11 +73,11 @@ function humanDistanceVerbose(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var feet = distance * 3.2808;
         if (feet < 150){
-            return (Math.round(feet * 10)/10) + " " + qsTr("feet");
+            return (Math.round(feet / 10) * 10) + " " + qsTr("feet");
         }
         var miles = distance / 1609.344;
-        if (miles < 2000){
-            return (Math.round(miles * 100)/100) + " " + qsTr("miles");
+        if (miles < 2){
+            return (Math.round(feet / 100) * 100) + " " + qsTr("feet");
         }
         return Math.round(miles) + " " + qsTr("miles");
     }else{
