@@ -19,7 +19,7 @@
 
 .pragma library
 
-// variables from setting are synchonised from Global signleton
+// variables from setting are synchronised from Global singleton
 var distanceUnits = "metrics";
 var gpsFormat = "numeric"
 
