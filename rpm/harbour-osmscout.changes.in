@@ -339,3 +339,6 @@
 - avoid random turnarounds during navigation
 - support for imperial units
 - show correct icons for clockwise roundabounts (used in Britain and Ireland)
+
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.15-1
+- improve distance formating with imperial units
