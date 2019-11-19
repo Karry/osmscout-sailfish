@@ -45,7 +45,7 @@ Page {
             x:0
             y:0
             fillMode: Image.PreserveAspectCrop
-            horizontalAlignment: Image.AlignLeft // Image.AlignHCenter
+            horizontalAlignment: Image.AlignRight // Image.AlignHCenter
             verticalAlignment: Image.AlignTop
             height: Math.min((width / 1920) * 1080, 512)
         }
