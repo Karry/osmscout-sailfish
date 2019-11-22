@@ -342,5 +342,5 @@
 
 * 2019-11-22 Lukáš Karas <lukas.karas@centrum.cz> 1.15-1
 - improve distance formatting with imperial units
-- update Gernam and Chinese translations
+- update German and Chinese translations
 - fix elevation label
