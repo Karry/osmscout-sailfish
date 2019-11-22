@@ -340,7 +340,7 @@
 - support for imperial units
 - show correct icons for clockwise roundabounts (used in Britain and Ireland)
 
-* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.15-1
+* 2019-11-22 Lukáš Karas <lukas.karas@centrum.cz> 1.15-1
 - improve distance formating with imperial units
 - update Gernam and Chinese translations
 - fix elevation label
