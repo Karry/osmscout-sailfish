@@ -344,3 +344,5 @@
 - improve distance formatting with imperial units
 - update German and Chinese translations
 - fix elevation label
+
+* 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.16-1
