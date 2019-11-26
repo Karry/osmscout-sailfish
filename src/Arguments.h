@@ -23,9 +23,17 @@
 #include <iostream>
 
 struct Arguments {
+  enum class LogLevel: int {
+    None = 0,
+    Error = 1,
+    Warn = 2,
+    Info = 3,
+    Debug = 4
+  };
+
   bool help{false};
   bool version{false};
-  bool debug{false};
+  LogLevel logLevel{LogLevel::Warn};
   bool desktop{false};
 };
 
@@ -53,11 +61,24 @@ ArgParser(QGuiApplication *app,
             "Display application version and exits",
             false);
 
-  AddOption(osmscout::CmdLineFlag([this](const bool& value) {
-              args.debug=value;
+  AddOption(osmscout::CmdLineStringOption([this](const std::string& value) {
+              auto str=osmscout::UTF8StringToLower(value);
+              if (str=="debug"){
+                args.logLevel=Arguments::LogLevel::Debug;
+              } else if (str=="info"){
+                args.logLevel=Arguments::LogLevel::Info;
+              } else if (str=="warn"){
+                args.logLevel=Arguments::LogLevel::Warn;
+              } else if (str=="error") {
+                args.logLevel = Arguments::LogLevel::Error;
+              } else if (str=="none") {
+                args.logLevel = Arguments::LogLevel::None;
+              } else {
+                osmscout::log.Error() << "Unknown log level " << value;
+              }
             }),
-            "debug",
-            "Enable debug output",
+            "log",
+            "Set logging level (debug, info, warn, error, none). Default warn.",
             false);
 
   AddOption(osmscout::CmdLineFlag([this](const bool& value) {

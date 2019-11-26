@@ -100,7 +100,10 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     return 0;
   }
 
-  osmscout::log.Debug(args.debug);
+  osmscout::log.Debug(args.logLevel >= Arguments::LogLevel::Debug);
+  osmscout::log.Info(args.logLevel >= Arguments::LogLevel::Info);
+  osmscout::log.Warn(args.logLevel >= Arguments::LogLevel::Warn);
+  osmscout::log.Error(args.logLevel >= Arguments::LogLevel::Error);
 
 #if defined(HAVE_MMAP)
   qDebug() << "Usage of memory mapped files is supported.";
