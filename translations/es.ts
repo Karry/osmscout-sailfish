@@ -565,7 +565,7 @@
     </message>
     <message>
         <source>Map settings</source>
-        <translation>Ajustes</translation>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Navigation</source>
