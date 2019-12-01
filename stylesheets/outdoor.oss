@@ -548,6 +548,10 @@ STYLE
    [TYPE waterway_stream, waterway_intermittent_stream] {
      [SIZE 2m 0.15mm:3px<] WAY {color: @waterColor; width: 2m;}
      [SIZE 2m <0.15mm:3px] WAY {color: @waterColor; displayWidth: 0.15mm;}
+
+     [FEATURE Tunnel] {
+       WAY { dash: 0.4,4;}
+     }
    }
 
    [TYPE waterway_drain, waterway_intermittent_drain, waterway_ditch] {
