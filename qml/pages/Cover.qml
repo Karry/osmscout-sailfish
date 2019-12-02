@@ -118,6 +118,7 @@ CoverBackground {
             id: nextStepIcon
             stepType: Global.navigationModel.nextRouteStep.type
             roundaboutExit: Global.navigationModel.nextRouteStep.roundaboutExit
+            roundaboutClockwise: Global.navigationModel.nextRouteStep.roundaboutClockwise
             x: 0
             y: Theme.paddingMedium
             height: Theme.fontSizeMedium * 1.5

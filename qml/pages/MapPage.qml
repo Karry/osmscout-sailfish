@@ -488,6 +488,7 @@ Page {
                     id: nextStepIcon
                     stepType: Global.navigationModel.nextRouteStep.type
                     roundaboutExit: Global.navigationModel.nextRouteStep.roundaboutExit
+                    roundaboutClockwise: Global.navigationModel.nextRouteStep.roundaboutClockwise
                     height: Theme.iconSizeLarge
                     width: height
                     anchors{
