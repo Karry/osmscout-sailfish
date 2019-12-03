@@ -1040,6 +1040,10 @@
         <source>miles</source>
         <translation>Meilen</translation>
     </message>
+    <message>
+        <source>yards</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>databaseType</name>

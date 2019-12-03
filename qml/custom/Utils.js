@@ -69,15 +69,22 @@ function humanDistance(distance){
         return Math.round(distance/1000) + " " + qsTr("km");
     }
 }
+
+/**
+ * This variant is used in navigation, it is using miles/yards or km/meters
+ */
 function humanDistanceVerbose(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
-        var feet = distance * 3.2808;
-        if (feet < 150){
-            return (Math.round(feet / 10) * 10) + " " + qsTr("feet");
+        var yards = distance * 0.9144;
+        if (yards < 150){
+            return (Math.round(yards / 10) * 10) + " " + qsTr("yards");
+        }
+        if (yards < 1000){
+            return (Math.round(yards / 100) * 100) + " " + qsTr("yards");
         }
         var miles = distance / 1609.344;
         if (miles < 2){
-            return (Math.round(feet / 100) * 100) + " " + qsTr("feet");
+            return (Math.round(miles *10) / 10) + " " + qsTr("miles");
         }
         return Math.round(miles) + " " + qsTr("miles");
     }else{
