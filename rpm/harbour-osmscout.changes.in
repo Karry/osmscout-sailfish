@@ -346,3 +346,7 @@
 - fix elevation label
 
 * 2019-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.16-1
+- fix lock to current position, it should improve battery consumption
+- propagate roundabout direction to UI correctly (clockwise / counter-clockwise)
+- use yards/miles for navigation when imperial units are in use
+- updated translations
