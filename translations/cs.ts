@@ -1042,7 +1042,7 @@
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"></translation>
+        <translation>yardů</translation>
     </message>
 </context>
 <context>
