@@ -350,3 +350,5 @@
 - propagate roundabout direction to UI correctly (clockwise / counter-clockwise)
 - use yards/miles for navigation when imperial units are in use
 - updated translations
+- fix estimated position in tunnel during navigation
+- refactor area handling, it should fix rendering of some complex areas (OSM relations)
