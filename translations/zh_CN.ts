@@ -1042,7 +1042,7 @@
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"></translation>
+        <translation>码</translation>
     </message>
 </context>
 <context>
