@@ -62,7 +62,7 @@ public slots:
 
 public:
   CollectionTrackModel();
-  ~CollectionTrackModel(){};
+  virtual ~CollectionTrackModel() = default;
 
   bool isLoading() const;
   QString getTrackId() const;

@@ -49,7 +49,7 @@ public slots:
 public:
   CollectionMapBridge(QObject *parent = nullptr);
 
-  ~CollectionMapBridge(){}
+  virtual ~CollectionMapBridge() = default;
 
   inline QObject *getMap() const
   {

@@ -44,7 +44,7 @@ signals:
 
 public:
   AppSettings();
-  inline virtual ~AppSettings(){}
+  virtual ~AppSettings() = default;
 
   osmscout::MapView *GetMapView();
   void SetMapView(QObject *o);
