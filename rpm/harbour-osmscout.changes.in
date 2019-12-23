@@ -352,3 +352,5 @@
 - updated translations
 - fix estimated position in tunnel during navigation
 - refactor area handling, it should fix rendering of some complex areas (OSM relations)
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.17-1
