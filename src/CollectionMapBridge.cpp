@@ -23,45 +23,45 @@ CollectionMapBridge::CollectionMapBridge(QObject *parent):
   QObject(parent)
 {
   Storage *storage = Storage::getInstance();
-  if (storage) {
-    connect(storage, &Storage::initialised,
-            this, &CollectionMapBridge::init,
-            Qt::QueuedConnection);
+  assert(storage);
 
-    connect(storage, &Storage::initialisationError,
-            this, &CollectionMapBridge::storageInitialisationError,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialised,
+          this, &CollectionMapBridge::init,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionMapBridge::collectionLoadRequest,
-            storage, &Storage::loadCollections,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialisationError,
+          this, &CollectionMapBridge::storageInitialisationError,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::collectionsLoaded,
-            this, &CollectionMapBridge::onCollectionsLoaded,
-            Qt::QueuedConnection);
+  connect(this, &CollectionMapBridge::collectionLoadRequest,
+          storage, &Storage::loadCollections,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::error,
-            this, &CollectionMapBridge::error,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::collectionsLoaded,
+          this, &CollectionMapBridge::onCollectionsLoaded,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionMapBridge::collectionDetailRequest,
-            storage, &Storage::loadCollectionDetails,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::error,
+          this, &CollectionMapBridge::error,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::collectionDetailsLoaded,
-            this, &CollectionMapBridge::onCollectionDetailsLoaded,
-            Qt::QueuedConnection);
+  connect(this, &CollectionMapBridge::collectionDetailRequest,
+          storage, &Storage::loadCollectionDetails,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionMapBridge::trackDataRequest,
-            storage, &Storage::loadTrackData,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::collectionDetailsLoaded,
+          this, &CollectionMapBridge::onCollectionDetailsLoaded,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::trackDataLoaded,
-            this, &CollectionMapBridge::onTrackDataLoaded,
-            Qt::QueuedConnection);
+  connect(this, &CollectionMapBridge::trackDataRequest,
+          storage, &Storage::loadTrackData,
+          Qt::QueuedConnection);
 
-    init();
-  }
+  connect(storage, &Storage::trackDataLoaded,
+          this, &CollectionMapBridge::onTrackDataLoaded,
+          Qt::QueuedConnection);
+
+  init();
 }
 
 void CollectionMapBridge::init()

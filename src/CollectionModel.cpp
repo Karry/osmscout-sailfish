@@ -27,63 +27,64 @@
 CollectionModel::CollectionModel()
 {
   Storage *storage = Storage::getInstance();
-  if (storage){
-    connect(storage, &Storage::initialised,
-            this, &CollectionModel::storageInitialised,
-            Qt::QueuedConnection);
+  assert(storage);
 
-    connect(storage, &Storage::initialisationError,
-            this, &CollectionModel::storageInitialisationError,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialised,
+          this, &CollectionModel::storageInitialised,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::collectionDetailRequest,
-            storage, &Storage::loadCollectionDetails,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialisationError,
+          this, &CollectionModel::storageInitialisationError,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::collectionDetailsLoaded,
-            this, &CollectionModel::onCollectionDetailsLoaded,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::collectionDetailRequest,
+          storage, &Storage::loadCollectionDetails,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::deleteWaypointRequest,
-            storage, &Storage::deleteWaypoint,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::collectionDetailsLoaded,
+          this, &CollectionModel::onCollectionDetailsLoaded,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::deleteTrackRequest,
-            storage, &Storage::deleteTrack,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::deleteWaypointRequest,
+          storage, &Storage::deleteWaypoint,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::createWaypointRequest,
-            storage, &Storage::createWaypoint,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::deleteTrackRequest,
+          storage, &Storage::deleteTrack,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::editWaypointRequest,
-            storage, &Storage::editWaypoint,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::createWaypointRequest,
+          storage, &Storage::createWaypoint,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::editTrackRequest,
-            storage, &Storage::editTrack,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::editWaypointRequest,
+          storage, &Storage::editWaypoint,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::exportCollectionRequest,
-            storage, &Storage::exportCollection,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::editTrackRequest,
+          storage, &Storage::editTrack,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::collectionExported,
-            this, &CollectionModel::onCollectionExported,
-            Qt::QueuedConnection);
+  connect(this, &CollectionModel::exportCollectionRequest,
+          storage, &Storage::exportCollection,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::error,
-            this, &CollectionModel::error,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::collectionExported,
+          this, &CollectionModel::onCollectionExported,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::moveWaypointRequest,
-            storage, &Storage::moveWaypoint,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::error,
+          this, &CollectionModel::error,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionModel::moveTrackRequest,
-            storage, &Storage::moveTrack,
-            Qt::QueuedConnection);
-  }
+  connect(this, &CollectionModel::moveWaypointRequest,
+          storage, &Storage::moveWaypoint,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionModel::moveTrackRequest,
+          storage, &Storage::moveTrack,
+          Qt::QueuedConnection);
+
 }
 
 CollectionModel::~CollectionModel()

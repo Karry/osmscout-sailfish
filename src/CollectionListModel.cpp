@@ -24,39 +24,39 @@
 CollectionListModel::CollectionListModel()
 {
   Storage *storage = Storage::getInstance();
-  if (storage){
-    connect(storage, &Storage::initialised,
-            this, &CollectionListModel::storageInitialised,
-            Qt::QueuedConnection);
+  assert(storage);
 
-    connect(storage, &Storage::initialisationError,
-            this, &CollectionListModel::storageInitialisationError,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialised,
+          this, &CollectionListModel::storageInitialised,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionListModel::collectionLoadRequest,
-            storage, &Storage::loadCollections,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialisationError,
+          this, &CollectionListModel::storageInitialisationError,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::collectionsLoaded,
-            this, &CollectionListModel::onCollectionsLoaded,
-            Qt::QueuedConnection);
+  connect(this, &CollectionListModel::collectionLoadRequest,
+          storage, &Storage::loadCollections,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::error,
-            this, &CollectionListModel::error,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::collectionsLoaded,
+          this, &CollectionListModel::onCollectionsLoaded,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionListModel::updateCollectionRequest,
-            storage, &Storage::updateOrCreateCollection,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::error,
+          this, &CollectionListModel::error,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionListModel::deleteCollectionRequest,
-            storage, &Storage::deleteCollection,
-            Qt::QueuedConnection);
+  connect(this, &CollectionListModel::updateCollectionRequest,
+          storage, &Storage::updateOrCreateCollection,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionListModel::importCollectionRequest,
-            storage, &Storage::importCollection,
-            Qt::QueuedConnection);
-  }
+  connect(this, &CollectionListModel::deleteCollectionRequest,
+          storage, &Storage::deleteCollection,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionListModel::importCollectionRequest,
+          storage, &Storage::importCollection,
+          Qt::QueuedConnection);
 
   emit collectionLoadRequest();
 }

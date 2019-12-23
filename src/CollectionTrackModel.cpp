@@ -26,23 +26,23 @@ using namespace osmscout;
 CollectionTrackModel::CollectionTrackModel()
 {
   Storage *storage = Storage::getInstance();
-  if (storage) {
-    connect(storage, &Storage::initialised,
-            this, &CollectionTrackModel::storageInitialised,
-            Qt::QueuedConnection);
+  assert(storage);
 
-    connect(storage, &Storage::initialisationError,
-            this, &CollectionTrackModel::storageInitialisationError,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialised,
+          this, &CollectionTrackModel::storageInitialised,
+          Qt::QueuedConnection);
 
-    connect(this, &CollectionTrackModel::trackDataRequest,
-            storage, &Storage::loadTrackData,
-            Qt::QueuedConnection);
+  connect(storage, &Storage::initialisationError,
+          this, &CollectionTrackModel::storageInitialisationError,
+          Qt::QueuedConnection);
 
-    connect(storage, &Storage::trackDataLoaded,
-            this, &CollectionTrackModel::onTrackDataLoaded,
-            Qt::QueuedConnection);
-  }
+  connect(this, &CollectionTrackModel::trackDataRequest,
+          storage, &Storage::loadTrackData,
+          Qt::QueuedConnection);
+
+  connect(storage, &Storage::trackDataLoaded,
+          this, &CollectionTrackModel::onTrackDataLoaded,
+          Qt::QueuedConnection);
 }
 
 void CollectionTrackModel::storageInitialised()

@@ -27,8 +27,9 @@ class Tracker : public QObject {
 signals:
 
 public slots:
+  void init();
 
 public:
-  Tracker() = default;
+  Tracker();
   virtual ~Tracker() = default;
 };

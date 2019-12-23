@@ -18,3 +18,18 @@
 */
 
 #include "Tracker.h"
+
+Tracker::Tracker() {
+  Storage *storage = Storage::getInstance();
+  assert(storage);
+
+  connect(storage, &Storage::initialised,
+          this, &Tracker::init,
+          Qt::QueuedConnection);
+
+  init();
+}
+
+void Tracker::init(){
+
+}
