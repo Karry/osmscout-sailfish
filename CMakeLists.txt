@@ -268,7 +268,8 @@ set(HEADER_FILES
     src/QVariantConverters.h
     src/CollectionTrackModel.h
     src/CollectionMapBridge.h
-    src/IconProvider.h)
+    src/IconProvider.h
+    src/Tracker.h)
 
 # keep qml files in source list - it makes qtcreator happy
 # find qml -type f
@@ -332,7 +333,8 @@ set(SOURCE_FILES
     src/CollectionModel.cpp
     src/CollectionListModel.cpp
     src/CollectionTrackModel.cpp
-    src/CollectionMapBridge.cpp)
+    src/CollectionMapBridge.cpp
+    src/Tracker.cpp)
 
 # XML files with translated phrases.
 # You can add new language translation just by adding new entry here, and run build.
