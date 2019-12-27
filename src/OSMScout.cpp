@@ -31,6 +31,7 @@
 #include "CollectionListModel.h"
 #include "CollectionTrackModel.h"
 #include "CollectionMapBridge.h"
+#include "Tracker.h"
 
 #include <harbour-osmscout/private/Config.h>
 
@@ -128,6 +129,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");
   qmlRegisterType<CollectionTrackModel>("harbour.osmscout.map", 1, 0, "CollectionTrackModel");
   qmlRegisterType<CollectionMapBridge>("harbour.osmscout.map", 1, 0, "CollectionMapBridge");
+  qmlRegisterType<Tracker>("harbour.osmscout.map", 1, 0, "Tracker");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 
