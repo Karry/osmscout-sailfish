@@ -237,6 +237,9 @@ signals:
   void collectionDetailsLoaded(Collection collection, bool ok);
   void trackDataLoaded(Track track, bool complete, bool ok);
   void collectionExported(bool success);
+
+  void openTrackLoaded(Track track, bool ok);
+
   void error(QString);
 
 public slots:
@@ -321,6 +324,11 @@ public slots:
    */
   void moveWaypoint(qint64 waypointId, qint64 collectionId);
   void moveTrack(qint64 trackId, qint64 collectionId);
+
+  /**
+   * emit openTrackLoaded()
+   */
+  void loadRecentOpenTrack();
 
 public:
   Storage(QThread *thread,

@@ -1458,6 +1458,28 @@ void Storage::moveTrack(qint64 trackId, qint64 collectionId)
   }
 }
 
+void Storage::loadRecentOpenTrack(){
+  if (!checkAccess("loadRecentOpenTrack")){
+    return;
+  }
+
+  QSqlQuery sqlTrack(db);
+  sqlTrack.prepare("SELECT * FROM `track` WHERE `open` = true ORDER BY `creation_time` DESC LIMIT 1;");
+  sqlTrack.exec();
+
+  if (sqlTrack.lastError().isValid()) {
+    qWarning() << "Loading last open track fails";
+    emit error(tr("Loading last open track fails"));
+    emit openTrackLoaded(Track{}, false);
+  }
+
+  if (sqlTrack.next()) {
+    openTrackLoaded(makeTrack(sqlTrack), true);
+  } else {
+    emit openTrackLoaded(Track{}, true);
+  }
+}
+
 Storage::operator bool() const
 {
   return ok;
