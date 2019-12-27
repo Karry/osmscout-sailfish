@@ -25,11 +25,29 @@ class Tracker : public QObject {
   Q_DISABLE_COPY(Tracker)
 
 signals:
+  void openTrackRequested();
+  void openTrackLoaded(QString trackId, QString name);
+  void error(QString message);
 
 public slots:
+  // for Storage
   void init();
+  void onOpenTrackLoaded(Track track, bool ok);
+
+  // slot for UI
+  void resumeTrack(QString trackId);
+  void startTracking(QString collectionId, QString trackName, QString trackDescription);
+  void stopTracking();
+
+  void locationChanged(bool locationValid,
+                       double lat, double lon,
+                       bool horizontalAccuracyValid, double horizontalAccuracy,
+                       bool elevationValid, double elevation);
 
 public:
   Tracker();
   virtual ~Tracker() = default;
+
+public:
+  Track track;
 };

@@ -27,9 +27,47 @@ Tracker::Tracker() {
           this, &Tracker::init,
           Qt::QueuedConnection);
 
+  connect(storage, &Storage::error,
+          this, &Tracker::error,
+          Qt::QueuedConnection);
+
+  connect(this, &Tracker::openTrackRequested,
+          storage, &Storage::loadRecentOpenTrack,
+          Qt::QueuedConnection);
+
+  connect(storage, &Storage::openTrackLoaded,
+          this, &Tracker::onOpenTrackLoaded,
+          Qt::QueuedConnection);
+
   init();
 }
 
 void Tracker::init(){
+  emit openTrackRequested();
+}
 
+void Tracker::onOpenTrackLoaded(Track track, bool ok){
+  if (!ok || track.id < 0){
+    return;
+  }
+  emit openTrackLoaded(QString::number(track.id), track.name);
+}
+
+void Tracker::resumeTrack(QString trackId){
+  // TODO
+}
+
+void Tracker::startTracking(QString collectionId, QString trackName, QString trackDescription){
+  // TODO
+}
+
+void Tracker::stopTracking(){
+  // TODO
+}
+
+void Tracker::locationChanged(bool locationValid,
+                              double lat, double lon,
+                              bool horizontalAccuracyValid, double horizontalAccuracy,
+                              bool elevationValid, double elevation){
+  // TODO
 }
