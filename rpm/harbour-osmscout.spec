@@ -97,14 +97,6 @@ strip --keep-symbol=main %{buildroot}%{_bindir}/%{name}
 # -- ship all shared unallowed libraries with the app
 mkdir -p %{buildroot}%{_datadir}/%{name}/lib
 
-# Jolla tablet (i486) build have to be linked to ld-linux.so.2, but it is not allowed 
-# in Harbour! Until Jolla fix their rules, we need to ship ld lib with app.
-%ifarch i486
-  # I am little bit confused by about Jolla tablet x86 architecture. 
-  # Cmake setup build with "-march=i686", target rpm package is i486 and rpm %{_arch} is i386
-  cp /lib/ld-linux.so.2 %{buildroot}%{_datadir}/%{name}/lib
-%endif
-
 # check architecture
 # file %{buildroot}%{_bindir}/harbour-osmscout
 # file /usr/lib/libgomp.so.1
