@@ -110,6 +110,28 @@ public:
     return std::chrono::duration_cast<std::chrono::milliseconds>(movingDuration).count();
   }
 
+  bool operator==(const TrackStatistics &o){
+    bool bboxEquals = bbox.IsValid() == o.bbox.IsValid();
+    if (bboxEquals && bbox.IsValid()) {
+      bboxEquals = bbox.GetMinCoord() == o.bbox.GetMinCoord() && bbox.GetMaxCoord() == o.bbox.GetMaxCoord();
+    }
+
+    return from==o.from &&
+           to==o.to &&
+           distance==o.distance &&
+           rawDistance==o.rawDistance &&
+           duration==o.duration &&
+           movingDuration==o.movingDuration &&
+           maxSpeed==o.maxSpeed &&
+           averageSpeed==o.averageSpeed &&
+           movingAverageSpeed==o.movingAverageSpeed &&
+           ascent==o.ascent &&
+           descent==o.descent &&
+           minElevation==o.minElevation &&
+           maxElevation==o.maxElevation &&
+           bboxEquals;
+  }
+
 public:
   QDateTime from;
   QDateTime to;
@@ -124,7 +146,83 @@ public:
   osmscout::Distance descent;
   osmscout::gpx::Optional<osmscout::Distance> minElevation;
   osmscout::gpx::Optional<osmscout::Distance> maxElevation;
-  osmscout::GeoBox   bbox;
+  osmscout::GeoBox bbox;
+};
+
+class MaxSpeedBuffer{
+public:
+  MaxSpeedBuffer() = default;
+  ~MaxSpeedBuffer() = default;
+
+  void flush();
+  void insert(const osmscout::gpx::TrackPoint &p);
+
+  // return maximum computed speed in m / s
+  double getMaxSpeed() const;
+
+private:
+  QList<osmscout::Distance> distanceFifo;
+  QList<osmscout::Timestamp::duration> timeFifo;
+  osmscout::Distance bufferDistance;
+  osmscout::Timestamp::duration bufferTime{0};
+  std::shared_ptr<osmscout::gpx::TrackPoint> lastPoint;
+  double maxSpeed{0}; // m / s
+};
+
+class TrackStatisticsAccumulator
+{
+public:
+  TrackStatisticsAccumulator() = default;
+  TrackStatisticsAccumulator(const TrackStatisticsAccumulator &other) = default;
+  TrackStatisticsAccumulator(TrackStatisticsAccumulator &&) = default;
+
+  virtual ~TrackStatisticsAccumulator() = default;
+
+  TrackStatisticsAccumulator &operator =(const TrackStatisticsAccumulator &other) = default;
+  TrackStatisticsAccumulator &operator =(TrackStatisticsAccumulator &&other) = default;
+
+  void update(const osmscout::gpx::TrackPoint &point);
+  void segmentEnd();
+
+  TrackStatistics accumulate() const;
+private:
+  // filter
+  size_t rawCount{0};
+  size_t filteredCnt{0};
+
+  // accuracy filter
+  double maxDilution{30};
+
+  // distance filter
+  osmscout::gpx::Optional<osmscout::gpx::TrackPoint> filterLastPoint;
+  osmscout::Distance minDistance{osmscout::Meters(5)};
+
+  // duration accumulator
+  osmscout::gpx::Optional<osmscout::Timestamp> from;
+  osmscout::gpx::Optional<osmscout::Timestamp> to;
+
+  // bbox
+  osmscout::GeoBox bbox;
+
+  // distance
+  osmscout::gpx::Optional<osmscout::GeoCoord> filterLastCoord;
+  osmscout::Distance length;
+
+  // raw distance
+  osmscout::gpx::Optional<osmscout::GeoCoord> lastCoord;
+  osmscout::Distance rawLength;
+
+  // max speed, moving duration
+  MaxSpeedBuffer maxSpeedBuf;
+  osmscout::gpx::Optional<osmscout::Timestamp> previousTime;
+  osmscout::Timestamp::duration movingDuration{0};
+
+  // elevation
+  osmscout::gpx::Optional<osmscout::Distance> minElevation;
+  osmscout::gpx::Optional<osmscout::Distance> maxElevation;
+  osmscout::gpx::Optional<double> prevElevation; // m
+  double ascent=0;
+  double descent=0;
 };
 
 class Track
@@ -200,26 +298,6 @@ public:
 
   std::shared_ptr<std::vector<Track>> tracks;
   std::shared_ptr<std::vector<Waypoint>> waypoints;
-};
-
-class MaxSpeedBuffer{
-public:
-  MaxSpeedBuffer() = default;
-  ~MaxSpeedBuffer() = default;
-
-  void flush();
-  void insert(const osmscout::gpx::TrackPoint &p);
-
-  // return maximum computed speed in m / s
-  double getMaxSpeed() const;
-
-private:
-  QList<osmscout::Distance> distanceFifo;
-  QList<osmscout::Timestamp::duration> timeFifo;
-  osmscout::Distance bufferDistance;
-  osmscout::Timestamp::duration bufferTime{0};
-  std::shared_ptr<osmscout::gpx::TrackPoint> lastPoint;
-  double maxSpeed{0}; // m / s
 };
 
 class Storage : public QObject{

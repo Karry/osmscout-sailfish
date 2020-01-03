@@ -781,150 +781,133 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
   return true;
 }
 
-TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
+void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
 {
-  QTime timer;
-  timer.restart();
+  // filter inaccurate points
+  bool filter=true;
+  if (filter && p.hdop.hasValue() && p.hdop.get() > maxDilution){
+    filter=false;
+  }
+  if (filter && p.pdop.hasValue() && p.pdop.get() > maxDilution){
+    filter=false;
+  }
 
-  qDebug() << "Computing track statistics...";
-
-  // filter inaccurate nodes - filter nodes with dilution > 30 and with delta (from previous) less than 5 m
-  QTime filterTimer;
-  filterTimer.restart();
-  gpx::Track filtered(trk);
-  filtered.FilterPoints([](std::vector<gpx::TrackPoint> &points){
-    gpx::FilterInaccuratePoints(points, 30);
-    gpx::FilterNearPoints(points, Distance::Of<Meter>(5));
-  });
-  qDebug() << "Filtering nodes:" << filterTimer.elapsed() << "ms";
-
-  // time - just time diference between first and last node
-  Timestamp::duration duration(0);
-  gpx::Optional<Timestamp> from;
-  gpx::Optional<Timestamp> to;
-  for (const auto &seg:trk.segments){
-    if (!seg.points.empty()){
-      from = seg.points.begin()->time;
-      break;
+  // filter near points
+  if (filter && filterLastPoint.hasValue()){
+    Distance distance=GetEllipsoidalDistance(filterLastPoint.get().coord, p.coord);
+    if (distance < minDistance) {
+      filter=false;
     }
   }
-  for (auto it = trk.segments.rbegin(); it != trk.segments.rend(); it++){
-    if (!it->points.empty()){
-      to = it->points.rbegin()->time;
-      break;
+  if (filter) {
+    filterLastPoint = gpx::Optional<gpx::TrackPoint>::of(p);
+    filteredCnt++;
+  }
+  rawCount++;
+
+  // time computation
+  if (p.time.hasValue()){
+    to=p.time;
+    if (!from.hasValue()){
+      from=to;
     }
   }
+
+  // bbox
+  bbox.Include(GeoBox(p.coord, p.coord));
+
+  // distance
+  if (filter) {
+    if (filterLastCoord.hasValue()) {
+      length+=GetEllipsoidalDistance(filterLastCoord.get(), p.coord);
+    }
+    filterLastCoord = gpx::Optional<GeoCoord>::of(p.coord);
+  }
+  if (lastCoord.hasValue()) {
+    rawLength+=GetEllipsoidalDistance(lastCoord.get(), p.coord);
+  }
+  lastCoord = gpx::Optional<GeoCoord>::of(p.coord);
+
+  // max speed
+  if (filter && p.time.hasValue()) {
+    if (previousTime.hasValue()) {
+      maxSpeedBuf.insert(p);
+      auto diff = p.time.get() - previousTime.get();
+      if (diff < std::chrono::minutes(5)) {
+        movingDuration += diff;
+      }
+    }
+    previousTime=p.time;
+  }
+
+  // elevation
+  if (filter && p.elevation.hasValue() && (!p.vdop.hasValue() || p.vdop.get() < 50.0)){
+
+    // min/max
+    double current = p.elevation.get();
+    if (!minElevation.hasValue() || minElevation.get().AsMeter() > current){
+      minElevation = gpx::Optional<Distance>::of(Meters(current));
+    }
+    if (!maxElevation.hasValue() || maxElevation.get().AsMeter() < current){
+      maxElevation = gpx::Optional<Distance>::of(Meters(current));
+    }
+
+    // ascent / descent
+    if (!prevElevation.hasValue()) {
+      prevElevation=p.elevation;
+    } else {
+      double previous=prevElevation.get();
+      // when difference is less than 9 meters, don't count to ascent/descent
+      // this threshold was experimentally set to get similar ascent like on strava.com :-)
+      if (std::abs(current - previous) >= 9.0) {
+        if (current > previous) {
+          ascent += (current - previous);
+        } else {
+          descent += (previous - current);
+        }
+        prevElevation = p.elevation;
+      }
+    }
+  }
+
+}
+
+void TrackStatisticsAccumulator::segmentEnd()
+{
+  // filter
+  filterLastPoint=osmscout::gpx::Optional<osmscout::gpx::TrackPoint>::empty;
+
+  // distance
+  lastCoord = gpx::Optional<GeoCoord>::empty;
+  filterLastCoord = gpx::Optional<GeoCoord>::empty;
+
+  // max speed
+  maxSpeedBuf.flush();
+
+  // moving duration
+  previousTime=gpx::Optional<Timestamp>::empty;
+
+  // elevation
+  prevElevation=gpx::Optional<double>::empty;
+}
+
+TrackStatistics TrackStatisticsAccumulator::accumulate() const
+{
+  osmscout::Timestamp::duration duration{0};
+
+  // time accumulator
   if (from.hasValue() && to.hasValue()){
     duration = to.get() - from.get();
   }
 
-  // moving time - sum time of segments when time difference between two points
-  // (of filtered track) is less then 5 minutes.
-  // ...filters are removing points with same coordinates - when there is no move.
-
-  QTime movingTimeTimer;
-  movingTimeTimer.restart();
-
-  // with moving duration is computed maximum speed...
-  MaxSpeedBuffer maxSpeedBuf;
-  Timestamp::duration movingDuration(0); // ms
-  for (const auto &seg:filtered.segments) {
-    if (seg.points.empty()){
-      continue;
-    }
-    if (!seg.points.begin()->time.hasValue()){
-      // first point of segment has no time - don't count it to statistics, sorry
-      continue;
-    }
-    Timestamp from = seg.points.begin()->time.get();
-    Timestamp previous = from;
-    for (const auto &p:seg.points) {
-      if (!p.time.hasValue()){
-        continue;
-      }
-      Timestamp current = p.time.get();
-      if (current - previous > std::chrono::minutes(5)){
-        movingDuration += previous - from;
-        from = current;
-        previous = from;
-        maxSpeedBuf.flush();
-      }else{
-        previous = current;
-      }
-      maxSpeedBuf.insert(p);
-    }
-    movingDuration += previous - from;
-    maxSpeedBuf.flush();
-  }
-  qDebug() << "Moving time computation:" << movingTimeTimer.elapsed() << "ms";
-
-  // elevation
-  QTime elevationTimer;
-  elevationTimer.restart();
-
-  gpx::Optional<Distance> minElevation;
-  gpx::Optional<Distance> maxElevation;
-  double ascent=0;
-  double descent=0;
-  bool first = true;
-  double previous = 0;
-  for (const auto &seg:filtered.segments) {
-    for (const auto &p:seg.points) {
-      if (!p.elevation.hasValue()){
-        continue;
-      }
-      if (p.vdop.hasValue() && p.vdop.get() > 50.0){
-        // when vertical accuracy is too low, ignore in statistics
-        continue;
-      }
-      double current = p.elevation.get();
-      if (!minElevation.hasValue() || minElevation.get().AsMeter() > current){
-        minElevation = gpx::Optional<Distance>::of(Distance::Of<Meter>(current));
-      }
-      if (!maxElevation.hasValue() || maxElevation.get().AsMeter() < current){
-        maxElevation = gpx::Optional<Distance>::of(Distance::Of<Meter>(current));
-      }
-      if (first){
-        first=false;
-        previous=current;
-      }else{
-        // when difference is less than 9 meters, don't count to ascent/descent
-        // this threshold was experimentally set to get similar ascent like on strava.com :-)
-        if (std::abs(current - previous) >= 9.0) {
-          if (current > previous) {
-            ascent += (current - previous);
-          } else {
-            descent += (previous - current);
-          }
-          previous = current;
-        }
-      }
-    }
-  }
-  qDebug() << "Elevation computation:" << elevationTimer.elapsed() << "ms";
-
-  // compute bbox
-  QTime bboxTimer;
-  bboxTimer.restart();
-  GeoBox bbox;
-  for (const auto &seg:trk.segments){
-    for (const auto &p:seg.points){
-      bbox.Include(GeoBox(p.coord, p.coord));
-    }
-  }
-  qDebug() << "BBox" << bboxTimer.elapsed() << "ms";
-
-  Distance length = filtered.GetLength();
   double durationInSeconds = durationSeconds(duration);
   double movingDurationInSeconds = durationSeconds(movingDuration);
-
-  qDebug() << "Track statistics computation tooks" << timer.elapsed() << "ms";
 
   return TrackStatistics(
     timestampToDateTime(from),
     timestampToDateTime(to),
     length,
-    /*rawDistance*/ trk.GetLength(),
+    rawLength,
     duration,
     movingDuration,
     maxSpeedBuf.getMaxSpeed(),
@@ -935,6 +918,26 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
     minElevation,
     maxElevation,
     bbox);
+}
+
+TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
+{
+  QTime timer;
+  timer.restart();
+
+  qDebug() << "Computing track statistics...";
+
+  TrackStatisticsAccumulator acc;
+  for (const auto &seg:trk.segments){
+    for (const auto &point:seg.points){
+      acc.update(point);
+    }
+    acc.segmentEnd();
+  }
+
+  qDebug() << "Track statistics computation tooks" << timer.elapsed() << "ms";
+
+  return acc.accumulate();
 }
 
 QSqlQuery Storage::trackInsertSql()
