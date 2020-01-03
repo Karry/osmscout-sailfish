@@ -19,6 +19,8 @@
 
 #include "Tracker.h"
 
+#include <QDebug>
+
 Tracker::Tracker() {
   Storage *storage = Storage::getInstance();
   assert(storage);
@@ -39,6 +41,10 @@ Tracker::Tracker() {
           this, &Tracker::onOpenTrackLoaded,
           Qt::QueuedConnection);
 
+  connect(storage, &Storage::trackCreated,
+          this, &Tracker::onTrackCreated,
+          Qt::QueuedConnection);
+
   init();
 }
 
@@ -50,24 +56,94 @@ void Tracker::onOpenTrackLoaded(Track track, bool ok){
   if (!ok || track.id < 0){
     return;
   }
+
+  recentOpenTrack = track;
   emit openTrackLoaded(QString::number(track.id), track.name);
 }
 
 void Tracker::resumeTrack(QString trackId){
-  // TODO
+  bool ok;
+  qint64 trkId = trackId.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << trackId << "to number";
+    return;
+  }
+
+  if (isTracking()){
+    qWarning() << "Tracking already, track id: " << track.id;
+    return;
+  }
+  if (creationRequested){
+    qWarning() << "Tracking requested already";
+    return;
+  }
+  if (trkId != recentOpenTrack.id){
+    qWarning() << "Track " << trkId << " was not reported as recent open!";
+    return;
+  }
+
+  track = recentOpenTrack;
+  emit trackingChanged();
 }
 
 void Tracker::startTracking(QString collectionId, QString trackName, QString trackDescription){
-  // TODO
+
+  bool ok;
+  qint64 collId = collectionId.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << collectionId << "to number";
+    return;
+  }
+
+  if (isTracking()){
+    qWarning() << "Tracking already, track id: " << track.id;
+    return;
+  }
+  if (creationRequested){
+    qWarning() << "Tracking requested already";
+    return;
+  }
+
+  track.id = -1;
+  track.collectionId = collId;
+  track.name = trackName;
+  creationRequested = true;
+
+  emit createTrackRequest(collId, trackName, trackDescription, true);
 }
 
 void Tracker::stopTracking(){
-  // TODO
+  if (!isTracking()){
+    qWarning() << "Tracking is not active";
+    return;
+  }
+  // TODO: close track
+
+  track.id = -1;
+  track.statistics = TrackStatistics{};
+  emit trackingChanged();
 }
 
 void Tracker::locationChanged(bool locationValid,
                               double lat, double lon,
                               bool horizontalAccuracyValid, double horizontalAccuracy,
                               bool elevationValid, double elevation){
-  // TODO
+  if (!isTracking()){
+    return;
+  }
+
+  // TODO:
+  // - update track statistics
+  // - enqueue point to batch
+  // - possibly append point batch to track (with flag for creating new segment)
 }
+
+void Tracker::onTrackCreated(qint64 collectionId, qint64 trackId, QString name){
+  if (!creationRequested || isTracking() || collectionId != track.collectionId || name != track.name){
+    return;
+  }
+  creationRequested = false;
+  track.id = trackId;
+  emit trackingChanged();
+}
+

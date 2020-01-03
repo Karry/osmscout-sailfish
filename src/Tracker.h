@@ -24,15 +24,25 @@ class Tracker : public QObject {
   Q_OBJECT
   Q_DISABLE_COPY(Tracker)
 
+  Q_PROPERTY(bool tracking READ isTracking NOTIFY trackingChanged)
+
+  // TODO: expose track statistics as properties
+
 signals:
+  // for UI
   void openTrackRequested();
   void openTrackLoaded(QString trackId, QString name);
   void error(QString message);
+  void trackingChanged();
+
+  // for storage
+  void createTrackRequest(qint64 collectionId, QString name, QString description, bool open);
 
 public slots:
   // for Storage
   void init();
   void onOpenTrackLoaded(Track track, bool ok);
+  void onTrackCreated(qint64 collectionId, qint64 trackId, QString name);
 
   // slot for UI
   void resumeTrack(QString trackId);
@@ -48,6 +58,12 @@ public:
   Tracker();
   virtual ~Tracker() = default;
 
-public:
+  bool isTracking() const {
+    return track.id >= 0;
+  }
+
+private:
+  bool creationRequested{false};
   Track track;
+  Track recentOpenTrack;
 };

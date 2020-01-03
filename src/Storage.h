@@ -226,6 +226,9 @@ class Storage : public QObject{
   Q_OBJECT
   Q_DISABLE_COPY(Storage)
 
+public:
+  using QStringOpt = osmscout::gpx::Optional<QString>;
+
 private:
   bool updateSchema();
 
@@ -237,6 +240,9 @@ signals:
   void collectionDetailsLoaded(Collection collection, bool ok);
   void trackDataLoaded(Track track, bool complete, bool ok);
   void collectionExported(bool success);
+
+  void trackCreated(qint64 collectionId, qint64 trackId, QString name);
+  void waypointCreated(qint64 collectionId, qint64 waypointId, QString name);
 
   void openTrackLoaded(Track track, bool ok);
 
@@ -295,9 +301,15 @@ public slots:
 
   /**
    * create waypoint
-   * emits collectionDetailsLoaded
+   * emits waypointCreated (or error), collectionDetailsLoaded
    */
   void createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description);
+
+  /**
+   * create empty track
+   * emits trackCreated (or error), collectionDetailsLoaded
+   */
+  void createTrack(qint64 collectionId, QString name, QString description, bool open);
 
   /**
    * edit waypoint
@@ -342,6 +354,15 @@ public:
   static void clearInstance();
 
 private:
+  QSqlQuery trackInsertSql();
+
+  void prepareTrackInsert(QSqlQuery &sqlTrk,
+                          qint64 collectionId,
+                          const QString &trackName,
+                          const QStringOpt &desc,
+                          const TrackStatistics &stat,
+                          bool open);
+
   Track makeTrack(QSqlQuery &sqlTrack) const;
   std::shared_ptr<std::vector<Track>> loadTracks(qint64 collectionId);
   std::shared_ptr<std::vector<Waypoint>> loadWaypoints(qint64 collectionId);

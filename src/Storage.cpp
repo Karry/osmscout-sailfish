@@ -426,7 +426,7 @@ bool Storage::checkAccess(QString slotName, bool requireOpen)
 
 void Storage::loadCollections()
 {
-  if (!checkAccess("loadCollections")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionsLoaded(std::vector<Collection>(), false);
     return;
   }
@@ -564,7 +564,7 @@ bool Storage::loadCollectionDetailsPrivate(Collection &collection)
 
 void Storage::loadCollectionDetails(Collection collection)
 {
-  if (!checkAccess("loadCollectionDetails")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(collection, false);
     return;
   }
@@ -655,7 +655,7 @@ bool Storage::loadTrackDataPrivate(Track &track)
 
 void Storage::loadTrackData(Track track)
 {
-  if (!checkAccess("loadTrackData")){
+  if (!checkAccess(__FUNCTION__)){
     emit trackDataLoaded(track, true, false);
     return;
   }
@@ -669,7 +669,7 @@ void Storage::loadTrackData(Track track)
 
 void Storage::updateOrCreateCollection(Collection collection)
 {
-  if (!checkAccess("updateOrCreateCollection")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionsLoaded(std::vector<Collection>(), false);
     return;
   }
@@ -710,7 +710,7 @@ void Storage::updateOrCreateCollection(Collection collection)
 
 void Storage::deleteCollection(qint64 id)
 {
-  if (!checkAccess("deleteCollection")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionsLoaded(std::vector<Collection>(), false);
     return;
   }
@@ -937,47 +937,92 @@ TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
     bbox);
 }
 
+QSqlQuery Storage::trackInsertSql()
+{
+  QSqlQuery sqlTrk(db);
+
+  sqlTrk.prepare(QString("INSERT INTO `track` (")
+                   .append("`collection_id`, `name`, `description`, `open`, `creation_time`, `modification_time`, ")
+                   .append("`from_time`, ")
+                   .append("`to_time`, ")
+                   .append("`distance`, ")
+                   .append("`raw_distance`, ")
+                   .append("`duration`, ")
+                   .append("`moving_duration`, ")
+                   .append("`max_speed`, ")
+                   .append("`average_speed`, ")
+                   .append("`moving_average_speed`, ")
+                   .append("`ascent`, ")
+                   .append("`descent`, ")
+                   .append("`min_elevation`, ")
+                   .append("`max_elevation`, ")
+                   .append("`bbox_min_lat`, `bbox_min_lon`, `bbox_max_lat`, `bbox_max_lon`")
+                   .append(") ")
+                   .append("VALUES (")
+                   .append(":collection_id,  :name,  :description,  :open,  :creation_time,  :modification_time, ")
+                   .append(":from_time, ")
+                   .append(":to_time, ")
+                   .append(":distance, ")
+                   .append(":raw_distance, ")
+                   .append(":duration, ")
+                   .append(":moving_duration, ")
+                   .append(":max_speed, ")
+                   .append(":average_speed, ")
+                   .append(":moving_average_speed, ")
+                   .append(":ascent, ")
+                   .append(":descent, ")
+                   .append(":min_elevation, ")
+                   .append(":max_elevation, ")
+                   .append(":bboxMinLat, :bboxMinLon, :bboxMaxLat, :bboxMaxLon")
+                   .append(")"));
+
+  return sqlTrk;
+}
+
+void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
+                                 qint64 collectionId,
+                                 const QString &trackName,
+                                 const QStringOpt &desc,
+                                 const TrackStatistics &stat,
+                                 bool open)
+{
+  sqlTrk.bindValue(":collection_id", collectionId);
+  sqlTrk.bindValue(":name", trackName);
+  sqlTrk.bindValue(":description",
+                   (desc.hasValue() ? desc.get() : QVariant()));
+  sqlTrk.bindValue(":open", open);
+
+  sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
+  sqlTrk.bindValue(":modification_time", QDateTime::currentDateTime());
+
+  sqlTrk.bindValue(":from_time", stat.from);
+  sqlTrk.bindValue(":to_time", stat.to);
+  sqlTrk.bindValue(":distance", stat.distance.AsMeter());
+  sqlTrk.bindValue(":raw_distance", stat.rawDistance.AsMeter());
+  sqlTrk.bindValue(":duration", stat.durationMillis());
+  sqlTrk.bindValue(":moving_duration", stat.movingDurationMillis());
+  sqlTrk.bindValue(":max_speed", stat.maxSpeed);
+  sqlTrk.bindValue(":average_speed", stat.averageSpeed);
+  sqlTrk.bindValue(":moving_average_speed", stat.movingAverageSpeed);
+  sqlTrk.bindValue(":ascent", stat.ascent.AsMeter());
+  sqlTrk.bindValue(":descent", stat.descent.AsMeter());
+  sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant::fromValue(stat.minElevation.get().AsMeter()) : QVariant());
+  sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant::fromValue(stat.maxElevation.get().AsMeter()) : QVariant());
+
+  sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
+  sqlTrk.bindValue(":bboxMinLon", stat.bbox.GetMinLon());
+  sqlTrk.bindValue(":bboxMaxLat", stat.bbox.GetMaxLat());
+  sqlTrk.bindValue(":bboxMaxLon", stat.bbox.GetMaxLon());
+}
+
 bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
 {
   int trkNum = 0;
-  QSqlQuery sqlTrk(db);
-  QSqlQuery sqlSeg(db);
-  sqlTrk.prepare(QString("INSERT INTO `track` (")
-    .append("`collection_id`, `name`, `description`, `open`, `creation_time`, `modification_time`, ")
-    .append("`from_time`, ")
-    .append("`to_time`, ")
-    .append("`distance`, ")
-    .append("`raw_distance`, ")
-    .append("`duration`, ")
-    .append("`moving_duration`, ")
-    .append("`max_speed`, ")
-    .append("`average_speed`, ")
-    .append("`moving_average_speed`, ")
-    .append("`ascent`, ")
-    .append("`descent`, ")
-    .append("`min_elevation`, ")
-    .append("`max_elevation`, ")
-    .append("`bbox_min_lat`, `bbox_min_lon`, `bbox_max_lat`, `bbox_max_lon`")
-    .append(") ")
-    .append("VALUES (")
-    .append(":collection_id,  :name,  :description,  :open,  :creation_time,  :modification_time, ")
-    .append(":from_time, ")
-    .append(":to_time, ")
-    .append(":distance, ")
-    .append(":raw_distance, ")
-    .append(":duration, ")
-    .append(":moving_duration, ")
-    .append(":max_speed, ")
-    .append(":average_speed, ")
-    .append(":moving_average_speed, ")
-    .append(":ascent, ")
-    .append(":descent, ")
-    .append(":min_elevation, ")
-    .append(":max_elevation, ")
-    .append(":bboxMinLat, :bboxMinLon, :bboxMaxLat, :bboxMaxLon")
-    .append(")"));
+  QSqlQuery sqlTrk=trackInsertSql();
 
+  QSqlQuery sqlSeg(db);
   sqlSeg.prepare("INSERT INTO `track_segment` (`track_id`, `open`, `creation_time`, `distance`) VALUES (:track_id, :open, :creation_time, :distance)");
+
   for (const auto &trk: gpxFile.tracks){
     trkNum++;
 
@@ -985,34 +1030,12 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
     if (trackName.isEmpty())
       trackName = tr("track %1").arg(trkNum);
 
-    sqlTrk.bindValue(":collection_id", collectionId);
-    sqlTrk.bindValue(":name", trackName);
-    sqlTrk.bindValue(":description",
-                     (trk.desc.hasValue() ? QString::fromStdString(trk.desc.get()) : QVariant()));
-    sqlTrk.bindValue(":open", false);
-
     TrackStatistics stat = computeTrackStatistics(trk);
-    sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
-    sqlTrk.bindValue(":modification_time", QDateTime::currentDateTime());
+    QStringOpt desc = trk.desc.hasValue() ?
+                      QStringOpt::of(QString::fromStdString(trk.desc.get())) :
+                      QStringOpt::empty;
 
-    sqlTrk.bindValue(":from_time", stat.from);
-    sqlTrk.bindValue(":to_time", stat.to);
-    sqlTrk.bindValue(":distance", stat.distance.AsMeter());
-    sqlTrk.bindValue(":raw_distance", stat.rawDistance.AsMeter());
-    sqlTrk.bindValue(":duration", stat.durationMillis());
-    sqlTrk.bindValue(":moving_duration", stat.movingDurationMillis());
-    sqlTrk.bindValue(":max_speed", stat.maxSpeed);
-    sqlTrk.bindValue(":average_speed", stat.averageSpeed);
-    sqlTrk.bindValue(":moving_average_speed", stat.movingAverageSpeed);
-    sqlTrk.bindValue(":ascent", stat.ascent.AsMeter());
-    sqlTrk.bindValue(":descent", stat.descent.AsMeter());
-    sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant::fromValue(stat.minElevation.get().AsMeter()) : QVariant());
-    sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant::fromValue(stat.maxElevation.get().AsMeter()) : QVariant());
-
-    sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
-    sqlTrk.bindValue(":bboxMinLon", stat.bbox.GetMinLon());
-    sqlTrk.bindValue(":bboxMaxLat", stat.bbox.GetMaxLat());
-    sqlTrk.bindValue(":bboxMaxLon", stat.bbox.GetMaxLon());
+    prepareTrackInsert(sqlTrk, collectionId, trackName, desc, stat, false);
 
     sqlTrk.exec();
     if (sqlTrk.lastError().isValid()) {
@@ -1098,7 +1121,7 @@ bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint
 
 void Storage::importCollection(QString filePath)
 {
-  if (!checkAccess("importCollection")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionsLoaded(std::vector<Collection>(), false);
     return;
   }
@@ -1169,7 +1192,7 @@ void Storage::importCollection(QString filePath)
 
 void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
 {
-  if (!checkAccess("deleteWaypoint")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
     return;
   }
@@ -1191,7 +1214,7 @@ void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
 
 void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description)
 {
-  if (!checkAccess("deleteTrack")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
     return;
   }
@@ -1213,6 +1236,36 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
   if (sqlWpt.lastError().isValid()) {
     qWarning() << "Creation of waypoint failed" << sqlWpt.lastError();
     emit error(tr("Creation of waypoint failed: %1").arg(sqlWpt.lastError().text()));
+  } else {
+    qint64 wptId = varToLong(sqlWpt.lastInsertId());
+    emit waypointCreated(collectionId, wptId, name);
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
+void Storage::createTrack(qint64 collectionId, QString name, QString description, bool open)
+{
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sqlTrk = trackInsertSql();
+
+  QStringOpt desc = description.isEmpty() ?
+                    QStringOpt::empty :
+                    QStringOpt::of(description);
+
+  prepareTrackInsert(sqlTrk, collectionId, name, desc, TrackStatistics{}, open);
+
+  sqlTrk.exec();
+  if (sqlTrk.lastError().isValid()) {
+    qWarning() << "Creation of track failed" << sqlTrk.lastError();
+    emit error(tr("Creation of track failed: %1").arg(sqlTrk.lastError().text()));
+  } else {
+    qint64 trackId = varToLong(sqlTrk.lastInsertId());
+    emit trackCreated(collectionId, trackId, name);
   }
 
   loadCollectionDetails(Collection(collectionId));
@@ -1220,7 +1273,7 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
 
 void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
 {
-  if (!checkAccess("deleteTrack")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
     return;
   }
@@ -1242,7 +1295,7 @@ void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
 
 void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString description)
 {
-  if (!checkAccess("editWaypoint")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
     return;
   }
@@ -1267,7 +1320,7 @@ void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString
 
 void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString description)
 {
-  if (!checkAccess("editTrack")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
     return;
   }
@@ -1292,7 +1345,7 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
 
 void Storage::exportCollection(qint64 collectionId, QString file)
 {
-  if (!checkAccess("exportCollection")){
+  if (!checkAccess(__FUNCTION__)){
     emit collectionExported(false);
     return;
   }
@@ -1354,7 +1407,7 @@ void Storage::exportCollection(qint64 collectionId, QString file)
 
 void Storage::moveWaypoint(qint64 waypointId, qint64 collectionId)
 {
-  if (!checkAccess("moveWaypoint")){
+  if (!checkAccess(__FUNCTION__)){
     return;
   }
 
@@ -1407,7 +1460,7 @@ void Storage::moveWaypoint(qint64 waypointId, qint64 collectionId)
 
 void Storage::moveTrack(qint64 trackId, qint64 collectionId)
 {
-  if (!checkAccess("moveTrack")){
+  if (!checkAccess(__FUNCTION__)){
     return;
   }
 
@@ -1459,7 +1512,7 @@ void Storage::moveTrack(qint64 trackId, qint64 collectionId)
 }
 
 void Storage::loadRecentOpenTrack(){
-  if (!checkAccess("loadRecentOpenTrack")){
+  if (!checkAccess(__FUNCTION__)){
     return;
   }
 
