@@ -87,6 +87,7 @@ void Tracker::resumeTrack(QString trackId){
   }
 
   track = recentOpenTrack;
+  // TODO: update accumulator by current track statistics
   emit trackingChanged();
 }
 
@@ -131,6 +132,7 @@ void Tracker::stopTracking(){
 
   track.id = -1;
   track.statistics = TrackStatistics{};
+  accumulator = TrackStatisticsAccumulator{};
   emit trackingChanged();
 }
 
@@ -156,10 +158,35 @@ void Tracker::locationChanged(bool locationValid,
     point.vdop=gpx::Optional<double>::of(verticalAccuracy);
   }
 
-  // TODO:
-  // - update track statistics
-  // - possibly append point batch to track (with flag for creating new segment)
+  if (!batch){
+    batch = std::make_shared<std::vector<gpx::TrackPoint>>();
+  }
+  Timestamp::duration diffFromLast = std::chrono::seconds(0); // TODO
+  if (!batch->empty()){
+    assert(batch->back().time.hasValue());
+    assert(point.time.hasValue());
+    diffFromLast = point.time.get() - batch->back().time.get();
+    if (diffFromLast < Timestamp::duration::zero()){
+      qWarning() << "Clock move to the past by " <<
+        std::chrono::duration_cast<std::chrono::seconds>(diffFromLast).count() <<
+        " seconds!";
+    }
+  } else {
+    diffFromLast = Timestamp::duration::zero();
+  }
 
+  bool closeSegment = diffFromLast > std::chrono::minutes(10);
+  if (closeSegment || batch->size() > 100 || diffFromLast > std::chrono::minutes(1)) {
+    // append point batch to track (with flag for creating new segment)
+    flushBatch(closeSegment);
+  }
+
+  // update track statistics
+  if (closeSegment){
+    accumulator.segmentEnd();
+  }
+  accumulator.update(point);
+  // TODO: emit signal with statistic update
 
   if (!batch){
     batch = std::make_shared<std::vector<gpx::TrackPoint>>();

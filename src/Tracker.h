@@ -72,4 +72,5 @@ private:
   Track track;
   Track recentOpenTrack;
   std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch;
+  TrackStatisticsAccumulator accumulator;
 };
