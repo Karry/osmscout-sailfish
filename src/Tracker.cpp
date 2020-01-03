@@ -137,15 +137,34 @@ void Tracker::stopTracking(){
 void Tracker::locationChanged(bool locationValid,
                               double lat, double lon,
                               bool horizontalAccuracyValid, double horizontalAccuracy,
-                              bool elevationValid, double elevation){
+                              bool elevationValid, double elevation,
+                              bool verticalAccuracyValid, double verticalAccuracy){
   if (!isTracking()){
     return;
   }
 
+  using namespace osmscout;
+  gpx::TrackPoint point(GeoCoord(lat, lon));
+  point.time=gpx::Optional<Timestamp>::of(Timestamp::clock::now());
+  if (elevationValid) {
+    point.elevation=gpx::Optional<double>::of(elevation);
+  }
+  if (horizontalAccuracyValid) {
+    point.hdop=gpx::Optional<double>::of(horizontalAccuracy);
+  }
+  if (verticalAccuracyValid){
+    point.vdop=gpx::Optional<double>::of(verticalAccuracy);
+  }
+
   // TODO:
   // - update track statistics
-  // - enqueue point to batch
   // - possibly append point batch to track (with flag for creating new segment)
+
+
+  if (!batch){
+    batch = std::make_shared<std::vector<gpx::TrackPoint>>();
+  }
+  batch->push_back(point);
 }
 
 void Tracker::onTrackCreated(qint64 collectionId, qint64 trackId, QString name){

@@ -53,7 +53,8 @@ public slots:
   void locationChanged(bool locationValid,
                        double lat, double lon,
                        bool horizontalAccuracyValid, double horizontalAccuracy,
-                       bool elevationValid, double elevation);
+                       bool elevationValid, double elevation,
+                       bool verticalAccuracyValid, double verticalAccuracy);
 
 public:
   Tracker();
@@ -70,4 +71,5 @@ private:
   bool creationRequested{false};
   Track track;
   Track recentOpenTrack;
+  std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch;
 };
