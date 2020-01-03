@@ -45,6 +45,10 @@ Tracker::Tracker() {
           this, &Tracker::onTrackCreated,
           Qt::QueuedConnection);
 
+  connect(this, &Tracker::closeTrackRequest,
+          storage, &Storage::closeTrack,
+          Qt::QueuedConnection);
+
   init();
 }
 
@@ -112,12 +116,18 @@ void Tracker::startTracking(QString collectionId, QString trackName, QString tra
   emit createTrackRequest(collId, trackName, trackDescription, true);
 }
 
+void Tracker::flushBatch(bool createNewSegment){
+  // TODO
+}
+
 void Tracker::stopTracking(){
   if (!isTracking()){
     qWarning() << "Tracking is not active";
     return;
   }
-  // TODO: close track
+
+  flushBatch(false);
+  emit closeTrackRequest(track.collectionId, track.id);
 
   track.id = -1;
   track.statistics = TrackStatistics{};

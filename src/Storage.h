@@ -300,6 +300,12 @@ public slots:
   void deleteTrack(qint64 collectionId, qint64 trackId);
 
   /**
+   * close track
+   * emits collectionDetailsLoaded
+   */
+  void closeTrack(qint64 collectionId, qint64 trackId);
+
+  /**
    * create waypoint
    * emits waypointCreated (or error), collectionDetailsLoaded
    */

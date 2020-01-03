@@ -1271,6 +1271,28 @@ void Storage::createTrack(qint64 collectionId, QString name, QString description
   loadCollectionDetails(Collection(collectionId));
 }
 
+void Storage::closeTrack(qint64 collectionId, qint64 trackId){
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionDetailsLoaded(Collection(collectionId), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("UPDATE `track` SET `open` = false WHERE `id` = :id AND `collection_id` = :collection_id LIMIT 1;");
+  sql.bindValue(":id", trackId);
+  sql.bindValue(":collection_id", collectionId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Deleting track failed" << sql.lastError();
+    emit error(tr("Deleting track failed: %1").arg(sql.lastError().text()));
+    loadCollectionDetails(Collection(collectionId));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
+
 void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
 {
   if (!checkAccess(__FUNCTION__)){

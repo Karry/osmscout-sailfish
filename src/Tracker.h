@@ -37,6 +37,7 @@ signals:
 
   // for storage
   void createTrackRequest(qint64 collectionId, QString name, QString description, bool open);
+  void closeTrackRequest(qint64 collectionId, qint64 trackId);
 
 public slots:
   // for Storage
@@ -61,6 +62,9 @@ public:
   bool isTracking() const {
     return track.id >= 0;
   }
+
+private:
+  void flushBatch(bool createNewSegment);
 
 private:
   bool creationRequested{false};
