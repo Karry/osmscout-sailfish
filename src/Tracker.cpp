@@ -186,7 +186,8 @@ void Tracker::locationChanged(bool locationValid,
     accumulator.segmentEnd();
   }
   accumulator.update(point);
-  // TODO: emit signal with statistic update
+  track.statistics = accumulator.accumulate();
+  emit statisticsUpdated();
 
   if (!batch){
     batch = std::make_shared<std::vector<gpx::TrackPoint>>();
@@ -203,3 +204,71 @@ void Tracker::onTrackCreated(qint64 collectionId, qint64 trackId, QString name){
   emit trackingChanged();
 }
 
+QDateTime Tracker::getFrom() const
+{
+  return track.statistics.from;
+}
+
+QDateTime Tracker::getTo() const
+{
+  return track.statistics.to;
+}
+
+double Tracker::getDistance() const
+{
+  return track.statistics.distance.AsMeter();
+}
+
+double Tracker::getRawDistance() const
+{
+  return track.statistics.rawDistance.AsMeter();
+}
+
+qint64 Tracker::getDuration() const
+{
+  return track.statistics.durationMillis();
+}
+
+qint64 Tracker::getMovingDuration() const
+{
+  return track.statistics.movingDurationMillis();
+}
+
+double Tracker::getMaxSpeed() const
+{
+  return track.statistics.maxSpeed;
+}
+
+double Tracker::getAverageSpeed() const
+{
+  return track.statistics.averageSpeed;
+}
+
+double Tracker::getMovingAverageSpeed() const
+{
+  return track.statistics.movingAverageSpeed;
+}
+
+double Tracker::getAscent() const
+{
+  return track.statistics.ascent.AsMeter();
+}
+
+double Tracker::getDescent() const
+{
+  return track.statistics.descent.AsMeter();
+}
+
+double Tracker::getMinElevation() const
+{
+  if (track.statistics.minElevation.hasValue())
+    return track.statistics.minElevation.get().AsMeter();
+  return -1000000; // JS numeric limits may be different from C++
+}
+
+double Tracker::getMaxElevation() const
+{
+  if (track.statistics.maxElevation.hasValue())
+    return track.statistics.maxElevation.get().AsMeter();
+  return -1000000; // JS numeric limits may be different from C++
+}

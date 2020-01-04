@@ -26,7 +26,20 @@ class Tracker : public QObject {
 
   Q_PROPERTY(bool tracking READ isTracking NOTIFY trackingChanged)
 
-  // TODO: expose track statistics as properties
+  // track statistics
+  Q_PROPERTY(QDateTime from READ getFrom NOTIFY statisticsUpdated)
+  Q_PROPERTY(QDateTime to READ getTo NOTIFY statisticsUpdated)
+  Q_PROPERTY(double distance READ getDistance NOTIFY statisticsUpdated)
+  Q_PROPERTY(double rawDistance READ getRawDistance() NOTIFY statisticsUpdated)
+  Q_PROPERTY(qint64 duration /* ms */ READ getDuration() NOTIFY statisticsUpdated)
+  Q_PROPERTY(qint64 movingDuration /* ms */ READ getMovingDuration() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double maxSpeed /* m/s */ READ getMaxSpeed() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double averageSpeed /* m/s */ READ getAverageSpeed() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double movingAverageSpeed /* m/s */ READ getMovingAverageSpeed() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double ascent READ getAscent() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double descent READ getDescent() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double minElevation READ getMinElevation() NOTIFY statisticsUpdated)
+  Q_PROPERTY(double maxElevation READ getMaxElevation() NOTIFY statisticsUpdated)
 
 signals:
   // for UI
@@ -34,6 +47,7 @@ signals:
   void openTrackLoaded(QString trackId, QString name);
   void error(QString message);
   void trackingChanged();
+  void statisticsUpdated();
 
   // for storage
   void createTrackRequest(qint64 collectionId, QString name, QString description, bool open);
@@ -63,6 +77,20 @@ public:
   bool isTracking() const {
     return track.id >= 0;
   }
+
+  QDateTime getFrom() const;
+  QDateTime getTo() const;
+  double getDistance() const;
+  double getRawDistance() const;
+  qint64 getDuration() const;
+  qint64 getMovingDuration() const;
+  double getMaxSpeed() const;
+  double getAverageSpeed() const;
+  double getMovingAverageSpeed() const;
+  double getAscent() const;
+  double getDescent() const;
+  double getMinElevation() const;
+  double getMaxElevation() const;
 
 private:
   void flushBatch(bool createNewSegment);
