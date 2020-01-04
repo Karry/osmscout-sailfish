@@ -52,6 +52,9 @@ signals:
   // for storage
   void createTrackRequest(qint64 collectionId, QString name, QString description, bool open);
   void closeTrackRequest(qint64 collectionId, qint64 trackId);
+  void appendNodesRequest(qint64 trackId,
+                          std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                          bool createNewSegment);
 
 public slots:
   // for Storage
@@ -99,6 +102,6 @@ private:
   bool creationRequested{false};
   Track track;
   Track recentOpenTrack;
-  std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch;
+  std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch{std::make_shared<std::vector<osmscout::gpx::TrackPoint>>()};
   TrackStatisticsAccumulator accumulator;
 };

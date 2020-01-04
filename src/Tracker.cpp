@@ -119,7 +119,11 @@ void Tracker::startTracking(QString collectionId, QString trackName, QString tra
 }
 
 void Tracker::flushBatch(bool createNewSegment){
-  // TODO
+  emit appendNodesRequest(track.id,
+                          batch,
+                          createNewSegment);
+
+  batch = std::make_shared<std::vector<osmscout::gpx::TrackPoint>>();
 }
 
 void Tracker::stopTracking(){
@@ -159,10 +163,8 @@ void Tracker::locationChanged(bool locationValid,
     point.vdop=gpx::Optional<double>::of(verticalAccuracy);
   }
 
-  if (!batch){
-    batch = std::make_shared<std::vector<gpx::TrackPoint>>();
-  }
-  Timestamp::duration diffFromLast = std::chrono::seconds(0); // TODO
+  assert(batch);
+  Timestamp::duration diffFromLast;
   if (!batch->empty()){
     assert(batch->back().time.hasValue());
     assert(point.time.hasValue());
@@ -190,9 +192,7 @@ void Tracker::locationChanged(bool locationValid,
   track.statistics = accumulator.accumulate();
   emit statisticsUpdated();
 
-  if (!batch){
-    batch = std::make_shared<std::vector<gpx::TrackPoint>>();
-  }
+  assert(batch);
   batch->push_back(point);
 }
 

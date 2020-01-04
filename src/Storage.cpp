@@ -1589,6 +1589,66 @@ void Storage::loadRecentOpenTrack(){
   }
 }
 
+bool Storage::createSegment(qint64 trackId, qint64 &segmentId)
+{
+  QSqlQuery sqlSeg(db);
+  sqlSeg.prepare("INSERT INTO `track_segment` (`track_id`, `open`, `creation_time`, `distance`) VALUES (:track_id, :open, :creation_time, :distance)");
+
+  sqlSeg.bindValue(":track_id", trackId);
+  sqlSeg.bindValue(":open", true);
+
+  // TODO: do we need segment statics?
+  sqlSeg.bindValue(":creation_time", QDateTime::currentDateTime());
+  sqlSeg.bindValue(":distance", 0); // ignored right now
+  sqlSeg.exec();
+  if (sqlSeg.lastError().isValid()) {
+    qWarning() << "Segment creation failed" << sqlSeg.lastError();
+    emit error(tr("Segment creation failed: %1").arg(sqlSeg.lastError().text()));
+    return false;
+  }
+  segmentId = varToLong(sqlSeg.lastInsertId());
+  return true;
+}
+
+void Storage::appendNodesRequest(qint64 trackId,
+                                 std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                                 bool createNewSegment)
+{
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+
+  assert(batch);
+
+  QSqlQuery sqlSegment(db);
+  sqlSegment.prepare("SELECT MAX(`id`) AS `segment_id` FROM `track_segment` WHERE `track_id` = :id;");
+  sqlSegment.bindValue(":id", trackId);
+  sqlSegment.exec();
+
+  if (sqlSegment.lastError().isValid()) {
+    qWarning() << "Loading last open track fails";
+    emit error(tr("Loading last open track fails"));
+    return;
+  }
+
+  qint64 segmentId;
+  if (sqlSegment.next()) {
+    segmentId=varToLong(sqlSegment.value("segment_id"));
+  } else {
+    if (!createSegment(trackId, segmentId)){
+      return;
+    }
+  }
+
+  if (!importTrackPoints(*batch, segmentId)){
+    return;
+  }
+
+  if (createNewSegment){
+    createSegment(trackId, segmentId);
+  }
+}
+
 Storage::operator bool() const
 {
   return ok;

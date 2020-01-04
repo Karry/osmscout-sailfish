@@ -430,6 +430,14 @@ public slots:
    */
   void loadRecentOpenTrack();
 
+  /**
+   * Append batch of nodes to last segment in track.
+   * Possibly create new segment when "createNewSegment" is true
+   */
+  void appendNodesRequest(qint64 trackId,
+                          std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                          bool createNewSegment);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);
@@ -462,6 +470,7 @@ private:
   TrackStatistics computeTrackStatistics(const osmscout::gpx::Track &trk) const;
   bool loadCollectionDetailsPrivate(Collection &collection);
   bool loadTrackDataPrivate(Track &track);
+  bool createSegment(qint64 trackId, qint64 &segmentId);
 
 private :
   QSqlDatabase db;
