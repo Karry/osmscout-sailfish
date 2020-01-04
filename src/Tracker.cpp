@@ -87,7 +87,8 @@ void Tracker::resumeTrack(QString trackId){
   }
 
   track = recentOpenTrack;
-  // TODO: update accumulator by current track statistics
+  // update accumulator by current track statistics
+  accumulator = TrackStatisticsAccumulator(track.statistics);
   emit trackingChanged();
 }
 

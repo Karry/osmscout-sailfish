@@ -93,6 +93,11 @@ double MaxSpeedBuffer::getMaxSpeed() const
   return maxSpeed;
 }
 
+void MaxSpeedBuffer::setMaxSpeed(double speed)
+{
+  maxSpeed=speed;
+}
+
 namespace {
 QString sqlCreateCollection() {
   QString sql("CREATE TABLE `collection`");
@@ -779,6 +784,32 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
     return false;
   }
   return true;
+}
+
+TrackStatisticsAccumulator::TrackStatisticsAccumulator(const TrackStatistics &statistics)
+{
+  // duration accumulator
+  from=gpx::Optional<osmscout::Timestamp>::of(dateTimeToTimestamp(statistics.from));
+  to=gpx::Optional<osmscout::Timestamp>::of(dateTimeToTimestamp(statistics.to));
+
+  // bbox
+  bbox=statistics.bbox;
+
+  // distance
+  length=statistics.distance;
+
+  // raw distance
+  rawLength=statistics.rawDistance;
+
+  // max speed, moving duration
+  maxSpeedBuf.setMaxSpeed(statistics.maxSpeed);
+  movingDuration=statistics.movingDuration;
+
+  // elevation
+  minElevation=statistics.minElevation;
+  maxElevation=statistics.maxElevation;
+  ascent=statistics.ascent.AsMeter();
+  descent=statistics.descent.AsMeter();
 }
 
 void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)

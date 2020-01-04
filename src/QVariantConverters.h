@@ -93,6 +93,7 @@ inline osmscout::Timestamp dateTimeToTimestamp(const QDateTime &datetime)
 {
   int64_t millis = datetime.toMSecsSinceEpoch();
   auto duration = std::chrono::milliseconds(millis);
+  static_assert(std::is_same<osmscout::Timestamp::clock, std::chrono::system_clock>::value, "Timestamp clock have use unix epoch");
   return osmscout::Timestamp(duration);
 }
 

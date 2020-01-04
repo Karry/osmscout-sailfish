@@ -160,6 +160,8 @@ public:
   // return maximum computed speed in m / s
   double getMaxSpeed() const;
 
+  void setMaxSpeed(double speed);
+
 private:
   QList<osmscout::Distance> distanceFifo;
   QList<osmscout::Timestamp::duration> timeFifo;
@@ -175,6 +177,8 @@ public:
   TrackStatisticsAccumulator() = default;
   TrackStatisticsAccumulator(const TrackStatisticsAccumulator &other) = default;
   TrackStatisticsAccumulator(TrackStatisticsAccumulator &&) = default;
+
+  TrackStatisticsAccumulator(const TrackStatistics &statistics);
 
   virtual ~TrackStatisticsAccumulator() = default;
 
