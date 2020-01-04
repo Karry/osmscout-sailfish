@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation type="unfinished"></translation>
+        <translation>Norvégien Bokmål: Håvard Moen</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
@@ -53,15 +53,15 @@
     </message>
     <message>
         <source>Privacy notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Notes sur la confidentialité</translation>
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
-        <translation type="unfinished"></translation>
+        <translation>Hollandais : Nathan Follens</translation>
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation type="unfinished"></translation>
+        <translation>Russe: Вячеслав Диконов</translation>
     </message>
     <message>
         <source>German: Pawel Spoon, Uli M.</source>
@@ -69,34 +69,34 @@
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinois : Rui Kon</translation>
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation type="unfinished"></translation>
+        <translation>Portuguais (Brésil): Leonardo Moura</translation>
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation type="unfinished"></translation>
+        <translation>Persan: Abtin mo</translation>
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>Italien: Armin Maier</translation>
     </message>
 </context>
 <context>
     <name>Collection</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Loading collection</source>
@@ -104,27 +104,27 @@
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Exporter</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le repère</translation>
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le tracé</translation>
     </message>
     <message>
         <source>Move to</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacement</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer &quot;%1&quot; vers</translation>
     </message>
     <message>
         <source>Route to</source>
@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Exporter</translation>
     </message>
     <message>
         <source>Name</source>
@@ -284,15 +284,15 @@
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modifier</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Supprimer</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Suppression</translation>
     </message>
     <message>
         <source>Collections</source>
@@ -354,7 +354,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Supprimer</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
@@ -362,7 +362,7 @@
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Suppression</translation>
     </message>
     <message>
         <source>Update</source>
