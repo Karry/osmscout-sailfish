@@ -130,7 +130,7 @@ Page {
                 ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
                 ListElement { itemtext: QT_TR_NOOP("Navigation");   itemicon: "image://theme/icon-m-shortcut";       action: "routing";  }
                 ListElement { itemtext: QT_TR_NOOP("Collections");  itemicon: "image://theme/icon-m-favorite";       action: "collections";}
-                ListElement { itemtext: QT_TR_NOOP("Tracking");     itemicon: 'image://harbour-osmscout/pics/tracking.svg'; action: "tracking";}
+                ListElement { itemtext: QT_TR_NOOP("Tracker");      itemicon: 'image://harbour-osmscout/pics/tracker.svg'; action: "tracker";}
                 ListElement { itemtext: QT_TR_NOOP("Offline maps"); itemicon: "image://theme/icon-m-cloud-download"; action: "downloads";}
                 ListElement { itemtext: QT_TR_NOOP("Map settings"); itemicon: "image://theme/icon-m-levels";         action: "layers";   }
                 ListElement { itemtext: QT_TR_NOOP("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
@@ -144,7 +144,7 @@ Page {
                     return ((action == "whereami" && Global.positionSource.positionValid) ||
                             action == "about" || action == "layers" || action == "search" ||
                             action == "settings" || action == "downloads" || action == "routing" ||
-                            action == "collections" || action == "tracking");
+                            action == "collections" || action == "tracker");
                 }
 
                 function onAction(action){
@@ -188,7 +188,7 @@ Page {
                                                             });
                         collectionsPage.selectWaypoint.connect(showWaypoint);
                         collectionsPage.selectTrack.connect(showTrack);
-                    }else if (action == "tracking"){
+                    }else if (action == "tracker"){
                         pageStack.push(Qt.resolvedUrl("Tracker.qml"))
                     }else{
                         console.log("TODO: "+ action)
