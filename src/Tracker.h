@@ -1,6 +1,6 @@
 /*
   OSMScout for SFOS
-  Copyright (C) 2019 Lukas Karas
+  Copyright (C) 2020 Lukas Karas
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,6 +25,12 @@ class Tracker : public QObject {
   Q_DISABLE_COPY(Tracker)
 
   Q_PROPERTY(bool tracking READ isTracking NOTIFY trackingChanged)
+  Q_PROPERTY(bool canBeResumed READ canBeResumed NOTIFY openTrackLoaded)
+  Q_PROPERTY(qint64 openTrackId READ getOpenTrackId NOTIFY openTrackLoaded)
+  Q_PROPERTY(QString openTrackName READ getOpenTrackName NOTIFY openTrackLoaded)
+
+  Q_PROPERTY(QString name READ getName NOTIFY trackingChanged)
+  Q_PROPERTY(QString description READ getDescription NOTIFY trackingChanged)
 
   // track statistics
   Q_PROPERTY(QDateTime from READ getFrom NOTIFY statisticsUpdated)
@@ -43,13 +49,13 @@ class Tracker : public QObject {
 
 signals:
   // for UI
-  void openTrackRequested();
   void openTrackLoaded(QString trackId, QString name);
   void error(QString message);
   void trackingChanged();
   void statisticsUpdated();
 
   // for storage
+  void openTrackRequested();
   void createTrackRequest(qint64 collectionId, QString name, QString description, bool open);
   void closeTrackRequest(qint64 collectionId, qint64 trackId);
   void appendNodesRequest(qint64 trackId,
@@ -64,6 +70,7 @@ public slots:
 
   // slot for UI
   void resumeTrack(QString trackId);
+  void closeOpen(QString trackId);
   void startTracking(QString collectionId, QString trackName, QString trackDescription);
   void stopTracking();
 
@@ -80,6 +87,21 @@ public:
   bool isTracking() const {
     return track.id >= 0;
   }
+
+  bool canBeResumed() const {
+    return recentOpenTrack.id >= 0;
+  }
+
+  qint64 getOpenTrackId() const {
+    return recentOpenTrack.id;
+  }
+
+  QString getOpenTrackName() const {
+    return recentOpenTrack.name;
+  }
+
+  QString getName() const;
+  QString getDescription() const;
 
   QDateTime getFrom() const;
   QDateTime getTo() const;

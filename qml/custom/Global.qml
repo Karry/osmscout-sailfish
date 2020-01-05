@@ -1,6 +1,6 @@
 /*
  OSM Scout for Sailfish OS
- Copyright (C) 2019 Lukas Karas
+ Copyright (C) 2020 Lukas Karas
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@ Item {
     property alias routingModel: routingModel
     property alias navigationModel: navigationModel
     property alias positionSource: positionSource
+    property alias tracker: tracker
 
     Settings {
         id: settings
@@ -134,6 +135,10 @@ Item {
         }
     }
 
+    Tracker {
+        id: tracker
+    }
+
     PositionSource {
         id: positionSource
 
@@ -203,6 +208,14 @@ Item {
                                                 position.horizontalAccuracy);
             }
             // console.log("position: " + latitude + " " + longitude);
+            if (tracker.tracking){
+                tracker.locationChanged(valid,
+                                        lat, lon,
+                                        position.horizontalAccuracyValid, position.horizontalAccuracy,
+                                        position.altitudeValid, position.coordinate.altitude,
+                                        position.verticalAccuracyValid, position.verticalAccuracy);
+
+            }
         }
     }
 

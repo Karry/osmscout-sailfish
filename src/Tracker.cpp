@@ -92,6 +92,23 @@ void Tracker::resumeTrack(QString trackId){
   emit trackingChanged();
 }
 
+void Tracker::closeOpen(QString trackId){
+  bool ok;
+  qint64 trkId = trackId.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << trackId << "to number";
+    return;
+  }
+
+  if (trkId != recentOpenTrack.id){
+    qWarning() << "Track " << trkId << " was not reported as recent open!";
+    return;
+  }
+  emit closeTrackRequest(recentOpenTrack.collectionId, recentOpenTrack.id);
+  recentOpenTrack=Track{};
+  emit openTrackLoaded("-1", "");
+}
+
 void Tracker::startTracking(QString collectionId, QString trackName, QString trackDescription){
 
   bool ok;
@@ -203,6 +220,14 @@ void Tracker::onTrackCreated(qint64 collectionId, qint64 trackId, QString name){
   creationRequested = false;
   track.id = trackId;
   emit trackingChanged();
+}
+
+QString Tracker::getName() const {
+  return track.name;
+}
+
+QString Tracker::getDescription() const {
+  return track.description;
 }
 
 QDateTime Tracker::getFrom() const
