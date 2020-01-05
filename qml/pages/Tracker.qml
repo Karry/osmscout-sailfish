@@ -31,9 +31,65 @@ import ".." // Global singleton
 Page {
     id: trackerPage
 
+    property bool rejectRequested: false;
+    property bool newTrackRequested: false;
+
     Component.onCompleted: {
         if (!Global.tracker.tracking){
+            newTrackRequested=true;
+            newTrackDialog.open();
+        }
+    }
 
+    function pageStatus(status){
+        // https://sailfishos.org/develop/docs/silica/qml-sailfishsilica-sailfish-silica-page.html/
+        if (status == PageStatus.Inactive){
+            return "Inactive";
+        }
+        if (status == PageStatus.Activating){
+            return "Activating";
+        }
+        if (status == PageStatus.Active){
+            return "Active";
+        }
+        if (status == PageStatus.Deactivating){
+            return "Deactivating";
+        }
+
+        return "Unknown";
+    }
+
+    onStatusChanged: {
+        console.log("Tracker page status: " + pageStatus(trackerPage.status));
+        if (trackerPage.status == PageStatus.Active) {
+            //console.log("newTrackRequested: " + newTrackRequested + ", rejectRequested: " + rejectRequested);
+            if (newTrackRequested){
+                newTrackDialog.open();
+                newTrackRequested = false;
+            }
+            if (rejectRequested){
+                pageStack.pop();
+            }
+        }
+    }
+
+    CollectionEntryDialog{
+        id: newTrackDialog
+
+        title: qsTr("New track")
+
+        name: Qt.formatDateTime(new Date())
+        //acceptDestinationAction: PageStackAction.Pop
+
+        onAccepted: {
+            console.log("Start tracking, track " + name + " in collection " + collectionId);
+            AppSettings.lastCollection = collectionId;
+            Global.tracker.startTracking(collectionId, name, description);
+        }
+        onRejected: {
+            trackerPage.rejectRequested = true;
+            //console.log("New track: rejectRequested!");
+            pageStack.pop();
         }
     }
 
@@ -50,6 +106,7 @@ Page {
                 enabled: Global.tracker.tracking
                 onClicked: {
                     Global.tracker.stopTracking();
+                    // TODO: remorse timeout
                     pageStack.pop();
                 }
             }
@@ -65,7 +122,7 @@ Page {
             }
 
             PageHeader {
-                title: trackModel.name
+                title: Global.tracker.name
             }
 
             Label {

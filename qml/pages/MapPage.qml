@@ -38,6 +38,8 @@ Page {
     signal showTrack(LocationEntry bbox, var trackId)
     signal showRoute(OverlayWay route, var routeId)
 
+    // TODO: resume tracking when some track is still open
+
     onSelectLocation: {
         console.log("selectLocation: " + location);
         map.showLocation(location);
