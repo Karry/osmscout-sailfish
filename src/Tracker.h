@@ -62,6 +62,7 @@ signals:
   void closeTrackRequest(qint64 collectionId, qint64 trackId);
   void appendNodesRequest(qint64 trackId,
                           std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                          TrackStatistics statistics,
                           bool createNewSegment);
 
 public slots:

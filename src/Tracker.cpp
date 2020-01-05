@@ -148,6 +148,7 @@ void Tracker::startTracking(QString collectionId, QString trackName, QString tra
 void Tracker::flushBatch(bool createNewSegment){
   emit appendNodesRequest(track.id,
                           batch,
+                          track.statistics,
                           createNewSegment);
 
   batch = std::make_shared<std::vector<osmscout::gpx::TrackPoint>>();

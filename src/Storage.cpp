@@ -1321,8 +1321,8 @@ void Storage::closeTrack(qint64 collectionId, qint64 trackId){
   sql.exec();
 
   if (sql.lastError().isValid()) {
-    qWarning() << "Deleting track failed" << sql.lastError();
-    emit error(tr("Deleting track failed: %1").arg(sql.lastError().text()));
+    qWarning() << "Closing track failed" << sql.lastError();
+    emit error(tr("Closing track failed: %1").arg(sql.lastError().text()));
     loadCollectionDetails(Collection(collectionId));
   }
 
@@ -1615,6 +1615,7 @@ bool Storage::createSegment(qint64 trackId, qint64 &segmentId)
 
 void Storage::appendNodes(qint64 trackId,
                           std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                          TrackStatistics statistics,
                           bool createNewSegment)
 {
   if (!checkAccess(__FUNCTION__)){
@@ -1664,8 +1665,92 @@ void Storage::appendNodes(qint64 trackId,
     }
   }
 
-  // TODO: update track statistics, emit loadCollectionDetails
-  //loadCollectionDetails(Collection(collectionId));
+  qint64 collectionId;
+  if (!trackCollection(trackId, collectionId)){
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare(QString("UPDATE `track` SET ")
+              .append("`from_time` = :from_time, ")
+              .append("`to_time` = :to_time, ")
+              .append("`distance` = :distance, ")
+              .append("`raw_distance` = :raw_distance, ")
+              .append("`duration` = :duration, ")
+              .append("`moving_duration` = :moving_duration, ")
+              .append("`max_speed` = :max_speed, ")
+              .append("`average_speed` = :average_speed, ")
+              .append("`moving_average_speed` = :moving_average_speed, ")
+              .append("`ascent` = :ascent, ")
+              .append("`descent` = :descent, ")
+              .append("`min_elevation` = :min_elevation, ")
+              .append("`max_elevation` = :max_elevation, ")
+              .append("`bbox_min_lat` = :bbox_min_lat, ")
+              .append("`bbox_min_lon` = :bbox_min_lon, ")
+              .append("`bbox_max_lat` = :bbox_max_lat, ")
+              .append("`bbox_max_lon` = :bbox_max_lon, ")
+              .append("`modification_time` = :modification_time ")
+              .append("WHERE `id` = :id"));
+
+  sql.bindValue(":from_time", statistics.from);
+  sql.bindValue(":to_time", statistics.to);
+  sql.bindValue(":distance", statistics.distance.AsMeter());
+  sql.bindValue(":raw_distance", statistics.rawDistance.AsMeter());
+  sql.bindValue(":duration", statistics.durationMillis());
+  sql.bindValue(":moving_duration", statistics.movingDurationMillis());
+  sql.bindValue(":max_speed", statistics.maxSpeed);
+  sql.bindValue(":average_speed", statistics.averageSpeed);
+  sql.bindValue(":moving_average_speed", statistics.movingAverageSpeed);
+  sql.bindValue(":ascent", statistics.ascent.AsMeter());
+  sql.bindValue(":descent", statistics.descent.AsMeter());
+  sql.bindValue(":min_elevation", statistics.minElevation.hasValue() ? QVariant::fromValue(statistics.minElevation.get().AsMeter()) : QVariant());
+  sql.bindValue(":max_elevation", statistics.maxElevation.hasValue() ? QVariant::fromValue(statistics.maxElevation.get().AsMeter()) : QVariant());
+
+  sql.bindValue(":bbox_min_lat", statistics.bbox.GetMinLat());
+  sql.bindValue(":bbox_min_lon", statistics.bbox.GetMinLon());
+  sql.bindValue(":bbox_max_lat", statistics.bbox.GetMaxLat());
+  sql.bindValue(":bbox_max_lon", statistics.bbox.GetMaxLon());
+
+  sql.bindValue(":modification_time", QDateTime::currentDateTime());
+
+  sql.bindValue(":id", trackId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Edit track failed" << sql.lastError();
+    emit error(tr("Edit track failed: %1").arg(sql.lastError().text()));
+    loadCollectionDetails(Collection(collectionId));
+  }
+
+  loadCollectionDetails(Collection(collectionId));
+}
+
+bool Storage::trackCollection(qint64 trackId, qint64 &collectionId)
+{
+  QSqlQuery sqlSegment(db);
+  sqlSegment.prepare("SELECT `collection_id` FROM `track` WHERE `id` = :id;");
+  sqlSegment.bindValue(":id", trackId);
+  sqlSegment.exec();
+
+  if (sqlSegment.lastError().isValid()) {
+    qWarning() << "Cannot obtain collection id";
+    return false;
+  }
+
+  if (sqlSegment.next()) {
+    QVariant segmentIdVar = sqlSegment.value("collection_id");
+    if (segmentIdVar.isNull()){
+      qWarning() << "Cannot obtain collection id, track don't exits";
+      return false;
+    }else {
+      collectionId = varToLong(segmentIdVar);
+    }
+  } else {
+    qWarning() << "Cannot obtain collection id, cannot retrieve row";
+    return false;
+  }
+
+  return true;
 }
 
 Storage::operator bool() const
