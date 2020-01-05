@@ -301,6 +301,8 @@ set(QML_FILES
     qml/custom/SpeedIndicator.qml
     qml/custom/WebsiteRow.qml
     qml/custom/PhoneRow.qml
+    qml/custom/CollectionComboBox.qml
+    qml/custom/CollectionEntryDialog.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml
