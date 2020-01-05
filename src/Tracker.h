@@ -29,6 +29,8 @@ class Tracker : public QObject {
   Q_PROPERTY(qint64 openTrackId READ getOpenTrackId NOTIFY openTrackLoaded)
   Q_PROPERTY(QString openTrackName READ getOpenTrackName NOTIFY openTrackLoaded)
 
+  Q_PROPERTY(bool processing READ isProcessing NOTIFY trackingChanged)
+
   Q_PROPERTY(QString name READ getName NOTIFY trackingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY trackingChanged)
 
@@ -98,6 +100,10 @@ public:
 
   QString getOpenTrackName() const {
     return recentOpenTrack.name;
+  }
+
+  bool isProcessing() const {
+    return creationRequested;
   }
 
   QString getName() const;

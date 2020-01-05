@@ -1112,7 +1112,10 @@ bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint
   size_t pointNum = 0;
   db.transaction();
   QSqlQuery sql(db);
-  sql.prepare("INSERT INTO `track_point` (`segment_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy`) VALUES (:segment_id, :timestamp, :latitude, :longitude, :elevation, :horiz_accuracy, :vert_accuracy)");
+  sql.prepare(QString("INSERT INTO `track_point` ")
+               .append("(`segment_id`, `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy`) ")
+               .append("VALUES ")
+               .append("(:segment_id, :timestamp, :latitude, :longitude, :elevation, :horiz_accuracy, :vert_accuracy)"));
 
   for (const auto &point: points){
     pointNum ++;
@@ -1610,9 +1613,9 @@ bool Storage::createSegment(qint64 trackId, qint64 &segmentId)
   return true;
 }
 
-void Storage::appendNodesRequest(qint64 trackId,
-                                 std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
-                                 bool createNewSegment)
+void Storage::appendNodes(qint64 trackId,
+                          std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                          bool createNewSegment)
 {
   if (!checkAccess(__FUNCTION__)){
     return;

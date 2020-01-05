@@ -434,9 +434,9 @@ public slots:
    * Append batch of nodes to last segment in track.
    * Possibly create new segment when "createNewSegment" is true
    */
-  void appendNodesRequest(qint64 trackId,
-                          std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
-                          bool createNewSegment);
+  void appendNodes(qint64 trackId,
+                   std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
+                   bool createNewSegment);
 
 public:
   Storage(QThread *thread,
