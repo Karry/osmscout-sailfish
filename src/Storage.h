@@ -137,8 +137,8 @@ public:
   QDateTime to;
   osmscout::Distance distance;
   osmscout::Distance rawDistance;
-  osmscout::Timestamp::duration duration;
-  osmscout::Timestamp::duration movingDuration;
+  osmscout::Timestamp::duration duration{osmscout::Timestamp::duration::zero()};
+  osmscout::Timestamp::duration movingDuration{osmscout::Timestamp::duration::zero()};
   double maxSpeed; // m/s
   double averageSpeed; // m/s
   double movingAverageSpeed; // m/s
