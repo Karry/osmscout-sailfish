@@ -1629,27 +1629,43 @@ void Storage::appendNodes(qint64 trackId,
   sqlSegment.exec();
 
   if (sqlSegment.lastError().isValid()) {
-    qWarning() << "Loading last open track fails";
-    emit error(tr("Loading last open track fails"));
+    qWarning() << "Evaluating last segment failed";
+    emit error(tr("Failed to append nodes to track"));
     return;
   }
 
   qint64 segmentId;
   if (sqlSegment.next()) {
-    segmentId=varToLong(sqlSegment.value("segment_id"));
-  } else {
-    if (!createSegment(trackId, segmentId)){
-      return;
+    QVariant segmentIdVar = sqlSegment.value("segment_id");
+    if (segmentIdVar.isNull()){
+      if (!createSegment(trackId, segmentId)){
+        qWarning() << "Creating segment failed";
+        emit error(tr("Failed to append nodes to track"));
+        return;
+      }
+    }else {
+      segmentId = varToLong(segmentIdVar);
     }
+  } else {
+    qWarning() << "Evaluating last segment failed, cannot retrieve row";
+    emit error(tr("Failed to append nodes to track"));
+    return;
   }
 
   if (!importTrackPoints(*batch, segmentId)){
+    qWarning() << "Failed to append nodes to track";
+    emit error(tr("Failed to append nodes to track"));
     return;
   }
 
   if (createNewSegment){
-    createSegment(trackId, segmentId);
+    if (!createSegment(trackId, segmentId)){
+      qWarning() << "Creating segment failed";
+    }
   }
+
+  // TODO: update track statistics, emit loadCollectionDetails
+  //loadCollectionDetails(Collection(collectionId));
 }
 
 Storage::operator bool() const
