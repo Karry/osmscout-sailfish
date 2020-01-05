@@ -132,11 +132,37 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Редактирование коллекции</translation>
+        <translation>Редактирование коллекции</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionComboBox</name>
+    <message>
+        <source>Collection</source>
+        <translation>Коллекция</translation>
     </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
+    <message>
+        <source>Name</source>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Описание</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEntryDialog</name>
+    <message>
+        <source>New collection</source>
+        <translation type="unfinished">Новая коллеция</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>По-умолчанию</translation>
+    </message>
     <message>
         <source>Name</source>
         <translation>Название</translation>
@@ -375,7 +401,7 @@
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished">Отменить</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Canceling</source>
@@ -592,6 +618,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tracker</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -624,26 +654,6 @@
     <message>
         <source>New waypoint</source>
         <translation>Новая путевая точка</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>По-умолчанию</translation>
-    </message>
-    <message>
-        <source>Collection</source>
-        <translation>Коллекция</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Название</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Описание</translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation>Новая коллекция</translation>
     </message>
 </context>
 <context>
@@ -968,6 +978,113 @@
     <message>
         <source>Move track id %1 fails</source>
         <translation>Невозможно переместить путь %1</translation>
+    </message>
+    <message>
+        <source>Creation of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading last open track fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment creation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to append nodes to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tracker</name>
+    <message>
+        <source>New track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raw distance</source>
+        <translation>Расстояние по прямой</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Откуда</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Куда</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Время</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>Время движения</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation>Скорость сред./макс.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation>%1 / %2 км/ч</translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation>Средняя скорость</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 км/ч</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Высота мин./макс.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation>%1 / %2 м над уровнем моря</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>Подъём</translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 м</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Спуск</translation>
     </message>
 </context>
 <context>

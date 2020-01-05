@@ -92,11 +92,11 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Loading collection</source>
@@ -136,7 +136,33 @@
     </message>
 </context>
 <context>
+    <name>CollectionComboBox</name>
+    <message>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CollectionEditDialog</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEntryDialog</name>
+    <message>
+        <source>New collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
@@ -150,7 +176,7 @@
     <name>CollectionExport</name>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Könyvtár</translation>
+        <translation>Könyvtár</translation>
     </message>
     <message>
         <source>Export</source>
@@ -216,11 +242,11 @@
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">Innen: </translation>
+        <translation>Innen: </translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">Ide: </translation>
+        <translation>Ide: </translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -288,11 +314,11 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Collections</source>
@@ -375,7 +401,7 @@
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished">Mégse</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>Canceling</source>
@@ -592,6 +618,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tracker</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -623,26 +653,6 @@
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Collection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New collection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -969,6 +979,113 @@
         <source>Move track id %1 fails</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Creation of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading last open track fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment creation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to append nodes to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tracker</name>
+    <message>
+        <source>New track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raw distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Innen: </translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Ide: </translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>
@@ -1095,7 +1212,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished">Épület</translation>
+        <translation>Épület</translation>
     </message>
 </context>
 <context>

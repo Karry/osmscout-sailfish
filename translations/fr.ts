@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement de la collection</translation>
     </message>
     <message>
         <source>Export</source>
@@ -128,10 +128,17 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Itinéraire vers</translation>
     </message>
     <message>
         <source>Edit collection</source>
+        <translation>Modifier la collection</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionComboBox</name>
+    <message>
+        <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -139,188 +146,207 @@
     <name>CollectionEditDialog</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Description</source>
+        <translation>Description</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEntryDialog</name>
+    <message>
+        <source>New collection</source>
+        <translation type="unfinished">Nouvelle collection</translation>
+    </message>
+    <message>
+        <source>Default</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Description</translation>
     </message>
 </context>
 <context>
     <name>CollectionExport</name>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Répertoire</translation>
+        <translation>Répertoire</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished">Exporter</translation>
+        <translation>Exporter</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de fichier</translation>
     </message>
 </context>
 <context>
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire d&apos;exportation non valide</translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de ficher invalide</translation>
     </message>
 </context>
 <context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distance brute</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascencion </translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Descente</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Élévation min/max</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 m</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>De</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Vers</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m. d&apos;altitude</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Heure</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Durée de déplacement</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse de déplacement</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 pieds d&apos;altitude</translation>
     </message>
     <message>
         <source>%1 ft</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 pieds</translation>
     </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Altitude</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m d&apos;altitude</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Créé</translation>
     </message>
 </context>
 <context>
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Modifier</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Supprimer</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Suppression</translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Collections</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer</translation>
     </message>
     <message>
         <source>Create new</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer nouveau</translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle collection</translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier la collection</translation>
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer sur la carte</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher sur la carte</translation>
     </message>
 </context>
 <context>
@@ -331,11 +357,11 @@
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>mètres</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
 </context>
 <context>
@@ -350,37 +376,37 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Rafraîchir </translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Supprimer</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Télécharger cartes</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Suppression</translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Mise à jour</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout mettre à jour</translation>
     </message>
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Annulation</translation>
     </message>
 </context>
 <context>
@@ -388,12 +414,12 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Destination atteinte, en %1 %2. Fin de la navigation.</translation>
     </message>
     <message>
         <source>Stopping navigation.</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Arrêt de la navigation</translation>
     </message>
 </context>
 <context>
@@ -432,82 +458,82 @@
     </message>
     <message>
         <source>Style flags</source>
-        <translation type="unfinished"></translation>
+        <translation>Style de bandeaux</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Police</translation>
     </message>
     <message>
         <source>DejaVu Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>DejaVu Sans</translation>
     </message>
     <message>
         <source>Droid Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>Droid Serif</translation>
     </message>
     <message>
         <source>Liberation Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberation Sans</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille de police</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normale</translation>
     </message>
     <message>
         <source>Big</source>
-        <translation type="unfinished"></translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Très grande</translation>
     </message>
     <message>
         <source>Bigger</source>
-        <translation type="unfinished"></translation>
+        <translation>Énorme</translation>
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Superposition de carte</translation>
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Relief ombré</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensité du relief ombré</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Basé sur SRTM, ASTER GDEM ainsi que d&apos;autres sources gratuites rassemblées par viewfinderpanoramas.org</translation>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished"></translation>
+        <translation>Préférer les noms anglais</translation>
     </message>
 </context>
 <context>
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner un lieu ...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Emplacement actuel</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Rechercher</translation>
+        <translation>Rechercher</translation>
     </message>
     <message>
         <source>Pick a place</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir un emplacement</translation>
     </message>
 </context>
 <context>
@@ -534,15 +560,15 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Mettre à jour</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargé</translation>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
+        <translation>Mis à jour</translation>
     </message>
 </context>
 <context>
@@ -569,27 +595,31 @@
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigation</translation>
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Collections</translation>
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêter la  navigation</translation>
     </message>
     <message>
         <source>ETA %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Heure d&apos;arrivée estimée %1</translation>
     </message>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Changer de moyen de transport</translation>
     </message>
     <message>
         <source>Settings</source>
+        <translation>Paramètres</translation>
+    </message>
+    <message>
+        <source>Tracker</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -597,53 +627,33 @@
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêter la  navigation</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Itinéraire</translation>
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrivée</translation>
     </message>
     <message>
         <source>Distance</source>
         <extracomment>Distance to target, itinerary page</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Changer de moyen de transport</translation>
     </message>
 </context>
 <context>
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Collection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouveau point de passage</translation>
     </message>
 </context>
 <context>
@@ -663,69 +673,69 @@
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Partager l&apos;emplacement</translation>
     </message>
 </context>
 <context>
     <name>RouteDescription</name>
     <message>
         <source>Preparing</source>
-        <translation type="unfinished"></translation>
+        <translation>Préparation</translation>
     </message>
     <message>
         <source>Calculating the route</source>
-        <translation type="unfinished"></translation>
+        <translation>Calcul de l&apos;itinéraire</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Naviguer</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Accepter</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Durée</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Étapes de l&apos;itinéraire</translation>
     </message>
 </context>
 <context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
-        <translation type="unfinished"></translation>
+        <translation>Recherche de l&apos;itinéraire</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>De</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Vers</translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished"></translation>
+        <translation>Par</translation>
     </message>
     <message>
         <source>Route!</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer !</translation>
     </message>
     <message>
         <source>Swap start and target</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverser départ et destination</translation>
     </message>
 </context>
 <context>
@@ -740,35 +750,35 @@
     </message>
     <message>
         <source>Restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurant</translation>
     </message>
     <message>
         <source>Fast Food</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast Food</translation>
     </message>
     <message>
         <source>Cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Café</translation>
     </message>
     <message>
         <source>ATM</source>
-        <translation type="unfinished"></translation>
+        <translation>Distributeur de billet</translation>
     </message>
     <message>
         <source>Drinking water</source>
-        <translation type="unfinished"></translation>
+        <translation>Eau potable</translation>
     </message>
     <message>
         <source>Toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Toilettes</translation>
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêt de transport publique</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Station d&apos;essence</translation>
     </message>
     <message>
         <source>Accomodation</source>
@@ -784,7 +794,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Itinéraire vers</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -793,58 +803,58 @@
     </message>
     <message>
         <source>Pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Pub</translation>
     </message>
     <message>
         <source>Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar</translation>
     </message>
     <message>
         <source>Pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmacie</translation>
     </message>
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Source</translation>
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>Château, Manoir</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Units</source>
-        <translation type="unfinished"></translation>
+        <translation>Système</translation>
     </message>
     <message>
         <source>Metrics</source>
-        <translation type="unfinished"></translation>
+        <translation>Métrique </translation>
     </message>
     <message>
         <source>Imperial</source>
-        <translation type="unfinished"></translation>
+        <translation>Impérial</translation>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation type="unfinished"></translation>
+        <translation>Coordonnées</translation>
     </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
     <message>
         <source>km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>mi/h</translation>
     </message>
 </context>
 <context>
@@ -969,80 +979,187 @@
         <source>Move track id %1 fails</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Creation of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading last open track fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment creation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to append nodes to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tracker</name>
+    <message>
+        <source>New track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished">Distance</translation>
+    </message>
+    <message>
+        <source>Raw distance</source>
+        <translation type="unfinished">Distance brute</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">De</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Vers</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">Heure</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished">Durée de déplacement</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation type="unfinished">Vitesse ⌀/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation type="unfinished">%1 / %2 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation type="unfinished">%1 / %2 km/h</translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation type="unfinished">Vitesse de déplacement</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished">%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished">%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished">Élévation min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished">%1 / %2 pieds d&apos;altitude</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished">%1 / %2 m. d&apos;altitude</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Ascencion </translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation type="unfinished">%1 pieds</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation type="unfinished">%1 m</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Descente</translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation type="unfinished"></translation>
+        <translation>mètres</translation>
     </message>
     <message>
         <source>km</source>
-        <translation type="unfinished"></translation>
+        <translation>km</translation>
     </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>ouest</translation>
     </message>
     <message>
         <source>east</source>
         <extracomment>in sense indicating location of some place: &quot;place is located EAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>est</translation>
     </message>
     <message>
         <source>south</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTH&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>sud</translation>
     </message>
     <message>
         <source>north</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTH&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>nord</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Accueil</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>Carte SD</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Documents</translation>
     </message>
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>nord-est</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>sud-est</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>sud-ouest</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>nord-ouest</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"></translation>
+        <translation>pied</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"></translation>
+        <translation>milles</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"></translation>
+        <translation>yards</translation>
     </message>
 </context>
 <context>
@@ -1095,7 +1212,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>Bâtiment</translation>
     </message>
 </context>
 <context>
@@ -1130,7 +1247,7 @@
     </message>
     <message>
         <source>Turn</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
@@ -1198,27 +1315,27 @@
     </message>
     <message>
         <source>unnamed road</source>
-        <translation type="unfinished"></translation>
+        <translation>route sans nom</translation>
     </message>
     <message>
         <source>(%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Démarrer&lt;/strong&gt; à %1</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
@@ -1226,7 +1343,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Continuer</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
@@ -1234,19 +1351,19 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Démarrer&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Destination atteinte&lt;/strong&gt; à %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Destination atteinte&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation type="unfinished"></translation>
+        <translation>Destination atteinte</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
@@ -1258,7 +1375,7 @@
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer dans le rond-point</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
@@ -1270,7 +1387,7 @@
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer sur l&apos;autoroute</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
@@ -1290,7 +1407,7 @@
     </message>
     <message>
         <source>Change motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Changer d&apos;autoroute</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
@@ -1302,7 +1419,7 @@
     </message>
     <message>
         <source>Leave motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter l&apos;autoroute</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
@@ -1361,38 +1478,38 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Terrain</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Aquarelle </translation>
     </message>
 </context>
 <context>
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation type="unfinished"></translation>
+        <translation>Voiture</translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Vélo</translation>
     </message>
     <message>
         <source>foot</source>
-        <translation type="unfinished"></translation>
+        <translation>À pied</translation>
     </message>
 </context>
 <context>
@@ -1423,7 +1540,7 @@
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>Bâtiment</translation>
     </message>
     <message>
         <source>minorBuilding</source>
@@ -1446,15 +1563,15 @@
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"></translation>
+        <translation>Sports d&apos;hiver</translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>Transports publics</translation>
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>Extérieur</translation>
     </message>
 </context>
 </TS>

@@ -136,7 +136,33 @@
     </message>
 </context>
 <context>
+    <name>CollectionComboBox</name>
+    <message>
+        <source>Collection</source>
+        <translation>Verzameling</translation>
+    </message>
+</context>
+<context>
     <name>CollectionEditDialog</name>
+    <message>
+        <source>Name</source>
+        <translation>Naam</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Beschrijving</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEntryDialog</name>
+    <message>
+        <source>New collection</source>
+        <translation>Nieuwe verzameling</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Standaard</translation>
+    </message>
     <message>
         <source>Name</source>
         <translation>Naam</translation>
@@ -592,6 +618,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tracker</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -624,26 +654,6 @@
     <message>
         <source>New waypoint</source>
         <translation>Nieuw routepunt</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Standaard</translation>
-    </message>
-    <message>
-        <source>Collection</source>
-        <translation>Verzameling</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Naam</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Beschrijving</translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation>Nieuwe verzameling</translation>
     </message>
 </context>
 <context>
@@ -968,6 +978,113 @@
     <message>
         <source>Move track id %1 fails</source>
         <translation>Verplaatsen van spoor-ID %1 mislukt</translation>
+    </message>
+    <message>
+        <source>Creation of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading last open track fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment creation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to append nodes to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tracker</name>
+    <message>
+        <source>New track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raw distance</source>
+        <translation>Ruwe afstand</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Van</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Naar</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Tijd</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>Verplaatsingstijd</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation>Snelheid ⌀/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation>%1 / %2 km/u</translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation>Verplaatsingssnelheid ⌀</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/u</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Hoogteverschil min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation>%1 / %2 m boven zeespiegel</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>Klim</translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Afdaling</translation>
     </message>
 </context>
 <context>

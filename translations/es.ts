@@ -136,7 +136,33 @@
     </message>
 </context>
 <context>
+    <name>CollectionComboBox</name>
+    <message>
+        <source>Collection</source>
+        <translation>Colección</translation>
+    </message>
+</context>
+<context>
     <name>CollectionEditDialog</name>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Descripción</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEntryDialog</name>
+    <message>
+        <source>New collection</source>
+        <translation>Nueva Colección</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>predeterminado</translation>
+    </message>
     <message>
         <source>Name</source>
         <translation>Nombre</translation>
@@ -592,6 +618,10 @@
         <source>Settings</source>
         <translation>Ajustes</translation>
     </message>
+    <message>
+        <source>Tracker</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -624,26 +654,6 @@
     <message>
         <source>New waypoint</source>
         <translation>Nuevo punto-definido</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>predeterminado</translation>
-    </message>
-    <message>
-        <source>Collection</source>
-        <translation>Colección</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Nombre</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Descripción</translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation>Nueva Colección</translation>
     </message>
 </context>
 <context>
@@ -968,6 +978,113 @@
     <message>
         <source>Move track id %1 fails</source>
         <translation>Falla %1 al mover Id de pista</translation>
+    </message>
+    <message>
+        <source>Creation of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading last open track fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment creation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to append nodes to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tracker</name>
+    <message>
+        <source>New track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Distancia</translation>
+    </message>
+    <message>
+        <source>Raw distance</source>
+        <translation>Distancia real</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Desde</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Para</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Tiempo</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>Tiempo de movimiento</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation>Velocidad ⌀/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation>%1 / %2 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation>%1 / %2 km/h</translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation>Velocidad de movimiento</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Elevación min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation>%1 / %2 pi a.s.l.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation>%1 / %2 m a.s.l.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>ascenso</translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation>%1 pi</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Descenso</translation>
     </message>
 </context>
 <context>

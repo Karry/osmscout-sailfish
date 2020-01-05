@@ -132,11 +132,37 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">تغییر مجموعه</translation>
+        <translation>تغییر مجموعه</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionComboBox</name>
+    <message>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
+    <message>
+        <source>Name</source>
+        <translation>نام</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>توضیح</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionEntryDialog</name>
+    <message>
+        <source>New collection</source>
+        <translation>مجموعه جدید</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Name</source>
         <translation>نام</translation>
@@ -592,6 +618,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tracker</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -611,7 +641,7 @@
     <message>
         <source>Distance</source>
         <extracomment>Distance to target, itinerary page</extracomment>
-        <translation type="unfinished">فاصله</translation>
+        <translation>فاصله</translation>
     </message>
     <message>
         <source>Change vehicle</source>
@@ -624,26 +654,6 @@
     <message>
         <source>New waypoint</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Collection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished">نام</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished">توضیح</translation>
-    </message>
-    <message>
-        <source>New collection</source>
-        <translation type="unfinished">مجموعه جدید</translation>
     </message>
 </context>
 <context>
@@ -690,7 +700,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">فاصله</translation>
+        <translation>فاصله</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -709,11 +719,11 @@
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">از</translation>
+        <translation>از</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">به</translation>
+        <translation>به</translation>
     </message>
     <message>
         <source>By</source>
@@ -784,7 +794,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">مسیریابی به</translation>
+        <translation>مسیریابی به</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -967,6 +977,113 @@
     </message>
     <message>
         <source>Move track id %1 fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creation of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading last open track fails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment creation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to append nodes to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tracker</name>
+    <message>
+        <source>New track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>فاصله</translation>
+    </message>
+    <message>
+        <source>Raw distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>از</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>به</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>زمان</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>زمان جابه‌حایی</translation>
+    </message>
+    <message>
+        <source>Speed ⌀/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving Speed ⌀</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Descent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
