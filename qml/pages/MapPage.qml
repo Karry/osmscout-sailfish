@@ -125,6 +125,9 @@ Page {
             anchors.fill: parent
             height: childrenRect.height
             id: menu
+
+            VerticalScrollDecorator {}
+
             model: ListModel {
                 ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
                 ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
