@@ -620,7 +620,7 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Spårare</translation>
     </message>
 </context>
 <context>
@@ -981,38 +981,38 @@
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa spår: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte läsa in senast öppna spår</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa segment: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte öppna noder till spår</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte stänga spår: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Nytt spår</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluta spåra</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distans</translation>
     </message>
     <message>
         <source>Raw distance</source>

@@ -620,7 +620,7 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Stopař</translation>
     </message>
 </context>
 <context>
@@ -981,38 +981,38 @@
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvoření trasy selhalo: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrání poslední trasy selhalo</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvoření segmentu selhalo: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Selhalo zapsání bodů do trasy</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzavření trasy selhalo: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Nová trasa</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastavit stopaře</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzdálenost</translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -1020,7 +1020,7 @@
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Od</translation>
     </message>
     <message>
         <source>To</source>
