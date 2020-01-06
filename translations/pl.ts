@@ -1094,6 +1094,11 @@
         <source>Descent</source>
         <translation>Spadek</translation>
     </message>
+    <message>
+        <source>Stopping tracker</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

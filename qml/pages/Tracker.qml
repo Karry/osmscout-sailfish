@@ -100,14 +100,20 @@ Page {
 
         VerticalScrollDecorator {}
 
+        RemorsePopup { id: remorse }
+
         PullDownMenu {
             MenuItem {
                 text: qsTr("Stop tracking")
                 enabled: Global.tracker.tracking
                 onClicked: {
-                    Global.tracker.stopTracking();
-                    // TODO: remorse timeout
-                    pageStack.pop();
+                    //: remorse dialog
+                    remorse.execute(qsTr("Stopping tracker"),
+                                    function() {
+                                        Global.tracker.stopTracking();
+                                        pageStack.pop();
+                                    },
+                                    5 * 1000);
                 }
             }
         }
