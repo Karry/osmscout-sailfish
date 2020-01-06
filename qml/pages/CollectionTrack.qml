@@ -138,18 +138,21 @@ Dialog{
                         DetailItem {
                             id: fromTime
                             visible: trackModel.from.getTime() > 0
+                            //: From date time
                             label: qsTr("From")
                             value: Qt.formatDateTime(trackModel.from)
                         }
                         DetailItem {
                             id: toTime
                             visible: trackModel.to.getTime() > 0
+                            //: To date time
                             label: qsTr("To")
                             value: Qt.formatDateTime(trackModel.to)
                         }
                         DetailItem {
                             id: duration
                             visible: trackModel.duration > 0
+                            //: Track duration
                             label: qsTr("Time")
                             value: Utils.humanDurationLong(trackModel.duration / 1000)
                         }

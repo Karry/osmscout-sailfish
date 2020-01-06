@@ -117,12 +117,14 @@ Dialog {
             LocationSelector {
                 id: fromSelector
                 width: parent.width
+                //: Routing FROM place
                 label: qsTr("From")
                 initWithCurrentLocation: true
             }
             LocationSelector {
                 id: toSelector
                 width: parent.width
+                //: Routing TO place
                 label: qsTr("To")
 
                 Component.onCompleted: {

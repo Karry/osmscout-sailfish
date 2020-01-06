@@ -242,10 +242,12 @@
     </message>
     <message>
         <source>From</source>
+        <extracomment>From date time</extracomment>
         <translation>Od</translation>
     </message>
     <message>
         <source>To</source>
+        <extracomment>To date time</extracomment>
         <translation>Do</translation>
     </message>
     <message>
@@ -258,6 +260,7 @@
     </message>
     <message>
         <source>Time</source>
+        <extracomment>Track duration</extracomment>
         <translation>Čas</translation>
     </message>
     <message>
@@ -719,10 +722,12 @@
     </message>
     <message>
         <source>From</source>
+        <extracomment>Routing FROM place</extracomment>
         <translation>Z</translation>
     </message>
     <message>
         <source>To</source>
+        <extracomment>Routing TO place</extracomment>
         <translation>Do</translation>
     </message>
     <message>
@@ -1020,14 +1025,17 @@
     </message>
     <message>
         <source>From</source>
+        <extracomment>From date time</extracomment>
         <translation>Od</translation>
     </message>
     <message>
         <source>To</source>
+        <extracomment>To date time</extracomment>
         <translation>Do</translation>
     </message>
     <message>
         <source>Time</source>
+        <extracomment>Track duration</extracomment>
         <translation>Čas</translation>
     </message>
     <message>

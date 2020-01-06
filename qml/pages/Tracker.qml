@@ -145,18 +145,21 @@ Page {
             DetailItem {
                 id: fromTime
                 visible: Global.tracker.from.getTime() > 0
+                //: From date time
                 label: qsTr("From")
                 value: Qt.formatDateTime(Global.tracker.from)
             }
             DetailItem {
                 id: toTime
                 visible: Global.tracker.to.getTime() > 0
+                //: To date time
                 label: qsTr("To")
                 value: Qt.formatDateTime(Global.tracker.to)
             }
             DetailItem {
                 id: duration
                 visible: Global.tracker.duration > 0
+                //: Track duration
                 label: qsTr("Time")
                 value: Utils.humanDurationLong(Global.tracker.duration / 1000)
             }
