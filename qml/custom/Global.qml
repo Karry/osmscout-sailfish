@@ -108,7 +108,7 @@ Item {
 
         function stop(){
             //: remorse dialog
-            remorse.execute(qsTr("Stopping navigation."),
+            remorse.execute(qsTr("Stopping navigation"),
                             function() {
                                 clear();
                             },

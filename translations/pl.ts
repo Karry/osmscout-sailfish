@@ -420,7 +420,7 @@
         <translation>Cel osiągnięty, %1 %2. Zamykanie nawigacji.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Zatrzymywanie nawigacji</translation>
     </message>

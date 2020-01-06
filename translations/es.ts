@@ -420,7 +420,7 @@
         <translation>Destino alcazado,en %1 %2. cerrando navegación.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Deteniendo navegación</translation>
     </message>

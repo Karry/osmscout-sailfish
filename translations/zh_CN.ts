@@ -420,7 +420,7 @@
         <translation>已抵达目的地, 距离 %1 方向 %2 。正在关闭导航。</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>正在停止导航</translation>
     </message>

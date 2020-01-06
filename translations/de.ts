@@ -420,7 +420,7 @@
         <translation>Target reached in %1 %2. Beende Navigation.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Beende Navigation</translation>
     </message>

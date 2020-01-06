@@ -420,7 +420,7 @@
         <translation>Doel bereikt binnen %1 %2. Navigatie wordt gesloten.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Navigatie wordt gestopt.</translation>
     </message>

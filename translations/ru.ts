@@ -420,7 +420,7 @@
         <translation>Вы прибыли на место. Конечная точка в %1 %2. Маршрут окончен.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Отмена маршрута</translation>
     </message>

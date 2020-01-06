@@ -420,9 +420,9 @@
         <translation>Dosaženo cíle, %1 %2. Zastavuji navigaci</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>Zastavuji navigaci.</translation>
+        <translation>Zastavuji navigaci</translation>
     </message>
 </context>
 <context>

@@ -420,7 +420,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation type="unfinished"></translation>
     </message>

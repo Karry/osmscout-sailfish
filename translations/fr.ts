@@ -420,7 +420,7 @@
         <translation>Destination atteinte, en %1 %2. Fin de la navigation.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Arrêt de la navigation</translation>
     </message>

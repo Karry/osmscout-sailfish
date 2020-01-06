@@ -420,7 +420,7 @@
         <translation>Målet nått, %1 %2. Stänger navigeringen.</translation>
     </message>
     <message>
-        <source>Stopping navigation.</source>
+        <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Avslutar navigering.</translation>
     </message>
