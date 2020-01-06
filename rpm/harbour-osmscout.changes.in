@@ -354,3 +354,6 @@
 - refactor area handling, it should fix rendering of some complex areas (OSM relations)
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.17-1
+- initial support for track recoring
+- navigation: fixes for estimated position in tunnel
+- update translations, welcome Jordi in French team
