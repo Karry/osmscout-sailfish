@@ -1097,7 +1097,7 @@
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Slutar spåra</translation>
     </message>
 </context>
 <context>
