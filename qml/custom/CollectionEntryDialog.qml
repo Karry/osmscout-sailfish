@@ -73,6 +73,7 @@ Dialog{
     onStatusChanged: {
         console.log("dialog status: "+ dialogStatus(waypointDialog.status));
         if (waypointDialog.status == DialogStatus.Opened) {
+            nameTextField.focus = true;
             if (newCollectionRequested){
                 newCollectionDialog.open();
                 newCollectionRequested = false;
@@ -80,6 +81,11 @@ Dialog{
             if (rejectRequested){
                 waypointDialog.reject();
             }
+        }
+        if (waypointDialog.status == DialogStatus.Closed){
+            // force close keyboard
+            nameTextField.focus = false;
+            descriptionTextArea.focus = false;
         }
     }
 
