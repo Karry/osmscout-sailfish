@@ -623,7 +623,7 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Tracker</translation>
     </message>
 </context>
 <context>
@@ -986,38 +986,38 @@
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tworzenie śladu nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładowanie ostatnio otwartego śladu nie powiodło się</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tworzenie segmentu nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd dodania węzłów do śladu</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamykanie śladu nie powiodło się: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Nowy ślad</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Zatrzymaj śledzenie</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Dystans</translation>
     </message>
     <message>
         <source>Raw distance</source>
