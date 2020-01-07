@@ -185,10 +185,10 @@ SYMBOL cliff
   }
 
 SYMBOL natural_tree
-  CIRCLE 0,0 1 {
-    AREA {color: #9acd32; }
+  CIRCLE GROUND 0,0 5 {
+    AREA {color: #9acd3250; }
   }
-  CIRCLE 0,0 0.3 {
+CIRCLE GROUND 0,0 0.3 {
     AREA {color: #8b4513; }
   }
 
@@ -1075,7 +1075,7 @@ STYLE
      }
    }
 
-   [TYPE natural_tree] NODE.ICON { symbol: natural_tree; name: tree; }
+   [TYPE natural_tree] NODE.ICON { symbol: natural_tree; overlay: true; }
  }
 
  [MAG 17-] {
