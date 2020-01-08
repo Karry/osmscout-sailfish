@@ -38,7 +38,6 @@ Page {
     signal showTrack(LocationEntry bbox, var trackId)
     signal showRoute(OverlayWay route, var routeId)
 
-    // TODO: resume tracking when some track is still open
 
     onSelectLocation: {
         console.log("selectLocation: " + location);
@@ -111,6 +110,51 @@ Page {
 
     Settings {
         id: settings
+    }
+
+    // resume tracking when some track is still open
+    Dialog {
+        id: trackerResumeDialog
+
+        Component.onCompleted: {
+            if (Global.tracker.canBeResumed && !Global.tracker.tracking){
+                trackerResumeDialog.open();
+            }
+        }
+
+        Connections {
+            target: Global.tracker
+            onOpenTrackLoaded: {
+                if (Global.tracker.canBeResumed && !Global.tracker.tracking){
+                    trackerResumeDialog.open();
+                }
+            }
+        }
+
+        onAccepted: {
+            Global.tracker.resumeTrack(Global.tracker.openTrackId);
+        }
+        onRejected: {
+            Global.tracker.closeOpen(Global.tracker.openTrackId);
+        }
+
+        DialogHeader {
+            id: resumeDialogheader
+            title: qsTr("Resume tracking?")
+            //acceptText : qsTr("Show")
+            //cancelText : qsTr("Cancel")
+        }
+
+        Label {
+            anchors{
+                top: resumeDialogheader.bottom
+                bottom: parent.bottom
+            }
+            x: Theme.paddingMedium
+            width: parent.width - 2*Theme.paddingMedium
+
+            text: Global.tracker.openTrackName
+        }
     }
 
     Drawer {

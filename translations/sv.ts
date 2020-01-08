@@ -625,6 +625,10 @@
         <source>Tracker</source>
         <translation>Spårare</translation>
     </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
