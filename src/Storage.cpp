@@ -1315,7 +1315,7 @@ void Storage::closeTrack(qint64 collectionId, qint64 trackId){
   }
 
   QSqlQuery sql(db);
-  sql.prepare("UPDATE `track` SET `open` = false WHERE `id` = :id AND `collection_id` = :collection_id LIMIT 1;");
+  sql.prepare("UPDATE `track` SET `open` = 'FALSE' WHERE `id` = :id AND `collection_id` = :collection_id;");
   sql.bindValue(":id", trackId);
   sql.bindValue(":collection_id", collectionId);
   sql.exec();
@@ -1576,7 +1576,7 @@ void Storage::loadRecentOpenTrack(){
   }
 
   QSqlQuery sqlTrack(db);
-  sqlTrack.prepare("SELECT * FROM `track` WHERE `open` = true ORDER BY `creation_time` DESC LIMIT 1;");
+  sqlTrack.prepare("SELECT * FROM `track` WHERE `open` ORDER BY `creation_time` DESC LIMIT 1;");
   sqlTrack.exec();
 
   if (sqlTrack.lastError().isValid()) {
