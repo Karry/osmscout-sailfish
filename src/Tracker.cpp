@@ -61,6 +61,12 @@ Tracker::Tracker() {
   init();
 }
 
+Tracker::~Tracker(){
+  if (isTracking() && !batch->empty()){
+    flushBatch(false);
+  }
+}
+
 void Tracker::init(){
   emit openTrackRequested();
 }

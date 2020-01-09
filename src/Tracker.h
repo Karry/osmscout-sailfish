@@ -85,7 +85,7 @@ public slots:
 
 public:
   Tracker();
-  virtual ~Tracker() = default;
+  virtual ~Tracker();
 
   bool isTracking() const {
     return track.id >= 0;
