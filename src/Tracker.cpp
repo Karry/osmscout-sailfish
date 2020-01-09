@@ -20,6 +20,7 @@
 #include "Tracker.h"
 
 #include <QDebug>
+#include <osmscout/util/Geometry.h>
 
 Tracker::Tracker() {
   Storage *storage = Storage::getInstance();
@@ -194,11 +195,13 @@ void Tracker::locationChanged(bool locationValid,
   assert(batch);
   Timestamp::duration diffFromLast;
   Timestamp::duration diffFromFirst;
+  Distance distanceFromLast;
   if (!batch->empty()){
     assert(batch->back().time.hasValue());
     assert(point.time.hasValue());
     diffFromLast = point.time.get() - batch->back().time.get();
     diffFromFirst = point.time.get() - batch->front().time.get();
+    distanceFromLast = GetEllipsoidalDistance(point.coord, batch->back().coord);
     if (diffFromLast < Timestamp::duration::zero()){
       qWarning() << "Clock move to the past by " <<
         std::chrono::duration_cast<std::chrono::seconds>(diffFromLast).count() <<
@@ -209,7 +212,11 @@ void Tracker::locationChanged(bool locationValid,
     diffFromFirst = Timestamp::duration::zero();
   }
 
-  bool closeSegment = diffFromLast > std::chrono::minutes(10);
+  // create new segment when:
+  bool closeSegment = diffFromLast > std::chrono::minutes(10) // big time gap
+                   || diffFromLast < Timestamp::duration::zero() // time shift
+                   || distanceFromLast > Kilometers(1); // big distance gap
+
   if (closeSegment || batch->size() > 100 || diffFromFirst > std::chrono::minutes(1)) {
     // append point batch to track (with flag for creating new segment)
     flushBatch(closeSegment);
