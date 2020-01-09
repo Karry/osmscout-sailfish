@@ -275,7 +275,9 @@ Page {
             focus: true
             anchors.fill: parent
 
-            topMargin: nextStepBox.height + speedIndicator.height
+            topMargin: nextStepBox.height +
+                       speedIndicator.height + (speedIndicator.height > 0 ? Theme.paddingMedium: 0) +
+                       trackerIndicator.height + (trackerIndicator.height > 0 ? Theme.paddingMedium: 0);
 
             showCurrentPosition: true
             vehiclePosition: Global.navigationModel.vehiclePosition
@@ -651,6 +653,75 @@ Page {
             anchors.margins: Theme.paddingMedium
             height: visible ? Theme.iconSizeLarge : 0
             width: height
+        }
+
+        Rectangle {
+            id: trackerIndicator
+
+            visible: Global.tracker.tracking
+
+            anchors.left: parent.left
+            anchors.top: speedIndicator.bottom
+            anchors.margins: Theme.paddingMedium
+            height: visible ? Theme.iconSizeMedium : 0
+            width: trackerDistanceLabel.width + runnerIcon.width + Theme.paddingMedium
+            radius: Theme.paddingMedium
+
+            color: Theme.rgba(Theme.highlightDimmerColor, 0.4)
+
+            Image {
+                id: runnerIcon
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                width: height
+                source: "image://harbour-osmscout/pics/runner.svg?" + Theme.primaryColor
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignLeft
+                sourceSize.width: width
+                sourceSize.height: height
+
+                property double originalOpacity: 0.6
+                opacity: originalOpacity
+                Behavior on opacity { PropertyAnimation {} }
+                Timer{
+                    id: opacityRevertTimer
+                    running: false
+                    repeat: false
+                    interval: 200
+                    onTriggered: {
+                        runnerIcon.opacity = runnerIcon.originalOpacity;
+                    }
+                }
+                Connections {
+                    target: Global.tracker
+                    onStatisticsUpdated: {
+                        runnerIcon.opacity = 1.0;
+                        opacityRevertTimer.running = true;
+                    }
+                }
+
+                onWidthChanged: {
+                    console.log("runner dimensions: " + width + " x " + height);
+                }
+            }
+            Text {
+                id: trackerDistanceLabel
+                text: Utils.humanDistanceCompact(Global.tracker.distance)
+                anchors.left: runnerIcon.right
+                anchors.verticalCenter: parent.verticalCenter
+                color: Theme.rgba(Theme.primaryColor, 1.0)
+
+                font.pointSize: Theme.fontSizeExtraSmall
+            }
+            MouseArea {
+                id: runnerBtnMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("Tracker.qml"))
+                }
+            }
         }
 
         Rectangle {

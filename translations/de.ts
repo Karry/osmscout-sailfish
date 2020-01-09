@@ -1178,6 +1178,18 @@
         <source>yards</source>
         <translation>Yards</translation>
     </message>
+    <message>
+        <source>ft</source>
+        <translation>ft</translation>
+    </message>
+    <message>
+        <source>mi</source>
+        <translation>mi</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
 </context>
 <context>
     <name>databaseType</name>

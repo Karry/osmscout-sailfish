@@ -71,6 +71,31 @@ function humanDistance(distance){
 }
 
 /**
+ * compact variant, with short units
+ */
+function humanDistanceCompact(distance){
+    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
+        var feet = distance * 3.2808;
+        if (feet < 1500){
+            return Math.round(feet) + " " + qsTr("ft");
+        }
+        var miles = distance / 1609.344;
+        if (miles < 20){
+            return (Math.round(miles * 10)/10) + " " + qsTr("mi");
+        }
+        return Math.round(miles) + " " + qsTr("mi");
+    }else{
+        if (distance < 1500){
+            return Math.round(distance) + " " + qsTr("m");
+        }
+        if (distance < 20000){
+            return (Math.round((distance/1000) * 10)/10) + " " + qsTr("km");
+        }
+        return Math.round(distance/1000) + " " + qsTr("km");
+    }
+}
+
+/**
  * This variant is used in navigation, it is using miles/yards or km/meters
  */
 function humanDistanceVerbose(distance){
