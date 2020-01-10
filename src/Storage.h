@@ -178,7 +178,7 @@ public:
   TrackStatisticsAccumulator(const TrackStatisticsAccumulator &other) = default;
   TrackStatisticsAccumulator(TrackStatisticsAccumulator &&) = default;
 
-  TrackStatisticsAccumulator(const TrackStatistics &statistics);
+  explicit TrackStatisticsAccumulator(const TrackStatistics &statistics);
 
   virtual ~TrackStatisticsAccumulator() = default;
 
