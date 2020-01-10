@@ -58,6 +58,18 @@ Tracker::Tracker() {
           storage, &Storage::appendNodes,
           Qt::QueuedConnection);
 
+  connect(storage, &Storage::collectionDetailsLoaded,
+          this, &Tracker::onCollectionDetailsLoaded,
+          Qt::QueuedConnection);
+
+  connect(storage, &Storage::collectionDeleted,
+          this, &Tracker::onCollectionDeleted,
+          Qt::QueuedConnection);
+
+  connect(storage, &Storage::trackDeleted,
+          this, &Tracker::onTrackDeleted,
+          Qt::QueuedConnection);
+
   init();
 }
 
@@ -161,6 +173,14 @@ void Tracker::flushBatch(bool createNewSegment){
   batch = std::make_shared<std::vector<osmscout::gpx::TrackPoint>>();
 }
 
+void Tracker::stopTrackingWithoutSync(){
+  batch = std::make_shared<std::vector<osmscout::gpx::TrackPoint>>();
+  track.id = -1;
+  track.statistics = TrackStatistics{};
+  accumulator = TrackStatisticsAccumulator{};
+  emit trackingChanged();
+}
+
 void Tracker::stopTracking(){
   if (!isTracking()){
     qWarning() << "Tracking is not active";
@@ -247,6 +267,42 @@ void Tracker::onTrackCreated(qint64 collectionId, qint64 trackId, QString name){
   creationRequested = false;
   track.id = trackId;
   emit trackingChanged();
+}
+
+void Tracker::onCollectionDetailsLoaded(Collection collection, bool ok) {
+  if (ok && isTracking() && collection.tracks){
+    for (const auto &t : *(collection.tracks)) {
+      if (track.id == t.id) {
+
+        if (track.collectionId != t.collectionId) {
+          qDebug() << "Track was moved";
+          track.collectionId = t.collectionId;
+        }
+        if (track.name != t.name) {
+          qDebug() << "Track was renamed";
+          track.name = t.name;
+        }
+        if (track.description != t.description) {
+          qDebug() << "Track description was changed";
+          track.description = t.description;
+        }
+      }
+    }
+  }
+}
+
+void Tracker::onCollectionDeleted(qint64 collectionId) {
+  if (isTracking() && collectionId == track.collectionId){
+    qWarning() << "Collection was deleted, stopping tracker";
+    stopTrackingWithoutSync();
+  }
+}
+
+void Tracker::onTrackDeleted(qint64, qint64 trackId) {
+  if (isTracking() && trackId == track.id){
+    qWarning() << "Track was deleted, stopping tracker";
+    stopTrackingWithoutSync();
+  }
 }
 
 QString Tracker::getName() const {

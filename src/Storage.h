@@ -326,6 +326,10 @@ signals:
   void trackCreated(qint64 collectionId, qint64 trackId, QString name);
   void waypointCreated(qint64 collectionId, qint64 waypointId, QString name);
 
+  void collectionDeleted(qint64 collectionId);
+  void trackDeleted(qint64 collectionId, qint64 trackId);
+  void waypointDeleted(qint64 collectionId, qint64 waypointId);
+
   void openTrackLoaded(Track track, bool ok);
 
   void error(QString);
@@ -359,7 +363,7 @@ public slots:
 
   /**
    * delete collection
-   * emits collectionsLoaded signal
+   * emits collectionsLoaded, collectionDeleted
    */
   void deleteCollection(qint64 id);
 
@@ -371,13 +375,13 @@ public slots:
 
   /**
    * delete waypoint
-   * emits collectionDetailsLoaded
+   * emits collectionDetailsLoaded, waypointDeleted
    */
   void deleteWaypoint(qint64 collectionId, qint64 waypointId);
 
   /**
    * delete waypoint
-   * emits collectionDetailsLoaded
+   * emits collectionDetailsLoaded, trackDeleted
    */
   void deleteTrack(qint64 collectionId, qint64 trackId);
 
@@ -434,6 +438,8 @@ public slots:
    * Append batch of nodes to last segment in track,
    * update track statistics.
    * Possibly create new segment when "createNewSegment" is true
+   *
+   * emit collectionDetailsLoaded
    */
   void appendNodes(qint64 trackId,
                    std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,

@@ -70,6 +70,9 @@ public slots:
   void init();
   void onOpenTrackLoaded(Track track, bool ok);
   void onTrackCreated(qint64 collectionId, qint64 trackId, QString name);
+  void onCollectionDetailsLoaded(Collection collection, bool ok);
+  void onCollectionDeleted(qint64 collectionId);
+  void onTrackDeleted(qint64 collectionId, qint64 trackId);
 
   // slot for UI
   void resumeTrack(QString trackId);
@@ -126,6 +129,11 @@ public:
 
 private:
   void flushBatch(bool createNewSegment);
+
+  /**
+   * Stop tracking, but don't write changes to database
+   */
+  void stopTrackingWithoutSync();
 
 private:
   bool creationRequested{false};

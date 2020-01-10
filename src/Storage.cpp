@@ -728,6 +728,8 @@ void Storage::deleteCollection(qint64 id)
   if (sql.lastError().isValid()){
     qWarning() << "Deleting collection failed: " << sql.lastError();
     emit error(tr("Deleting collection failed: %1").arg(sql.lastError().text()));
+  } else {
+    emit collectionDeleted(id);
   }
 
   loadCollections();
@@ -1244,6 +1246,8 @@ void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
     qWarning() << "Deleting waypoint failed" << sql.lastError();
     emit error(tr("Deleting waypoint failed: %1").arg(sql.lastError().text()));
     loadCollectionDetails(Collection(collectionId));
+  } else {
+    emit waypointDeleted(collectionId, waypointId);
   }
 
   loadCollectionDetails(Collection(collectionId));
@@ -1347,6 +1351,8 @@ void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
     qWarning() << "Deleting track failed" << sql.lastError();
     emit error(tr("Deleting track failed: %1").arg(sql.lastError().text()));
     loadCollectionDetails(Collection(collectionId));
+  } else {
+    emit trackDeleted(collectionId, trackId);
   }
 
   loadCollectionDetails(Collection(collectionId));
