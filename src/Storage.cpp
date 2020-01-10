@@ -638,7 +638,9 @@ bool Storage::loadTrackDataPrivate(Track &track)
   track.data = std::make_shared<gpx::Track>();
 
   track.data->name = gpx::Optional<std::string>::of(track.name.toStdString());
-  track.data->desc = gpx::Optional<std::string>::of(track.description.toStdString());
+  if (!track.description.isEmpty()) {
+    track.data->desc = gpx::Optional<std::string>::of(track.description.toStdString());
+  }
 
   QSqlQuery sql(db);
   sql.prepare("SELECT `id` FROM `track_segment` WHERE track_id = :trackId;");
