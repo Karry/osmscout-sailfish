@@ -40,10 +40,6 @@ Dialog{
 
     canAccept: nameTextField.text.length > 0 && collectionId.length > 0
 
-    Component.onCompleted: {
-        nameTextField.focus = true;
-    }
-
     DialogHeader {
         id: waypointDialogheader
         //title: qsTr("New waypoint")
