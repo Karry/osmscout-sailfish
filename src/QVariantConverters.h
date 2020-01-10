@@ -97,6 +97,15 @@ inline osmscout::Timestamp dateTimeToTimestamp(const QDateTime &datetime)
   return osmscout::Timestamp(duration);
 }
 
+inline osmscout::gpx::Optional<osmscout::Timestamp> dateTimeToTimestampOpt(const QDateTime &datetime)
+{
+  if (datetime.isValid()){
+    return osmscout::gpx::Optional<osmscout::Timestamp>::of(dateTimeToTimestamp(datetime));
+  } else {
+    return osmscout::gpx::Optional<osmscout::Timestamp>::empty;
+  }
+}
+
 inline double varToDouble(const QVariant &var, double def = 0)
 {
   if (!var.isNull() &&

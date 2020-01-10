@@ -789,8 +789,8 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
 TrackStatisticsAccumulator::TrackStatisticsAccumulator(const TrackStatistics &statistics)
 {
   // duration accumulator
-  from=gpx::Optional<osmscout::Timestamp>::of(dateTimeToTimestamp(statistics.from));
-  to=gpx::Optional<osmscout::Timestamp>::of(dateTimeToTimestamp(statistics.to));
+  from=dateTimeToTimestampOpt(statistics.from);
+  to=dateTimeToTimestampOpt(statistics.to);
 
   // bbox
   bbox=statistics.bbox;
