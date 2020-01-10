@@ -17,9 +17,12 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+#include "CollectionTrackModel.h"
+
 #include <osmscout/LocationEntry.h>
 #include <osmscout/OverlayObject.h>
-#include "CollectionTrackModel.h"
+
+#include <QDebug>
 
 using namespace osmscout;
 
@@ -164,6 +167,10 @@ double CollectionTrackModel::getMaxElevation() const
 
 QObject *CollectionTrackModel::getBBox() const
 {
+  if (!track.statistics.bbox.IsValid()){
+    qWarning() << "Track bounding box is not valid";
+  }
+
   // QML will take ownership
   return new LocationEntry(LocationEntry::Type::typeNone,
                            "bbox",
