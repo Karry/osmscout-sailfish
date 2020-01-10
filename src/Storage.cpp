@@ -456,6 +456,15 @@ void Storage::loadCollections()
 
 Track Storage::makeTrack(QSqlQuery &sqlTrack) const
 {
+  GeoBox bbox(GeoCoord(varToDouble(sqlTrack.value("bbox_min_lat")),
+                       varToDouble(sqlTrack.value("bbox_min_lon"))),
+              GeoCoord(varToDouble(sqlTrack.value("bbox_max_lat")),
+                       varToDouble(sqlTrack.value("bbox_max_lon"))));
+
+  if (bbox.GetMinCoord().GetLat() < -90 || bbox.GetMinCoord().GetLon() < -180){
+    bbox.Invalidate();
+  }
+
   return Track(varToLong(sqlTrack.value("id")),
                varToLong(sqlTrack.value("collection_id")),
                varToString(sqlTrack.value("name")),
@@ -478,11 +487,7 @@ Track Storage::makeTrack(QSqlQuery &sqlTrack) const
                  varToDistanceOpt(sqlTrack.value("min_elevation")),
                  varToDistanceOpt(sqlTrack.value("max_elevation")),
 
-                 GeoBox(GeoCoord(varToDouble(sqlTrack.value("bbox_min_lat")),
-                                                     varToDouble(sqlTrack.value("bbox_min_lon"))),
-                                  GeoCoord(varToDouble(sqlTrack.value("bbox_max_lat")),
-                                                     varToDouble(sqlTrack.value("bbox_max_lon"))))
-                                                   ));
+                 bbox));
 }
 
 std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
@@ -1047,10 +1052,10 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
   sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant::fromValue(stat.minElevation.get().AsMeter()) : QVariant());
   sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant::fromValue(stat.maxElevation.get().AsMeter()) : QVariant());
 
-  sqlTrk.bindValue(":bboxMinLat", stat.bbox.GetMinLat());
-  sqlTrk.bindValue(":bboxMinLon", stat.bbox.GetMinLon());
-  sqlTrk.bindValue(":bboxMaxLat", stat.bbox.GetMaxLat());
-  sqlTrk.bindValue(":bboxMaxLon", stat.bbox.GetMaxLon());
+  sqlTrk.bindValue(":bboxMinLat", stat.bbox.IsValid() ? stat.bbox.GetMinLat() : -1000);
+  sqlTrk.bindValue(":bboxMinLon", stat.bbox.IsValid() ? stat.bbox.GetMinLon() : -1000);
+  sqlTrk.bindValue(":bboxMaxLat", stat.bbox.IsValid() ? stat.bbox.GetMaxLat() : -1000);
+  sqlTrk.bindValue(":bboxMaxLon", stat.bbox.IsValid() ? stat.bbox.GetMaxLon() : -1000);
 }
 
 bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
@@ -1714,10 +1719,10 @@ void Storage::appendNodes(qint64 trackId,
   sql.bindValue(":min_elevation", statistics.minElevation.hasValue() ? QVariant::fromValue(statistics.minElevation.get().AsMeter()) : QVariant());
   sql.bindValue(":max_elevation", statistics.maxElevation.hasValue() ? QVariant::fromValue(statistics.maxElevation.get().AsMeter()) : QVariant());
 
-  sql.bindValue(":bbox_min_lat", statistics.bbox.GetMinLat());
-  sql.bindValue(":bbox_min_lon", statistics.bbox.GetMinLon());
-  sql.bindValue(":bbox_max_lat", statistics.bbox.GetMaxLat());
-  sql.bindValue(":bbox_max_lon", statistics.bbox.GetMaxLon());
+  sql.bindValue(":bbox_min_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMinLat() : -1000);
+  sql.bindValue(":bbox_min_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMinLon() : -1000);
+  sql.bindValue(":bbox_max_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLat() : -1000);
+  sql.bindValue(":bbox_max_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLon() : -1000);
 
   sql.bindValue(":modification_time", QDateTime::currentDateTime());
 
