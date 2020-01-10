@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wznowić śledzenie?</translation>
     </message>
 </context>
 <context>
