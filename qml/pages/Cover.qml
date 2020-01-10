@@ -25,6 +25,7 @@ import QtPositioning 5.2
 import harbour.osmscout.map 1.0
 
 import "../custom"
+import "../custom/Utils.js" as Utils
 import ".." // Global singleton
 
 CoverBackground {
@@ -83,7 +84,7 @@ CoverBackground {
         id: header
 
         height: icon.height + 2* Theme.paddingMedium
-        visible: !Global.navigationModel.destinationSet
+        visible: !Global.navigationModel.destinationSet && !Global.tracker.tracking
         x: Theme.paddingMedium
 
         Image{
@@ -102,6 +103,33 @@ CoverBackground {
                 leftMargin: Theme.paddingSmall
             }
             text: qsTr("OSM Scout")
+            font.pixelSize: Theme.fontSizeMedium
+        }
+    }
+
+    Rectangle{
+        id: trackerHeader
+
+        height: icon.height + 2* Theme.paddingMedium
+        visible: Global.tracker.tracking && !Global.navigationModel.destinationSet
+        x: Theme.paddingMedium
+
+        Image{
+            id: trackerIcon
+            source: "image://harbour-osmscout/pics/runner.svg?" + Theme.primaryColor
+            x: 0
+            y: Theme.paddingMedium
+            height: Theme.fontSizeMedium * 1.5
+            width: height
+        }
+        Label{
+            id: trackerHeaderText
+            anchors{
+                verticalCenter: parent.verticalCenter
+                left: trackerIcon.right
+                leftMargin: Theme.paddingSmall
+            }
+            text: Utils.humanDistanceCompact(Global.tracker.distance)
             font.pixelSize: Theme.fontSizeMedium
         }
     }
