@@ -117,6 +117,7 @@ void Tracker::resumeTrack(QString trackId){
   // update accumulator by current track statistics
   accumulator = TrackStatisticsAccumulator(track.statistics);
   emit trackingChanged();
+  emit statisticsUpdated();
 }
 
 void Tracker::closeOpen(QString trackId){
@@ -179,6 +180,7 @@ void Tracker::stopTrackingWithoutSync(){
   track.statistics = TrackStatistics{};
   accumulator = TrackStatisticsAccumulator{};
   emit trackingChanged();
+  emit statisticsUpdated();
 }
 
 void Tracker::stopTracking(){
