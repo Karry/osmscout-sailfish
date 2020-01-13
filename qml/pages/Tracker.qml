@@ -155,7 +155,7 @@ Page {
             }
             DetailItem {
                 id: lastAltitude
-                visible: Global.positionSource.lastAltitudeUpdate.getTime() > 0
+                visible: (Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastAltitudeUpdate.getTime()) < 300
                 label: qsTr("Altitude")
                 value: Utils.distanceUnits == "imperial" ?
                            (qsTr("%1 ft a.s.l.")
@@ -165,7 +165,7 @@ Page {
             }
             DetailItem {
                 id: lastVerticalAccuracy
-                visible: Global.positionSource.lastAltitudeUpdate.getTime() > 0
+                visible: lastAltitude.visible
                 label: qsTr("Vertical accuracy")
                 value: Utils.humanSmallDistance(Global.positionSource.verticalAccuracy)
             }
