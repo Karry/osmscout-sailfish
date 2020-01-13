@@ -123,6 +123,13 @@ function humanDistanceVerbose(distance){
     }
 }
 
+
+function humanSmallDistance(meters){
+    return distanceUnits == "imperial" ?
+        qsTr("%1 ft").arg(Math.round(meters * 3.2808)) :
+        qsTr("%1 m").arg(Math.round(meters));
+}
+
 function humanSpeed(kmph){
     if ((typeof distanceUnits) != "undefined" && distanceUnits == "imperial"){
         var mph = (kmph * 1000) / 1609.344;

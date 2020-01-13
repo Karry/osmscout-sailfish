@@ -138,6 +138,40 @@ Page {
                 width: parent.width
                 wrapMode: Text.WordWrap
             }
+
+            SectionHeader{ text: qsTr("Current data") }
+
+            DetailItem {
+                id: lastUpdateTime
+                visible: Global.positionSource.lastUpdate.getTime() > 0
+                //: Last GPS update time
+                label: qsTr("Last update")
+                value: Qt.formatTime(Global.positionSource.lastUpdate)
+            }
+            DetailItem {
+                id: lastHorizontalAccuracy
+                label: qsTr("Horizontal accuracy")
+                value: Utils.humanSmallDistance(Global.positionSource.horizontalAccuracy)
+            }
+            DetailItem {
+                id: lastAltitude
+                visible: Global.positionSource.lastAltitudeUpdate.getTime() > 0
+                label: qsTr("Altitude")
+                value: Utils.distanceUnits == "imperial" ?
+                           (qsTr("%1 ft a.s.l.")
+                                .arg(Math.round(Global.positionSource.altitude * 3.2808))):
+                           (qsTr("%1 m a.s.l.")
+                                .arg(Math.round(Global.positionSource.altitude)))
+            }
+            DetailItem {
+                id: lastVerticalAccuracy
+                visible: Global.positionSource.lastAltitudeUpdate.getTime() > 0
+                label: qsTr("Vertical accuracy")
+                value: Utils.humanSmallDistance(Global.positionSource.verticalAccuracy)
+            }
+
+            SectionHeader{ text: qsTr("Statistics") }
+
             DetailItem {
                 id: distanceItem
                 label: qsTr("Distance")
@@ -212,20 +246,12 @@ Page {
             DetailItem {
                 id: ascent
                 label: qsTr("Ascent")
-                value: Utils.distanceUnits == "imperial" ?
-                            qsTr("%1 ft")
-                                .arg(Math.round(Global.tracker.ascent * 3.2808)) :
-                            qsTr("%1 m")
-                                .arg(Math.round(Global.tracker.ascent))
+                value: Utils.humanSmallDistance(Global.tracker.ascent)
             }
             DetailItem {
                 id: descent
                 label: qsTr("Descent")
-                value: Utils.distanceUnits == "imperial" ?
-                            qsTr("%1 ft")
-                                .arg(Math.round(Global.tracker.descent * 3.2808)) :
-                            qsTr("%1 m")
-                                .arg(Math.round(Global.tracker.descent))
+                value: Utils.humanSmallDistance(Global.tracker.descent)
             }
             Rectangle {
                 id: footer

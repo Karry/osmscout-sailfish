@@ -199,20 +199,12 @@ Dialog{
                         DetailItem {
                             id: ascent
                             label: qsTr("Ascent")
-                            value: Utils.distanceUnits == "imperial" ?
-                                        qsTr("%1 ft")
-                                            .arg(Math.round(trackModel.ascent * 3.2808)) :
-                                        qsTr("%1 m")
-                                            .arg(Math.round(trackModel.ascent))
+                            value: Utils.humanSmallDistance(trackModel.ascent)
                         }
                         DetailItem {
                             id: descent
                             label: qsTr("Descent")
-                            value: Utils.distanceUnits == "imperial" ?
-                                        qsTr("%1 ft")
-                                            .arg(Math.round(trackModel.descent * 3.2808)) :
-                                        qsTr("%1 m")
-                                            .arg(Math.round(trackModel.descent))
+                            value: Utils.humanSmallDistance(trackModel.descent)
                         }
                         Rectangle {
                             id: footer
