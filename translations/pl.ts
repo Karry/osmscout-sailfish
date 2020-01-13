@@ -1105,36 +1105,36 @@
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualne dane</translation>
     </message>
     <message>
         <source>Last update</source>
         <extracomment>Last GPS update time</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ostatnia aktualizacja</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokladność w poziomie</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysokość</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ft n.p.m.</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished">%1 m n.p.m.</translation>
+        <translation>%1 m n.p.m.</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokładność w pionie</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statystyki</translation>
     </message>
 </context>
 <context>
