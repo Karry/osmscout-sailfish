@@ -146,7 +146,7 @@ Page {
                 visible: Global.positionSource.lastUpdate.getTime() > 0
                 //: Last GPS update time
                 label: qsTr("Last update")
-                value: Qt.formatTime(Global.positionSource.lastUpdate)
+                value: Qt.formatTime(Global.positionSource.lastUpdate, Qt.DefaultLocaleLongDate)
             }
             DetailItem {
                 id: lastHorizontalAccuracy
