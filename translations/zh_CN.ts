@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation> 书面挪威语: Håvard Moen</translation>
+        <translation>书面挪威语: Håvard Moen</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
@@ -623,11 +623,11 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>追踪系统</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation type="unfinished"></translation>
+        <translation>是否继续追踪?</translation>
     </message>
 </context>
 <context>
@@ -990,38 +990,38 @@
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>创建追踪失败: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>加载上次开启的追踪失败</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>创建分段失败: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>附加节点到追踪失败</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭追踪失败: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>新追踪</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>停止追踪</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>距离</translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -1101,7 +1101,7 @@
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>停止追踪系统</translation>
     </message>
 </context>
 <context>
