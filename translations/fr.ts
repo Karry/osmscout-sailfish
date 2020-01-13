@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Tutorial pour importer les cartes hors-ligne</translation>
+        <translation>Tutoriel d&apos;importation des cartes hors-ligne</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -237,10 +237,6 @@
         <translation>%1 km/h</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
-    </message>
-    <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
         <translation>De</translation>
@@ -282,10 +278,6 @@
     <message>
         <source>%1 / %2 ft a.s.l.</source>
         <translation>%1 / %2 pieds d&apos;altitude</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 pieds</translation>
     </message>
 </context>
 <context>
@@ -783,7 +775,7 @@
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation>Arrêt de transport publique</translation>
+        <translation>Arrêt de transport public</translation>
     </message>
     <message>
         <source>Fuel</source>
@@ -803,7 +795,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Itinéraire vers</translation>
+        <translation>Itinéraire vers</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -1021,7 +1013,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distance</translation>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -1030,7 +1022,7 @@
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation type="unfinished">De</translation>
+        <translation>De</translation>
     </message>
     <message>
         <source>To</source>
@@ -1085,14 +1077,6 @@
     <message>
         <source>Ascent</source>
         <translation type="unfinished">Ascencion </translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="obsolete">%1 pieds</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="obsolete">%1 m</translation>
     </message>
     <message>
         <source>Descent</source>
@@ -1275,7 +1259,7 @@
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>Espace insuffisant</translation>
     </message>
 </context>
 <context>
@@ -1289,31 +1273,31 @@
     <name>osmscout::RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner franchement à gauche</translation>
     </message>
     <message>
         <source>Turn left</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner à gauche</translation>
     </message>
     <message>
         <source>Turn slightly left</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner légèrement à gauche</translation>
     </message>
     <message>
         <source>Straight on</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout droit</translation>
     </message>
     <message>
         <source>Turn slightly right</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner légèrement à droite</translation>
     </message>
     <message>
         <source>Turn right</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner à droite</translation>
     </message>
     <message>
         <source>Turn sharp right</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourner franchement à droite</translation>
     </message>
     <message>
         <source>Turn</source>
@@ -1321,15 +1305,15 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner franchement&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner à gauche&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
@@ -1409,7 +1393,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Continuer&lt;/strong&gt; sur %1</translation>
     </message>
     <message>
         <source>Continue</source>
@@ -1417,7 +1401,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Démarrer&lt;/strong&gt; sur %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
@@ -1425,15 +1409,15 @@
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Destination atteinte&lt;/strong&gt; à %1</translation>
+        <translation>&lt;strong&gt;Arrivé à destination&lt;/strong&gt; à %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Destination atteinte&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Arrivé à destination&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Target reached</source>
-        <translation>Destination atteinte</translation>
+        <translation>Arrivé à destination</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
@@ -1441,7 +1425,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Entrer dans le rond-point&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Enter roundabout</source>
@@ -1473,7 +1457,7 @@
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Entrer sur l&apos;autoroute&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Change motorway</source>
@@ -1481,11 +1465,11 @@
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Changer d&apos;autoroute&lt;/strong&gt; de %1 vers %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Changer d&apos;autoroute&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
@@ -1493,15 +1477,15 @@
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Quitter l&apos;autoroute&lt;/strong&gt; %1 à %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Quitter l&apos;autoroute&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Quitter l&apos;autoroute&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Way changes name</source>
@@ -1509,27 +1493,27 @@
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Rue change de nom&lt;/strong&gt; de %1 à %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Rue change de nom&lt;/strong&gt; à %1</translation>
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Prendre la première sortie</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Prendre la seconde sortie</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Prendre la troisième sortie</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Prendre la %1 sortie</translation>
     </message>
 </context>
 <context>
@@ -1586,27 +1570,27 @@
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation type="unfinished"></translation>
+        <translation>Lumière du jour</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation>Voie navigable</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>Bois</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation>Naturel</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin de fer</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation>Loisirs</translation>
     </message>
     <message>
         <source>building</source>
@@ -1614,22 +1598,22 @@
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>Bâtiment secondaire</translation>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>Contour d&apos;altitude</translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"></translation>
+        <translation>Frontières (pour débogage)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>winter-sports</source>

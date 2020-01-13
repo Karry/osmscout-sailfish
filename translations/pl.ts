@@ -237,10 +237,6 @@
         <translation>%1 km/h</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
-    </message>
-    <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
         <translation>Z</translation>
@@ -282,10 +278,6 @@
     <message>
         <source>%1 / %2 ft a.s.l.</source>
         <translation>%1 / %2 ft n.p.m.</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 ft</translation>
     </message>
 </context>
 <context>
@@ -1085,14 +1077,6 @@
     <message>
         <source>Ascent</source>
         <translation>Wznios</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 ft</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
     </message>
     <message>
         <source>Descent</source>
