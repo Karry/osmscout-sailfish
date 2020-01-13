@@ -150,14 +150,14 @@ Item {
         property double lat: 0.0
         property double lon: 0.0
 
-        property date lastUpdate: new Date()
+        property date lastUpdate: new Date(0)
 
         property bool horizontalAccuracyValid: false
         property double horizontalAccuracy: 0
 
         property double altitude: 0
         property bool altitudeValid: false
-        property date lastAltitudeUpdate: new Date()
+        property date lastAltitudeUpdate: new Date(0)
 
         property double verticalAccuracy: 0
         property bool verticalAccuracyValid: false
