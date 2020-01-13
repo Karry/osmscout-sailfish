@@ -237,10 +237,6 @@
         <translation>%1 km/h</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
-    </message>
-    <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
         <translation>Od</translation>
@@ -282,10 +278,6 @@
     <message>
         <source>%1 / %2 ft a.s.l.</source>
         <translation>%1 / %2 stop n.m.</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation>%1 stop</translation>
     </message>
 </context>
 <context>
@@ -1087,14 +1079,6 @@
         <translation>Stoupání</translation>
     </message>
     <message>
-        <source>%1 ft</source>
-        <translation>%1 stop</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
-    </message>
-    <message>
         <source>Descent</source>
         <translation>Klesání</translation>
     </message>
@@ -1102,6 +1086,39 @@
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Zastavuji stopaře</translation>
+    </message>
+    <message>
+        <source>Current data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last update</source>
+        <extracomment>Last GPS update time</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 m a.s.l.</source>
+        <translation type="unfinished">%1 m n.m.</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Statistics</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1189,6 +1206,14 @@
     <message>
         <source>m</source>
         <translation>m</translation>
+    </message>
+    <message>
+        <source>%1 ft</source>
+        <translation>%1 stop</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
     </message>
 </context>
 <context>
