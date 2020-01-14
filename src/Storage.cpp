@@ -188,6 +188,15 @@ QString sqlCreateWaypoint(){
 
   return sql;
 }
+
+QString sqlCreateSearchHistory(){
+  QString sql("CREATE TABLE `search_history` ");
+  sql.append("(").append( "`pattern` varchar(255) NOT NULL PRIMARY KEY");
+  sql.append(",").append( "`last_usage` datetime NOT NULL");
+  sql.append(");");
+
+  return sql;
+}
 }
 
 Storage::Storage(QThread *thread,
@@ -365,6 +374,17 @@ bool Storage::updateSchema(){
     QSqlQuery q = db.exec(sqlCreateWaypoint());
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating waypoints table failed" << q.lastError();
+      db.close();
+      return false;
+    }
+  }
+
+  if (!tables.contains("search_history")){
+    qDebug()<< "creating search_history table";
+
+    QSqlQuery q = db.exec(sqlCreateSearchHistory());
+    if (q.lastError().isValid()){
+      qWarning() << "Storage: creating search_history table failed" << q.lastError();
       db.close();
       return false;
     }
@@ -1759,6 +1779,65 @@ bool Storage::trackCollection(qint64 trackId, qint64 &collectionId)
   }
 
   return true;
+}
+
+void Storage::loadSearchHistory(){
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+
+  std::vector<SearchItem> items;
+  QSqlQuery sqlRecent(db);
+  sqlRecent.prepare("SELECT `pattern`, `last_usage` FROM `search_history` ORDER BY `last_usage` DESC 50");
+  sqlRecent.exec();
+  if (sqlRecent.lastError().isValid()) {
+    qWarning() << "Cannot load search history";
+    emit error("Cannot load search history");
+    emit searchHistory(items);
+    return;
+  }
+
+  if (sqlRecent.next()) {
+    items.push_back(
+      SearchItem{
+        varToString(sqlRecent.value("pattern")),
+        varToDateTime(sqlRecent.value("last_usage"))
+      });
+  }
+
+  emit searchHistory(items);
+}
+
+void Storage::addSearchPattern(QString pattern){
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+
+  QSqlQuery sqlInsert(db);
+  sqlInsert.prepare("INSERT OR REPLACE INTO `search_history` (`pattern`, `last_usage`) VALUES(:pattern, :last_usage);");
+  sqlInsert.bindValue(":pattern", pattern);
+  sqlInsert.bindValue(":last_usage", QDateTime::currentDateTime());
+  sqlInsert.exec();
+
+  if (sqlInsert.lastError().isValid()) {
+    qWarning() << "Cannot store entry to search history";
+    emit error("Cannot store entry to search history");
+    return;
+  }
+
+  // cleanup 100 oldest entries, keep 50 recent
+  QSqlQuery sqlRecent(db);
+  sqlRecent.prepare(QString("DELETE FROM `search_history` WHERE `pattern` IN ")
+                       .append("(SELECT `pattern` FROM `search_history` ORDER BY `last_usage` DESC LIMIT 50,100);"));
+  sqlRecent.exec();
+
+  if (sqlInsert.lastError().isValid()) {
+    qWarning() << "Cannot clean search history";
+    emit error("Cannot clean search history");
+    return;
+  }
+
+  loadSearchHistory();
 }
 
 Storage::operator bool() const

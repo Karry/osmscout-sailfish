@@ -304,6 +304,11 @@ public:
   std::shared_ptr<std::vector<Waypoint>> waypoints;
 };
 
+struct SearchItem {
+  QString pattern;
+  QDateTime lastUsage;
+};
+
 class Storage : public QObject{
   Q_OBJECT
   Q_DISABLE_COPY(Storage)
@@ -331,6 +336,8 @@ signals:
   void waypointDeleted(qint64 collectionId, qint64 waypointId);
 
   void openTrackLoaded(Track track, bool ok);
+
+  void searchHistory(std::vector<SearchItem> items);
 
   void error(QString);
 
@@ -445,6 +452,18 @@ public slots:
                    std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
                    TrackStatistics statistics,
                    bool createNewSegment);
+
+  /**
+   * emit searchHistory
+   */
+  void loadSearchHistory();
+
+  /**
+   * add search pattern to search history or update its lastUsage
+   * emit searchHistory
+   * @param pattern
+   */
+  void addSearchPattern(QString pattern);
 
 public:
   Storage(QThread *thread,
