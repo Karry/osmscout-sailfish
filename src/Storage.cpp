@@ -1658,7 +1658,7 @@ void Storage::appendNodes(qint64 trackId,
   sqlSegment.exec();
 
   if (sqlSegment.lastError().isValid()) {
-    qWarning() << "Evaluating last segment failed";
+    qWarning() << "Evaluating last segment failed" << sqlSegment.lastError();
     emit error(tr("Failed to append nodes to track"));
     return;
   }
@@ -1761,7 +1761,7 @@ bool Storage::trackCollection(qint64 trackId, qint64 &collectionId)
   sqlSegment.exec();
 
   if (sqlSegment.lastError().isValid()) {
-    qWarning() << "Cannot obtain collection id";
+    qWarning() << "Cannot obtain collection id" << sqlSegment.lastError();
     return false;
   }
 
@@ -1791,7 +1791,7 @@ void Storage::loadSearchHistory(){
   sqlRecent.prepare("SELECT `pattern`, `last_usage` FROM `search_history` ORDER BY `last_usage` DESC 50");
   sqlRecent.exec();
   if (sqlRecent.lastError().isValid()) {
-    qWarning() << "Cannot load search history";
+    qWarning() << "Cannot load search history" << sqlRecent.lastError();
     emit error("Cannot load search history");
     emit searchHistory(items);
     return;
@@ -1820,7 +1820,7 @@ void Storage::addSearchPattern(QString pattern){
   sqlInsert.exec();
 
   if (sqlInsert.lastError().isValid()) {
-    qWarning() << "Cannot store entry to search history";
+    qWarning() << "Cannot store entry to search history" << sqlInsert.lastError();
     emit error("Cannot store entry to search history");
     return;
   }
@@ -1832,7 +1832,7 @@ void Storage::addSearchPattern(QString pattern){
   sqlRecent.exec();
 
   if (sqlInsert.lastError().isValid()) {
-    qWarning() << "Cannot clean search history";
+    qWarning() << "Cannot clean search history" << sqlInsert.lastError();
     emit error("Cannot clean search history");
     return;
   }
