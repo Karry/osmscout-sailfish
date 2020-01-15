@@ -1797,7 +1797,7 @@ void Storage::loadSearchHistory(){
     return;
   }
 
-  if (sqlRecent.next()) {
+  while (sqlRecent.next()) {
     items.push_back(
       SearchItem{
         varToString(sqlRecent.value("pattern")),
