@@ -155,7 +155,7 @@ Page {
             }
             DetailItem {
                 id: lastAltitude
-                visible: (Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastAltitudeUpdate.getTime()) < 300
+                visible: (Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastAltitudeUpdate.getTime()) < (5 * 60 * 1000)
                 label: qsTr("Altitude")
                 value: Utils.distanceUnits == "imperial" ?
                            (qsTr("%1 ft a.s.l.")
