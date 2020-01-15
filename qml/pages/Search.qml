@@ -205,11 +205,19 @@ Page {
                 target: backgroundItem
             }
 
-            POIIcon{
+            Image{
                 id: entryIcon
-                poiType: ":history"
+                source: "image://theme/icon-m-backup"
                 width: Theme.iconSizeMedium
                 height: width
+
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+
+                sourceSize.width: width
+                sourceSize.height: height
+
                 anchors{
                     right: entryDescription.left
                 }
@@ -217,6 +225,7 @@ Page {
             Column{
                 id: entryDescription
                 x: searchField.textLeftMargin
+                y: (entryIcon.height-labelLabel.height)/2
 
                 Label {
                     id: labelLabel
@@ -259,10 +268,16 @@ Page {
                 anchors{
                     right: entryDescription.left
                 }
+                Component.onCompleted: {
+                    if (iconType === ":history"){
+                        entryIcon.source = "image://theme/icon-m-backup";
+                    }
+                }
             }
             Column{
                 id: entryDescription
                 x: searchField.textLeftMargin
+                y: descriptionLabel.visible ? 0 : (entryIcon.height-labelLabel.height)/2
 
                 Label {
                     id: labelLabel
