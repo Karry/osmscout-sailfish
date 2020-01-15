@@ -59,8 +59,7 @@
 #include <iostream>
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
-#warning "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system"
-#define OSMSCOUT_SAILFISH_VERSION_STRING "?.?.?"
+static_assert(false, "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system");
 #endif
 
 using namespace osmscout;
