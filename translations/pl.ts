@@ -825,7 +825,7 @@
     </message>
     <message>
         <source>Search history</source>
-        <translation type="unfinished"></translation>
+        <translation>Historia wyszukiwań</translation>
     </message>
 </context>
 <context>
