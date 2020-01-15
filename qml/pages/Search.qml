@@ -32,7 +32,7 @@ import "../custom/Utils.js" as Utils
  * The main page components are searchField (SearchField type) with binded string
  * property searchString and suggestionView (SilicaListView type).
  *
- * Page can have three states:
+ * Page can have four states:
  *
  * - empty - suggestionView model is setup to poiTypesModel;
  *           list of POI types is displayed.
@@ -40,6 +40,7 @@ import "../custom/Utils.js" as Utils
  *         list of near POIs of specific types is displayed
  * - search - suggestionView model is setup to searchModel;
  *            list of search result is displayed (based on free text lookup and address lookup)
+ * - history - suggestionView model is setup to historyModel;
  *
  * State is changed in onSearchStringChanged slot - when searchString is empty,
  * empty state is used; when seach string starts with poi: prefix, given string is parsed
@@ -68,9 +69,10 @@ Page {
     property string postponedSearchString
 
     states: [
-        State { name: "empty";  },
-        State { name: "poi";    },
-        State { name: "search"; }
+        State { name: "empty"},
+        State { name: "poi" },
+        State { name: "search"},
+        State { name: "history"}
     ]
 
 
@@ -88,7 +90,7 @@ Page {
         running: false
         repeat: false
         onTriggered: {
-            if (postponedSearchString==searchString && state!="poi"){
+            if (postponedSearchString==searchString && state!="poi" && state!="history"){
                 console.log("Search postponed short expression: \"" + searchString + "\"");
                 searchModel.pattern=searchString;
             }
@@ -103,25 +105,32 @@ Page {
         }
 
         if (searchString.length==0){
-            state="empty";
+            state = "empty";
             suggestionView.model = poiTypesModel;
             suggestionView.delegate = poiItem;
-        } else if (searchString.length>3 && searchString.substring(0,4)=="poi:") {
-            if (state!="poi"){
-                state="poi";
-                searchModel.pattern="";
-                suggestionView.model=poiModel;
+        } else if (searchString.length > 4 && searchString.substring(0,4) == "poi:") {
+            if (state != "poi"){
+                state = "poi";
+                searchModel.pattern = "";
+                suggestionView.model = poiModel;
                 suggestionView.delegate = searchItem;
             }
+        } else if (searchString.length == 8 && searchString.substring(0,8) == ":history") {
+            if (state != "history"){
+                state = "history";
+                searchModel.pattern = "";
+                suggestionView.model = historyModel;
+                suggestionView.delegate = historyItem;
+            }
         } else {
-            if (state!="search"){
+            if (state != "search"){
                 state="search";
-                suggestionView.model=searchModel;
+                suggestionView.model = searchModel;
                 suggestionView.delegate = searchItem;
             }
         }
 
-        if (searchPage.state==="poi"){
+        if (searchPage.state === "poi"){
             console.log("Search "+ state + " expression: " + searchString);
             var parts=searchString.split(":");
             if (parts.length>=3){
@@ -131,7 +140,7 @@ Page {
                 poiModel.maxDistance = 1000;
                 poiModel.types = parts[1].split(" ");
             }
-        } else {
+        } else if (searchPage.state === "search") {
             // postpone search of short expressions
             if (searchString.length>3){
                 console.log("Search: \"" + searchString + "\"");
@@ -169,6 +178,7 @@ Page {
                 var selectedLocation = suggestionView.model.get(0)
                 if (selectedLocation !== null) {
                     selectLocation(selectedLocation);
+                    historyModel.savePattern();
                     pageStack.pop(acceptDestination); // accept without preview
                 }
             }
@@ -179,6 +189,52 @@ Page {
 
     onHighlighRegexpChanged: {
         console.log("highlight regexp: " + highlighRegexp);
+    }
+
+    Component {
+        id: historyItem
+
+        BackgroundItem {
+            id: backgroundItem
+            height: Math.max(entryIcon.height,entryDescription.height)
+
+            ListView.onAdd: AddAnimation {
+                target: backgroundItem
+            }
+            ListView.onRemove: RemoveAnimation {
+                target: backgroundItem
+            }
+
+            POIIcon{
+                id: entryIcon
+                poiType: ":history"
+                width: Theme.iconSizeMedium
+                height: width
+                anchors{
+                    right: entryDescription.left
+                }
+            }
+            Column{
+                id: entryDescription
+                x: searchField.textLeftMargin
+
+                Label {
+                    id: labelLabel
+                    width: parent.width
+                    color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    textFormat: Text.StyledText
+                    text: pattern
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    searchField.text = pattern;
+                    console.log("search expression: " + searchField.text);
+                }
+            }
+        }
+
     }
 
     Component {
@@ -220,6 +276,7 @@ Page {
 
                     width: searchPage.width - searchField.textLeftMargin - (2*Theme.paddingSmall)
                     wrapMode: Text.WordWrap
+                    visible: distance > 0
 
                     text: qsTr("Up to distance %1").arg(Utils.humanDistance(distance))
 
@@ -230,7 +287,11 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    searchField.text = "poi:" + distance + ":" + types;
+                    if (types == ":history") {
+                        searchField.text = ":history";
+                    } else {
+                        searchField.text = "poi:" + distance + ":" + types;
+                    }
                     console.log("search expression: " + searchField.text);
                 }
             }
@@ -323,6 +384,7 @@ Page {
                         previewDialog.acceptDestination = acceptDestination;
 
                         previewDialog.open();
+                        historyModel.savePattern();
                     }
                 }
                 onPressAndHold: {
@@ -338,6 +400,7 @@ Page {
                     visible: enableContextMenu
                     onClicked: {
                         var selectedLocation = suggestionView.model.get(index)
+                        historyModel.savePattern();
                         pageStack.push(Qt.resolvedUrl("Routing.qml"),
                                        {
                                            toLat: selectedLocation.lat,
@@ -352,6 +415,7 @@ Page {
                     visible: enableContextMenu
                     onClicked: {
                         var selectedLocation = suggestionView.model.get(index)
+                        historyModel.savePattern();
                         pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
                                       {
                                         latitude: selectedLocation.lat,
@@ -388,7 +452,7 @@ Page {
 
         BusyIndicator {
             id: busyIndicator
-            running: searchPage.state !== "poi" && (searchModel.searching || poiModel.searching)
+            running: (searchPage.state == "search" && searchModel.searching) || (searchPage.state == "poi" && poiModel.searching)
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -403,6 +467,9 @@ Page {
 
     ListModel {
         id: poiTypesModel
+
+        // special entry for search history
+        ListElement { label: QT_TR_NOOP("Search history");       iconType: ":history";           distance: 0;    types: ":history"; }
 
         // amenities
         ListElement { label: QT_TR_NOOP("Restaurant");    iconType: "amenity_restaurant"; distance: 1500; types: "amenity_restaurant amenity_restaurant_building"; }
@@ -495,6 +562,17 @@ Page {
                 return true;
             }
             return false;
+        }
+    }
+
+    SearchHistoryModel {
+        id: historyModel
+
+        function savePattern() {
+            if (searchPage.state == "search" && searchPage.searchString.length > 0){
+                console.log("Adding to search history: " + searchPage.searchString);
+                historyModel.addPattern(searchPage.searchString);
+            }
         }
     }
 
