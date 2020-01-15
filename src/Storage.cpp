@@ -1788,7 +1788,7 @@ void Storage::loadSearchHistory(){
 
   std::vector<SearchItem> items;
   QSqlQuery sqlRecent(db);
-  sqlRecent.prepare("SELECT `pattern`, `last_usage` FROM `search_history` ORDER BY `last_usage` DESC 50");
+  sqlRecent.prepare("SELECT `pattern`, `last_usage` FROM `search_history` ORDER BY `last_usage` DESC LIMIT 50;");
   sqlRecent.exec();
   if (sqlRecent.lastError().isValid()) {
     qWarning() << "Cannot load search history" << sqlRecent.lastError();
