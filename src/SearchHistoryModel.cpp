@@ -91,7 +91,7 @@ void SearchHistoryModel::storageInitialised(){
   emit requestSearchHistory();
 }
 
-void SearchHistoryModel::searchHistoryUpdated(std::vector<SearchItem> items){
+void SearchHistoryModel::searchHistoryUpdated(const std::vector<SearchItem> &items){
   beginResetModel();
   this->items = items;
   endResetModel();

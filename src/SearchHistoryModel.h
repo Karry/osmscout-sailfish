@@ -34,7 +34,7 @@ signals:
 
 public slots:
   void storageInitialised();
-  void searchHistoryUpdated(std::vector<SearchItem> items);
+  void searchHistoryUpdated(const std::vector<SearchItem> &items);
 
 public:
   SearchHistoryModel();
