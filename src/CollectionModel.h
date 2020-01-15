@@ -154,7 +154,7 @@ public:
     }
   }
 
-public:
+private:
   Collection collection;
   QList<Track> tracks;
   QList<Waypoint> waypoints;

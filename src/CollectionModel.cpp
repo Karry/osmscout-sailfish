@@ -96,8 +96,9 @@ void CollectionModel::storageInitialised()
   beginResetModel();
   collectionLoaded = false;
   endResetModel();
-  if (collection.id > 0)
+  if (collection.id > 0) {
     emit collectionDetailRequest(collection);
+  }
 }
 
 void CollectionModel::storageInitialisationError(QString)
