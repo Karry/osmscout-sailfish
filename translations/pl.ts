@@ -823,6 +823,10 @@
         <source>Castle, Manor</source>
         <translation>Zamek, dwór</translation>
     </message>
+    <message>
+        <source>Search history</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>
