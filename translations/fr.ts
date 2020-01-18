@@ -112,15 +112,15 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation>Modifier le tracé</translation>
+        <translation>Modifier la trace</translation>
     </message>
     <message>
         <source>Move to</source>
-        <translation>Déplacer</translation>
+        <translation>Déplacer vers</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>Déplacement</translation>
+        <translation>Déplacer</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
@@ -139,7 +139,7 @@
     <name>CollectionComboBox</name>
     <message>
         <source>Collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Collection</translation>
     </message>
 </context>
 <context>
@@ -157,19 +157,19 @@
     <name>CollectionEntryDialog</name>
     <message>
         <source>New collection</source>
-        <translation type="unfinished">Nouvelle collection</translation>
+        <translation>Nouvelle collection</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Par défaut</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">Description</translation>
+        <translation>Description</translation>
     </message>
 </context>
 <context>
@@ -195,11 +195,11 @@
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation>Répertoire d&apos;exportation non valide</translation>
+        <translation>Répertoire d&apos;exportation non valable</translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation>Nom de ficher invalide</translation>
+        <translation>Nom de fichier non valable</translation>
     </message>
 </context>
 <context>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Ascencion </translation>
+        <translation>Ascension </translation>
     </message>
     <message>
         <source>Descent</source>
@@ -239,12 +239,12 @@
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation>De</translation>
+        <translation>Départ</translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation>Vers</translation>
+        <translation>Arrivée</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation>%1 / %2 m. d&apos;altitude</translation>
+        <translation>%1 / %2 m d&apos;altitude</translation>
     </message>
     <message>
         <source>Time</source>
@@ -265,7 +265,7 @@
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation>Vitesse de déplacement</translation>
+        <translation>Vitesse ⌀ de déplacement</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
@@ -409,7 +409,7 @@
     <message>
         <source>Target reached, in %1 %2. Closing navigation.</source>
         <extracomment>%1 is distance, %2 is bearing (north, south...)</extracomment>
-        <translation>Destination atteinte, en %1 %2. Fin de la navigation.</translation>
+        <translation>Arrivé à destination en %1 %2. Fin de la navigation.</translation>
     </message>
     <message>
         <source>Stopping navigation</source>
@@ -578,7 +578,7 @@
     </message>
     <message>
         <source>About</source>
-        <translation>A propos</translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <source>Offline maps</source>
@@ -615,11 +615,11 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Trace GPS</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation type="unfinished"></translation>
+        <translation>Reprendre la trace ?</translation>
     </message>
 </context>
 <context>
@@ -652,7 +652,7 @@
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation>Nouveau point de passage</translation>
+        <translation>Nouveau repère</translation>
     </message>
 </context>
 <context>
@@ -724,7 +724,7 @@
     <message>
         <source>To</source>
         <extracomment>Routing TO place</extracomment>
-        <translation>Vers</translation>
+        <translation>À</translation>
     </message>
     <message>
         <source>By</source>
@@ -743,11 +743,11 @@
     <name>Search</name>
     <message>
         <source>Up to distance %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Jusqu&apos;à une distance de %1</translation>
     </message>
     <message>
         <source>Unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Sans nom</translation>
     </message>
     <message>
         <source>Restaurant</source>
@@ -763,7 +763,7 @@
     </message>
     <message>
         <source>ATM</source>
-        <translation>Distributeur de billet</translation>
+        <translation>Guichet automatique bancaire</translation>
     </message>
     <message>
         <source>Drinking water</source>
@@ -783,15 +783,15 @@
     </message>
     <message>
         <source>Accomodation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hébergement</translation>
     </message>
     <message>
         <source>Camp</source>
-        <translation type="unfinished"></translation>
+        <translation>Camping</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation type="unfinished"></translation>
+        <translation>Parcours via ferrata </translation>
     </message>
     <message>
         <source>Route to</source>
@@ -800,7 +800,7 @@
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter comme repère</translation>
     </message>
     <message>
         <source>Pub</source>
@@ -824,10 +824,6 @@
         <translation>Château, Manoir</translation>
     </message>
     <message>
-        <source>Search history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Remove</source>
         <extracomment>context menu for removing phrase from search history</extracomment>
         <translation type="unfinished"></translation>
@@ -835,6 +831,10 @@
     <message>
         <source>Removing</source>
         <extracomment>label for remorse timer when removing item from search history</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search history</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -876,154 +876,154 @@
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement de la collection de traces no %1 </translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement des repères pour la collection no %1 </translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement de la collection no %1 </translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>La collection no %1 n&apos;existe pas</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement des points pour le segment no %1 : %2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement du segment de la trace no %1 : %2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de création de la collection : %1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de mise à jour de la collection : %1 </translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de suppression de la collection : %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Repère %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec d&apos;importation des repères : %1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec d&apos;initialisation de la transaction : %1</translation>
     </message>
     <message>
         <source>track %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Trace %1</translation>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec d&apos;importation des traces : %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec d&apos;importation des segments : %1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec d&apos;importation des points de la trace : %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Importé de %1</translation>
     </message>
     <message>
         <source>Invalid collection id: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No de collection non valable : %1</translation>
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de suppression des repères : %1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de création du repère : %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de suppression de la trace : %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de modification du repère : %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de modification de la trace : %1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement de la trace no %1</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>La trace no %1 n&apos;existe pas</translation>
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de chargement du repère no %1</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Repère no %1 introuvable</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de déplacement du repère no %1</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Trace no %1 introuvable</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de déplacement de la trace no %1</translation>
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de création de la trace : %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Echec de chargement de la dernière trace</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de création du segment : %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;ajouter les points à la trace</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de clôture de la trace : %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle trace</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêter l&apos;enregistrement</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -1031,7 +1031,7 @@
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished">Distance brute</translation>
+        <translation>Distance brute</translation>
     </message>
     <message>
         <source>From</source>
@@ -1041,98 +1041,98 @@
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation type="unfinished">Vers</translation>
+        <translation>À</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Heure</translation>
+        <translation>Heure</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Durée de déplacement</translation>
+        <translation>Durée de déplacement</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished">Vitesse ⌀/max</translation>
+        <translation>Vitesse ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished">%1 / %2 mi/h</translation>
+        <translation>%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished">%1 / %2 km/h</translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished">Vitesse de déplacement</translation>
+        <translation>Vitesse ⌀ de déplacement</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Élévation min/max</translation>
+        <translation>Altitude min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 pieds d&apos;altitude</translation>
+        <translation>%1 / %2 pieds d&apos;altitude</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m. d&apos;altitude</translation>
+        <translation>%1 / %2 m d&apos;altitude</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Ascencion </translation>
+        <translation>Ascencion </translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Descente</translation>
+        <translation>Descente</translation>
     </message>
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrement arrêté</translation>
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished"></translation>
+        <translation>Donnée actuelle</translation>
     </message>
     <message>
         <source>Last update</source>
         <extracomment>Last GPS update time</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dernière mise à jour</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Précision horizontale</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Altitude</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 pieds d&apos;altitude</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished">%1 m d&apos;altitude</translation>
+        <translation>%1 m d&apos;altitude</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Précision verticale</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistiques</translation>
     </message>
 </context>
 <context>
@@ -1234,15 +1234,15 @@
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>point</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>route</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>zone</translation>
     </message>
 </context>
 <context>
@@ -1257,19 +1257,19 @@
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Acès réseau désactivé</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Connexion refusée</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai d&apos;attente dépassé</translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur réseau</translation>
     </message>
     <message>
         <source>Not enough space</source>
@@ -1331,55 +1331,55 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner légèrement à gauche&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Aller tout droit&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner légèrement à droite&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner à droite&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner franchement à droite&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner franchement à gauche&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner à gauche&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner légèrement à gauche&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Aller tout droit&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner légèrement à droite&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner à droite&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Tourner franchement à droite&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>unnamed road</source>
@@ -1435,7 +1435,7 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Entrer dans le rond-point&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
@@ -1447,11 +1447,11 @@
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Quitter le rond-point&lt;/strong&gt; à la %1.e sortie sur rue %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Quitter le rond-point&lt;/strong&gt; à la %1.e sortie</translation>
     </message>
     <message>
         <source>Enter motorway</source>
@@ -1459,15 +1459,15 @@
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Entrer sur l&apos;autoroute&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Entrer sur l&apos;autoroute&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Au croisement %1&lt;strong&gt;Entrer sur l&apos;autoroute&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
@@ -1503,15 +1503,15 @@
     </message>
     <message>
         <source>Way changes name</source>
-        <translation type="unfinished"></translation>
+        <translation>Le chemin change de nom</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Rue change de nom&lt;/strong&gt; de %1 à %2</translation>
+        <translation>&lt;strong&gt;Le chemin change de nom&lt;/strong&gt; de %1 à %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Rue change de nom&lt;/strong&gt; à %1</translation>
+        <translation>&lt;strong&gt;Le chemin change de nom&lt;/strong&gt; à %1</translation>
     </message>
     <message>
         <source>Take the first exit</source>
