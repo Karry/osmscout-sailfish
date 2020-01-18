@@ -48,8 +48,8 @@
         <translation>Spanyol: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein</source>
-        <translation>Francia: Pierre-Henri Horrein</translation>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>Francia: Pierre-Henri Horrein, Jordi</translation>
     </message>
     <message>
         <source>Privacy notes</source>

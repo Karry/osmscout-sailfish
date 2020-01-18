@@ -48,10 +48,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Privacy notes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,6 +77,10 @@
     </message>
     <message>
         <source>Italian: Armin Maier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

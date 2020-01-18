@@ -48,8 +48,8 @@
         <translation>Spanska: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein</source>
-        <translation>Franska: Pierre-Henri Horrein</translation>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>Franska: Pierre-Henri Horrein, Jordi</translation>
     </message>
     <message>
         <source>Privacy notes</source>

@@ -48,8 +48,8 @@
         <translation>Español: Carlos Gonz</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein</source>
-        <translation>Francés: Pierre-Henri Horrein</translation>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>Francés: Pierre-Henri Horrein, Jordi</translation>
     </message>
     <message>
         <source>Privacy notes</source>

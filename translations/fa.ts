@@ -48,8 +48,8 @@
         <translation>اسپانیایی: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein</source>
-        <translation>فرانسوی: Pierre-Henri Horrein</translation>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>فرانسوی: Pierre-Henri Horrein, Jordi</translation>
     </message>
     <message>
         <source>Privacy notes</source>

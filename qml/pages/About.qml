@@ -154,7 +154,7 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
-                    text: qsTr("French: Pierre-Henri Horrein")
+                    text: qsTr("French: Pierre-Henri Horrein, Jordi")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
                 }

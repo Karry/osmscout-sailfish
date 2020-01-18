@@ -48,8 +48,8 @@
         <translation>西班牙语:  Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein</source>
-        <translation>法语: Pierre-Henri Horrein</translation>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>法语: Pierre-Henri Horrein, Jordi</translation>
     </message>
     <message>
         <source>Privacy notes</source>
