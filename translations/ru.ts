@@ -48,10 +48,6 @@
         <translation>Испанский: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein, Jordi</source>
-        <translation>Французский: Pierre-Henri Horrein, Jordi</translation>
-    </message>
-    <message>
         <source>Privacy notes</source>
         <translation>О приватности</translation>
     </message>
@@ -82,6 +78,10 @@
     <message>
         <source>Italian: Armin Maier</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>Французский: Pierre-Henri Horrein, Jordi</translation>
     </message>
 </context>
 <context>

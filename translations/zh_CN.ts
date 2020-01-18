@@ -48,10 +48,6 @@
         <translation>西班牙语:  Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein, Jordi</source>
-        <translation>法语: Pierre-Henri Horrein, Jordi</translation>
-    </message>
-    <message>
         <source>Privacy notes</source>
         <translation>隐私记录</translation>
     </message>
@@ -82,6 +78,10 @@
     <message>
         <source>Italian: Armin Maier</source>
         <translation>意大利语: Armin Maier</translation>
+    </message>
+    <message>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>法语: Pierre-Henri Horrein, Jordi</translation>
     </message>
 </context>
 <context>

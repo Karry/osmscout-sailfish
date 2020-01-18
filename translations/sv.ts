@@ -48,10 +48,6 @@
         <translation>Spanska: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein, Jordi</source>
-        <translation>Franska: Pierre-Henri Horrein, Jordi</translation>
-    </message>
-    <message>
         <source>Privacy notes</source>
         <translation>Sekretessanteckningar</translation>
     </message>
@@ -82,6 +78,10 @@
     <message>
         <source>Italian: Armin Maier</source>
         <translation>Italienska: Armin Maier</translation>
+    </message>
+    <message>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>Franska: Pierre-Henri Horrein, Jordi</translation>
     </message>
 </context>
 <context>
@@ -825,17 +825,17 @@
     </message>
     <message>
         <source>Search history</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökhistorik</translation>
     </message>
     <message>
         <source>Remove</source>
         <extracomment>context menu for removing phrase from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Removing</source>
         <extracomment>label for remorse timer when removing item from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort</translation>
     </message>
 </context>
 <context>

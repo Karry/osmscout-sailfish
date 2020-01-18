@@ -48,10 +48,6 @@
         <translation>Spaans: Carlos Gonzalez</translation>
     </message>
     <message>
-        <source>French: Pierre-Henri Horrein, Jordi</source>
-        <translation>Frans: Pierre-Henri Horrein, Jordi</translation>
-    </message>
-    <message>
         <source>Privacy notes</source>
         <translation>Privacyopmerkingen</translation>
     </message>
@@ -82,6 +78,10 @@
     <message>
         <source>Italian: Armin Maier</source>
         <translation>Italiaans: Armin Maier</translation>
+    </message>
+    <message>
+        <source>French: Pierre-Henri Horrein, Jordi</source>
+        <translation>Frans: Pierre-Henri Horrein, Jordi</translation>
     </message>
 </context>
 <context>
@@ -235,10 +235,6 @@
     <message>
         <source>%1 km/h</source>
         <translation>%1 km/u</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
     </message>
     <message>
         <source>From</source>
@@ -1095,10 +1091,6 @@
     <message>
         <source>Ascent</source>
         <translation>Klim</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
     </message>
     <message>
         <source>Descent</source>
