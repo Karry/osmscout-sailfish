@@ -827,6 +827,16 @@
         <source>Search history</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remove</source>
+        <extracomment>context menu for removing phrase from search history</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removing</source>
+        <extracomment>label for remorse timer when removing item from search history</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>

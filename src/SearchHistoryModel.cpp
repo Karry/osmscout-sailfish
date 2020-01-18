@@ -39,6 +39,10 @@ SearchHistoryModel::SearchHistoryModel() {
           storage, &Storage::addSearchPattern,
           Qt::QueuedConnection);
 
+  connect(this, &SearchHistoryModel::removeSearchPatternRequest,
+          storage, &Storage::removeSearchPattern,
+          Qt::QueuedConnection);
+
   storageInitialised();
 }
 
@@ -85,6 +89,10 @@ Qt::ItemFlags SearchHistoryModel::flags(const QModelIndex &index) const {
 
 void SearchHistoryModel::addPattern(const QString &pattern) {
   emit addSearchPatternRequest(pattern);
+}
+
+void SearchHistoryModel::removePattern(const QString &pattern) {
+  emit removeSearchPatternRequest(pattern);
 }
 
 void SearchHistoryModel::storageInitialised(){

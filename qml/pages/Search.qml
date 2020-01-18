@@ -196,7 +196,8 @@ Page {
 
         BackgroundItem {
             id: backgroundItem
-            height: Math.max(entryIcon.height,entryDescription.height)
+            height: Math.max(entryIcon.height,entryDescription.height) + contextMenu.height
+            highlighted: mouseArea.pressed
 
             ListView.onAdd: AddAnimation {
                 target: backgroundItem
@@ -236,10 +237,27 @@ Page {
                 }
             }
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
                 onClicked: {
                     searchField.text = pattern;
                     console.log("search expression: " + searchField.text);
+                }
+                onPressAndHold: {
+                    contextMenu.open(backgroundItem);
+                }
+            }
+            ContextMenu {
+                id: contextMenu
+                MenuItem {
+                    //: context menu for removing phrase from search history
+                    text: qsTr("Remove")
+                    onClicked: {
+                        Remorse.itemAction(backgroundItem,
+                                           //: label for remorse timer when removing item from search history
+                                           qsTr("Removing"),
+                                           function() { historyModel.removePattern(pattern); });
+                    }
                 }
             }
         }

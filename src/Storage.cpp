@@ -1840,6 +1840,25 @@ void Storage::addSearchPattern(QString pattern){
   loadSearchHistory();
 }
 
+void Storage::removeSearchPattern(QString pattern){
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+
+  QSqlQuery sqlInsert(db);
+  sqlInsert.prepare("DELETE FROM `search_history` WHERE `pattern` = :pattern;");
+  sqlInsert.bindValue(":pattern", pattern);
+  sqlInsert.exec();
+
+  if (sqlInsert.lastError().isValid()) {
+    qWarning() << "Cannot remove entry from search history" << sqlInsert.lastError();
+    emit error("Cannot remove entry from search history");
+    return;
+  }
+
+  loadSearchHistory();
+}
+
 Storage::operator bool() const
 {
   return ok;

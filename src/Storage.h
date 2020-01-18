@@ -465,6 +465,13 @@ public slots:
    */
   void addSearchPattern(QString pattern);
 
+  /**
+   * remove search pattern from search history
+   * emit searchHistory
+   * @param pattern
+   */
+  void removeSearchPattern(QString pattern);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);

@@ -31,6 +31,7 @@ class SearchHistoryModel : public QAbstractListModel {
 signals:
   void requestSearchHistory();
   void addSearchPatternRequest(QString pattern);
+  void removeSearchPatternRequest(QString pattern);
 
 public slots:
   void storageInitialised();
@@ -53,6 +54,7 @@ public:
   Q_INVOKABLE virtual Qt::ItemFlags flags(const QModelIndex &index) const;
 
   Q_INVOKABLE void addPattern(const QString &pattern);
+  Q_INVOKABLE void removePattern(const QString &pattern);
 
 private:
   std::vector<SearchItem> items;
