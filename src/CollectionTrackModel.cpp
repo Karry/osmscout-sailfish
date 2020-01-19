@@ -183,6 +183,9 @@ QObject *CollectionTrackModel::getBBox() const
 
 void CollectionTrackModel::onTrackDataLoaded(Track track, bool complete, bool /*ok*/)
 {
+  if (track.id != this->track.id){
+    return;
+  }
   loading = !complete;
   GeoBox originalBox = this->track.statistics.bbox;
   this->track = track;
