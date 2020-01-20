@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>旗鱼系统的 OSM Scout 是作为开源软件在志愿者们的闲暇时间开发的、你可以通过报告漏洞帮助改善此应用，创建翻译或开发新特性。欢迎任何帮助！</translation>
+        <translation>旗鱼系统的 OSM Scout 是作为开源软件在志愿者们的闲暇时间开发的、你可以通过报告漏洞帮助改善此软件，创建翻译或开发新特性。欢迎提供任何帮助！</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -825,17 +825,17 @@
     </message>
     <message>
         <source>Search history</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索历史</translation>
     </message>
     <message>
         <source>Remove</source>
         <extracomment>context menu for removing phrase from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>移除</translation>
     </message>
     <message>
         <source>Removing</source>
         <extracomment>label for remorse timer when removing item from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>正在移除</translation>
     </message>
 </context>
 <context>
@@ -1103,36 +1103,36 @@
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished"></translation>
+        <translation>当前数据</translation>
     </message>
     <message>
         <source>Last update</source>
         <extracomment>Last GPS update time</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>最近更新</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>水平经度</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>海拔</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ft a.s.l.</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished">%1 m a.s.l.</translation>
+        <translation>%1 m a.s.l.</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>垂直经度</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>统计数据</translation>
     </message>
 </context>
 <context>
