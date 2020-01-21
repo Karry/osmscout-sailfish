@@ -150,13 +150,15 @@ Page {
             }
             DetailItem {
                 id: lastHorizontalAccuracy
-                visible: Global.positionSource.lastUpdate.getTime() > 0
+                visible: lastUpdateTime.visible
                 label: qsTr("Horizontal accuracy")
                 value: Global.positionSource.horizontalAccuracyValid ? Utils.humanSmallDistance(Global.positionSource.horizontalAccuracy) : "-"
             }
             DetailItem {
                 id: lastAltitude
-                visible: (Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastAltitudeUpdate.getTime()) < (5 * 60 * 1000)
+                // altitude update may be less often than horizontal position
+                // we make it visible when it is not older than 5 minutes than horizontal data
+                visible: lastUpdateTime.visible && (Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastAltitudeUpdate.getTime()) < (5 * 60 * 1000)
                 label: qsTr("Altitude")
                 value: Utils.distanceUnits == "imperial" ?
                            (qsTr("%1 ft a.s.l.")
@@ -166,7 +168,7 @@ Page {
             }
             DetailItem {
                 id: lastVerticalAccuracy
-                visible: Global.positionSource.lastUpdate.getTime() > 0
+                visible: lastAltitude.visible
                 label: qsTr("Vertical accuracy")
                 value: Global.positionSource.verticalAccuracyValid ? Utils.humanSmallDistance(Global.positionSource.verticalAccuracy) : "-"
             }
