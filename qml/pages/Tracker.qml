@@ -150,8 +150,9 @@ Page {
             }
             DetailItem {
                 id: lastHorizontalAccuracy
+                visible: Global.positionSource.lastUpdate.getTime() > 0
                 label: qsTr("Horizontal accuracy")
-                value: Utils.humanSmallDistance(Global.positionSource.horizontalAccuracy)
+                value: Global.positionSource.horizontalAccuracyValid ? Utils.humanSmallDistance(Global.positionSource.horizontalAccuracy) : "-"
             }
             DetailItem {
                 id: lastAltitude
