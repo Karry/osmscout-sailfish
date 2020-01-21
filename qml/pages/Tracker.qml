@@ -166,9 +166,9 @@ Page {
             }
             DetailItem {
                 id: lastVerticalAccuracy
-                visible: lastAltitude.visible
+                visible: Global.positionSource.lastUpdate.getTime() > 0
                 label: qsTr("Vertical accuracy")
-                value: Utils.humanSmallDistance(Global.positionSource.verticalAccuracy)
+                value: Global.positionSource.verticalAccuracyValid ? Utils.humanSmallDistance(Global.positionSource.verticalAccuracy) : "-"
             }
 
             SectionHeader{ text: qsTr("Statistics") }
