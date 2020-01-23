@@ -615,11 +615,11 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Routenaufzeichnung</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufzeichnung fortsetzen?</translation>
     </message>
 </context>
 <context>
@@ -825,17 +825,17 @@
     </message>
     <message>
         <source>Search history</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchverlauf</translation>
     </message>
     <message>
         <source>Remove</source>
         <extracomment>context menu for removing phrase from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>entfernen</translation>
     </message>
     <message>
         <source>Removing</source>
         <extracomment>label for remorse timer when removing item from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>entferne</translation>
     </message>
 </context>
 <context>
@@ -996,38 +996,38 @@
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstellung der Aufzeichnung fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnen der letzten Aufzeichnung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Abschnittserstellung fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen von Knotenpunkten fehlgeschlagen</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Abschließen der Aufzeichnung fehlgeschlagen: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Aufzeichnung</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppe Aufzeichnung</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernung</translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -1099,40 +1099,40 @@
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Stoppe Aufzeichnungsmodul</translation>
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuelle Daten</translation>
     </message>
     <message>
         <source>Last update</source>
         <extracomment>Last GPS update time</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Letztes Update</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontale Genauigkeit</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Höhe</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ft ü.M.</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished">%1 m ü. M.</translation>
+        <translation>%1 m ü.M.</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertikale Genauigkeit</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistik</translation>
     </message>
 </context>
 <context>
