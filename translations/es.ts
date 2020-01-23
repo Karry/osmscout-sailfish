@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMScout es un programa libre desarrollado por voluntarios; lo cual se pude ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en su fuente, toda ayuda es bienvenida.</translation>
+        <translation>OSMScout es un programa libre desarrollado por voluntarios; lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en su fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation>Español: Carlos Gonz</translation>
+        <translation>Español: carlosgonz</translation>
     </message>
     <message>
         <source>Privacy notes</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation>ascenso</translation>
+        <translation>Ascenso</translation>
     </message>
     <message>
         <source>Descent</source>
@@ -293,7 +293,7 @@
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation>%1 m a.n.m.</translation>
+        <translation>%1 ms a.n.m.</translation>
     </message>
     <message>
         <source>Created</source>
@@ -414,7 +414,7 @@
     <message>
         <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>Deteniendo navegación</translation>
+        <translation>Deteniendo la navegación</translation>
     </message>
 </context>
 <context>
@@ -497,7 +497,7 @@
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation>Sombras de colina</translation>
+        <translation>Sombrear colina</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
@@ -570,7 +570,7 @@
     <name>MapPage</name>
     <message>
         <source>Search</source>
-        <translation>Buscar</translation>
+        <translation>Buscador</translation>
     </message>
     <message>
         <source>Where am I?</source>
@@ -607,7 +607,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Cambiar carro</translation>
+        <translation>Cambiar automóvil</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -615,11 +615,11 @@
     </message>
     <message>
         <source>Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Rastreador</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation type="unfinished"></translation>
+        <translation>Resumir rastreo?</translation>
     </message>
 </context>
 <context>
@@ -645,7 +645,7 @@
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Cambiar carro</translation>
+        <translation>Cambiar automóvil</translation>
     </message>
 </context>
 <context>
@@ -804,7 +804,7 @@
     </message>
     <message>
         <source>Pub</source>
-        <translation>cantina</translation>
+        <translation>Cantina</translation>
     </message>
     <message>
         <source>Bar</source>
@@ -825,17 +825,17 @@
     </message>
     <message>
         <source>Search history</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar en historial</translation>
     </message>
     <message>
         <source>Remove</source>
         <extracomment>context menu for removing phrase from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Quitar</translation>
     </message>
     <message>
         <source>Removing</source>
         <extracomment>label for remorse timer when removing item from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Quitando</translation>
     </message>
 </context>
 <context>
@@ -996,34 +996,34 @@
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Creación de rastro fallido: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Falló al cargar el último rastro abierto</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Falló la creación del segmento: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Falló al agregar nodos para rastrear</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Falló al cerrar el rastro: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuevo rastro</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Detener rastreo</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -1099,40 +1099,40 @@
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Deteniendo el rastreo</translation>
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished"></translation>
+        <translation>Datos actuales</translation>
     </message>
     <message>
         <source>Last update</source>
         <extracomment>Last GPS update time</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Última actualización</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Precisión horizontal</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Altitud</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ps a.n.m.</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished">%1 m a.n.m.</translation>
+        <translation>%1 ms a.n.m.</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Precisión vertical</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Estadísticas</translation>
     </message>
 </context>
 <context>
@@ -1207,11 +1207,11 @@
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"></translation>
+        <translation>Yardas</translation>
     </message>
     <message>
         <source>ft</source>
-        <translation>ft</translation>
+        <translation>ps</translation>
     </message>
     <message>
         <source>mi</source>
