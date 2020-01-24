@@ -510,10 +510,30 @@ STYLE
   NODE "internal_target"
     ICON { name: target;} */
 
-  [MAG world-] {
-    [TYPE _route] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
-    [TYPE _track] WAY {color: @trackColor; displayWidth: 1.1mm; priority: 100; }
+  [TYPE _track] {
+    [MAG world-] {
+      WAY {color: alpha(@trackColor, 0.8); displayWidth: 0.2mm; priority: 100; }
+    }
+    [MAG city-] {
+      WAY {color: alpha(@trackColor, 0.7); displayWidth: 0.3mm; width: 2.2m; priority: 100; }
+    }
+    [MAG veryClose-] {
+      WAY {color: alpha(@trackColor, 0.4); displayWidth: 1.1mm; width: 2.2m; priority: 100; }
+    }
+  }
+  [TYPE _route] {
+    [MAG world-] {
+      WAY {color: alpha(@routeColor, 0.9); displayWidth: 0.1mm; priority: 100; }
+    }
+    [MAG city-] {
+      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.2mm; priority: 100; }
+    }
+    [MAG veryClose-] {
+      WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
+    }
+  }
 
+  [MAG world-] {
     [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
     [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
     [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
