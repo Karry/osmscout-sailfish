@@ -624,7 +624,7 @@ STYLE
   //
   // contour lines
   //
-/*
+
   IF elevationContours {
     [MAG suburb-] {
       [TYPE elevation_contour_major] {
@@ -644,7 +644,7 @@ STYLE
       }
     }
   }
- */
+
   // -------------------------------------------------------
   //
   // natural_* (without coastline)
