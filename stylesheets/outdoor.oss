@@ -347,10 +347,10 @@ STYLE
 
   [TYPE _track] {
     [MAG world-] {
-      WAY {color: alpha(@trackColor, 0.8); displayWidth: 0.2mm; priority: 100; }
+      WAY {color: alpha(@trackColor, 1.0); displayWidth: 0.2mm; priority: 100; }
     }
     [MAG city-] {
-      WAY {color: alpha(@trackColor, 0.7); displayWidth: 0.3mm; width: 2.2m; priority: 100; }
+      WAY {color: alpha(@trackColor, 0.7); displayWidth: 0.4mm; width: 2.2m; priority: 100; }
     }
     [MAG veryClose-] {
       WAY {color: alpha(@trackColor, 0.4); displayWidth: 1.1mm; width: 2.2m; priority: 100; }
@@ -358,10 +358,10 @@ STYLE
   }
   [TYPE _route] {
     [MAG world-] {
-      WAY {color: alpha(@routeColor, 0.9); displayWidth: 0.1mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.2mm; priority: 100; }
     }
     [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.2mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.4mm; priority: 100; }
     }
     [MAG veryClose-] {
       WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
