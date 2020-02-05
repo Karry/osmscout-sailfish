@@ -24,6 +24,13 @@
 #include <QtCore/QStandardPaths>
 #include <QStorageInfo>
 
+namespace {
+QString safeFileName(QString name)
+{
+  return name.replace(QRegExp("[" + QRegExp::escape( "\\/:*?\"<>|" ) + "]"), QString("_"));
+}
+}
+
 CollectionModel::CollectionModel()
 {
   Storage *storage = Storage::getInstance();
@@ -71,6 +78,14 @@ CollectionModel::CollectionModel()
 
   connect(storage, &Storage::collectionExported,
           this, &CollectionModel::onCollectionExported,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionModel::exportTrackRequest,
+          storage, &Storage::exportTrack,
+          Qt::QueuedConnection);
+
+  connect(storage, &Storage::trackExported,
+          this, &CollectionModel::onTrackExported,
           Qt::QueuedConnection);
 
   connect(storage, &Storage::error,
@@ -142,6 +157,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
     switch(role){
       case TypeRole: return "waypoint";
       case NameRole: return QString::fromStdString(waypoint.data.name.getOrElse(""));
+      case FilesystemNameRole: return safeFileName(QString::fromStdString(waypoint.data.name.getOrElse("")));
       case DescriptionRole: return QString::fromStdString(waypoint.data.description.getOrElse(""));
       case IdRole: return QString::number(waypoint.id);
 
@@ -162,6 +178,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
     switch(role){
       case TypeRole: return "track";
       case NameRole: return track.name;
+      case FilesystemNameRole: return safeFileName(track.name);
       case DescriptionRole: return track.description;
       case IdRole: return QString::number(track.id);
 
@@ -180,6 +197,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   QHash<int, QByteArray> roles=QAbstractItemModel::roleNames();
 
   roles[NameRole] = "name";
+  roles[FilesystemNameRole] = "filesystemName";
   roles[DescriptionRole] = "description";
   roles[TypeRole] = "type";
   roles[IdRole] = "id";
@@ -230,11 +248,6 @@ bool CollectionModel::isExporting()
 QString CollectionModel::getCollectionName() const
 {
   return collectionLoaded? collection.name : "";
-}
-
-QString safeFileName(QString name)
-{
-  return name.replace(QRegExp("[" + QRegExp::escape( "\\/:*?\"<>|" ) + "]"), QString("_"));
 }
 
 QString CollectionModel::getCollectionFilesystemName() const
@@ -335,7 +348,40 @@ void CollectionModel::exportToFile(QString fileName, QString directory)
   emit exportCollectionRequest(collection.id, file.absoluteFilePath());
 }
 
+void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QString directory)
+{
+  bool ok;
+  qint64 trackId = trackIdStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << trackIdStr << "to number";
+    return;
+  }
+
+  QFileInfo dir(directory);
+  if (!dir.isDir() || !dir.isWritable()){
+    qWarning() << "Invalid export directory:" << dir.absoluteFilePath();
+    emit error(tr("Invalid export directory"));
+    return;
+  }
+  QString safeName = safeFileName(fileName);
+  if (safeName.isEmpty()){
+    qWarning() << "Invalid file name:" << fileName << "/" << safeName;
+    emit error(tr("Invalid file name"));
+    return;
+  }
+  QFileInfo file(QDir(dir.absoluteFilePath()), safeName + ".gpx");
+  collectionExporting = true;
+  emit exportingChanged();
+  emit exportTrackRequest(collection.id, trackId, file.absoluteFilePath());
+}
+
 void CollectionModel::onCollectionExported(bool)
+{
+  collectionExporting = false;
+  emit exportingChanged();
+}
+
+void CollectionModel::onTrackExported(bool)
 {
   collectionExporting = false;
   emit exportingChanged();

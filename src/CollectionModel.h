@@ -46,6 +46,7 @@ signals:
   void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void exportCollectionRequest(qint64 collectionId, QString file);
+  void exportTrackRequest(qint64 collectionId, qint64 trackId, QString file);
   void error(QString message);
   void moveWaypointRequest(qint64 waypointId, qint64 collectionId);
   void moveTrackRequest(qint64 trackId, qint64 collectionId);
@@ -60,7 +61,9 @@ public slots:
   void editWaypoint(QString id, QString name, QString description);
   void editTrack(QString id, QString name, QString description);
   void exportToFile(QString fileName, QString directory);
+  void exportTrackToFile(QString id, QString name, QString directory);
   void onCollectionExported(bool);
+  void onTrackExported(bool);
   void moveWaypoint(QString waypointId, QString collectionId);
   void moveTrack(QString trackId, QString collectionId);
 
@@ -71,20 +74,21 @@ public:
 
   enum Roles {
     NameRole = Qt::UserRole,
-    DescriptionRole = Qt::UserRole+1,
-    TypeRole = Qt::UserRole+2,
-    IdRole = Qt::UserRole+3,
-    TimeRole = Qt::UserRole+4,
-    LastModificationRole = Qt::UserRole+5,
+    FilesystemNameRole = Qt::UserRole+1,
+    DescriptionRole = Qt::UserRole+2,
+    TypeRole = Qt::UserRole+3,
+    IdRole = Qt::UserRole+4,
+    TimeRole = Qt::UserRole+5,
+    LastModificationRole = Qt::UserRole+6,
 
     // type == waypoint
-    SymbolRole = Qt::UserRole+6,
-    LatitudeRole = Qt::UserRole+7,
-    LongitudeRole = Qt::UserRole+8,
-    ElevationRole = Qt::UserRole+9,
+    SymbolRole = Qt::UserRole+7,
+    LatitudeRole = Qt::UserRole+8,
+    LongitudeRole = Qt::UserRole+9,
+    ElevationRole = Qt::UserRole+10,
 
     // type == track
-    DistanceRole = Qt::UserRole+10
+    DistanceRole = Qt::UserRole+11
   };
   Q_ENUM(Roles)
 

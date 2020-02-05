@@ -1430,13 +1430,8 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::exportCollection(qint64 collectionId, QString file)
+bool Storage::exportPrivate(qint64 collectionId, const QString &file, const osmscout::gpx::Optional<qint64> &trackId)
 {
-  if (!checkAccess(__FUNCTION__)){
-    emit collectionExported(false);
-    return;
-  }
-
   QTime timer;
   timer.start();
   qDebug() << "Exporting collection" << collectionId << "to" << file;
@@ -1446,7 +1441,7 @@ void Storage::exportCollection(qint64 collectionId, QString file)
   gpx::GpxFile gpxFile;
   if (!loadCollectionDetailsPrivate(collection)){
     emit collectionExported(false);
-    return;
+    return false;
   }
 
   if (!collection.name.isEmpty()) {
@@ -1467,14 +1462,16 @@ void Storage::exportCollection(qint64 collectionId, QString file)
   assert(collection.tracks);
   gpxFile.tracks.reserve(collection.tracks->size());
   for (Track &t : *(collection.tracks)){
-    qDebug() << "Loading track data" << t.id;
-    if (!loadTrackDataPrivate(t)){
-      emit collectionExported(false);
-      return;
+    if (!trackId.hasValue() || trackId.get() == t.id) {
+      qDebug() << "Loading track data" << t.id;
+      if (!loadTrackDataPrivate(t)) {
+        emit collectionExported(false);
+        return false;
+      }
+      assert(t.data);
+      gpxFile.tracks.push_back(*(t.data));
+      t.data.reset();
     }
-    assert(t.data);
-    gpxFile.tracks.push_back(*(t.data));
-    t.data.reset();
   }
 
   // export
@@ -1488,8 +1485,29 @@ void Storage::exportCollection(qint64 collectionId, QString file)
                                 std::static_pointer_cast<gpx::ProcessCallback, ErrorCallback>(callback));
 
   qDebug() << "Exported in" << timer.elapsed() << "ms";
+  return success;
+}
 
+void Storage::exportCollection(qint64 collectionId, QString file)
+{
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionExported(false);
+    return;
+  }
+
+  bool success = exportPrivate(collectionId, file, osmscout::gpx::Optional<qint64>::empty);
   emit collectionExported(success);
+}
+
+void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file)
+{
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionExported(false);
+    return;
+  }
+
+  bool success = exportPrivate(collectionId, file, osmscout::gpx::Optional<qint64>::of(trackId));
+  emit trackExported(success);
 }
 
 void Storage::moveWaypoint(qint64 waypointId, qint64 collectionId)

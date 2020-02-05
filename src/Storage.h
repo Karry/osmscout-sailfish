@@ -327,6 +327,7 @@ signals:
   void collectionDetailsLoaded(Collection collection, bool ok);
   void trackDataLoaded(Track track, bool complete, bool ok);
   void collectionExported(bool success);
+  void trackExported(bool success);
 
   void trackCreated(qint64 collectionId, qint64 trackId, QString name);
   void waypointCreated(qint64 collectionId, qint64 waypointId, QString name);
@@ -428,6 +429,11 @@ public slots:
   void exportCollection(qint64 collectionId, QString file);
 
   /**
+   * emits trackExported
+   */
+  void exportTrack(qint64 collectionId, qint64 trackId, QString file);
+
+  /**
    * emit collectionDetailsLoaded for source and target collection
    *
    * @param waypointId
@@ -505,6 +511,7 @@ private:
   bool loadCollectionDetailsPrivate(Collection &collection);
   bool loadTrackDataPrivate(Track &track);
   bool createSegment(qint64 trackId, qint64 &segmentId);
+  bool exportPrivate(qint64 collectionId, const QString &file, const osmscout::gpx::Optional<qint64> &trackId);
 
   /**
    * obtain collection id from trackId
