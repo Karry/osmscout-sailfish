@@ -583,10 +583,10 @@ STYLE
   }
   [TYPE _route] {
     [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.2mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.4mm; priority: 100; }
     }
     [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.4mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.6mm; priority: 100; }
     }
     [MAG veryClose-] {
       WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
