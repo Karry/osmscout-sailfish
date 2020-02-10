@@ -366,3 +366,6 @@
 - usual translations of new phrases
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.19-1
+- update Chinese and German translations
+- use thinner line for route / track on lower zoom levels
+- make possible to export single track from collection
