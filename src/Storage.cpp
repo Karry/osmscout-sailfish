@@ -1890,7 +1890,7 @@ Storage* Storage::getInstance()
 void Storage::initInstance(const QDir &directory)
 {
   if (storage == nullptr){
-    QThread *thread = OSMScoutQt::GetInstance().makeThread("OverlayTileLoader");
+    QThread *thread = OSMScoutQt::GetInstance().makeThread("Storage");
     storage = new Storage(thread, directory);
     storage->moveToThread(thread);
     connect(thread, &QThread::started,
