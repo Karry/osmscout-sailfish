@@ -46,14 +46,15 @@ include(features)
 find_package( Qt5 ${QT_MIN_VERSION}
               REQUIRED NO_MODULE COMPONENTS
               Core
-              Network
               Gui
+              Multimedia
+              Network
               Positioning
-              Xml
-              Svg
               Qml
               Quick
               Sql
+              Svg
+              Xml
 )
 find_package(Qt5LinguistTools)
 find_package(OpenMP REQUIRED)
