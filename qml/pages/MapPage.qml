@@ -647,6 +647,7 @@ Page {
             currentSpeed: Global.navigationModel.currentSpeed
             maximumSpeed: Global.navigationModel.maxAllowedSpeed
             visible: Global.navigationModel.destinationSet
+            z: 1
 
             anchors.left: parent.left
             anchors.top: nextStepBox.bottom
