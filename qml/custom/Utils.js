@@ -230,3 +230,9 @@ function rad2Deg(radians){
 function deg2Rad(degrees){
     return degrees * Math.PI / 180.0;
 }
+
+function startsWith(str, substr){
+    // startsWith was added in Qt 5.8 :-(
+    var prefix = str.substr(0, substr.length);
+    return prefix == substr;
+}

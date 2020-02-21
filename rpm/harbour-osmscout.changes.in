@@ -370,3 +370,4 @@
 - use thinner line for route / track on lower zoom levels
 - make possible to export single track from collection
 - initial implementation of navigation voice commands
+- improve search result sorting, take match quality into account
