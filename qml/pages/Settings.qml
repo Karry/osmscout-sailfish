@@ -81,6 +81,10 @@ Page {
                     }
                     initialized = true;
                 }
+                onPressAndHold: {
+                    // improve default ComboBox UX :-)
+                    clicked(mouse);
+                }
             }
             ComboBox {
                 id: placeLocationComboBox
@@ -119,6 +123,10 @@ Page {
                     }
 
                     initialized = true;
+                }
+                onPressAndHold: {
+                    // improve default ComboBox UX :-)
+                    clicked(mouse);
                 }
             }
         }

@@ -146,6 +146,10 @@ Page {
 
                         initialized = true;
                     }
+                    onPressAndHold: {
+                        // improve default ComboBox UX :-)
+                        clicked(mouse);
+                    }
                 }
                 IconButton{
                     id: clipboardBtn
