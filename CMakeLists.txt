@@ -327,6 +327,7 @@ set(QML_FILES
     qml/pages/CollectionExport.qml
     qml/pages/Settings.qml
     qml/pages/Tracker.qml
+    qml/pages/VoiceSelector.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml)

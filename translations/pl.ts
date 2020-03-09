@@ -860,6 +860,22 @@
         <source>Coordinates</source>
         <translation>Współrzędne</translation>
     </message>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished">Wytyczanie trasy</translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installed voices</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1228,6 +1244,13 @@
     <message>
         <source>%1 m</source>
         <translation>%1 m</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceSelector</name>
+    <message>
+        <source>Installed voices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -129,6 +129,84 @@ Page {
                     clicked(mouse);
                 }
             }
+
+            SectionHeader{ text: qsTr("Navigation") }
+
+            ComboBox {
+                id: voiceComboBox
+                width: parent.width
+
+                property bool initialized: false
+
+                label: qsTr("Voice")
+
+                function update(){
+                    initialized = false;
+                    for (var row = 0; row < voiceModel.rowCount(); row++){
+                        if (getData(row, InstalledVoicesModel.SelectedRole)){
+                            currentIndex = row;
+                            break;
+                        }
+                    }
+                    initialized = true;
+                }
+
+                InstalledVoicesModel{
+                    id: voiceModel
+
+                    onVoiceChanged: {
+                        voiceComboBox.update();
+                    }
+                }
+
+                function getData(row, role){
+                    return voiceModel.data(voiceModel.index(row, 0), role);
+                }
+
+                menu: ContextMenu {
+                    Repeater {
+                        width: parent.width
+                        model: voiceModel
+                        delegate: MenuItem {
+                            text: valid ?
+                                      ("%1 - %2".arg(qsTranslate("resource", lang))
+                                                .arg(qsTranslate("resource", name))):
+                                      qsTr("No voice")
+                        }
+                    }
+                }
+
+                onPressAndHold: {
+                    // improve default ComboBox UX :-)
+                    clicked(mouse);
+                }
+
+                onCurrentItemChanged: {
+                    if (!initialized){
+                        return;
+                    }
+                    console.log("Set voice to "
+                                + getData(currentIndex, InstalledVoicesModel.LangRole) + " - "
+                                + getData(currentIndex, InstalledVoicesModel.NameRole));
+                    var indexObj = voiceModel.index(currentIndex, 0);
+                    voiceModel.select(indexObj);
+                }
+
+                Component.onCompleted: {
+                    update();
+                }
+            }
+
+            Button {
+                text: qsTr("Installed voices")
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("VoiceSelector.qml"))
+                }
+            }
         }
     }
 }
