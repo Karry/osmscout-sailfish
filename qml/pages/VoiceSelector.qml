@@ -88,7 +88,31 @@ Page {
                         initialized=true;
                     }
                 }
-            }                    
+            }
+        }
+    }
+
+    Column{
+        visible: availableVoices.fetchError != ""
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.margins: Theme.horizontalPageMargin
+        spacing: Theme.paddingLarge
+        width: parent.width
+
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTranslate("message", availableVoices.fetchError)
+            font.pixelSize: Theme.fontSizeMedium
+        }
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            preferredWidth: Theme.buttonWidthMedium
+            text: qsTr("Refresh")
+            onClicked: {
+                console.log("Reloading...")
+                availableVoices.reload();
+            }
         }
     }
 }

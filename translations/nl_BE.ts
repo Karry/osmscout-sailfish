@@ -1252,6 +1252,10 @@
         <source>Installed voices</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Vernieuwen</translation>
+    </message>
 </context>
 <context>
     <name>databaseType</name>
