@@ -55,6 +55,22 @@ Page {
                 title: qsTr("Installed voices")
             }
 
+            Label{
+                id: aboutText
+                textFormat: Text.RichText;
+                text: "<style>a:link { color: " + Theme.highlightColor + "; }</style>" +
+                      qsTr(
+                          "Voice samples were created as part of <a href=\"https://community.kde.org/Marble/VoiceOfMarble\">VoiceOfMarble</a> project. " +
+                          "Licensed under terms of <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> license."
+                          )
+                onLinkActivated: Qt.openUrlExternally(link)
+                wrapMode: Text.WordWrap
+                font.pixelSize: Theme.fontSizeSmall
+
+                width: parent.width - 2* Theme.paddingLarge
+                x: Theme.paddingLarge
+            }
+
             SilicaListView {
                 id: listView
 
@@ -69,6 +85,8 @@ Page {
                     busy: model.state == AvailableVoicesModel.Downloading
                     text: "%1 - %2".arg(qsTranslate("resource", lang))
                                    .arg(qsTranslate("resource", name))
+
+                    description: qsTr("Author: %1").arg(author)
 
                     property bool initialized: false
                     onCheckedChanged: {
