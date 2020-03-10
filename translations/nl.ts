@@ -876,6 +876,10 @@
         <source>Installed voices</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Play sample</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

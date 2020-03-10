@@ -197,14 +197,38 @@ Page {
                 }
             }
 
-            Button {
-                text: qsTr("Installed voices")
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                }
+            Column{
+                anchors.margins: Theme.horizontalPageMargin
+                width: parent.width
+                spacing: Theme.paddingLarge
 
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("VoiceSelector.qml"))
+                Button {
+                    text: qsTr("Play sample")
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                    }
+
+                    onClicked: {
+                        var samples = [
+                                    ["After.ogg", "500.ogg", "Meters.ogg", "TurnRight.ogg"],
+                                    ["RbCross.ogg", "RbExit3.ogg", "Then.ogg", "MwEnter.ogg"],
+                                    ["After.ogg", "800.ogg", "Meters.ogg", "MwExitRight.ogg"],
+                                    ["BearLeft.ogg", "Then.ogg", "MwExitLeft.ogg"]
+                                ];
+                        var sample = samples[Math.floor(Math.random() * samples.length)];
+                        var indexObj = voiceModel.index(voiceComboBox.currentIndex, 0);
+                        voiceModel.playSample(indexObj, sample);
+                    }
+                }
+                Button {
+                    text: qsTr("Installed voices")
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                    }
+
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("VoiceSelector.qml"))
+                    }
                 }
             }
         }
