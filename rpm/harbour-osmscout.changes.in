@@ -365,8 +365,8 @@
 - support for search history
 - usual translations of new phrases
 
-* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 1.19-1
-- update Chinese and German translations
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.0-1
+- update translations (Chinese, German, Czech, Polish, Swedish...). Thank you!
 - use thinner line for route / track on lower zoom levels
 - make possible to export single track from collection
 - initial implementation of navigation voice commands
