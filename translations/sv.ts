@@ -862,23 +862,23 @@
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished">Vägval</translation>
+        <translation>Vägval</translation>
     </message>
     <message>
         <source>Voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Röst</translation>
     </message>
     <message>
         <source>No voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen röst</translation>
     </message>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Installerade röster</translation>
     </message>
     <message>
         <source>Play sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Spela upp exempel</translation>
     </message>
 </context>
 <context>
@@ -1254,19 +1254,19 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Installerade röster</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="unfinished"></translation>
+        <translation>Röstexemplen skapades som en del av projektet &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Licensierat under villkoren för &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Utvecklare: %1</translation>
     </message>
 </context>
 <context>
@@ -1605,75 +1605,75 @@
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"></translation>
+        <translation>Amerikansk Engelska</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"></translation>
+        <translation>Brittisk Engelska</translation>
     </message>
     <message>
         <source>Chinese Simplified</source>
-        <translation type="unfinished"></translation>
+        <translation>Förenklad Kinesiska</translation>
     </message>
     <message>
         <source>Croatian</source>
-        <translation type="unfinished"></translation>
+        <translation>Kroatiska</translation>
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjeckiska</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederländska</translation>
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Franska</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyska</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Grekiska</translation>
     </message>
     <message>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italienska</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Polska</translation>
     </message>
     <message>
         <source>Punjabi</source>
-        <translation type="unfinished"></translation>
+        <translation>Punjabi</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumänska</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryska</translation>
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanska</translation>
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Turkiska</translation>
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrainska</translation>
     </message>
 </context>
 <context>

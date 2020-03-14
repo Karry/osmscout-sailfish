@@ -862,23 +862,23 @@
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished">Navigace</translation>
+        <translation>Navigace</translation>
     </message>
     <message>
         <source>Voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlas</translation>
     </message>
     <message>
         <source>No voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Bez hlasu</translation>
     </message>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Instalované hlasy</translation>
     </message>
     <message>
         <source>Play sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrát ukázku</translation>
     </message>
 </context>
 <context>
@@ -1254,19 +1254,19 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Instalované hlasy</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Obnovit</translation>
+        <translation>Obnovit</translation>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzorky hlasů byly vytvořeny jako součást projektu&lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Jsou licencovány za podmínek &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor: %1</translation>
     </message>
 </context>
 <context>
@@ -1605,75 +1605,75 @@
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"></translation>
+        <translation>Americká angličtina</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"></translation>
+        <translation>Britská angličtina</translation>
     </message>
     <message>
         <source>Chinese Simplified</source>
-        <translation type="unfinished"></translation>
+        <translation>Zjednodušená čínština</translation>
     </message>
     <message>
         <source>Croatian</source>
-        <translation type="unfinished"></translation>
+        <translation>Chorvatština</translation>
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Čeština</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Holandština</translation>
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Francouzština</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Němčina</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Řečtina</translation>
     </message>
     <message>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindština</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italština</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Polština</translation>
     </message>
     <message>
         <source>Punjabi</source>
-        <translation type="unfinished"></translation>
+        <translation>Paňdžábština</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumunština</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruština</translation>
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Španělština</translation>
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Turečtina</translation>
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrajinština</translation>
     </message>
 </context>
 <context>
