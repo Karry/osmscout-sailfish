@@ -1254,7 +1254,7 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Voces instaladas</translation>
     </message>
     <message>
         <source>Refresh</source>
