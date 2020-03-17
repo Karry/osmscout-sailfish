@@ -208,6 +208,8 @@ Page {
                         horizontalCenter: parent.horizontalCenter
                     }
 
+                    enabled: voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.ValidRole)
+
                     onClicked: {
                         var samples = [
                                     ["After.ogg", "500.ogg", "Meters.ogg", "TurnRight.ogg"],
