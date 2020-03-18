@@ -181,6 +181,7 @@ Page {
             }
             menu: ContextMenu {
                 MenuItem {
+                    //: track/waypoint context menu
                     text: qsTr("Edit")
                     onClicked: {
                         console.log("Edit " + model.type + " " + model.id + " " + model.name + ", " + model.description + "...");
@@ -192,6 +193,7 @@ Page {
                     }
                 }
                 MenuItem {
+                    //: track/waypoint context menu
                     text: qsTr("Move to")
                     onClicked: {
                         moveDialog.itemId = model.id;
@@ -203,6 +205,7 @@ Page {
                     }
                 }
                 MenuItem {
+                    //: waypoint context menu
                     text: qsTr("Route to")
                     visible: model.type == "waypoint"
                     onClicked: {
@@ -215,6 +218,7 @@ Page {
                     }
                 }
                 MenuItem {
+                    //: track context menu
                     text: qsTr("Export")
                     visible: model.type == "track"
 
@@ -248,6 +252,7 @@ Page {
                     }
                 }
                 MenuItem {
+                    //: track/waypoint context menu
                     text: qsTr("Delete")
                     onClicked: {
                         Remorse.itemAction(collectionItem,
@@ -289,7 +294,8 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Export")
+                //: collection pull down menu
+                text: qsTr("Export Collection")
 
                 property ListModel directories: ListModel {}
                 signal exportCollection(string directory, string name)
@@ -320,7 +326,8 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Edit")
+                //: collection pull down menu
+                text: qsTr("Edit Collection")
                 onClicked: {
                     editDialog.itemType = "collection";
                     editDialog.itemId = collectionModel.collectionId;

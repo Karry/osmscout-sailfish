@@ -88,10 +88,12 @@
     <name>Collection</name>
     <message>
         <source>Edit</source>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Redigera</translation>
     </message>
     <message>
         <source>Delete</source>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Ta bort</translation>
     </message>
     <message>
@@ -104,6 +106,7 @@
     </message>
     <message>
         <source>Export</source>
+        <extracomment>track context menu</extracomment>
         <translation>Exportera</translation>
     </message>
     <message>
@@ -116,6 +119,7 @@
     </message>
     <message>
         <source>Move to</source>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Flytta till</translation>
     </message>
     <message>
@@ -128,11 +132,22 @@
     </message>
     <message>
         <source>Route to</source>
+        <extracomment>waypoint context menu</extracomment>
         <translation>Beräkna rutt till</translation>
     </message>
     <message>
         <source>Edit collection</source>
         <translation>Redigera samling</translation>
+    </message>
+    <message>
+        <source>Export Collection</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit Collection</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

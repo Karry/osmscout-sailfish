@@ -88,10 +88,12 @@
     <name>Collection</name>
     <message>
         <source>Edit</source>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Bewerken</translation>
     </message>
     <message>
         <source>Delete</source>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Verwijderen</translation>
     </message>
     <message>
@@ -104,6 +106,7 @@
     </message>
     <message>
         <source>Export</source>
+        <extracomment>track context menu</extracomment>
         <translation>Exporteren</translation>
     </message>
     <message>
@@ -116,6 +119,7 @@
     </message>
     <message>
         <source>Move to</source>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Verplaatsen naar</translation>
     </message>
     <message>
@@ -128,11 +132,22 @@
     </message>
     <message>
         <source>Route to</source>
+        <extracomment>waypoint context menu</extracomment>
         <translation>Route naar</translation>
     </message>
     <message>
         <source>Edit collection</source>
         <translation>Verzameling bewerken</translation>
+    </message>
+    <message>
+        <source>Export Collection</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit Collection</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
