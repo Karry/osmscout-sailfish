@@ -866,7 +866,7 @@
     </message>
     <message>
         <source>Voice</source>
-        <translation>Głosowa</translation>
+        <translation>Głos</translation>
     </message>
     <message>
         <source>No voice</source>
