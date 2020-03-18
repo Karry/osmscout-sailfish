@@ -1680,7 +1680,7 @@
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation>carro</translation>
+        <translation>automóvil</translation>
     </message>
     <message>
         <source>bicycle</source>
