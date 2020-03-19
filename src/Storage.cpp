@@ -1464,11 +1464,14 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const osms
   for (Track &t : *(collection.tracks)){
     if (!trackId.hasValue() || trackId.get() == t.id) {
       qDebug() << "Loading track data" << t.id;
+      QTime timer;
+      timer.start();
       if (!loadTrackDataPrivate(t)) {
         emit collectionExported(false);
         return false;
       }
       assert(t.data);
+      qDebug() << "  track" << t.id << "data loadig:" << timer.elapsed() << "ms";
       gpxFile.tracks.push_back(*(t.data));
       t.data.reset();
     }
