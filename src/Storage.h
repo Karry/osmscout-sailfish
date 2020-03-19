@@ -517,6 +517,7 @@ private:
    * obtain collection id from trackId
    */
   bool trackCollection(qint64 trackId, qint64 &collectionId);
+  bool listIndexes(QStringList &indexes);
 
 private :
   QSqlDatabase db;

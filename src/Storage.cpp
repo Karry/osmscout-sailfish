@@ -390,6 +390,39 @@ bool Storage::updateSchema(){
     }
   }
 
+  QStringList indexes;
+  if (!listIndexes(indexes)){
+    qWarning() << "Storage: cannot load indexes";
+    db.close();
+    return false;
+  }
+
+  if (!indexes.contains("idx_track_point_segment_id")){
+    qDebug() << "creating idx_track_point_segment_id index";
+
+    QSqlQuery q = db.exec("CREATE INDEX idx_track_point_segment_id ON track_point (segment_id)");
+    if (q.lastError().isValid()){
+      qWarning() << "Storage: creating idx_track_point_segment_id index failed" << q.lastError();
+      db.close();
+      return false;
+    }
+  }
+
+  return true;
+}
+
+bool Storage::listIndexes(QStringList &indexes)
+{
+  QString sql("SELECT name FROM sqlite_master WHERE type = 'index';");
+
+  QSqlQuery q = db.exec(sql);
+  if (q.lastError().isValid()) {
+    qWarning() << "Storage: cannot load indexes" << q.lastError();
+    return false;
+  }
+  while (q.next()) {
+    indexes << varToString(q.value("name"));
+  }
   return true;
 }
 
