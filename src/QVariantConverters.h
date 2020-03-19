@@ -78,6 +78,10 @@ inline bool varToBool(const QVariant &var, bool def = false)
   return def;
 }
 
+/**
+ * there is slow conversion: QString -> QDateTime
+ * consider to use SQL strftime('%s', ...) and varLongToOptTimestamp then
+ */
 inline QDateTime varToDateTime(const QVariant &var, QDateTime def = QDateTime())
 {
   if (!var.isNull() &&
@@ -87,6 +91,20 @@ inline QDateTime varToDateTime(const QVariant &var, QDateTime def = QDateTime())
   }
 
   return def;
+}
+
+inline osmscout::gpx::Optional<osmscout::Timestamp> varLongToOptTimestamp(const QVariant &var)
+{
+  if (!var.isNull() &&
+      var.isValid() &&
+      var.canConvert(QMetaType::LongLong)) {
+
+    auto duration = std::chrono::seconds(varToLong(var));
+    static_assert(std::is_same<osmscout::Timestamp::clock, std::chrono::system_clock>::value, "Timestamp clock have use unix epoch");
+    return osmscout::gpx::Optional<osmscout::Timestamp>::of(osmscout::Timestamp(duration));
+  }
+
+  return osmscout::gpx::Optional<osmscout::Timestamp>::empty;
 }
 
 inline osmscout::Timestamp dateTimeToTimestamp(const QDateTime &datetime)

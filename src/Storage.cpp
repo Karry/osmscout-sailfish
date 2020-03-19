@@ -23,11 +23,12 @@
 #include <osmscout/OSMScoutQt.h>
 #include <osmscout/gpx/GpxFile.h>
 #include <osmscout/gpx/Import.h>
+#include <osmscout/gpx/Export.h>
 
 #include <QDebug>
 #include <QThread>
 #include <QtSql/QSqlQuery>
-#include <osmscout/gpx/Export.h>
+#include <QtSql/QSqlRecord>
 
 namespace {
   static constexpr int DbSchema = 2;
@@ -639,10 +640,29 @@ void Storage::loadCollectionDetails(Collection collection)
   }
 }
 
+// QSqlQuery::size() is not supported with SQLite.
+// But you can get the number of rows with a workaround
+// https://stackoverflow.com/questions/26495049/qsqlquery-size-always-returns-1
+int Storage::querySize(QSqlQuery &query)
+{
+  int initialPos = query.at();
+  int size = 0;
+  if (query.last()) {
+    size = query.at() + 1;
+  } else {
+    size = 0;
+  }
+  // Important to restore initial pos
+  query.seek(initialPos);
+  return size;
+}
+
 void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
 {
+  QTime timer;
+  timer.start();
   QSqlQuery sql(db);
-  sql.prepare("SELECT `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
+  sql.prepare("SELECT CAST(STRFTIME('%s',`timestamp`) AS INTEGER) AS `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
   sql.bindValue(":segmentId", segmentId);
   sql.exec();
   if (sql.lastError().isValid()) {
@@ -650,25 +670,36 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
     emit error(tr("Loading nodes for segment id %1 failed: %2").arg(segmentId).arg(sql.lastError().text()));
     return;
   }
+  qDebug() << "  segment" << segmentId << "sql:" << timer.elapsed() << "ms";
 
+  int size= querySize(sql);
+  assert(size>=0);
+  segment.points.reserve(size);
+
+  QSqlRecord record = sql.record();
+  int iLatitude = record.indexOf("latitude");
+  int iLongitude = record.indexOf("longitude");
+  int iTimestamp = record.indexOf("timestamp");
+  int iElevation = record.indexOf("elevation");
+  int iHorizAcc = record.indexOf("horiz_accuracy");
+  int iVertAcc = record.indexOf("vert_accuracy");
+
+  timer.restart();
   while (sql.next()) {
-    gpx::TrackPoint point(GeoCoord(
-      varToDouble(sql.value("latitude")),
-      varToDouble(sql.value("longitude"))
+    segment.points.emplace_back(GeoCoord(
+      varToDouble(sql.value(iLatitude)),
+      varToDouble(sql.value(iLongitude))
     ));
+    gpx::TrackPoint &point = segment.points.back();
 
-    QVariant timestampVar = sql.value("timestamp");
-    if (!timestampVar.isNull()) {
-      point.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(timestampVar)));
-    }
-    point.elevation = varToDoubleOpt(sql.value("elevation"));
+    point.time = varLongToOptTimestamp(sql.value(iTimestamp));
+    point.elevation = varToDoubleOpt(sql.value(iElevation));
 
     // see TrackPoint notes
-    point.hdop = varToDoubleOpt(sql.value("horiz_accuracy"));
-    point.vdop = varToDoubleOpt(sql.value("vert_accuracy"));
-
-    segment.points.push_back(std::move(point));
+    point.hdop = varToDoubleOpt(sql.value(iHorizAcc));
+    point.vdop = varToDoubleOpt(sql.value(iVertAcc));
   }
+  qDebug() << "  segment" << segmentId << "loading:" << timer.elapsed() << "ms";
 }
 
 bool Storage::loadTrackDataPrivate(Track &track)
