@@ -659,8 +659,8 @@ int Storage::querySize(QSqlQuery &query)
 
 void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
 {
-  QTime timer;
-  timer.start();
+  // QTime timer;
+  // timer.start();
   QSqlQuery sql(db);
   sql.prepare("SELECT CAST(STRFTIME('%s',`timestamp`) AS INTEGER) AS `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
   sql.bindValue(":segmentId", segmentId);
@@ -670,11 +670,15 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
     emit error(tr("Loading nodes for segment id %1 failed: %2").arg(segmentId).arg(sql.lastError().text()));
     return;
   }
-  qDebug() << "  segment" << segmentId << "sql:" << timer.elapsed() << "ms";
 
-  int size= querySize(sql);
+  // qDebug() << "    segment" << segmentId << "sql:" << timer.elapsed() << "ms";
+
+  auto size = querySize(sql);
+  // qDebug() << "    segment" << segmentId << "size:" << timer.elapsed() << "ms";
   assert(size>=0);
   segment.points.reserve(size);
+
+  // qDebug() << "    segment" << segmentId << "alloc:" << timer.elapsed() << "ms";
 
   QSqlRecord record = sql.record();
   int iLatitude = record.indexOf("latitude");
@@ -684,7 +688,6 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
   int iHorizAcc = record.indexOf("horiz_accuracy");
   int iVertAcc = record.indexOf("vert_accuracy");
 
-  timer.restart();
   while (sql.next()) {
     segment.points.emplace_back(GeoCoord(
       varToDouble(sql.value(iLatitude)),
@@ -699,15 +702,21 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
     point.hdop = varToDoubleOpt(sql.value(iHorizAcc));
     point.vdop = varToDoubleOpt(sql.value(iVertAcc));
   }
-  qDebug() << "  segment" << segmentId << "loading:" << timer.elapsed() << "ms";
+  // qDebug() << "    segment" << segmentId << "loading:" << timer.elapsed() << "ms";
 }
 
 bool Storage::loadTrackDataPrivate(Track &track)
 {
+  qDebug() << "Loading track data" << track.id;
+  QTime timer;
+  timer.start();
+
   QSqlQuery sqlTrack(db);
   sqlTrack.prepare("SELECT * FROM `track` WHERE id = :trackId;");
   sqlTrack.bindValue(":trackId", track.id);
   sqlTrack.exec();
+
+  // qDebug() << "  track sql" << track.id << ":" << timer.elapsed() << "ms";
 
   if (sqlTrack.lastError().isValid()) {
     qWarning() << "Loading track id" << track.id << "fails: " << sqlTrack.lastError();
@@ -720,7 +729,9 @@ bool Storage::loadTrackDataPrivate(Track &track)
     emit error(tr("Track id %1 don't exists").arg(track.id));
     return false;
   }
+
   track = makeTrack(sqlTrack);
+  // qDebug() << "  make track" << track.id << ":" << timer.elapsed() << "ms";
 
   emit trackDataLoaded(track, false, true);
 
@@ -735,17 +746,22 @@ bool Storage::loadTrackDataPrivate(Track &track)
   sql.prepare("SELECT `id` FROM `track_segment` WHERE track_id = :trackId;");
   sql.bindValue(":trackId", track.id);
   sql.exec();
+
+  // qDebug() << "  track_segment sql" << track.id << ":" << timer.elapsed() << "ms";
   if (sql.lastError().isValid()) {
     qWarning() << "Loading segments for track id" << track.id << "failed";
     emit error(tr("Loading segments for track id %1 failed: %2").arg(track.id).arg(sql.lastError().text()));
   }else{
     while (sql.next()) {
-      gpx::TrackSegment segment;
+      track.data->segments.emplace_back();
       long segmentId = varToLong(sql.value("id"));
-      loadTrackPoints(segmentId, segment);
-      track.data->segments.push_back(std::move(segment));
+      // qDebug() << "  track_segment " << segmentId << "before:" << timer.elapsed() << "ms";
+      loadTrackPoints(segmentId, track.data->segments.back());
+      // qDebug() << "  track_segment " << segmentId << "after:" << timer.elapsed() << "ms";
     }
   }
+
+  qDebug() << "  track" << track.id << "data loading:" << timer.elapsed() << "ms";
   return true;
 }
 
@@ -1527,17 +1543,12 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const osms
   gpxFile.tracks.reserve(collection.tracks->size());
   for (Track &t : *(collection.tracks)){
     if (!trackId.hasValue() || trackId.get() == t.id) {
-      qDebug() << "Loading track data" << t.id;
-      QTime timer;
-      timer.start();
       if (!loadTrackDataPrivate(t)) {
         emit collectionExported(false);
         return false;
       }
       assert(t.data);
-      qDebug() << "  track" << t.id << "data loadig:" << timer.elapsed() << "ms";
-      gpxFile.tracks.push_back(*(t.data));
-      t.data.reset();
+      gpxFile.tracks.push_back(std::move(*(t.data)));
     }
   }
 
