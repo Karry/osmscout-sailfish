@@ -372,3 +372,6 @@
 - initial implementation of navigation voice commands
 - improve search result sorting, take match quality into account
 - avoid jumps to zero-island during navigation
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.1-1
+- optimise track loading from collection database
