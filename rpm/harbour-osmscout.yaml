@@ -26,6 +26,7 @@ PkgBR:
 PkgConfigBR:
   - libxml-2.0
   - Qt5Core
+  - Qt5DBus
   - Qt5Multimedia
   - Qt5Positioning
   - Qt5Qml

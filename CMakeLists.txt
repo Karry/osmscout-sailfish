@@ -46,6 +46,7 @@ include(features)
 find_package( Qt5 ${QT_MIN_VERSION}
               REQUIRED NO_MODULE COMPONENTS
               Core
+              DBus
               Gui
               Multimedia
               Network
@@ -270,6 +271,7 @@ set(HEADER_FILES
     src/CollectionTrackModel.h
     src/CollectionMapBridge.h
     src/IconProvider.h
+    src/MemoryManager.h
     src/Tracker.h
     src/SearchHistoryModel.h)
 
@@ -334,6 +336,7 @@ set(QML_FILES
 
 set(SOURCE_FILES
     src/AppSettings.cpp
+    src/MemoryManager.cpp
     src/OSMScout.cpp
     src/Storage.cpp
     src/CollectionModel.cpp
@@ -405,6 +408,7 @@ target_include_directories(harbour-osmscout PRIVATE
 
 target_link_libraries(harbour-osmscout
         Qt5::Core
+        Qt5::DBus
         Qt5::Gui
         Qt5::Qml
         Qt5::Quick

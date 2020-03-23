@@ -24,6 +24,7 @@
 #include "AppSettings.h" // Application settings
 #include "IconProvider.h" // IconProvider
 #include "Arguments.h"
+#include "MemoryManager.h"
 
 // collections
 #include "Storage.h"
@@ -202,6 +203,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   }
 
   Storage::initInstance(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+  MemoryManager memoryManager; // lives in UI thread
 
   int result;
   if (!args.desktop) {

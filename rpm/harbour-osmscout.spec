@@ -32,6 +32,7 @@ Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-osmscout.yaml
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Multimedia)
 BuildRequires:  pkgconfig(Qt5Positioning)
 BuildRequires:  pkgconfig(Qt5Qml)
