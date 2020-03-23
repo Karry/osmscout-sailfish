@@ -24,7 +24,7 @@
 /**
  * This class listen for events about memory state from MCE daemon
  * (Mode Control Entity, https://sailfishos.org/wiki/Mce)
- * and tries to release some unused memory when memory level
+ * and tries to release some cahe when system memory level
  * is "warning" or "critical" (third state is "normal").
  */
 class MemoryManager: public QObject {
