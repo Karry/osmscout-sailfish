@@ -118,6 +118,9 @@ string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_
 string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
+# add function name to Qt log messages (even in release build)
+add_definitions( -DQT_MESSAGELOGCONTEXT )
+
 add_definitions(${LIBXML2_DEFINITIONS})
 add_definitions(${LIBSAILFISHAPP_DEFINITIONS})
 
