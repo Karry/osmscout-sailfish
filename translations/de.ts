@@ -142,12 +142,12 @@
     <message>
         <source>Export Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Exportiere Sammlung</translation>
     </message>
     <message>
         <source>Edit Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeite Sammlung</translation>
     </message>
 </context>
 <context>
@@ -877,23 +877,23 @@
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished">Navigation</translation>
+        <translation>Navigation</translation>
     </message>
     <message>
         <source>Voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Stimme</translation>
     </message>
     <message>
         <source>No voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Stumm</translation>
     </message>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Installierte Stimmen</translation>
     </message>
     <message>
         <source>Play sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Beispiel abspielen</translation>
     </message>
 </context>
 <context>
@@ -1269,19 +1269,19 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Installierte Stimmen</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Neu laden</translation>
+        <translation>Neu laden</translation>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stimmbeispiele wurde als Teil des &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; Projekts erstellt. Lizenziert unter den Bedingungen der &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; Lizenz.</translation>
     </message>
     <message>
         <source>Author: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor: %1</translation>
     </message>
 </context>
 <context>
@@ -1620,75 +1620,75 @@
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"></translation>
+        <translation>Amerikanisches Englisch</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"></translation>
+        <translation>Britisches Englisch</translation>
     </message>
     <message>
         <source>Chinese Simplified</source>
-        <translation type="unfinished"></translation>
+        <translation>Vereinfachtes Chinesisch</translation>
     </message>
     <message>
         <source>Croatian</source>
-        <translation type="unfinished"></translation>
+        <translation>Kroatisch</translation>
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Tschechisch</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Niederländisch</translation>
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Französisch</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Deutsch</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Griechisch</translation>
     </message>
     <message>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italienisch</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Polnisch</translation>
     </message>
     <message>
         <source>Punjabi</source>
-        <translation type="unfinished"></translation>
+        <translation>Pandschabisch</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumänisch</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>Russisch</translation>
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanisch</translation>
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Türkisch</translation>
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrainisch</translation>
     </message>
 </context>
 <context>
