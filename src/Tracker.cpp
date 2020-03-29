@@ -18,6 +18,7 @@
 */
 
 #include "Tracker.h"
+#include "QVariantConverters.h"
 
 #include <QDebug>
 #include <osmscout/util/Geometry.h>
@@ -198,7 +199,8 @@ void Tracker::stopTracking(){
   emit trackingChanged();
 }
 
-void Tracker::locationChanged(bool locationValid,
+void Tracker::locationChanged(const QDateTime &timestamp,
+                              bool locationValid,
                               double lat, double lon,
                               bool horizontalAccuracyValid, double horizontalAccuracy,
                               bool elevationValid, double elevation,
@@ -209,7 +211,7 @@ void Tracker::locationChanged(bool locationValid,
 
   using namespace osmscout;
   gpx::TrackPoint point(GeoCoord(lat, lon));
-  point.time=gpx::Optional<Timestamp>::of(Timestamp::clock::now());
+  point.time=converters::dateTimeToTimestampOpt(timestamp); // use time from gps
   if (elevationValid) {
     point.elevation=gpx::Optional<double>::of(elevation);
   }

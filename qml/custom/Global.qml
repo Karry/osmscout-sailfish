@@ -189,15 +189,15 @@ Item {
                                            position.longitudeValid &&
                                            !isNaN(lat) && !isNaN(lon);
 
+            lastUpdate = position.timestamp ? position.timestamp : new Date();
             if (position.altitudeValid){
                 altitude = position.coordinate.altitude;
                 altitudeValid = true;
-                lastAltitudeUpdate = position.timestamp ? position.timestamp : new Date();
+                lastAltitudeUpdate = lastUpdate;
                 verticalAccuracy = position.verticalAccuracy;
                 verticalAccuracyValid = position.verticalAccuracyValid;
             }
 
-            lastUpdate = position.timestamp ? position.timestamp : new Date();
             update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
 
             // update location for navigation
@@ -209,7 +209,8 @@ Item {
             }
             // console.log("position: " + latitude + " " + longitude);
             if (tracker.tracking){
-                tracker.locationChanged(valid,
+                tracker.locationChanged(lastUpdate,
+                                        valid,
                                         lat, lon,
                                         position.horizontalAccuracyValid, position.horizontalAccuracy,
                                         position.altitudeValid, position.coordinate.altitude,

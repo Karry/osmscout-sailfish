@@ -80,7 +80,8 @@ public slots:
   void startTracking(QString collectionId, QString trackName, QString trackDescription);
   void stopTracking();
 
-  void locationChanged(bool locationValid,
+  void locationChanged(const QDateTime &timestamp,
+                       bool locationValid,
                        double lat, double lon,
                        bool horizontalAccuracyValid, double horizontalAccuracy,
                        bool elevationValid, double elevation,
