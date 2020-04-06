@@ -26,6 +26,8 @@
 #include <QObject>
 #include <QtCore/QSet>
 
+#include <vector>
+
 class CollectionMapBridge : public QObject {
 
   Q_OBJECT
@@ -81,7 +83,7 @@ private:
 
   struct DisplayedTrack {
     QDateTime lastModification;
-    QSet<qint64> ids; // overlay object ids (object for every segment)
+    std::vector<qint64> ids; // overlay object ids (object for every segment)
   };
   struct DisplayedWaypoint {
     QDateTime lastModification;

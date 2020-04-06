@@ -1844,6 +1844,7 @@ void Storage::appendNodes(qint64 trackId,
     qWarning() << "Edit track failed" << sql.lastError();
     emit error(tr("Edit track failed: %1").arg(sql.lastError().text()));
     loadCollectionDetails(Collection(collectionId));
+    return;
   }
 
   loadCollectionDetails(Collection(collectionId));

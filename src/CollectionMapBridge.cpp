@@ -84,7 +84,7 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
     return;
   }
 
-  qDebug() << "Display collection" << collection.name << "(" << collection.id << ")";
+  qDebug() << "Display collection" << collection.name << "(" << collection.id << ") on map" << delegatedMap;
 
   DisplayedCollection &dispColl = displayedCollection[collection.id];
 
@@ -156,10 +156,33 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
   qDebug() << "Adding overlay track"
            << track.name
            << "(" << track.id << ")"
-           << displayedCollection[track.collectionId].tracks[track.id].lastModification << "/" << track.lastModification;
+           << displayedCollection[track.collectionId].tracks[track.id].lastModification << "/" << track.lastModification
+           << "to map" << delegatedMap;
 
-  QSet<qint64> ids;
-  for (const osmscout::gpx::TrackSegment &seg : track.data->segments) {
+  std::vector<qint64> ids;
+  // if track is displayed already...
+  if (displayedCollection.contains(track.collectionId) &&
+      displayedCollection[track.collectionId].tracks.contains(track.id)){
+    ids = displayedCollection[track.collectionId].tracks[track.id].ids;
+  }
+  if (ids.size() < track.data->segments.size()) {
+    // generate ids for new segments
+    ids.reserve(track.data->segments.size());
+    while (ids.size() < track.data->segments.size()) {
+      ids.push_back(nextObjectId++);
+    }
+  }
+  if (ids.size() > track.data->segments.size()) {
+    // hide segments from tail
+    for (size_t i=track.data->segments.size(); i < ids.size(); i++){
+      delegatedMap->removeOverlayObject(ids[i]);
+    }
+    ids.resize(track.data->segments.size());
+  }
+
+  assert(ids.size() == track.data->segments.size());
+  for (size_t i=0; i < track.data->segments.size(); i++) {
+    const osmscout::gpx::TrackSegment &seg = track.data->segments[i];
     std::vector<osmscout::Point> points;
     points.reserve(seg.points.size());
     for (auto const &p:seg.points) {
@@ -168,9 +191,7 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
     osmscout::OverlayWay trkOverlay(points);
     trkOverlay.setTypeName(trackTypeName);
     trkOverlay.setName(track.name);
-
-    delegatedMap->addOverlayObject(nextObjectId,&trkOverlay);
-    ids.insert(nextObjectId++);
+    delegatedMap->addOverlayObject(ids[i],&trkOverlay);
   }
   displayedCollection[track.collectionId].tracks[track.id]=DisplayedTrack{
     track.lastModification,
@@ -180,7 +201,7 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
 
 void CollectionMapBridge::onCollectionsLoaded(std::vector<Collection> collections, bool /*ok*/)
 {
-  qDebug() << "Loaded" << collections.size() << "collections";
+  qDebug() << "Loaded" << collections.size() << "collections for map" << delegatedMap;
 
   // clear deleted collections on map
   if (delegatedMap == nullptr) {
