@@ -377,3 +377,5 @@
 - optimise track loading from collection database
 - try to release cache when system memory is under pressure
 - fix performance issue while displaying active track
+- add small junction penalty to router, fastest route is more reliable now
+- show lane turn symbols on high zoom levels
