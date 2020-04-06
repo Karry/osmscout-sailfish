@@ -189,7 +189,11 @@ Item {
                                            position.longitudeValid &&
                                            !isNaN(lat) && !isNaN(lon);
 
-            lastUpdate = position.timestamp ? position.timestamp : new Date();
+            lastUpdate = position.timestamp;
+            if (!lastUpdate){
+                console.log("GPS event timestamp is not valid!");
+                lastUpdate = new Date();
+            }
             if (position.altitudeValid){
                 altitude = position.coordinate.altitude;
                 altitudeValid = true;
