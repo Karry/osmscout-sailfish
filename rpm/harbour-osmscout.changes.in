@@ -379,3 +379,7 @@
 - fix performance issue while displaying active track
 - add small junction penalty to router, fastest route is more reliable now
 - show lane turn symbols on high zoom levels
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.2-1
+- small fix in router
+- update c++ standard to 17, require SFOS at least 3.3.0
