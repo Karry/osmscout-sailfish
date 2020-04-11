@@ -20,7 +20,7 @@ export PROJECT_TARGET="harbour-osmscout"
 export MER_SSH_SHARED_SRC="$HOME/SailfishOS/projects"
 ## SDK ROOT
 export SDK_ROOT="$HOME/SailfishOS"
-SDK_VERSION=3.2.1.20
+SDK_VERSION=3.3.0.14EA
 
 ## build & deploy target
 ## list of configured devices: ~/SailfishOS/vmshare/devices.xml 
