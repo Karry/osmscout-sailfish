@@ -10,7 +10,7 @@ Type=Application
 #
 # Use invoker command to start with booster:
 # /usr/bin/invoker --type=generic /usr/bin/harbour-osmscout 
-X-Nemo-Application-Type=generic
+X-Nemo-Application-Type=silica-qt5
 
 Icon=harbour-osmscout
 Exec=harbour-osmscout

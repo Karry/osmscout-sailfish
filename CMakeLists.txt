@@ -129,6 +129,11 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 
+# CMake doesn't add "-pie" by default for executables (CMake issue #14983)
+# it is necessary for accelerated start by mapplauncherd,
+# see https://git.sailfishos.org/mer-core/mapplauncherd for details
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
+
 set(HARBOUR_APP_NAME harbour-osmscout)
 
 # ==================================================================================================
@@ -151,6 +156,7 @@ message(STATUS "Build options:")
 message(STATUS " Build type .............................. ${CMAKE_BUILD_TYPE}")
 message(STATUS " Interprocedural optimizations ........... ${OSMSCOUT_ENABLE_IPO}")
 message(STATUS " Compiler flags .......................... ${CMAKE_CXX_FLAGS}")
+message(STATUS " Linker flags ............................ ${CMAKE_EXE_LINKER_FLAGS}")
 message(STATUS " Sanitize ................................ ${SANITIZE}")
 message(STATUS " LABEL_LAYOUTER_DEBUG .................... ${LABEL_LAYOUTER_DEBUG}")
 message(STATUS " DEBUG_GROUNDTILES ....................... ${DEBUG_GROUNDTILES}")
