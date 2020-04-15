@@ -83,22 +83,13 @@ public:
     bbox(bbox)
   {};
 
-  TrackStatistics(const TrackStatistics &o):
-    from(o.from),
-    to(o.to),
-    distance(o.distance),
-    rawDistance(o.rawDistance),
-    duration(o.duration),
-    movingDuration(o.movingDuration),
-    maxSpeed(o.maxSpeed),
-    averageSpeed(o.averageSpeed),
-    movingAverageSpeed(o.movingAverageSpeed),
-    ascent(o.ascent),
-    descent(o.descent),
-    minElevation(o.minElevation),
-    maxElevation(o.maxElevation),
-    bbox(o.bbox)
-  {};
+  TrackStatistics(const TrackStatistics &o) = default;
+  TrackStatistics(TrackStatistics &&o) = default;
+
+  ~TrackStatistics() = default;
+
+  TrackStatistics& operator=(const TrackStatistics &o) = default;
+  TrackStatistics& operator=(TrackStatistics &&o) = default;
 
   qint64 durationMillis() const
   {
@@ -233,6 +224,7 @@ class Track
 {
 public:
   Track() = default;
+
   Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,
         const QDateTime &creationTime, const QDateTime &lastModification,
         const TrackStatistics &statistics):
@@ -241,11 +233,13 @@ public:
     statistics(statistics)
   {};
 
-  Track(const Track &o):
-    id(o.id), collectionId(o.collectionId), name(o.name), description(o.description), open(o.open),
-    creationTime(o.creationTime), lastModification(o.lastModification),
-    statistics(o.statistics), data(o.data)
-  {};
+  Track(const Track &o) = default;
+  Track(Track &&o) = default;
+
+  ~Track() = default;
+
+  Track& operator=(const Track &o) = default;
+  Track& operator=(Track &&o) = default;
 
 public:
   qint64 id{-1};

@@ -132,7 +132,7 @@ void CollectionListModel::onCollectionsLoaded(std::vector<Collection> collection
   emit loadingChanged();
 }
 
-int CollectionListModel::rowCount(const QModelIndex &parentIndex) const
+int CollectionListModel::rowCount([[maybe_unused]] const QModelIndex &parentIndex) const
 {
   return collections.size();
 }

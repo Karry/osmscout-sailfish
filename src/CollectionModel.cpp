@@ -138,7 +138,7 @@ void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
   emit loadingChanged();
 }
 
-int CollectionModel::rowCount(const QModelIndex &parentIndex) const
+int CollectionModel::rowCount([[maybe_unused]] const QModelIndex &parentIndex) const
 {
   return tracks.size() + waypoints.size();
 }

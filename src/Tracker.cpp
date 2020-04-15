@@ -205,7 +205,7 @@ void Tracker::locationChanged(const QDateTime &timestamp,
                               bool horizontalAccuracyValid, double horizontalAccuracy,
                               bool elevationValid, double elevation,
                               bool verticalAccuracyValid, double verticalAccuracy){
-  if (!isTracking()){
+  if (!isTracking() || !locationValid){
     return;
   }
 
