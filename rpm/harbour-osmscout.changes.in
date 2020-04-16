@@ -382,4 +382,5 @@
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.2-1
 - small fix in router
+- fix random crash (use-after-free when cache is flushed)
 - update c++ standard to 17, require SFOS at least 3.3.0
