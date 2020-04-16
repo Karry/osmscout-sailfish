@@ -62,11 +62,11 @@ void MaxSpeedBuffer::flush()
 
 void MaxSpeedBuffer::insert(const gpx::TrackPoint &p)
 {
-  if (!p.time.hasValue()){
+  if (!p.time){
     return;
   }
   if (lastPoint){
-    Timestamp::duration timeDiff = p.time.get() - lastPoint->time.get();
+    Timestamp::duration timeDiff = *(p.time) - *(lastPoint->time);
     if (timeDiff.count() < 0){
       qWarning() << "Traveling in time is not supported";
       return;
@@ -590,7 +590,7 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
 
     QVariant timestampVar = sql.value("timestamp");
     if (!timestampVar.isNull()) {
-      wpt.time = gpx::Optional<Timestamp>::of(dateTimeToTimestamp(varToDateTime(timestampVar)));
+      wpt.time = dateTimeToTimestamp(varToDateTime(timestampVar));
     }
     wpt.elevation = varToDoubleOpt(sql.value("elevation"));
 
@@ -737,9 +737,9 @@ bool Storage::loadTrackDataPrivate(Track &track)
 
   track.data = std::make_shared<gpx::Track>();
 
-  track.data->name = gpx::Optional<std::string>::of(track.name.toStdString());
+  track.data->name = track.name.toStdString();
   if (!track.description.isEmpty()) {
-    track.data->desc = gpx::Optional<std::string>::of(track.description.toStdString());
+    track.data->desc = track.description.toStdString();
   }
 
   QSqlQuery sql(db);
@@ -844,6 +844,8 @@ void Storage::deleteCollection(qint64 id)
 
 bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
 {
+  using namespace std::string_literals;
+
   int wptNum = 0;
   db.transaction();
   QSqlQuery sqlWpt(db);
@@ -853,7 +855,7 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
   for (const auto &wpt: gpxFile.waypoints) {
     wptNum++;
 
-    QString wptName = QString::fromStdString(wpt.name.getOrElse(""));
+    QString wptName = QString::fromStdString(wpt.name.value_or(""s));
     if (wptName.isEmpty())
       wptName = tr("waypoint %1").arg(wptNum);
 
@@ -862,11 +864,11 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
     sqlWpt.bindValue(":modification_time", QDateTime::currentDateTime());
     sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
     sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
-    sqlWpt.bindValue(":elevation", (wpt.elevation.hasValue() ? wpt.elevation.get() : QVariant()));
+    sqlWpt.bindValue(":elevation", (wpt.elevation ? *wpt.elevation : QVariant()));
     sqlWpt.bindValue(":name", wptName);
     sqlWpt.bindValue(":description",
-                     (wpt.description.hasValue() ? QString::fromStdString(wpt.description.get()) : QVariant()));
-    sqlWpt.bindValue(":symbol", (wpt.symbol.hasValue() ? QString::fromStdString(wpt.symbol.get()) : QVariant()));
+                     (wpt.description ? QString::fromStdString(*wpt.description) : QVariant()));
+    sqlWpt.bindValue(":symbol", (wpt.symbol ? QString::fromStdString(*wpt.symbol) : QVariant()));
 
     sqlWpt.exec();
     if (sqlWpt.lastError().isValid()) {
@@ -920,30 +922,30 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
 {
   // filter inaccurate points
   bool filter=true;
-  if (filter && p.hdop.hasValue() && p.hdop.get() > maxDilution){
+  if (filter && p.hdop.has_value() && *(p.hdop) > maxDilution){
     filter=false;
   }
-  if (filter && p.pdop.hasValue() && p.pdop.get() > maxDilution){
+  if (filter && p.pdop.has_value() && *(p.pdop) > maxDilution){
     filter=false;
   }
 
   // filter near points
-  if (filter && filterLastPoint.hasValue()){
-    Distance distance=GetEllipsoidalDistance(filterLastPoint.get().coord, p.coord);
+  if (filter && filterLastPoint.has_value()){
+    Distance distance=GetEllipsoidalDistance(filterLastPoint->coord, p.coord);
     if (distance < minDistance) {
       filter=false;
     }
   }
   if (filter) {
-    filterLastPoint = gpx::Optional<gpx::TrackPoint>::of(p);
+    filterLastPoint = p;
     filteredCnt++;
   }
   rawCount++;
 
   // time computation
-  if (p.time.hasValue()){
+  if (p.time.has_value()){
     to=p.time;
-    if (!from.hasValue()){
+    if (!from.has_value()){
       from=to;
     }
   }
@@ -953,21 +955,21 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
 
   // distance
   if (filter) {
-    if (filterLastCoord.hasValue()) {
-      length+=GetEllipsoidalDistance(filterLastCoord.get(), p.coord);
+    if (filterLastCoord.has_value()) {
+      length+=GetEllipsoidalDistance(*filterLastCoord, p.coord);
     }
-    filterLastCoord = gpx::Optional<GeoCoord>::of(p.coord);
+    filterLastCoord = p.coord;
   }
-  if (lastCoord.hasValue()) {
-    rawLength+=GetEllipsoidalDistance(lastCoord.get(), p.coord);
+  if (lastCoord) {
+    rawLength+=GetEllipsoidalDistance(*lastCoord, p.coord);
   }
-  lastCoord = gpx::Optional<GeoCoord>::of(p.coord);
+  lastCoord = p.coord;
 
   // max speed
-  if (filter && p.time.hasValue()) {
-    if (previousTime.hasValue()) {
+  if (filter && p.time) {
+    if (previousTime) {
       maxSpeedBuf.insert(p);
-      auto diff = p.time.get() - previousTime.get();
+      auto diff = *(p.time) - *previousTime;
       if (diff < std::chrono::minutes(5)) {
         movingDuration += diff;
       }
@@ -976,22 +978,22 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
   }
 
   // elevation
-  if (filter && p.elevation.hasValue() && (!p.vdop.hasValue() || p.vdop.get() < 50.0)){
+  if (filter && p.elevation && (!p.vdop || *(p.vdop) < 50.0)){
 
     // min/max
-    double current = p.elevation.get();
-    if (!minElevation.hasValue() || minElevation.get().AsMeter() > current){
-      minElevation = gpx::Optional<Distance>::of(Meters(current));
+    double current = *p.elevation;
+    if (!minElevation.has_value() || minElevation->AsMeter() > current){
+      minElevation = Meters(current);
     }
-    if (!maxElevation.hasValue() || maxElevation.get().AsMeter() < current){
-      maxElevation = gpx::Optional<Distance>::of(Meters(current));
+    if (!maxElevation.has_value() || maxElevation->AsMeter() < current){
+      maxElevation = Meters(current);
     }
 
     // ascent / descent
-    if (!prevElevation.hasValue()) {
+    if (!prevElevation.has_value()) {
       prevElevation=p.elevation;
     } else {
-      double previous=prevElevation.get();
+      double previous=*prevElevation;
       // when difference is less than 9 meters, don't count to ascent/descent
       // this threshold was experimentally set to get similar ascent like on strava.com :-)
       if (std::abs(current - previous) >= 9.0) {
@@ -1010,20 +1012,20 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
 void TrackStatisticsAccumulator::segmentEnd()
 {
   // filter
-  filterLastPoint=osmscout::gpx::Optional<osmscout::gpx::TrackPoint>::empty;
+  filterLastPoint=std::nullopt;
 
   // distance
-  lastCoord = gpx::Optional<GeoCoord>::empty;
-  filterLastCoord = gpx::Optional<GeoCoord>::empty;
+  lastCoord = std::nullopt;
+  filterLastCoord = std::nullopt;
 
   // max speed
   maxSpeedBuf.flush();
 
   // moving duration
-  previousTime=gpx::Optional<Timestamp>::empty;
+  previousTime=std::nullopt;
 
   // elevation
-  prevElevation=gpx::Optional<double>::empty;
+  prevElevation=std::nullopt;
 }
 
 TrackStatistics TrackStatisticsAccumulator::accumulate() const
@@ -1031,8 +1033,8 @@ TrackStatistics TrackStatisticsAccumulator::accumulate() const
   osmscout::Timestamp::duration duration{0};
 
   // time accumulator
-  if (from.hasValue() && to.hasValue()){
-    duration = to.get() - from.get();
+  if (from.has_value() && to.has_value()){
+    duration = *to - *from;
   }
 
   double durationInSeconds = durationSeconds(duration);
@@ -1127,7 +1129,7 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
   sqlTrk.bindValue(":collection_id", collectionId);
   sqlTrk.bindValue(":name", trackName);
   sqlTrk.bindValue(":description",
-                   (desc.hasValue() ? desc.get() : QVariant()));
+                   (desc.has_value() ? *desc : QVariant()));
   sqlTrk.bindValue(":open", open);
 
   sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
@@ -1144,8 +1146,8 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
   sqlTrk.bindValue(":moving_average_speed", stat.movingAverageSpeed);
   sqlTrk.bindValue(":ascent", stat.ascent.AsMeter());
   sqlTrk.bindValue(":descent", stat.descent.AsMeter());
-  sqlTrk.bindValue(":min_elevation", stat.minElevation.hasValue() ? QVariant::fromValue(stat.minElevation.get().AsMeter()) : QVariant());
-  sqlTrk.bindValue(":max_elevation", stat.maxElevation.hasValue() ? QVariant::fromValue(stat.maxElevation.get().AsMeter()) : QVariant());
+  sqlTrk.bindValue(":min_elevation", stat.minElevation.has_value() ? QVariant::fromValue(stat.minElevation->AsMeter()) : QVariant());
+  sqlTrk.bindValue(":max_elevation", stat.maxElevation.has_value() ? QVariant::fromValue(stat.maxElevation->AsMeter()) : QVariant());
 
   sqlTrk.bindValue(":bboxMinLat", stat.bbox.IsValid() ? stat.bbox.GetMinLat() : -1000);
   sqlTrk.bindValue(":bboxMinLon", stat.bbox.IsValid() ? stat.bbox.GetMinLon() : -1000);
@@ -1155,6 +1157,8 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
 
 bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
 {
+  using namespace std::string_literals;
+
   int trkNum = 0;
   QSqlQuery sqlTrk=trackInsertSql();
 
@@ -1164,14 +1168,14 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
   for (const auto &trk: gpxFile.tracks){
     trkNum++;
 
-    QString trackName = QString::fromStdString(trk.name.getOrElse(""));
+    QString trackName = QString::fromStdString(trk.name.value_or(""s));
     if (trackName.isEmpty())
       trackName = tr("track %1").arg(trkNum);
 
     TrackStatistics stat = computeTrackStatistics(trk);
-    QStringOpt desc = trk.desc.hasValue() ?
-                      QStringOpt::of(QString::fromStdString(trk.desc.get())) :
-                      QStringOpt::empty;
+    QStringOpt desc = trk.desc ?
+                      QStringOpt(QString::fromStdString(*trk.desc)) :
+                      std::nullopt;
 
     prepareTrackInsert(sqlTrk, collectionId, trackName, desc, stat, false);
 
@@ -1228,10 +1232,10 @@ bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint
     sql.bindValue(":timestamp", timestampToDateTime(point.time));
     sql.bindValue(":latitude", point.coord.GetLat());
     sql.bindValue(":longitude", point.coord.GetLon());
-    sql.bindValue(":elevation", point.elevation.hasValue() ? point.elevation.get() : QVariant());
+    sql.bindValue(":elevation", point.elevation.has_value() ? *point.elevation : QVariant());
     // read TrackPoint notes
-    sql.bindValue(":horiz_accuracy", point.hdop.hasValue() ? point.hdop.get() : QVariant());
-    sql.bindValue(":vert_accuracy", point.vdop.hasValue() ? point.vdop.get(): QVariant());
+    sql.bindValue(":horiz_accuracy", point.hdop.has_value() ? *point.hdop : QVariant());
+    sql.bindValue(":vert_accuracy", point.vdop.has_value() ? *point.vdop : QVariant());
 
     sql.exec();
     if (sql.lastError().isValid()) {
@@ -1288,10 +1292,10 @@ void Storage::importCollection(QString filePath)
   // import collection
   QSqlQuery sql(db);
   sql.prepare("INSERT INTO `collection` (`name`, `description`, `visible`) VALUES (:name, :description, 0);");
-  sql.bindValue(":name", gpxFile.name.hasValue() ?
-                         QString::fromStdString(gpxFile.name.get()) : QFileInfo(filePath).baseName());
-  sql.bindValue(":description", gpxFile.desc.hasValue() && !gpxFile.desc.get().empty() ?
-                                QString::fromStdString(gpxFile.desc.get()) :
+  sql.bindValue(":name", gpxFile.name.has_value() ?
+                         QString::fromStdString(*gpxFile.name) : QFileInfo(filePath).baseName());
+  sql.bindValue(":description", gpxFile.desc.has_value() && !gpxFile.desc->empty() ?
+                                QString::fromStdString(*gpxFile.desc) :
                                 tr("Imported from %1").arg(filePath));
 
   sql.exec();
@@ -1397,8 +1401,8 @@ void Storage::createTrack(qint64 collectionId, QString name, QString description
   QSqlQuery sqlTrk = trackInsertSql();
 
   QStringOpt desc = description.isEmpty() ?
-                    QStringOpt::empty :
-                    QStringOpt::of(description);
+                    std::nullopt :
+                    QStringOpt(description);
 
   prepareTrackInsert(sqlTrk, collectionId, name, desc, TrackStatistics{}, open);
 
@@ -1510,7 +1514,7 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   loadCollectionDetails(Collection(collectionId));
 }
 
-bool Storage::exportPrivate(qint64 collectionId, const QString &file, const osmscout::gpx::Optional<qint64> &trackId)
+bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId)
 {
   QTime timer;
   timer.start();
@@ -1525,10 +1529,10 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const osms
   }
 
   if (!collection.name.isEmpty()) {
-    gpxFile.name = gpx::Optional<std::string>::of(collection.name.toStdString());
+    gpxFile.name = collection.name.toStdString();
   }
   if (!collection.description.isEmpty()) {
-    gpxFile.desc = gpx::Optional<std::string>::of(collection.description.toStdString());
+    gpxFile.desc = collection.description.toStdString();
   }
 
   assert(collection.waypoints);
@@ -1542,7 +1546,7 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const osms
   assert(collection.tracks);
   gpxFile.tracks.reserve(collection.tracks->size());
   for (Track &t : *(collection.tracks)){
-    if (!trackId.hasValue() || trackId.get() == t.id) {
+    if (!trackId || *trackId == t.id) {
       if (!loadTrackDataPrivate(t)) {
         emit collectionExported(false);
         return false;
@@ -1573,7 +1577,7 @@ void Storage::exportCollection(qint64 collectionId, QString file)
     return;
   }
 
-  bool success = exportPrivate(collectionId, file, osmscout::gpx::Optional<qint64>::empty);
+  bool success = exportPrivate(collectionId, file, std::nullopt);
   emit collectionExported(success);
 }
 
@@ -1584,7 +1588,7 @@ void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file)
     return;
   }
 
-  bool success = exportPrivate(collectionId, file, osmscout::gpx::Optional<qint64>::of(trackId));
+  bool success = exportPrivate(collectionId, file, trackId);
   emit trackExported(success);
 }
 
@@ -1827,8 +1831,8 @@ void Storage::appendNodes(qint64 trackId,
   sql.bindValue(":moving_average_speed", statistics.movingAverageSpeed);
   sql.bindValue(":ascent", statistics.ascent.AsMeter());
   sql.bindValue(":descent", statistics.descent.AsMeter());
-  sql.bindValue(":min_elevation", statistics.minElevation.hasValue() ? QVariant::fromValue(statistics.minElevation.get().AsMeter()) : QVariant());
-  sql.bindValue(":max_elevation", statistics.maxElevation.hasValue() ? QVariant::fromValue(statistics.maxElevation.get().AsMeter()) : QVariant());
+  sql.bindValue(":min_elevation", statistics.minElevation.has_value() ? QVariant::fromValue(statistics.minElevation->AsMeter()) : QVariant());
+  sql.bindValue(":max_elevation", statistics.maxElevation.has_value() ? QVariant::fromValue(statistics.maxElevation->AsMeter()) : QVariant());
 
   sql.bindValue(":bbox_min_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMinLat() : -1000);
   sql.bindValue(":bbox_min_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMinLon() : -1000);

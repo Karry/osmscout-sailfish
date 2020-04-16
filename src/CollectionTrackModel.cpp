@@ -153,15 +153,15 @@ double CollectionTrackModel::getDescent() const
 
 double CollectionTrackModel::getMinElevation() const
 {
-  if (track.statistics.minElevation.hasValue())
-    return track.statistics.minElevation.get().AsMeter();
+  if (track.statistics.minElevation.has_value())
+    return track.statistics.minElevation->AsMeter();
   return -1000000; // JS numeric limits may be different from C++
 }
 
 double CollectionTrackModel::getMaxElevation() const
 {
-  if (track.statistics.maxElevation.hasValue())
-    return track.statistics.maxElevation.get().AsMeter();
+  if (track.statistics.maxElevation.has_value())
+    return track.statistics.maxElevation->AsMeter();
   return -1000000; // JS numeric limits may be different from C++
 }
 

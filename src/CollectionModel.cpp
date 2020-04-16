@@ -146,6 +146,7 @@ int CollectionModel::rowCount([[maybe_unused]] const QModelIndex &parentIndex) c
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
 {
   using namespace converters;
+  using namespace std::string_literals;
 
   if(index.row() < 0) {
     return QVariant();
@@ -156,15 +157,15 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
     const Waypoint &waypoint = waypoints.at(row);
     switch(role){
       case TypeRole: return "waypoint";
-      case NameRole: return QString::fromStdString(waypoint.data.name.getOrElse(""));
-      case FilesystemNameRole: return safeFileName(QString::fromStdString(waypoint.data.name.getOrElse("")));
-      case DescriptionRole: return QString::fromStdString(waypoint.data.description.getOrElse(""));
+      case NameRole: return QString::fromStdString(waypoint.data.name.value_or(""s));
+      case FilesystemNameRole: return safeFileName(QString::fromStdString(waypoint.data.name.value_or(""s)));
+      case DescriptionRole: return QString::fromStdString(waypoint.data.description.value_or(""s));
       case IdRole: return QString::number(waypoint.id);
 
-      case SymbolRole: return QString::fromStdString(waypoint.data.symbol.getOrElse(""));
+      case SymbolRole: return QString::fromStdString(waypoint.data.symbol.value_or(""s));
       case LatitudeRole: return waypoint.data.coord.GetLat();
       case LongitudeRole: return waypoint.data.coord.GetLon();
-      case ElevationRole: return waypoint.data.elevation.hasValue() ? waypoint.data.elevation.get() : QVariant();
+      case ElevationRole: return waypoint.data.elevation.has_value() ? *(waypoint.data.elevation) : QVariant();
 
       case TimeRole: return timestampToDateTime(waypoint.data.time);
       case LastModificationRole: return waypoint.lastModification;

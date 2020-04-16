@@ -32,6 +32,7 @@
 #include <QtCore/QDateTime>
 
 #include <atomic>
+#include <optional>
 
 class ErrorCallback: public QObject, public osmscout::gpx::ProcessCallback
 {
@@ -64,8 +65,8 @@ public:
                   const double &movingAverageSpeed,
                   const osmscout::Distance &ascent,
                   const osmscout::Distance &descent,
-                  const osmscout::gpx::Optional<osmscout::Distance> &minElevation,
-                  const osmscout::gpx::Optional<osmscout::Distance> &maxElevation,
+                  const std::optional<osmscout::Distance> &minElevation,
+                  const std::optional<osmscout::Distance> &maxElevation,
                   const osmscout::GeoBox &bbox):
     from(from),
     to(to),
@@ -135,8 +136,8 @@ public:
   double movingAverageSpeed; // m/s
   osmscout::Distance ascent;
   osmscout::Distance descent;
-  osmscout::gpx::Optional<osmscout::Distance> minElevation;
-  osmscout::gpx::Optional<osmscout::Distance> maxElevation;
+  std::optional<osmscout::Distance> minElevation;
+  std::optional<osmscout::Distance> maxElevation;
   osmscout::GeoBox bbox;
 };
 
@@ -189,33 +190,33 @@ private:
   double maxDilution{30};
 
   // distance filter
-  osmscout::gpx::Optional<osmscout::gpx::TrackPoint> filterLastPoint;
+  std::optional<osmscout::gpx::TrackPoint> filterLastPoint;
   osmscout::Distance minDistance{osmscout::Meters(5)};
 
   // duration accumulator
-  osmscout::gpx::Optional<osmscout::Timestamp> from;
-  osmscout::gpx::Optional<osmscout::Timestamp> to;
+  std::optional<osmscout::Timestamp> from;
+  std::optional<osmscout::Timestamp> to;
 
   // bbox
   osmscout::GeoBox bbox;
 
   // distance
-  osmscout::gpx::Optional<osmscout::GeoCoord> filterLastCoord;
+  std::optional<osmscout::GeoCoord> filterLastCoord;
   osmscout::Distance length;
 
   // raw distance
-  osmscout::gpx::Optional<osmscout::GeoCoord> lastCoord;
+  std::optional<osmscout::GeoCoord> lastCoord;
   osmscout::Distance rawLength;
 
   // max speed, moving duration
   MaxSpeedBuffer maxSpeedBuf;
-  osmscout::gpx::Optional<osmscout::Timestamp> previousTime;
+  std::optional<osmscout::Timestamp> previousTime;
   osmscout::Timestamp::duration movingDuration{0};
 
   // elevation
-  osmscout::gpx::Optional<osmscout::Distance> minElevation;
-  osmscout::gpx::Optional<osmscout::Distance> maxElevation;
-  osmscout::gpx::Optional<double> prevElevation; // m
+  std::optional<osmscout::Distance> minElevation;
+  std::optional<osmscout::Distance> maxElevation;
+  std::optional<double> prevElevation; // m
   double ascent=0;
   double descent=0;
 };
@@ -308,7 +309,7 @@ class Storage : public QObject{
   Q_DISABLE_COPY(Storage)
 
 public:
-  using QStringOpt = osmscout::gpx::Optional<QString>;
+  using QStringOpt = std::optional<QString>;
 
 private:
   bool updateSchema();
@@ -505,7 +506,7 @@ private:
   bool loadCollectionDetailsPrivate(Collection &collection);
   bool loadTrackDataPrivate(Track &track);
   bool createSegment(qint64 trackId, qint64 &segmentId);
-  bool exportPrivate(qint64 collectionId, const QString &file, const osmscout::gpx::Optional<qint64> &trackId);
+  bool exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId);
 
   /**
    * obtain collection id from trackId

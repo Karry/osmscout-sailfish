@@ -21,18 +21,17 @@
 
 #include <osmscout/util/String.h>
 #include <osmscout/util/Distance.h>
-#include <osmscout/gpx/Optional.h>
 
 #include <QVariant>
 #include <QDateTime>
 
 namespace converters {
 
-inline QDateTime timestampToDateTime(const osmscout::gpx::Optional<osmscout::Timestamp> timestamp)
+inline QDateTime timestampToDateTime(const std::optional<osmscout::Timestamp> timestamp)
 {
-  if (timestamp.hasValue()){
+  if (timestamp.has_value()){
     using namespace std::chrono;
-    milliseconds millisSinceEpoch = duration_cast<milliseconds>(timestamp.get().time_since_epoch());
+    milliseconds millisSinceEpoch = duration_cast<milliseconds>(timestamp->time_since_epoch());
     return QDateTime::fromMSecsSinceEpoch(millisSinceEpoch.count());
   }
   return QDateTime();
@@ -56,15 +55,15 @@ inline QString varToString(const QVariant &var, QString def = "")
   return def;
 }
 
-inline osmscout::gpx::Optional<std::string> varToStringOpt(const QVariant &var)
+inline std::optional<std::string> varToStringOpt(const QVariant &var)
 {
   if (!var.isNull() &&
       var.isValid() &&
       var.canConvert(QMetaType::QString)) {
-    return osmscout::gpx::Optional<std::string>::of(var.toString().toStdString());
+    return var.toString().toStdString();
   }
 
-  return osmscout::gpx::Optional<std::string>();
+  return std::nullopt;
 }
 
 inline bool varToBool(const QVariant &var, bool def = false)
@@ -93,7 +92,7 @@ inline QDateTime varToDateTime(const QVariant &var, QDateTime def = QDateTime())
   return def;
 }
 
-inline osmscout::gpx::Optional<osmscout::Timestamp> varLongToOptTimestamp(const QVariant &var)
+inline std::optional<osmscout::Timestamp> varLongToOptTimestamp(const QVariant &var)
 {
   if (!var.isNull() &&
       var.isValid() &&
@@ -101,10 +100,10 @@ inline osmscout::gpx::Optional<osmscout::Timestamp> varLongToOptTimestamp(const 
 
     auto duration = std::chrono::seconds(varToLong(var));
     static_assert(std::is_same<osmscout::Timestamp::clock, std::chrono::system_clock>::value, "Timestamp clock have use unix epoch");
-    return osmscout::gpx::Optional<osmscout::Timestamp>::of(osmscout::Timestamp(duration));
+    return osmscout::Timestamp(duration);
   }
 
-  return osmscout::gpx::Optional<osmscout::Timestamp>::empty;
+  return std::nullopt;
 }
 
 inline osmscout::Timestamp dateTimeToTimestamp(const QDateTime &datetime)
@@ -115,12 +114,12 @@ inline osmscout::Timestamp dateTimeToTimestamp(const QDateTime &datetime)
   return osmscout::Timestamp(duration);
 }
 
-inline osmscout::gpx::Optional<osmscout::Timestamp> dateTimeToTimestampOpt(const QDateTime &datetime)
+inline std::optional<osmscout::Timestamp> dateTimeToTimestampOpt(const QDateTime &datetime)
 {
   if (datetime.isValid()){
-    return osmscout::gpx::Optional<osmscout::Timestamp>::of(dateTimeToTimestamp(datetime));
+    return dateTimeToTimestamp(datetime);
   } else {
-    return osmscout::gpx::Optional<osmscout::Timestamp>::empty;
+    return std::nullopt;
   }
 }
 
@@ -135,24 +134,24 @@ inline double varToDouble(const QVariant &var, double def = 0)
   return def;
 }
 
-inline osmscout::gpx::Optional<double> varToDoubleOpt(const QVariant &var)
+inline std::optional<double> varToDoubleOpt(const QVariant &var)
 {
   if (!var.isNull() &&
       var.isValid() &&
       var.canConvert(QMetaType::Double)) {
-    return osmscout::gpx::Optional<double>::of(var.toDouble());
+    return var.toDouble();
   }
 
-  return osmscout::gpx::Optional<double>();
+  return std::nullopt;
 }
 
-inline osmscout::gpx::Optional<osmscout::Distance> varToDistanceOpt(const QVariant &var)
+inline std::optional<osmscout::Distance> varToDistanceOpt(const QVariant &var)
 {
   auto m = varToDoubleOpt(var);
-  if (m.hasValue()) {
-    return osmscout::gpx::Optional<osmscout::Distance>::of(osmscout::Distance::Of<osmscout::Meter>(m.get()));
+  if (m.has_value()) {
+    return osmscout::Distance::Of<osmscout::Meter>(*m);
   }
-  return osmscout::gpx::Optional<osmscout::Distance>();
+  return std::nullopt;
 }
 
 }

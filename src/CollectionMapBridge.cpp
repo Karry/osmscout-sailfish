@@ -80,6 +80,7 @@ void CollectionMapBridge::storageInitialisationError(QString e)
 
 void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool /*ok*/)
 {
+  using namespace std::string_literals;
   if (!collection.visible || delegatedMap == nullptr){
     return;
   }
@@ -115,14 +116,14 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
           wptVisible[wpt.id].lastModification=wpt.lastModification;
         }
         qDebug() << "Adding overlay waypoint"
-                 << QString::fromStdString(wpt.data.name.getOrElse("<empty>"))
+                 << QString::fromStdString(wpt.data.name.value_or("<empty>"s))
                  << "(" << wpt.id << ")"
                  << wpt.lastModification;
 
         osmscout::OverlayNode wptOverlay;
         wptOverlay.setTypeName(waypointTypeName);
         wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
-        wptOverlay.setName(QString::fromStdString(wpt.data.name.getOrElse("")));
+        wptOverlay.setName(QString::fromStdString(wpt.data.name.value_or(""s)));
         delegatedMap->addOverlayObject(wptVisible[wpt.id].id, &wptOverlay);
       }
     }

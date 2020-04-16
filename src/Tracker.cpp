@@ -213,13 +213,13 @@ void Tracker::locationChanged(const QDateTime &timestamp,
   gpx::TrackPoint point(GeoCoord(lat, lon));
   point.time=converters::dateTimeToTimestampOpt(timestamp); // use time from gps
   if (elevationValid) {
-    point.elevation=gpx::Optional<double>::of(elevation);
+    point.elevation=elevation;
   }
   if (horizontalAccuracyValid) {
-    point.hdop=gpx::Optional<double>::of(horizontalAccuracy);
+    point.hdop=horizontalAccuracy;
   }
   if (verticalAccuracyValid){
-    point.vdop=gpx::Optional<double>::of(verticalAccuracy);
+    point.vdop=verticalAccuracy;
   }
 
   assert(batch);
@@ -227,10 +227,10 @@ void Tracker::locationChanged(const QDateTime &timestamp,
   Timestamp::duration diffFromFirst;
   Distance distanceFromLast;
   if (!batch->empty()){
-    assert(batch->back().time.hasValue());
-    assert(point.time.hasValue());
-    diffFromLast = point.time.get() - batch->back().time.get();
-    diffFromFirst = point.time.get() - batch->front().time.get();
+    assert(batch->back().time.has_value());
+    assert(point.time.has_value());
+    diffFromLast = *(point.time) - *(batch->back().time);
+    diffFromFirst = *(point.time) - *(batch->front().time);
     distanceFromLast = GetEllipsoidalDistance(point.coord, batch->back().coord);
     if (diffFromLast < Timestamp::duration::zero()){
       qWarning() << "Clock move to the past by " <<
@@ -374,14 +374,14 @@ double Tracker::getDescent() const
 
 double Tracker::getMinElevation() const
 {
-  if (track.statistics.minElevation.hasValue())
-    return track.statistics.minElevation.get().AsMeter();
+  if (track.statistics.minElevation.has_value())
+    return track.statistics.minElevation->AsMeter();
   return -1000000; // JS numeric limits may be different from C++
 }
 
 double Tracker::getMaxElevation() const
 {
-  if (track.statistics.maxElevation.hasValue())
-    return track.statistics.maxElevation.get().AsMeter();
+  if (track.statistics.maxElevation.has_value())
+    return track.statistics.maxElevation->AsMeter();
   return -1000000; // JS numeric limits may be different from C++
 }
