@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 # http://nckweb.com.ar/sailing-code/2015/01/01/develop-without-qtcreator/
 
 if [ $# -lt 1 ] ; then
