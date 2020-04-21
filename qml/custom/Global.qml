@@ -191,7 +191,7 @@ Item {
 
             lastUpdate = position.timestamp;
             if (!lastUpdate ||
-                // it seems that soem GPS modules produces invalid time (year 2000)
+                // it seems that some GPS modules produces invalid time (year 2000)
                 // https://together.jolla.com/question/225700/wrong-date-from-gps-on-jolla-1/?sort=votes&page=1
                 // this is simple workaround, when timestamp is before 2020-04-21, we are using device time
                 lastUpdate.getTime() < 1587448500800){
