@@ -190,7 +190,11 @@ Item {
                                            !isNaN(lat) && !isNaN(lon);
 
             lastUpdate = position.timestamp;
-            if (!lastUpdate){
+            if (!lastUpdate ||
+                // it seems that soem GPS modules produces invalid time (year 2000)
+                // https://together.jolla.com/question/225700/wrong-date-from-gps-on-jolla-1/?sort=votes&page=1
+                // this is simple workaround, when timestamp is before 2020-04-21, we are using device time
+                lastUpdate.getTime() < 1587448500800){
                 console.log("GPS event timestamp is not valid!");
                 lastUpdate = new Date();
             }
