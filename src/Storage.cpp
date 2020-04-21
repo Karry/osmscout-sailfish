@@ -1217,6 +1217,10 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
 
 bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint64 segmentId)
 {
+  if (points.empty()){
+    return true;
+  }
+
   size_t pointNum = 0;
   db.transaction();
   QSqlQuery sql(db);

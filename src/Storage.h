@@ -181,6 +181,12 @@ public:
   void segmentEnd();
 
   TrackStatistics accumulate() const;
+
+  std::optional<osmscout::Timestamp> getTo() const
+  {
+    return to;
+  };
+
 private:
   // filter
   size_t rawCount{0};
