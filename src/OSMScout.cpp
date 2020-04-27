@@ -37,6 +37,7 @@
 #include "SearchHistoryModel.h"
 
 #include <harbour-osmscout/private/Config.h>
+#include <harbour-osmscout/private/Version.h>
 
 // SFOS
 #include <sailfishapp/sailfishapp.h>
@@ -61,6 +62,10 @@
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
 static_assert(false, "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system");
+#endif
+
+#ifndef LIBOSMSCOUT_GIT_HASH
+static_assert(false, "LIBOSMSCOUT_GIT_HASH should be defined by build system");
 #endif
 
 using namespace osmscout;
@@ -107,6 +112,10 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   osmscout::log.Info(args.logLevel >= Arguments::LogLevel::Info);
   osmscout::log.Warn(args.logLevel >= Arguments::LogLevel::Warn);
   osmscout::log.Error(args.logLevel >= Arguments::LogLevel::Error);
+
+  osmscout::log.Info() << "Starting " << app->applicationName().toStdString()
+                       << " " << app->applicationVersion().toStdString()
+                       << " (libosmscout " << LIBOSMSCOUT_GIT_HASH << ", Qt " << qVersion() << ")";
 
 #if defined(HAVE_MMAP)
   qDebug() << "Usage of memory mapped files is supported.";

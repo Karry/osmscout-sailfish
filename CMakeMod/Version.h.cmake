@@ -1,0 +1,10 @@
+#pragma once
+
+/* Define version of application. */
+#ifndef OSMSCOUT_SAILFISH_VERSION_STRING
+#cmakedefine OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_STRING}"
+#endif
+
+#ifndef LIBOSMSCOUT_GIT_HASH
+#cmakedefine LIBOSMSCOUT_GIT_HASH "${LIBOSMSCOUT_GIT_HASH}"
+#endif

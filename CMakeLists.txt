@@ -19,6 +19,18 @@ set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "")
 set(OSMSCOUT_SAILFISH_VERSION_SHORT  "${OSMSCOUT_SAILFISH_MAJOR_VERSION}.${OSMSCOUT_SAILFISH_MINOR_VERSION}.${OSMSCOUT_SAILFISH_PATCH_VERSION}")
 set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCOUT_SAILFISH_SUFFIX_VERSION}")
 
+execute_process(
+        COMMAND git rev-parse --short HEAD
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/dependencies/libosmscout
+        OUTPUT_VARIABLE LIBOSMSCOUT_GIT_HASH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+message(STATUS "LIBOSMSCOUT_GIT_HASH: ${LIBOSMSCOUT_GIT_HASH}")
+
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Version.h.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/privateinclude/harbour-osmscout/private/Version.h")
+
 # ==================================================================================================
 
 set(CMAKE_MIN_VERSION    "3.9.2") # CMake availabe on Travis CI is 3.9.2
