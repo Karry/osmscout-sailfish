@@ -21,6 +21,7 @@ Builder: none
 PkgBR:
   - cmake
   - chrpath
+  - git
 
 # This section specifies build dependencies that are resolved using pkgconfig.
 PkgConfigBR:

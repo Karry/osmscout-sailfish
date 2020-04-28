@@ -41,6 +41,7 @@ BuildRequires:  pkgconfig(Qt5Sql)
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  cmake
 BuildRequires:  chrpath
+BuildRequires:  git
 BuildRequires:  desktop-file-utils
 
 %description

@@ -19,17 +19,20 @@ set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "")
 set(OSMSCOUT_SAILFISH_VERSION_SHORT  "${OSMSCOUT_SAILFISH_MAJOR_VERSION}.${OSMSCOUT_SAILFISH_MINOR_VERSION}.${OSMSCOUT_SAILFISH_PATCH_VERSION}")
 set(OSMSCOUT_SAILFISH_VERSION_STRING "${OSMSCOUT_SAILFISH_VERSION_SHORT}${OSMSCOUT_SAILFISH_SUFFIX_VERSION}")
 
-execute_process(
-        COMMAND git rev-parse --short HEAD
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/dependencies/libosmscout
-        OUTPUT_VARIABLE LIBOSMSCOUT_GIT_HASH
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-)
+execute_process(COMMAND git rev-parse --short HEAD
+                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/dependencies/libosmscout
+                OUTPUT_VARIABLE LIBOSMSCOUT_GIT_HASH
+                OUTPUT_STRIP_TRAILING_WHITESPACE
+                RESULT_VARIABLE GIT_RETURN_CODE)
 
-message(STATUS "LIBOSMSCOUT_GIT_HASH: ${LIBOSMSCOUT_GIT_HASH}")
+if(NOT GIT_RETURN_CODE EQUAL "0")
+    message(FATAL_ERROR "git command failed")
+endif()
+
+message(STATUS "libosmscout Git hash: ${LIBOSMSCOUT_GIT_HASH}")
 
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Version.h.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/privateinclude/harbour-osmscout/private/Version.h")
+               "${CMAKE_CURRENT_BINARY_DIR}/privateinclude/harbour-osmscout/private/Version.h")
 
 # ==================================================================================================
 
