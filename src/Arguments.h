@@ -57,7 +57,7 @@ ArgParser(QGuiApplication *app,
   AddOption(osmscout::CmdLineFlag([this](const bool& value) {
               args.version=value;
             }),
-            "version",
+            std::vector<std::string>{"v","version"},
             "Display application version and exits",
             false);
 
