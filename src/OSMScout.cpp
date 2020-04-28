@@ -113,9 +113,10 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   osmscout::log.Warn(args.logLevel >= Arguments::LogLevel::Warn);
   osmscout::log.Error(args.logLevel >= Arguments::LogLevel::Error);
 
-  osmscout::log.Info() << "Starting " << app->applicationName().toStdString()
-                       << " " << app->applicationVersion().toStdString()
-                       << " (libosmscout " << LIBOSMSCOUT_GIT_HASH << ", Qt " << qVersion() << ")";
+  std::cout << "Starting " << app->applicationName().toStdString()
+            << " " << app->applicationVersion().toStdString()
+            << " (libosmscout " << LIBOSMSCOUT_GIT_HASH << ", Qt " << qVersion() << ")"
+            << std::endl;
 
 #if defined(HAVE_MMAP)
   qDebug() << "Usage of memory mapped files is supported.";
