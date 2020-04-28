@@ -77,6 +77,25 @@ static QObject *appSettingsSingletontypeProvider(QQmlEngine *engine, QJSEngine *
   return new AppSettings();
 }
 
+std::string osPrettyName(){
+  QSettings osRelease("/etc/os-release", QSettings::IniFormat);
+  QVariant prettyName=osRelease.value("PRETTY_NAME");
+  if (prettyName.isValid()){
+    return prettyName.toString().toStdString();
+  } else {
+    return "Unknown OS";
+  }
+}
+
+std::string versionStrings(){
+  std::stringstream ss;
+  ss << "harbour-osmscout"
+     << " " << OSMSCOUT_SAILFISH_VERSION_STRING
+     << " (libosmscout " << LIBOSMSCOUT_GIT_HASH << ", Qt " << qVersion() << ", " << osPrettyName() << ")";
+
+  return ss.str();
+}
+
 Q_DECL_EXPORT int main(int argc, char* argv[])
 {
 #ifdef Q_WS_X11
@@ -104,7 +123,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     return 0;
   }
   if (args.version) {
-    std::cout << OSMSCOUT_SAILFISH_VERSION_STRING << std::endl;
+    std::cout << versionStrings() << std::endl;
     return 0;
   }
 
@@ -113,10 +132,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   osmscout::log.Warn(args.logLevel >= Arguments::LogLevel::Warn);
   osmscout::log.Error(args.logLevel >= Arguments::LogLevel::Error);
 
-  std::cout << "Starting " << app->applicationName().toStdString()
-            << " " << app->applicationVersion().toStdString()
-            << " (libosmscout " << LIBOSMSCOUT_GIT_HASH << ", Qt " << qVersion() << ")"
-            << std::endl;
+  std::cout << "Starting " << versionStrings() << std::endl;
 
 #if defined(HAVE_MMAP)
   qDebug() << "Usage of memory mapped files is supported.";
