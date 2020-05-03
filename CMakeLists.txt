@@ -299,6 +299,7 @@ set(HEADER_FILES
     src/CollectionTrackModel.h
     src/CollectionMapBridge.h
     src/IconProvider.h
+    src/LocFile.h
     src/MemoryManager.h
     src/Tracker.h
     src/SearchHistoryModel.h)
@@ -364,6 +365,7 @@ set(QML_FILES
 
 set(SOURCE_FILES
     src/AppSettings.cpp
+    src/LocFile.cpp
     src/MemoryManager.cpp
     src/OSMScout.cpp
     src/Storage.cpp
@@ -432,6 +434,7 @@ target_include_directories(harbour-osmscout PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR}/privateinclude
         ${OSMSCOUT_INCLUDE_DIRS}
         ${LIBSAILFISHAPP_INCLUDE_DIRS}
+        ${LIBXML2_INCLUDE_DIR}
 )
 
 target_link_libraries(harbour-osmscout
@@ -451,6 +454,7 @@ target_link_libraries(harbour-osmscout
         OSMScoutGPX
         OSMScoutClientQt
         ${LIBSAILFISHAPP_LIBRARIES}
+        ${LIBXML2_LIBRARIES}
 )
 
 # https://github.com/sailfish-sdk/cmakesample/blob/master/CMakeLists.txt

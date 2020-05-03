@@ -341,9 +341,26 @@ Page {
                         return (Math.round(deg * 100000)/100000).toString();
                     }
 
+                    LocFile {
+                        id: locFile
+                    }
+
                     onClicked: {
-                        var fileName = "place.txt";
-                        var mimeType = "text/x-url";
+                        // Share plugins:
+                        //   bluetoothshare: application/*, audio/*, image/*, text/vcard, text/calendar, text/x-vcalendar,
+                        //                   text/x-vmessage, text/x-vnote, text/xml, text/plain, video/*
+                        //   dropboxshare: image/*, video/*
+                        //   emailshare: *
+                        //   facebookshare: text/plain, text/x-url, image/png, image/jpeg
+                        //   mmsshare: image/*, text/vcard
+                        //   nextcloudshare: application/*, audio/*, image/*, video/*, text/x-vnote, text/xml, text/plain
+                        //   onedriveshare: image/*, video/*
+                        //   qrshare: text/*
+                        //   signingshare: *
+                        //   twittershare: image/png, text/x-url, text/plain
+                        //   vkshare: text/plain, text/x-url
+
+                        var mimeType = "text/x-url"; // "text/x-url" can be shared on social media, but it cannot be uploaded to remote drives :-(
                         var placeLink = "https://osm.org/?mlat=" + shortCoord(placeLat) + "&mlon=" + shortCoord(placeLon);
                         var info = placeTools.placeInfo();
                         var name = info.name;
@@ -351,7 +368,6 @@ Page {
                         var status = (address === "" ?  placeLink : address + ": " + placeLink);
                         var linkTitle = (name === "" ?  placeLocationLabel.text : name);
                         var content = {
-                            "name": fileName,
                             "data": placeLink,
                             "type": mimeType
                         }
@@ -360,13 +376,18 @@ Page {
                         content["status"] = status;
                         content["linkTitle"] = linkTitle;
 
+                        // attachment for e-mail sharing
+                        content["name"] = "place.loc";
+                        var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
+
                         pageStack.animatorPush("Sailfish.TransferEngine.SharePage",
                                                {
                                                    //: Page header for share method selection
                                                    "header": qsTr("Share place link"),
                                                    "serviceFilter": ["sharing", "e-mail", "IM"],
                                                    "mimeType": mimeType,
-                                                   "content": content
+                                                   "content": content,
+                                                   "source": fileSource
                                                })
                     }
                 }
