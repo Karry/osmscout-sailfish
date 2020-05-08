@@ -638,7 +638,8 @@
     </message>
     <message>
         <source>Tracker error</source>
-        <translation type="unfinished"></translation>
+        <extracomment>notification summary</extracomment>
+        <translation>Erreur de la trace GPS</translation>
     </message>
 </context>
 <context>
@@ -1138,7 +1139,7 @@
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>Enregistrement arrêté</translation>
+        <translation>Arrêt de l&apos;enregistrement GPS</translation>
     </message>
     <message>
         <source>Current data</source>
@@ -1172,6 +1173,10 @@
     <message>
         <source>Statistics</source>
         <translation>Statistiques</translation>
+    </message>
+    <message>
+        <source>There was %1 error(s) during tracking. Recent: %2</source>
+        <translation>Il y a eu %1 erreur(s) durant l&apos;enregistrement GPS. Dernièrement : %2</translation>
     </message>
 </context>
 <context>

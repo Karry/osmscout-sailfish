@@ -638,7 +638,8 @@
     </message>
     <message>
         <source>Tracker error</source>
-        <translation type="unfinished"></translation>
+        <extracomment>notification summary</extracomment>
+        <translation>Chyba stopaře</translation>
     </message>
 </context>
 <context>
@@ -1172,6 +1173,10 @@
     <message>
         <source>Statistics</source>
         <translation>Statistika</translation>
+    </message>
+    <message>
+        <source>There was %1 error(s) during tracking. Recent: %2</source>
+        <translation>Nastalo %1 chyb během trackování. Poslední: %2</translation>
     </message>
 </context>
 <context>
