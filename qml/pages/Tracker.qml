@@ -131,12 +131,38 @@ Page {
                 title: Global.tracker.name
             }
 
+
             Label {
                 text: Global.tracker.description
                 visible: text != ""
                 color: Theme.secondaryColor
                 width: parent.width
                 wrapMode: Text.WordWrap
+            }
+
+            Row {
+                id: errorRow
+                visible: Global.tracker.errors > 0
+                width: parent.width
+                spacing: Theme.paddingMedium
+
+                Image{
+                    id: errorIcon
+                    source: "image://theme/icon-lock-warning"
+                    width: Theme.iconSizeSmall
+                    height: Math.max(width, errorLabel.height)
+                    fillMode: Image.PreserveAspectFit
+                    horizontalAlignment: Image.AlignHCenter
+                    verticalAlignment: Image.AlignVCenter
+                    //x: Theme.paddingMedium
+                }
+                Label {
+                    id: errorLabel
+                    text: qsTr("There was %1 error(s) during tracking. Recent: %2").arg(Global.tracker.errors).arg(Global.tracker.lastError)
+                    color: Theme.highlightColor
+                    wrapMode: Text.WordWrap
+                    width: parent.width - (errorIcon.width +2*errorRow.spacing)
+                }
             }
 
             SectionHeader{ text: qsTr("Current data") }

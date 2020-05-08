@@ -384,3 +384,4 @@
 - small fix in router
 - fix random crash (use-after-free when cache is flushed)
 - update c++ standard to 17, require SFOS at least 3.3.0
+- show notification on storage error during tracking

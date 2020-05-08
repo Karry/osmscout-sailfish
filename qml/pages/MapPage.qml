@@ -20,6 +20,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Nemo.KeepAlive 1.2
+import Nemo.Notifications 1.0
+import Nemo.DBus 2.0
 
 import QtPositioning 5.2
 import QtGraphicalEffects 1.0
@@ -122,11 +124,101 @@ Page {
             }
         }
 
+        DBusAdaptor {
+               service: "harbour.osmscout.service"
+               iface: "harbour.osmscout.service"
+               path: "/harbour/osmscout/service"
+               xml: '\
+         <interface name="harbour.osmscout.service">
+           <method name="openPage">
+             <arg name="page" type="s" direction="in">
+               <doc:doc>
+                 <doc:summary>
+                   Name of the page to open
+                   (https://github.com/mentaljam/harbour-osmscout/tree/master/qml/pages)
+                 </doc:summary>
+               </doc:doc>
+             </arg>
+             <arg name="arguments" type="a{sv}" direction="in">
+               <doc:doc>
+                 <doc:summary>
+                   Arguments to pass to the page
+                 </doc:summary>
+               </doc:doc>
+             </arg>
+           </method>
+         </interface>'
+
+           function openPage(page, arguments) {
+               __silica_applicationwindow_instance.activate()
+               if (page === "Tracker" || page !== pageStack.currentPage.objectName) {
+                   pageStack.push(Qt.resolvedUrl("pages/%1.qml".arg(page)), arguments)
+               }
+           }
+        }
+
+        Notification {
+            // device.error generates sound notification, but overrides expiration timeout
+            // for that reason this instance is used just for sound
+            id: deviceErrorNotification
+            category: "device.error"
+        }
+
+        Notification {
+            id: trackerErrorNotification
+
+            category: "x-osmscout.error"
+            //: notification summary
+            previewSummary: qsTr("Tracker error")
+            urgency: Notification.Critical
+            isTransient: false
+            expireTimeout: 0 // do not expire
+
+            appIcon: "image://theme/icon-lock-warning"
+
+            remoteActions: [ {
+                            name: "default",
+                            service: "harbour.osmscout.service",
+                            path: "/harbour/osmscout/service",
+                            iface: "harbour.osmscout.service",
+                            method: "openPage",
+                            arguments: [ "Tracker", {} ]
+                        } ]
+
+            onClicked: {
+                console.log("clicked: trackerErrorNotification");
+                pageStack.push(Qt.resolvedUrl("Tracker.qml"));
+            }
+            // Component.onCompleted: {
+            //     trackerErrorNotification.body = "Startup test body";
+            //     trackerErrorNotification.previewBody = "Startup test";
+            //     trackerErrorNotification.publish();
+            //     deviceErrorNotification.publish();
+            // }
+            Component.onDestruction: {
+                trackerErrorNotification.close();
+            }
+        }
+
         Connections {
             target: Global.tracker
             onOpenTrackLoaded: {
                 if (Global.tracker.canBeResumed && !Global.tracker.tracking){
                     trackerResumeDialog.open();
+                }
+            }
+            onError: {
+                console.log("Tracker error: " + message);
+                trackerErrorNotification.body = message; // have to be there for displaying in notification area
+                trackerErrorNotification.previewBody = message;
+                trackerErrorNotification.itemCount = Global.tracker.errors; // how many errors so far
+                //trackerErrorNotification.replacesId = 0; // when zero, it creates new notification for every instance
+                trackerErrorNotification.publish();
+                deviceErrorNotification.publish();
+            }
+            onTrackingChanged: {
+                if (!Global.tracker.tracking){
+                    trackerErrorNotification.close();
                 }
             }
         }

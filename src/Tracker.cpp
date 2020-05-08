@@ -32,7 +32,7 @@ Tracker::Tracker() {
           Qt::QueuedConnection);
 
   connect(storage, &Storage::error,
-          this, &Tracker::error,
+          this, &Tracker::onError,
           Qt::QueuedConnection);
 
   connect(this, &Tracker::openTrackRequested,
@@ -84,6 +84,16 @@ void Tracker::init(){
   emit openTrackRequested();
 }
 
+void Tracker::onError(QString message){
+  if (!isTracking()){
+    return; // ignore storage errors now
+  }
+  lastError=message;
+  errors++;
+  emit error(message);
+  emit errorsChanged();
+}
+
 void Tracker::onOpenTrackLoaded(Track track, bool ok){
   if (!ok || track.id < 0){
     return;
@@ -117,6 +127,10 @@ void Tracker::resumeTrack(QString trackId){
   track = recentOpenTrack;
   // update accumulator by current track statistics
   accumulator = TrackStatisticsAccumulator(track.statistics);
+  lastError.clear();
+  errors=0;
+
+  emit errorsChanged();
   emit trackingChanged();
   emit statisticsUpdated();
 }
@@ -197,6 +211,7 @@ void Tracker::stopTracking(){
   track.statistics = TrackStatistics{};
   accumulator = TrackStatisticsAccumulator{};
   emit trackingChanged();
+  emit statisticsUpdated();
 }
 
 void Tracker::locationChanged(const QDateTime &timestamp,
@@ -274,6 +289,10 @@ void Tracker::onTrackCreated(qint64 collectionId, qint64 trackId, QString name){
   }
   creationRequested = false;
   track.id = trackId;
+  lastError.clear();
+  errors=0;
+
+  emit errorsChanged();
   emit trackingChanged();
 }
 

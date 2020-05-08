@@ -636,6 +636,10 @@
         <source>Resume tracking?</source>
         <translation>Vill du återuppta spårningen?</translation>
     </message>
+    <message>
+        <source>Tracker error</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

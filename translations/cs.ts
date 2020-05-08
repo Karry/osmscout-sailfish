@@ -636,6 +636,10 @@
         <source>Resume tracking?</source>
         <translation>Obnovit stopaře?</translation>
     </message>
+    <message>
+        <source>Tracker error</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

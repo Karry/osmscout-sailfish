@@ -636,6 +636,10 @@
         <source>Resume tracking?</source>
         <translation>Продолжить запись пути</translation>
     </message>
+    <message>
+        <source>Tracker error</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

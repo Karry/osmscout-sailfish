@@ -34,6 +34,9 @@ class Tracker : public QObject {
   Q_PROPERTY(QString name READ getName NOTIFY trackingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY trackingChanged)
 
+  Q_PROPERTY(qint64 errors READ getErrors NOTIFY errorsChanged)
+  Q_PROPERTY(QString lastError READ getLastError NOTIFY errorsChanged)
+
   // track statistics
   Q_PROPERTY(QDateTime from READ getFrom NOTIFY statisticsUpdated)
   Q_PROPERTY(QDateTime to READ getTo NOTIFY statisticsUpdated)
@@ -53,6 +56,7 @@ signals:
   // for UI
   void openTrackLoaded(QString trackId, QString name);
   void error(QString message);
+  void errorsChanged();
   void trackingChanged();
   void statisticsUpdated();
 
@@ -73,6 +77,7 @@ public slots:
   void onCollectionDetailsLoaded(Collection collection, bool ok);
   void onCollectionDeleted(qint64 collectionId);
   void onTrackDeleted(qint64 collectionId, qint64 trackId);
+  void onError(QString message);
 
   // slot for UI
   void resumeTrack(QString trackId);
@@ -111,6 +116,14 @@ public:
     return creationRequested;
   }
 
+  qint64 getErrors() const {
+    return errors;
+  }
+
+  QString getLastError() const {
+    return lastError;
+  }
+
   QString getName() const;
   QString getDescription() const;
 
@@ -142,4 +155,6 @@ private:
   Track recentOpenTrack;
   std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch{std::make_shared<std::vector<osmscout::gpx::TrackPoint>>()};
   TrackStatisticsAccumulator accumulator;
+  QString lastError;
+  qint64 errors{0};
 };
