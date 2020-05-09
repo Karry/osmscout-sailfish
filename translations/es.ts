@@ -142,12 +142,12 @@
     <message>
         <source>Export Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Exportar colección</translation>
     </message>
     <message>
         <source>Edit Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Editar colección</translation>
     </message>
 </context>
 <context>
@@ -639,7 +639,7 @@
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Error del rastreador</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1176,7 @@
     </message>
     <message>
         <source>There was %1 error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Hubo %1 error(s) durante el seguimiento. Recientes: %2</translation>
     </message>
 </context>
 <context>
