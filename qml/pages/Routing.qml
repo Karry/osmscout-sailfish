@@ -82,7 +82,7 @@ Dialog {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Swap start and target")
+                text: qsTr("Exchage route")
                 onClicked: {
                     // swap selector state
                     var fromLocation=fromSelector.location;
