@@ -1176,7 +1176,7 @@
     </message>
     <message>
         <source>There was %1 error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Det inträffade %1 fel under spårning. Senast %2 </translation>
     </message>
 </context>
 <context>
