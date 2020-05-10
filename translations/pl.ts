@@ -1174,9 +1174,13 @@
         <source>Statistics</source>
         <translation>Statystyki</translation>
     </message>
-    <message>
-        <source>There was %1 error(s) during tracking. Recent: %2</source>
-        <translation></translation>
+    <message numerus="yes">
+        <source>There was %n error(s) during tracking. Recent: %2</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>

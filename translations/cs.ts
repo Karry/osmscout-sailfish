@@ -1174,9 +1174,13 @@
         <source>Statistics</source>
         <translation>Statistika</translation>
     </message>
-    <message>
-        <source>There was %1 error(s) during tracking. Recent: %2</source>
-        <translation>Nastalo %1 chyb během trackování. Poslední: %2</translation>
+    <message numerus="yes">
+        <source>There was %n error(s) during tracking. Recent: %2</source>
+        <translation>
+            <numerusform>Nastala %n chyba během trackování. Poslední: %2</numerusform>
+            <numerusform>Nastaly %n chyby během trackování. Poslední: %2</numerusform>
+            <numerusform>Nastalo %n chyb během trackování. Poslední: %2</numerusform>
+        </translation>
     </message>
 </context>
 <context>

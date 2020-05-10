@@ -158,7 +158,7 @@ Page {
                 }
                 Label {
                     id: errorLabel
-                    text: qsTr("There was %1 error(s) during tracking. Recent: %2").arg(Global.tracker.errors).arg(Global.tracker.lastError)
+                    text: qsTr("There was %n error(s) during tracking. Recent: %2", "", Global.tracker.errors).arg(Global.tracker.lastError)
                     color: Theme.highlightColor
                     wrapMode: Text.WordWrap
                     width: parent.width - (errorIcon.width +2*errorRow.spacing)

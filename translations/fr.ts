@@ -1174,9 +1174,12 @@
         <source>Statistics</source>
         <translation>Statistiques</translation>
     </message>
-    <message>
-        <source>There was %1 error(s) during tracking. Recent: %2</source>
-        <translation>Il y a eu %1 erreur(s) durant l&apos;enregistrement GPS. Dernièrement : %2</translation>
+    <message numerus="yes">
+        <source>There was %n error(s) during tracking. Recent: %2</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
