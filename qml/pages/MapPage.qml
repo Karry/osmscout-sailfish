@@ -81,11 +81,44 @@ Page {
         }
     }
 
+    Notification {
+        id: downloaderErrorNotification
+
+        category: "x-osmscout.error"
+        //: notification summary
+        previewSummary: qsTr("Map download error")
+        urgency: Notification.Critical
+        isTransient: false
+        expireTimeout: 0 // do not expire
+
+        appIcon: "image://theme/icon-lock-warning"
+
+        remoteActions: [ {
+                        name: "default",
+                        service: "harbour.osmscout.service",
+                        path: "/harbour/osmscout/service",
+                        iface: "harbour.osmscout.service",
+                        method: "openPage",
+                        arguments: [ "Downloads", {} ]
+                    } ]
+
+        Component.onDestruction: {
+            downloaderErrorNotification.close();
+        }
+    }
+
     MapDownloadsModel{
-        id:mapDownloadsModel
+        id: mapDownloadsModel
 
         onMapDownloadFails: {
-            remorse.execute(qsTranslate("message", message), function() { }, 10 * 1000);
+            //remorse.execute(qsTranslate("message", message), function() { }, 10 * 1000);
+            console.log("Map downloader error: " + message);
+            var trMsg = qsTranslate("message", message);
+            downloaderErrorNotification.body = trMsg; // have to be there for displaying in notification area
+            downloaderErrorNotification.previewBody = trMsg;
+            downloaderErrorNotification.replacesId = 0; // when zero, it creates new notification for every instance
+            downloaderErrorNotification.publish();
+            deviceErrorNotification.publish();
         }
     }
 
@@ -151,8 +184,9 @@ Page {
 
            function openPage(page, arguments) {
                __silica_applicationwindow_instance.activate()
-               if (page === "Tracker" || page !== pageStack.currentPage.objectName) {
-                   pageStack.push(Qt.resolvedUrl("pages/%1.qml".arg(page)), arguments)
+               console.log("D-Bus: activate page " + page + " (current: " + pageStack.currentPage.objectName + ")");
+               if ((page === "Tracker" || page === "Downloads") && page !== pageStack.currentPage.objectName) {
+                   pageStack.push(Qt.resolvedUrl("%1.qml".arg(page)), arguments)
                }
            }
         }

@@ -29,6 +29,7 @@ import ".." // Global singleton
 
 Page {
     id: downloadsPage
+    objectName: "Downloads"
 
     property var allUpdates: []
 
@@ -36,13 +37,7 @@ Page {
 
     MapDownloadsModel{
         id:mapDownloadsModel
-        onMapDownloadFails: {
-            var msg = qsTranslate("message", message);
-            console.log("Map download fail: " + msg);
-
-            remorse.execute(msg, function() { }, 10 * 1000);
-            Global.remorse.execute(msg, function() { }, 10 * 1000);
-        }
+        onMapDownloadFails: {} // errors are reported from Map page
     }
     AvailableMapsModel{
         id: availableMapsModel

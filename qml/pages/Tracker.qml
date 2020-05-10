@@ -30,6 +30,7 @@ import ".." // Global singleton
 
 Page {
     id: trackerPage
+    objectName: "Tracker"
 
     property bool rejectRequested: false;
     property bool newTrackRequested: false;

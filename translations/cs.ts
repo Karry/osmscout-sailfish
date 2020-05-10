@@ -641,6 +641,11 @@
         <extracomment>notification summary</extracomment>
         <translation>Chyba stopaře</translation>
     </message>
+    <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
