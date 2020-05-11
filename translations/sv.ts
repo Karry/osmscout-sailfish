@@ -644,7 +644,7 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Fel vid nerladdning av kartor</translation>
     </message>
 </context>
 <context>
@@ -1181,9 +1181,9 @@
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n fel inträffade under spårning. Senast: %2</numerusform>
+            <numerusform>%n fel inträffade under spårning. Senast: %2</numerusform>
         </translation>
     </message>
 </context>
