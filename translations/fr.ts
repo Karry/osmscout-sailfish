@@ -653,7 +653,7 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Erreur de téléchargement de carte</translation>
     </message>
 </context>
 <context>
@@ -1190,9 +1190,9 @@
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>There was %n error(s) during tracking. Recent: %2</numerusform>
+            <numerusform>There was %n error(s) during tracking. Recent: %2</numerusform>
         </translation>
     </message>
 </context>

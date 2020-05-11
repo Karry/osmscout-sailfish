@@ -653,7 +653,7 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Chyba při stahování mapy</translation>
     </message>
 </context>
 <context>
