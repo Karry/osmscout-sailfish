@@ -600,7 +600,7 @@
         <translation>Letölthető térképek</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Térképbeállítások</translation>
     </message>
     <message>

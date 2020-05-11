@@ -600,7 +600,7 @@
         <translation>Offline mapy</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Nastavení mapy</translation>
     </message>
     <message>

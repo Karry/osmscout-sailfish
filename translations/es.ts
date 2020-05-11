@@ -600,7 +600,7 @@
         <translation>Descargar</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Mapa</translation>
     </message>
     <message>

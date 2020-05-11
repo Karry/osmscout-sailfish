@@ -600,7 +600,7 @@
         <translation>بارگیری‌های نقشه</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>تنظیمات نقشه</translation>
     </message>
     <message>

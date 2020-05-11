@@ -600,7 +600,7 @@
         <translation>Загрузка карт</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Настройка карты</translation>
     </message>
     <message>

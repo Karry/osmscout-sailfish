@@ -600,7 +600,7 @@
         <translation>Kartnedlasting</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Kartinstillinger</translation>
     </message>
     <message>

@@ -600,7 +600,7 @@
         <translation>Mapy do pobrania</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Ustawienia mapy</translation>
     </message>
     <message>

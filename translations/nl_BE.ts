@@ -600,7 +600,7 @@
         <translation>Kaartdownloads</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Kaartinstellingen</translation>
     </message>
     <message>

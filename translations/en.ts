@@ -600,7 +600,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -600,7 +600,7 @@
         <translation>地图下载</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>地图设置</translation>
     </message>
     <message>

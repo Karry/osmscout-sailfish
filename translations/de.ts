@@ -600,7 +600,7 @@
         <translation>Kartendownloads</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Karteneinstellungen</translation>
     </message>
     <message>

@@ -600,7 +600,7 @@
         <translation>Ladda ner kartor</translation>
     </message>
     <message>
-        <source>Map settings</source>
+        <source>Map</source>
         <translation>Kartinställningar</translation>
     </message>
     <message>
