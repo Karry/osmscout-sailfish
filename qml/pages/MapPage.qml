@@ -299,14 +299,31 @@ Page {
             VerticalScrollDecorator {}
 
             model: ListModel {
+                //: menu item for Search on map
                 ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
+
+                //: menu item for path with place details
                 ListElement { itemtext: QT_TR_NOOP("Where am I?");  itemicon: "image://theme/icon-m-whereami";       action: "whereami"; }
+
+                //: menu item for navigation and routing
                 ListElement { itemtext: QT_TR_NOOP("Navigation");   itemicon: "image://theme/icon-m-shortcut";       action: "routing";  }
+
+                //: menu item for collections of tracks and waypoints
                 ListElement { itemtext: QT_TR_NOOP("Collections");  itemicon: "image://theme/icon-m-favorite";       action: "collections";}
+
+                //: menu item for GPS tracker
                 ListElement { itemtext: QT_TR_NOOP("Tracker");      itemicon: 'image://harbour-osmscout/pics/tracker.svg'; action: "tracker";}
+
+                //: menu item for offline map downloader
                 ListElement { itemtext: QT_TR_NOOP("Offline maps"); itemicon: "image://theme/icon-m-cloud-download"; action: "downloads";}
+
+                //: menu item for map settings
                 ListElement { itemtext: QT_TR_NOOP("Map");          itemicon: "image://theme/icon-m-levels";         action: "layers";   }
+
+                //: menu item for application settings
                 ListElement { itemtext: QT_TR_NOOP("Settings");     itemicon: "image://theme/icon-m-developer-mode"; action: "settings"; }
+
+                //: menu item for about page
                 ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
             }
 

@@ -585,30 +585,37 @@
     <name>MapPage</name>
     <message>
         <source>Search</source>
+        <extracomment>menu item for Search on map</extracomment>
         <translation>Hledat</translation>
     </message>
     <message>
         <source>Where am I?</source>
+        <extracomment>menu item for path with place details</extracomment>
         <translation>Kde jsem?</translation>
     </message>
     <message>
         <source>About</source>
+        <extracomment>menu item for about page</extracomment>
         <translation>O OSM Scout</translation>
     </message>
     <message>
         <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
         <translation>Offline mapy</translation>
     </message>
     <message>
         <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
         <translation>Nastavení mapy</translation>
     </message>
     <message>
         <source>Navigation</source>
+        <extracomment>menu item for navigation and routing</extracomment>
         <translation>Navigace</translation>
     </message>
     <message>
         <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
         <translation>Sbírky</translation>
     </message>
     <message>
@@ -626,10 +633,12 @@
     </message>
     <message>
         <source>Settings</source>
+        <extracomment>menu item for application settings</extracomment>
         <translation>Nastavení</translation>
     </message>
     <message>
         <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
         <translation>Stopař</translation>
     </message>
     <message>

@@ -585,30 +585,37 @@
     <name>MapPage</name>
     <message>
         <source>Search</source>
+        <extracomment>menu item for Search on map</extracomment>
         <translation>Sök</translation>
     </message>
     <message>
         <source>Where am I?</source>
+        <extracomment>menu item for path with place details</extracomment>
         <translation>Var är jag?</translation>
     </message>
     <message>
         <source>About</source>
+        <extracomment>menu item for about page</extracomment>
         <translation>Om</translation>
     </message>
     <message>
         <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
         <translation>Ladda ner kartor</translation>
     </message>
     <message>
         <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
         <translation>Kartinställningar</translation>
     </message>
     <message>
         <source>Navigation</source>
+        <extracomment>menu item for navigation and routing</extracomment>
         <translation>Vägval</translation>
     </message>
     <message>
         <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
         <translation>Samlingar</translation>
     </message>
     <message>
@@ -626,10 +633,12 @@
     </message>
     <message>
         <source>Settings</source>
+        <extracomment>menu item for application settings</extracomment>
         <translation>Inställningar</translation>
     </message>
     <message>
         <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
         <translation>Spårare</translation>
     </message>
     <message>

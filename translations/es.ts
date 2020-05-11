@@ -585,30 +585,37 @@
     <name>MapPage</name>
     <message>
         <source>Search</source>
+        <extracomment>menu item for Search on map</extracomment>
         <translation>Buscador</translation>
     </message>
     <message>
         <source>Where am I?</source>
+        <extracomment>menu item for path with place details</extracomment>
         <translation>Ubicación</translation>
     </message>
     <message>
         <source>About</source>
+        <extracomment>menu item for about page</extracomment>
         <translation>Acerca de</translation>
     </message>
     <message>
         <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
         <translation>Descargar</translation>
     </message>
     <message>
         <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
         <translation>Mapa</translation>
     </message>
     <message>
         <source>Navigation</source>
+        <extracomment>menu item for navigation and routing</extracomment>
         <translation>Navegar</translation>
     </message>
     <message>
         <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
         <translation>Colecciones</translation>
     </message>
     <message>
@@ -626,10 +633,12 @@
     </message>
     <message>
         <source>Settings</source>
+        <extracomment>menu item for application settings</extracomment>
         <translation>Ajustes</translation>
     </message>
     <message>
         <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
         <translation>Rastreador</translation>
     </message>
     <message>
