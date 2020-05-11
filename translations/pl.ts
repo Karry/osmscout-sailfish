@@ -644,7 +644,7 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>podsumowanie powiadomienia</translation>
     </message>
 </context>
 <context>
@@ -1181,10 +1181,10 @@
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Wystąpił %n błąd podczas śledzenia. Szczegóły: %2</numerusform>
+            <numerusform>Wystąpiły %n błędy podczas śledzenia. Ostatni: %2</numerusform>
+            <numerusform>Wystąpiło %n błędów podczas śledzenia. Ostatni: %2</numerusform>
         </translation>
     </message>
 </context>
