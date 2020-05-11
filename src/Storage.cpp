@@ -662,7 +662,7 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
   // QTime timer;
   // timer.start();
   QSqlQuery sql(db);
-  sql.prepare("SELECT CAST(STRFTIME('%s',`timestamp`) AS INTEGER) AS `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
+  sql.prepare("SELECT CAST(STRFTIME('%s',`timestamp`, 'UTC') AS INTEGER) AS `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
   sql.bindValue(":segmentId", segmentId);
   sql.exec();
   if (sql.lastError().isValid()) {
@@ -860,8 +860,8 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
       wptName = tr("waypoint %1").arg(wptNum);
 
     sqlWpt.bindValue(":collection_id", collectionId);
-    sqlWpt.bindValue(":timestamp", timestampToDateTime(wpt.time));
-    sqlWpt.bindValue(":modification_time", QDateTime::currentDateTime());
+    sqlWpt.bindValue(":timestamp", dateTimeToSQL(timestampToDateTime(wpt.time)));
+    sqlWpt.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
     sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
     sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
     sqlWpt.bindValue(":elevation", (wpt.elevation ? *wpt.elevation : QVariant()));
@@ -1132,11 +1132,11 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
                    (desc.has_value() ? *desc : QVariant()));
   sqlTrk.bindValue(":open", open);
 
-  sqlTrk.bindValue(":creation_time", QDateTime::currentDateTime());
-  sqlTrk.bindValue(":modification_time", QDateTime::currentDateTime());
+  sqlTrk.bindValue(":creation_time", dateTimeToSQL(QDateTime::currentDateTime()));
+  sqlTrk.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
 
-  sqlTrk.bindValue(":from_time", stat.from);
-  sqlTrk.bindValue(":to_time", stat.to);
+  sqlTrk.bindValue(":from_time", dateTimeToSQL(stat.from));
+  sqlTrk.bindValue(":to_time", dateTimeToSQL(stat.to));
   sqlTrk.bindValue(":distance", stat.distance.AsMeter());
   sqlTrk.bindValue(":raw_distance", stat.rawDistance.AsMeter());
   sqlTrk.bindValue(":duration", stat.durationMillis());
@@ -1193,7 +1193,7 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
       sqlSeg.bindValue(":open", false);
 
       // TODO: do we need segment statics?
-      sqlSeg.bindValue(":creation_time", QDateTime::currentDateTime());
+      sqlSeg.bindValue(":creation_time", dateTimeToSQL(QDateTime::currentDateTime()));
       sqlSeg.bindValue(":distance", seg.GetLength().AsMeter());
       sqlSeg.exec();
       if (sqlSeg.lastError().isValid()) {
@@ -1233,7 +1233,7 @@ bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint
     pointNum ++;
 
     sql.bindValue(":segment_id", segmentId);
-    sql.bindValue(":timestamp", timestampToDateTime(point.time));
+    sql.bindValue(":timestamp", dateTimeToSQL(timestampToDateTime(point.time)));
     sql.bindValue(":latitude", point.coord.GetLat());
     sql.bindValue(":longitude", point.coord.GetLon());
     sql.bindValue(":elevation", point.elevation.has_value() ? *point.elevation : QVariant());
@@ -1376,8 +1376,8 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
     "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description)");
 
   sqlWpt.bindValue(":collection_id", collectionId);
-  sqlWpt.bindValue(":timestamp", QDateTime::currentDateTime());
-  sqlWpt.bindValue(":modification_time", QDateTime::currentDateTime());
+  sqlWpt.bindValue(":timestamp", dateTimeToSQL(QDateTime::currentDateTime()));
+  sqlWpt.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sqlWpt.bindValue(":latitude", lat);
   sqlWpt.bindValue(":longitude", lon);
   sqlWpt.bindValue(":name", name);
@@ -1481,7 +1481,7 @@ void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
   sql.bindValue(":description", description);
-  sql.bindValue(":modification_time", QDateTime::currentDateTime());
+  sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sql.exec();
 
   if (sql.lastError().isValid()) {
@@ -1506,7 +1506,7 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
   sql.bindValue(":description", description);
-  sql.bindValue(":modification_time", QDateTime::currentDateTime());
+  sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sql.exec();
 
   if (sql.lastError().isValid()) {
@@ -1733,7 +1733,7 @@ bool Storage::createSegment(qint64 trackId, qint64 &segmentId)
   sqlSeg.bindValue(":open", true);
 
   // TODO: do we need segment statics?
-  sqlSeg.bindValue(":creation_time", QDateTime::currentDateTime());
+  sqlSeg.bindValue(":creation_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sqlSeg.bindValue(":distance", 0); // ignored right now
   sqlSeg.exec();
   if (sqlSeg.lastError().isValid()) {
@@ -1824,8 +1824,8 @@ void Storage::appendNodes(qint64 trackId,
               .append("`modification_time` = :modification_time ")
               .append("WHERE `id` = :id"));
 
-  sql.bindValue(":from_time", statistics.from);
-  sql.bindValue(":to_time", statistics.to);
+  sql.bindValue(":from_time", dateTimeToSQL(statistics.from));
+  sql.bindValue(":to_time", dateTimeToSQL(statistics.to));
   sql.bindValue(":distance", statistics.distance.AsMeter());
   sql.bindValue(":raw_distance", statistics.rawDistance.AsMeter());
   sql.bindValue(":duration", statistics.durationMillis());
@@ -1843,7 +1843,7 @@ void Storage::appendNodes(qint64 trackId,
   sql.bindValue(":bbox_max_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLat() : -1000);
   sql.bindValue(":bbox_max_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLon() : -1000);
 
-  sql.bindValue(":modification_time", QDateTime::currentDateTime());
+  sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
 
   sql.bindValue(":id", trackId);
   sql.exec();

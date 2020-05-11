@@ -37,6 +37,19 @@ inline QDateTime timestampToDateTime(const std::optional<osmscout::Timestamp> ti
   return QDateTime();
 }
 
+inline QString dateTimeToSQL(const QDateTime &dateTime)
+{
+  // sqlite store timestamp as string (omfg...)
+  // so, do it in UTC to avoid troubles with timezones
+
+  // QtSQL don't store timezone (Qt < 5.12),
+  // we have to serialise QDateTime to string yourself
+  // https://bugreports.qt.io/browse/QTBUG-60456
+
+  // use Qt::ISODateWithMs with newer Qt
+  return dateTime.toUTC().toString("yyyy-MM-ddTHH:mm:ss.zzzZ");
+}
+
 inline qlonglong varToLong(const QVariant &var, qlonglong def = -1)
 {
   bool ok;
