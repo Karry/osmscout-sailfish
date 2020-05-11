@@ -639,12 +639,12 @@
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation>podsumowanie powiadomienia</translation>
+        <translation>Błąd trackera</translation>
     </message>
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation>podsumowanie powiadomienia</translation>
+        <translation>Błąd pobierania mapy</translation>
     </message>
 </context>
 <context>
