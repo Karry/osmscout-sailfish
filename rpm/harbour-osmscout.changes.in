@@ -380,8 +380,10 @@
 - add small junction penalty to router, fastest route is more reliable now
 - show lane turn symbols on high zoom levels
 
-* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.2-1
+* 2020-05-11 Lukáš Karas <lukas.karas@centrum.cz> 2.2-1
 - small fix in router
 - fix random crash (use-after-free when cache is flushed)
 - update c++ standard to 17, require SFOS at least 3.3.0
 - show notification on storage error during tracking
+- fix time in gpx track points
+- workaround for incorrect gps time on Jolla 1
