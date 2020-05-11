@@ -760,7 +760,7 @@
         <translation>Starte Navigation</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Tausche Start und Ziel</translation>
     </message>
 </context>

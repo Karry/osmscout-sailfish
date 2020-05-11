@@ -760,7 +760,7 @@
         <translation>Wytycz!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Zamień początek i cel</translation>
     </message>
 </context>

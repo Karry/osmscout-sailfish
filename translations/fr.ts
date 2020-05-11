@@ -760,7 +760,7 @@
         <translation>Démarrer !</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Inverser départ et destination</translation>
     </message>
 </context>

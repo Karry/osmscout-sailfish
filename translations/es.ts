@@ -760,7 +760,7 @@
         <translation>Ir!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Iniciar la ruta</translation>
     </message>
 </context>

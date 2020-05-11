@@ -760,7 +760,7 @@
         <translation>Rota!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

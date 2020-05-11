@@ -760,7 +760,7 @@
         <translation>Tervezés!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Indulási hely és cél csere</translation>
     </message>
 </context>

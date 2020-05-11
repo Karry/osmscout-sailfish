@@ -760,7 +760,7 @@
         <translation>Vyhledej!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Zaměnit start a cíl</translation>
     </message>
 </context>

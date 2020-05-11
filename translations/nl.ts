@@ -760,7 +760,7 @@
         <translation>Route berekenen!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Begin- en eindpunt omwisselen</translation>
     </message>
 </context>

@@ -760,7 +760,7 @@
         <translation>请注意路线!</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>交换起始点和目的地</translation>
     </message>
 </context>

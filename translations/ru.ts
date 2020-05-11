@@ -760,7 +760,7 @@
         <translation>Проложить маршрут</translation>
     </message>
     <message>
-        <source>Swap start and target</source>
+        <source>Reverse direction</source>
         <translation>Поменять местами начало и конец</translation>
     </message>
 </context>

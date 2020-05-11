@@ -82,7 +82,7 @@ Dialog {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Swap start and target")
+                text: qsTr("Reverse direction")
                 onClicked: {
                     // swap selector state
                     var fromLocation=fromSelector.location;
