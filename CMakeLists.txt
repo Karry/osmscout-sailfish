@@ -147,6 +147,7 @@ add_definitions(${LIBSAILFISHAPP_DEFINITIONS})
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+set(OSMSCOUT_HAVE_OPENMP ${OPENMP_FOUND})
 
 # CMake doesn't add "-pie" by default for executables (CMake issue #14983)
 # it is necessary for accelerated start by mapplauncherd,
