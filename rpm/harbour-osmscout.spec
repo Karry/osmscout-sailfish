@@ -15,7 +15,7 @@ Name:       harbour-osmscout
 
 # don't setup rpm requires
 # list here all the libraries your RPM installs
-%define __requires_exclude ^ld-linux|libmarisa|libgomp|libosmscout.*$
+%define __requires_exclude ^ld-linux|libmarisa|libosmscout.*$
 
 # dont strip binaries - it causes segfault on Jolla phone (arm)
 %global __os_install_post %{nil}
@@ -106,11 +106,11 @@ mkdir -p %{buildroot}%{_datadir}/%{name}/lib
 # file /usr/lib/libgomp.so.1.0.0
 
 # support for OMP
-cp /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
+#cp /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
 #cp --preserve=links /usr/lib/libgomp.so.1.0.0  %{buildroot}%{_datadir}/%{name}/lib/
 
 # -- shared libraries without executable flag
-chmod -x %{buildroot}%{_datadir}/%{name}/lib/*
+#chmod -x %{buildroot}%{_datadir}/%{name}/lib/*
 # << install post
 
 # -- check app rpath to find its libs
