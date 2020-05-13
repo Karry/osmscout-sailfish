@@ -648,12 +648,12 @@
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>追踪系统错误</translation>
     </message>
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>地图下载错误</translation>
     </message>
 </context>
 <context>
@@ -1190,8 +1190,8 @@
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>追踪时产生 %n 个错误，最近: %2</numerusform>
         </translation>
     </message>
 </context>
