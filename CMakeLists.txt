@@ -328,6 +328,7 @@ set(QML_FILES
     qml/custom/LocationSelector.qml
     qml/custom/RoutingStep.qml
     qml/custom/RouteStepIcon.qml
+    qml/custom/LaneTurnIcon.qml
     qml/custom/CollectionEditDialog.qml
     qml/custom/CollectionSelector.qml
     qml/custom/Global.qml
@@ -337,6 +338,7 @@ set(QML_FILES
     qml/custom/PhoneRow.qml
     qml/custom/CollectionComboBox.qml
     qml/custom/CollectionEntryDialog.qml
+    qml/custom/LaneTurns.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml

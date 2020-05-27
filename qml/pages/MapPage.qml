@@ -785,6 +785,26 @@ Page {
             }
         }
 
+        LaneTurns {
+            id: laneTurnsComponent
+
+            laneTurns: Global.navigationModel.laneTurns
+            visible: Global.navigationModel.laneSuggested
+            suggestedLaneFrom: Global.navigationModel.suggestedLaneFrom
+            suggestedLaneTo: Global.navigationModel.suggestedLaneTo
+
+            radius: Theme.paddingMedium
+            color: Theme.rgba(Theme.highlightDimmerColor, 0.4)
+            height: Theme.iconSizeLarge
+
+            anchors{
+                top: nextStepBox.bottom
+                margins: Theme.paddingMedium
+                horizontalCenter: parent.horizontalCenter
+            }
+            maxWidth: parent.width - (speedIndicator.width + menuBtn.width + 4*Theme.paddingMedium)
+        }
+
         SpeedIndicator {
             id: speedIndicator
             currentSpeed: Global.navigationModel.currentSpeed

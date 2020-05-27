@@ -387,3 +387,6 @@
 - show notification on storage error during tracking
 - fix time in gpx track points
 - workaround for incorrect gps time on Jolla 1
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.3-1
+- show suggested lanes during navigation
