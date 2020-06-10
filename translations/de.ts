@@ -648,12 +648,12 @@
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tracker Fehler</translation>
     </message>
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kartendownloadfehler</translation>
     </message>
 </context>
 <context>
@@ -918,10 +918,6 @@
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elevation</source>
-        <translation type="obsolete">Höhe</translation>
     </message>
     <message>
         <source>Info panel</source>
@@ -1214,9 +1210,9 @@
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Es gab %n Fehler während des Trackens. Neuester: %2</numerusform>
+            <numerusform>Es gab %n Fehler während des Trackens. Neuester: %2</numerusform>
         </translation>
     </message>
 </context>

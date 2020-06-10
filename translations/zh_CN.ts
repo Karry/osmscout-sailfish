@@ -920,10 +920,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Elevation</source>
-        <translation type="obsolete">海拔</translation>
-    </message>
-    <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation type="unfinished"></translation>
