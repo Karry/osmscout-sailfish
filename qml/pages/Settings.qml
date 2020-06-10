@@ -233,6 +233,49 @@ Page {
                     }
                 }
             }
+
+            //: setting section for information panel on main screen
+            SectionHeader{ text: qsTr("Info panel") }
+
+            TextSwitch{
+                id: trackerDistanceSwitch
+                width: parent.width
+
+                checked: AppSettings.showTrackerDistance
+                //: switch for diplay information on main screen
+                text: qsTr("Tracker distance")
+
+                onCheckedChanged: {
+                    AppSettings.showTrackerDistance = checked;
+                }
+            }
+
+            TextSwitch{
+                id: elevationSwitch
+                width: parent.width
+
+                checked: AppSettings.showElevation
+                //: switch for diplay information on main screen
+                text: qsTr("Current elevation")
+
+                onCheckedChanged: {
+                    AppSettings.showElevation = checked;
+                }
+            }
+
+            TextSwitch{
+                id: accuracySwitch
+                width: parent.width
+
+                checked: AppSettings.showAccuracy
+                //: switch for diplay information on main screen
+                text: qsTr("GPS Accuracy")
+
+                onCheckedChanged: {
+                    AppSettings.showAccuracy = checked;
+                }
+            }
+
         }
     }
 }

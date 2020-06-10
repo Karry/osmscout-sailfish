@@ -150,3 +150,39 @@ void AppSettings::SetLastMapDirectory(const QString directory)
     emit LastMapDirectoryChanged(directory);
   }
 }
+
+bool AppSettings::GetShowTrackerDistance() const
+{
+  return settings.value("showTrackerDistance", "true").toBool();
+}
+void AppSettings::SetShowTrackerDistance(bool b)
+{
+  if (GetShowTrackerDistance() != b){
+    settings.setValue("showTrackerDistance", b);
+    emit ShowTrackerDistanceChanged(b);
+  }
+}
+
+bool AppSettings::GetShowElevation() const
+{
+  return settings.value("showElevation", "false").toBool();
+}
+void AppSettings::SetShowElevation(bool b)
+{
+  if (GetShowElevation() != b){
+    settings.setValue("showElevation", b);
+    emit ShowElevationChanged(b);
+  }
+}
+
+bool AppSettings::GetShowAccuracy() const
+{
+  return settings.value("showAccuracy", "false").toBool();
+}
+void AppSettings::SetShowAccuracy(bool b)
+{
+  if (GetShowAccuracy() != b){
+    settings.setValue("showAccuracy", b);
+    emit ShowAccuracyChanged(b);
+  }
+}

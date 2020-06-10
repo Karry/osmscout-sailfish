@@ -33,6 +33,11 @@ class AppSettings: public QObject{
   Q_PROPERTY(QString  lastCollection    READ GetLastCollection    WRITE SetLastCollection    NOTIFY LastCollectionChanged)
   Q_PROPERTY(QString  lastMapDirectory  READ GetLastMapDirectory  WRITE SetLastMapDirectory  NOTIFY LastMapDirectoryChanged)
 
+  // flags for visible information on main screen
+  Q_PROPERTY(bool showTrackerDistance READ GetShowTrackerDistance WRITE SetShowTrackerDistance  NOTIFY ShowTrackerDistanceChanged)
+  Q_PROPERTY(bool showElevation       READ GetShowElevation       WRITE SetShowElevation        NOTIFY ShowElevationChanged)
+  Q_PROPERTY(bool showAccuracy        READ GetShowAccuracy        WRITE SetShowAccuracy         NOTIFY ShowAccuracyChanged)
+
 signals:
   void MapViewChanged(osmscout::MapView *view);
   void GpsFormatChanged(const QString formatId);
@@ -41,6 +46,9 @@ signals:
   void LastVehicleChanged(const QString vehicle);
   void LastCollectionChanged(const QString collectionId);
   void LastMapDirectoryChanged(const QString directory);
+  void ShowTrackerDistanceChanged(bool);
+  void ShowElevationChanged(bool);
+  void ShowAccuracyChanged(bool);
 
 public:
   AppSettings();
@@ -66,6 +74,15 @@ public:
 
   QString GetLastMapDirectory() const;
   void SetLastMapDirectory(const QString directory);
+
+  bool GetShowTrackerDistance() const;
+  void SetShowTrackerDistance(bool);
+
+  bool GetShowElevation() const;
+  void SetShowElevation(bool);
+
+  bool GetShowAccuracy() const;
+  void SetShowAccuracy(bool);
 
 private:
   QSettings         settings;

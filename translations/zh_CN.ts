@@ -914,6 +914,30 @@
         <source>Play sample</source>
         <translation>播放示例</translation>
     </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation type="obsolete">海拔</translation>
+    </message>
+    <message>
+        <source>Info panel</source>
+        <extracomment>setting section for information panel on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current elevation</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GPS Accuracy</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
