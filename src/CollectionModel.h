@@ -149,6 +149,8 @@ private:
    */
   void handleChanges(std::vector<Item> &current, const std::vector<Item> &newItems);
 
+  void sort(std::vector<Item> &items) const;
+
 private:
   Collection collection;
   std::vector<Item> items;

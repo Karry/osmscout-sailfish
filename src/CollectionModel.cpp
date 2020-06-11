@@ -175,6 +175,48 @@ void CollectionModel::storageInitialisationError(QString)
   storageInitialised();
 }
 
+void CollectionModel::sort(std::vector<Item> &items) const
+{
+  using namespace std::string_literals;
+
+  auto date = [](const Item &item) -> QDateTime {
+    if (std::holds_alternative<Track>(item)){
+      return std::get<Track>(item).creationTime;
+    } else {
+      assert(std::holds_alternative<Waypoint>(item));
+      return std::get<Waypoint>(item).lastModification;
+    }
+  };
+
+  auto name = [](const Item &item) -> QString {
+    if (std::holds_alternative<Track>(item)){
+      return std::get<Track>(item).name;
+    } else {
+      assert(std::holds_alternative<Waypoint>(item));
+      return QString::fromStdString(std::get<Waypoint>(item).data.name.value_or(""s));
+    }
+  };
+
+  std::sort(items.begin(), items.end(),
+            [&](const Item& lhs, const Item& rhs) {
+              if (waypointFirst && lhs.index() != rhs.index()){
+                return lhs.index() > rhs.index();
+              }
+              switch (ordering){
+                case DateAscent:
+                  return date(lhs) < date(rhs);
+                case DateDescent:
+                  return date(lhs) > date(rhs);
+                case NameAscent:
+                  return name(lhs) < name(rhs);
+                case NameDescent:
+                  return name(lhs) > name(rhs);
+              }
+              assert(false);
+              return false;
+            });
+}
+
 void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
 {
   if (this->collection.id != collection.id){
@@ -194,9 +236,10 @@ void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
       newItems.push_back(trk);
     }
   }
-  // TODO: sort newItems
 
-  handleChanges( items, newItems);
+  sort(newItems);
+
+  handleChanges(items, newItems);
 
   if (!ok){
     qWarning() << "Collection load fails";
@@ -335,7 +378,11 @@ void CollectionModel::setWaypointFirst(bool b)
 {
   if (b != waypointFirst){
     waypointFirst=b;
-    // TODO: sort
+
+    emit beginResetModel();
+    sort(items);
+    emit endResetModel();
+
     emit orderingChanged();
   }
 }
@@ -344,7 +391,11 @@ void CollectionModel::setOrdering(Ordering ordering)
 {
   if (ordering != this->ordering){
     this->ordering = ordering;
-    // TODO: sort
+
+    emit beginResetModel();
+    sort(items);
+    emit endResetModel();
+
     emit orderingChanged();
   }
 }
