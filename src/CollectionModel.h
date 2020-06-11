@@ -25,6 +25,8 @@
 #include <QtCore/QAbstractItemModel>
 #include <QtCore/QSet>
 
+#include <variant>
+
 class CollectionModel : public QAbstractListModel {
 
   Q_OBJECT
@@ -35,6 +37,9 @@ class CollectionModel : public QAbstractListModel {
   Q_PROPERTY(QString name READ getCollectionName NOTIFY loadingChanged)
   Q_PROPERTY(QString filesystemName READ getCollectionFilesystemName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getCollectionDescription NOTIFY loadingChanged)
+  // ordering
+  Q_PROPERTY(bool waypointFirst READ getWaypointFirst WRITE setWaypointFirst NOTIFY orderingChanged)
+  Q_PROPERTY(Ordering ordering  READ getOrdering      WRITE setOrdering      NOTIFY orderingChanged)
 
 signals:
   void loadingChanged();
@@ -50,6 +55,7 @@ signals:
   void error(QString message);
   void moveWaypointRequest(qint64 waypointId, qint64 collectionId);
   void moveTrackRequest(qint64 trackId, qint64 collectionId);
+  void orderingChanged();
 
 public slots:
   void storageInitialised();
@@ -70,7 +76,15 @@ public slots:
 public:
   CollectionModel();
 
-  virtual ~CollectionModel();
+  ~CollectionModel() override = default;
+
+  enum Ordering {
+    DateAscent = 0, // older first
+    DateDescent = 1, // newer first
+    NameAscent = 2, // A-Z
+    NameDescent = 3 // Z-A
+  };
+  Q_ENUM(Ordering)
 
   enum Roles {
     NameRole = Qt::UserRole,
@@ -91,6 +105,8 @@ public:
     DistanceRole = Qt::UserRole+11
   };
   Q_ENUM(Roles)
+
+  using Item = std::variant<Track, Waypoint>;
 
   Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
   Q_INVOKABLE virtual QVariant data(const QModelIndex &index, int role) const;
@@ -113,56 +129,33 @@ public:
   bool isExporting();
   Q_INVOKABLE QStringList getExportSuggestedDirectories();
 
-
-  template <class T>
-  void handleChanges(int rowOffset, QList<T> &old, const std::vector<T> &current)
+  bool getWaypointFirst() const
   {
-    // process removals
-    QMap<qint64, T> currentDirMap;
-    for (auto entry: current){
-      currentDirMap[entry.id] = entry;
-    }
-
-    bool deleteDone=false;
-    while (!deleteDone){
-      deleteDone=true;
-      for (int row=0;row<old.size(); row++){
-        if (!currentDirMap.contains(old.at(row).id)){
-          beginRemoveRows(QModelIndex(), row+rowOffset, row+rowOffset);
-          old.removeAt(row);
-          endRemoveRows();
-          deleteDone = false;
-          break;
-        }
-      }
-    }
-
-    // process adds
-    QMap<qint64, T> oldDirMap;
-    for (auto entry: old){
-      oldDirMap[entry.id] = entry;
-    }
-
-    for (size_t row = 0; row < current.size(); row++) {
-      auto entry = current.at(row);
-      if (!oldDirMap.contains(entry.id)){
-        beginInsertRows(QModelIndex(), row+rowOffset, row+rowOffset);
-        old.insert(row, entry);
-        endInsertRows();
-        oldDirMap[entry.id] = entry;
-      }else{
-        old[row] = entry;
-        // TODO: check changed roles
-        dataChanged(index(row+rowOffset), index(row+rowOffset), roleNames().keys().toVector());
-      }
-    }
+    return waypointFirst;
   }
+  void setWaypointFirst(bool b);
+
+  inline Ordering getOrdering() const
+  {
+    return ordering;
+  }
+
+  void setOrdering(Ordering ordering);
+
+private:
+  /**
+   * Updates model entries without reseting whole model.
+   * Both vectors have to use the same sorting.
+   */
+  void handleChanges(std::vector<Item> &current, const std::vector<Item> &newItems);
 
 private:
   Collection collection;
-  QList<Track> tracks;
-  QList<Waypoint> waypoints;
+  std::vector<Item> items;
 
   bool collectionLoaded{false};
   bool collectionExporting{false};
+
+  bool waypointFirst{true};
+  Ordering ordering{DateAscent};
 };

@@ -102,9 +102,63 @@ CollectionModel::CollectionModel()
 
 }
 
-CollectionModel::~CollectionModel()
+void CollectionModel::handleChanges(std::vector<Item> &current, const std::vector<Item> &newItems)
 {
+  auto id = [](const Item &item) -> qint64 {
+    if (std::holds_alternative<Waypoint>(item)){
+      qint64 id = std::get<Waypoint>(item).id;
+      assert(id >= 0);
+      return id * -1; // to distinguish waypoints and track, use negative numbers to waypoints
+    } else {
+      assert(std::holds_alternative<Track>(item));
+      qint64 id = std::get<Track>(item).id;
+      assert(id >= 0);
+      return id;
+    }
+  };
+
+  // process removals
+  QMap<qint64, Item> currentDirMap;
+  for (auto entry: newItems){
+    currentDirMap[id(entry)] = entry;
+  }
+
+  bool deleteDone=false;
+  while (!deleteDone){
+    deleteDone=true;
+    for (size_t row=0; row < current.size(); row++){
+      if (!currentDirMap.contains(id(current.at(row)))){
+        beginRemoveRows(QModelIndex(), row, row);
+        current.erase(current.begin() + row);
+        //old.removeAt(row);
+        endRemoveRows();
+        deleteDone = false;
+        break;
+      }
+    }
+  }
+
+  // process adds
+  QMap<qint64, Item> oldDirMap;
+  for (auto entry: current){
+    oldDirMap[id(entry)] = entry;
+  }
+
+  for (size_t row = 0; row < newItems.size(); row++) {
+    auto entry = newItems.at(row);
+    if (!oldDirMap.contains(id(entry))){
+      beginInsertRows(QModelIndex(), row, row);
+      current.insert(current.begin() + row, entry);
+      endInsertRows();
+      oldDirMap[id(entry)] = entry;
+    }else{
+      current[row] = entry;
+      // TODO: check changed roles
+      dataChanged(index(row), index(row), roleNames().keys().toVector());
+    }
+  }
 }
+
 
 void CollectionModel::storageInitialised()
 {
@@ -129,8 +183,20 @@ void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
   collectionLoaded = true;
   this->collection = collection;
 
-  handleChanges<Waypoint>(0, waypoints, collection.waypoints ? *(collection.waypoints): std::vector<Waypoint>());
-  handleChanges<Track>(waypoints.size(), tracks, collection.tracks ? *(collection.tracks): std::vector<Track>());
+  std::vector<Item> newItems;
+  if (collection.waypoints){
+    for (const auto &wpt : *collection.waypoints){
+      newItems.push_back(wpt);
+    }
+  }
+  if (collection.tracks){
+    for (const auto &trk : *collection.tracks){
+      newItems.push_back(trk);
+    }
+  }
+  // TODO: sort newItems
+
+  handleChanges( items, newItems);
 
   if (!ok){
     qWarning() << "Collection load fails";
@@ -140,7 +206,7 @@ void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
 
 int CollectionModel::rowCount([[maybe_unused]] const QModelIndex &parentIndex) const
 {
-  return tracks.size() + waypoints.size();
+  return items.size();
 }
 
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
@@ -148,13 +214,14 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
   using namespace converters;
   using namespace std::string_literals;
 
-  if(index.row() < 0) {
+  int row = index.row();
+  if(row < 0 || row >= (int)items.size()) {
     return QVariant();
   }
-  int row = index.row();
 
-  if (row < waypoints.size()){
-    const Waypoint &waypoint = waypoints.at(row);
+  const Item &item = items[row];
+  if (std::holds_alternative<Waypoint>(item)){
+    const Waypoint &waypoint = std::get<Waypoint>(item);
     switch(role){
       case TypeRole: return "waypoint";
       case NameRole: return QString::fromStdString(waypoint.data.name.value_or(""s));
@@ -172,10 +239,8 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       default: return QVariant();
     }
   } else {
-    row -= waypoints.size();
-  }
-  if (row < tracks.size()){
-    const Track &track = tracks.at(row);
+    assert(std::holds_alternative<Track>(item));
+    const Track &track = std::get<Track>(item);
     switch(role){
       case TypeRole: return "track";
       case NameRole: return track.name;
@@ -190,7 +255,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
     }
   }
 
-  return QVariant();
+  assert(false);
 }
 
 QHash<int, QByteArray> CollectionModel::roleNames() const
@@ -264,6 +329,24 @@ QString CollectionModel::getCollectionDescription() const
 bool CollectionModel::isVisible() const
 {
   return collectionLoaded? collection.visible : false;
+}
+
+void CollectionModel::setWaypointFirst(bool b)
+{
+  if (b != waypointFirst){
+    waypointFirst=b;
+    // TODO: sort
+    emit orderingChanged();
+  }
+}
+
+void CollectionModel::setOrdering(Ordering ordering)
+{
+  if (ordering != this->ordering){
+    this->ordering = ordering;
+    // TODO: sort
+    emit orderingChanged();
+  }
 }
 
 void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description)
