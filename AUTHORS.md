@@ -6,5 +6,4 @@
 
 ## OSM Scout for Sailfish OS
  - Lukáš Karas <lukas.karas@centrum.cz>
-
-
+ - And other contributors. See git log for complete list.
