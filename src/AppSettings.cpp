@@ -186,3 +186,27 @@ void AppSettings::SetShowAccuracy(bool b)
     emit ShowAccuracyChanged(b);
   }
 }
+
+bool AppSettings::GetWaypointFirst() const
+{
+  return settings.value("waypointFirst", "true").toBool();
+}
+void AppSettings::SetWaypointFirst(bool b)
+{
+  if (GetWaypointFirst() != b){
+    settings.setValue("waypointFirst", b);
+    emit WaypointFirstChanged(b);
+  }
+}
+
+int AppSettings::GetCollectionOrdering() const
+{
+  return settings.value("collectionOrdering", "0").toInt();
+}
+void AppSettings::SetCollectionOrdering(int i)
+{
+  if (GetCollectionOrdering() != i){
+    settings.setValue("collectionOrdering", i);
+    emit CollectionOrderingChanged(i);
+  }
+}

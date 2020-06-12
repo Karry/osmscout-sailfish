@@ -38,6 +38,10 @@ class AppSettings: public QObject{
   Q_PROPERTY(bool showElevation       READ GetShowElevation       WRITE SetShowElevation        NOTIFY ShowElevationChanged)
   Q_PROPERTY(bool showAccuracy        READ GetShowAccuracy        WRITE SetShowAccuracy         NOTIFY ShowAccuracyChanged)
 
+  // order of collection items
+  Q_PROPERTY(bool waypointFirst       READ GetWaypointFirst       WRITE SetWaypointFirst        NOTIFY WaypointFirstChanged)
+  Q_PROPERTY(int collectionOrdering   READ GetCollectionOrdering  WRITE SetCollectionOrdering   NOTIFY CollectionOrderingChanged)
+
 signals:
   void MapViewChanged(osmscout::MapView *view);
   void GpsFormatChanged(const QString formatId);
@@ -49,6 +53,8 @@ signals:
   void ShowTrackerDistanceChanged(bool);
   void ShowElevationChanged(bool);
   void ShowAccuracyChanged(bool);
+  void WaypointFirstChanged(bool);
+  void CollectionOrderingChanged(int);
 
 public:
   AppSettings();
@@ -83,6 +89,12 @@ public:
 
   bool GetShowAccuracy() const;
   void SetShowAccuracy(bool);
+
+  bool GetWaypointFirst() const;
+  void SetWaypointFirst(bool);
+
+  int GetCollectionOrdering() const;
+  void SetCollectionOrdering(int);
 
 private:
   QSettings         settings;
