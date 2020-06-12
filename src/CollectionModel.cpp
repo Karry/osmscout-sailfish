@@ -177,6 +177,7 @@ void CollectionModel::storageInitialisationError(QString)
 
 void CollectionModel::sort(std::vector<Item> &items) const
 {
+  using namespace converters;
   using namespace std::string_literals;
 
   auto date = [](const Item &item) -> QDateTime {
@@ -184,7 +185,7 @@ void CollectionModel::sort(std::vector<Item> &items) const
       return std::get<Track>(item).creationTime;
     } else {
       assert(std::holds_alternative<Waypoint>(item));
-      return std::get<Waypoint>(item).lastModification;
+      return timestampToDateTime(std::get<Waypoint>(item).data.time);
     }
   };
 
