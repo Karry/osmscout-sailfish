@@ -149,6 +149,11 @@
         <extracomment>collection pull down menu</extracomment>
         <translation>Edytuj kolekcję</translation>
     </message>
+    <message>
+        <source>Order by...</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -215,6 +220,38 @@
     <message>
         <source>Invalid file name</source>
         <translation>Niepoprawna nazwa pliku</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionOrdering</name>
+    <message>
+        <source>Order by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collection entries ordering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date, descent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nazwa</translation>
+    </message>
+    <message>
+        <source>Name, descent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waypoints first</source>
+        <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

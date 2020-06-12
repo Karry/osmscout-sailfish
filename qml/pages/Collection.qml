@@ -59,6 +59,10 @@ Page {
     CollectionModel {
         id: collectionModel
         collectionId: collectionPage.collectionId
+
+        waypointFirst: AppSettings.waypointFirst
+        ordering: AppSettings.collectionOrdering
+
         onLoadingChanged: {
             console.log("onLoadingChanged: " + loading + ", collection " + collectionModel.name + " (" + collectionModel.collectionId + ")");
         }
@@ -323,6 +327,13 @@ Page {
                                    })
 
                     exportPage.selected.connect(exportCollection);
+                }
+            }
+            MenuItem {
+                //: collection pull down menu
+                text: qsTr("Order by...")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("CollectionOrdering.qml"));
                 }
             }
             MenuItem {

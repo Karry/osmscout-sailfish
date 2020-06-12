@@ -357,6 +357,7 @@ set(QML_FILES
     qml/pages/Collection.qml
     qml/pages/CollectionTrack.qml
     qml/pages/CollectionWaypoint.qml
+    qml/pages/CollectionOrdering.qml
     qml/pages/NewWaypoint.qml
     qml/pages/CollectionExport.qml
     qml/pages/Settings.qml
