@@ -152,7 +152,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Seřadit podle...</translation>
     </message>
 </context>
 <context>
@@ -226,32 +226,32 @@
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>Seřadit podle</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Řazení položek sbírky</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum, sestupně</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Jméno</translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno, sestupně</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Místa nahoře</translation>
     </message>
 </context>
 <context>
@@ -643,7 +643,7 @@
     <message>
         <source>Map</source>
         <extracomment>menu item for map settings</extracomment>
-        <translation>Nastavení mapy</translation>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Navigation</source>

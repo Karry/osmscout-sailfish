@@ -152,7 +152,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ordna efter...</translation>
     </message>
 </context>
 <context>
@@ -226,32 +226,32 @@
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordna efter</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordning för samlingsposter</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum, fallande</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Namn</translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn, fallande</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vägpunkter först</translation>
     </message>
 </context>
 <context>
@@ -954,22 +954,22 @@
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Spårningsdistans</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Infopanel</translation>
     </message>
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Aktuell höjd</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>GPS-noggrannhet</translation>
     </message>
 </context>
 <context>
