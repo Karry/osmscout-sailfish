@@ -232,9 +232,9 @@ include_directories(
   ${MARISA_INCLUDE_DIRS}
 )
 
-add_library(marisa
-    ${MARISA_SRC}
-)
+add_library(marisa ${MARISA_SRC})
+set_property(TARGET marisa PROPERTY CXX_STANDARD 17)
+
 install(TARGETS marisa
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
