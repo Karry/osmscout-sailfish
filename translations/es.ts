@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <source> OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
+        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSMScout es un programa libre desarrollado por voluntarios; lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en su fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
@@ -423,6 +423,7 @@
     </message>
     <message>
         <source>Refresh</source>
+        <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>Actualizar</translation>
     </message>
     <message>
@@ -1356,6 +1357,7 @@
     </message>
     <message>
         <source>Refresh</source>
+        <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Actualizar</translation>
     </message>
     <message>

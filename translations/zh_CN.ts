@@ -423,6 +423,7 @@
     </message>
     <message>
         <source>Refresh</source>
+        <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>刷新</translation>
     </message>
     <message>
@@ -1355,6 +1356,7 @@
     </message>
     <message>
         <source>Refresh</source>
+        <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>刷新</translation>
     </message>
     <message>

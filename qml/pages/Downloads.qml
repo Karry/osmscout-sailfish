@@ -369,6 +369,7 @@ Page {
                 Button {
                     anchors.horizontalCenter: parent.horizontalCenter
                     preferredWidth: Theme.buttonWidthMedium
+                    //: button visible when fetching of available maps from server fails
                     text: qsTr("Refresh")
                     onClicked: {
                         console.log("Reloading...")
