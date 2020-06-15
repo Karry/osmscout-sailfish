@@ -226,32 +226,32 @@
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortuj według</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortowanie wpisów kolekcji</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Data, malejąco</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nazwa</translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa, malejąco</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Najpierw punkty drogi</translation>
     </message>
 </context>
 <context>
@@ -955,46 +955,46 @@
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dystans</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Panel informacji</translation>
     </message>
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Aktualna wysokość</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dokkładność GPS</translation>
     </message>
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Szybkie przyciski</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Button for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż aktualną pozycję</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Orientacja mapy</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Button for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nowe miejsce</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż północ, gdy mapa zostanie obrócona podczas nawigacji</translation>
     </message>
 </context>
 <context>
