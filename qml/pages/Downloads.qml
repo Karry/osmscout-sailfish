@@ -350,7 +350,7 @@ Page {
 
             SectionHeader{
                 id: downloadMapHeader
-                text: qsTr("Download Map")
+                text: qsTr("Available maps")
             }
 
             Column{
