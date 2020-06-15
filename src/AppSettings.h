@@ -38,6 +38,11 @@ class AppSettings: public QObject{
   Q_PROPERTY(bool showElevation       READ GetShowElevation       WRITE SetShowElevation        NOTIFY ShowElevationChanged)
   Q_PROPERTY(bool showAccuracy        READ GetShowAccuracy        WRITE SetShowAccuracy         NOTIFY ShowAccuracyChanged)
 
+  // flags for visible "fast buttons" on main screen
+  Q_PROPERTY(bool showMapOrientation  READ GetShowMapOrientation  WRITE SetShowMapOrientation   NOTIFY ShowMapOrientationChanged)
+  Q_PROPERTY(bool showCurrentPosition READ GetShowCurrentPosition WRITE SetShowCurrentPosition  NOTIFY ShowCurrentPositionChanged)
+  Q_PROPERTY(bool showNewPlace        READ GetShowNewPlace        WRITE SetShowNewPlace         NOTIFY ShowNewPlaceChanged)
+
   // order of collection items
   Q_PROPERTY(bool waypointFirst       READ GetWaypointFirst       WRITE SetWaypointFirst        NOTIFY WaypointFirstChanged)
   Q_PROPERTY(int collectionOrdering   READ GetCollectionOrdering  WRITE SetCollectionOrdering   NOTIFY CollectionOrderingChanged)
@@ -55,6 +60,9 @@ signals:
   void ShowAccuracyChanged(bool);
   void WaypointFirstChanged(bool);
   void CollectionOrderingChanged(int);
+  void ShowMapOrientationChanged(bool);
+  void ShowCurrentPositionChanged(bool);
+  void ShowNewPlaceChanged(bool);
 
 public:
   AppSettings();
@@ -95,6 +103,15 @@ public:
 
   int GetCollectionOrdering() const;
   void SetCollectionOrdering(int);
+
+  bool GetShowMapOrientation() const;
+  void SetShowMapOrientation(bool);
+
+  bool GetShowCurrentPosition() const;
+  void SetShowCurrentPosition(bool);
+
+  bool GetShowNewPlace() const;
+  void SetShowNewPlace(bool);
 
 private:
   QSettings         settings;

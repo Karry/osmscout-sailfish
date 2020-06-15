@@ -525,14 +525,17 @@ Page {
             Rectangle {
                 id : currentPositionBtn
 
+                property bool active: AppSettings.showCurrentPosition
+                visible: active
+
                 anchors{
                     right: parent.right
                     bottom: parent.bottom
                     rightMargin: Theme.paddingMedium
-                    bottomMargin: Theme.paddingMedium
+                    bottomMargin: active ? Theme.paddingMedium : 0
                 }
                 width: Theme.iconSizeLarge
-                height: width
+                height: active ? width : 0
 
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 
@@ -599,16 +602,72 @@ Page {
             }
 
             Rectangle {
-                id : compassBtn
+                id : newPlaceBtn
 
                 anchors{
                     right: parent.right
                     bottom: currentPositionBtn.top
                     rightMargin: Theme.paddingMedium
-                    bottomMargin: Theme.paddingMedium
+                    bottomMargin: active ? Theme.paddingMedium : 0
                 }
                 width: Theme.iconSizeLarge
-                height: width
+
+                property bool active: AppSettings.showNewPlace && Global.positionSource.positionValid
+                visible: active
+                height: active ? width : 0
+
+                color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+                radius: width*0.5
+
+                Image {
+                    id: newPlaceIcon
+                    anchors.fill: parent
+                    source: "image://theme/icon-m-favorite"
+                    fillMode: Image.PreserveAspectFit
+                    horizontalAlignment: Image.AlignHCenter
+                    verticalAlignment: Image.AlignVCenter
+                    sourceSize.width: width
+                    sourceSize.height: height
+                }
+
+                MouseArea {
+                  id: newPlaceBtnMouseArea
+                  anchors.fill: parent
+
+                  hoverEnabled: true
+
+                  onClicked: {
+                      var waypointDescription = "";
+                      if (Global.positionSource.horizontalAccuracyValid){
+                          waypointDescription = "±" + Utils.humanDistanceCompact(Global.positionSource.horizontalAccuracy/2);
+                      }
+
+                      pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
+                                    {
+                                      latitude: Global.positionSource.lat,
+                                      longitude: Global.positionSource.lon,
+                                      acceptDestination: Global.mapPage,
+                                      description: waypointDescription,
+                                      name: ""
+                                    });
+                  }
+                }
+            }
+
+            Rectangle {
+                id : compassBtn
+
+                anchors{
+                    right: parent.right
+                    bottom: newPlaceBtn.top
+                    rightMargin: Theme.paddingMedium
+                    bottomMargin: active ? Theme.paddingMedium : 0
+                }
+                width: Theme.iconSizeLarge
+                property bool active: Global.navigationModel.destinationSet && AppSettings.showMapOrientation
+                visible: active
+                height: active ? width : 0
 
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 

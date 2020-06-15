@@ -972,6 +972,30 @@
         <extracomment>switch for diplay information on main screen</extracomment>
         <translation>GPS-noggrannhet</translation>
     </message>
+    <message>
+        <source>Fast buttons</source>
+        <extracomment>setting section for bottons on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show current position</source>
+        <extracomment>Button for jumping to current position</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map orientation</source>
+        <extracomment>switch for diplay map ofientation button on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New place</source>
+        <extracomment>Button for storing current position to collection</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show north when map is rotated during navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

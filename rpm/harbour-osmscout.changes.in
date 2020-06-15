@@ -391,4 +391,6 @@
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.3-1
 - show suggested lanes during navigation
 - show more information (elevation, GPS accuracy...) on main screen (configurable)
+- make buttons on main screen configurable
+- add fast "new place" button to main screen (hidden by default)
 - configurable ordering of collection entries

@@ -276,6 +276,50 @@ Page {
                 }
             }
 
+
+            //: setting section for bottons on main screen
+            SectionHeader{ text: qsTr("Fast buttons") }
+
+            TextSwitch{
+                id: currentPositionSwitch
+                width: parent.width
+
+                checked: AppSettings.showCurrentPosition
+                //: Button for jumping to current position
+                text: qsTr("Show current position")
+
+                onCheckedChanged: {
+                    AppSettings.showCurrentPosition = checked;
+                }
+            }
+
+            TextSwitch{
+                id: mapOrientationSwitch
+                width: parent.width
+
+                checked: AppSettings.showMapOrientation
+                //: switch for diplay map ofientation button on main screen
+                text: qsTr("Map orientation")
+                description: qsTr("Show north when map is rotated during navigation")
+
+                onCheckedChanged: {
+                    AppSettings.showMapOrientation = checked;
+                }
+            }
+
+            TextSwitch{
+                id: newPlaceSwitch
+                width: parent.width
+
+                checked: AppSettings.showNewPlace
+                //: Button for storing current position to collection
+                text: qsTr("New place")
+
+                onCheckedChanged: {
+                    AppSettings.showNewPlace = checked;
+                }
+            }
+
         }
     }
 }

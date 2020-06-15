@@ -210,3 +210,39 @@ void AppSettings::SetCollectionOrdering(int i)
     emit CollectionOrderingChanged(i);
   }
 }
+
+bool AppSettings::GetShowMapOrientation() const
+{
+  return settings.value("showMapOrientation", "true").toBool();
+}
+void AppSettings::SetShowMapOrientation(bool b)
+{
+  if (GetShowMapOrientation() != b){
+    settings.setValue("showMapOrientation", b);
+    emit ShowMapOrientationChanged(b);
+  }
+}
+
+bool AppSettings::GetShowCurrentPosition() const
+{
+  return settings.value("showCurrentPosition", "true").toBool();
+}
+void AppSettings::SetShowCurrentPosition(bool b)
+{
+  if (GetShowCurrentPosition() != b){
+    settings.setValue("showCurrentPosition", b);
+    emit ShowCurrentPositionChanged(b);
+  }
+}
+
+bool AppSettings::GetShowNewPlace() const
+{
+  return settings.value("showNewPlace", "false").toBool();
+}
+void AppSettings::SetShowNewPlace(bool b)
+{
+  if (GetShowNewPlace() != b){
+    settings.setValue("showNewPlace", b);
+    emit ShowNewPlaceChanged(b);
+  }
+}
