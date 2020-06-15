@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
+        <source> OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
         <translation>OSMScout es un programa libre desarrollado por voluntarios; lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en su fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
@@ -152,7 +152,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ordenar por</translation>
     </message>
 </context>
 <context>
@@ -226,32 +226,32 @@
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordenar por</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordenar entradas de colección</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha, descenso</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nombre</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre, descenso</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Primero los punto definido</translation>
     </message>
 </context>
 <context>
@@ -415,15 +415,15 @@
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>Progreso de descarga</translation>
+        <translation>Progreso de bajada</translation>
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Descargar mapa</translation>
+        <translation>Mapas disponibles</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Refrescar</translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -431,7 +431,7 @@
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation>Mapas descargados</translation>
+        <translation>Mapas bajados</translation>
     </message>
     <message>
         <source>Deleting</source>
@@ -595,7 +595,7 @@
     </message>
     <message>
         <source>Download</source>
-        <translation>Descargar</translation>
+        <translation>Bajar</translation>
     </message>
     <message>
         <source>Directory</source>
@@ -611,7 +611,7 @@
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Descargado</translation>
+        <translation>Bajado</translation>
     </message>
     <message>
         <source>Up-to-date</source>
@@ -638,7 +638,7 @@
     <message>
         <source>Offline maps</source>
         <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Descargar</translation>
+        <translation>Mapas sin línea</translation>
     </message>
     <message>
         <source>Map</source>
@@ -690,7 +690,7 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Error de descarga del mapa</translation>
+        <translation>Error al bajar el mapa</translation>
     </message>
 </context>
 <context>
@@ -1356,7 +1356,7 @@
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Refrescar</translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
