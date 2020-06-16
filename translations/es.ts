@@ -974,31 +974,31 @@
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Precisión GPS</translation>
     </message>
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Botones rápidos</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Button for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar posición actual</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Orientación del mapa</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Button for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuevo lugar</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar el norte durante la navegación</translation>
     </message>
     <message>
         <source>Available voices</source>
