@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Ladda ner kartor</translation>
+        <translation type="vanished">Ladda ner kartor</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -455,6 +455,10 @@
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
         <translation>Avbryter</translation>
+    </message>
+    <message>
+        <source>Available maps</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -975,26 +979,26 @@
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Snabbknappar</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Button for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Visa aktuell position</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kartorientering</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Button for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ny plats</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa norr, när kartan är roterad under navigering</translation>
     </message>
 </context>
 <context>

@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Stáhnout mapu</translation>
+        <translation type="vanished">Stáhnout mapu</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -455,6 +455,10 @@
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
         <translation>Ruším</translation>
+    </message>
+    <message>
+        <source>Available maps</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

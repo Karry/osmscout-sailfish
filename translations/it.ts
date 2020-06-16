@@ -418,10 +418,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation type="unfinished"></translation>
@@ -454,6 +450,10 @@
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available maps</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

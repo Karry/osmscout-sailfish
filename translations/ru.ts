@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Download Map</source>
-        <translation>Скачать карту</translation>
+        <translation type="vanished">Скачать карту</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -455,6 +455,10 @@
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
         <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Available maps</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
