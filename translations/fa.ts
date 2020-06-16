@@ -949,10 +949,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation type="unfinished"></translation>
     </message>
@@ -998,6 +994,10 @@
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available voices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1379,10 +1379,6 @@
 <context>
     <name>VoiceSelector</name>
     <message>
-        <source>Installed voices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation type="unfinished">تازه‌کردن</translation>
@@ -1393,6 +1389,10 @@
     </message>
     <message>
         <source>Author: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available voices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

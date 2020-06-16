@@ -52,7 +52,7 @@ Page {
 
             PageHeader{
                 id: downloadMapHeader
-                title: qsTr("Installed voices")
+                title: qsTr("Available voices")
             }
 
             Label{

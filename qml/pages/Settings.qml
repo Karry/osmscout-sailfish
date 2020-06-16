@@ -223,7 +223,7 @@ Page {
                     }
                 }
                 Button {
-                    text: qsTr("Installed voices")
+                    text: qsTr("Available voices")
                     anchors {
                         horizontalCenter: parent.horizontalCenter
                     }

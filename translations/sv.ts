@@ -950,7 +950,7 @@
     </message>
     <message>
         <source>Installed voices</source>
-        <translation>Installerade röster</translation>
+        <translation type="vanished">Installerade röster</translation>
     </message>
     <message>
         <source>Play sample</source>
@@ -999,6 +999,10 @@
     <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Visa norr, när kartan är roterad under navigering</translation>
+    </message>
+    <message>
+        <source>Available voices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1381,7 +1385,7 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation>Installerade röster</translation>
+        <translation type="vanished">Installerade röster</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -1395,6 +1399,10 @@
     <message>
         <source>Author: %1</source>
         <translation>Utvecklare: %1</translation>
+    </message>
+    <message>
+        <source>Available voices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

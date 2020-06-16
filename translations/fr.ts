@@ -950,7 +950,7 @@
     </message>
     <message>
         <source>Installed voices</source>
-        <translation>Voix installées</translation>
+        <translation type="vanished">Voix installées</translation>
     </message>
     <message>
         <source>Play sample</source>
@@ -998,6 +998,10 @@
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available voices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1381,7 +1385,7 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation>Voix installées</translation>
+        <translation type="vanished">Voix installées</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -1395,6 +1399,10 @@
     <message>
         <source>Author: %1</source>
         <translation>Auteur : %1</translation>
+    </message>
+    <message>
+        <source>Available voices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

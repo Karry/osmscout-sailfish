@@ -950,7 +950,7 @@
     </message>
     <message>
         <source>Installed voices</source>
-        <translation>Zainstalowane głosy</translation>
+        <translation type="vanished">Zainstalowane głosy</translation>
     </message>
     <message>
         <source>Play sample</source>
@@ -999,6 +999,10 @@
     <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Pokaż północ, gdy mapa zostanie obrócona podczas nawigacji</translation>
+    </message>
+    <message>
+        <source>Available voices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1382,7 +1386,7 @@
     <name>VoiceSelector</name>
     <message>
         <source>Installed voices</source>
-        <translation>Zainstalowane głosy</translation>
+        <translation type="vanished">Zainstalowane głosy</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -1396,6 +1400,10 @@
     <message>
         <source>Author: %1</source>
         <translation>Autor: %1</translation>
+    </message>
+    <message>
+        <source>Available voices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
