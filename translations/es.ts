@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Download Map</source>
-        <translation type="vanished">Mapas disponibles</translation>
+        <translation>Mapas disponibles</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -1002,7 +1002,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Voces disponibles</translation>
     </message>
 </context>
 <context>
@@ -1402,7 +1402,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Voces disponibles</translation>
     </message>
 </context>
 <context>
