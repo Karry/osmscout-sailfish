@@ -458,7 +458,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostępne mapy</translation>
     </message>
 </context>
 <context>
@@ -1002,7 +1002,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostępne głosy</translation>
     </message>
 </context>
 <context>
@@ -1403,7 +1403,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostępne głosy</translation>
     </message>
 </context>
 <context>
