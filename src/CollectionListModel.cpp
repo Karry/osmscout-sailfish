@@ -92,13 +92,16 @@ void CollectionListModel::onCollectionsLoaded(std::vector<Collection> collection
     currentColMap[col.id] = col;
   }
 
+  sort(collections);
+
   bool deleteDone=false;
   while (!deleteDone){
     deleteDone=true;
-    for (int row=0;row<this->collections.size(); row++){
+    for (size_t row=0;row<this->collections.size(); row++){
       if (!currentColMap.contains(this->collections.at(row).id)){
         beginRemoveRows(QModelIndex(), row, row);
-        this->collections.removeAt(row);
+        this->collections.erase(this->collections.begin() + row);
+        //this->collections.removeAt(row);
         endRemoveRows();
         deleteDone = false;
         break;
@@ -116,7 +119,7 @@ void CollectionListModel::onCollectionsLoaded(std::vector<Collection> collection
     auto col = collections.at(row);
     if (!oldColMap.contains(col.id)){
       beginInsertRows(QModelIndex(), row, row);
-      this->collections.insert(row, col);
+      this->collections.insert(this->collections.begin() + row, col);
       endInsertRows();
       oldColMap[col.id] = col;
     }else{
@@ -216,4 +219,38 @@ void CollectionListModel::importCollection(QString filePath)
   collectionsLoaded=false;
   emit loadingChanged();
   emit importCollectionRequest(filePath);
+}
+
+void CollectionListModel::sort(std::vector<Collection> &items) const
+{
+  using namespace std::string_literals;
+
+  std::sort(items.begin(), items.end(),
+            [&](const Collection& lhs, const Collection& rhs) {
+              switch (ordering){
+                case DateAscent:
+                  return lhs.id < rhs.id;
+                case DateDescent:
+                  return lhs.id > rhs.id;
+                case NameAscent:
+                  return lhs.name < rhs.name;
+                case NameDescent:
+                  return lhs.name > rhs.name;
+              }
+              assert(false);
+              return false;
+            });
+}
+
+void CollectionListModel::setOrdering(Ordering ordering)
+{
+  if (ordering != this->ordering){
+    this->ordering = ordering;
+
+    emit beginResetModel();
+    sort(collections);
+    emit endResetModel();
+
+    emit orderingChanged();
+  }
 }

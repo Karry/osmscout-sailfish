@@ -29,6 +29,7 @@ class CollectionListModel : public QAbstractListModel {
 
   Q_OBJECT
   Q_PROPERTY(bool loading READ isLoading NOTIFY loadingChanged)
+  Q_PROPERTY(Ordering ordering  READ getOrdering WRITE setOrdering NOTIFY orderingChanged)
 
 signals:
   void loadingChanged() const;
@@ -37,6 +38,7 @@ signals:
   void deleteCollectionRequest(qint64);
   void importCollectionRequest(QString);
   void error(QString message);
+  void orderingChanged();
 
 public slots:
   void storageInitialised();
@@ -51,6 +53,14 @@ public:
   CollectionListModel();
 
   virtual ~CollectionListModel();
+
+  enum Ordering {
+    DateAscent = 0, // older first
+    DateDescent = 1, // newer first
+    NameAscent = 2, // A-Z
+    NameDescent = 3 // Z-A
+  };
+  Q_ENUM(Ordering)
 
   enum Roles {
     NameRole = Qt::UserRole,
@@ -67,7 +77,18 @@ public:
 
   bool isLoading() const;
 
+  inline Ordering getOrdering() const
+  {
+    return ordering;
+  }
+
+  void setOrdering(Ordering ordering);
+
+private:
+  void sort(std::vector<Collection> &items) const;
+
 public:
-  QList<Collection> collections;
+  std::vector<Collection> collections;
   bool collectionsLoaded{false};
+  Ordering ordering{DateAscent};
 };
