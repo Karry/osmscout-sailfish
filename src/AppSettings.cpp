@@ -211,6 +211,18 @@ void AppSettings::SetCollectionOrdering(int i)
   }
 }
 
+int AppSettings::GetCollectionsOrdering() const
+{
+  return settings.value("collectionsOrdering", "0").toInt();
+}
+void AppSettings::SetCollectionsOrdering(int i)
+{
+  if (GetCollectionsOrdering() != i){
+    settings.setValue("collectionsOrdering", i);
+    emit CollectionsOrderingChanged(i);
+  }
+}
+
 bool AppSettings::GetShowMapOrientation() const
 {
   return settings.value("showMapOrientation", "true").toBool();

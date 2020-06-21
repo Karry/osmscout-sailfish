@@ -41,6 +41,7 @@ Dialog{
     }
 
     CollectionListModel {
+        ordering: AppSettings.collectionsOrdering
         id: collectionListModel
     }
 

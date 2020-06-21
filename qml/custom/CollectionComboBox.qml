@@ -38,6 +38,7 @@ ComboBox {
 
     CollectionListModel {
         id: collectionListModel
+        ordering: AppSettings.collectionsOrdering
         onLoadingChanged: {
             console.log("onLoadingChanged: " + loading);
             if (!loading){

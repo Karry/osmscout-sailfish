@@ -46,6 +46,7 @@ class AppSettings: public QObject{
   // order of collection items
   Q_PROPERTY(bool waypointFirst       READ GetWaypointFirst       WRITE SetWaypointFirst        NOTIFY WaypointFirstChanged)
   Q_PROPERTY(int collectionOrdering   READ GetCollectionOrdering  WRITE SetCollectionOrdering   NOTIFY CollectionOrderingChanged)
+  Q_PROPERTY(int collectionsOrdering  READ GetCollectionsOrdering WRITE SetCollectionsOrdering  NOTIFY CollectionsOrderingChanged)
 
 signals:
   void MapViewChanged(osmscout::MapView *view);
@@ -60,6 +61,7 @@ signals:
   void ShowAccuracyChanged(bool);
   void WaypointFirstChanged(bool);
   void CollectionOrderingChanged(int);
+  void CollectionsOrderingChanged(int);
   void ShowMapOrientationChanged(bool);
   void ShowCurrentPositionChanged(bool);
   void ShowNewPlaceChanged(bool);
@@ -103,6 +105,9 @@ public:
 
   int GetCollectionOrdering() const;
   void SetCollectionOrdering(int);
+
+  int GetCollectionsOrdering() const;
+  void SetCollectionsOrdering(int);
 
   bool GetShowMapOrientation() const;
   void SetShowMapOrientation(bool);

@@ -212,6 +212,29 @@
     </message>
 </context>
 <context>
+    <name>CollectionListOrdering</name>
+    <message>
+        <source>Collection ordering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Datum</translation>
+    </message>
+    <message>
+        <source>Date, descent</source>
+        <translation type="unfinished">Datum, fallande</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Namn</translation>
+    </message>
+    <message>
+        <source>Name, descent</source>
+        <translation type="unfinished">Namn, fallande</translation>
+    </message>
+</context>
+<context>
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
@@ -394,6 +417,11 @@
     <message>
         <source>Show on map</source>
         <translation>Visa på kartan</translation>
+    </message>
+    <message>
+        <source>Order by...</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished">Ordna efter...</translation>
     </message>
 </context>
 <context>

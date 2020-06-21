@@ -38,6 +38,7 @@ Page {
 
     CollectionListModel {
         id: collectionListModel
+        ordering: AppSettings.collectionsOrdering
         onLoadingChanged: {
             console.log("onLoadingChanged: " + loading);
         }
@@ -164,6 +165,13 @@ Page {
                 text: qsTr("Import")
                 onClicked: {
                     pageStack.push(filePickerPage)
+                }
+            }
+            MenuItem {
+                //: collection pull down menu
+                text: qsTr("Order by...")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("CollectionListOrdering.qml"));
                 }
             }
             MenuItem {
