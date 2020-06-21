@@ -215,23 +215,23 @@
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolejność kolekcji</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Data</translation>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished">Data, malejąco</translation>
+        <translation>Data, malejąco</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nazwa</translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished">Nazwa, malejąco</translation>
+        <translation>Nazwa, malejąco</translation>
     </message>
 </context>
 <context>
