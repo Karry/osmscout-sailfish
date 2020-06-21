@@ -215,23 +215,23 @@
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Řazení sbírek</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Datum</translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished">Datum, sestupně</translation>
+        <translation>Datum, sestupně</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Jméno</translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished">Jméno, sestupně</translation>
+        <translation>Jméno, sestupně</translation>
     </message>
 </context>
 <context>
@@ -421,7 +421,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Seřadit podle...</translation>
+        <translation>Řadit podle...</translation>
     </message>
 </context>
 <context>
@@ -444,10 +444,6 @@
     <message>
         <source>Download Progress</source>
         <translation>Průběh stahování</translation>
-    </message>
-    <message>
-        <source>Download Map</source>
-        <translation type="vanished">Stáhnout mapu</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -486,7 +482,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostupné mapy</translation>
     </message>
 </context>
 <context>
@@ -977,10 +973,6 @@
         <translation>Bez hlasu</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Instalované hlasy</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>Přehrát ukázku</translation>
     </message>
@@ -1007,30 +999,30 @@
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rychlá tlačítka</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Button for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit současnou polohu</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Orientace mapy</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Button for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nové místo</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukazuje sever pokud je mapa otočena během navigace</translation>
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostupné hlasy</translation>
     </message>
 </context>
 <context>
@@ -1413,10 +1405,6 @@
 <context>
     <name>VoiceSelector</name>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Instalované hlasy</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Obnovit</translation>
@@ -1431,7 +1419,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostupné hlasy</translation>
     </message>
 </context>
 <context>

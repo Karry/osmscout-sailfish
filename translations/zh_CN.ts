@@ -446,10 +446,6 @@
         <translation>下载进度</translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="vanished">下载地图</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>刷新</translation>
@@ -977,10 +973,6 @@
         <translation>不播报语音</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">已安装语音</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>播放示例</translation>
     </message>
@@ -1410,10 +1402,6 @@
 </context>
 <context>
     <name>VoiceSelector</name>
-    <message>
-        <source>Installed voices</source>
-        <translation type="vanished">已安装语音</translation>
-    </message>
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>

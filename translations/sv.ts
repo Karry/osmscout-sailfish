@@ -215,23 +215,23 @@
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Samlingsordning</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Datum</translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished">Datum, fallande</translation>
+        <translation>Datum, fallande</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Namn</translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished">Namn, fallande</translation>
+        <translation>Namn, fallande</translation>
     </message>
 </context>
 <context>
@@ -421,7 +421,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Ordna efter...</translation>
+        <translation>Ordna efter...</translation>
     </message>
 </context>
 <context>
@@ -444,10 +444,6 @@
     <message>
         <source>Download Progress</source>
         <translation>Nedladdningsförlopp</translation>
-    </message>
-    <message>
-        <source>Download Map</source>
-        <translation type="vanished">Ladda ner kartor</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -486,7 +482,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillgängliga kartor</translation>
     </message>
 </context>
 <context>
@@ -977,10 +973,6 @@
         <translation>Ingen röst</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Installerade röster</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>Spela upp exempel</translation>
     </message>
@@ -1030,7 +1022,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillgängliga röster</translation>
     </message>
 </context>
 <context>
@@ -1412,10 +1404,6 @@
 <context>
     <name>VoiceSelector</name>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Installerade röster</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Uppdatera</translation>
@@ -1430,7 +1418,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillgängliga röster</translation>
     </message>
 </context>
 <context>

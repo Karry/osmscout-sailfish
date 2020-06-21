@@ -446,10 +446,6 @@
         <translation>Letöltés folyamatban</translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="vanished">Térkép letöltése</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>Frissítés</translation>

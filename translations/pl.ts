@@ -446,10 +446,6 @@
         <translation>Postęp pobierania</translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="vanished">Pobierz mapę</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>Odśwież</translation>
@@ -977,10 +973,6 @@
         <translation>Bez głosu</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Zainstalowane głosy</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>Odtwórz próbkę</translation>
     </message>
@@ -1412,10 +1404,6 @@
 </context>
 <context>
     <name>VoiceSelector</name>
-    <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Zainstalowane głosy</translation>
-    </message>
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>

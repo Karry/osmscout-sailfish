@@ -446,10 +446,6 @@
         <translation>Nedlastningsfremgang</translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="vanished">Last ned kart</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation type="unfinished"></translation>

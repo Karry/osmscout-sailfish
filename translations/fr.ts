@@ -152,7 +152,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Classé par ...</translation>
     </message>
 </context>
 <context>
@@ -219,11 +219,11 @@
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Date</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Date, décroissante</translation>
     </message>
     <message>
         <source>Name</source>
@@ -231,7 +231,7 @@
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nom, décroissant</translation>
     </message>
 </context>
 <context>
@@ -249,32 +249,32 @@
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>Classé par</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Classement des collections</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Date, décroissante</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom, décroissant</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Repères d&apos;abord</translation>
     </message>
 </context>
 <context>
@@ -421,7 +421,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Classé par ...</translation>
     </message>
 </context>
 <context>
@@ -444,10 +444,6 @@
     <message>
         <source>Download Progress</source>
         <translation>Progression du téléchargement</translation>
-    </message>
-    <message>
-        <source>Download Map</source>
-        <translation type="vanished">Télécharger la carte</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -486,7 +482,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartes disponibles</translation>
     </message>
 </context>
 <context>
@@ -977,60 +973,56 @@
         <translation>Aucune voix</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Voix installées</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>Jouer un extrait</translation>
     </message>
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Suivi de la distance</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Panneau d&apos;information</translation>
     </message>
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Altitude actuelle</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Précision du GPS</translation>
     </message>
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Boutons rapides</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Button for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la position actuelle</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Orientation de la carte</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Button for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nouveau lieu</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le nord lorsque la carte est tournée pendant la navigation</translation>
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Voix disponibles</translation>
     </message>
 </context>
 <context>
@@ -1412,10 +1404,6 @@
 <context>
     <name>VoiceSelector</name>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Voix installées</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Rafraîchir</translation>
@@ -1430,7 +1418,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Voix disponibles</translation>
     </message>
 </context>
 <context>

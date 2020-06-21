@@ -446,10 +446,6 @@
         <translation>Downloadfortschritt</translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="vanished">Karte herunterladen</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>Neu laden</translation>
@@ -977,10 +973,6 @@
         <translation>Stumm</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Installierte Stimmen</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>Beispiel abspielen</translation>
     </message>
@@ -1411,10 +1403,6 @@
 </context>
 <context>
     <name>VoiceSelector</name>
-    <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Installierte Stimmen</translation>
-    </message>
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>

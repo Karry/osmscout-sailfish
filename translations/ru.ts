@@ -446,10 +446,6 @@
         <translation>Загружено</translation>
     </message>
     <message>
-        <source>Download Map</source>
-        <translation type="vanished">Скачать карту</translation>
-    </message>
-    <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
         <translation>Обновить</translation>
@@ -977,10 +973,6 @@
         <translation>Без голоса</translation>
     </message>
     <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Установленные голоса</translation>
-    </message>
-    <message>
         <source>Play sample</source>
         <translation>Послушать пример</translation>
     </message>
@@ -1412,10 +1404,6 @@
 </context>
 <context>
     <name>VoiceSelector</name>
-    <message>
-        <source>Installed voices</source>
-        <translation type="vanished">Установленные голоса</translation>
-    </message>
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
