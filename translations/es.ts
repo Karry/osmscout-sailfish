@@ -111,7 +111,7 @@
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation>Editar punto-definido</translation>
+        <translation>Editar punto definido</translation>
     </message>
     <message>
         <source>Edit track</source>
@@ -421,7 +421,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Ordenar por</translation>
+        <translation>Ordenar por</translation>
     </message>
 </context>
 <context>
@@ -482,7 +482,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapas disponibles</translation>
     </message>
 </context>
 <context>
@@ -667,7 +667,7 @@
     <message>
         <source>Offline maps</source>
         <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Mapas sin línea</translation>
+        <translation>Nube</translation>
     </message>
     <message>
         <source>Map</source>
@@ -752,7 +752,7 @@
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation>Nuevo punto-definido</translation>
+        <translation>Nuevo punto definido</translation>
     </message>
 </context>
 <context>
@@ -900,7 +900,7 @@
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation>Agregar como punto-definido</translation>
+        <translation>Agregar como punto definido</translation>
     </message>
     <message>
         <source>Pub</source>
@@ -962,7 +962,7 @@
     </message>
     <message>
         <source>Navigation</source>
-        <translation>Navegar</translation>
+        <translation>Voces</translation>
     </message>
     <message>
         <source>Voice</source>
@@ -979,27 +979,27 @@
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Distancia de rastreador</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Elevación actual</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Precisión GPS</translation>
+        <translation>Precisar posicionamiento</translation>
     </message>
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation>Botones rápidos</translation>
+        <translation>Botones</translation>
     </message>
     <message>
         <source>Show current position</source>
@@ -1009,7 +1009,7 @@
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation>Orientación del mapa</translation>
+        <translation>Mostrar brújula</translation>
     </message>
     <message>
         <source>New place</source>
@@ -1018,7 +1018,7 @@
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation>Mostrar el norte durante la navegación</translation>
+        <translation>Muestra el norte durante la navegación</translation>
     </message>
     <message>
         <source>Available voices</source>
@@ -1044,7 +1044,7 @@
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>Error al cargar los puntos-definidos para el id %1 de colección</translation>
+        <translation>Error al cargar los puntos definidos para el id %1 de colección</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
@@ -1076,11 +1076,11 @@
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation>puntos-definido %1</translation>
+        <translation>puntos definido %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation>Error al importar puntos-definidos: %1</translation>
+        <translation>Error al importar puntos definidos: %1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
@@ -1112,11 +1112,11 @@
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation>Error al borrar punto-definido: %1</translation>
+        <translation>Error al borrar punto definido: %1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>Error al crear un punto-definido: %1</translation>
+        <translation>Error al crear un punto definido: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
@@ -1124,7 +1124,7 @@
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation>Error al editar un punto-definido: %1</translation>
+        <translation>Error al editar un punto definido: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
