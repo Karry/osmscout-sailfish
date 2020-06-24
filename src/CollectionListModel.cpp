@@ -20,6 +20,7 @@
 #include "CollectionListModel.h"
 
 #include <QDebug>
+#include <QtCore/QCollator>
 
 CollectionListModel::CollectionListModel()
 {
@@ -225,6 +226,8 @@ void CollectionListModel::sort(std::vector<Collection> &items) const
 {
   using namespace std::string_literals;
 
+  static const QCollator coll;
+
   std::sort(items.begin(), items.end(),
             [&](const Collection& lhs, const Collection& rhs) {
               switch (ordering){
@@ -233,9 +236,9 @@ void CollectionListModel::sort(std::vector<Collection> &items) const
                 case DateDescent:
                   return lhs.id > rhs.id;
                 case NameAscent:
-                  return lhs.name < rhs.name;
+                  return coll.compare(lhs.name, rhs.name) < 0;
                 case NameDescent:
-                  return lhs.name > rhs.name;
+                  return coll.compare(lhs.name, rhs.name) > 0;
               }
               assert(false);
               return false;

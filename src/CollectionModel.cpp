@@ -23,6 +23,7 @@
 #include <QDebug>
 #include <QtCore/QStandardPaths>
 #include <QStorageInfo>
+#include <QtCore/QCollator>
 
 namespace {
 QString safeFileName(QString name)
@@ -198,6 +199,8 @@ void CollectionModel::sort(std::vector<Item> &items) const
     }
   };
 
+  static const QCollator coll;
+
   std::sort(items.begin(), items.end(),
             [&](const Item& lhs, const Item& rhs) {
               if (waypointFirst && lhs.index() != rhs.index()){
@@ -209,9 +212,9 @@ void CollectionModel::sort(std::vector<Item> &items) const
                 case DateDescent:
                   return date(lhs) > date(rhs);
                 case NameAscent:
-                  return name(lhs) < name(rhs);
+                  return coll.compare(name(lhs), name(rhs)) < 0;
                 case NameDescent:
-                  return name(lhs) > name(rhs);
+                  return coll.compare(name(lhs), name(rhs)) > 0;
               }
               assert(false);
               return false;
