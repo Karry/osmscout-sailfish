@@ -152,7 +152,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>分类方式</translation>
     </message>
 </context>
 <context>
@@ -215,23 +215,23 @@
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>收藏排序</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>日期</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>日期，降序</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>名称，降序</translation>
     </message>
 </context>
 <context>
@@ -249,32 +249,32 @@
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>排序方式</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>按收藏项目排序</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>日期</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>日期降序</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>名称，降序</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>路标优先</translation>
     </message>
 </context>
 <context>
@@ -421,7 +421,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>排序方式</translation>
     </message>
 </context>
 <context>
@@ -482,7 +482,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>可用地图</translation>
     </message>
 </context>
 <context>
@@ -979,50 +979,50 @@
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>追踪器距离</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>信息板</translation>
     </message>
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>当前海拔</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>GPS 精度</translation>
     </message>
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>快速按钮</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Button for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>显示当前位置</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>switch for diplay map ofientation button on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>地图方向</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Button for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>新位置</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>在导航过程中旋转地图时显示北方</translation>
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>可用语音</translation>
     </message>
 </context>
 <context>
@@ -1417,7 +1417,7 @@
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>可用语音</translation>
     </message>
 </context>
 <context>
