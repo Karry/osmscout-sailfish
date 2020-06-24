@@ -388,7 +388,7 @@
 - fix time in gpx track points
 - workaround for incorrect gps time on Jolla 1
 
-* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.3-1
+* 2020-06-24 Lukáš Karas <lukas.karas@centrum.cz> 2.3-1
 - show suggested lanes during navigation
 - show more information (elevation, GPS accuracy...) on main screen (configurable)
 - make buttons on main screen configurable
