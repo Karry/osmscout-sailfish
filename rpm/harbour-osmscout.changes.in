@@ -394,3 +394,7 @@
 - make buttons on main screen configurable
 - add fast "new place" button to main screen (hidden by default)
 - configurable ordering of collection entries
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.4-1
+- use locale dependent name sorting in collections
+- update translatin (Spanish, Chinese)
