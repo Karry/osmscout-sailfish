@@ -91,6 +91,8 @@ Page {
         isTransient: false
         expireTimeout: 0 // do not expire
 
+        property var aliveIds: []
+
         appIcon: "image://theme/icon-lock-warning"
 
         remoteActions: [ {
@@ -103,7 +105,13 @@ Page {
                     } ]
 
         Component.onDestruction: {
-            downloaderErrorNotification.close();
+            while (downloaderErrorNotification.replacesId != 0){
+                console.log("Closing notification " + downloaderErrorNotification.replacesId);
+                downloaderErrorNotification.close();
+                if (downloaderErrorNotification.aliveIds.length > 0){
+                    downloaderErrorNotification.replacesId = downloaderErrorNotification.aliveIds.pop();
+                }
+            }
         }
     }
 
@@ -114,6 +122,10 @@ Page {
             //remorse.execute(qsTranslate("message", message), function() { }, 10 * 1000);
             console.log("Map downloader error: " + message);
             var trMsg = qsTranslate("message", message);
+            if (downloaderErrorNotification.aliveIds.length < 100 && downloaderErrorNotification.replacesId != 0){
+                downloaderErrorNotification.aliveIds.push(downloaderErrorNotification.replacesId);
+            }
+
             downloaderErrorNotification.body = trMsg; // have to be there for displaying in notification area
             downloaderErrorNotification.previewBody = trMsg;
             downloaderErrorNotification.replacesId = 0; // when zero, it creates new notification for every instance
