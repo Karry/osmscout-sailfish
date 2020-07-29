@@ -400,3 +400,4 @@
 - update translatin (Spanish, Chinese)
 - tune router junction penalty (routing could fail in city)
 - search: don't require exact match on address number
+- make search diacritic agnostic. Phrase "plzen" should find "Plzeň" town!
