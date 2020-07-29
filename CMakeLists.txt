@@ -36,7 +36,7 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Version.h.cmake"
 
 # ==================================================================================================
 
-set(CMAKE_MIN_VERSION    "3.9.2") # CMake availabe on Travis CI is 3.9.2
+set(CMAKE_MIN_VERSION    "3.9.2") # CMake available on Travis CI is 3.9.2
 set(QT_MIN_VERSION       "5.6.0") # QList::constBegin was introduced in Qt 5.6
 option(OSMSCOUT_ENABLE_SSE "Enable SSE support (not working on all platforms!)" ON)
 
@@ -125,9 +125,14 @@ else()
     set(OSMSCOUT_ENABLE_IPO FALSE)
 endif()
 
+# global settings
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON) # build should fail when compiler don't support standard defined by CMAKE_CXX_STANDARD
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_VERBOSE_MAKEFILE OFF)
+
 add_definitions( -Wall -Wextra -pedantic -Wno-unused-function )
 add_definitions( -fno-omit-frame-pointer -fstack-protector-all -fPIC )
-set(CMAKE_CXX_STANDARD_REQUIRED ON) # build should fail when compiler don't support standard defined by CMAKE_CXX_STANDARD
 
 # Do *NOT* turn assertions off in release and rel-with-deb-info modes.
 # CMakes does that by default despite any recent documentation
