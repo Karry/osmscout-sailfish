@@ -421,7 +421,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Sortuj według...</translation>
+        <translation>Sortuj według...</translation>
     </message>
 </context>
 <context>
