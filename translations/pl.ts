@@ -235,11 +235,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Data, rosnąco</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa, rosnąco</translation>
     </message>
 </context>
 <context>
@@ -286,11 +286,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Data, rosnąco</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa, rosnąco</translation>
     </message>
 </context>
 <context>
