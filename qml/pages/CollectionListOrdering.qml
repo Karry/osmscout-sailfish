@@ -58,9 +58,9 @@ Page {
         }
 
         model: ListModel {
-           ListElement { index: CollectionListModel.DateAscent; itemtext: QT_TR_NOOP("Date") }
+           ListElement { index: CollectionListModel.DateAscent; itemtext: QT_TR_NOOP("Date, ascent") }
            ListElement { index: CollectionListModel.DateDescent; itemtext: QT_TR_NOOP("Date, descent") }
-           ListElement { index: CollectionListModel.NameAscent; itemtext: QT_TR_NOOP("Name") }
+           ListElement { index: CollectionListModel.NameAscent; itemtext: QT_TR_NOOP("Name, ascent") }
            ListElement { index: CollectionListModel.NameDescent; itemtext: QT_TR_NOOP("Name, descent") }
         }
 

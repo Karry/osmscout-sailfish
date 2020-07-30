@@ -219,7 +219,7 @@
     </message>
     <message>
         <source>Date</source>
-        <translation>日期</translation>
+        <translation type="vanished">日期</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -227,11 +227,19 @@
     </message>
     <message>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation type="vanished">名称</translation>
     </message>
     <message>
         <source>Name, descent</source>
         <translation>名称，降序</translation>
+    </message>
+    <message>
+        <source>Date, ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name, ascent</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -257,7 +265,7 @@
     </message>
     <message>
         <source>Date</source>
-        <translation>日期</translation>
+        <translation type="vanished">日期</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -265,7 +273,7 @@
     </message>
     <message>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation type="vanished">名称</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -275,6 +283,14 @@
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
         <translation>路标优先</translation>
+    </message>
+    <message>
+        <source>Date, ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name, ascent</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

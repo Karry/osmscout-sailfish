@@ -51,9 +51,9 @@ Page {
 
                 label: qsTr("Order by")
                 menu: ContextMenu {
-                    MenuItem { text: qsTr("Date") }
+                    MenuItem { text: qsTr("Date, ascent") }
                     MenuItem { text: qsTr("Date, descent") }
-                    MenuItem { text: qsTr("Name") }
+                    MenuItem { text: qsTr("Name, ascent") }
                     MenuItem { text: qsTr("Name, descent") }
                 }
 

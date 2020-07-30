@@ -218,19 +218,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Name</source>
+        <source>Name, descent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Name, descent</source>
+        <source>Date, ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name, ascent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -256,15 +256,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -274,6 +266,14 @@
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date, ascent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name, ascent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
