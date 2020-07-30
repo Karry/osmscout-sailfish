@@ -155,7 +155,7 @@ echo "run"
 # "$MER_SSH_CMD" \
 #   ssh "/usr/bin/$PROJECT_NAME"
 # cat "$SDK_ROOT/vmshare/devices.xml"
-ssh $DEV_SSH_USER@$DEV_SSH_HOST \
+LC_ALL=en_US.UTF-8 ssh $DEV_SSH_USER@$DEV_SSH_HOST \
   -i "$DEV_SSH_KEY" \
   -p "$DEV_SSH_PORT" \
   "/usr/bin/$PROJECT_TARGET"
