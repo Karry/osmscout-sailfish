@@ -401,3 +401,6 @@
 - tune router junction penalty (routing could fail in city)
 - search: don't require exact match on address number
 - make search diacritic agnostic. Phrase "plzen" should find "Plzeň" town!
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.5-1
+- search: fix address number matching (badly merged changes from upstream)
