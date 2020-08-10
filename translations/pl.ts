@@ -1043,7 +1043,7 @@
     <message>
         <source>Keep display on</source>
         <extracomment>switch for keep display on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nie wyłączaj wyświetlacza</translation>
     </message>
 </context>
 <context>
