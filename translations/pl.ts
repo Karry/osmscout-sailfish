@@ -218,16 +218,8 @@
         <translation>Kolejność kolekcji</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Data</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Data, malejąco</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Nazwa</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -264,16 +256,8 @@
         <translation>Sortowanie wpisów kolekcji</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Data</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Data, malejąco</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Nazwa</translation>
     </message>
     <message>
         <source>Name, descent</source>
