@@ -218,16 +218,8 @@
         <translation>Řazení sbírek</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Datum</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Datum, sestupně</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Jméno</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -235,11 +227,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum, od nejnovější</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno, A-Z</translation>
     </message>
 </context>
 <context>
@@ -264,16 +256,8 @@
         <translation>Řazení položek sbírky</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Datum</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Datum, sestupně</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Jméno</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -286,11 +270,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum, od nejnovější</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno, A-Z</translation>
     </message>
 </context>
 <context>

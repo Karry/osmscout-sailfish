@@ -218,16 +218,8 @@
         <translation>收藏排序</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">日期</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>日期，降序</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -235,11 +227,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>日期，升序</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>名称，升序</translation>
     </message>
 </context>
 <context>
@@ -264,16 +256,8 @@
         <translation>按收藏项目排序</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">日期</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>日期降序</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -286,11 +270,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>日期，升序</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>名称，升序</translation>
     </message>
 </context>
 <context>

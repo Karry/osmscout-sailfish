@@ -218,16 +218,8 @@
         <translation>Sammlungssortierung</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Datum</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Datum, absteigend</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Name</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -264,16 +256,8 @@
         <translation>Sortierung der Sammlungselemente</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Datum</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Datum, absteigend</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Name</translation>
     </message>
     <message>
         <source>Name, descent</source>

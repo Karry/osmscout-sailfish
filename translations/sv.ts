@@ -218,16 +218,8 @@
         <translation>Samlingsordning</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Datum</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Datum, fallande</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Namn</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -235,11 +227,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum, stigande</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn, stigande</translation>
     </message>
 </context>
 <context>
@@ -264,16 +256,8 @@
         <translation>Ordning för samlingsposter</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Datum</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Datum, fallande</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Namn</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -286,11 +270,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum, stigande</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn, stigande</translation>
     </message>
 </context>
 <context>

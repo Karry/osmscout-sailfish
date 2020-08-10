@@ -218,16 +218,8 @@
         <translation>Ordenar Colección </translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Fecha</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Fecha, descenso</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Nombre</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -264,16 +256,8 @@
         <translation>Ordenar entradas de colección</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Fecha</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Fecha, descenso</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Nombre</translation>
     </message>
     <message>
         <source>Name, descent</source>

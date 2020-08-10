@@ -222,10 +222,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation type="obsolete">Naam</translation>
-    </message>
-    <message>
         <source>Name, descent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -262,10 +258,6 @@
     <message>
         <source>Date, descent</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="obsolete">Naam</translation>
     </message>
     <message>
         <source>Name, descent</source>

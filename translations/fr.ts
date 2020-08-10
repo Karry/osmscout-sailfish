@@ -218,16 +218,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="obsolete">Date</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation type="unfinished">Date, décroissante</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="obsolete">Nom</translation>
     </message>
     <message>
         <source>Name, descent</source>
@@ -264,16 +256,8 @@
         <translation>Classement des collections</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="vanished">Date</translation>
-    </message>
-    <message>
         <source>Date, descent</source>
         <translation>Date, décroissante</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">Nom</translation>
     </message>
     <message>
         <source>Name, descent</source>
