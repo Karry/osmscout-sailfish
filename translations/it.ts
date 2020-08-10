@@ -1024,6 +1024,11 @@
         <source>Available voices</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

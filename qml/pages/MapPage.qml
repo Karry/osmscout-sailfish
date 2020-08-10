@@ -67,17 +67,32 @@ Page {
             Global.remorse = remorse;
         }
     }
-    KeepAlive {
+    DisplayBlanking {
         id: keepAlive
-        enabled: Global.navigationModel.destinationSet &&
-                 ((Global.navigationModel.vehicle === "car" && Global.navigationModel.nextRouteStep < 700) ||
-                  (Global.navigationModel.vehicle === "bicycle" && Global.navigationModel.nextRouteStep < 200) ||
-                  (Global.navigationModel.nextRouteStep < 30))
+        property bool active: Global.navigationModel.destinationSet && AppSettings.navigationKeepAlive
+        // seems that preventBlanking is write only, so we are using custom "active" property
+        preventBlanking: active
 
-        onEnabledChanged: {
-            console.log((enabled ? "Enabling" : "Disabling") +
-                        " keepAlive, " +
+        function printStatus(){
+            var statusStr = "Unknown";
+            if (status === DisplayBlanking.On){
+                statusStr = "On"
+            } else if (status === DisplayBlanking.Off){
+                statusStr = "Off"
+            } else if (status === DisplayBlanking.Dimmed){
+                statusStr = "Dimmed"
+            }
+
+            console.log("Display status: " + statusStr + ", prevent blanking: " + active + ", " +
                         (Global.navigationModel.destinationSet ? ("next navigation step in " + Utils.humanDistance(Global.navigationModel.nextRouteStep)) : "no navigation in progress"));
+        }
+
+        onActiveChanged: {
+            printStatus();
+        }
+
+        onStatusChanged: {
+            printStatus();
         }
     }
 

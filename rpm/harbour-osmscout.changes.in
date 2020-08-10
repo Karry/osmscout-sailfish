@@ -404,3 +404,4 @@
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.5-1
 - search: fix address number matching (badly merged changes from upstream)
+- keep display on during navigation (configurable)

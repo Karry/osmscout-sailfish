@@ -232,6 +232,19 @@ Page {
                         pageStack.push(Qt.resolvedUrl("VoiceSelector.qml"))
                     }
                 }
+
+                TextSwitch{
+                    id: navigationKeepAliveSwitch
+                    width: parent.width
+
+                    checked: AppSettings.navigationKeepAlive
+                    //: switch for keep display on during navigation
+                    text: qsTr("Keep display on")
+
+                    onCheckedChanged: {
+                        AppSettings.navigationKeepAlive = checked;
+                    }
+                }
             }
 
             //: setting section for information panel on main screen

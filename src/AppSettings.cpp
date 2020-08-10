@@ -258,3 +258,15 @@ void AppSettings::SetShowNewPlace(bool b)
     emit ShowNewPlaceChanged(b);
   }
 }
+
+bool AppSettings::GetNavigationKeepAlive() const
+{
+  return settings.value("navigationKeepAlive", "true").toBool();
+}
+void AppSettings::SetNavigationKeepAlive(bool b)
+{
+  if (GetNavigationKeepAlive() != b){
+    settings.setValue("navigationKeepAlive", b);
+    emit NavigationKeepAliveChanged(b);
+  }
+}

@@ -33,6 +33,8 @@ class AppSettings: public QObject{
   Q_PROPERTY(QString  lastCollection    READ GetLastCollection    WRITE SetLastCollection    NOTIFY LastCollectionChanged)
   Q_PROPERTY(QString  lastMapDirectory  READ GetLastMapDirectory  WRITE SetLastMapDirectory  NOTIFY LastMapDirectoryChanged)
 
+  Q_PROPERTY(bool navigationKeepAlive READ GetNavigationKeepAlive WRITE SetNavigationKeepAlive NOTIFY NavigationKeepAliveChanged)
+
   // flags for visible information on main screen
   Q_PROPERTY(bool showTrackerDistance READ GetShowTrackerDistance WRITE SetShowTrackerDistance  NOTIFY ShowTrackerDistanceChanged)
   Q_PROPERTY(bool showElevation       READ GetShowElevation       WRITE SetShowElevation        NOTIFY ShowElevationChanged)
@@ -65,6 +67,7 @@ signals:
   void ShowMapOrientationChanged(bool);
   void ShowCurrentPositionChanged(bool);
   void ShowNewPlaceChanged(bool);
+  void NavigationKeepAliveChanged(bool);
 
 public:
   AppSettings();
@@ -117,6 +120,9 @@ public:
 
   bool GetShowNewPlace() const;
   void SetShowNewPlace(bool);
+
+  bool GetNavigationKeepAlive() const;
+  void SetNavigationKeepAlive(bool);
 
 private:
   QSettings         settings;
