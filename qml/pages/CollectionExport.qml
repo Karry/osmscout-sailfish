@@ -33,20 +33,21 @@ Dialog {
 
     property alias name: nameTextField.text
     property alias directory: destinationDirectoryComboBox.selected
+    property alias includeWaypoints: waypointSwitch.checked
+    property int accuracyFilter: -1
     property ListModel directories
 
-    signal selected(string directory, string name)
+    signal selected(string directory, string name, bool includeWaypoints, int accuracyFilter)
 
     canAccept: name.length > 0
 
     onAccepted: {
         console.log("selected: " + name + ", directory: " + directory);
-        selected(directory, name);
+        selected(directory, name, includeWaypoints, accuracyFilter);
     }
 
     DialogHeader {
         id: header
-        //title: editCollectionDialog.collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
         acceptText : qsTr("Export")
         //cancelText : qsTr("Cancel")
     }
@@ -90,5 +91,56 @@ Dialog {
                 selected = item.dir;
             }
         }
+
+        TextSwitch{
+            id: waypointSwitch
+            width: parent.width
+
+            //: switch for exporting waypoints to gpx
+            text: qsTr("Include waypoints")
+        }
+
+        ComboBox {
+            id: accuracyComboBox
+
+            property bool initialized: false
+
+            //: gpx track export option
+            label: qsTr("Drop inaccurate nodes")
+            menu: ContextMenu {
+                //: option dropping inaccurate nodes (gpx track export)
+                MenuItem { text: qsTr("Keep everything") }
+                //: option dropping inaccurate nodes (gpx track export)
+                MenuItem { text: qsTr("> 100 m") }
+                //: option dropping inaccurate nodes (gpx track export)
+                MenuItem { text: qsTr("> 30 m") }
+                //: option dropping inaccurate nodes (gpx track export)
+                MenuItem { text: qsTr("> 10 m") }
+            }
+            onCurrentItemChanged: {
+                if (!initialized){
+                    return;
+                }
+                //AppSettings.exportAccuracy = currentIndex;
+                if (currentIndex == 0){
+                    accuracyFilter = -1;
+                } else if (currentIndex == 1){
+                    accuracyFilter = 100;
+                } else if (currentIndex == 2){
+                    accuracyFilter = 30;
+                } else if (currentIndex == 3){
+                    accuracyFilter = 10;
+                }
+            }
+            Component.onCompleted: {
+                //currentIndex = AppSettings.exportAccuracy;
+                initialized = true;
+            }
+            onPressAndHold: {
+                // improve default ComboBox UX :-)
+                clicked(mouse);
+            }
+        }
+
     }
 }

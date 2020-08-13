@@ -1518,7 +1518,7 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   loadCollectionDetails(Collection(collectionId));
 }
 
-bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId)
+bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId, bool includeWaypoints, int accuracyFilter)
 {
   QTime timer;
   timer.start();
@@ -1540,9 +1540,11 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std:
   }
 
   assert(collection.waypoints);
-  gpxFile.waypoints.reserve(collection.waypoints->size());
-  for (const Waypoint &w: *(collection.waypoints)){
-    gpxFile.waypoints.push_back(w.data);
+  if (includeWaypoints) {
+    gpxFile.waypoints.reserve(collection.waypoints->size());
+    for (const Waypoint &w: *(collection.waypoints)) {
+      gpxFile.waypoints.push_back(w.data);
+    }
   }
   collection.waypoints.reset();
 
@@ -1556,6 +1558,11 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std:
         return false;
       }
       assert(t.data);
+      if (accuracyFilter > 0){
+        t.data->FilterPoints([accuracyFilter](std::vector<osmscout::gpx::TrackPoint> &points){
+          osmscout::gpx::FilterInaccuratePoints(points, accuracyFilter);
+        });
+      }
       gpxFile.tracks.push_back(std::move(*(t.data)));
     }
   }
@@ -1574,25 +1581,25 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std:
   return success;
 }
 
-void Storage::exportCollection(qint64 collectionId, QString file)
+void Storage::exportCollection(qint64 collectionId, QString file, bool includeWaypoints, int accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionExported(false);
     return;
   }
 
-  bool success = exportPrivate(collectionId, file, std::nullopt);
+  bool success = exportPrivate(collectionId, file, std::nullopt, includeWaypoints, accuracyFilter);
   emit collectionExported(success);
 }
 
-void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file)
+void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, int accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionExported(false);
     return;
   }
 
-  bool success = exportPrivate(collectionId, file, trackId);
+  bool success = exportPrivate(collectionId, file, trackId, includeWaypoints, accuracyFilter);
   emit trackExported(success);
 }
 

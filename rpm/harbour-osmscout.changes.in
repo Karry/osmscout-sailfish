@@ -406,3 +406,4 @@
 - search: fix address number matching (badly merged changes from upstream)
 - keep display on during navigation (configurable)
 - update translations (Polish, Chinese, Czech, Swedish)
+- add more options to GPX export (omit waypoints, drop inaccurate nodes)

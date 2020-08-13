@@ -467,7 +467,7 @@ void CollectionModel::editTrack(QString idStr, QString name, QString description
   emit editTrackRequest(collection.id, id, name, description);
 }
 
-void CollectionModel::exportToFile(QString fileName, QString directory)
+void CollectionModel::exportToFile(QString fileName, QString directory, bool includeWaypoints, int accuracyFilter)
 {
   QFileInfo dir(directory);
   if (!dir.isDir() || !dir.isWritable()){
@@ -484,10 +484,10 @@ void CollectionModel::exportToFile(QString fileName, QString directory)
   QFileInfo file(QDir(dir.absoluteFilePath()), safeName + ".gpx");
   collectionExporting = true;
   emit exportingChanged();
-  emit exportCollectionRequest(collection.id, file.absoluteFilePath());
+  emit exportCollectionRequest(collection.id, file.absoluteFilePath(), includeWaypoints, accuracyFilter);
 }
 
-void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QString directory)
+void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QString directory, bool includeWaypoints, int accuracyFilter)
 {
   bool ok;
   qint64 trackId = trackIdStr.toLongLong(&ok);
@@ -511,7 +511,7 @@ void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QS
   QFileInfo file(QDir(dir.absoluteFilePath()), safeName + ".gpx");
   collectionExporting = true;
   emit exportingChanged();
-  emit exportTrackRequest(collection.id, trackId, file.absoluteFilePath());
+  emit exportTrackRequest(collection.id, trackId, file.absoluteFilePath(), includeWaypoints, accuracyFilter);
 }
 
 void CollectionModel::onCollectionExported(bool)

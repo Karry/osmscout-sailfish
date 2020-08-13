@@ -427,12 +427,12 @@ public slots:
   /**
    * emits collectionExported
    */
-  void exportCollection(qint64 collectionId, QString file);
+  void exportCollection(qint64 collectionId, QString file, bool includeWaypoints, int accuracyFilter);
 
   /**
    * emits trackExported
    */
-  void exportTrack(qint64 collectionId, qint64 trackId, QString file);
+  void exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, int accuracyFilter);
 
   /**
    * emit collectionDetailsLoaded for source and target collection
@@ -512,7 +512,7 @@ private:
   bool loadCollectionDetailsPrivate(Collection &collection);
   bool loadTrackDataPrivate(Track &track);
   bool createSegment(qint64 trackId, qint64 &segmentId);
-  bool exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId);
+  bool exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId, bool includeWaypoints, int accuracyFilter);
 
   /**
    * obtain collection id from trackId

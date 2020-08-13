@@ -228,11 +228,11 @@ Page {
 
 
                     property ListModel directories: ListModel {}
-                    signal exportTrack(string directory, string name)
+                    signal exportTrack(string directory, string name, bool includeWaypoints, int accuracyFilter)
 
                     onExportTrack: {
                         console.log("Exporting to file " + name + " to " + directory);
-                        collectionModel.exportTrackToFile(model.id, name, directory);
+                        collectionModel.exportTrackToFile(model.id, name, directory, includeWaypoints, accuracyFilter);
                     }
 
                     onClicked: {
@@ -249,7 +249,8 @@ Page {
                         var exportPage = pageStack.push(Qt.resolvedUrl("CollectionExport.qml"),
                                        {
                                             name: model.filesystemName,
-                                            directories: directories
+                                            directories: directories,
+                                            includeWaypoints: false
                                        })
 
                         exportPage.selected.connect(exportTrack);
@@ -302,11 +303,11 @@ Page {
                 text: qsTr("Export Collection")
 
                 property ListModel directories: ListModel {}
-                signal exportCollection(string directory, string name)
+                signal exportCollection(string directory, string name, bool includeWaypoints, int accuracyFilter)
 
                 onExportCollection: {
                     console.log("Exporting to file " + name + " to " + directory);
-                    collectionModel.exportToFile(name, directory);
+                    collectionModel.exportToFile(name, directory, includeWaypoints, accuracyFilter);
                 }
 
                 onClicked: {
@@ -323,7 +324,8 @@ Page {
                     var exportPage = pageStack.push(Qt.resolvedUrl("CollectionExport.qml"),
                                    {
                                         name: collectionModel.filesystemName,
-                                        directories: directories
+                                        directories: directories,
+                                        includeWaypoints: true
                                    })
 
                     exportPage.selected.connect(exportCollection);
