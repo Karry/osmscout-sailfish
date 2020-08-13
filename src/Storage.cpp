@@ -1563,6 +1563,12 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std:
           osmscout::gpx::FilterInaccuratePoints(points, accuracyFilter);
         });
       }
+
+      // drop empty segments
+      t.data->segments.erase(std::remove_if(t.data->segments.begin(),t.data->segments.end(),
+                                            [](const gpx::TrackSegment &s){ return s.points.empty(); }),
+                             t.data->segments.end());
+
       gpxFile.tracks.push_back(std::move(*(t.data)));
     }
   }
