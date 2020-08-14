@@ -151,6 +151,18 @@ void AppSettings::SetLastMapDirectory(const QString directory)
   }
 }
 
+int AppSettings::GetExportAccuracy() const
+{
+  return settings.value("exportAccuracyIndex", "0").toInt();
+}
+void AppSettings::SetExportAccuracy(int accuracyIndex)
+{
+  if (GetExportAccuracy() != accuracyIndex){
+    settings.setValue("exportAccuracyIndex", accuracyIndex);
+    emit ExportAccuracyChanged(accuracyIndex);
+  }
+}
+
 bool AppSettings::GetShowTrackerDistance() const
 {
   return settings.value("showTrackerDistance", "true").toBool();

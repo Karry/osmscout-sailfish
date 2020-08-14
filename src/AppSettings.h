@@ -32,6 +32,7 @@ class AppSettings: public QObject{
   Q_PROPERTY(QString  lastVehicle       READ GetLastVehicle       WRITE SetLastVehicle       NOTIFY LastVehicleChanged)
   Q_PROPERTY(QString  lastCollection    READ GetLastCollection    WRITE SetLastCollection    NOTIFY LastCollectionChanged)
   Q_PROPERTY(QString  lastMapDirectory  READ GetLastMapDirectory  WRITE SetLastMapDirectory  NOTIFY LastMapDirectoryChanged)
+  Q_PROPERTY(int      exportAccuracy    READ GetExportAccuracy    WRITE SetExportAccuracy    NOTIFY ExportAccuracyChanged)
 
   Q_PROPERTY(bool navigationKeepAlive READ GetNavigationKeepAlive WRITE SetNavigationKeepAlive NOTIFY NavigationKeepAliveChanged)
 
@@ -58,6 +59,7 @@ signals:
   void LastVehicleChanged(const QString vehicle);
   void LastCollectionChanged(const QString collectionId);
   void LastMapDirectoryChanged(const QString directory);
+  void ExportAccuracyChanged(int);
   void ShowTrackerDistanceChanged(bool);
   void ShowElevationChanged(bool);
   void ShowAccuracyChanged(bool);
@@ -93,6 +95,9 @@ public:
 
   QString GetLastMapDirectory() const;
   void SetLastMapDirectory(const QString directory);
+
+  int GetExportAccuracy() const;
+  void SetExportAccuracy(int accuracyIndex);
 
   bool GetShowTrackerDistance() const;
   void SetShowTrackerDistance(bool);

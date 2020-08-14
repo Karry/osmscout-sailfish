@@ -121,7 +121,7 @@ Dialog {
                 if (!initialized){
                     return;
                 }
-                //AppSettings.exportAccuracy = currentIndex;
+                AppSettings.exportAccuracy = currentIndex;
                 if (currentIndex == 0){
                     accuracyFilter = -1;
                 } else if (currentIndex == 1){
@@ -133,7 +133,7 @@ Dialog {
                 }
             }
             Component.onCompleted: {
-                //currentIndex = AppSettings.exportAccuracy;
+                currentIndex = AppSettings.exportAccuracy;
                 initialized = true;
             }
             onPressAndHold: {
