@@ -213,32 +213,32 @@
     <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Incluir colecciones</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Soltar nodos inexactos</translation>
     </message>
     <message>
         <source>Keep everything</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mantener todo</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 100 m</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 30 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 10 m</translation>
     </message>
 </context>
 <context>
@@ -253,15 +253,15 @@
     </message>
     <message>
         <source>Name, descent</source>
-        <translation>Nombre, descenso</translation>
+        <translation>Nombre, descendiente</translation>
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha, ascendiente</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre, ascendiente</translation>
     </message>
 </context>
 <context>
@@ -287,11 +287,11 @@
     </message>
     <message>
         <source>Date, descent</source>
-        <translation>Fecha, descenso</translation>
+        <translation>Fecha, descendiente</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation>Nombre, descenso</translation>
+        <translation>Nombre, descendiente</translation>
     </message>
     <message>
         <source>Waypoints first</source>
@@ -300,11 +300,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha, ascendiente</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre, ascendiente</translation>
     </message>
 </context>
 <context>
@@ -323,11 +323,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Ascenso</translation>
+        <translation>Ascendiente</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation>Descenso</translation>
+        <translation>Descendiente</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
