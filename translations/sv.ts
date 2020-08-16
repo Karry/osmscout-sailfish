@@ -195,50 +195,50 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>Mapp</translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation>Exportera</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Namn</translation>
     </message>
     <message>
         <source>File name</source>
         <translation>Filnamn</translation>
     </message>
     <message>
+        <source>Name</source>
+        <translation>Namn</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Mapp</translation>
+    </message>
+    <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Inkludera vägpunkter</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Undanta felaktiga noder</translation>
     </message>
     <message>
         <source>Keep everything</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Behåll allt</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 100 m</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 30 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 10 m</translation>
     </message>
 </context>
 <context>
@@ -1057,7 +1057,7 @@
     <message>
         <source>Keep display on</source>
         <extracomment>switch for keep display on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Behåll skärmen på</translation>
     </message>
 </context>
 <context>
