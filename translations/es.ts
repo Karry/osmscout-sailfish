@@ -213,7 +213,7 @@
     <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation>Incluir colecciones</translation>
+        <translation>Incluir puntos definidos</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
