@@ -154,6 +154,11 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
+                    text: qsTr("Estonian: Priit Jõerüüt")
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                }
+                Label{
                     text: qsTr("French: Pierre-Henri Horrein, Jordi")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall

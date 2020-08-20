@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fa">
+<TS version="2.1" language="et">
 <context>
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>او‌اس‌ام اسکات برای سیستم‌عامل سیلفیش به عنوان نرم‌آفزار آزاد بوسیله داوطلبان در زمان آزادشان توسعه یافته.شما میتوانید با گزارش باگ‌ها ،یا ساختن ترجمه‌ها یا توسعه ویژگی‌های جدید به ارتقاء این برنامه کمک کنید. </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>صفحه گیتهاب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
@@ -21,19 +21,19 @@
     </message>
     <message>
         <source>Translators</source>
-        <translation>مترجمان</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation>چکی: Lukáš Karas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hungarian: Miklós Márton</source>
-        <translation>مجارستانی: Miklós Márton</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
-        <translation>لهستانی: Atlochowski</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
@@ -41,35 +41,35 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation>نروژی: Håvard Moen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation>اسپانیایی: Carlos Gonzalez</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Privacy notes</source>
-        <translation>نکات حریم شخصی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
-        <translation>هلندی: Nathan Follens</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation>روسی: Вячеслав Диконов</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>German: Pawel Spoon, Uli M.</source>
-        <translation>آلمانی: Pawel Spoon, Uli M.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation>چینی: Rui Kon</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation>پرتغالی: Leonardo Moura</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Persian: Abtin mo</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>French: Pierre-Henri Horrein, Jordi</source>
-        <translation>فرانسوی: Pierre-Henri Horrein, Jordi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Estonian: Priit Jõerüüt</source>
@@ -93,25 +93,25 @@
     <message>
         <source>Edit</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation>تغییر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation>حذف</translation>
+        <translation type="unfinished">Kustuta</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>درحال حذف</translation>
+        <translation type="unfinished">Kustutan</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation>بارگیری مجموعه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export</source>
         <extracomment>track context menu</extracomment>
-        <translation>خارج کردن</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit waypoint</source>
@@ -124,11 +124,11 @@
     <message>
         <source>Move to</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation>انتقال به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>انتقال به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
@@ -137,11 +137,11 @@
     <message>
         <source>Route to</source>
         <extracomment>waypoint context menu</extracomment>
-        <translation>مسیریابی به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation>تغییر مجموعه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Collection</source>
@@ -170,18 +170,18 @@
     <name>CollectionEditDialog</name>
     <message>
         <source>Name</source>
-        <translation>نام</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Description</source>
-        <translation>توضیح</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CollectionEntryDialog</name>
     <message>
         <source>New collection</source>
-        <translation>مجموعه جدید</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
@@ -189,30 +189,30 @@
     </message>
     <message>
         <source>Name</source>
-        <translation>نام</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Description</source>
-        <translation>توضیح</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>پوشه</translation>
-    </message>
-    <message>
         <source>Export</source>
-        <translation>خارج کردن</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>نام</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>File name</source>
-        <translation>نام فایل</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Include waypoints</source>
@@ -272,11 +272,11 @@
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation>مسیر خارج کردن نا معتبر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation>نام پوشه نامعتبر</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -315,11 +315,11 @@
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
-        <translation>نمایش</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation>فاصله</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -348,12 +348,12 @@
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation>از</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation>به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -366,11 +366,11 @@
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation>زمان</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation>زمان جابه‌حایی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
@@ -393,7 +393,7 @@
     <name>CollectionWaypoint</name>
     <message>
         <source>Show</source>
-        <translation>نمایش</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Elevation</source>
@@ -414,43 +414,43 @@
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation>تغییر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>حذف</translation>
+        <translation type="unfinished">Kustuta</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>درحال حذف</translation>
+        <translation type="unfinished">Kustutan</translation>
     </message>
     <message>
         <source>Collections</source>
-        <translation>مجموعه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import</source>
-        <translation>واردکردن</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create new</source>
-        <translation>ایجاد جدید</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation>مجموعه جدید</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation>تغییر مجموعه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide on map</source>
-        <translation>مخفی کردن در نقشه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>نمایش در نقشه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Order by...</source>
@@ -462,61 +462,61 @@
     <name>Cover</name>
     <message>
         <source>OSM Scout</source>
-        <translation>او‌اس‌ام اسکات</translation>
+        <translation>OSM Scout</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation>متر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>km</source>
-        <translation>کیلومتر</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
-        <translation>پیشرفت بارگیری</translation>
+        <translation>Allalaadimise edenemine</translation>
     </message>
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available maps from server fails</extracomment>
-        <translation>تازه‌کردن</translation>
+        <translation>Värskenda</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>حذف</translation>
+        <translation>Kustuta</translation>
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation>نقشه‌های بارگیری شده</translation>
+        <translation>Allalaetud kaardid</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>در حال حذف</translation>
+        <translation>Kustutan</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>به روز رسانی</translation>
+        <translation>Uuenda</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation>به روز رسانی همه</translation>
+        <translation>Uuenda kõik</translation>
     </message>
     <message>
         <source>Cancel</source>
         <extracomment>Context menu for downloading map</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tühista</translation>
     </message>
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tühistan</translation>
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Saadaolebad kaardid</translation>
     </message>
 </context>
 <context>
@@ -529,14 +529,14 @@
     <message>
         <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>توقف مسیریابی.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
-        <translation>تنظیمات نقشه</translation>
+        <translation>Kaardi seadistused</translation>
     </message>
     <message>
         <source>Map magnification</source>
@@ -544,23 +544,23 @@
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>نقشه‌های برخط</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>فعال کردن نقشه‌های برخط</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>حالت</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>نقشه‌های برون‌خط</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>فعال کردن نقشه‌های برون‌خط</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -572,39 +572,39 @@
     </message>
     <message>
         <source>Font</source>
-        <translation>قلم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DejaVu Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>DejaVu Sans</translation>
     </message>
     <message>
         <source>Droid Serif</source>
-        <translation type="unfinished"></translation>
+        <translation>Droid Serif</translation>
     </message>
     <message>
         <source>Liberation Sans</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberation Sans</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Fondi suurus</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation>معمولی</translation>
+        <translation>Tavaline</translation>
     </message>
     <message>
         <source>Big</source>
-        <translation>بزرگ</translation>
+        <translation>Suur</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation>عظیم</translation>
+        <translation>Üüratu</translation>
     </message>
     <message>
         <source>Bigger</source>
-        <translation>بزرگتر</translation>
+        <translation>Suurem</translation>
     </message>
     <message>
         <source>Map Overlay</source>
@@ -624,61 +624,61 @@
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished"></translation>
+        <translation>Eelista ingliskeelseid nimesid</translation>
     </message>
 </context>
 <context>
     <name>LocationSelector</name>
     <message>
         <source>Select location...</source>
-        <translation>انتخاب مکان....</translation>
+        <translation>Vali asukoht...</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation>مکان فعلی</translation>
+        <translation>Praegune asukoht</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>جستجو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick a place</source>
-        <translation>انتخاب محل</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MapDetail</name>
     <message>
         <source>Size</source>
-        <translation>اندازه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation>اخرین بروزٰسانی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download</source>
-        <translation>بارگیری</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>مسیر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Data Version</source>
-        <translation>نسخه داده</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>به روزرسانی</translation>
+        <translation type="unfinished">Uuenda</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>بارگیری</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation>به روز</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -686,41 +686,41 @@
     <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
-        <translation>جستجو</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
-        <translation>من کجا هستم؟</translation>
+        <translation>Kus ma praegu olen?</translation>
     </message>
     <message>
         <source>About</source>
         <extracomment>menu item for about page</extracomment>
-        <translation>درباره</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offline maps</source>
         <extracomment>menu item for offline map downloader</extracomment>
-        <translation>بارگیری‌های نقشه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Map</source>
         <extracomment>menu item for map settings</extracomment>
-        <translation>تنظیمات نقشه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Navigation</source>
         <extracomment>menu item for navigation and routing</extracomment>
-        <translation>مسیریابی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collections</source>
         <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation>مجموعه‌ها</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation>توقف مسیریابی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ETA %1</source>
@@ -753,14 +753,14 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Viga kaardi allalaadimisel</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation>توقف مسیریابی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Itinerary</source>
@@ -774,7 +774,7 @@
     <message>
         <source>Distance</source>
         <extracomment>Distance to target, itinerary page</extracomment>
-        <translation>فاصله</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change vehicle</source>
@@ -793,7 +793,7 @@
     <name>PlaceDetail</name>
     <message>
         <source>You are here</source>
-        <translation type="unfinished"></translation>
+        <translation>Sa oled hetkel siin</translation>
     </message>
     <message>
         <source>%1 %2 from you</source>
@@ -821,7 +821,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tühista</translation>
     </message>
     <message>
         <source>Navigate</source>
@@ -833,7 +833,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation>فاصله</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration</source>
@@ -853,12 +853,12 @@
     <message>
         <source>From</source>
         <extracomment>Routing FROM place</extracomment>
-        <translation>از</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>Routing TO place</extracomment>
-        <translation>به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By</source>
@@ -881,31 +881,31 @@
     </message>
     <message>
         <source>Unnamed</source>
-        <translation>بدون‌اسم</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restaurant</source>
-        <translation>رستوران</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fast Food</source>
-        <translation>فست‌فود</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cafe</source>
-        <translation>کافه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ATM</source>
-        <translation>خودپرداز</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drinking water</source>
-        <translation>آب آشامیدنی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toilets</source>
-        <translation>سرویس بهداشتی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Public transport stop</source>
@@ -913,7 +913,7 @@
     </message>
     <message>
         <source>Fuel</source>
-        <translation>سوخت</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Accomodation</source>
@@ -929,7 +929,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation>مسیریابی به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -996,7 +996,7 @@
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished">مسیریابی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Voice</source>
@@ -1068,7 +1068,7 @@
     <name>SpeedIndicator</name>
     <message>
         <source>km/h</source>
-        <translation>کیلومتر در ساعت</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mi/h</source>
@@ -1230,7 +1230,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation>فاصله</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -1239,21 +1239,21 @@
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation>از</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation>به</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation>زمان</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation>زمان جابه‌حایی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -1341,6 +1341,7 @@
         <source>There was %n error(s) during tracking. Recent: %2</source>
         <translation type="unfinished">
             <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -1348,63 +1349,63 @@
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation>متر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>km</source>
-        <translation>کیلومتر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
-        <translation>غرب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>east</source>
         <extracomment>in sense indicating location of some place: &quot;place is located EAST&quot;</extracomment>
-        <translation>شرق</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>south</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTH&quot;</extracomment>
-        <translation>جنوب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>north</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTH&quot;</extracomment>
-        <translation>شمال</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Home</source>
-        <translation>خانه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation>کارت اس‌دی</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation>مستندات</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation>شمال شرق</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation>جنوب شرق</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation>جنوب غرب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation>شمال غرب</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>feet</source>
@@ -1420,23 +1421,23 @@
     </message>
     <message>
         <source>ft</source>
-        <translation>ft</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mi</source>
-        <translation>mi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>m</source>
-        <translation>m</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 ft</source>
-        <translation>%1 ft</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation>%1 m</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1444,7 +1445,7 @@
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
-        <translation type="unfinished">تازه‌کردن</translation>
+        <translation type="unfinished">Värskenda</translation>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
@@ -1463,15 +1464,15 @@
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation>گره</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>way</source>
-        <translation>راه</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>area</source>
-        <translation>محیط</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1509,7 +1510,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation>ساختمان</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1870,77 +1871,77 @@
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation>Car</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation>Bicycle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>foot</source>
-        <translation>Foot</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation>Daylight</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation>Waterway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>wood</source>
-        <translation>Wood</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>natural</source>
-        <translation>Natural</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>railway</source>
-        <translation>Railway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation>Leisure</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>building</source>
-        <translation>Building</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation>Minor Building</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>Elevation Contour</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation>Boundaries (for debugging)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>standard</source>
-        <translation>Standard</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>Winter sports</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation>Public transport</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>outdoor</source>
-        <translation>Outdoor</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -83,6 +83,10 @@
         <source>French: Pierre-Henri Horrein, Jordi</source>
         <translation>Французский: Pierre-Henri Horrein, Jordi</translation>
     </message>
+    <message>
+        <source>Estonian: Priit Jõerüüt</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collection</name>
