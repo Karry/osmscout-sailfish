@@ -111,7 +111,7 @@
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation>Edytuj punkt drogi</translation>
+        <translation>Edytuj punkt trasy</translation>
     </message>
     <message>
         <source>Edit track</source>
@@ -213,32 +213,32 @@
     <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Uwzględnij punkty trasy</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Porzuć niedokładne węzły</translation>
     </message>
     <message>
         <source>Keep everything</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zachowaj wszystko</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 100 m</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 30 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 10 m</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation>Najpierw punkty drogi</translation>
+        <translation>Najpierw punkty trasy</translation>
     </message>
     <message>
         <source>Date, ascent</source>
@@ -782,7 +782,7 @@
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation>Nowy punkt drogi</translation>
+        <translation>Nowy punkt trasy</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation>Dodaj jako punkt drogi</translation>
+        <translation>Dodaj jako punkt trasy</translation>
     </message>
     <message>
         <source>Pub</source>
@@ -1079,7 +1079,7 @@
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>Ładowanie punktów drogi do kolekcji id %1 nie powiodło się</translation>
+        <translation>Ładowanie punktów trasy do kolekcji id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
@@ -1111,11 +1111,11 @@
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation>punkt drogi %1</translation>
+        <translation>punkt trasy %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation>Import punktów drogi nie powiódł się: %1</translation>
+        <translation>Import punktów trasy nie powiódł się: %1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
@@ -1147,11 +1147,11 @@
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation>Usuwanie punktu drogi nie powiodło się: %1</translation>
+        <translation>Usuwanie punktu trasy nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>Tworzenie punktu drogi nie powiodło się: %1</translation>
+        <translation>Tworzenie punktu trasy nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
@@ -1159,7 +1159,7 @@
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation>Edycja punktu drogi nie powiodła się: %1</translation>
+        <translation>Edycja punktu trasy nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
@@ -1175,15 +1175,15 @@
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation>Ładowanie punktu drogi id %1 nie powiodło się</translation>
+        <translation>Ładowanie punktu trasy id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation>Nie znaleziono punktu drogi id %1</translation>
+        <translation>Nie znaleziono punktu trasy id %1</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation>Przeniesienie punktu drogi id %1 nie powiodło się</translation>
+        <translation>Przeniesienie punktu trasy id %1 nie powiodło się</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
