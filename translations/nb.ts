@@ -199,10 +199,6 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>Katalog</translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
@@ -213,6 +209,10 @@
     <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Katalog</translation>
     </message>
     <message>
         <source>Include waypoints</source>

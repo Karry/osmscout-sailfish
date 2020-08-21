@@ -199,20 +199,20 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>目录</translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation>输出</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation>文件名称</translation>
     </message>
     <message>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <source>File name</source>
-        <translation>文件名称</translation>
+        <source>Directory</source>
+        <translation>目录</translation>
     </message>
     <message>
         <source>Include waypoints</source>

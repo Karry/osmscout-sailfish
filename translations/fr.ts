@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Estonian: Priit Jõerüüt</source>
-        <translation type="unfinished"></translation>
+        <translation>Estonien: Priit Jõerüüt</translation>
     </message>
 </context>
 <context>
@@ -199,73 +199,73 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>Répertoire</translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation>Exporter</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Nom</translation>
     </message>
     <message>
         <source>File name</source>
         <translation>Nom de fichier</translation>
     </message>
     <message>
+        <source>Name</source>
+        <translation>Nom</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Répertoire</translation>
+    </message>
+    <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Inclure les repères</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer les points imprécis</translation>
     </message>
     <message>
         <source>Keep everything</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tout conserver</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 100 m.</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 30 m.</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 10 m.</translation>
     </message>
 </context>
 <context>
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Classement des collections</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished">Date, décroissante</translation>
+        <translation>Date, décroissante</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished">Nom, décroissant</translation>
+        <translation>Nom, décroissant</translation>
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Date, croissante</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom, croissant</translation>
     </message>
 </context>
 <context>
@@ -304,11 +304,11 @@
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Date, croissante</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom, croissant</translation>
     </message>
 </context>
 <context>
@@ -455,7 +455,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Classé par ...</translation>
+        <translation>Classé par ...</translation>
     </message>
 </context>
 <context>
@@ -1061,7 +1061,7 @@
     <message>
         <source>Keep display on</source>
         <extracomment>switch for keep display on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Garder l&apos;écran allumé</translation>
     </message>
 </context>
 <context>

@@ -199,20 +199,20 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>پوشه</translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation>خارج کردن</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation>نام فایل</translation>
     </message>
     <message>
         <source>Name</source>
         <translation>نام</translation>
     </message>
     <message>
-        <source>File name</source>
-        <translation>نام فایل</translation>
+        <source>Directory</source>
+        <translation>پوشه</translation>
     </message>
     <message>
         <source>Include waypoints</source>

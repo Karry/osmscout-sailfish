@@ -199,20 +199,20 @@
 <context>
     <name>CollectionExport</name>
     <message>
-        <source>Directory</source>
-        <translation>Каталог</translation>
-    </message>
-    <message>
         <source>Export</source>
         <translation>Экспорт</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation>Имя файла</translation>
     </message>
     <message>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <source>File name</source>
-        <translation>Имя файла</translation>
+        <source>Directory</source>
+        <translation>Каталог</translation>
     </message>
     <message>
         <source>Include waypoints</source>
