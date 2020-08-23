@@ -9,19 +9,19 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub&apos;i veebisait</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation type="unfinished"></translation>
+        <translation>OSMScout&apos;i teek GitHub&apos;i saidis</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Võrguühenduseta kaartide juhend</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Tõlkijad</translation>
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
@@ -93,33 +93,33 @@
     <message>
         <source>Edit</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Muuda</translation>
     </message>
     <message>
         <source>Delete</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation type="unfinished">Kustuta</translation>
+        <translation>Kustuta</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished">Kustutan</translation>
+        <translation>Kustutan</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Laen kogumikku</translation>
     </message>
     <message>
         <source>Export</source>
         <extracomment>track context menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ekspordi</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda teekonnapunkti</translation>
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda rada</translation>
     </message>
     <message>
         <source>Move to</source>
@@ -141,17 +141,17 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda kogumikku</translation>
     </message>
     <message>
         <source>Export Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ekspordi kogumik</translation>
     </message>
     <message>
         <source>Edit Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Muuda kogumikku</translation>
     </message>
     <message>
         <source>Order by...</source>
@@ -163,25 +163,25 @@
     <name>CollectionComboBox</name>
     <message>
         <source>Collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumik</translation>
     </message>
 </context>
 <context>
     <name>CollectionEditDialog</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjeldus</translation>
     </message>
 </context>
 <context>
     <name>CollectionEntryDialog</name>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Uus kogumik</translation>
     </message>
     <message>
         <source>Default</source>
@@ -189,18 +189,18 @@
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nimi</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kirjeldus</translation>
     </message>
 </context>
 <context>
     <name>CollectionExport</name>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ekspordi</translation>
     </message>
     <message>
         <source>File name</source>
@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nimi</translation>
     </message>
     <message>
         <source>Directory</source>
@@ -217,12 +217,12 @@
     <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kaasa teekonnapunktid</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Jäta ebatäpsed sõlmed vahele</translation>
     </message>
     <message>
         <source>Keep everything</source>
@@ -249,7 +249,7 @@
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumike järjestus</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumikukirjete järjestus</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -300,7 +300,7 @@
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kuva teekonnapunktid esimesena</translation>
     </message>
     <message>
         <source>Date, ascent</source>
@@ -335,7 +335,7 @@
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Suurim/väikseim kõrgus</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
@@ -397,7 +397,7 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõrgus</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
@@ -414,7 +414,7 @@
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Muuda</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -426,31 +426,31 @@
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumikud</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Impordi</translation>
     </message>
     <message>
         <source>Create new</source>
-        <translation type="unfinished"></translation>
+        <translation>Loo uus</translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Uus kogumik</translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda kogumikku</translation>
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Peida kaardil</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Näita kaardil</translation>
     </message>
     <message>
         <source>Order by...</source>
@@ -540,27 +540,27 @@
     </message>
     <message>
         <source>Map magnification</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaardi suurendus</translation>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Veebikaardid</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Võta veebikaardid kasutusele</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiil</translation>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Võrguühenduseta kaardid</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation type="unfinished"></translation>
+        <translation>Võta võrguühenduseta kaardid kasutusele</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -572,7 +572,7 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Font</translation>
     </message>
     <message>
         <source>DejaVu Sans</source>
@@ -612,11 +612,11 @@
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Künkavarjutused</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Künkavarjutuste tugevus</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
@@ -701,7 +701,7 @@
     <message>
         <source>Offline maps</source>
         <extracomment>menu item for offline map downloader</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Võrguühenduseta kaardid</translation>
     </message>
     <message>
         <source>Map</source>
@@ -716,7 +716,7 @@
     <message>
         <source>Collections</source>
         <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kogumikud</translation>
     </message>
     <message>
         <source>Stop navigation</source>
@@ -786,7 +786,7 @@
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Uus teekonnapunkt</translation>
     </message>
 </context>
 <context>
@@ -934,7 +934,7 @@
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Lisa teekonnapunktina</translation>
     </message>
     <message>
         <source>Pub</source>
@@ -1023,7 +1023,7 @@
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Praegune kõrgus</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
@@ -1079,47 +1079,47 @@
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Radade laadimine kogumiku %1 jaoks ei õnnestunud</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunktide laadimine kogumiku %1 jaoks ei õnnestunud</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumiku %1 laadimine ei õnnestunud</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumik %1 ei leidu</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Sõlmede laadimine segmendi nr %1 jaoks ei õnnestunud: %2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Segmentide laadimine raja nr %1 jaoks ei õnnestunud: %2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumiku loomine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumiku uuendamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumiku kustutamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation type="unfinished"></translation>
+        <translation>teekonnapunkt %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunktide import ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
@@ -1127,11 +1127,11 @@
     </message>
     <message>
         <source>track %1</source>
-        <translation type="unfinished"></translation>
+        <translation>rada %1</translation>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja import ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
@@ -1139,7 +1139,7 @@
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Rajapunktide import ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
@@ -1147,63 +1147,63 @@
     </message>
     <message>
         <source>Invalid collection id: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vigane kogumiku tunnus: %1</translation>
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti kustutamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti loomine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja kustutamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti muutmine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja muutmine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja number %1 laadimine ei õnnestu</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Rada tunnusega %1 ei ole olemas</translation>
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti id&apos;ga %1 laadimine ei õnnestunud</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti id&apos;ga %1 ei leidunud</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti id&apos;ga %1 liigutamine ei õnnestunud</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Rada tunnusega %1 ei leidu</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja number %1 tõstmine ei õnnestu</translation>
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja  loomine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Viimase avatud raja laadimine ei õnnestu</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
@@ -1211,18 +1211,18 @@
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Sõlmede lisamine rajale ei õnnestunud</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja sulgemine ei õnnestunud: %1</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Uus rada</translation>
     </message>
     <message>
         <source>Stop tracking</source>
@@ -1281,7 +1281,7 @@
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Suurim/väikseim kõrgus</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
@@ -1464,7 +1464,7 @@
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>sõlm</translation>
     </message>
     <message>
         <source>way</source>
@@ -1764,23 +1764,23 @@
     <name>resource</name>
     <message>
         <source>© OpenStreetMap contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>© OpenStreetMap contributors</translation>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaardid matkamiseks ja rattasõiduks</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Mapnik</translation>
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
@@ -1918,7 +1918,7 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõrgusjooned</translation>
     </message>
 </context>
 <context>

@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation>Norština, Bokmål: Håvard Moen</translation>
+        <translation>Norština (Bokmål): Håvard Moen</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
