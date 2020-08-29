@@ -67,6 +67,8 @@ sfdk engine exec sudo cp \
 sfdk --quiet build
   
 ##################################################################
+echo
+echo "deploy..."
 
 if [ "$TYPE" = "emulator" ] ; then
   sfdk emulator start "${DEV_DEVICE}"
@@ -88,9 +90,6 @@ if [ "$TYPE" = "emulator" ] ; then
     "root@localhost"
 
 else
-
-  echo
-  echo "deploy..."
   sfdk deploy --sdk
 fi
 
