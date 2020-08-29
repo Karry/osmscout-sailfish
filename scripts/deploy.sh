@@ -1,13 +1,13 @@
 #!/bin/bash -e
 
 if [ $# -lt 1 ] ; then
-	echo "Too few arguments!"
-	echo "Usage:"
-	echo "  $0 build-type [device name]"
-	echo 
-	echo "build type can be emulator or phone"
-	
-	exit 1
+  echo "Too few arguments!"
+  echo "Usage:"
+  echo "  $0 build-type [device name]"
+  echo 
+  echo "build type can be emulator or phone"
+  
+  exit 1
 fi
 
 export TYPE="$1" # emulator
@@ -19,7 +19,7 @@ export OS_VERSION=3.3.0.16
 
 # device may be configured in SailfishOS SDK
 if [ $# -ge 2 ] ; then
-	export DEV_DEVICE="$2"
+  export DEV_DEVICE="$2"
 else
   # use default device for TYPE
   if [ "$TYPE" = "emulator" ] ; then
@@ -69,10 +69,10 @@ sfdk --quiet build
 ##################################################################
 
 if [ "$TYPE" = "emulator" ] ; then
-	sfdk emulator start "${DEV_DEVICE}"
+  sfdk emulator start "${DEV_DEVICE}"
 
-	# deploy to emulator with sfdk dont work for some reason :-(
-	RPM_PATH=$(find RPMS -name '*i486.rpm' | head -1)
+  # deploy to emulator with sfdk dont work for some reason :-(
+  RPM_PATH=$(find RPMS -name '*i486.rpm' | head -1)
   echo "Copy $RPM_PATH to root@localhost:/tmp/"
   scp  \
     -i "~/SailfishOS/vmshare/ssh/private_keys/Sailfish_OS-Emulator-latest/root" \
