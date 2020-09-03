@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Estonian: Priit Jõerüüt</source>
-        <translation>estoński: Priit Jõerüüt</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
