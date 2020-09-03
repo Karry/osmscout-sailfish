@@ -72,26 +72,11 @@ echo "deploy..."
 
 if [ "$TYPE" = "emulator" ] ; then
   sfdk emulator start "${DEV_DEVICE}"
-
-  # deploy to emulator with sfdk dont work for some reason :-(
-  RPM_PATH=$(find RPMS -name '*i486.rpm' | head -1)
-  echo "Copy $RPM_PATH to root@localhost:/tmp/"
-  scp  \
-    -i "~/SailfishOS/vmshare/ssh/private_keys/Sailfish_OS-Emulator-latest/root" \
-    -P 2223 \
-    "$RPM_PATH" \
-    "root@localhost:/tmp/"
-
-  RPM=$(basename "$RPM_PATH")
-  echo "Installing /tmp/$RPM"
-  echo "rpm -iv --replacepkgs --force /tmp/$RPM && rm /tmp/$RPM" | ssh \
-    -i "~/SailfishOS/vmshare/ssh/private_keys/Sailfish_OS-Emulator-latest/root" \
-    -p 2223 \
-    "root@localhost"
-
-else
-  sfdk deploy --sdk
 fi
+# to be able deploy to emulator with sfdk, there have to working connection from SDK VM/Docker to emulator VM.
+# For that there have to be NAT (on emulator) and DNAT (on SDK) properly configured
+# see forum topic for more details: https://forum.sailfishos.org/t/sdk-3-2-unable-to-deploy-package-to-emulator-with-docker-based-build-engine/1860/8
+sfdk deploy --sdk
 
 echo
 echo "run"
