@@ -124,20 +124,20 @@
     <message>
         <source>Move to</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tõsta teise kogumikku</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Tõsta</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Tõsta &quot;%1&quot; siia</translation>
     </message>
     <message>
         <source>Route to</source>
         <extracomment>waypoint context menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Näita teed siia</translation>
     </message>
     <message>
         <source>Edit collection</source>
@@ -568,7 +568,7 @@
     </message>
     <message>
         <source>Style flags</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaardi stiil</translation>
     </message>
     <message>
         <source>Font</source>
@@ -881,7 +881,7 @@
     </message>
     <message>
         <source>Unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimetu</translation>
     </message>
     <message>
         <source>Restaurant</source>
@@ -929,7 +929,7 @@
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished"></translation>
+        <translation>Näita teed siia</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -1510,7 +1510,7 @@
     <name>objectType</name>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hooned</translation>
     </message>
 </context>
 <context>
@@ -1886,35 +1886,35 @@
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation type="unfinished"></translation>
+        <translation>Päevavalgus</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation>Veetee</translation>
+        <translation>Veeteed</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>Mets</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation>Loodusobjektid</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation>Raudtee</translation>
+        <translation>Raudteed</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaba ajaga seotud kohad</translation>
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hooned</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>Väiksemad hooned</translation>
     </message>
     <message>
         <source>elevationContours</source>
