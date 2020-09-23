@@ -277,6 +277,8 @@ set(OSMSCOUT_INCLUDE_DIRS
 
 # we are including libosmscout subdirectories directly, we are responsible
 # to setup all variables correctly
+include(dependencies/libosmscout/cmake/ProjectConfig.cmake)
+
 add_subdirectory(dependencies/libosmscout/libosmscout)
 add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
