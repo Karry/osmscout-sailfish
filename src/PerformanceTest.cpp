@@ -243,8 +243,8 @@ private:
   QPainter qtPainter;
   osmscout::MapPainterQt qtMapPainter;
 public:
-  PerformanceTestBackendQt([[maybe_unused]] int argc,
-                           [[maybe_unused]] char* argv[],
+  PerformanceTestBackendQt(int /*argc*/,
+                           char** /*argv[]*/,
                            int tileWidth,
                            int tileHeight,
                            osmscout::StyleConfigRef styleConfig):
