@@ -1,5 +1,9 @@
 OSS
- ORDER WAYS
+FLAG
+  cyclo_routes = true;
+  hiking_routes = true;
+
+ORDER WAYS
   GROUP _route
   GROUP highway_motorway, highway_motorway_trunk, highway_motorway_primary
   GROUP highway_trunk
@@ -136,6 +140,8 @@ CONST
   COLOR roadColor             = #ffffff;
   COLOR roadBColor            = #bfbfbf;
   COLOR livingStreetColor     = #ededed;
+
+  COLOR cyclewayColor         = #ec47c7;
 
   // Amenity
   COLOR postColor             = #ffcc00;
@@ -1037,7 +1043,7 @@ STYLE
 
    [TYPE highway_cycleway] {
      WAY#outline {color: #ffffff50; displayWidth: 0.25mm; joinCap: butt;}
-     WAY {color: #4645fa; dash: 5,3; joinCap: butt; displayWidth: 0.2mm;}
+     WAY {color: @cyclewayColor; dash: 5,3; joinCap: butt; displayWidth: 0.2mm;}
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.1mm; displayOffset: -0.1mm;}
@@ -1047,7 +1053,7 @@ STYLE
 
    [TYPE highway_footway] {
      WAY#outline {color: #ffffff50; displayWidth: 0.25mm; joinCap: butt;}
-     WAY {color: #f64762; dash: 5,3; joinCap: butt; displayWidth: 0.2mm; }
+     WAY {color: #f6476280; dash: 5,3; joinCap: butt; displayWidth: 0.2mm; }
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.1mm; displayOffset: -0.1mm;}
@@ -1768,4 +1774,45 @@ STYLE
          aeroway_apron] AREA.TEXT { label: Name.name; }
 }
 
+ // -------------------------------------------------------
+ //
+ // Routes
+ //
+
+  IF cyclo_routes {
+    [MAG suburb-] {
+      [TYPE route_bicycle] ROUTE {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.4mm; priority: -10; }
+      [TYPE route_mtb] ROUTE {color: @cyclewayColor; preferColorFeature: true; dash: 6,3; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.2mm; priority: -10; }
+    }
+    [MAG veryClose-] {
+      [TYPE route_bicycle] ROUTE {displayWidth: 0.8mm; }
+      [TYPE route_mtb] ROUTE {displayWidth: 0.4mm; }
+    }
+  }
+  IF hiking_routes  {
+    [MAG suburb-] {
+      [TYPE route_hiking] ROUTE {color: #ff0000; preferColorFeature: true; offsetRel: sidecar; displayWidth: 0.4mm; priority: -10; }
+    }
+    [MAG veryClose-] {
+      [TYPE route_hiking] ROUTE {displayWidth: 0.8mm; }
+    }
+  }
+
+ [MAG block-] {
+   // Cycleways on way
+   [FEATURE Sideway.cyclewayLaneLeft] {
+     WAY#cyclewayLaneLeft {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: 1mm; priority: 1;}
+   }
+   [FEATURE Sideway.cyclewayLaneRight] {
+     WAY#cyclewayLaneRight {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: -1mm; priority: 1;}
+   }
+
+   // Cycleways besides way
+   [FEATURE Sideway.cyclewayTrackLeft] {
+     WAY#cyclewayTrackLeft {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -1mm; priority: -1;}
+   }
+   [FEATURE Sideway.cyclewayTrackRight] {
+     WAY#cyclewayTrackRight {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 1mm; priority: -1;}
+   }
+ }
 END

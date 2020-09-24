@@ -51,7 +51,7 @@ SYMBOL railway_halt
   }
 SYMBOL railway_tram_stop
   RECTANGLE 0,0 1 x 1 {
-    AREA { color: #90307080; }
+    AREA { color: #b05bec; }
   }
 SYMBOL ferry_terminal
   RECTANGLE 0,0 1 x 1 {
@@ -148,6 +148,9 @@ STYLE
   
   [TYPE railway_subway] {
     [MAG cityOver-] WAY {color: #8090c0; dash: 1.5,1.0; displayWidth: 0.6mm; joinCap: butt; endCap: butt; }
+  }
+  [TYPE route_subway]  {
+    [MAG suburb-] ROUTE {color: #8090c0; preferColorFeature: true; offsetRel: sidecar; displayWidth: 0.8mm; priority: -10; }
   }
 
   // -------------------------------------------------------
@@ -254,6 +257,17 @@ STYLE
   [TYPE amenity_ferry_terminal] {
     [MAG detail-] NODE.ICON { symbol: ferry_terminal;}
     [MAG close-] NODE.TEXT { label: Name.name; color: #303070;}
+  }
+
+  // -------------------------------------------------------
+  //
+  // Bus & Tram routes
+  //
+  [TYPE route_bus]  {
+    [MAG detail-] ROUTE {color: #5e6cecd0; offsetRel: sidecar; displayWidth: 0.2mm; priority: -5; }
+  }
+  [TYPE route_tram]  {
+    [MAG detail-] ROUTE {color: #b05bec; offsetRel: sidecar; displayWidth: 0.2mm; priority: -4; }
   }
 
   // -------------------------------------------------------
