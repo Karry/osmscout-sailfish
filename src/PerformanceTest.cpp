@@ -86,6 +86,7 @@
 struct Arguments {
   bool help{false};
   bool debug{false};
+  bool debugPerformance{false};
   std::string databaseDirectory{"."};
   std::string style{"stylesheets/standard.oss"};
   osmscout::GeoCoord coordTopLeft;
@@ -140,37 +141,26 @@ struct LevelStats
 {
   size_t level;
 
-  double dbMinTime;
-  double dbMaxTime;
-  double dbTotalTime;
+  double dbMinTime{std::numeric_limits<double>::max()};
+  double dbMaxTime{0.0};
+  double dbTotalTime{0.0};
 
-  double drawMinTime;
-  double drawMaxTime;
-  double drawTotalTime;
+  double drawMinTime{std::numeric_limits<double>::max()};
+  double drawMaxTime{0.0};
+  double drawTotalTime{0.0};
 
-  double allocMax;
-  double allocSum;
+  double allocMax{0.0};
+  double allocSum{0.0};
 
-  size_t nodeCount;
-  size_t wayCount;
-  size_t areaCount;
+  size_t nodeCount{0};
+  size_t wayCount{0};
+  size_t areaCount{0};
+  size_t routeCount{0};
 
-  size_t tileCount;
+  size_t tileCount{0};
 
   explicit LevelStats(size_t level)
-    : level(level),
-      dbMinTime(std::numeric_limits<double>::max()),
-      dbMaxTime(0.0),
-      dbTotalTime(0.0),
-      drawMinTime(std::numeric_limits<double>::max()),
-      drawMaxTime(0.0),
-      drawTotalTime(0.0),
-      allocMax(0.0),
-      allocSum(0.0),
-      nodeCount(0),
-      wayCount(0),
-      areaCount(0),
-      tileCount(0)
+    : level(level)
   {
     // no code
   }
@@ -253,7 +243,11 @@ private:
   QPainter qtPainter;
   osmscout::MapPainterQt qtMapPainter;
 public:
-  PerformanceTestBackendQt(int argc, char* argv[], int tileWidth, int tileHeight, osmscout::StyleConfigRef styleConfig):
+  PerformanceTestBackendQt([[maybe_unused]] int argc,
+                           [[maybe_unused]] char* argv[],
+                           int tileWidth,
+                           int tileHeight,
+                           osmscout::StyleConfigRef styleConfig):
     //application(argc, argv, true),
     qtPixmap{tileWidth,tileHeight},
     qtPainter{&qtPixmap},
@@ -465,6 +459,12 @@ int main(int argc, char* argv[])
                       "debug",
                       "Enable debug output",
                       false);
+  argParser.AddOption(osmscout::CmdLineFlag([&args](const bool& value) {
+                        args.debugPerformance=value;
+                      }),
+                      "debug-performance",
+                      "Enable debug output about painter performance",
+                      false);
   argParser.AddOption(osmscout::CmdLineUIntOption([&args](const unsigned int& value) {
                         args.startZoom=osmscout::MagnificationLevel(value);
                       }),
@@ -549,6 +549,12 @@ int main(int argc, char* argv[])
                       "cache-areas",
                       "Cache size for areas, default: " + std::to_string(databaseParameter.GetAreaDataCacheSize()),
                       false);
+  argParser.AddOption(osmscout::CmdLineUIntOption([&databaseParameter](const unsigned int& value) {
+                        databaseParameter.SetRouteDataCacheSize(value);
+                      }),
+                      "cache-routes",
+                      "Cache size for routes, default: " + std::to_string(databaseParameter.GetRouteDataCacheSize()),
+                      false);
 
 #if defined(HAVE_LIB_GPERFTOOLS)
   argParser.AddOption(osmscout::CmdLineStringOption([&args](const std::string& value) {
@@ -593,7 +599,6 @@ int main(int argc, char* argv[])
   }
 
   osmscout::log.Debug(args.debug);
-  //databaseParameter.SetDebugPerformance(true);
 
   osmscout::DatabaseRef       database=std::make_shared<osmscout::Database>(databaseParameter);
   osmscout::MapServiceRef     mapService=std::make_shared<osmscout::MapService>(database);
@@ -629,6 +634,7 @@ int main(int argc, char* argv[])
   // TODO: Use some way to find a valid font on the system (Agg display a ton of messages otherwise)
   drawParameter.SetFontName("/usr/share/fonts/TTF/DejaVuSans.ttf");
   searchParameter.SetUseMultithreading(true);
+  drawParameter.SetDebugPerformance(args.debugPerformance);
 
   for (osmscout::MagnificationLevel level=osmscout::MagnificationLevel(std::min(args.startZoom,args.endZoom));
        level<=osmscout::MagnificationLevel(std::max(args.startZoom,args.endZoom));
@@ -683,6 +689,7 @@ int main(int argc, char* argv[])
         data.nodes.clear();
         data.ways.clear();
         data.areas.clear();
+        data.routes.clear();
 
         osmscout::StopClock dbTimer;
 
@@ -757,6 +764,7 @@ int main(int argc, char* argv[])
       stats.nodeCount+=data.nodes.size();
       stats.wayCount+=data.ways.size();
       stats.areaCount+=data.areas.size();
+      stats.routeCount+=data.routes.size();
 
       stats.tileCount++;
       for (size_t i=0; i<args.drawRepeat; i++) {
@@ -798,16 +806,18 @@ int main(int argc, char* argv[])
     std::cout << " Tot. data  : ";
     std::cout << "nodes: " << stats.nodeCount << " ";
     std::cout << "way: " << stats.wayCount << " ";
-    std::cout << "areas: " << stats.areaCount << std::endl;
+    std::cout << "areas: " << stats.areaCount << " ";
+    std::cout << "routes: " << stats.routeCount << std::endl;
 
-    if (stats.tileCount>0) {
+    if (stats.tileCount>1) {
       std::cout << " Avg. data  : ";
       std::cout << "nodes: " << stats.nodeCount/stats.tileCount << " ";
       std::cout << "way: " << stats.wayCount/stats.tileCount << " ";
-      std::cout << "areas: " << stats.areaCount/stats.tileCount << std::endl;
+      std::cout << "areas: " << stats.areaCount/stats.tileCount << " ";
+      std::cout << "routes: " << stats.routeCount/stats.tileCount << std::endl;
     }
 
-    std::cout << " DB         : ";
+    std::cout << " DB [ms]    : ";
     std::cout << "total: " << stats.dbTotalTime << " ";
     std::cout << "min: " << stats.dbMinTime << " ";
     if (stats.tileCount>0) {
@@ -815,13 +825,15 @@ int main(int argc, char* argv[])
     }
     std::cout << "max: " << stats.dbMaxTime << " " << std::endl;
 
-    std::cout << " Map        : ";
-    std::cout << "total: " << stats.drawTotalTime << " ";
-    std::cout << "min: " << stats.drawMinTime << " ";
-    if (stats.tileCount>0) {
-      std::cout << "avg: " << stats.drawTotalTime/(stats.tileCount * args.drawRepeat) << " ";
+    if (args.drawRepeat > 0) {
+      std::cout << " Map [ms]   : ";
+      std::cout << "total: " << stats.drawTotalTime << " ";
+      std::cout << "min: " << stats.drawMinTime << " ";
+      if (stats.tileCount > 0) {
+        std::cout << "avg: " << stats.drawTotalTime / (stats.tileCount * args.drawRepeat) << " ";
+      }
+      std::cout << "max: " << stats.drawMaxTime << std::endl;
     }
-    std::cout << "max: " << stats.drawMaxTime << std::endl;
   }
 
   database->Close();
