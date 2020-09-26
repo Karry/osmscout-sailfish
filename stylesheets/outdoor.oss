@@ -157,6 +157,11 @@ CONST
 
   COLOR countryBorderColor    = #9f6bff99;
 
+  COLOR viaFerrataEasyColor        = darken(#fdac44, 0.4);
+  COLOR viaFerrataModerateColor    = #fdac44;
+  COLOR viaFerrataDifficultColor   = #ec4044;
+  COLOR viaFerrataExtremeColor     = #ff0000;
+
 SYMBOL debug_oneway_arrow
   POLYGON 0,1.2 2.4,0 0,-1.2 0,-0.4 -1.5,-0.4 -1.5,0.4 0,0.4 { 
     AREA { color:  @onewayArrowColor; }
@@ -338,6 +343,38 @@ SYMBOL marker
     AREA {color: #ff0000; }
   }
 
+  SYMBOL viaFerrataEasyCross
+    POLYGON -0.5,-0.5 0.5,0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataEasyColor;  }
+    }
+    POLYGON -0.5,0.5 0.5,-0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataEasyColor;  }
+    }
+
+  SYMBOL viaFerrataModerateCross
+    POLYGON -0.5,-0.5 0.5,0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataModerateColor;  }
+    }
+    POLYGON -0.5,0.5 0.5,-0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataModerateColor; }
+    }
+
+  SYMBOL viaFerrataDifficultCross
+    POLYGON -0.5,-0.5 0.5,0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataDifficultColor;  }
+    }
+    POLYGON -0.5,0.5 0.5,-0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataDifficultColor;  }
+    }
+
+  SYMBOL viaFerrataExtremeCross
+    POLYGON -0.5,-0.5 0.5,0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataExtremeColor;  }
+    }
+    POLYGON -0.5,0.5 0.5,-0.5 {
+      AREA.BORDER { width: 0.1mm; color:  @viaFerrataExtremeColor;  }
+    }
+
 STYLE
  // -------------------------------------------------------
  //
@@ -399,7 +436,7 @@ STYLE
  [MAG continent-] {
   //[TYPE boundary_administrative] WAY {color: @red; displayWidth: 0.4mm; dash: 5,5;}
   [TYPE boundary_country] {
-    //WAY {color: @countryBorderColor; displayWidth: 0.7mm;}
+    WAY {color: @countryBorderColor; displayWidth: 0.2mm;}
     AREA.BORDER { color: @countryBorderColor; width: 0.2mm;}
     WAY.SYMBOL { symbol: border; }
   }
@@ -1084,6 +1121,25 @@ STYLE
      }
    }
   }
+
+ [MAG veryClose-] {
+   [TYPE highway_via_ferrata_easy]{
+       WAY {color: @viaFerrataEasyColor; displayWidth: 0.1mm; dash: 1,100;}
+       WAY.SYMBOL {symbol: viaFerrataEasyCross; symbolSpace: 2mm;}
+   }
+   [TYPE highway_via_ferrata_moderate]{
+       WAY {color: @viaFerrataModerateColor; displayWidth: 0.1mm; dash: 1,100;}
+       WAY.SYMBOL {symbol: viaFerrataModerateCross; symbolSpace: 2mm;}
+   }
+   [TYPE highway_via_ferrata_difficult]{
+       WAY {color: @viaFerrataDifficultColor; displayWidth: 0.1mm; dash: 1,100;}
+       WAY.SYMBOL {symbol: viaFerrataDifficultCross; symbolSpace: 2mm;}
+   }
+   [TYPE highway_via_ferrata_extreme]{
+       WAY {color: @viaFerrataExtremeColor; displayWidth: 0.1mm; dash: 1,100;}
+       WAY.SYMBOL {symbol: viaFerrataExtremeCross; symbolSpace: 2mm;}
+   }
+ }
 
  [MAG block-] {
    [TYPE railway_station] NODE.ICON { symbol: railway_station; }
