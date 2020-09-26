@@ -6,6 +6,7 @@ FLAG
 ORDER WAYS
   GROUP _route
   GROUP highway_motorway, highway_motorway_trunk, highway_motorway_primary
+  GROUP aerialway_gondola, aerialway_chair_lift, aerialway_drag_lift
   GROUP highway_trunk
   GROUP highway_primary
   GROUP highway_secondary
@@ -122,6 +123,9 @@ CONST
   COLOR mountainPassSymbolColor = #9c5e29;
   COLOR hospitalSymbolColor   = #da0092;
   COLOR pharmacySymbolColor   = #da0092;
+
+  COLOR railwayColor               = #bb75d9;
+  COLOR railwayLabelColor          = darken(@railwayColor, 0.5);
 
   COLOR peakLabelColor        = #9c5329;
   COLOR mountainPassLabelColor  = #9c5329;
@@ -816,6 +820,20 @@ STYLE
    [TYPE railway_narrow_gauge, railway_preserved] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
    [TYPE railway_funicular] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
 
+   // Aerialways
+   [TYPE aerialway_gondola]{
+      WAY {color: #606060; displayWidth: 0.05mm; width: 1m;}
+      WAY#gondola {color: #101010; dash: 1,15; joinCap: round; endCap: round; displayWidth: 0.1mm; width: 4m;}
+   }
+   [TYPE aerialway_chair_lift]{
+      WAY {color: #606060; displayWidth: 0.05mm; width: 1m;}
+      WAY#chair {color: #101010; dash: 0.3,5; joinCap: square; endCap: square; displayWidth: 0.1mm; width: 4m;}
+   }
+   [TYPE aerialway_drag_lift]{
+      WAY {color: #606060; displayWidth: 0.03mm; width: 0.5m;}
+      WAY#drag {color: #101010; dash: 0.2,5; joinCap: round; endCap: round; displayWidth: 0.1mm; width: 4m;}
+   }
+
    [TYPE railway_subway] {
      WAY#outline { color: #ffffff50; width: 1.5m; displayWidth: 0.15mm; priority: -1; joinCap: butt; }
      WAY {color: #b3b3b3; width: 1.5m; dash: 20,10; joinCap: butt; }
@@ -1227,6 +1245,10 @@ STYLE
          highway_primary_link,
          highway_secondary,
          highway_secondary_link] WAY.TEXT{ label: Ref.name; displayOffset: 1.5mm;}
+
+   [TYPE aerialway_gondola,
+         aerialway_chair_lift,
+         aerialway_drag_lift] WAY.TEXT { label: Name.name; size: 1.0; color: @railwayLabelColor; displayOffset: 2.5mm; priority: 20;}
 
    [TYPE route_ferry] WAY.TEXT{ label: Name.name; displayOffset: 1mm;}
  }
