@@ -5,15 +5,16 @@
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 
-project(osmscout-sailfish C CXX)
+cmake_policy(SET CMP0048 NEW)
+project(osmscout-sailfish VERSION 2.5.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
 
 # project version
-set(OSMSCOUT_SAILFISH_MAJOR_VERSION "2")
-set(OSMSCOUT_SAILFISH_MINOR_VERSION "5")
-set(OSMSCOUT_SAILFISH_PATCH_VERSION "0")
+set(OSMSCOUT_SAILFISH_MAJOR_VERSION ${PROJECT_VERSION_MAJOR})
+set(OSMSCOUT_SAILFISH_MINOR_VERSION ${PROJECT_VERSION_MINOR})
+set(OSMSCOUT_SAILFISH_PATCH_VERSION ${PROJECT_VERSION_PATCH})
 
 set(OSMSCOUT_SAILFISH_SUFFIX_VERSION "")
 set(OSMSCOUT_SAILFISH_VERSION_SHORT  "${OSMSCOUT_SAILFISH_MAJOR_VERSION}.${OSMSCOUT_SAILFISH_MINOR_VERSION}.${OSMSCOUT_SAILFISH_PATCH_VERSION}")
