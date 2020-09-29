@@ -1919,23 +1919,23 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>Kontury wysokości</translation>
+        <translation>kontury wysokości</translation>
     </message>
     <message>
         <source>skiingDownhill</source>
-        <translation type="unfinished"></translation>
+        <translation>narciarstwo zjazdowe</translation>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation type="unfinished"></translation>
+        <translation>narciarstwo biegowe</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>trasy rowerowe</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>trasy turystyczne</translation>
     </message>
 </context>
 <context>
