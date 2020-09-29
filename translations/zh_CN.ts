@@ -1919,6 +1919,22 @@
         <source>elevationContours</source>
         <translation>等高线</translation>
     </message>
+    <message>
+        <source>skiingDownhill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>skiingNordic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cycloRoutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hikingRoutes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>

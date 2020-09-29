@@ -1,7 +1,7 @@
 OSS
 FLAG
-  cyclo_routes = true;
-  hiking_routes = true;
+  cycloRoutes = true;
+  hikingRoutes = true;
 
 ORDER WAYS
   GROUP _route
@@ -1864,7 +1864,7 @@ STYLE
  // Routes
  //
 
-  IF cyclo_routes {
+  IF cycloRoutes {
     [MAG suburb-] {
       [TYPE route_bicycle] ROUTE {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.4mm; priority: -10; }
       [TYPE route_mtb] ROUTE {color: @cyclewayColor; preferColorFeature: true; dash: 6,3; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.2mm; priority: -10; }
@@ -1874,7 +1874,7 @@ STYLE
       [TYPE route_mtb] ROUTE {displayWidth: 0.4mm; }
     }
   }
-  IF hiking_routes  {
+  IF hikingRoutes  {
     [MAG suburb-] {
       [TYPE route_hiking] ROUTE {color: #ff0000; preferColorFeature: true; offsetRel: sidecar; displayWidth: 0.4mm; priority: -10; }
     }

@@ -1920,6 +1920,22 @@
         <source>elevationContours</source>
         <translation>Elevation Contour</translation>
     </message>
+    <message>
+        <source>skiingDownhill</source>
+        <translation>Downhill skiing</translation>
+    </message>
+    <message>
+        <source>skiingNordic</source>
+        <translation>Nordic skiing</translation>
+    </message>
+    <message>
+        <source>cycloRoutes</source>
+        <translation>Cyclo routes</translation>
+    </message>
+    <message>
+        <source>hikingRoutes</source>
+        <translation>Hiking routes</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>

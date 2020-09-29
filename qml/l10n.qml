@@ -52,6 +52,10 @@ Item{
         QT_TRANSLATE_NOOP("styleflag", "building"),
         QT_TRANSLATE_NOOP("styleflag", "minorBuilding"),
         QT_TRANSLATE_NOOP("styleflag", "elevationContours"),
+        QT_TRANSLATE_NOOP("styleflag", "skiingDownhill"),
+        QT_TRANSLATE_NOOP("styleflag", "skiingNordic"),
+        QT_TRANSLATE_NOOP("styleflag", "cycloRoutes"),
+        QT_TRANSLATE_NOOP("styleflag", "hikingRoutes"),
 
         QT_TRANSLATE_NOOP("message", "Directory already exists"),
         QT_TRANSLATE_NOOP("message", "Can't create directory"),
