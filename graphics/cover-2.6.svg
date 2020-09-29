@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="845"
+   height="422"
+   id="svg2054"
+   version="1.1"
+   sodipodi:docname="cover-2.3.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1134"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="0.6180637"
+     inkscape:cx="308.84257"
+     inkscape:cy="619.41185"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2054" />
+  <image
+     sodipodi:absref="/home/karry/SailfishOS/projects/osmscout-sailfish/graphics/cover-2.3.png"
+     xlink:href="cover-2.3.png"
+     y="0"
+     x="0"
+     id="image892"
+     style="image-rendering:optimizeSpeed"
+     preserveAspectRatio="none"
+     height="422"
+     width="845" />
+  <g
+     id="label"
+     transform="matrix(1.4841993,0,0,1.4841993,-340.92767,-1157.6592)"
+     style="opacity:1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:99.00000095%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="263.37292"
+       y="835.81036"
+       id="text4187"><tspan
+         style="fill:#411f11;fill-opacity:0.7349823"
+         id="tspan821">OSM Scout</tspan></text>
+  </g>
+  <g
+     id="label-3"
+     transform="matrix(1.4841993,0,0,1.4841993,189.35506,-1129.9377)"
+     style="opacity:1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:99.00000095%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-95.115509"
+       y="868.55859"
+       id="text4187-6"><tspan
+         style="fill:#411f11;fill-opacity:0.51943461"
+         id="tspan2917">2.6</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot817"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+         id="flowRegion819"><rect
+           id="rect821"
+           width="1177.8721"
+           height="1100.2102"
+           x="741.02393"
+           y="-292.02686" /></flowRegion><flowPara
+         id="flowPara823" /></flowRoot>  </g>
+</svg>
