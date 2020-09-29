@@ -1923,19 +1923,19 @@
     </message>
     <message>
         <source>skiingDownhill</source>
-        <translation type="unfinished"></translation>
+        <translation>Sjezdové lyžování</translation>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation type="unfinished"></translation>
+        <translation>Klasické lyžování</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Cyklistické trasy</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistické trasy</translation>
     </message>
 </context>
 <context>
