@@ -413,4 +413,5 @@
 - initial support of route rendering (public transport, hiking, cyclo routes...)
 - rendering of metro, tram and bus routes in "public transport" stylesheet
 - added hike and bike routes to "outdoor" stylesheet
+- use icons from OSM Carto style, add various icons to "outdoor" stylesheet
 - added nordic skiing routes to "winter sports" stylesheet
