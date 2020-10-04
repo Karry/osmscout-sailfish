@@ -12,7 +12,7 @@
    height="422"
    id="svg2054"
    version="1.1"
-   sodipodi:docname="cover-2.3.svg"
+   sodipodi:docname="cover-2.6.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <metadata
      id="metadata14">
@@ -49,8 +49,8 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2054" />
   <image
-     sodipodi:absref="/home/karry/SailfishOS/projects/osmscout-sailfish/graphics/cover-2.3.png"
-     xlink:href="cover-2.3.png"
+     sodipodi:absref="/home/karry/SailfishOS/projects/osmscout-sailfish/graphics/cover-2.6.png"
+     xlink:href="cover-2.6.png"
      y="0"
      x="0"
      id="image892"
@@ -64,7 +64,7 @@
      style="opacity:1">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:99.00000095%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:99.00000095%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;"
        x="263.37292"
        y="835.81036"
        id="text4187"><tspan
@@ -77,7 +77,7 @@
      style="opacity:1">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:99.00000095%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:99.00000095%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;"
        x="-95.115509"
        y="868.55859"
        id="text4187-6"><tspan
@@ -86,7 +86,7 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot817"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;"><flowRegion
          id="flowRegion819"><rect
            id="rect821"
            width="1177.8721"
