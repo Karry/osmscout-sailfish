@@ -409,7 +409,7 @@
 - add Estonian translation
 - add more options to GPX export (omit waypoints, drop inaccurate nodes)
 
-* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.6-1
+* 2020-10-04 Lukáš Karas <lukas.karas@centrum.cz> 2.6-1
 - initial support of route rendering (public transport, hiking, cyclo routes...)
 - rendering of metro, tram and bus routes in "public transport" stylesheet
 - added hike and bike routes to "outdoor" stylesheet
