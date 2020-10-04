@@ -21,7 +21,7 @@ ORDER WAYS
   GROUP highway_track, highway_pedestrian, highway_path, highway_cycleway,
         highway_footway, highway_bridleway, highway_construction,
         leisure_track,
-      waterway_stream, route_ferry
+        waterway_stream, route_ferry
   GROUP highway_steps, barrier_fence
   GROUP waterway_river, waterway_canal, waterway_drain, waterway_ditch
   GROUP waterway_weir, waterway_waterfall
@@ -152,6 +152,7 @@ CONST
   // Amenity
   COLOR postColor             = #ffcc00;
   COLOR buildingColor         = #bcbcbc;
+  COLOR amenityLabelColor     = #1f1e1b;
  
   // Man made
   COLOR historicCityWallsColor= #994444;
@@ -631,9 +632,9 @@ STYLE
  }
 
  [MAG block-] {
-   [TYPE waterway_stream, waterway_intermittent_stream,
+   [TYPE waterway_stream,
        waterway_weir, waterway_waterfall,
-       waterway_drain, waterway_ditch, waterway_intermittent_drain]
+       waterway_drain, waterway_ditch]
      WAY.TEXT { label: Name.name; color: @waterLabelColor; priority: @labelPrioNatural;}
 
   [TYPE waterway_weir,
@@ -1536,13 +1537,7 @@ STYLE
    [TYPE leisure_sports_centre] AREA { color: #bde3cb; }
    [TYPE leisure_playground] AREA { color: #ccffff; }
    [TYPE leisure_garden] AREA { color: #ceeca8; }
-   [TYPE building,
-         amenity_restaurant_building,
-         amenity_fast_food_building,
-         amenity_cafe_building,
-         amenity_pub_building,
-         amenity_bar_building]
-   {
+   [TYPE building] {
      AREA { color: @buildingColor; }
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
      AREA.TEXT { label: Name.name; }
@@ -1592,7 +1587,7 @@ STYLE
    [TYPE power_generator] AREA { color: #bca9a9; }
  }
 
- [MAG 17-] {
+ [MAG close-] {
    [TYPE amenity_hospital,
          amenity_hospital_building] {
      AREA.ICON { symbol: amenity_hospital; }
@@ -1600,6 +1595,28 @@ STYLE
    }
 
    [TYPE railway_station] AREA.ICON { symbol: railway_station; }
+
+   [TYPE amenity_restaurant_building,
+         amenity_fast_food_building,
+         amenity_cafe_building,
+         amenity_pub_building,
+         amenity_bar_building]
+   {
+     AREA { color: @buildingColor; }
+     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     AREA.TEXT { label: Name.name; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
+   }
+
+   [GROUP amenity] {
+     NODE.TEXT { label: Name.name; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity;}
+   }
+
+   [TYPE amenity_restaurant] NODE.ICON { name: restaurant; }
+   [TYPE amenity_restaurant_building] AREA.ICON { name: restaurant; }
+   [TYPE amenity_fast_food] NODE.ICON { name: fastfood;}
+   [TYPE amenity_fast_food_building] AREA.ICON { name: fastfood;}
+   [TYPE amenity_cafe] NODE.ICON { name: cafe;}
+   [TYPE amenity_cafe_building] AREA.ICON { name: cafe;}
  }
 
  [MAG 17-] {
@@ -1626,12 +1643,6 @@ STYLE
    }
 
    [TYPE building_garage] AREA { color: #bcbcbc; }
-   [TYPE amenity_restaurant] NODE.ICON { name: restaurant; }
-   [TYPE amenity_restaurant_building] AREA.ICON { name: restaurant; }
-   [TYPE amenity_fast_food] NODE.ICON { name: fastfood;}
-   [TYPE amenity_fast_food_building] AREA.ICON { name: fastfood;}
-   [TYPE amenity_cafe] NODE.ICON { name: cafe;}
-   [TYPE amenity_cafe_building] AREA.ICON { name: cafe;}
  }
 
   // Labels
