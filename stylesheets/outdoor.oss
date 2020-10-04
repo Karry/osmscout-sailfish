@@ -131,7 +131,8 @@ CONST
   COLOR mountainPassLabelColor  = #9c5329;
   COLOR cliffColor            = #440000;
 
-  COLOR guidepostLabelColor   = #9c5329;
+  COLOR guidepostLabelColor   = #5e3118;
+  COLOR tourismLabelColor     = #5e3118;
 
   // Ways
   COLOR bridgeColor           = #000000; // black
@@ -482,7 +483,6 @@ STYLE
 
  [MAG suburb-] {
    [TYPE natural_peak] NODE.ICON { symbol: natural_peak; }
-   [TYPE highway_mountain_pass] NODE.ICON { symbol: mountain_pass; }
   }
 
  [MAG detail-] {
@@ -499,11 +499,6 @@ STYLE
 
    [TYPE natural_peak] {
      NODE.TEXT#peakName { label: Name.name; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 1; }
-     NODE.TEXT#ele { label: Ele.inLocaleUnit; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
-   }
-
-   [TYPE highway_mountain_pass] {
-     NODE.TEXT#passName { label: Name.name; style: emphasize; color: #9c5329; priority: @labelPrioPeak; size: 0.9; position: 1;}
      NODE.TEXT#ele { label: Ele.inLocaleUnit; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
    }
 
@@ -582,12 +577,8 @@ STYLE
  }
 
  [MAG proximity-] {
-   [TYPE waterway_intermittent_river] {
-     [SIZE 10m 0.25mm:3px<] WAY {color: @waterColor; width: 10m;}
-     [SIZE 10m <0.25mm:3px] WAY {color: @waterColor; displayWidth: 0.25mm; }
-   }
 
-   [TYPE waterway_canal, waterway_intermittent_canal] {
+   [TYPE waterway_canal] {
      [FEATURE Tunnel SIZE 5m 0.25mm:3px<] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@waterColor,0.3);}
@@ -596,24 +587,20 @@ STYLE
      [SIZE 5m <0.25mm:3px] WAY {color: @waterColor; displayWidth: 0.25mm; }
    }
 
-   [TYPE waterway_intermittent_river, waterway_intermittent_canal] {
-     WAY {dash: 2,1; joinCap: butt; }
-   }
-
    [TYPE waterway_dock] {
      AREA { color: @waterColor; }
      AREA.TEXT { label: Name.name; }
    }
 
-   [TYPE waterway_river, waterway_intermittent_river,
-         waterway_canal, waterway_intermittent_canal] {
+   [TYPE waterway_river, 
+         waterway_canal] {
      WAY.TEXT { label: Name.name;}
    }
 
  }
 
  [MAG suburb-] {
-   [TYPE waterway_stream, waterway_intermittent_stream] {
+   [TYPE waterway_stream] {
      [SIZE 2m 0.15mm:3px<] WAY {color: @waterColor; width: 2m;}
      [SIZE 2m <0.15mm:3px] WAY {color: @waterColor; displayWidth: 0.15mm;}
 
@@ -622,13 +609,9 @@ STYLE
      }
    }
 
-   [TYPE waterway_drain, waterway_intermittent_drain, waterway_ditch] {
+   [TYPE waterway_drain, waterway_ditch] {
      [SIZE 3m 0.1mm:3px<] WAY {color: @waterColor; width: 3m;}
      [SIZE 3m <0.1mm:3px] WAY {color: @waterColor; displayWidth: 0.1mm; }
-   }
-
-   [TYPE waterway_intermittent_stream, waterway_intermittent_drain] {
-     WAY {dash: 2,1; joinCap: butt; }
    }
 
    [TYPE waterway_weir] {
@@ -771,8 +754,7 @@ STYLE
    }
 
    [TYPE highway_unclassified,
-         highway_residential,
-         highway_residential_area] {
+         highway_residential] {
      [SIZE 6m 0.1mm:3px<] {
        WAY#outline { color: @roadBColor; width: 6m; displayWidth: 0.5mm; priority: -1; joinCap: butt; zIndex: -1; }
        WAY { color: @roadColor; width: 6m;}
@@ -841,7 +823,7 @@ STYLE
 
    [TYPE highway_construction] WAY {color: @motorwayBColor; displayWidth: 0.1mm; width: 2m; dash: 8,8; joinCap: butt;}
 
-   [TYPE highway_pedestrian, highway_pedestrian_area] {
+   [TYPE highway_pedestrian] {
      [SIZE 3m 0.1mm:3px<] WAY {color: #ebeaea; width: 3m; }
      [SIZE 3m <0.1mm:3px] WAY {color: #ebeaea; displayWidth: 0.1mm; }
 
@@ -857,12 +839,12 @@ STYLE
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
 
-   [TYPE highway_service_area] {
+   [TYPE highway_service] {
      AREA { color: @roadColor; }
      AREA.BORDER { color: @roadBColor; width: 0.1mm; }
    }
 
-   [TYPE highway_footway_area] {
+   [TYPE highway_footway] {
      AREA { color: #ededed; }
      AREA.BORDER { color: #c5c5c5; width: 0.1mm; }
    }
@@ -1529,7 +1511,7 @@ STYLE
      AREA { color: @landColor; }
    }
 
-   [TYPE historic_citywalls] {
+   [TYPE barrier_city_wall] {
      [SIZE 5m 0.1mm:2px<] WAY {color: @historicCityWallsColor; width: 5.0m; joinCap: butt;}
      [SIZE 5m <0.1mm:2px] WAY {color: @historicCityWallsColor; displayWidth: 0.2mm; }
    }
@@ -1679,6 +1661,19 @@ STYLE
          military_naval_base] AREA.TEXT { label: Name.name; }
 
    [TYPE railway_station] AREA.TEXT { label: Name.name; style: emphasize; color: #8888fd;}
+
+
+   [TYPE tourism_information_guidepost] {
+     NODE.ICON { name: guidepost; }
+     NODE.TEXT { label: Ref.name; color: @guidepostLabelColor; size: 0.8; }
+   }
+   [TYPE tourism_information] {
+     NODE.ICON { name: information; }
+   }
+   [GROUP tourism] { 
+     NODE.TEXT {label: Name.name; style: emphasize;color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;} 
+     AREA.TEXT { label: Name.name; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;} 
+   } 
  }
 
  [MAG veryClose-] {
@@ -1714,30 +1709,12 @@ STYLE
 
    [TYPE building] AREA.TEXT { label: Name.name; color: #524a4a; size: 0.8; }
 
-   [TYPE tourism_information_guidepost] {
-     NODE.ICON { name: guidepost; }
- NODE.TEXT { label: Ref.name; color: @guidepostLabelColor; size: 0.8; }
-   }
-
    [TYPE power_sub_station,
          power_generator,
          tourism_theme_park,
          tourism_zoo,
          historic_archaeological_site,
          historic_battlefield,
-         tourism_alpine_hut,
-         tourism_attraction,
-         tourism_artwork,
-         tourism_camp_site,
-         tourism_caravan_site,
-         tourism_chalet,
-         tourism_guest_house,
-         tourism_hotel,
-         tourism_hotel_building,
-         tourism_information,
-         tourism_motel,
-         tourism_museum,
-         tourism_picnic_site,
          historic_castle,
          historic_monument,
          historic_memorial,
