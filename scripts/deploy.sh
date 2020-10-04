@@ -51,6 +51,13 @@ if [ $? -ne 0 ] ; then
   exit 1;
 fi
 
+sfdk config "no-fix-version"
+if [ $? -ne 0 ] ; then
+  echo
+  echo "Failed to set no-fix-version"
+  exit 1;
+fi
+
 ##################################################################
 echo
 echo "build rpm..."
