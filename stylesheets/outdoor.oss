@@ -114,6 +114,10 @@ CONST
   COLOR woodColor             = #aed1a0;
   COLOR rockColor             = #cccccc;
 
+  COLOR natureReserveColor         = #abde9622;
+  COLOR natureReserveLabelColor    = #566f4bb0;
+  COLOR natureReserveBorderColor   = #82a77180;
+
   // Symbols
   COLOR railwaySymbolColor    = #7885b0;
   COLOR busSymbolColor        = #4bb2da;
@@ -1437,11 +1441,26 @@ STYLE
    }
  }
 
+ [TYPE boundary_protected_area] {
+  [MAG stateOver-]{
+    AREA.BORDER#dashed { color: @natureReserveBorderColor; width: 0.3mm; dash: 6,6; displayOffset: -0.5mm; }
+    AREA.BORDER#solid { color: lighten(@natureReserveBorderColor, 0.3); width: 1.0mm; }
+  }
+  [MAG stateOver-detail]{
+    AREA.TEXT { label: Name.name; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
+  }
+  // Semiransparent overlay just for low zoom
+  [MAG stateOver-proximity]{
+    AREA { color: @natureReserveColor;}
+  }
+ }
+
  [MAG proximity-] {
    // Semi transparent overlay
    [TYPE leisure_nature_reserve] {
-     AREA { color: #abde9622; }
-     AREA.BORDER { color: darken(#abde9622,0.1); width: 0.2mm; dash: 3,3;}
+     AREA { color: @natureReserveColor;}
+     AREA.BORDER#dashed { color: @natureReserveBorderColor; width: 0.3mm; dash: 6,6; displayOffset: -0.5mm; }
+     AREA.BORDER#solid { color: lighten(@natureReserveBorderColor, 0.3); width: 1.0mm; }
    }
 
    [TYPE military_airfield,
@@ -1466,6 +1485,10 @@ STYLE
    }
 
    [TYPE power_sub_station] AREA { color: #bca9a9; }
+
+   [TYPE leisure_nature_reserve] {
+     AREA.TEXT { label: Name.name; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
+   }
  }
 
  [MAG detail-] {
@@ -1743,10 +1766,6 @@ STYLE
  }
 
  // Labels
-
- [MAG veryClose-] {
-   [TYPE leisure_nature_reserve] AREA.TEXT { label: Name.name;  color: #30773099;}
- }
 
  [MAG close-]{
    [TYPE leisure_sports_centre,
