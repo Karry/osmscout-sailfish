@@ -1795,6 +1795,7 @@ STYLE
    }
    [TYPE tourism_information, tourism_information_building] {
      NODE.ICON { name: information; }
+     AREA.ICON { name: information; }
    }
  }
 
@@ -1810,9 +1811,14 @@ STYLE
 
    [GROUP amenity] {
      NODE.TEXT { label: Name.name; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity;}
+     AREA.TEXT { label: Name.name; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity;}
    }
-   [GROUP tourism, historic] {
-     NODE.TEXT {label: Name.name; style: emphasize;color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;}
+   [GROUP tourism] {
+     NODE.TEXT { label: Name.name; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;}
+     AREA.TEXT { label: Name.name; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;}
+   }
+   [GROUP historic] {
+     NODE.TEXT { label: Name.name; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;}
      AREA.TEXT { label: Name.name; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding;}
    }
  }
