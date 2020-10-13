@@ -415,3 +415,6 @@
 - added hike and bike routes to "outdoor" stylesheet
 - use icons from OSM Carto style, add various icons to "outdoor" stylesheet
 - added nordic skiing routes to "winter sports" stylesheet
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.7-1
+- search: support for lookup English region names
