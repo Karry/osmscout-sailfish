@@ -845,6 +845,253 @@
     </message>
 </context>
 <context>
+    <name>RouteDescriptionBuilder</name>
+    <message>
+        <source>Turn sharp left</source>
+        <translation>Резко поверните налево</translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation>Поверните налево</translation>
+    </message>
+    <message>
+        <source>Turn slightly left</source>
+        <translation>Держитесь левее</translation>
+    </message>
+    <message>
+        <source>Straight on</source>
+        <translation>Прямо</translation>
+    </message>
+    <message>
+        <source>Turn slightly right</source>
+        <translation>Держитесь правее</translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation>Поверните направо</translation>
+    </message>
+    <message>
+        <source>Turn sharp right</source>
+        <translation>Резко поверните направо</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Поворот</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните налево&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Поверните налево&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Держитесь левее&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Двигайтесь прямо&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Держитесь правее&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Поверните направо&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните направо&lt;/strong&gt; на %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните налево&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Поверните налево&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Держитесь левее&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Двигайтесь прямо&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Держитесь правее&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Поверните направо&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните направо&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>unnamed road</source>
+        <translation>дорога без названия</translation>
+    </message>
+    <message>
+        <source>(%1)</source>
+        <translation>(%1)</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot;</source>
+        <translation>&quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; (%2)</source>
+        <translation>&quot;%1&quot; (%2)</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Начните движение&lt;/strong&gt; от %1</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Начните движение</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Двигайтесь&lt;/strong&gt; по %1</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Продолжайте</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Начните движение&lt;/strong&gt; по %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Начните движение&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Вы у цели&lt;/strong&gt; в %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Вы у цели&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Target reached</source>
+        <translation>Вы у цели</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;Двигайтесь по круговой развязке&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Двигайтесь по круговой развязке&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>Двигайтесь по круговой развязке</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
+        <translation>&lt;strong&gt;Выберите съезд&lt;/strong&gt; %1 на улицу %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
+        <translation>&lt;strong&gt;Выберите съезд&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>Enter motorway</source>
+        <translation>Выезжайте на шоссе</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
+        <translation>На перекрестке %1. &lt;strong&gt;выезжайте на шоссе&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;выезжайте на шоссе&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>На перекрестке %1. &lt;strong&gt;выезжайте на шоссе&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Выезжайте на шоссе&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Change motorway</source>
+        <translation>Смените шоссе</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Сверните с шоссе&lt;/strong&gt; %1 на %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Смените шоссе&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Leave motorway</source>
+        <translation>Покиньте шоссе</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
+        <translation>&lt;strong&gt;Съезжайте с шоссе&lt;/strong&gt; %1 на %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Съезжайте с шоссе&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Съезжайте с шоссе&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Way changes name</source>
+        <translation>Дорога меняет название</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Дорога меняет название&lt;/strong&gt; с %1 на %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation>&lt;strong&gt;Дорога меняет название&lt;/strong&gt; на %1</translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation>Воспользуйтесь первым съездом</translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation>Воспользуйтесь вторым съездом</translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation>Воспользуйтесь третьим съездом</translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
+        <translation>Воспользуйтесь %1-м съездом</translation>
+    </message>
+</context>
+<context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
@@ -1512,253 +1759,6 @@
     <message>
         <source>building</source>
         <translation>Здания</translation>
-    </message>
-</context>
-<context>
-    <name>osmscout::RouteDescriptionBuilder</name>
-    <message>
-        <source>Turn sharp left</source>
-        <translation>Резко поверните налево</translation>
-    </message>
-    <message>
-        <source>Turn left</source>
-        <translation>Поверните налево</translation>
-    </message>
-    <message>
-        <source>Turn slightly left</source>
-        <translation>Держитесь левее</translation>
-    </message>
-    <message>
-        <source>Straight on</source>
-        <translation>Прямо</translation>
-    </message>
-    <message>
-        <source>Turn slightly right</source>
-        <translation>Держитесь правее</translation>
-    </message>
-    <message>
-        <source>Turn right</source>
-        <translation>Поверните направо</translation>
-    </message>
-    <message>
-        <source>Turn sharp right</source>
-        <translation>Резко поверните направо</translation>
-    </message>
-    <message>
-        <source>Turn</source>
-        <translation>Поворот</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните налево&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните налево&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Держитесь левее&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Двигайтесь прямо&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Держитесь правее&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните направо&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните направо&lt;/strong&gt; на %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните налево&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните налево&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Держитесь левее&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Двигайтесь прямо&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Держитесь правее&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните направо&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Резко поверните направо&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>unnamed road</source>
-        <translation>дорога без названия</translation>
-    </message>
-    <message>
-        <source>(%1)</source>
-        <translation>(%1)</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot;</source>
-        <translation>&quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot; (%2)</source>
-        <translation>&quot;%1&quot; (%2)</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Начните движение&lt;/strong&gt; от %1</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Начните движение</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Двигайтесь&lt;/strong&gt; по %1</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation>Продолжайте</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Начните движение&lt;/strong&gt; по %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Начните движение&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Вы у цели&lt;/strong&gt; в %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Вы у цели&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Target reached</source>
-        <translation>Вы у цели</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Двигайтесь по круговой развязке&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Двигайтесь по круговой развязке&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>Двигайтесь по круговой развязке</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Выберите съезд&lt;/strong&gt; %1 на улицу %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Выберите съезд&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>Enter motorway</source>
-        <translation>Выезжайте на шоссе</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;выезжайте на шоссе&lt;/strong&gt; %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;выезжайте на шоссе&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;выезжайте на шоссе&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Выезжайте на шоссе&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Change motorway</source>
-        <translation>Смените шоссе</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Сверните с шоссе&lt;/strong&gt; %1 на %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Смените шоссе&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Leave motorway</source>
-        <translation>Покиньте шоссе</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Съезжайте с шоссе&lt;/strong&gt; %1 на %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Съезжайте с шоссе&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Съезжайте с шоссе&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Way changes name</source>
-        <translation>Дорога меняет название</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Дорога меняет название&lt;/strong&gt; с %1 на %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Дорога меняет название&lt;/strong&gt; на %1</translation>
-    </message>
-    <message>
-        <source>Take the first exit</source>
-        <translation>Воспользуйтесь первым съездом</translation>
-    </message>
-    <message>
-        <source>Take the second exit</source>
-        <translation>Воспользуйтесь вторым съездом</translation>
-    </message>
-    <message>
-        <source>Take the third exit</source>
-        <translation>Воспользуйтесь третьим съездом</translation>
-    </message>
-    <message>
-        <source>Take the %1th exit</source>
-        <translation>Воспользуйтесь %1-м съездом</translation>
     </message>
 </context>
 <context>

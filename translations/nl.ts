@@ -845,6 +845,253 @@
     </message>
 </context>
 <context>
+    <name>RouteDescriptionBuilder</name>
+    <message>
+        <source>Turn sharp left</source>
+        <translation>Sla scherp linksaf</translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation>Sla linksaf</translation>
+    </message>
+    <message>
+        <source>Turn slightly left</source>
+        <translation>Sla iets linksaf</translation>
+    </message>
+    <message>
+        <source>Straight on</source>
+        <translation>Ga rechtdoor</translation>
+    </message>
+    <message>
+        <source>Turn slightly right</source>
+        <translation>Sla iets rechtsaf</translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation>Sla rechtsaf</translation>
+    </message>
+    <message>
+        <source>Turn sharp right</source>
+        <translation>Sla scherp rechtsaf</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Sla af</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla af&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla scherp linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla iets linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Ga rechtdoor&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla iets rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
+        <translation>&lt;strong&gt;Sla scherp rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla af&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla scherp linksaf&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla linksaf&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla iets linksaf&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Ga rechtdoor&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla iets rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sla scherp rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>unnamed road</source>
+        <translation>naamloze weg</translation>
+    </message>
+    <message>
+        <source>(%1)</source>
+        <translation>(%1)</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot;</source>
+        <translation>‘%1’</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; (%2)</source>
+        <translation>‘%1’ (%2)</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Begin&lt;/strong&gt; op %1</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Begin</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Ga verder&lt;/strong&gt; langs %1</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Ga verder</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Begin&lt;/strong&gt; langs %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Begin&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt; op %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Target reached</source>
+        <translation>Bestemming bereikt</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Rijd de rotonde op&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Rijd de rotonde op&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>Rijd de rotonde op</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
+        <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit naar %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
+        <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit</translation>
+    </message>
+    <message>
+        <source>Enter motorway</source>
+        <translation>Rijd de snelweg op</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
+        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; %2 bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; bij kruispunt %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Change motorway</source>
+        <translation>Wijzig de snelweg</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Wijzig de snelweg&lt;/strong&gt; van %1 naar %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Wijzig de snelweg&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Leave motorway</source>
+        <translation>Verlaat de snelweg</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
+        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt; %1 naar %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Way changes name</source>
+        <translation>Straatnaam verandert</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Straatnaam verandert&lt;/strong&gt; van %1 naar %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation>&lt;strong&gt;Straatnaam verandert&lt;/strong&gt; naar %1</translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation>Neem de eerste afrit</translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation>Neem de tweede afrit</translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation>Neem de derde afrit</translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
+        <translation>Neem de %1e afrit</translation>
+    </message>
+</context>
+<context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
@@ -1511,253 +1758,6 @@
     <message>
         <source>building</source>
         <translation>Gebouw</translation>
-    </message>
-</context>
-<context>
-    <name>osmscout::RouteDescriptionBuilder</name>
-    <message>
-        <source>Turn sharp left</source>
-        <translation>Sla scherp linksaf</translation>
-    </message>
-    <message>
-        <source>Turn left</source>
-        <translation>Sla linksaf</translation>
-    </message>
-    <message>
-        <source>Turn slightly left</source>
-        <translation>Sla iets linksaf</translation>
-    </message>
-    <message>
-        <source>Straight on</source>
-        <translation>Ga rechtdoor</translation>
-    </message>
-    <message>
-        <source>Turn slightly right</source>
-        <translation>Sla iets rechtsaf</translation>
-    </message>
-    <message>
-        <source>Turn right</source>
-        <translation>Sla rechtsaf</translation>
-    </message>
-    <message>
-        <source>Turn sharp right</source>
-        <translation>Sla scherp rechtsaf</translation>
-    </message>
-    <message>
-        <source>Turn</source>
-        <translation>Sla af</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla af&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla scherp linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla iets linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Ga rechtdoor&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla iets rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>&lt;strong&gt;Sla scherp rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla af&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla scherp linksaf&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla linksaf&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla iets linksaf&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Ga rechtdoor&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla iets rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sla scherp rechtsaf&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>unnamed road</source>
-        <translation>naamloze weg</translation>
-    </message>
-    <message>
-        <source>(%1)</source>
-        <translation>(%1)</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot;</source>
-        <translation>‘%1’</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot; (%2)</source>
-        <translation>‘%1’ (%2)</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Begin&lt;/strong&gt; op %1</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Begin</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Ga verder&lt;/strong&gt; langs %1</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation>Ga verder</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Begin&lt;/strong&gt; langs %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Begin&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt; op %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Bestemming bereikt&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Target reached</source>
-        <translation>Bestemming bereikt</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de rotonde op&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de rotonde op&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>Rijd de rotonde op</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit naar %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Verlaat de rotonde&lt;/strong&gt; bij de %1e afrit</translation>
-    </message>
-    <message>
-        <source>Enter motorway</source>
-        <translation>Rijd de snelweg op</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt; bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Rijd de snelweg op&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Change motorway</source>
-        <translation>Wijzig de snelweg</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Wijzig de snelweg&lt;/strong&gt; van %1 naar %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Wijzig de snelweg&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Leave motorway</source>
-        <translation>Verlaat de snelweg</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt; %1 naar %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Verlaat de snelweg&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Way changes name</source>
-        <translation>Straatnaam verandert</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Straatnaam verandert&lt;/strong&gt; van %1 naar %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Straatnaam verandert&lt;/strong&gt; naar %1</translation>
-    </message>
-    <message>
-        <source>Take the first exit</source>
-        <translation>Neem de eerste afrit</translation>
-    </message>
-    <message>
-        <source>Take the second exit</source>
-        <translation>Neem de tweede afrit</translation>
-    </message>
-    <message>
-        <source>Take the third exit</source>
-        <translation>Neem de derde afrit</translation>
-    </message>
-    <message>
-        <source>Take the %1th exit</source>
-        <translation>Neem de %1e afrit</translation>
     </message>
 </context>
 <context>
