@@ -1973,8 +1973,11 @@ STYLE
 
   IF cycloRoutes {
     [MAG suburb-] {
-      [TYPE route_bicycle] ROUTE {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.4mm; priority: -10; }
-      [TYPE route_mtb] ROUTE {color: @cyclewayColor; preferColorFeature: true; dash: 6,3; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.2mm; priority: -10; }
+      [TYPE route_bicycle] ROUTE {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.4mm; priority: 50; }
+      [TYPE route_mtb] ROUTE {color: @cyclewayColor; preferColorFeature: true; dash: 6,3; joinCap: butt; endCap: butt; offsetRel: sidecar; displayWidth: 0.2mm; priority: 50; }
+    }
+    [MAG close-] {
+      [TYPE route_bicycle, route_mtb] ROUTE.TEXT {label: Ref.name; color: @cyclewayColor; size: 1.0; displayOffset: 3.0mm; priority: 19;}
     }
     [MAG veryClose-] {
       [TYPE route_bicycle] ROUTE {displayWidth: 0.8mm; }
@@ -1983,7 +1986,7 @@ STYLE
   }
   IF hikingRoutes  {
     [MAG suburb-] {
-      [TYPE route_hiking] ROUTE {color: #ff0000; preferColorFeature: true; offsetRel: sidecar; displayWidth: 0.4mm; priority: -10; }
+      [TYPE route_hiking] ROUTE {color: #ff0000; preferColorFeature: true; offsetRel: sidecar; displayWidth: 0.4mm; priority: 50; }
     }
     [MAG veryClose-] {
       [TYPE route_hiking] ROUTE {displayWidth: 0.8mm; }

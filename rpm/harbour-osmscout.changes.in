@@ -420,3 +420,7 @@
 - search: support for lookup English region names
 - outdoor stylesheet: add protected areas
 - update translations (Chinese, Estonian)
+- drop support for old dabase formats (<19, used from year 2019), please update map databases regularly!
+- support for route labels
+- add tram and bus line numbers to public transport stylesheet
+- add cyclo route numbers to outdoor stylesheet
