@@ -424,3 +424,4 @@
 - support for route labels
 - add tram and bus line numbers to public transport stylesheet
 - add cyclo route numbers to outdoor stylesheet
+- add various amenity* historic* and leisure* icons to standard stylesheet
