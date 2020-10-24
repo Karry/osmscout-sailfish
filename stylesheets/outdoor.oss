@@ -73,7 +73,8 @@ CONST
   UINT labelPrioBuilding            = 100;
 
   // Pseudo types
-  COLOR routeColor                 = #ff000088;
+  COLOR routeColor                 = #4440ec;
+  COLOR highlightedColor           = #ff000088;
   COLOR trackColor                 = #10a000a0;
   
   // Ground tiles
@@ -417,19 +418,19 @@ STYLE
   }
   [TYPE _route] {
     [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.4mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 1.00); displayWidth: 0.8mm; priority: 100; }
     }
     [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.6mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 0.80); displayWidth: 1.8mm; priority: 100; }
     }
     [MAG veryClose-] {
-      WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 0.70); displayWidth: 3.0mm; priority: 100; }
     }
   }
 
  [MAG world-] {
-    [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
-    [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
+    [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
+    [TYPE _highlighted] AREA.BORDER {color: @highlightedColor; width: 1.0mm; }
     [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
 
     [TYPE _waypoint] {

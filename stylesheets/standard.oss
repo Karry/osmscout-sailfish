@@ -129,7 +129,8 @@ CONST
   COLOR red                        = #ff0000;
 
   // Pseudo types
-  COLOR routeColor                 = #ff000088;
+  COLOR routeColor                 = #4440ec;
+  COLOR highlightedColor           = #ff000088;
   COLOR trackColor                 = #10a000a0;
 
   // Ground tiles
@@ -228,9 +229,9 @@ CONST
   COLOR bridgeColor                = #000000; // black
 
   IF daylight {
-    COLOR motorwayColor            = #4440ec; // dark blue
-    COLOR trunkColor               = #7674ec; // lighther blue
-    COLOR primaryColor             = #f25b73; // red
+    COLOR motorwayColor            = #d07971; // red/brown
+    COLOR trunkColor               = #ff7d7d; // red/brown
+    COLOR primaryColor             = #e8833f; // darker orange
     COLOR secondaryColor           = #fdac44; // orange
     COLOR tertiaryColor            = #fef271; // yelow
     COLOR roadColor                = #ffffff; // white
@@ -241,9 +242,9 @@ CONST
     COLOR wayLabelColor            = #000000; // black
   }
   ELSE {
-    COLOR motorwayColor            = darken(#4440ec, 0.3);
-    COLOR trunkColor               = darken(#7674ec, 0.3);
-    COLOR primaryColor             = darken(#ec4044, 0.3);
+    COLOR motorwayColor            = darken(#d07971, 0.3);
+    COLOR trunkColor               = darken(#ff7d7d, 0.3);
+    COLOR primaryColor             = darken(#e8833f, 0.3);
     COLOR secondaryColor           = darken(#fdac44, 0.3);
     COLOR tertiaryColor            = darken(#fef271, 0.3);
     COLOR roadColor                = darken(#ffffff, 0.5);
@@ -646,19 +647,19 @@ STYLE
   }
   [TYPE _route] {
     [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.4mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 1.00); displayWidth: 0.8mm; priority: 100; }
     }
     [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.6mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 0.80); displayWidth: 1.8mm; priority: 100; }
     }
     [MAG veryClose-] {
-      WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
+      WAY {color: alpha(@routeColor, 0.70); displayWidth: 3.0mm; priority: 100; }
     }
   }
 
   [MAG world-] {
-    [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
-    [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
+    [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
+    [TYPE _highlighted] AREA.BORDER {color: @highlightedColor; width: 1.0mm; }
     [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
 
     [TYPE _waypoint] {
@@ -895,10 +896,13 @@ STYLE
  [MAG continent-] {
    [TYPE highway_motorway] {
      [SIZE 20m 0.45mm:3px<] {
-       WAY#outline { color: darken(@motorwayColor,0.4); width: 20m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY#outline { color: darken(@motorwayColor,0.2); width: 20m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
        WAY { color: @motorwayColor; width: 20m;}
      }
-     [SIZE 20m <0.45mm:3px] WAY { color: lighten(@motorwayColor,0.3); displayWidth: 0.45mm;}
+     [SIZE 20m <0.45mm:3px] {
+       WAY#outline { color: darken(@motorwayColor,0.2); displayWidth: 0.6mm; priority: -1; joinCap: butt; }
+       WAY { color: @motorwayColor; displayWidth: 0.30mm; }
+     }
    }
  }
 
@@ -909,7 +913,7 @@ STYLE
        WAY#outline { color: darken(@trunkColor,0.4); width: 18m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
        WAY { color: @trunkColor; width: 18m;}
      }
-     [SIZE 18m <0.4mm:3px] WAY { color: lighten(@trunkColor,0.3); displayWidth: 0.4mm;}
+     [SIZE 18m <0.4mm:3px] WAY { color: lighten(@trunkColor,0.1); displayWidth: 0.4mm;}
    }
 
    [TYPE highway_primary,
