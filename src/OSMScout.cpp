@@ -141,6 +141,12 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qWarning() << "Usage of memory mapped files is NOT supported.";
 #endif
 
+  QByteArray envVar = qgetenv("NEMO_RESOURCE_CLASS_OVERRIDE");
+  if (envVar.isEmpty()) {
+    // setup audio class to navigator, music player is paused on navigation message and resumed then
+    qputenv("NEMO_RESOURCE_CLASS_OVERRIDE", "navigator");
+  }
+
 #ifdef QT_QML_DEBUG
   qWarning() << "Starting QML debugger on port 1234.";
   qQmlEnableDebuggingHelper.startTcpDebugServer(1234);
