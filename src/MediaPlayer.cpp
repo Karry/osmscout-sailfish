@@ -37,7 +37,6 @@ void MediaPlayerTest::playerStateChanged(QMediaPlayer::State state){
     for (auto role : mediaPlayer->supportedAudioRoles()){
       qDebug() << "role:" << role;
     }
-    mediaPlayer->supportedCustomAudioRoles();
     app->quit();
   } else if (state==QMediaPlayer::PausedState) {
     qDebug() << "Paused";
