@@ -596,3 +596,21 @@ target_include_directories(Routing PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
 target_link_libraries(Routing
         OSMScout
         )
+
+# ==================================================================================================
+# MediaPlayer
+
+add_executable(MediaPlayer src/MediaPlayer.cpp)
+set_property(TARGET MediaPlayer PROPERTY CXX_STANDARD 17)
+target_include_directories(MediaPlayer PRIVATE
+        src
+        ${OSMSCOUT_INCLUDE_DIRS}
+        ${LIBSAILFISHAPP_INCLUDE_DIRS})
+
+target_link_libraries(MediaPlayer
+        Qt5::Core
+        Qt5::Gui
+        Qt5::Multimedia
+
+        ${LIBSAILFISHAPP_LIBRARIES}
+        )
