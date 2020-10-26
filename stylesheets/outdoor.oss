@@ -675,7 +675,7 @@ STYLE
    }
 
    [TYPE highway_primary] {
-     [SIZE 10m 0.45mm:3px<] {
+     [SIZE 10m 0.4mm:3px<] {
        WAY#outline { color: darken(@primaryColor,0.4); width: 10m; displayWidth: 0.5mm; priority: -1; joinCap: butt; zIndex: -1; }
        WAY { color: @primaryColor; width: 10m;}
      }
