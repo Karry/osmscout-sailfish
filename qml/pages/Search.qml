@@ -99,6 +99,7 @@ Page {
 
     onSearchStringChanged: {
         if (searchString.length == 0){
+            searchField.forceActiveFocus(); // search field cleared, force focus
             highlighRegexp = new RegExp("", 'i')
         }else{
             highlighRegexp = new RegExp("("+searchString.replace(' ','|')+")", 'i')
@@ -155,6 +156,7 @@ Page {
                 }
             }
         }
+        suggestionView.currentIndex = -1; // otherwise currentItem will steal focus
     }
 
     Column {
