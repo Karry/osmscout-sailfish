@@ -546,6 +546,8 @@ Page {
         lat: searchCenterLat
         lon: searchCenterLon
 
+        resultLimit: 100
+
         // compute rank for location, it should be in range 0~1
         function locationRank(loc){
             if (loc.type=="coordinate"){
