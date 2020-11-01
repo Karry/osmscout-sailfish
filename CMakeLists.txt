@@ -553,49 +553,24 @@ target_link_libraries(PerformanceTest
 
 # ==================================================================================================
 # SearchPerfTest binary
-set(SOURCE_FILES
-        src/SearchPerfTest.cpp
-        )
 
-add_executable(SearchPerfTest ${SOURCE_FILES})
+add_executable(SearchPerfTest ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/LocationLookup.cpp)
 set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 17)
-
-target_include_directories(SearchPerfTest PRIVATE
-        ${OSMSCOUT_INCLUDE_DIRS}
-        ${LIBSAILFISHAPP_INCLUDE_DIRS}
-        )
-
-target_link_libraries(SearchPerfTest
-        Qt5::Core
-        Qt5::Gui
-        Qt5::Quick # required by sailfishapp when configured with QT_QML_DEBUG
-
-        marisa
-        OSMScout
-        OSMScoutMap
-        OSMScoutMapQt
-        ${LIBSAILFISHAPP_LIBRARIES}
-        )
+target_link_libraries(SearchPerfTest OSMScout)
 
 # ==================================================================================================
 # MultiDBRouting
 
 add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRouting.cpp)
 set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 17)
-target_include_directories(MultiDBRouting PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
-target_link_libraries(MultiDBRouting
-        OSMScout
-        )
+target_link_libraries(MultiDBRouting OSMScout)
 
 # ==================================================================================================
 # Routing
 
 add_executable(Routing ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/Routing.cpp)
 set_property(TARGET Routing PROPERTY CXX_STANDARD 17)
-target_include_directories(Routing PRIVATE ${OSMSCOUT_INCLUDE_DIRS})
-target_link_libraries(Routing
-        OSMScout
-        )
+target_link_libraries(Routing OSMScout)
 
 # ==================================================================================================
 # MediaPlayer
