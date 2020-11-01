@@ -1922,19 +1922,19 @@
     </message>
     <message>
         <source>skiingDownhill</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpin Ski</translation>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation type="unfinished"></translation>
+        <translation>Langlauf Ski</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahrradwege</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Wanderwege</translation>
     </message>
 </context>
 <context>

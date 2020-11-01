@@ -430,3 +430,4 @@
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.8-1
 - speedup search, run partial search in parallel (each database, search type)
+- update German translation
