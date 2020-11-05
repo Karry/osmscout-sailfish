@@ -97,9 +97,19 @@ Page {
         }
     }
 
+    Timer {
+        // workaround for the behavior when search field lost focus when we change model
+        id: searchFieldFocusTimer
+        interval: 10
+        running: false
+        repeat: false
+        onTriggered: {
+            searchField.forceActiveFocus();
+        }
+    }
+
     onSearchStringChanged: {
         if (searchString.length == 0){
-            searchField.forceActiveFocus(); // search field cleared, force focus
             highlighRegexp = new RegExp("", 'i')
         }else{
             highlighRegexp = new RegExp("("+searchString.replace(' ','|')+")", 'i')
@@ -157,6 +167,9 @@ Page {
             }
         }
         suggestionView.currentIndex = -1; // otherwise currentItem will steal focus
+        if (searchString.length == 0){
+            searchFieldFocusTimer.start(); // search field cleared, force focus to search field
+        }
     }
 
     Column {
