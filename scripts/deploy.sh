@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 if [ $# -lt 1 ] ; then
   echo "Too few arguments!"
@@ -15,7 +15,7 @@ export TYPE="$1" # emulator
 ##################################################################
 ## configure SDK
 PATH=$PATH:~/SailfishOS/bin/
-export OS_VERSION=3.3.0.16
+export OS_VERSION=3.4.0.24
 
 # device may be configured in SailfishOS SDK
 if [ $# -ge 2 ] ; then
@@ -24,6 +24,8 @@ else
   # use default device for TYPE
   if [ "$TYPE" = "emulator" ] ; then
     export DEV_DEVICE="Sailfish OS Emulator ${OS_VERSION}"
+  elif [ "$TYPE" = "aarch64" ]; then
+    export DEV_DEVICE=""
   else
     export DEV_DEVICE="Intex"
   fi
@@ -31,6 +33,8 @@ fi
 
 if [ "$TYPE" = "emulator" ] ; then
   export ARCHITECTURE=i486
+elif [ "$TYPE" = "aarch64" ]; then
+  export ARCHITECTURE=aarch64
 else
   export ARCHITECTURE=armv7hl
 fi
@@ -43,12 +47,14 @@ if [ $? -ne 0 ] ; then
   exit 1;
 fi
 
-sfdk config "device=${DEV_DEVICE}"
-if [ $? -ne 0 ] ; then
-  echo
-  echo "Available devices:"
-  sfdk device list 2> /dev/null
-  exit 1;
+if [ -n "$DEV_DEVICE" ] ; then
+  sfdk config "device=${DEV_DEVICE}"
+  if [ $? -ne 0 ] ; then
+    echo
+    echo "Available devices:"
+    sfdk device list 2> /dev/null
+    exit 1;
+  fi
 fi
 
 sfdk config "no-fix-version"
@@ -72,7 +78,12 @@ sfdk engine exec sudo cp \
     /srv/mer/targets/SailfishOS-${OS_VERSION}-i486/usr/lib/libgomp.so.1
 
 sfdk --quiet build
-  
+if [ $? -ne 0 ] ; then
+  echo
+  echo "Failed to build"
+  exit 1;
+fi
+
 ##################################################################
 echo
 echo "deploy..."
@@ -80,11 +91,24 @@ echo "deploy..."
 if [ "$TYPE" = "emulator" ] ; then
   sfdk emulator start "${DEV_DEVICE}"
 fi
-# to be able deploy to emulator with sfdk, there have to working connection from SDK VM/Docker to emulator VM.
-# For that there have to be NAT (on emulator) and DNAT (on SDK) properly configured
-# see forum topic for more details: https://forum.sailfishos.org/t/sdk-3-2-unable-to-deploy-package-to-emulator-with-docker-based-build-engine/1860/8
-sfdk deploy --sdk
 
-echo
-echo "run"
-sfdk device exec -- /bin/sh -c "LC_ALL=en_US.UTF-8 /usr/bin/harbour-osmscout --log debug"
+if [ -n "$DEV_DEVICE" ] ; then
+  # to be able deploy to emulator with sfdk, there have to working connection from SDK VM/Docker to emulator VM.
+  # For that there have to be NAT (on emulator) and DNAT (on SDK) properly configured
+  # see forum topic for more details: https://forum.sailfishos.org/t/sdk-3-2-unable-to-deploy-package-to-emulator-with-docker-based-build-engine/1860/8
+  sfdk deploy --sdk
+  if [ $? -ne 0 ] ; then
+    echo
+    echo "Failed to deploy"
+    exit 1;
+  fi
+
+  echo
+  echo "run"
+  sfdk device exec -- /bin/sh -c "LC_ALL=en_US.UTF-8 /usr/bin/harbour-osmscout --log debug"
+  if [ $? -ne 0 ] ; then
+    echo
+    echo "Failed to exec"
+    exit 1;
+  fi
+fi
