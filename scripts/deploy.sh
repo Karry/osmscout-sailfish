@@ -85,14 +85,14 @@ if [ $? -ne 0 ] ; then
 fi
 
 ##################################################################
-echo
-echo "deploy..."
-
-if [ "$TYPE" = "emulator" ] ; then
-  sfdk emulator start "${DEV_DEVICE}"
-fi
-
 if [ -n "$DEV_DEVICE" ] ; then
+  echo
+  echo "deploy..."
+
+  if [ "$TYPE" = "emulator" ] ; then
+    sfdk emulator start "${DEV_DEVICE}"
+  fi
+
   # to be able deploy to emulator with sfdk, there have to working connection from SDK VM/Docker to emulator VM.
   # For that there have to be NAT (on emulator) and DNAT (on SDK) properly configured
   # see forum topic for more details: https://forum.sailfishos.org/t/sdk-3-2-unable-to-deploy-package-to-emulator-with-docker-based-build-engine/1860/8
