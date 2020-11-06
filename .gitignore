@@ -66,6 +66,7 @@
 /rpmbuilddir
 /rpmbuilddir-arm
 /rpmbuilddir-i386
+/rpmbuilddir-aarch64
 /RPMS
 
 # rpm build file lists
