@@ -1702,6 +1702,9 @@ STYLE
      NODE.ICON { name: artwork; }
      AREA.ICON { name: artwork; }
    }
+   [TYPE tourism_viewpoint] {
+     NODE.ICON { name: viewpoint; }
+   }
    [TYPE tourism_hotel, tourism_hotel_building] {
      NODE.ICON { name: hotel; }
      AREA.ICON { name: hotel; }
