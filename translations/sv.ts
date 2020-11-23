@@ -845,253 +845,6 @@
     </message>
 </context>
 <context>
-    <name>RouteDescriptionBuilder</name>
-    <message>
-        <source>Turn sharp left</source>
-        <translation>Sväng skarp vänster</translation>
-    </message>
-    <message>
-        <source>Turn left</source>
-        <translation>Sväng vänster</translation>
-    </message>
-    <message>
-        <source>Turn slightly left</source>
-        <translation>Sväng svagt vänster</translation>
-    </message>
-    <message>
-        <source>Straight on</source>
-        <translation>Rakt fram</translation>
-    </message>
-    <message>
-        <source>Turn slightly right</source>
-        <translation>Sväng svagt höger</translation>
-    </message>
-    <message>
-        <source>Turn right</source>
-        <translation>Sväng höger</translation>
-    </message>
-    <message>
-        <source>Turn sharp right</source>
-        <translation>Sväng skarpt höger</translation>
-    </message>
-    <message>
-        <source>Turn</source>
-        <translation>Sväng</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt vänster&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng vänster&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt vänster&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Kör rakt fram&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt höger&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng höger&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt höger&lt;/strong&gt; in på %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt vänster&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng vänster&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt vänster&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Kör rakt fram&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt höger&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng höger&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt höger&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>unnamed road</source>
-        <translation>namnlös väg</translation>
-    </message>
-    <message>
-        <source>(%1)</source>
-        <translation>(%1)</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot;</source>
-        <translation>&quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot; (%2)</source>
-        <translation>&quot;%1&quot; (%2)</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Starta&lt;/strong&gt; vid %1</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Starta</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Fortsätt&lt;/strong&gt; längs %1</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation>Fortsätt</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Starta&lt;/strong&gt; längs %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Starta&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Du är framme&lt;/strong&gt; vid %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Du är framme&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Target reached</source>
-        <translation>Du är framme</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>Vid korsningen %1. &lt;strong&gt;Kör in i rondellen&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Kör in i rondellen&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>Kör in i rondellen</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Kör ut ur rondellen&lt;/strong&gt;vid avfart %1 in på %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Kör ut ur rondellen&lt;/strong&gt; vid avfart %1</translation>
-    </message>
-    <message>
-        <source>Enter motorway</source>
-        <translation>Kör ut på motorvägen</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>I korsningen %1. &lt;strong&gt;Kör ut på motorväg&lt;/strong&gt; %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Kör ut på motorväg&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>I korsningen %1. &lt;strong&gt;Kör ut på motorvägen&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Kör ut på motorvägen&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Change motorway</source>
-        <translation>Byt motorväg</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Byt motorväg&lt;/strong&gt; från %1 till %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Byt motorväg&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Leave motorway</source>
-        <translation>Kör av motorvägen</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Kör av motorväg&lt;/strong&gt; %1 in på %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Kör av motorväg&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Kör av motorvägen&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Way changes name</source>
-        <translation>Vägen byter namn</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Vägen byter namn&lt;/strong&gt; från %1 till %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Vägen byter namn&lt;/strong&gt; till %1</translation>
-    </message>
-    <message>
-        <source>Take the first exit</source>
-        <translation>Ta första avfarten</translation>
-    </message>
-    <message>
-        <source>Take the second exit</source>
-        <translation>Ta andra avfarten</translation>
-    </message>
-    <message>
-        <source>Take the third exit</source>
-        <translation>Ta tredje avfarten</translation>
-    </message>
-    <message>
-        <source>Take the %1th exit</source>
-        <translation>Ta %1:e avfarten</translation>
-    </message>
-</context>
-<context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
@@ -1758,6 +1511,253 @@
     <message>
         <source>building</source>
         <translation>byggnad</translation>
+    </message>
+</context>
+<context>
+    <name>osmscout::RouteDescriptionBuilder</name>
+    <message>
+        <source>Turn sharp left</source>
+        <translation>Sväng skarp vänster</translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation>Sväng vänster</translation>
+    </message>
+    <message>
+        <source>Turn slightly left</source>
+        <translation>Sväng svagt vänster</translation>
+    </message>
+    <message>
+        <source>Straight on</source>
+        <translation>Rakt fram</translation>
+    </message>
+    <message>
+        <source>Turn slightly right</source>
+        <translation>Sväng svagt höger</translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation>Sväng höger</translation>
+    </message>
+    <message>
+        <source>Turn sharp right</source>
+        <translation>Sväng skarpt höger</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Sväng</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt vänster&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng vänster&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt vänster&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Kör rakt fram&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt höger&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng höger&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt höger&lt;/strong&gt; in på %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt vänster&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng vänster&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt vänster&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Kör rakt fram&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng svagt höger&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng höger&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Sväng skarpt höger&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>unnamed road</source>
+        <translation>namnlös väg</translation>
+    </message>
+    <message>
+        <source>(%1)</source>
+        <translation>(%1)</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot;</source>
+        <translation>&quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; (%2)</source>
+        <translation>&quot;%1&quot; (%2)</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Starta&lt;/strong&gt; vid %1</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Starta</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Fortsätt&lt;/strong&gt; längs %1</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Fortsätt</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Starta&lt;/strong&gt; längs %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Starta&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Du är framme&lt;/strong&gt; vid %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Du är framme&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Target reached</source>
+        <translation>Du är framme</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>Vid korsningen %1. &lt;strong&gt;Kör in i rondellen&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Kör in i rondellen&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>Kör in i rondellen</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
+        <translation>&lt;strong&gt;Kör ut ur rondellen&lt;/strong&gt;vid avfart %1 in på %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
+        <translation>&lt;strong&gt;Kör ut ur rondellen&lt;/strong&gt; vid avfart %1</translation>
+    </message>
+    <message>
+        <source>Enter motorway</source>
+        <translation>Kör ut på motorvägen</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
+        <translation>I korsningen %1. &lt;strong&gt;Kör ut på motorväg&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Kör ut på motorväg&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>I korsningen %1. &lt;strong&gt;Kör ut på motorvägen&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Kör ut på motorvägen&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Change motorway</source>
+        <translation>Byt motorväg</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Byt motorväg&lt;/strong&gt; från %1 till %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Byt motorväg&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Leave motorway</source>
+        <translation>Kör av motorvägen</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
+        <translation>&lt;strong&gt;Kör av motorväg&lt;/strong&gt; %1 in på %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Kör av motorväg&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Kör av motorvägen&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Way changes name</source>
+        <translation>Vägen byter namn</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Vägen byter namn&lt;/strong&gt; från %1 till %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation>&lt;strong&gt;Vägen byter namn&lt;/strong&gt; till %1</translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation>Ta första avfarten</translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation>Ta andra avfarten</translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation>Ta tredje avfarten</translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
+        <translation>Ta %1:e avfarten</translation>
     </message>
 </context>
 <context>

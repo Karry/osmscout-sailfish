@@ -845,253 +845,6 @@
     </message>
 </context>
 <context>
-    <name>RouteDescriptionBuilder</name>
-    <message>
-        <source>Turn sharp left</source>
-        <translation>Pööra järsult vasakule</translation>
-    </message>
-    <message>
-        <source>Turn left</source>
-        <translation>Pööra vasakule</translation>
-    </message>
-    <message>
-        <source>Turn slightly left</source>
-        <translation>Pööra veidi vasakule</translation>
-    </message>
-    <message>
-        <source>Straight on</source>
-        <translation>Otse edasi</translation>
-    </message>
-    <message>
-        <source>Turn slightly right</source>
-        <translation>Pööra veidi paremale</translation>
-    </message>
-    <message>
-        <source>Turn right</source>
-        <translation>Pööra paremale</translation>
-    </message>
-    <message>
-        <source>Turn sharp right</source>
-        <translation>Pööra järsult paremale</translation>
-    </message>
-    <message>
-        <source>Turn</source>
-        <translation>Pööra</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra järsult vasakule&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra vasakule&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra veidi vasakule&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;Sõida otse edasi&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra veidi paremale&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra paremale&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra järsult paremale&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra järsult vasakule&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra vasakule&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra veidi vasakule&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;Sõida otse edasi&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra veidi paremale&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra paremale&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;pööra järsult paremale&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>unnamed road</source>
-        <translation>nimeta tee</translation>
-    </message>
-    <message>
-        <source>(%1)</source>
-        <translation>(%1)</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot;</source>
-        <translation>&quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot; (%2)</source>
-        <translation>&quot;%1&quot; (%2)</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Alusta&lt;/strong&gt; lähtepunktist %1</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Alusta</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Jätka&lt;/strong&gt; mööda teed %1</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation>Jätka</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Alusta&lt;/strong&gt; piki %1 teed</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Alusta&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Jõudsid soovitud sihtkohta&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Jõudsid sihtkohta&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Target reached</source>
-        <translation>Jõudsid sihtkohta</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;sõida ringteele&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sõida ringteele&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>Sõida ringteele</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Välju ringteelt&lt;/strong&gt; valides %1. ärapöörde ning sõites tänavale %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Välju ringteelt&lt;/strong&gt; valides %1. ärapöörde</translation>
-    </message>
-    <message>
-        <source>Enter motorway</source>
-        <translation>Sõida kiirteele</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>%1 ristteel &lt;strong&gt;sõida kiirteele&lt;/strong&gt; %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Sõida kiirteele&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>%1 ristteel &lt;strong&gt;sõida kiirteele&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sõida kiirteele&lt;/strong&gt; </translation>
-    </message>
-    <message>
-        <source>Change motorway</source>
-        <translation>Sõida teisele kiirteele</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Sõida teisele kiirteele&lt;/strong&gt; - %1 asemel %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Sõida teisele kiirteele&lt;/strong&gt; </translation>
-    </message>
-    <message>
-        <source>Leave motorway</source>
-        <translation>Lahku kiirteelt</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt; - %1 asemel %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Way changes name</source>
-        <translation>Tee muudab nime</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - %1 asemel %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - uus nimi on %1</translation>
-    </message>
-    <message>
-        <source>Take the first exit</source>
-        <translation>Vali esimene ärapööre</translation>
-    </message>
-    <message>
-        <source>Take the second exit</source>
-        <translation>Vali teine ärapööre</translation>
-    </message>
-    <message>
-        <source>Take the third exit</source>
-        <translation>Vali kolmas ärapööre</translation>
-    </message>
-    <message>
-        <source>Take the %1th exit</source>
-        <translation>Vali  %1. ärapööre</translation>
-    </message>
-</context>
-<context>
     <name>Routing</name>
     <message>
         <source>Search route</source>
@@ -1758,6 +1511,253 @@
     <message>
         <source>building</source>
         <translation>Hooned</translation>
+    </message>
+</context>
+<context>
+    <name>osmscout::RouteDescriptionBuilder</name>
+    <message>
+        <source>Turn sharp left</source>
+        <translation>Pööra järsult vasakule</translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation>Pööra vasakule</translation>
+    </message>
+    <message>
+        <source>Turn slightly left</source>
+        <translation>Pööra veidi vasakule</translation>
+    </message>
+    <message>
+        <source>Straight on</source>
+        <translation>Otse edasi</translation>
+    </message>
+    <message>
+        <source>Turn slightly right</source>
+        <translation>Pööra veidi paremale</translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation>Pööra paremale</translation>
+    </message>
+    <message>
+        <source>Turn sharp right</source>
+        <translation>Pööra järsult paremale</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Pööra</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra järsult vasakule&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra vasakule&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra veidi vasakule&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;Sõida otse edasi&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra veidi paremale&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra paremale&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra järsult paremale&lt;/strong&gt; %2 suunas</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra järsult vasakule&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra vasakule&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra veidi vasakule&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;Sõida otse edasi&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra veidi paremale&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra paremale&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;pööra järsult paremale&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>unnamed road</source>
+        <translation>nimeta tee</translation>
+    </message>
+    <message>
+        <source>(%1)</source>
+        <translation>(%1)</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot;</source>
+        <translation>&quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; (%2)</source>
+        <translation>&quot;%1&quot; (%2)</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Alusta&lt;/strong&gt; lähtepunktist %1</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Alusta</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Jätka&lt;/strong&gt; mööda teed %1</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Jätka</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Alusta&lt;/strong&gt; piki %1 teed</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Alusta&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Jõudsid soovitud sihtkohta&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Jõudsid sihtkohta&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Target reached</source>
+        <translation>Jõudsid sihtkohta</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;sõida ringteele&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sõida ringteele&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>Sõida ringteele</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
+        <translation>&lt;strong&gt;Välju ringteelt&lt;/strong&gt; valides %1. ärapöörde ning sõites tänavale %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
+        <translation>&lt;strong&gt;Välju ringteelt&lt;/strong&gt; valides %1. ärapöörde</translation>
+    </message>
+    <message>
+        <source>Enter motorway</source>
+        <translation>Sõida kiirteele</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
+        <translation>%1 ristteel &lt;strong&gt;sõida kiirteele&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Sõida kiirteele&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>%1 ristteel &lt;strong&gt;sõida kiirteele&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sõida kiirteele&lt;/strong&gt; </translation>
+    </message>
+    <message>
+        <source>Change motorway</source>
+        <translation>Sõida teisele kiirteele</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Sõida teisele kiirteele&lt;/strong&gt; - %1 asemel %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Sõida teisele kiirteele&lt;/strong&gt; </translation>
+    </message>
+    <message>
+        <source>Leave motorway</source>
+        <translation>Lahku kiirteelt</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
+        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt; - %1 asemel %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Way changes name</source>
+        <translation>Tee muudab nime</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - %1 asemel %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - uus nimi on %1</translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation>Vali esimene ärapööre</translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation>Vali teine ärapööre</translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation>Vali kolmas ärapööre</translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
+        <translation>Vali  %1. ärapööre</translation>
     </message>
 </context>
 <context>
