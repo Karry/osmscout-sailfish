@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation type="unfinished"></translation>
+        <translation>Orosz: Вячеслав Диконов</translation>
     </message>
     <message>
         <source>German: Pawel Spoon, Uli M.</source>
@@ -65,19 +65,19 @@
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation type="unfinished"></translation>
+        <translation>Kínai: Rui Kon</translation>
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugál (Brazília): Leonardo Moura</translation>
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation type="unfinished"></translation>
+        <translation>Perzsa: Abtin mo</translation>
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation type="unfinished"></translation>
+        <translation>Olasz: Armin Maier</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein, Jordi</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Estonian: Priit Jõerüüt</source>
-        <translation type="unfinished"></translation>
+        <translation>Észt: Priit Jõerüüt</translation>
     </message>
 </context>
 <context>
@@ -93,7 +93,7 @@
     <message>
         <source>Edit</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -170,11 +170,11 @@
     <name>CollectionEditDialog</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Leírás</translation>
     </message>
 </context>
 <context>
@@ -185,15 +185,15 @@
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezett</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Leírás</translation>
     </message>
 </context>
 <context>
@@ -204,11 +204,11 @@
     </message>
     <message>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Directory</source>
@@ -232,17 +232,17 @@
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 100 m</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 30 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>&gt; 10 m</translation>
     </message>
 </context>
 <context>
@@ -414,7 +414,7 @@
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szerkesztés</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -516,7 +516,7 @@
     </message>
     <message>
         <source>Available maps</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérhető térképek</translation>
     </message>
 </context>
 <context>
