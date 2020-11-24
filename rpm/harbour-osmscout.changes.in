@@ -428,7 +428,7 @@
 - change highway color to red/brown, navigation route to dark blue and make it wider for better visibility
 - resume music playback after navigation message
 
-* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.8-1
+* 2020-11-24 Lukáš Karas <lukas.karas@centrum.cz> 2.8-1
 - speedup search - run partial search in parallel (each database, search type), reuse iconv handler
 - speedup place description - optimise location index traversal
 - update German, French and Hungarian translation
