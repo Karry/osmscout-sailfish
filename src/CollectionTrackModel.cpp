@@ -43,6 +43,18 @@ CollectionTrackModel::CollectionTrackModel()
           storage, &Storage::loadTrackData,
           Qt::QueuedConnection);
 
+  connect(this, &CollectionTrackModel::cropStartRequest,
+          storage, &Storage::cropTrackStart,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionTrackModel::cropEndRequest,
+          storage, &Storage::cropTrackEnd,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionTrackModel::splitRequest,
+          storage, &Storage::splitTrack,
+          Qt::QueuedConnection);
+
   connect(storage, &Storage::trackDataLoaded,
           this, &CollectionTrackModel::onTrackDataLoaded,
           Qt::QueuedConnection);
@@ -202,6 +214,15 @@ int CollectionTrackModel::getSegmentCount() const
   return track.data ? track.data->segments.size() : 0;
 }
 
+quint64 CollectionTrackModel::getPointCount() const
+{
+  if (!track.data){
+    return 0;
+  }
+  return std::accumulate(track.data->segments.begin(), track.data->segments.end(), (quint64)0,
+                         [](qint64 size, const osmscout::gpx::TrackSegment& segment){ return size + segment.points.size(); });
+}
+
 QObject* CollectionTrackModel::createOverlayForSegment(int segment)
 {
   if (!track.data)
@@ -216,4 +237,41 @@ QObject* CollectionTrackModel::createOverlayForSegment(int segment)
     points.emplace_back(0, p.coord);
   }
   return new OverlayWay(points);
+}
+
+QPointF CollectionTrackModel::getPoint(quint64 index) const
+{
+  if (!track.data)
+    return QPointF();
+
+  for (auto const &seg:track.data->segments){
+    if (index>=seg.points.size()){
+      index-=seg.points.size();
+    } else {
+      const osmscout::GeoCoord &coord=seg.points[index].coord;
+      return QPointF(coord.GetLat(), coord.GetLon());
+    }
+  }
+  return QPointF();
+}
+
+void CollectionTrackModel::cropStart(quint64 position)
+{
+  loading = true;
+  emit cropStartRequest(track, position);
+  emit loadingChanged();
+}
+
+void CollectionTrackModel::cropEnd(quint64 position)
+{
+  loading = true;
+  emit cropEndRequest(track, position);
+  emit loadingChanged();
+}
+
+void CollectionTrackModel::split(quint64 position)
+{
+  loading = true;
+  emit splitRequest(track, position);
+  emit loadingChanged();
 }

@@ -1715,6 +1715,30 @@ void Storage::moveTrack(qint64 trackId, qint64 collectionId)
   }
 }
 
+void Storage::cropTrackStart(Track track, quint64 position)
+{
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+  // TODO
+}
+
+void Storage::cropTrackEnd(Track track, quint64 position)
+{
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+  // TODO
+}
+
+void Storage::splitTrack(Track track, quint64 position)
+{
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+  // TODO
+}
+
 void Storage::loadRecentOpenTrack(){
   if (!checkAccess(__FUNCTION__)){
     return;

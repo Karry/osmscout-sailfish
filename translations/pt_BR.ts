@@ -158,6 +158,30 @@
         <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Name and description</source>
+        <extracomment>track edit menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop start</source>
+        <extracomment>track edit menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop end</source>
+        <extracomment>track edit menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <extracomment>track edit menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit track &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -1215,6 +1239,33 @@
     </message>
     <message>
         <source>Closing track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackEdit</name>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

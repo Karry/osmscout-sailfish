@@ -444,6 +444,13 @@ public slots:
   void moveTrack(qint64 trackId, qint64 collectionId);
 
   /**
+   * TODO: documentation
+   */
+  void cropTrackStart(Track track, quint64 position);
+  void cropTrackEnd(Track track, quint64 position);
+  void splitTrack(Track track, quint64 position);
+
+  /**
    * emit openTrackLoaded()
    */
   void loadRecentOpenTrack();

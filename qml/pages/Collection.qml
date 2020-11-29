@@ -189,11 +189,19 @@ Page {
                     text: qsTr("Edit")
                     onClicked: {
                         console.log("Edit " + model.type + " " + model.id + " " + model.name + ", " + model.description + "...");
-                        editDialog.itemId = model.id;
-                        editDialog.itemType = model.type;
-                        editDialog.name = model.name;
-                        editDialog.description = model.description;
-                        editDialog.open();
+                        if (model.type == "waypoint"){
+                            editDialog.itemId = model.id;
+                            editDialog.itemType = model.type;
+                            editDialog.name = model.name;
+                            editDialog.description = model.description;
+                            editDialog.open();
+                        } else {
+                            editTrackDialog.itemId = model.id;
+                            editTrackDialog.itemType = model.type;
+                            editTrackDialog.name = model.name;
+                            editTrackDialog.description = model.description;
+                            pageStack.push(editTrackDialog)
+                        }
                     }
                 }
                 MenuItem {
@@ -357,6 +365,87 @@ Page {
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+        }
+    }
+
+    Page{
+        id: editTrackDialog
+
+        property string itemType
+        property string itemId: ""
+        property string name
+        property string description
+
+        SilicaListView {
+            interactive: true
+            anchors.fill: parent
+            height: childrenRect.height
+            id: menu
+
+            VerticalScrollDecorator {}
+
+            model: ListModel {
+                //: track edit menu
+                ListElement { itemtext: QT_TR_NOOP("Name and description"); itemicon: "image://theme/icon-m-edit"; action: "rename";   }
+                //: track edit menu
+                ListElement { itemtext: QT_TR_NOOP("Crop start");           itemicon: "image://theme/icon-m-crop"; action: "crop-start";   }
+                //: track edit menu
+                ListElement { itemtext: QT_TR_NOOP("Crop end");             itemicon: "image://theme/icon-m-crop"; action: "crop-end";   }
+                //: track edit menu
+                ListElement { itemtext: QT_TR_NOOP("Split");                itemicon: "image://theme/icon-m-flip"; action: "split";   }
+            }
+
+            delegate: ListItem{
+                id: searchRow
+
+                function onAction(action){
+                    if (action == "rename"){
+                        editDialog.itemId = editTrackDialog.itemId;
+                        editDialog.itemType = editTrackDialog.itemType;
+                        editDialog.name = editTrackDialog.name;
+                        editDialog.description = editTrackDialog.description;
+                        editDialog.acceptDestination = collectionPage;
+                        editDialog.acceptDestinationAction = PageStackAction.Pop;
+                        editDialog.open();
+                    } else {
+                        var trackEditPage = pageStack.push(Qt.resolvedUrl("TrackEdit.qml"),
+                                       {
+                                            trackId: editTrackDialog.itemId,
+                                            acceptPage: collectionPage,
+                                            action: action
+                                       });
+                    }
+                }
+
+                //spacing: Theme.paddingMedium
+                anchors.right: parent.right
+                anchors.left: parent.left
+                IconButton {
+                    id: menuIcon
+                    icon.source: itemicon
+
+                    icon.fillMode: Image.PreserveAspectFit
+                    icon.sourceSize.width: Theme.iconSizeMedium
+                    icon.sourceSize.height: Theme.iconSizeMedium
+
+                    enabled: isEnabled(action)
+                    onClicked: onAction(action)
+                }
+
+                Label {
+                    id: menuLabel
+                    anchors.left: menuIcon.right
+                    text: qsTr(itemtext)
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: Theme.primaryColor
+                }
+
+                onClicked: onAction(action)
+            }
+
+            header: PageHeader {
+                title: qsTr("Edit track \"%1\"").arg(editTrackDialog.name);
+            }
         }
     }
 

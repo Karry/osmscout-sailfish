@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QtCore/QAbstractItemModel>
 #include <QtCore/QSet>
+#include <QPointF>
 
 class CollectionTrackModel : public QObject {
   Q_OBJECT
@@ -50,10 +51,16 @@ class CollectionTrackModel : public QObject {
   Q_PROPERTY(QObject *boundingBox READ getBBox NOTIFY bboxChanged)
   Q_PROPERTY(int segmentCount READ getSegmentCount NOTIFY loadingChanged)
 
+  Q_PROPERTY(quint64 pointCount READ getPointCount NOTIFY loadingChanged)
+
 signals:
   void loadingChanged();
   void bboxChanged();
   void trackDataRequest(Track track);
+
+  void cropStartRequest(Track track, quint64 position);
+  void cropEndRequest(Track track, quint64 position);
+  void splitRequest(Track track, quint64 position);
 
 public slots:
   void storageInitialised();
@@ -89,7 +96,13 @@ public:
 
   QObject *getBBox() const;
   int getSegmentCount() const;
+  quint64 getPointCount() const;
   Q_INVOKABLE QObject* createOverlayForSegment(int segment);
+  Q_INVOKABLE QPointF getPoint(quint64 index) const;
+
+  Q_INVOKABLE void cropStart(quint64 position);
+  Q_INVOKABLE void cropEnd(quint64 position);
+  Q_INVOKABLE void split(quint64 position);
 
 private:
   bool loading{false};
