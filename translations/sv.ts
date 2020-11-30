@@ -1243,6 +1243,7 @@
     </message>
     <message>
         <source>%1, part 2</source>
+        <extracomment>name for new track created by splitting</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

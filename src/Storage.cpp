@@ -1894,6 +1894,7 @@ void Storage::splitTrack(Track track, quint64 position)
 
   // copy tail to new track
   gpx::Track trackTail;
+  //: name for new track created by splitting
   trackTail.name = Storage::tr("%1, part 2").arg(track.name).toStdString();
   trackTail.desc = track.description.toStdString();
   quint64 skip=position;
