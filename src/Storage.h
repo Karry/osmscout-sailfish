@@ -444,10 +444,27 @@ public slots:
   void moveTrack(qint64 trackId, qint64 collectionId);
 
   /**
-   * TODO: documentation
+   * emits collectionDetailsLoaded and trackDataLoaded
+   *
+   * @param track
+   * @param position (exclusive, point on that position, and following is keep)
    */
   void cropTrackStart(Track track, quint64 position);
+
+  /**
+   * emits collectionDetailsLoaded and trackDataLoaded
+   *
+   * @param track
+   * @param position (inclusive, point on that position and following is removed)
+   */
   void cropTrackEnd(Track track, quint64 position);
+
+  /**
+   * emits collectionDetailsLoaded and trackDataLoaded (2x)
+   *
+   * @param track
+   * @param position (exclusive, point on that position is keep)
+   */
   void splitTrack(Track track, quint64 position);
 
   /**
@@ -527,6 +544,9 @@ private:
   bool trackCollection(qint64 trackId, qint64 &collectionId);
   bool listIndexes(QStringList &indexes);
   int querySize(QSqlQuery &query);
+
+  void cropTrackPrivate(qint64 trackId, quint64 count, bool cropStart);
+  bool updateTrackStatistics(qint64 trackId, const TrackStatistics &statistics);
 
 private :
   QSqlDatabase db;

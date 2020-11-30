@@ -659,7 +659,7 @@ int Storage::querySize(QSqlQuery &query)
 
 void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
 {
-  // QTime timer;
+  // QElapsedTimer timer;
   // timer.start();
   QSqlQuery sql(db);
   sql.prepare("SELECT CAST(STRFTIME('%s',`timestamp`, 'UTC') AS INTEGER) AS `timestamp`, `latitude`, `longitude`, `elevation`, `horiz_accuracy`, `vert_accuracy` FROM `track_point` WHERE segment_id = :segmentId;");
@@ -708,7 +708,7 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
 bool Storage::loadTrackDataPrivate(Track &track)
 {
   qDebug() << "Loading track data" << track.id;
-  QTime timer;
+  QElapsedTimer timer;
   timer.start();
 
   QSqlQuery sqlTrack(db);
@@ -1059,7 +1059,7 @@ TrackStatistics TrackStatisticsAccumulator::accumulate() const
 
 TrackStatistics Storage::computeTrackStatistics(const gpx::Track &trk) const
 {
-  QTime timer;
+  QElapsedTimer timer;
   timer.restart();
 
   qDebug() << "Computing track statistics...";
@@ -1275,7 +1275,7 @@ void Storage::importCollection(QString filePath)
     return;
   }
 
-  QTime timer;
+  QElapsedTimer timer;
   timer.start();
   qDebug() << "Importing collection from" << filePath;
 
@@ -1438,6 +1438,7 @@ void Storage::closeTrack(qint64 collectionId, qint64 trackId){
     qWarning() << "Closing track failed" << sql.lastError();
     emit error(tr("Closing track failed: %1").arg(sql.lastError().text()));
     loadCollectionDetails(Collection(collectionId));
+    return;
   }
 
   loadCollectionDetails(Collection(collectionId));
@@ -1520,7 +1521,7 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
 
 bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId, bool includeWaypoints, int accuracyFilter)
 {
-  QTime timer;
+  QElapsedTimer timer;
   timer.start();
   qDebug() << "Exporting collection" << collectionId << "to" << file;
 
@@ -1715,12 +1716,160 @@ void Storage::moveTrack(qint64 trackId, qint64 collectionId)
   }
 }
 
+bool Storage::updateTrackStatistics(qint64 trackId, const TrackStatistics &statistics){
+  QSqlQuery sql(db);
+  sql.prepare(QString("UPDATE `track` SET ")
+                .append("`from_time` = :from_time, ")
+                .append("`to_time` = :to_time, ")
+                .append("`distance` = :distance, ")
+                .append("`raw_distance` = :raw_distance, ")
+                .append("`duration` = :duration, ")
+                .append("`moving_duration` = :moving_duration, ")
+                .append("`max_speed` = :max_speed, ")
+                .append("`average_speed` = :average_speed, ")
+                .append("`moving_average_speed` = :moving_average_speed, ")
+                .append("`ascent` = :ascent, ")
+                .append("`descent` = :descent, ")
+                .append("`min_elevation` = :min_elevation, ")
+                .append("`max_elevation` = :max_elevation, ")
+                .append("`bbox_min_lat` = :bbox_min_lat, ")
+                .append("`bbox_min_lon` = :bbox_min_lon, ")
+                .append("`bbox_max_lat` = :bbox_max_lat, ")
+                .append("`bbox_max_lon` = :bbox_max_lon, ")
+                .append("`modification_time` = :modification_time ")
+                .append("WHERE `id` = :id"));
+
+  sql.bindValue(":from_time", dateTimeToSQL(statistics.from));
+  sql.bindValue(":to_time", dateTimeToSQL(statistics.to));
+  sql.bindValue(":distance", statistics.distance.AsMeter());
+  sql.bindValue(":raw_distance", statistics.rawDistance.AsMeter());
+  sql.bindValue(":duration", statistics.durationMillis());
+  sql.bindValue(":moving_duration", statistics.movingDurationMillis());
+  sql.bindValue(":max_speed", statistics.maxSpeed);
+  sql.bindValue(":average_speed", statistics.averageSpeed);
+  sql.bindValue(":moving_average_speed", statistics.movingAverageSpeed);
+  sql.bindValue(":ascent", statistics.ascent.AsMeter());
+  sql.bindValue(":descent", statistics.descent.AsMeter());
+  sql.bindValue(":min_elevation", statistics.minElevation.has_value() ? QVariant::fromValue(statistics.minElevation->AsMeter()) : QVariant());
+  sql.bindValue(":max_elevation", statistics.maxElevation.has_value() ? QVariant::fromValue(statistics.maxElevation->AsMeter()) : QVariant());
+
+  sql.bindValue(":bbox_min_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMinLat() : -1000);
+  sql.bindValue(":bbox_min_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMinLon() : -1000);
+  sql.bindValue(":bbox_max_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLat() : -1000);
+  sql.bindValue(":bbox_max_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLon() : -1000);
+
+  sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
+
+  sql.bindValue(":id", trackId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Edit track failed" << sql.lastError();
+    emit error(tr("Edit track failed: %1").arg(sql.lastError().text()));
+    return false;
+  }
+  return true;
+}
+
+void Storage::cropTrackPrivate(qint64 trackId, quint64 position, bool cropStart)
+{
+  QSqlQuery sql(db);
+  sql.prepare(QString("SELECT `id`, `track_id`, (")
+                .append(" SELECT COUNT(*) FROM `track_point` WHERE `segment_id` = `track_segment`.`id`")
+                .append(") AS `point_cnt` ")
+                .append("FROM `track_segment` ")
+                .append("WHERE `track_id` = :id"));
+
+  sql.bindValue(":id", trackId);
+  sql.exec();
+
+  if (sql.lastError().isValid()) {
+    qWarning() << "Loading track id" << trackId << "fails";
+    emit error(tr("Loading track id %1 fails").arg(trackId));
+    return;
+  }
+
+  auto deleteSegment = [this](qint64 segmentId){
+    QSqlQuery sql(db);
+    sql.prepare("DELETE FROM `track_segment` WHERE `id` = :id");
+    sql.bindValue(":id", segmentId);
+    sql.exec();
+    //qDebug() << sql.executedQuery() << " ... " << sql.boundValues();
+    if (sql.lastError().isValid()) {
+      qWarning() << "Deleting segment" << segmentId << "failed: " << sql.lastError();
+    }
+  };
+
+  auto deleteSegmentPart = [this, &cropStart](qint64 segmentId, quint64 count){
+    QSqlQuery sql(db);
+    sql.prepare(QString("DELETE FROM `track_point` WHERE `segment_id` = :segmentId1 AND `rowid` IN (")
+                  .append("SELECT `rowid` FROM `track_point` WHERE `segment_id` = :segmentId2 ")
+                  .append("ORDER BY `rowid` ").append(cropStart ? "ASC " : "DESC ")
+                  .append("LIMIT :cnt")
+                  .append(")"));
+    sql.bindValue(":segmentId1", segmentId);
+    sql.bindValue(":segmentId2", segmentId);
+    sql.bindValue(":cnt", count);
+    sql.exec();
+    //qDebug() << sql.executedQuery() << " ... " << sql.boundValues();
+    if (sql.lastError().isValid()) {
+      qWarning() << "Deleting part of segment" << segmentId << "failed: " << sql.lastError();
+    }
+  };
+
+  if (cropStart) {
+    while (sql.next() && position > 0) {
+      qint64 segmentId = varToLong(sql.value("id"));
+      qint64 pointCnt = varToLong(sql.value("point_cnt"));
+      if ((qint64)position > pointCnt){
+        deleteSegment(segmentId);
+        position -= pointCnt;
+      } else {
+        deleteSegmentPart(segmentId, position);
+        position = 0;
+      }
+    }
+  } else {
+    while (sql.next()){
+      qint64 segmentId = varToLong(sql.value("id"));
+      qint64 pointCnt = varToLong(sql.value("point_cnt"));
+      if ((qint64)position < pointCnt){
+        deleteSegmentPart(segmentId, pointCnt - position);
+        position = 0;
+      } else if (position == 0){
+        deleteSegment(segmentId);
+      } else {
+        position -= pointCnt;
+      }
+    }
+  }
+
+  Track track;
+  track.id = trackId;
+  if (!loadTrackDataPrivate(track)){
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, true, true);
+    return;
+  }
+
+  track.statistics = computeTrackStatistics(*track.data);
+  if (!updateTrackStatistics(trackId, track.statistics)){
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, true, false);
+    return;
+  }
+
+  loadCollectionDetails(Collection(track.collectionId));
+  emit trackDataLoaded(track, true, true);
+}
+
 void Storage::cropTrackStart(Track track, quint64 position)
 {
   if (!checkAccess(__FUNCTION__)){
     return;
   }
-  // TODO
+
+  cropTrackPrivate(track.id, position, true);
 }
 
 void Storage::cropTrackEnd(Track track, quint64 position)
@@ -1728,7 +1877,7 @@ void Storage::cropTrackEnd(Track track, quint64 position)
   if (!checkAccess(__FUNCTION__)){
     return;
   }
-  // TODO
+  cropTrackPrivate(track.id, position, false);
 }
 
 void Storage::splitTrack(Track track, quint64 position)
@@ -1736,7 +1885,41 @@ void Storage::splitTrack(Track track, quint64 position)
   if (!checkAccess(__FUNCTION__)){
     return;
   }
-  // TODO
+
+  if (!loadTrackDataPrivate(track)){
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, true, true);
+    return;
+  }
+
+  // copy tail to new track
+  gpx::Track trackTail;
+  trackTail.name = Storage::tr("%1, part 2").arg(track.name).toStdString();
+  trackTail.desc = track.description.toStdString();
+  quint64 skip=position;
+  for (const auto &seg: track.data->segments){
+    if (skip==0){
+      trackTail.segments.push_back(seg);
+    } else if (skip < seg.points.size()) {
+      auto &segTail=trackTail.segments.emplace_back();
+      segTail.points.insert(segTail.points.end(),
+                            seg.points.begin()+skip, seg.points.end());
+      skip = 0;
+    } else {
+      skip -= seg.points.size();
+    }
+  }
+
+  // import tail as new track
+  gpx::GpxFile gpxFile;
+  gpxFile.tracks.push_back(trackTail);
+  if (!importTracks(gpxFile, track.collectionId)){
+    loadCollectionDetails(Collection(track.collectionId));
+    return;
+  }
+
+  // crop end from original track
+  cropTrackPrivate(track.id, position, false);
 }
 
 void Storage::loadRecentOpenTrack(){
@@ -1839,55 +2022,7 @@ void Storage::appendNodes(qint64 trackId,
     return;
   }
 
-  QSqlQuery sql(db);
-  sql.prepare(QString("UPDATE `track` SET ")
-              .append("`from_time` = :from_time, ")
-              .append("`to_time` = :to_time, ")
-              .append("`distance` = :distance, ")
-              .append("`raw_distance` = :raw_distance, ")
-              .append("`duration` = :duration, ")
-              .append("`moving_duration` = :moving_duration, ")
-              .append("`max_speed` = :max_speed, ")
-              .append("`average_speed` = :average_speed, ")
-              .append("`moving_average_speed` = :moving_average_speed, ")
-              .append("`ascent` = :ascent, ")
-              .append("`descent` = :descent, ")
-              .append("`min_elevation` = :min_elevation, ")
-              .append("`max_elevation` = :max_elevation, ")
-              .append("`bbox_min_lat` = :bbox_min_lat, ")
-              .append("`bbox_min_lon` = :bbox_min_lon, ")
-              .append("`bbox_max_lat` = :bbox_max_lat, ")
-              .append("`bbox_max_lon` = :bbox_max_lon, ")
-              .append("`modification_time` = :modification_time ")
-              .append("WHERE `id` = :id"));
-
-  sql.bindValue(":from_time", dateTimeToSQL(statistics.from));
-  sql.bindValue(":to_time", dateTimeToSQL(statistics.to));
-  sql.bindValue(":distance", statistics.distance.AsMeter());
-  sql.bindValue(":raw_distance", statistics.rawDistance.AsMeter());
-  sql.bindValue(":duration", statistics.durationMillis());
-  sql.bindValue(":moving_duration", statistics.movingDurationMillis());
-  sql.bindValue(":max_speed", statistics.maxSpeed);
-  sql.bindValue(":average_speed", statistics.averageSpeed);
-  sql.bindValue(":moving_average_speed", statistics.movingAverageSpeed);
-  sql.bindValue(":ascent", statistics.ascent.AsMeter());
-  sql.bindValue(":descent", statistics.descent.AsMeter());
-  sql.bindValue(":min_elevation", statistics.minElevation.has_value() ? QVariant::fromValue(statistics.minElevation->AsMeter()) : QVariant());
-  sql.bindValue(":max_elevation", statistics.maxElevation.has_value() ? QVariant::fromValue(statistics.maxElevation->AsMeter()) : QVariant());
-
-  sql.bindValue(":bbox_min_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMinLat() : -1000);
-  sql.bindValue(":bbox_min_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMinLon() : -1000);
-  sql.bindValue(":bbox_max_lat", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLat() : -1000);
-  sql.bindValue(":bbox_max_lon", statistics.bbox.IsValid() ? statistics.bbox.GetMaxLon() : -1000);
-
-  sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
-
-  sql.bindValue(":id", trackId);
-  sql.exec();
-
-  if (sql.lastError().isValid()) {
-    qWarning() << "Edit track failed" << sql.lastError();
-    emit error(tr("Edit track failed: %1").arg(sql.lastError().text()));
+  if (!updateTrackStatistics(trackId, statistics)) {
     loadCollectionDetails(Collection(collectionId));
     return;
   }

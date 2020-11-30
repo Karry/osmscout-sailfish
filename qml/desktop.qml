@@ -71,6 +71,21 @@ Window {
         }
     }
 
+    /*
+    CollectionTrackModel {
+        id: trackModel
+        trackId: "19"
+        property var cropped: false
+
+        onLoadingChanged: {
+            if (!loading && !cropped){
+                trackModel.cropEnd(10);
+                cropped = true;
+            }
+        }
+    }
+    */
+
     InstalledMapsModel{
         id: installedMapsModel
 

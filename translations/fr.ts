@@ -1241,6 +1241,10 @@
         <source>Closing track failed: %1</source>
         <translation>Échec de clôture de la trace : %1</translation>
     </message>
+    <message>
+        <source>%1, part 2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrackEdit</name>
