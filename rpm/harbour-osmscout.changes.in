@@ -432,3 +432,6 @@
 - speedup search - run partial search in parallel (each database, search type), reuse iconv handler
 - speedup place description - optimise location index traversal
 - update German, French and Hungarian translation
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.9-1
+- support for simple track edits: crop and split
