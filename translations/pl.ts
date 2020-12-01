@@ -161,7 +161,7 @@
     <message>
         <source>Name and description</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa i opis</translation>
     </message>
     <message>
         <source>Crop start</source>
@@ -176,11 +176,11 @@
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Podziel</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj ścieżkę &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1123,7 @@
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation>Ładowanie sentów dla śladu id %1 nie powiodło się: %2</translation>
+        <translation>Ładowanie segmentów dla śladu id %1 nie powiodło się: %2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
@@ -1244,14 +1244,14 @@
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, część 2</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>Podziel</translation>
     </message>
     <message>
         <source>Crop start</source>
@@ -1271,7 +1271,7 @@
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
