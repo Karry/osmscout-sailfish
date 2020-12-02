@@ -112,83 +112,46 @@ Dialog {
         title: trackModel.name
         acceptText: (trackEditDialog.action == "crop-start") ? qsTr("Crop start") : (trackEditDialog.action == "crop-end" ? qsTr("Crop end") : qsTr("Split"))
         //cancelText : qsTr("Cancel")
+        spacing: trackEditDialog.isPortrait ? Theme.paddingLarge : 0
     }
 
-    Rectangle{
+
+    Slider{
+        id: positionSlider
+        width: parent.width
+
         anchors{
-            top: trackEditDialogheader.bottom
             right: parent.right
             left: parent.left
             bottom: parent.bottom
         }
-        color: "transparent"
 
-        Drawer {
-            id: drawer
-            anchors.fill: parent
+        value: trackEditDialog.position
+        enabled: !trackModel.loading
+        stepSize: 1.0
+        valueText: qsTr("%1 / %2").arg(trackEditDialog.position).arg(maximumValue)
+        minimumValue: 0
+        maximumValue: trackModel.pointCount
+        label: (trackEditDialog.action == "crop-start" || trackEditDialog.action == "crop-end") ? qsTr("Crop position") : qsTr("Split position")
 
-            dock: trackEditDialog.isPortrait ? Dock.Top : Dock.Left
-            open: true
-            backgroundSize: trackEditDialog.isPortrait ? (trackEditDialog.height * 0.5) - trackEditDialogheader.height : drawer.width * 0.5
-
-            background:  Rectangle {
-
-                anchors.fill: parent
-                color: "transparent"
-
-                OpacityRampEffect {
-                    offset: 1 - 1 / slope
-                    slope: flickable.height / (Theme.paddingLarge * 4)
-                    direction: 2
-                    sourceItem: flickable
-                }
-
-                SilicaFlickable{
-                    id: flickable
-                    anchors.fill: parent
-                    contentHeight: content.height + Theme.paddingMedium
-
-                    VerticalScrollDecorator {}
-
-                    Column {
-                        id: content
-                        x: Theme.paddingMedium
-                        width: parent.width - 2*Theme.paddingMedium
-
-                        Slider{
-                            id: positionSlider
-                            width: parent.width
-
-                            value: trackEditDialog.position
-                            enabled: !trackModel.loading
-                            stepSize: 1.0
-                            valueText: qsTr("%1 / %2").arg(trackEditDialog.position).arg(maximumValue)
-                            minimumValue: 0
-                            maximumValue: trackModel.pointCount
-                            label: (trackEditDialog.action == "crop-start" || trackEditDialog.action == "crop-end") ? qsTr("Crop position") : qsTr("Split position")
-
-                            onValueChanged: {
-                                trackEditDialog.position = Math.round(value);
-                            }
-                        }
-
-                        Rectangle {
-                            id: footer
-                            color: "transparent"
-                            width: parent.width
-                            height: 2*Theme.paddingLarge
-                        }
-                    }
-                }
-            }
-
-            MapComponent{
-                id: wayPreviewMap
-                showCurrentPosition: true
-                anchors.fill: parent
-            }
+        onValueChanged: {
+            trackEditDialog.position = Math.round(value);
         }
     }
+
+    MapComponent{
+        id: wayPreviewMap
+        showCurrentPosition: true
+        anchors{
+            top: trackEditDialogheader.bottom
+            right: parent.right
+            left: parent.left
+            bottom: positionSlider.top
+            bottomMargin: trackEditDialog.isPortrait ? Theme.paddingLarge : 0
+        }
+    }
+
+
     BusyIndicator {
         id: busyIndicator
         running: trackModel.loading
