@@ -41,7 +41,7 @@ Page {
         id: drawer
         anchors.fill: parent
 
-        dock: layersPage.isPortrait ? Dock.Top : Dock.Left
+        dock: layersPage.isPortrait ? Dock.Bottom : Dock.Right
         backgroundSize: layersPage.isPortrait ? drawer.height * 0.6 : drawer.width * 0.6
         open: true
 
@@ -54,10 +54,12 @@ Page {
                 enabled: (!onlineTileProviderComboBox._menuOpen &&
                           !stylesheetComboBox._menuOpen &&
                           !fontComboBox._menuOpen &&
-                          !fontSizeComboBox._menuOpen)
+                          !fontSizeComboBox._menuOpen &&
+                          layersPage.isPortrait &&
+                          flickable.contentY != 0)
                 offset: 1 - 1 / slope
                 slope: flickable.height / (Theme.paddingLarge * 4)
-                direction: 2
+                direction: 3
                 sourceItem: flickable
             }
             SilicaFlickable {
