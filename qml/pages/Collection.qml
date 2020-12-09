@@ -386,13 +386,15 @@ Page {
 
             model: ListModel {
                 //: track edit menu
-                ListElement { itemtext: QT_TR_NOOP("Name and description"); itemicon: "image://theme/icon-m-edit"; action: "rename";   }
+                ListElement { itemtext: QT_TR_NOOP("Name and description");  itemicon: "image://theme/icon-m-edit"; action: "rename";}
                 //: track edit menu
-                ListElement { itemtext: QT_TR_NOOP("Crop start");           itemicon: "image://theme/icon-m-crop"; action: "crop-start";   }
+                ListElement { itemtext: QT_TR_NOOP("Crop start");            itemicon: "image://theme/icon-m-crop"; action: "crop-start";}
                 //: track edit menu
-                ListElement { itemtext: QT_TR_NOOP("Crop end");             itemicon: "image://theme/icon-m-crop"; action: "crop-end";   }
+                ListElement { itemtext: QT_TR_NOOP("Crop end");              itemicon: "image://theme/icon-m-crop"; action: "crop-end";}
                 //: track edit menu
-                ListElement { itemtext: QT_TR_NOOP("Split");                itemicon: "image://theme/icon-m-flip"; action: "split";   }
+                ListElement { itemtext: QT_TR_NOOP("Split");                 itemicon: "image://theme/icon-m-flip"; action: "split";}
+                //: track edit menu
+                ListElement { itemtext: QT_TR_NOOP("Drop inaccurate nodes"); itemicon: "image://theme/icon-m-reset"; action: "filter";}
             }
 
             delegate: ListItem{
@@ -407,8 +409,14 @@ Page {
                         editDialog.acceptDestination = collectionPage;
                         editDialog.acceptDestinationAction = PageStackAction.Pop;
                         editDialog.open();
+                    } else if (action == "filter"){
+                        pageStack.push(Qt.resolvedUrl("TrackFilter.qml"),
+                                       {
+                                            trackId: editTrackDialog.itemId,
+                                            acceptPage: collectionPage
+                                       });
                     } else {
-                        var trackEditPage = pageStack.push(Qt.resolvedUrl("TrackEdit.qml"),
+                        pageStack.push(Qt.resolvedUrl("TrackEdit.qml"),
                                        {
                                             trackId: editTrackDialog.itemId,
                                             acceptPage: collectionPage,
