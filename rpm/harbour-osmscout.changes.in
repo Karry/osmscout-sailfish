@@ -434,5 +434,5 @@
 - update German, French and Hungarian translation
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.9-1
-- support for simple track edits: crop and split
-- update translations (Czech, French, Swedish)
+- support for simple track edits: crop, split and filter of inaccurate nodes
+- update translations (Czech, French, Swedish, German, Estonian)
