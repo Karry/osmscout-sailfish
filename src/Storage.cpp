@@ -1929,6 +1929,52 @@ void Storage::splitTrack(Track track, quint64 position)
   cropTrackPrivate(track.id, position, false);
 }
 
+void Storage::filterTrackNodes(Track track, std::optional<double> accuracyFilter)
+{
+  if (!accuracyFilter){
+    if (!loadTrackDataPrivate(track, std::nullopt)){
+      emit trackDataLoaded(track, std::nullopt, true, true);
+      return;
+    }
+    return;
+  }
+
+  // drop inaccurate nodes by SQL query
+  QSqlQuery sql(db);
+  sql.prepare(QString("DELETE FROM `track_point` WHERE `horiz_accuracy` > :filter ")
+              .append("AND `segment_id` IN (")
+              .append("SELECT `id` FROM `track_segment` WHERE `track_id` = :trackId")
+              .append(");"));
+
+  sql.bindValue(":filter", *accuracyFilter);
+  sql.bindValue(":trackId", track.id);
+  sql.exec();
+  // qDebug() << sql.executedQuery() << " ... " << sql.boundValues();
+
+  if (sql.lastError().isValid()) {
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, std::nullopt, true, true);
+    qWarning() << "Filter nodes failed: " << sql.lastError();
+    return;
+  }
+
+  if (!loadTrackDataPrivate(track, std::nullopt)){
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, std::nullopt, true, true);
+    return;
+  }
+
+  track.statistics = computeTrackStatistics(*track.data);
+  if (!updateTrackStatistics(track.id, track.statistics)){
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, std::nullopt, true, false);
+    return;
+  }
+
+  loadCollectionDetails(Collection(track.collectionId));
+  emit trackDataLoaded(track, std::nullopt, true, true);
+}
+
 void Storage::loadRecentOpenTrack(){
   if (!checkAccess(__FUNCTION__)){
     return;

@@ -468,6 +468,14 @@ public slots:
   void splitTrack(Track track, quint64 position);
 
   /**
+   * emits collectionDetailsLoaded and trackDataLoaded
+   *
+   * @param track
+   * @param accuracyFilter
+   */
+  void filterTrackNodes(Track track, std::optional<double> accuracyFilter);
+
+  /**
    * emit openTrackLoaded()
    */
   void loadRecentOpenTrack();

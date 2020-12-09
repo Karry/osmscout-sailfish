@@ -55,6 +55,10 @@ CollectionTrackModel::CollectionTrackModel()
           storage, &Storage::splitTrack,
           Qt::QueuedConnection);
 
+  connect(this, &CollectionTrackModel::filterNodesRequest,
+          storage, &Storage::filterTrackNodes,
+          Qt::QueuedConnection);
+
   connect(storage, &Storage::trackDataLoaded,
           this, &CollectionTrackModel::onTrackDataLoaded,
           Qt::QueuedConnection);
@@ -219,13 +223,16 @@ void CollectionTrackModel::onTrackDataLoaded(Track track, std::optional<double> 
   if (track.id != this->track.id || accuracyFilter != this->accuracyFilter){
     return;
   }
+  // TODO: error handling when !ok
   loading = !complete;
-  GeoBox originalBox = this->track.statistics.bbox;
-  this->track = track;
-  if (originalBox.IsValid() != track.statistics.bbox.IsValid() ||
-      originalBox.GetMinCoord() != track.statistics.bbox.GetMinCoord() ||
-      originalBox.GetMaxCoord() != track.statistics.bbox.GetMaxCoord() ){
-    emit bboxChanged();
+  if (complete) {
+    GeoBox originalBox = this->track.statistics.bbox;
+    this->track = track;
+    if (originalBox.IsValid() != track.statistics.bbox.IsValid() ||
+        originalBox.GetMinCoord() != track.statistics.bbox.GetMinCoord() ||
+        originalBox.GetMaxCoord() != track.statistics.bbox.GetMaxCoord()) {
+      emit bboxChanged();
+    }
   }
   emit loadingChanged();
 }
@@ -278,6 +285,9 @@ QPointF CollectionTrackModel::getPoint(quint64 index) const
 
 void CollectionTrackModel::cropStart(quint64 position)
 {
+  if (track.id < 0){
+    return;
+  }
   loading = true;
   emit cropStartRequest(track, position);
   emit loadingChanged();
@@ -285,6 +295,9 @@ void CollectionTrackModel::cropStart(quint64 position)
 
 void CollectionTrackModel::cropEnd(quint64 position)
 {
+  if (track.id < 0){
+    return;
+  }
   loading = true;
   emit cropEndRequest(track, position);
   emit loadingChanged();
@@ -292,7 +305,23 @@ void CollectionTrackModel::cropEnd(quint64 position)
 
 void CollectionTrackModel::split(quint64 position)
 {
+  if (track.id < 0){
+    return;
+  }
   loading = true;
   emit splitRequest(track, position);
+  emit loadingChanged();
+}
+
+void CollectionTrackModel::filterNodes(double accuracyFilter)
+{
+  if (track.id < 0){
+    return;
+  }
+  if (accuracyFilter <= 0){
+    return;
+  }
+  loading = true;
+  emit filterNodesRequest(track, accuracyFilter);
   emit loadingChanged();
 }

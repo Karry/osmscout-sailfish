@@ -50,8 +50,7 @@ Dialog {
 
     canAccept: !trackModel.loading && accuracyFilter > 0
     onAccepted: {
-        // TODO: implement filtering in c++
-        // trackModel.filterNodes(accuracyFilter);
+        trackModel.filterNodes(accuracyFilter);
     }
 
     CollectionTrackModel{
