@@ -1303,12 +1303,12 @@
     <message>
         <source>&gt; 20 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 10 m {20 ?}</translation>
+        <translation type="unfinished">&gt; 20 m</translation>
     </message>
     <message>
         <source>&gt; 15 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 10 m {15 ?}</translation>
+        <translation type="unfinished">&gt; 15 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
