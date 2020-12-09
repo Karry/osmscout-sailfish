@@ -705,7 +705,7 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
   // qDebug() << "    segment" << segmentId << "loading:" << timer.elapsed() << "ms";
 }
 
-bool Storage::loadTrackDataPrivate(Track &track)
+bool Storage::loadTrackDataPrivate(Track &track, std::optional<double> accuracyFilter)
 {
   qDebug() << "Loading track data" << track.id;
   QElapsedTimer timer;
@@ -733,7 +733,7 @@ bool Storage::loadTrackDataPrivate(Track &track)
   track = makeTrack(sqlTrack);
   // qDebug() << "  make track" << track.id << ":" << timer.elapsed() << "ms";
 
-  emit trackDataLoaded(track, false, true);
+  emit trackDataLoaded(track, accuracyFilter, false, true);
 
   track.data = std::make_shared<gpx::Track>();
 
@@ -761,21 +761,28 @@ bool Storage::loadTrackDataPrivate(Track &track)
     }
   }
 
+  if (accuracyFilter){
+    track.data->FilterPoints([accuracyFilter](std::vector<osmscout::gpx::TrackPoint> &points){
+      osmscout::gpx::FilterInaccuratePoints(points, *accuracyFilter);
+    });
+    track.statistics = computeTrackStatistics(*(track.data));
+  }
+
   qDebug() << "  track" << track.id << "data loading:" << timer.elapsed() << "ms";
   return true;
 }
 
-void Storage::loadTrackData(Track track)
+void Storage::loadTrackData(Track track, std::optional<double> accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
-    emit trackDataLoaded(track, true, false);
+    emit trackDataLoaded(track, accuracyFilter, true, false);
     return;
   }
 
-  if (loadTrackDataPrivate(track)) {
-    emit trackDataLoaded(track, true, true);
+  if (loadTrackDataPrivate(track, accuracyFilter)) {
+    emit trackDataLoaded(track, accuracyFilter, true, true);
   }else{
-    emit trackDataLoaded(track, true, false);
+    emit trackDataLoaded(track, accuracyFilter, true, false);
   }
 }
 
@@ -1519,7 +1526,11 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   loadCollectionDetails(Collection(collectionId));
 }
 
-bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId, bool includeWaypoints, int accuracyFilter)
+bool Storage::exportPrivate(qint64 collectionId,
+                            const QString &file,
+                            const std::optional<qint64> &trackId,
+                            bool includeWaypoints,
+                            std::optional<double> accuracyFilter)
 {
   QElapsedTimer timer;
   timer.start();
@@ -1554,16 +1565,11 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std:
   gpxFile.tracks.reserve(collection.tracks->size());
   for (Track &t : *(collection.tracks)){
     if (!trackId || *trackId == t.id) {
-      if (!loadTrackDataPrivate(t)) {
+      if (!loadTrackDataPrivate(t, accuracyFilter)) {
         emit collectionExported(false);
         return false;
       }
       assert(t.data);
-      if (accuracyFilter > 0){
-        t.data->FilterPoints([accuracyFilter](std::vector<osmscout::gpx::TrackPoint> &points){
-          osmscout::gpx::FilterInaccuratePoints(points, accuracyFilter);
-        });
-      }
 
       // drop empty segments
       t.data->segments.erase(std::remove_if(t.data->segments.begin(),t.data->segments.end(),
@@ -1588,7 +1594,7 @@ bool Storage::exportPrivate(qint64 collectionId, const QString &file, const std:
   return success;
 }
 
-void Storage::exportCollection(qint64 collectionId, QString file, bool includeWaypoints, int accuracyFilter)
+void Storage::exportCollection(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionExported(false);
@@ -1599,7 +1605,7 @@ void Storage::exportCollection(qint64 collectionId, QString file, bool includeWa
   emit collectionExported(success);
 }
 
-void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, int accuracyFilter)
+void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionExported(false);
@@ -1846,21 +1852,21 @@ void Storage::cropTrackPrivate(qint64 trackId, quint64 position, bool cropStart)
 
   Track track;
   track.id = trackId;
-  if (!loadTrackDataPrivate(track)){
+  if (!loadTrackDataPrivate(track, std::nullopt)){
     loadCollectionDetails(Collection(track.collectionId));
-    emit trackDataLoaded(track, true, true);
+    emit trackDataLoaded(track, std::nullopt, true, true);
     return;
   }
 
   track.statistics = computeTrackStatistics(*track.data);
   if (!updateTrackStatistics(trackId, track.statistics)){
     loadCollectionDetails(Collection(track.collectionId));
-    emit trackDataLoaded(track, true, false);
+    emit trackDataLoaded(track, std::nullopt, true, false);
     return;
   }
 
   loadCollectionDetails(Collection(track.collectionId));
-  emit trackDataLoaded(track, true, true);
+  emit trackDataLoaded(track, std::nullopt, true, true);
 }
 
 void Storage::cropTrackStart(Track track, quint64 position)
@@ -1886,9 +1892,9 @@ void Storage::splitTrack(Track track, quint64 position)
     return;
   }
 
-  if (!loadTrackDataPrivate(track)){
+  if (!loadTrackDataPrivate(track, std::nullopt)){
     loadCollectionDetails(Collection(track.collectionId));
-    emit trackDataLoaded(track, true, true);
+    emit trackDataLoaded(track, std::nullopt, true, true);
     return;
   }
 

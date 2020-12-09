@@ -101,7 +101,7 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
       if (!trkVisible.contains(trk.id) || trkVisible[trk.id].lastModification != trk.lastModification) {
         qDebug() << "Request track data (" << trk.id << ")"
                  << trkVisible[trk.id].lastModification << "/" << trk.lastModification;
-        emit trackDataRequest(trk);
+        emit trackDataRequest(trk, std::nullopt);
       }
     }
   }
@@ -143,9 +143,10 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
   }
 }
 
-void CollectionMapBridge::onTrackDataLoaded(Track track, bool complete, bool ok)
+void CollectionMapBridge::onTrackDataLoaded(Track track, std::optional<double> accuracyFilter, bool complete, bool ok)
 {
   if (delegatedMap == nullptr ||
+      accuracyFilter != std::nullopt ||
       !complete ||
       !ok ||
       !displayedCollection.contains(track.collectionId) ||

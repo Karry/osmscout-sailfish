@@ -53,10 +53,12 @@ class CollectionTrackModel : public QObject {
 
   Q_PROPERTY(quint64 pointCount READ getPointCount NOTIFY loadingChanged)
 
+  Q_PROPERTY(double accuracyFilter /* m */ READ getAccuracyFilter WRITE setAccuracyFilter NOTIFY loadingChanged)
+
 signals:
   void loadingChanged();
   void bboxChanged();
-  void trackDataRequest(Track track);
+  void trackDataRequest(Track track, std::optional<double>);
 
   void cropStartRequest(Track track, quint64 position);
   void cropEndRequest(Track track, quint64 position);
@@ -65,7 +67,7 @@ signals:
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
-  void onTrackDataLoaded(Track track, bool complete, bool ok);
+  void onTrackDataLoaded(Track track, std::optional<double>, bool complete, bool ok);
 
 public:
   CollectionTrackModel();
@@ -93,6 +95,8 @@ public:
   double getDescent() const;
   double getMinElevation() const;
   double getMaxElevation() const;
+  double getAccuracyFilter() const;
+  void setAccuracyFilter(double accuracyFilter);
 
   QObject *getBBox() const;
   int getSegmentCount() const;
@@ -106,5 +110,6 @@ public:
 
 private:
   bool loading{false};
+  std::optional<double> accuracyFilter{std::nullopt};
   Track track;
 };

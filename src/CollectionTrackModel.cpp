@@ -64,7 +64,7 @@ void CollectionTrackModel::storageInitialised()
 {
   if (track.id > 0) {
     loading = true;
-    emit trackDataRequest(track);
+    emit trackDataRequest(track, accuracyFilter);
     emit loadingChanged();
   }
 }
@@ -177,6 +177,27 @@ double CollectionTrackModel::getMaxElevation() const
   return -1000000; // JS numeric limits may be different from C++
 }
 
+double CollectionTrackModel::getAccuracyFilter() const
+{
+  if (accuracyFilter) {
+    return *accuracyFilter;
+  }
+  return -1;
+}
+
+void CollectionTrackModel::setAccuracyFilter(double accuracyFilterDouble)
+{
+  std::optional<double> accuracyFilterOpt = accuracyFilterDouble <= 0 ?
+    std::nullopt : std::make_optional(accuracyFilterDouble);
+
+  if (accuracyFilterOpt==this->accuracyFilter){
+    return;
+  }
+
+  this->accuracyFilter=accuracyFilterOpt;
+  storageInitialised();
+}
+
 QObject *CollectionTrackModel::getBBox() const
 {
   if (!track.statistics.bbox.IsValid()){
@@ -193,9 +214,9 @@ QObject *CollectionTrackModel::getBBox() const
                            track.statistics.bbox);
 }
 
-void CollectionTrackModel::onTrackDataLoaded(Track track, bool complete, bool /*ok*/)
+void CollectionTrackModel::onTrackDataLoaded(Track track, std::optional<double> accuracyFilter, bool complete, bool /*ok*/)
 {
-  if (track.id != this->track.id){
+  if (track.id != this->track.id || accuracyFilter != this->accuracyFilter){
     return;
   }
   loading = !complete;

@@ -158,6 +158,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qRegisterMetaType<std::vector<Collection>>("std::vector<Collection>");
   qRegisterMetaType<std::vector<SearchItem>>("std::vector<SearchItem>");
   qRegisterMetaType<std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>>>("std::shared_ptr<std::vector<osmscout::gpx::TrackPoint> >");
+  qRegisterMetaType<std::optional<double>>("std::optional<double>");
   qRegisterMetaType<TrackStatistics>("TrackStatistics");
   qRegisterMetaType<Collection>("Collection");
   qRegisterMetaType<Track>("Track");

@@ -50,8 +50,8 @@ signals:
   void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
   void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
-  void exportCollectionRequest(qint64 collectionId, QString file, bool includeWaypoints, int accuracyFilter);
-  void exportTrackRequest(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, int accuracyFilter);
+  void exportCollectionRequest(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
+  void exportTrackRequest(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
   void error(QString message);
   void moveWaypointRequest(qint64 waypointId, qint64 collectionId);
   void moveTrackRequest(qint64 trackId, qint64 collectionId);

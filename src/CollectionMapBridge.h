@@ -38,7 +38,7 @@ class CollectionMapBridge : public QObject {
 signals:
   void collectionLoadRequest();
   void collectionDetailRequest(Collection);
-  void trackDataRequest(Track track);
+  void trackDataRequest(Track track, std::optional<double> accuracyFilter);
   void error(QString message);
 
 public slots:
@@ -46,7 +46,7 @@ public slots:
   void storageInitialisationError(QString);
   void onCollectionsLoaded(std::vector<Collection> collections, bool ok);
   void onCollectionDetailsLoaded(Collection collection, bool ok);
-  void onTrackDataLoaded(Track track, bool complete, bool ok);
+  void onTrackDataLoaded(Track track, std::optional<double> accuracyFilter, bool complete, bool ok);
 
 public:
   CollectionMapBridge(QObject *parent = nullptr);

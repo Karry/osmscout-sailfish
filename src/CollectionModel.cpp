@@ -484,7 +484,8 @@ void CollectionModel::exportToFile(QString fileName, QString directory, bool inc
   QFileInfo file(QDir(dir.absoluteFilePath()), safeName + ".gpx");
   collectionExporting = true;
   emit exportingChanged();
-  emit exportCollectionRequest(collection.id, file.absoluteFilePath(), includeWaypoints, accuracyFilter);
+  std::optional<double> accuracyFilterOpt = accuracyFilter <= 0 ? std::nullopt : std::make_optional(accuracyFilter);
+  emit exportCollectionRequest(collection.id, file.absoluteFilePath(), includeWaypoints, accuracyFilterOpt);
 }
 
 void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QString directory, bool includeWaypoints, int accuracyFilter)
@@ -511,7 +512,8 @@ void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QS
   QFileInfo file(QDir(dir.absoluteFilePath()), safeName + ".gpx");
   collectionExporting = true;
   emit exportingChanged();
-  emit exportTrackRequest(collection.id, trackId, file.absoluteFilePath(), includeWaypoints, accuracyFilter);
+  std::optional<double> accuracyFilterOpt = accuracyFilter <= 0 ? std::nullopt : std::make_optional(accuracyFilter);
+  emit exportTrackRequest(collection.id, trackId, file.absoluteFilePath(), includeWaypoints, accuracyFilterOpt);
 }
 
 void CollectionModel::onCollectionExported(bool)

@@ -57,15 +57,16 @@ Dialog {
     CollectionTrackModel{
         id: trackModel
         trackId: trackEditDialog.trackId
-        // TODO: custom filter in model
-        // accuracyFilter = trackEditDialog.accuracyFilter
+
+        accuracyFilter: trackEditDialog.accuracyFilter
 
         onBoundingBoxChanged: {
-           wayPreviewMap.showLocation(trackModel.boundingBox);
+            console.log("bounding box changed");
+            wayPreviewMap.showLocation(trackModel.boundingBox);
         }
 
         onLoadingChanged: {
-            console.log("loading chagned: " + loading+ " segments: "+trackModel.segmentCount);
+            console.log("loading changed: " + loading+ " segments: " + trackModel.segmentCount);
             if (!loading){
                 var cnt=trackModel.segmentCount;
                 for (var segment=0; segment<cnt; segment++){
@@ -109,23 +110,30 @@ Dialog {
             //: option dropping inaccurate nodes (track edit)
             MenuItem { text: qsTr("> 30 m") }
             //: option dropping inaccurate nodes (track edit)
+            MenuItem { text: qsTr("> 20 m") }
+            //: option dropping inaccurate nodes (track edit)
+            MenuItem { text: qsTr("> 15 m") }
+            //: option dropping inaccurate nodes (track edit)
             MenuItem { text: qsTr("> 10 m") }
         }
         onCurrentItemChanged: {
             if (!initialized){
                 return;
             }
-            AppSettings.exportAccuracy = currentIndex;
-            if (currentIndex <= 1){
-                accuracyFilter = 100;
+
+            trackEditDialog.accuracyFilter = 100;
+            if (currentIndex == 1){
+                trackEditDialog.accuracyFilter = 30;
             } else if (currentIndex == 2){
-                accuracyFilter = 30;
+                trackEditDialog.accuracyFilter = 20;
             } else if (currentIndex == 3){
-                accuracyFilter = 10;
+                trackEditDialog.accuracyFilter = 15;
+            } else if (currentIndex == 4){
+                trackEditDialog.accuracyFilter = 10;
             }
+            console.log("set accuracyFilter to " + trackEditDialog.accuracyFilter);
         }
         Component.onCompleted: {
-            currentIndex = Math.max(0, AppSettings.exportAccuracy -1);
             initialized = true;
         }
         onPressAndHold: {

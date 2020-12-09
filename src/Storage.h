@@ -326,7 +326,7 @@ signals:
 
   void collectionsLoaded(std::vector<Collection> collections, bool ok);
   void collectionDetailsLoaded(Collection collection, bool ok);
-  void trackDataLoaded(Track track, bool complete, bool ok);
+  void trackDataLoaded(Track track, std::optional<double>, bool complete, bool ok);
   void collectionExported(bool success);
   void trackExported(bool success);
 
@@ -362,7 +362,7 @@ public slots:
    * load track data
    * emits trackDataLoaded
    */
-  void loadTrackData(Track track);
+  void loadTrackData(Track track, std::optional<double> accuracyFilter);
 
   /**
    * update collection or create it (if id < 0)
@@ -427,12 +427,12 @@ public slots:
   /**
    * emits collectionExported
    */
-  void exportCollection(qint64 collectionId, QString file, bool includeWaypoints, int accuracyFilter);
+  void exportCollection(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
 
   /**
    * emits trackExported
    */
-  void exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, int accuracyFilter);
+  void exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
 
   /**
    * emit collectionDetailsLoaded for source and target collection
@@ -534,9 +534,13 @@ private:
   bool importTrackPoints(const std::vector<osmscout::gpx::TrackPoint> &points, qint64 segId);
   TrackStatistics computeTrackStatistics(const osmscout::gpx::Track &trk) const;
   bool loadCollectionDetailsPrivate(Collection &collection);
-  bool loadTrackDataPrivate(Track &track);
+  bool loadTrackDataPrivate(Track &track, std::optional<double> accuracyFilter);
   bool createSegment(qint64 trackId, qint64 &segmentId);
-  bool exportPrivate(qint64 collectionId, const QString &file, const std::optional<qint64> &trackId, bool includeWaypoints, int accuracyFilter);
+  bool exportPrivate(qint64 collectionId,
+                     const QString &file,
+                     const std::optional<qint64> &trackId,
+                     bool includeWaypoints,
+                     std::optional<double> accuracyFilter);
 
   /**
    * obtain collection id from trackId
