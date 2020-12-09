@@ -84,7 +84,7 @@ Dialog {
         }
 
         onLoadingChanged: {
-            console.log("loading chagned: " + loading+ " segments: "+trackModel.segmentCount);
+            console.log("loading changed: " + loading+ " segments: "+trackModel.segmentCount);
             if (!loading){
                 var cnt=trackModel.segmentCount;
                 for (var segment=0; segment<cnt; segment++){
