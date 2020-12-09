@@ -185,7 +185,7 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">Porzuć niedokładne węzły</translation>
+        <translation>Porzuć niedokładne węzły</translation>
     </message>
 </context>
 <context>
@@ -1283,37 +1283,37 @@
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Porzuć węzły</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">Porzuć niedokładne węzły</translation>
+        <translation>Porzuć niedokładne węzły</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 100 m</translation>
+        <translation>&gt; 100 m</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 30 m</translation>
+        <translation>&gt; 30 m</translation>
     </message>
     <message>
         <source>&gt; 20 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 20 m</translation>
+        <translation>&gt; 20 m</translation>
     </message>
     <message>
         <source>&gt; 15 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 15 m</translation>
+        <translation>&gt; 15 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 10 m</translation>
+        <translation>&gt; 10 m</translation>
     </message>
 </context>
 <context>
