@@ -161,26 +161,26 @@
     <message>
         <source>Name and description</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Name und Beschreibung</translation>
     </message>
     <message>
         <source>Crop start</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Beschneiden anfangen</translation>
     </message>
     <message>
         <source>Crop end</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Beschneiden beenden</translation>
     </message>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Teilen</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeite Track &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
@@ -1249,34 +1249,34 @@
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, Teil 2</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilen</translation>
     </message>
     <message>
         <source>Crop start</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschneiden anfangen</translation>
     </message>
     <message>
         <source>Crop end</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschneiden beenden</translation>
     </message>
     <message>
         <source>Crop position</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschneide-Position</translation>
     </message>
     <message>
         <source>Split position</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilungsposition</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>

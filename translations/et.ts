@@ -161,26 +161,26 @@
     <message>
         <source>Name and description</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nimi ja kirjeldus</translation>
     </message>
     <message>
         <source>Crop start</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kärbi algusest</translation>
     </message>
     <message>
         <source>Crop end</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kärbi lõpust</translation>
     </message>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Jaga lõikudeks</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda rada „%1“</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
@@ -1256,15 +1256,15 @@
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jaga lõikudeks</translation>
     </message>
     <message>
         <source>Crop start</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kärbi algusest</translation>
     </message>
     <message>
         <source>Crop end</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kärbi lõpust</translation>
     </message>
     <message>
         <source>Crop position</source>
