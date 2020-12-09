@@ -182,6 +182,11 @@
         <source>Edit track &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Drop inaccurate nodes</source>
+        <extracomment>track edit menu</extracomment>
+        <translation type="unfinished">弃用不精确的节点</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -1272,6 +1277,43 @@
     <message>
         <source>%1 / %2</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackFilter</name>
+    <message>
+        <source>Drop nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop inaccurate nodes</source>
+        <extracomment>track edit</extracomment>
+        <translation type="unfinished">弃用不精确的节点</translation>
+    </message>
+    <message>
+        <source>&gt; 100 m</source>
+        <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
+        <translation type="unfinished">&gt; 100 m</translation>
+    </message>
+    <message>
+        <source>&gt; 30 m</source>
+        <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
+        <translation type="unfinished">&gt; 30 m</translation>
+    </message>
+    <message>
+        <source>&gt; 20 m</source>
+        <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
+        <translation type="unfinished">&gt; 10 m {20 ?}</translation>
+    </message>
+    <message>
+        <source>&gt; 15 m</source>
+        <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
+        <translation type="unfinished">&gt; 10 m {15 ?}</translation>
+    </message>
+    <message>
+        <source>&gt; 10 m</source>
+        <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
+        <translation type="unfinished">&gt; 10 m</translation>
     </message>
 </context>
 <context>
