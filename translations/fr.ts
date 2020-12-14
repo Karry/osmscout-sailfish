@@ -185,7 +185,7 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">Supprimer les points imprécis</translation>
+        <translation>Ignorer les points imprécis</translation>
     </message>
 </context>
 <context>
@@ -251,7 +251,7 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation>Supprimer les points imprécis</translation>
+        <translation>Ignorer les points imprécis</translation>
     </message>
     <message>
         <source>Keep everything</source>
@@ -1249,7 +1249,7 @@
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, 2ème partie</translation>
     </message>
 </context>
 <context>
@@ -1283,37 +1283,37 @@
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorer les points</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">Supprimer les points imprécis</translation>
+        <translation>Ignorer les points imprécis</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 100 m.</translation>
+        <translation>&gt; 100 m</translation>
     </message>
     <message>
         <source>&gt; 30 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 30 m.</translation>
+        <translation>&gt; 30 m</translation>
     </message>
     <message>
         <source>&gt; 20 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 10 m. {20 ?}</translation>
+        <translation>&gt; 20 m</translation>
     </message>
     <message>
         <source>&gt; 15 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 10 m. {15 ?}</translation>
+        <translation>&gt; 15 m</translation>
     </message>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
-        <translation type="unfinished">&gt; 10 m.</translation>
+        <translation>&gt; 10 m</translation>
     </message>
 </context>
 <context>
