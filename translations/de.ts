@@ -185,7 +185,7 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">Verwerfe ungenaue Knoten</translation>
+        <translation>Verwerfe ungenaue Knoten</translation>
     </message>
 </context>
 <context>
@@ -1283,12 +1283,12 @@
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwerfe Knoten</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">Verwerfe ungenaue Knoten</translation>
+        <translation>Verwerfe ungenaue Knoten</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
