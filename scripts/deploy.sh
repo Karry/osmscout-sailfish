@@ -47,6 +47,8 @@ if [ $? -ne 0 ] ; then
   exit 1;
 fi
 
+# ~/.config/SailfishSDK/libsfdk/devices.xml
+# ~/SailfishOS/vmshare/devices.xml
 if [ -n "$DEV_DEVICE" ] ; then
   sfdk config "device=${DEV_DEVICE}"
   if [ $? -ne 0 ] ; then
