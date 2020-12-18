@@ -185,7 +185,7 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">Jäta ebatäpsed sõlmed vahele</translation>
+        <translation>Jäta ebatäpsed sõlmed vahele</translation>
     </message>
 </context>
 <context>
@@ -1249,46 +1249,46 @@
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, 2. osa</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished">Jaga lõikudeks</translation>
+        <translation>Jaga lõikudeks</translation>
     </message>
     <message>
         <source>Crop start</source>
-        <translation type="unfinished">Kärbi algusest</translation>
+        <translation>Kärbi algusest</translation>
     </message>
     <message>
         <source>Crop end</source>
-        <translation type="unfinished">Kärbi lõpust</translation>
+        <translation>Kärbi lõpust</translation>
     </message>
     <message>
         <source>Crop position</source>
-        <translation type="unfinished"></translation>
+        <translation>Kärbi asukoha alusel</translation>
     </message>
     <message>
         <source>Split position</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaga asukoha alusel</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Eemalda sõlmed</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">Jäta ebatäpsed sõlmed vahele</translation>
+        <translation>Jäta ebatäpsed sõlmed vahele</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>

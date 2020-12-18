@@ -161,31 +161,31 @@
     <message>
         <source>Name and description</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>名称及描述</translation>
     </message>
     <message>
         <source>Crop start</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>剪短开头</translation>
     </message>
     <message>
         <source>Crop end</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>剪短结尾</translation>
     </message>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>分开</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>剪短轨迹 &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">弃用不精确的节点</translation>
+        <translation>弃用不精确的节点</translation>
     </message>
 </context>
 <context>
@@ -1249,46 +1249,46 @@
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, 部分 2</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>分开</translation>
     </message>
     <message>
         <source>Crop start</source>
-        <translation type="unfinished"></translation>
+        <translation>剪短开头</translation>
     </message>
     <message>
         <source>Crop end</source>
-        <translation type="unfinished"></translation>
+        <translation>剪短结尾</translation>
     </message>
     <message>
         <source>Crop position</source>
-        <translation type="unfinished"></translation>
+        <translation>剪短位置</translation>
     </message>
     <message>
         <source>Split position</source>
-        <translation type="unfinished"></translation>
+        <translation>分开位置</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>弃用节点</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">弃用不精确的节点</translation>
+        <translation>弃用不精确的节点</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
