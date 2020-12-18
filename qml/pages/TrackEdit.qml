@@ -102,7 +102,7 @@ Dialog {
                 } else if (trackEditDialog.action == "split"){
                     trackEditDialog.position = trackModel.pointCount /2;
                 }
-                showPoint();
+                wayPreviewMap.showLocation(trackModel.boundingBox);
             }
         }
     }
