@@ -119,11 +119,15 @@ chrpath -l %{buildroot}%{_bindir}/%{name}
 ls -al     %{buildroot}%{_bindir}/%{name}
 sha1sum    %{buildroot}%{_bindir}/%{name}
 
+#patchelf --force-rpath --set-rpath '/usr/share/%{name}/lib:' %{buildroot}%{_datadir}/%{name}/qmlplugins/QtCharts/libqtchartsqml2.so
+#chrpath -l %{buildroot}%{_datadir}/%{name}/qmlplugins/QtCharts/libqtchartsqml2.so
+
 %files
 %defattr(-,root,root,-)
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/%{name}/lib/
+%{_datadir}/%{name}/qmlplugins/
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/map-styles/
 %{_datadir}/%{name}/map-icons/

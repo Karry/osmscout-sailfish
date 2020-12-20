@@ -7,3 +7,6 @@
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/Karry/osmscout-sailfish.wiki.git
+[submodule "dependencies/qtcharts"]
+	path = dependencies/qtcharts
+	url = https://code.qt.io/cgit/qt/qtcharts.git/

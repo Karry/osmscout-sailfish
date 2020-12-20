@@ -252,6 +252,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
     view->engine()->addImageProvider(QLatin1String("harbour-osmscout"), new IconProvider());
+    view->engine()->addImportPath(SailfishApp::pathTo("qmlplugins").toLocalFile());
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->showFullScreen();
     result=app->exec();

@@ -259,6 +259,24 @@ set(MARISA_FOUND TRUE)
 set(MARISA_LIBRARIES marisa)
 
 # ==================================================================================================
+# Qt chart
+
+include(ExternalProject)
+
+include(ProcessorCount)
+ProcessorCount(NPROC)
+
+set(QCHARTS_INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/qtcharts-install)
+
+ExternalProject_Add(qtcharts
+        # https://code.qt.io/cgit/qt/qtcharts.git , tag v5.7.1
+        URL ${CMAKE_SOURCE_DIR}/dependencies/qtcharts
+        CONFIGURE_COMMAND qmake "QMAKE_CXXFLAGS=-ftemplate-depth=3000" "QMAKE_CXXFLAGS_RELEASE=-O2 -g" "QMAKE_LFLAGS=-Wl,-rpath=${CMAKE_INSTALL_RPATH}" ../qtcharts
+        BUILD_COMMAND make # -j${NPROC}
+        INSTALL_COMMAND make INSTALL_ROOT="${QCHARTS_INSTALL_DIR}" install
+        )
+
+# ==================================================================================================
 # OSM Scout library
 
 set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
@@ -443,6 +461,7 @@ add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${QML_FILES})
 set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 17)
 set_property(TARGET harbour-osmscout PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
 add_dependencies(harbour-osmscout translations)
+add_dependencies(harbour-osmscout qtcharts)
 
 # Private config header
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Config.h.cmake"
@@ -478,6 +497,14 @@ target_link_libraries(harbour-osmscout
 # https://github.com/sailfish-sdk/cmakesample/blob/master/CMakeLists.txt
 install(TARGETS harbour-osmscout
 RUNTIME DESTINATION bin)
+
+install(DIRECTORY ${QCHARTS_INSTALL_DIR}/usr/lib/qt5/qml/QtCharts
+        DESTINATION share/${HARBOUR_APP_NAME}/qmlplugins)
+
+install(FILES ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5
+              ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5.7
+              ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5.7.0
+        DESTINATION share/${HARBOUR_APP_NAME}/lib)
 
 install(DIRECTORY qml
 DESTINATION share/${HARBOUR_APP_NAME})
