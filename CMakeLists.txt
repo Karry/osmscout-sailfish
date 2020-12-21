@@ -503,7 +503,7 @@ install(DIRECTORY ${QCHARTS_INSTALL_DIR}/usr/lib/qt5/qml/QtCharts
 
 install(FILES ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5
               ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5.7
-              ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5.7.0
+              ${QCHARTS_INSTALL_DIR}/usr/lib/libQt5Charts.so.5.7.1
         DESTINATION share/${HARBOUR_APP_NAME}/lib)
 
 install(DIRECTORY qml
