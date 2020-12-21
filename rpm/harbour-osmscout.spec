@@ -15,7 +15,7 @@ Name:       harbour-osmscout
 
 # don't setup rpm requires
 # list here all the libraries your RPM installs
-%define __requires_exclude ^ld-linux|libmarisa|libosmscout.*$
+%define __requires_exclude ^ld-linux|libmarisa|libosmscout.*|libQt5Charts.*$
 
 # dont strip binaries - it causes segfault on Jolla phone (arm)
 %global __os_install_post %{nil}
