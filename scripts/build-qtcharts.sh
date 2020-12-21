@@ -7,7 +7,7 @@
 
 PATH=$PATH:~/SailfishOS/bin/
 export OS_VERSION=3.4.0.24
-for ARCHITECTURE in i486 aarch64 armv7hl ; do
+for ARCHITECTURE in armv7hl i486 aarch64 ; do
 
   TARGET="SailfishOS-${OS_VERSION}-${ARCHITECTURE}"
   sfdk config "target=${TARGET}"
