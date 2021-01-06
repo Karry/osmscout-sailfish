@@ -484,7 +484,7 @@ STYLE
    [TYPE natural_heath] AREA { color: @heathColor; }
    [TYPE natural_grassland] AREA { color: @grassColor; }
    [TYPE wood] AREA { color: @woodColor; }
-   [TYPE natural_wetland_marsh] AREA { color: #efe8ff;}
+   [TYPE natural_wetland_marsh] AREA { color: #efe8ff;pattern: "wetland_bog";patternMinMag: cityOver;}
    [TYPE natural_wetland, natural_wetland_tidalflat] AREA { color: @wetlandColor;pattern: "wetland"; patternMinMag: cityOver;}
    [TYPE natural_water] AREA { color: @waterColor; }
    [TYPE natural_beach] AREA { color: @beachColor; }
