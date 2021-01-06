@@ -145,7 +145,10 @@ Image{
                 'waterway_riverbank': 'waterway_river',
                 'landuse_reservoir': 'landuse_reservoir',
                 'natural_water': 'natural_water',
-                'natural_spring': 'water'
+                'natural_spring': 'water',
+                'natural_wetland_marsh': 'wetland',
+                'natural_wetland': 'wetland',
+                'natural_wetland_tidalflat': 'wetland'
 
         }
 
