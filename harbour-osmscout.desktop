@@ -22,3 +22,7 @@ Name=OSM Scout
 # Remember to comment out the following line, if you do not want to use
 # a different app name in German locale (de).
 Name[hu]=OSMScout
+
+[X-HarbourBackup]
+BackupPathList=.local/share/harbour-osmscout/
+#BackupConfigList=
