@@ -24,5 +24,5 @@ Name=OSM Scout
 Name[hu]=OSMScout
 
 [X-HarbourBackup]
-BackupPathList=.local/share/harbour-osmscout/
+BackupPathList=.local/share/harbour-osmscout/:.config/harbour-osmscout/harbour-osmscout.conf
 
