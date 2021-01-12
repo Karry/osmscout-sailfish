@@ -810,6 +810,10 @@
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
         <translation>Byt fordon</translation>
     </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>
@@ -871,6 +875,10 @@
     <message>
         <source>Route steps</source>
         <translation>Ruttsteg</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

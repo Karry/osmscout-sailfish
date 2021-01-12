@@ -96,6 +96,57 @@ Page {
             }
 
             SectionHeader{
+                id: routeElevationProfileHeader
+                visible: Global.navigationModel.vehicle != "car"
+                text: qsTr("Elevation profile")
+            }
+            ElevationChart {
+                id: elevationChart
+                width: parent.width
+                height: Global.navigationModel.vehicle == "car" ? 0 : Math.min((width / 1920) * 1080, 512)
+
+                lineColor: Theme.highlightColor
+                lineWidth: 5
+                gradientTopColor: Theme.rgba(Theme.secondaryHighlightColor, 0.6)
+                //gradientBottomColor: Theme.rgba(Theme.highlightColor, 0.6)
+                textColor: Theme.secondaryHighlightColor
+                textPixelSize: Theme.fontSizeTiny
+                textPadding: Theme.paddingSmall
+
+                // way: Global.navigationModel.vehicle == "car" ? null : Global.navigationModel.routeWayAhead
+
+                property var lastUpdate: 0
+                function update(){
+                    console.log("update elevation chart? " + lastUpdate + " " + Global.navigationModel.remainingDistance);
+                    if (Global.navigationModel.vehicle != "car" && (Date.now()-lastUpdate) > 30000) {
+                        if (Global.navigationModel.remainingDistance > 0){
+                            lastUpdate=Date.now();
+                        }
+                        elevationChart.way = Global.navigationModel.routeWayAhead;
+                    }
+                }
+
+                Connections {
+                    target: Global.navigationModel
+
+                    onRouteAheadChanged: {
+                        elevationChart.update();
+                    }
+                }
+                Component.onCompleted: {
+                    update();
+                }
+
+                BusyIndicator {
+                    id: busyIndicator
+                    running: elevationChart.loading
+                    size: BusyIndicatorSize.Medium
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+
+            SectionHeader{
                 id: itineraryHeader
                 //: header of section with navigation instructions
                 text: qsTr("Itinerary")

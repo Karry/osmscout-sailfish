@@ -810,6 +810,10 @@
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>
@@ -870,6 +874,10 @@
     </message>
     <message>
         <source>Route steps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
