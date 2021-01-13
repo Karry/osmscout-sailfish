@@ -439,3 +439,4 @@
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.10-1
 - show chart with estimated elevation profile for bike or pedestrian routes
+- add support for collection and configuration backup with My Backup app (Openrepos.net)
