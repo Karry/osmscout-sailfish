@@ -36,6 +36,7 @@
 #include "Tracker.h"
 
 #include "SearchHistoryModel.h"
+#include "TrackElevationChartWidget.h"
 
 #include <harbour-osmscout/private/Config.h>
 #include <harbour-osmscout/private/Version.h>
@@ -171,6 +172,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qmlRegisterType<Tracker>("harbour.osmscout.map", 1, 0, "Tracker");
   qmlRegisterType<SearchHistoryModel>("harbour.osmscout.map", 1, 0, "SearchHistoryModel");
   qmlRegisterType<LocFile>("harbour.osmscout.map", 1, 0, "LocFile");
+  qmlRegisterType<TrackElevationChartWidget>("harbour.osmscout.map", 1, 0, "TrackElevationChart");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 

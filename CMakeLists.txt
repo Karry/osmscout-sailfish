@@ -390,6 +390,7 @@ set(SOURCE_FILES
     src/CollectionListModel.cpp
     src/CollectionTrackModel.cpp
     src/CollectionMapBridge.cpp
+    src/TrackElevationChartWidget.cpp
     src/Tracker.cpp
     src/SearchHistoryModel.cpp)
 

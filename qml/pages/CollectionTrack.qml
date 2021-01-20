@@ -206,6 +206,29 @@ Dialog{
                             label: qsTr("Descent")
                             value: Utils.humanSmallDistance(trackModel.descent)
                         }
+                        TrackElevationChart {
+                            id: elevationChart
+                            width: parent.width
+                            height: Math.min((width / 1920) * 1080, 512)
+
+                            lineColor: Theme.highlightColor
+                            lineWidth: 5
+                            gradientTopColor: Theme.rgba(Theme.secondaryHighlightColor, 0.6)
+                            //gradientBottomColor: Theme.rgba(Theme.highlightColor, 0.6)
+                            textColor: Theme.secondaryHighlightColor
+                            textPixelSize: Theme.fontSizeTiny
+                            textPadding: Theme.paddingSmall
+
+                            trackId: trackDialog.trackId
+
+                            BusyIndicator {
+                                id: elevationChartBusyIndicator
+                                running: elevationChart.loading
+                                size: BusyIndicatorSize.Medium
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
                         Rectangle {
                             id: footer
                             color: "transparent"
