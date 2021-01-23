@@ -812,7 +812,7 @@
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Výškový profil</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Výškový profil</translation>
     </message>
 </context>
 <context>
