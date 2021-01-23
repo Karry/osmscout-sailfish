@@ -187,6 +187,11 @@ public:
     return to;
   };
 
+  osmscout::Distance getLength() const
+  {
+    return length;
+  }
+
 private:
   // filter
   size_t rawCount{0};

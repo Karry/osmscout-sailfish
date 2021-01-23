@@ -71,16 +71,13 @@ void TrackElevationChartWidget::onTrackDataLoaded(Track track, std::optional<dou
     QElapsedTimer timer;
     timer.start();
     points.clear();
-    Distance distance;
+    TrackStatisticsAccumulator trackStat;
     for (const auto &segment : track.data->segments) {
       points.reserve(points.size()+segment.points.size());
-      std::optional<gpx::TrackPoint> previousPoint;
       for (const auto &point : segment.points) {
-        if (previousPoint.has_value()){
-          distance+=GetEllipsoidalDistance(previousPoint->coord, point.coord);
-        }
+        trackStat.update(point);
         if (point.elevation.has_value()) {
-          ElevationPoint pt{distance, Meters(point.elevation.value()), point.coord, nullptr};
+          ElevationPoint pt{trackStat.getLength(), Meters(point.elevation.value()), point.coord, nullptr};
           // qDebug() << "On" << pt.distance.AsMeter() << "ele" << pt.elevation.AsMeter();
           points.push_back(pt);
           if (!lowest.has_value() || lowest->elevation > pt.elevation){
@@ -90,8 +87,8 @@ void TrackElevationChartWidget::onTrackDataLoaded(Track track, std::optional<dou
             highest=pt;
           }
         }
-        previousPoint=point;
       }
+      trackStat.segmentEnd();
     }
     // be careful with elapsed time, method is processed in UI thread
     qDebug() << "Preparing elevation profile took" << timer.elapsed() << "ms";
