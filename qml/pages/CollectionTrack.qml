@@ -68,9 +68,10 @@ Dialog{
 
     DialogHeader {
         id: trackDialogheader
-        title: trackModel.name
+        //title: trackModel.name
         acceptText : qsTr("Show")
         //cancelText : qsTr("Cancel")
+        spacing: 0
     }
 
     Rectangle{
@@ -102,6 +103,25 @@ Dialog{
                     sourceItem: flickable
                 }
 
+                Label {
+                    id: titleText
+                    text: trackModel.name
+                    font.pixelSize: flickable.contentY == 0 ? Theme.fontSizeExtraLarge : Theme.fontSizeSmall
+                    wrapMode: Text.Wrap
+                    color: Theme.highlightColor
+
+                    opacity: text.length > 0 ? 1.0 : 0.0
+
+                    property real spacing: flickable.contentY == 0 ? Theme.paddingLarge: Theme.paddingMedium
+                    x: spacing
+                    y: spacing
+                    width: parent.width - 2*spacing
+
+                    Behavior on opacity { FadeAnimation { } }
+                    Behavior on font.pixelSize { NumberAnimation { duration: 200 } }
+                    Behavior on spacing { NumberAnimation { duration: 200 } }
+                }
+
                 SilicaFlickable{
                     id: flickable
                     anchors.fill: parent
@@ -116,6 +136,13 @@ Dialog{
 
                         function round10(d){
                             return Math.round(d * 10)/10;
+                        }
+
+                        Rectangle {
+                            id: titleFlickablePlaceholder
+                            width: parent.width
+                            height: titleText.height + titleText.spacing
+                            color: "transparent"
                         }
 
                         Label {
