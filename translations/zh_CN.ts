@@ -812,7 +812,7 @@
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>海拔情况</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>海拔情况</translation>
     </message>
 </context>
 <context>
