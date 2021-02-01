@@ -64,6 +64,9 @@ Dialog {
             left: parent.left
             bottom: parent.bottom
         }
+        CollectionMapBridge{
+            map: map
+        }
         onTap: {
             map.addPositionMark(0, lat, lon);
             selectedLat=lat;
