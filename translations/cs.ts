@@ -1008,6 +1008,10 @@
         <extracomment>label for remorse timer when removing item from search history</extracomment>
         <translation>Odebírám</translation>
     </message>
+    <message>
+        <source>Charging station</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>

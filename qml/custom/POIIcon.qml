@@ -28,6 +28,7 @@ Image{
                 'amenity_fast_food': 'fast-food',
                 'amenity_fuel_building': 'fuel',
                 'amenity_fuel': 'fuel',
+                'amenity_charging_station': 'charging_station',
                 'amenity_grave_yard': 'religious-christian',
                 'amenity_hospital_building': 'hospital',
                 'amenity_hospital': 'hospital',
