@@ -564,6 +564,26 @@ std::shared_ptr<std::vector<Track>> Storage::loadTracks(qint64 collectionId)
   return result;
 }
 
+Waypoint Storage::makeWaypoint(QSqlQuery &sql) const
+{
+  gpx::Waypoint wpt(GeoCoord(
+  varToDouble(sql.value("latitude")),
+    varToDouble(sql.value("longitude"))
+  ));
+
+  wpt.name = varToStringOpt(varToString(sql.value("name")));
+  wpt.description = varToStringOpt(sql.value("description"));
+  wpt.symbol = varToStringOpt(sql.value("symbol"));
+
+  QVariant timestampVar = sql.value("timestamp");
+  if (!timestampVar.isNull()) {
+    wpt.time = dateTimeToTimestamp(varToDateTime(timestampVar));
+  }
+  wpt.elevation = varToDoubleOpt(sql.value("elevation"));
+
+  return Waypoint(varToLong(sql.value("id")), varToDateTime(sql.value("modification_time")), std::move(wpt));
+}
+
 std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionId)
 {
   QSqlQuery sql(db);
@@ -579,22 +599,7 @@ std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionI
 
   std::shared_ptr<std::vector<Waypoint>> result = std::make_shared<std::vector<Waypoint>>();
   while (sql.next()) {
-    gpx::Waypoint wpt(GeoCoord(
-      varToDouble(sql.value("latitude")),
-      varToDouble(sql.value("longitude"))
-      ));
-
-    wpt.name = varToStringOpt(varToString(sql.value("name")));
-    wpt.description = varToStringOpt(sql.value("description"));
-    wpt.symbol = varToStringOpt(sql.value("symbol"));
-
-    QVariant timestampVar = sql.value("timestamp");
-    if (!timestampVar.isNull()) {
-      wpt.time = dateTimeToTimestamp(varToDateTime(timestampVar));
-    }
-    wpt.elevation = varToDoubleOpt(sql.value("elevation"));
-
-    result->emplace_back(varToLong(sql.value("id")), varToDateTime(sql.value("modification_time")), std::move(wpt));
+    result->emplace_back(makeWaypoint(sql));
   }
   return result;
 }
@@ -2187,6 +2192,52 @@ void Storage::removeSearchPattern(QString pattern){
   }
 
   loadSearchHistory();
+}
+
+void Storage::loadNearbyWaypoints(const osmscout::GeoCoord &center, const osmscout::Distance &distance)
+{
+  if (!checkAccess(__FUNCTION__)){
+    return;
+  }
+
+  osmscout::GeoBox bbox=osmscout::GeoBox::BoxByCenterAndRadius(center, distance);
+
+  std::vector<WaypointNearby> waypoints;
+  QSqlQuery sql(db);
+  sql.prepare(QString("SELECT * FROM `waypoint` WHERE ")
+                      .append("`latitude` >= :minLat AND ")
+                      .append("`latitude` <= :maxLat AND ")
+                      .append("`longitude` >= :minLon AND ")
+                      .append("`longitude` <= :maxLon AND ")
+                      .append(";"));
+
+  sql.bindValue(":minLat", bbox.GetMinLat());
+  sql.bindValue(":maxLat", bbox.GetMaxLat());
+  sql.bindValue(":minLon", bbox.GetMinLon());
+  sql.bindValue(":maxLon", bbox.GetMaxLon());
+
+  sql.exec();
+  if (sql.lastError().isValid()) {
+    qWarning() << "Cannot load nearby waypoints" << sql.lastError();
+    emit error("Cannot load nearby waypoints");
+    return;
+  }
+
+  while (sql.next()) {
+    auto wpt = makeWaypoint(sql);
+    auto wptDist = osmscout::GetSphericalDistance(center, wpt.data.coord);
+    if (wptDist <= distance) {
+      waypoints.push_back(std::make_tuple(
+        wptDist,
+        wpt));
+    }
+  }
+
+  std::sort(waypoints.begin(), waypoints.end(), [&center](const WaypointNearby &a, const WaypointNearby &b){
+    return std::get<0>(a) < std::get<0>(b);
+  });
+
+  emit nearbyWaypoints(center, distance, waypoints);
 }
 
 Storage::operator bool() const

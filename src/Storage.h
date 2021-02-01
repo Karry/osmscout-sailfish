@@ -321,6 +321,7 @@ class Storage : public QObject{
 
 public:
   using QStringOpt = std::optional<QString>;
+  using WaypointNearby = std::tuple<osmscout::Distance, Waypoint>;
 
 private:
   bool updateSchema();
@@ -345,6 +346,8 @@ signals:
   void openTrackLoaded(Track track, bool ok);
 
   void searchHistory(std::vector<SearchItem> items);
+
+  void nearbyWaypoints(const osmscout::GeoCoord &center, const osmscout::Distance &distance, const std::vector<WaypointNearby> &waypoints);
 
   void error(QString);
 
@@ -516,6 +519,15 @@ public slots:
    */
   void removeSearchPattern(QString pattern);
 
+  /**
+   * request for loading nearby waypoints
+   *
+   * emit nearbyWaypoints
+   * @param center
+   * @param distance
+   */
+  void loadNearbyWaypoints(const osmscout::GeoCoord &center, const osmscout::Distance &distance);
+
 public:
   Storage(QThread *thread,
           const QDir &directory);
@@ -538,6 +550,7 @@ private:
                           bool open);
 
   Track makeTrack(QSqlQuery &sqlTrack) const;
+  Waypoint makeWaypoint(QSqlQuery &sql) const;
   std::shared_ptr<std::vector<Track>> loadTracks(qint64 collectionId);
   std::shared_ptr<std::vector<Waypoint>> loadWaypoints(qint64 collectionId);
   void loadTrackPoints(qint64 segmentId, osmscout::gpx::TrackSegment &segment);

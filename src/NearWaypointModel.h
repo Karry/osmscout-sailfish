@@ -28,8 +28,6 @@
 class NearWaypointModel : public QAbstractListModel {
   Q_OBJECT
 
-
-
   /**
    * Count of rows in model - count of search results
    */
@@ -66,8 +64,14 @@ signals:
 
   void SearchingChanged(bool);
 
+  void nearbyWaypointsRequest(const osmscout::GeoCoord &center, const osmscout::Distance &distance);
+
 public slots:
   void storageInitialised();
+
+  void onNearbyWaypoints(const osmscout::GeoCoord &center,
+                         const osmscout::Distance &distance,
+                         const std::vector<Storage::WaypointNearby> &waypoints);
 
 public:
   NearWaypointModel();
@@ -102,7 +106,7 @@ public:
   {
     if (lat!=searchCenter.GetLat()) {
       searchCenter.Set(lat, searchCenter.GetLon());
-      //lookupPOI();
+      load();
     }
   }
 
@@ -115,7 +119,7 @@ public:
   {
     if (lon!=searchCenter.GetLon()){
       searchCenter.Set(searchCenter.GetLat(), lon);
-      //lookupPOI();
+      load();
     }
   }
 
@@ -128,28 +132,17 @@ public:
   {
     if (maxDistance.AsMeter()!=d){
       maxDistance=osmscout::Distance::Of<osmscout::Meter>(d);
-      //lookupPOI();
+      load();
     }
   }
 
-  inline int GetResultLimit() const
-  {
-    return resultLimit;
-  }
-
-  inline void SetResultLimit(int limit)
-  {
-    if (resultLimit!=limit){
-      resultLimit=limit;
-      //lookupPOI();
-    }
-  }
+private:
+  void load();
 
 private:
   bool searching{false};
   osmscout::Distance maxDistance{osmscout::Distance::Of<osmscout::Kilometer>(1)};
   osmscout::GeoCoord searchCenter{INVALID_COORD,INVALID_COORD};
-  int resultLimit{100};
-  //std::vector<SearchItem> items;
+  std::vector<Storage::WaypointNearby> items;
 };
 
