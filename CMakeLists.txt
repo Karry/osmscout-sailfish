@@ -312,6 +312,7 @@ set(HEADER_FILES
     src/IconProvider.h
     src/LocFile.h
     src/MemoryManager.h
+    src/NearWaypointModel.h
     src/Tracker.h
     src/SearchHistoryModel.h)
 
@@ -393,7 +394,8 @@ set(SOURCE_FILES
     src/CollectionMapBridge.cpp
     src/TrackElevationChartWidget.cpp
     src/Tracker.cpp
-    src/SearchHistoryModel.cpp)
+    src/SearchHistoryModel.cpp
+    src/NearWaypointModel.cpp)
 
 # XML files with translated phrases.
 # You can add new language translation just by adding new entry here, and run build.
