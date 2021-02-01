@@ -357,6 +357,7 @@ set(QML_FILES
     qml/pages/MapDetail.qml
     qml/pages/About.qml
     qml/pages/PlaceDetail.qml
+    qml/pages/PlacePicker.qml
     qml/pages/MapPage.qml
     qml/pages/NavigationInstructions.qml
     qml/pages/Layers.qml
