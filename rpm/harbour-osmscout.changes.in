@@ -444,4 +444,5 @@
 - update translations (Czech, Swedish, Estonian)
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.11-1
-- update translations (Chinese)
+- update translations (Chinese, Polish)
+- add ability to list near waypoints in Search page
