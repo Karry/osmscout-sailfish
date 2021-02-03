@@ -1012,6 +1012,11 @@
         <source>Charging station</source>
         <translation>Stacja ładowania</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <extracomment>search page, entry for list near waypoints from collections</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>

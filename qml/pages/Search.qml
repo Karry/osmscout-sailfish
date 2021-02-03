@@ -41,6 +41,7 @@ import "../custom/Utils.js" as Utils
  * - search - suggestionView model is setup to searchModel;
  *            list of search result is displayed (based on free text lookup and address lookup)
  * - history - suggestionView model is setup to historyModel;
+ * - waypoint - suggestionView model is setup to nearWaypointModel;
  *
  * State is changed in onSearchStringChanged slot - when searchString is empty,
  * empty state is used; when seach string starts with poi: prefix, given string is parsed
@@ -69,10 +70,11 @@ Page {
     property string postponedSearchString
 
     states: [
-        State { name: "empty"},
+        State { name: "empty" },
         State { name: "poi" },
-        State { name: "search"},
-        State { name: "history"}
+        State { name: "search" },
+        State { name: "history" },
+        State { name: "waypoint" }
     ]
 
 
@@ -133,6 +135,15 @@ Page {
                 suggestionView.model = historyModel;
                 suggestionView.delegate = historyItem;
             }
+        } else if (searchString.length >= 9 && searchString.substring(0,9) == ":waypoint") {
+            if (state != "waypoint"){
+                state = "waypoint";
+                searchModel.pattern = "";
+                suggestionView.model = nearWaypointModel;
+                suggestionView.delegate = waypointItem;
+                nearWaypointModel.lat = searchCenterLat;
+                nearWaypointModel.lon = searchCenterLon;
+            }
         } else {
             if (state != "search"){
                 state="search";
@@ -150,6 +161,14 @@ Page {
             }else{
                 poiModel.maxDistance = 1000;
                 poiModel.types = parts[1].split(" ");
+            }
+        } else if (searchPage.state === "waypoint") {
+            console.log("Search "+ state + " expression: " + searchString);
+            var parts=searchString.split(":"); // ":waypoint:1000" => [ '', 'waypoint', '1000' ]
+            if (parts.length>=3){
+                nearWaypointModel.maxDistance = parts[2] / 1;
+            } else{
+                nearWaypointModel.maxDistance = 1000;
             }
         } else if (searchPage.state === "search") {
             // postpone search of short expressions
@@ -204,6 +223,98 @@ Page {
 
     onHighlighRegexpChanged: {
         console.log("highlight regexp: " + highlighRegexp);
+    }
+
+    Component {
+        id: waypointItem
+        BackgroundItem {
+            id: backgroundItem
+            height: Math.max(entryIcon.height,entryDescription.height) + contextMenu.height
+            highlighted: mouseArea.pressed
+
+            Component.onCompleted: {
+                console.log("icon height: " + entryIcon.height + " entryDescription height: " + entryDescription.height);
+            }
+
+            Image{
+                id: entryIcon
+                source: "image://harbour-osmscout/poi-icons/marker.svg"
+                width: Theme.iconSizeMedium
+                height: width
+
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+
+                sourceSize.width: width
+                sourceSize.height: height
+
+                anchors{
+                    right: entryDescription.left
+                }
+            }
+            Item { // why Column is not working here?
+                id: entryDescription
+                x: searchField.textLeftMargin
+                //y: (entryIcon.height-(labelLabel.height+distanceLabel.height))/2
+                height: labelLabel.height + distanceLabel.height
+
+                Component.onCompleted: {
+                    console.log("labelLabel height: " + labelLabel.height + " distanceLabel height: " + distanceLabel.height);
+                }
+
+                Label {
+                    id: labelLabel
+                    width: parent.width
+                    color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    textFormat: Text.StyledText
+                    text: model.name
+                    height: contentHeight
+                }
+                Label {
+                    id: distanceLabel
+                    width: parent.width
+                    color: Theme.secondaryHighlightColor
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: Utils.humanDistance(distance) + " " + Utils.humanBearing(bearing)
+                    height: contentHeight
+                    anchors.top: labelLabel.bottom
+                }
+            }
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                onClicked: {
+                    var selectedLocation = suggestionView.model.get(index)
+
+                    // the else case should never happen
+                    if (selectedLocation !== null) {
+                        previewDialog.selectedLocation = selectedLocation;
+                        previewDialog.acceptDestination = acceptDestination;
+
+                        previewDialog.open();
+                    }
+                }
+                onPressAndHold: {
+                    contextMenu.open(backgroundItem);
+                }
+            }
+            ContextMenu {
+                id: contextMenu
+                MenuItem {
+                    text: qsTr("Route to")
+                    visible: enableContextMenu
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("Routing.qml"),
+                                       {
+                                           toLat: model.lat,
+                                           toLon: model.lon,
+                                           toName: labelLabel.text
+                                       })
+                    }
+                }
+            }
+        }
     }
 
     Component {
@@ -304,6 +415,8 @@ Page {
                 Component.onCompleted: {
                     if (iconType === ":history"){
                         entryIcon.source = "image://theme/icon-m-backup";
+                    } else if (iconType === ":waypoint"){
+                        entryIcon.source = "image://theme/icon-m-favorite-selected";
                     }
                 }
             }
@@ -337,6 +450,8 @@ Page {
                 onClicked: {
                     if (types == ":history") {
                         searchField.text = ":history";
+                    } else if (types == ":waypoint") {
+                        searchField.text = ":waypoint:" + distance;
                     } else {
                         searchField.text = "poi:" + distance + ":" + types;
                     }
@@ -500,7 +615,9 @@ Page {
 
         BusyIndicator {
             id: busyIndicator
-            running: (searchPage.state == "search" && searchModel.searching) || (searchPage.state == "poi" && poiModel.searching)
+            running: (searchPage.state == "search" && searchModel.searching) ||
+                     (searchPage.state == "poi" && poiModel.searching) ||
+                     (searchPage.state == "waypoint" && nearWaypointModel.searching)
             size: BusyIndicatorSize.Large
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -517,7 +634,11 @@ Page {
         id: poiTypesModel
 
         // special entry for search history
-        ListElement { label: QT_TR_NOOP("Search history");       iconType: ":history";           distance: 0;    types: ":history"; }
+        ListElement { label: QT_TR_NOOP("Search history");       iconType: ":history";           distance: 0;     types: ":history"; }
+
+        // special entry for near waypoints
+        //: search page, entry for list near waypoints from collections
+        ListElement { label: QT_TR_NOOP("Waypoint");             iconType: ":waypoint";          distance: 10000; types: ":waypoint"; }
 
         // amenities
         ListElement { label: QT_TR_NOOP("Restaurant");    iconType: "amenity_restaurant"; distance: 1500; types: "amenity_restaurant amenity_restaurant_building"; }
@@ -637,6 +758,10 @@ Page {
         }
     }
 
+    NearWaypointModel {
+        id: nearWaypointModel
+    }
+
     Dialog{
         id: previewDialog
 
@@ -648,11 +773,11 @@ Page {
             previewMap.removeAllOverlayObjects();
             //console.log("clear map: "+previewMap);
 
-            mapObjectInfo.setLocationEntry(selectedLocation);
+            previewDialogHeader.title = (selectedLocation.type=="coordinate") ?
+                        Utils.formatCoord(selectedLocation.lat, selectedLocation.lon, AppSettings.gpsFormat) :
+                        selectedLocation.label;
 
-            //header.title = (selectedLocation.type=="coordinate") ?
-            //            Utils.formatCoord(selectedLocation.lat, selectedLocation.lon, AppSettings.gpsFormat) :
-            //            selectedLocation.label;
+            mapObjectInfo.setLocationEntry(selectedLocation);
         }
 
         acceptDestinationAction: PageStackAction.Pop
@@ -679,6 +804,9 @@ Page {
                         console.log("object "+row+": "+obj+" map: "+previewMap);
                         obj.type="_highlighted";
                         previewMap.addOverlayObject(row, obj);
+                    }
+                    if (cnt>0){
+                        previewDialogHeader.title = "";
                     }
                 }
             }
