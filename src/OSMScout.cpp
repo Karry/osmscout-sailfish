@@ -165,6 +165,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qRegisterMetaType<Collection>("Collection");
   qRegisterMetaType<Track>("Track");
   qRegisterMetaType<Waypoint>("Waypoint");
+  qRegisterMetaType<std::vector<Storage::WaypointNearby>>("std::vector<Storage::WaypointNearby>");
 
   qmlRegisterType<CollectionListModel>("harbour.osmscout.map", 1, 0, "CollectionListModel");
   qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");

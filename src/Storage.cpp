@@ -2208,7 +2208,7 @@ void Storage::loadNearbyWaypoints(const osmscout::GeoCoord &center, const osmsco
                       .append("`latitude` >= :minLat AND ")
                       .append("`latitude` <= :maxLat AND ")
                       .append("`longitude` >= :minLon AND ")
-                      .append("`longitude` <= :maxLon AND ")
+                      .append("`longitude` <= :maxLon")
                       .append(";"));
 
   sql.bindValue(":minLat", bbox.GetMinLat());
@@ -2237,6 +2237,9 @@ void Storage::loadNearbyWaypoints(const osmscout::GeoCoord &center, const osmsco
     return std::get<0>(a) < std::get<0>(b);
   });
 
+  qDebug() << "Found" << waypoints.size() << "waypoints in"
+           << distance.AsMeter() << "meters from"
+           << QString::fromStdString(center.GetDisplayText());
   emit nearbyWaypoints(center, distance, waypoints);
 }
 

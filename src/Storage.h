@@ -347,7 +347,7 @@ signals:
 
   void searchHistory(std::vector<SearchItem> items);
 
-  void nearbyWaypoints(const osmscout::GeoCoord &center, const osmscout::Distance &distance, const std::vector<WaypointNearby> &waypoints);
+  void nearbyWaypoints(const osmscout::GeoCoord &center, const osmscout::Distance &distance, const std::vector<Storage::WaypointNearby> &waypoints);
 
   void error(QString);
 
@@ -520,7 +520,8 @@ public slots:
   void removeSearchPattern(QString pattern);
 
   /**
-   * request for loading nearby waypoints
+   * Request for loading nearby waypoints.
+   * Result is sorted by distance from center.
    *
    * emit nearbyWaypoints
    * @param center

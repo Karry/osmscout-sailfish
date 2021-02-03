@@ -20,6 +20,7 @@
 #include "NearWaypointModel.h"
 
 #include <osmscout/util/Geometry.h>
+#include <osmscout/LocationEntry.h>
 
 NearWaypointModel::NearWaypointModel()
 {
@@ -48,6 +49,11 @@ void NearWaypointModel::storageInitialised()
 
 void NearWaypointModel::load()
 {
+  if (searchCenter.GetLon() == INVALID_COORD || searchCenter.GetLat() == INVALID_COORD) {
+    searching=false;
+    emit SearchingChanged(searching);
+    return;
+  }
   searching=true;
   emit SearchingChanged(searching);
   emit nearbyWaypointsRequest(searchCenter, maxDistance);
@@ -57,14 +63,15 @@ void NearWaypointModel::onNearbyWaypoints(const osmscout::GeoCoord &center,
                                           const osmscout::Distance &distance,
                                           const std::vector<Storage::WaypointNearby> &waypoints)
 {
-  if (center!=searchCenter || distance != maxDistance){
+  if (center != searchCenter || distance != maxDistance){
     return;
   }
-  items=waypoints;
-  searching=true;
+  beginResetModel();
+  items=waypoints; // Result is sorted by distance from center already.
+  endResetModel();
+  searching=false;
   emit SearchingChanged(searching);
 }
-
 
 int NearWaypointModel::rowCount(const QModelIndex &) const
 {
@@ -105,6 +112,25 @@ QVariant NearWaypointModel::data(const QModelIndex &index, int role) const
   }
 
   return QVariant();
+}
+
+QObject* NearWaypointModel::get(int row) const
+{
+  if(row < 0 || row >= (int)items.size()) {
+    return nullptr;
+  }
+
+  const auto& [distance, waypoint]=items.at(row);
+
+  // QML will take ownerhip
+  return new osmscout::LocationEntry(
+    osmscout::LocationEntry::typeObject,
+    QString::fromStdString(waypoint.data.name ? waypoint.data.name.value() : waypoint.data.coord.GetDisplayText()),
+    "",
+    QStringList(),
+    "",
+    waypoint.data.coord,
+    osmscout::GeoBox::BoxByCenterAndRadius(waypoint.data.coord, osmscout::Meters(2.0)));
 }
 
 QHash<int, QByteArray> NearWaypointModel::roleNames() const
