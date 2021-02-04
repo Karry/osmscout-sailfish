@@ -446,3 +446,5 @@
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.11-1
 - update translations (Chinese, Polish)
 - add ability to list near waypoints in Search page
+- add shortcut for searching nearest charging stations
+- fix map icon for charging stations
