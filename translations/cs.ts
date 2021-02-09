@@ -1010,12 +1010,12 @@
     </message>
     <message>
         <source>Charging station</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabíjecí stanice</translation>
     </message>
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Uložené místo</translation>
     </message>
 </context>
 <context>

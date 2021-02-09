@@ -812,7 +812,7 @@
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Profil altimétrique</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Profil altimétrique</translation>
     </message>
 </context>
 <context>
@@ -1010,12 +1010,12 @@
     </message>
     <message>
         <source>Charging station</source>
-        <translation type="unfinished"></translation>
+        <translation>Station de rechargement</translation>
     </message>
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Repère</translation>
     </message>
 </context>
 <context>
