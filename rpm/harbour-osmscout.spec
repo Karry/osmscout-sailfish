@@ -17,9 +17,6 @@ Name:       harbour-osmscout
 # list here all the libraries your RPM installs
 %define __requires_exclude ^ld-linux|libmarisa|libosmscout.*$
 
-# dont strip binaries - it causes segfault on Jolla phone (arm)
-%global __os_install_post %{nil}
-
 # << macros
 
 Summary:    OSMScout for Sailfish
@@ -94,27 +91,12 @@ rm %{buildroot}%{_datadir}/%{name}/qml/desktop.qml
 
 ## Jolla harbour rules:
 
-# -- strip symbols app
-strip --keep-symbol=main %{buildroot}%{_bindir}/%{name}
-
 # -- ship all shared unallowed libraries with the app
 mkdir -p %{buildroot}%{_datadir}/%{name}/lib
 
-# check architecture
-# file %{buildroot}%{_bindir}/harbour-osmscout
-# file /usr/lib/libgomp.so.1
-# file /usr/lib/libgomp.so.1.0.0
-
-# support for OMP
-#cp /usr/lib/libgomp.so.1      %{buildroot}%{_datadir}/%{name}/lib/
-#cp --preserve=links /usr/lib/libgomp.so.1.0.0  %{buildroot}%{_datadir}/%{name}/lib/
-
-# -- shared libraries without executable flag
-#chmod -x %{buildroot}%{_datadir}/%{name}/lib/*
 # << install post
 
 # -- check app rpath to find its libs
-#patchelf --force-rpath --set-rpath '/usr/share/%{name}/lib:' %{buildroot}%{_bindir}/%{name}
 chrpath -l %{buildroot}%{_bindir}/%{name}
 ls -al     %{buildroot}%{_bindir}/%{name}
 sha1sum    %{buildroot}%{_bindir}/%{name}

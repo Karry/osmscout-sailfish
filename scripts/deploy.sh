@@ -79,7 +79,7 @@ sfdk engine exec sudo cp \
     /srv/mer/toolings/SailfishOS-${OS_VERSION}/usr/lib/libgomp.so.1.0.0 \
     /srv/mer/targets/SailfishOS-${OS_VERSION}-i486/usr/lib/libgomp.so.1
 
-sfdk --quiet build
+sfdk --quiet  build --enable-debug
 if [ $? -ne 0 ] ; then
   echo
   echo "Failed to build"
