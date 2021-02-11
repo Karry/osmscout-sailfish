@@ -1015,7 +1015,7 @@
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation>strona wyszukiwania, wpis na liście w pobliżu punktów trasy z kolekcji </translation>
+        <translation>Punkt trasy</translation>
     </message>
 </context>
 <context>
