@@ -1015,7 +1015,7 @@
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Punkt trasy</translation>
     </message>
 </context>
 <context>
