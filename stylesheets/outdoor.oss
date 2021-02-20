@@ -392,6 +392,15 @@ SYMBOL subway_entrance
     AREA { color: #60005070; }
   }
 
+SYMBOL amenity_charging_station
+  RECTANGLE -1,-1 2 x 2 {
+    AREA { color: #0000ff; }
+  }
+  CIRCLE 0,0 0.8 {
+    AREA {color: #ffffff; }
+  }
+
+
 STYLE
  // -------------------------------------------------------
  //
