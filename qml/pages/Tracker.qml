@@ -283,6 +283,39 @@ Page {
                 label: qsTr("Descent")
                 value: Utils.humanSmallDistance(Global.tracker.descent)
             }
+            TrackElevationChart {
+                id: elevationChart
+                width: parent.width
+                height: Math.min((width / 1920) * 1080, 512)
+
+                lineColor: Theme.highlightColor
+                lineWidth: 5
+                gradientTopColor: Theme.rgba(Theme.secondaryHighlightColor, 0.6)
+                //gradientBottomColor: Theme.rgba(Theme.highlightColor, 0.6)
+                textColor: Theme.secondaryHighlightColor
+                textPixelSize: Theme.fontSizeTiny
+                textPadding: Theme.paddingSmall
+
+                trackId: Global.tracker.openTrackId
+
+                Timer {
+                    id: updateEleChartTimer
+                    interval: 5*60*1000 // every 5 minutes
+                    repeat: true
+
+                    onTriggered: {
+                        elevationChart.trackId = Global.tracker.openTrackId
+                    }
+                }
+
+                BusyIndicator {
+                    id: elevationChartBusyIndicator
+                    running: elevationChart.loading
+                    size: BusyIndicatorSize.Medium
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
             Rectangle {
                 id: footer
                 color: "transparent"
