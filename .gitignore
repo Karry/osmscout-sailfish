@@ -74,6 +74,8 @@
 /debuglinks.list
 /debugsources.list
 /documentation.list
+/elfbins.list
+/debugsourcefiles.list
 
 # Qt Creator settings
 CMakeLists.txt.user
