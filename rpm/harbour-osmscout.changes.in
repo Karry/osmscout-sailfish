@@ -443,7 +443,7 @@
 - add support for collection and configuration backup with My Backup app (Openrepos.net)
 - update translations (Czech, Swedish, Estonian)
 
-* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.11-1
+* 2020-02-26 Lukáš Karas <lukas.karas@centrum.cz> 2.11-1
 - update translations (Chinese, Czech, Estonian, French, Polish, Swedish)
 - add ability to list near waypoints in Search page
 - add shortcut for searching nearest charging stations
