@@ -25,12 +25,17 @@ class Tracker : public QObject {
   Q_DISABLE_COPY(Tracker)
 
   Q_PROPERTY(bool tracking READ isTracking NOTIFY trackingChanged)
+
+  //! signalise that there is open track that can be resumed
   Q_PROPERTY(bool canBeResumed READ canBeResumed NOTIFY openTrackLoaded)
+  //! id of the track that can be resumed
   Q_PROPERTY(qint64 openTrackId READ getOpenTrackId NOTIFY openTrackLoaded)
+  //! name of the track that can be resumed
   Q_PROPERTY(QString openTrackName READ getOpenTrackName NOTIFY openTrackLoaded)
 
   Q_PROPERTY(bool processing READ isProcessing NOTIFY trackingChanged)
 
+  Q_PROPERTY(qint64 trackId READ getTrackId NOTIFY trackingChanged)
   Q_PROPERTY(QString name READ getName NOTIFY trackingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY trackingChanged)
 
@@ -102,6 +107,10 @@ public:
 
   bool canBeResumed() const {
     return recentOpenTrack.id >= 0;
+  }
+
+  qint64 getTrackId() const {
+    return track.id;
   }
 
   qint64 getOpenTrackId() const {
