@@ -302,9 +302,11 @@ Page {
                     id: updateEleChartTimer
                     interval: 5*60*1000 // every 5 minutes
                     repeat: true
+                    running: Global.tracker.tracking
 
                     onTriggered: {
-                        elevationChart.trackId = Global.tracker.openTrackId
+                        console.log("Update tracker elevation chart: " + Global.tracker.trackId)
+                        elevationChart.trackId = Global.tracker.trackId
                     }
                 }
 
