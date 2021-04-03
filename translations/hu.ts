@@ -898,6 +898,13 @@
     </message>
 </context>
 <context>
+    <name>RouteElevationChart</name>
+    <message>
+        <source>No enough data for elevation chart</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Routing</name>
     <message>
         <source>Search route</source>

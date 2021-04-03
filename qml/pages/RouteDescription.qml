@@ -135,13 +135,13 @@ Dialog {
             DetailItem {
                 id: ascentItem
                 label: qsTr("Ascent")
-                visible: route.vehicle != "car" && elevationChart.pointCount > 2
+                visible: route.vehicle != "car" && elevationChart.pointCount >= 2
                 value: Utils.humanDistance(elevationChart.ascent)
             }
             DetailItem {
                 id: descentItem
                 label: qsTr("Descent")
-                visible: route.vehicle != "car" && elevationChart.pointCount > 2
+                visible: route.vehicle != "car" && elevationChart.pointCount >= 2
                 value: Utils.humanDistance(elevationChart.descent)
             }
             SectionHeader{
@@ -149,28 +149,11 @@ Dialog {
                 visible: route.vehicle != "car"
                 text: qsTr("Elevation profile")
             }
-            ElevationChart {
+            RouteElevationChart {
                 id: elevationChart
                 width: parent.width
                 height: route.vehicle == "car" ? 0 : Math.min((width / 1920) * 1080, 512)
-
-                lineColor: Theme.highlightColor
-                lineWidth: 5
-                gradientTopColor: Theme.rgba(Theme.secondaryHighlightColor, 0.6)
-                //gradientBottomColor: Theme.rgba(Theme.highlightColor, 0.6)
-                textColor: Theme.secondaryHighlightColor
-                textPixelSize: Theme.fontSizeTiny
-                textPadding: Theme.paddingSmall
-
                 way: route.vehicle == "car" ? null : route.routeWay
-
-                BusyIndicator {
-                    id: busyIndicator
-                    running: elevationChart.loading
-                    size: BusyIndicatorSize.Medium
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                }
             }
             SectionHeader{
                 id: routeStepsHeader

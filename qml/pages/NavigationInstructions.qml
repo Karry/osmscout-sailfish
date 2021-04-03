@@ -98,13 +98,13 @@ Page {
             DetailItem {
                 id: ascentItem
                 label: qsTr("Ascent")
-                visible: route.vehicle != "car" && elevationChart.pointCount > 2
+                visible: Global.navigationModel.vehicle != "car" && elevationChart.pointCount >= 2
                 value: Utils.humanDistance(elevationChart.ascent)
             }
             DetailItem {
                 id: descentItem
                 label: qsTr("Descent")
-                visible: route.vehicle != "car" && elevationChart.pointCount > 2
+                visible: Global.navigationModel.vehicle != "car" && elevationChart.pointCount >= 2
                 value: Utils.humanDistance(elevationChart.descent)
             }
             SectionHeader{
@@ -112,18 +112,10 @@ Page {
                 visible: Global.navigationModel.vehicle != "car"
                 text: qsTr("Elevation profile")
             }
-            ElevationChart {
+            RouteElevationChart {
                 id: elevationChart
                 width: parent.width
                 height: Global.navigationModel.vehicle == "car" ? 0 : Math.min((width / 1920) * 1080, 512)
-
-                lineColor: Theme.highlightColor
-                lineWidth: 5
-                gradientTopColor: Theme.rgba(Theme.secondaryHighlightColor, 0.6)
-                //gradientBottomColor: Theme.rgba(Theme.highlightColor, 0.6)
-                textColor: Theme.secondaryHighlightColor
-                textPixelSize: Theme.fontSizeTiny
-                textPadding: Theme.paddingSmall
 
                 // way: Global.navigationModel.vehicle == "car" ? null : Global.navigationModel.routeWayAhead
 
@@ -147,14 +139,6 @@ Page {
                 }
                 Component.onCompleted: {
                     update();
-                }
-
-                BusyIndicator {
-                    id: busyIndicator
-                    running: elevationChart.loading
-                    size: BusyIndicatorSize.Medium
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
                 }
             }
 

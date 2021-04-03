@@ -350,6 +350,7 @@ set(QML_FILES
     qml/custom/CollectionComboBox.qml
     qml/custom/CollectionEntryDialog.qml
     qml/custom/LaneTurns.qml
+    qml/custom/RouteElevationChart.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml
