@@ -93,7 +93,10 @@ void TrackElevationChartWidget::onTrackDataLoaded(Track track, std::optional<dou
     // be careful with elapsed time, method is processed in UI thread
     qDebug() << "Preparing elevation profile took" << timer.elapsed() << "ms";
   }
+  ascent=track.statistics.ascent;
+  descent=track.statistics.descent;
   update();
+  emit pointsUpdated();
   emit loadingChanged();
 }
 

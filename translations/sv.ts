@@ -814,6 +814,14 @@
         <source>Elevation profile</source>
         <translation>Höjdprofil</translation>
     </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Stigning</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Nedstigning</translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>
@@ -879,6 +887,14 @@
     <message>
         <source>Elevation profile</source>
         <translation>Höjdprofil</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Stigning</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Nedstigning</translation>
     </message>
 </context>
 <context>

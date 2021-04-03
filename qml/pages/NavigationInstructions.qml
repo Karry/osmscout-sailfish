@@ -95,6 +95,18 @@ Page {
                 value: Utils.humanDistance(Global.navigationModel.remainingDistance)
             }
 
+            DetailItem {
+                id: ascentItem
+                label: qsTr("Ascent")
+                visible: route.vehicle != "car" && elevationChart.pointCount > 2
+                value: Utils.humanDistance(elevationChart.ascent)
+            }
+            DetailItem {
+                id: descentItem
+                label: qsTr("Descent")
+                visible: route.vehicle != "car" && elevationChart.pointCount > 2
+                value: Utils.humanDistance(elevationChart.descent)
+            }
             SectionHeader{
                 id: routeElevationProfileHeader
                 visible: Global.navigationModel.vehicle != "car"

@@ -814,6 +814,14 @@
         <source>Elevation profile</source>
         <translation>海拔情况</translation>
     </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">上坡</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">下坡</translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>
@@ -879,6 +887,14 @@
     <message>
         <source>Elevation profile</source>
         <translation>海拔情况</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">上坡</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">下坡</translation>
     </message>
 </context>
 <context>

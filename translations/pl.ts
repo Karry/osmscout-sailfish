@@ -814,6 +814,14 @@
         <source>Elevation profile</source>
         <translation>Profil przewyższeń</translation>
     </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Wznios</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Spadek</translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>
@@ -879,6 +887,14 @@
     <message>
         <source>Elevation profile</source>
         <translation>Profil przewyższeń</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Wznios</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Spadek</translation>
     </message>
 </context>
 <context>

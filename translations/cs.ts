@@ -814,6 +814,14 @@
         <source>Elevation profile</source>
         <translation>Výškový profil</translation>
     </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Stoupání</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Klesání</translation>
+    </message>
 </context>
 <context>
     <name>NewWaypoint</name>
@@ -879,6 +887,14 @@
     <message>
         <source>Elevation profile</source>
         <translation>Výškový profil</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Stoupání</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Klesání</translation>
     </message>
 </context>
 <context>
