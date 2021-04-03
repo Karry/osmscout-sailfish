@@ -449,3 +449,7 @@
 - add shortcut for searching nearest charging stations
 - fix map icon for charging stations
 - add elevation chart to tracker page
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.12-1
+- fix search result sorting
+- prepare for customized router profiles
