@@ -816,11 +816,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Stoupání</translation>
+        <translation>Stoupání</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Klesání</translation>
+        <translation>Klesání</translation>
     </message>
 </context>
 <context>
@@ -890,18 +890,18 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Stoupání</translation>
+        <translation>Stoupání</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Klesání</translation>
+        <translation>Klesání</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Není dostatek dat pro výškový profil</translation>
     </message>
 </context>
 <context>
