@@ -816,11 +816,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Stigning</translation>
+        <translation>Stigning</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Nedstigning</translation>
+        <translation>Nedstigning</translation>
     </message>
 </context>
 <context>
@@ -890,18 +890,18 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Stigning</translation>
+        <translation>Stigning</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Nedstigning</translation>
+        <translation>Nedstigning</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Inte tillräckligt med data för höjddiagram</translation>
     </message>
 </context>
 <context>
