@@ -351,6 +351,7 @@ set(QML_FILES
     qml/custom/CollectionEntryDialog.qml
     qml/custom/LaneTurns.qml
     qml/custom/RouteElevationChart.qml
+    qml/custom/RouteProfileMenuItem.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml

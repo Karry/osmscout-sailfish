@@ -282,3 +282,63 @@ void AppSettings::SetNavigationKeepAlive(bool b)
     emit NavigationKeepAliveChanged(b);
   }
 }
+
+bool AppSettings::GetRoadBikeAllowMainRoads() const
+{
+  return settings.value("roadBikeAllowMainRoads", "true").toBool();
+}
+void AppSettings::SetRoadBikeAllowMainRoads(bool b)
+{
+  if (GetRoadBikeAllowMainRoads() != b){
+    settings.setValue("roadBikeAllowMainRoads", b);
+    emit RoadBikeAllowMainRoadsChanged(b);
+  }
+}
+
+bool AppSettings::GetMountainBikeAllowMainRoads() const
+{
+  return settings.value("mountainBikeAllowMainRoads", "true").toBool();
+}
+void AppSettings::SetMountainBikeAllowMainRoads(bool b)
+{
+  if (GetMountainBikeAllowMainRoads() != b){
+    settings.setValue("mountainBikeAllowMainRoads", b);
+    emit MountainBikeAllowMainRoadsChanged(b);
+  }
+}
+
+bool AppSettings::GetFootAllowMainRoads() const
+{
+  return settings.value("footAllowMainRoads", "false").toBool();
+}
+void AppSettings::SetFootAllowMainRoads(bool b)
+{
+  if (GetFootAllowMainRoads() != b){
+    settings.setValue("footAllowMainRoads", b);
+    emit FootAllowMainRoadsChanged(b);
+  }
+}
+
+bool AppSettings::GetRoadBikeAllowFootways() const
+{
+  return settings.value("roadBikeAllowFootways", "true").toBool();
+}
+void AppSettings::SetRoadBikeAllowFootways(bool b)
+{
+  if (GetRoadBikeAllowFootways() != b){
+    settings.setValue("roadBikeAllowFootways", b);
+    emit RoadBikeAllowFootwaysChanged(b);
+  }
+}
+
+bool AppSettings::GetMountainBikeAllowFootways() const
+{
+  return settings.value("mountainBikeAllowFootways", "true").toBool();
+}
+void AppSettings::SetMountainBikeAllowFootways(bool b)
+{
+  if (GetMountainBikeAllowFootways() != b){
+    settings.setValue("mountainBikeAllowFootways", b);
+    emit MountainBikeAllowFootwaysChanged(b);
+  }
+}

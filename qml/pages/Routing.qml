@@ -41,6 +41,7 @@ Dialog {
         id: route
 
         property string vehicle: "car";
+        property RoutingProfile profile: RoutingProfile{}
 
         onRouteFailed: {
             remorse.execute(qsTranslate("message", reason), function() { }, 10 * 1000);
@@ -48,11 +49,12 @@ Dialog {
     }
     function computeRoute() {
         if ((fromSelector.location !== null) && (toSelector.location!== null)) {
-            console.log("Routing \"" + Utils.locationStr(fromSelector.location) + "\" -> \"" + Utils.locationStr(toSelector.location) + "\" by " + vehicleComboBox.selected);
+            console.log("Routing \"" + Utils.locationStr(fromSelector.location) + "\" -> \"" + Utils.locationStr(toSelector.location) + "\" with profile " + vehicleComboBox.selected);
             route.vehicle = vehicleComboBox.selected;
+            route.profile = vehicleComboBox.prepareProfile();
             route.setStartAndTarget(fromSelector.location,
                                     toSelector.location,
-                                    vehicleComboBox.selected);
+                                    route.profile);
             AppSettings.lastVehicle = vehicleComboBox.selected;
         } else {
             route.clear();
@@ -138,19 +140,132 @@ Dialog {
                     }
                 }
             }
+
             ComboBox {
                 id: vehicleComboBox
                 label: qsTr("By")
 
                 property bool initialized: false
                 property string selected: ""
-                property ListModel vehiclesModel: ListModel {}
+                property var vehicleProfiles: ["car", "road-bike", "mountain-bike", "foot"]
+
+                property RoutingProfile routingProfile: RoutingProfile{}
+
+                function prepareProfile() {
+                    if (selected=="car"){
+                        routingProfile.vehicle=RoutingProfile.CarVehicle;
+                    } else if (selected == "road-bike" || selected == "mountain-bike") {
+                        routingProfile.vehicle=RoutingProfile.BicycleVehicle;
+                    } else if (selected == "foot") {
+                        routingProfile.vehicle=RoutingProfile.FootVehicle;
+                    }
+
+                    var speedTable = routingProfile.speedTable;
+                    if (selected == "road-bike") {
+                        routingProfile.maxSpeed = 30;
+
+                        speedTable['highway_cycleway']=20;
+                        speedTable['highway_living_street']=20;
+                        speedTable['highway_path:1']=12;
+                        speedTable['highway_path:2']=10;
+                        speedTable['highway_path:3']=9;
+                        speedTable['highway_path:4']=8;
+                        speedTable['highway_path:5']=7;
+                        speedTable['highway_primary']=30;
+                        speedTable['highway_primary_link']=30;
+                        speedTable['highway_residential']=10;
+                        speedTable['highway_road']=22;
+                        speedTable['highway_roundabout']=10;
+                        speedTable['highway_secondary']=30;
+                        speedTable['highway_secondary_link']=30;
+                        speedTable['highway_service']=16;
+                        speedTable['highway_tertiary']=20;
+                        speedTable['highway_tertiary_link']=20;
+                        speedTable['highway_track:1']=22;
+                        speedTable['highway_track:2']=20;
+                        speedTable['highway_track:3']=15;
+                        speedTable['highway_track:4']=10;
+                        speedTable['highway_track:5']=8;
+                        speedTable['highway_trunk']=20;
+                        speedTable['highway_trunk_link']=20;
+                        speedTable['highway_unclassified']=20;
+                        speedTable['highway_footway']=8;
+
+                        if (!mainRoadSwitch.checked){
+                            speedTable['highway_primary']=2;
+                            speedTable['highway_primary_link']=2;
+                            speedTable['highway_secondary']=4;
+                            speedTable['highway_secondary_link']=4;
+                        }
+                        if (!footwaySwitch.checked){
+                            speedTable['highway_footway']=0;
+                        }
+                    } else if (selected == "mountain-bike") {
+                        routingProfile.maxSpeed = 25;
+
+                        speedTable['highway_cycleway']=20;
+                        speedTable['highway_living_street']=20;
+                        speedTable['highway_path:1']=20;
+                        speedTable['highway_path:2']=18;
+                        speedTable['highway_path:3']=14;
+                        speedTable['highway_path:4']=10;
+                        speedTable['highway_path:5']=8;
+                        speedTable['highway_primary']=25;
+                        speedTable['highway_primary_link']=25;
+                        speedTable['highway_residential']=10;
+                        speedTable['highway_road']=22;
+                        speedTable['highway_roundabout']=10;
+                        speedTable['highway_secondary']=25;
+                        speedTable['highway_secondary_link']=25;
+                        speedTable['highway_service']=16;
+                        speedTable['highway_tertiary']=20;
+                        speedTable['highway_tertiary_link']=20;
+                        speedTable['highway_track:1']=20;
+                        speedTable['highway_track:2']=20;
+                        speedTable['highway_track:3']=18;
+                        speedTable['highway_track:4']=16;
+                        speedTable['highway_track:5']=12;
+                        speedTable['highway_trunk']=20;
+                        speedTable['highway_trunk_link']=20;
+                        speedTable['highway_unclassified']=20;
+
+                        if (!mainRoadSwitch.checked){
+                            speedTable['highway_primary']=2;
+                            speedTable['highway_primary_link']=2;
+                            speedTable['highway_secondary']=4;
+                            speedTable['highway_secondary_link']=4;
+                        }
+                        if (!footwaySwitch.checked){
+                            speedTable['highway_footway']=0;
+                        }
+                    } else if (selected == "foot") {
+                        if (!mainRoadSwitch.checked){
+                            speedTable['highway_primary']=1;
+                            speedTable['highway_primary_link']=1;
+                            speedTable['highway_secondary']=1;
+                            speedTable['highway_secondary_link']=1;
+                        }
+                    }
+                    routingProfile.speedTable = speedTable;
+                    return routingProfile;
+                }
 
                 menu: ContextMenu {
-                    Repeater {
-                        id: vehicleRepeater
-                        model: vehicleComboBox.vehiclesModel
-                        MenuItem { text: qsTranslate("routerVehicle", vehicle) }
+                    RouteProfileMenuItem {
+                        icon: "car"
+                        text: qsTr("Car")
+                    }
+                    RouteProfileMenuItem {
+                        icon: "road-bike"
+                        text: qsTr("Road bike")
+                    }
+                    RouteProfileMenuItem {
+                        icon: "mountain-bike"
+                        text: qsTr("Mountain bike")
+                    }
+                    RouteProfileMenuItem {
+                        icon: "foot"
+                        text: qsTr("Foot")
                     }
                 }
                 onPressAndHold: {
@@ -161,21 +276,106 @@ Dialog {
                     if (!initialized){
                         return;
                     }
-                    var vehicles=route.availableVehicles();
-                    selected = vehicles[currentIndex];
+                    selected = vehicleProfiles[currentIndex];
                     console.log("Selected vehicle: "+selected);
                 }
-                Component.onCompleted: {
-                    var vehicles=route.availableVehicles()
-                    for (var i in vehicles){
-                        var vehicle = vehicles[i];
-                        console.log("Vehicle: "+vehicle);
-                        vehiclesModel.append({"vehicle": vehicle});
-                        if (vehicle==AppSettings.lastVehicle){
+                Component.onCompleted: {                    
+                    for (var i in vehicleProfiles){
+                        var profile = vehicleProfiles[i];
+                        console.log("Profile: "+profile);
+                        if (profile==AppSettings.lastVehicle){
                             currentIndex = i;
                         }
                     }
                     initialized = true;
+                }
+            }
+
+            TextSwitch{
+                id: mainRoadSwitch
+                width: parent.width
+
+                checked: false
+                //: witch to allow main roads (highway=primary|secondary) while routing for foot or bike
+                text: qsTr("Allow main roads")
+                visible: vehicleComboBox.selected == "road-bike" || vehicleComboBox.selected == "mountain-bike" || vehicleComboBox.selected == "foot"
+
+                property bool initialized: false
+                onCheckedChanged: {
+                    if (!initialized){
+                        return;
+                    }
+
+                    if (vehicleComboBox.selected == "road-bike"){
+                        AppSettings.roadBikeAllowMainRoads = checked;
+                    } else if (vehicleComboBox.selected == "mountain-bike"){
+                        AppSettings.mountainBikeAllowMainRoads = checked;
+                    } else if (vehicleComboBox.selected == "foot"){
+                        AppSettings.footAllowMainRoads = checked;
+                    }
+                }
+                function update() {
+                    initialized = false;
+                    if (vehicleComboBox.selected == "road-bike"){
+                        checked = AppSettings.roadBikeAllowMainRoads;
+                    } else if (vehicleComboBox.selected == "mountain-bike"){
+                        checked = AppSettings.mountainBikeAllowMainRoads;
+                    } else if (vehicleComboBox.selected == "foot"){
+                        checked = AppSettings.footAllowMainRoads;
+                    }
+                    console.log("allow main roads for " + vehicleComboBox.selected + ": " + checked);
+                    initialized = true;
+                }
+                Component.onCompleted: {
+                    update();
+                }
+                Connections {
+                    target: vehicleComboBox
+                    onSelectedChanged: {
+                        mainRoadSwitch.update();
+                    }
+                }
+            }
+
+            TextSwitch{
+                id: footwaySwitch
+                width: parent.width
+
+                checked: false
+                //: switch to allow footways while routing for bike
+                text: qsTr("Allow footways")
+                visible: vehicleComboBox.selected == "road-bike" || vehicleComboBox.selected == "mountain-bike"
+
+                property bool initialized: false
+                onCheckedChanged: {
+                    if (!initialized){
+                        return;
+                    }
+
+                    if (vehicleComboBox.selected == "road-bike"){
+                        AppSettings.roadBikeAllowFootways = checked;
+                    } else if (vehicleComboBox.selected == "mountain-bike"){
+                        AppSettings.mountainBikeAllowFootways = checked;
+                    }
+                }
+                function update() {
+                    initialized = false;
+                    if (vehicleComboBox.selected == "road-bike"){
+                        checked = AppSettings.roadBikeAllowFootways;
+                    } else if (vehicleComboBox.selected == "mountain-bike"){
+                        checked = AppSettings.mountainBikeAllowFootways;
+                    }
+                    console.log("allow footways for " + vehicleComboBox.selected + ": " + checked);
+                    initialized = true;
+                }
+                Component.onCompleted: {
+                    update();
+                }
+                Connections {
+                    target: vehicleComboBox
+                    onSelectedChanged: {
+                        footwaySwitch.update();
+                    }
                 }
             }
         }

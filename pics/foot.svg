@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22px"
+   height="22px"
+   viewBox="0 0 22 22"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="foot.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1136"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="32.545455"
+     inkscape:cx="11"
+     inkscape:cy="11"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">directions_walk</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <g
+     id="Icons"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     transform="translate(5.0158964,-0.23355068)">
+    <g
+       id="Rounded"
+       transform="translate(-209,-3123)">
+      <g
+         id="Maps"
+         transform="translate(100,3068)">
+        <g
+           id="-Round-/-Maps-/-directions_walk"
+           transform="translate(103,54)">
+          <g
+             id="g8">
+            <polygon
+               id="Path"
+               points="24,0 24,24 0,24 0,0 " />
+            <path
+               d="m 13.5,5.5 c 1.1,0 2,-0.9 2,-2 0,-1.1 -0.9,-2 -2,-2 -1.1,0 -2,0.9 -2,2 0,1.1 0.9,2 2,2 z M 9.8,8.9 7.24,21.81 C 7.11,22.42 7.59,23 8.22,23 H 8.3 c 0.47,0 0.87,-0.32 0.98,-0.78 L 10.9,15 13,17 v 5 c 0,0.55 0.45,1 1,1 0.55,0 1,-0.45 1,-1 v -5.64 c 0,-0.55 -0.22,-1.07 -0.62,-1.45 l -1.48,-1.41 0.6,-3 c 1.07,1.24 2.62,2.13 4.36,2.41 0.6,0.09 1.14,-0.39 1.14,-1 0,-0.49 -0.36,-0.9 -0.85,-0.98 C 16.63,10.68 15.37,9.78 14.7,8.6 L 13.7,7 C 13.14,6.11 12.02,5.75 11.05,6.16 L 7.22,7.78 C 6.48,8.1 6,8.82 6,9.63 V 12 c 0,0.55 0.45,1 1,1 0.55,0 1,-0.45 1,-1 V 9.6 Z"
+               id="🔹-Icon-Color"
+               fill="#1d1d1d" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

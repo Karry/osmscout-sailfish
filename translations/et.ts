@@ -932,6 +932,32 @@
         <source>Reverse direction</source>
         <translation>Muuda suund vastupidiseks</translation>
     </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Foot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow footways</source>
+        <extracomment>switch to allow footways while routing for bike</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow main roads</source>
+        <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Search</name>

@@ -51,6 +51,13 @@ class AppSettings: public QObject{
   Q_PROPERTY(int collectionOrdering   READ GetCollectionOrdering  WRITE SetCollectionOrdering   NOTIFY CollectionOrderingChanged)
   Q_PROPERTY(int collectionsOrdering  READ GetCollectionsOrdering WRITE SetCollectionsOrdering  NOTIFY CollectionsOrderingChanged)
 
+  // route profile switches
+  Q_PROPERTY(bool roadBikeAllowMainRoads     READ GetRoadBikeAllowMainRoads     WRITE SetRoadBikeAllowMainRoads     NOTIFY RoadBikeAllowMainRoadsChanged)
+  Q_PROPERTY(bool mountainBikeAllowMainRoads READ GetMountainBikeAllowMainRoads WRITE SetMountainBikeAllowMainRoads NOTIFY MountainBikeAllowMainRoadsChanged)
+  Q_PROPERTY(bool footAllowMainRoads         READ GetFootAllowMainRoads         WRITE SetFootAllowMainRoads         NOTIFY FootAllowMainRoadsChanged)
+  Q_PROPERTY(bool roadBikeAllowFootways      READ GetRoadBikeAllowFootways      WRITE SetRoadBikeAllowFootways      NOTIFY RoadBikeAllowFootwaysChanged)
+  Q_PROPERTY(bool mountainBikeAllowFootways  READ GetMountainBikeAllowFootways  WRITE SetMountainBikeAllowFootways  NOTIFY MountainBikeAllowFootwaysChanged)
+
 signals:
   void MapViewChanged(osmscout::MapView *view);
   void GpsFormatChanged(const QString formatId);
@@ -70,6 +77,11 @@ signals:
   void ShowCurrentPositionChanged(bool);
   void ShowNewPlaceChanged(bool);
   void NavigationKeepAliveChanged(bool);
+  void RoadBikeAllowMainRoadsChanged(bool);
+  void MountainBikeAllowMainRoadsChanged(bool);
+  void FootAllowMainRoadsChanged(bool);
+  void RoadBikeAllowFootwaysChanged(bool);
+  void MountainBikeAllowFootwaysChanged(bool);
 
 public:
   AppSettings();
@@ -128,6 +140,21 @@ public:
 
   bool GetNavigationKeepAlive() const;
   void SetNavigationKeepAlive(bool);
+
+  bool GetRoadBikeAllowMainRoads() const;
+  void SetRoadBikeAllowMainRoads(bool);
+
+  bool GetMountainBikeAllowMainRoads() const;
+  void SetMountainBikeAllowMainRoads(bool);
+
+  bool GetFootAllowMainRoads() const;
+  void SetFootAllowMainRoads(bool);
+
+  bool GetRoadBikeAllowFootways() const;
+  void SetRoadBikeAllowFootways(bool);
+
+  bool GetMountainBikeAllowFootways() const;
+  void SetMountainBikeAllowFootways(bool);
 
 private:
   QSettings         settings;

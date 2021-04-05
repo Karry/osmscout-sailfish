@@ -56,6 +56,7 @@ Item {
 
         property LocationEntry destination
         property string vehicle: "car"
+        property RoutingProfile profile: RoutingProfile{}
         property bool destinationSet: false
 
         onDestinationChanged: {
@@ -88,7 +89,8 @@ Item {
                             10 * 1000);
         }
 
-        function setup(vehicle, route, destination){
+        function setup(vehicle, profile, route, destination){
+            navigationModel.profile = profile;
             navigationModel.vehicle = vehicle;
             navigationModel.route = route;
             navigationModel.destination = destination;
@@ -103,7 +105,7 @@ Item {
             var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
             console.log("Navigation rerouting \"" + Utils.locationStr(startLoc) + "\" -> \"" + Utils.locationStr(navigationModel.destination) + "\" by " + navigationModel.vehicle);
             routingModel.rerouteRequested = true;
-            routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.vehicle);
+            routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.profile);
         }
 
         function stop(){

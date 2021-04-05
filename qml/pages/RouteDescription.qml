@@ -85,7 +85,7 @@ Dialog {
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
         if (fromCurrentLocation && destination && destination.type != "none"){
             console.log("Navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle);
-            Global.navigationModel.setup(route.vehicle, route.route, destination)
+            Global.navigationModel.setup(route.vehicle, route.profile, route.route, destination)
         }
     }
 
