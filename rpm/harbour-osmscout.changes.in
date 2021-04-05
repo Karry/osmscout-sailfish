@@ -454,4 +454,5 @@
 - fix search result sorting
 - add separate routing profile for road bike and mountain bike
 - customize routing from UI, make possible to avoid main roads on bike and foot
+- add map with route preview to route overview page
 - update translations (Czech, German, Swedish)

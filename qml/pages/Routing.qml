@@ -49,7 +49,7 @@ Dialog {
     }
     function computeRoute() {
         if ((fromSelector.location !== null) && (toSelector.location!== null)) {
-            console.log("Routing \"" + Utils.locationStr(fromSelector.location) + "\" -> \"" + Utils.locationStr(toSelector.location) + "\" with profile " + vehicleComboBox.selected);
+            console.log("Routing \"" + Utils.locationStr(fromSelector.location) + "\" -> \"" + Utils.locationStr(toSelector.location) + "\" with vehicle " + vehicleComboBox.selected);
             route.vehicle = vehicleComboBox.selected;
             route.profile = vehicleComboBox.prepareProfile();
             route.setStartAndTarget(fromSelector.location,

@@ -122,6 +122,37 @@ Dialog {
             width: parent.width - 2*Theme.paddingMedium
             x: Theme.paddingMedium
 
+            MapComponent {
+                id: routePreviewMap
+                showCurrentPosition: true
+                width: parent.width
+                height: Math.min(width, stepsView.height)
+
+                function showRoutePreview() {
+                    if (routeDescription.routeReady){
+                        var routeWay=route.routeWay;
+                        routePreviewMap.addOverlayObject(0,routeWay);
+                        routePreviewMap.showLocation(routeWay.boundingBox);
+                    }
+                }
+
+                Connections {
+                    target: routeDescription
+                    onRouteReadyChanged: {
+                        routePreviewMap.showRoutePreview();
+                    }
+                }
+
+                Component.onCompleted: {
+                    showRoutePreview();
+                }
+            }
+
+            Item {
+                width: parent.width
+                height: Theme.paddingMedium
+            }
+
             DetailItem {
                 id: distanceItem
                 label: qsTr("Distance")
