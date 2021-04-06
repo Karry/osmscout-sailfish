@@ -39,7 +39,9 @@ MapView *AppSettings::GetMapView()
     view = new MapView(this,
                        osmscout::GeoCoord(lat, lon),
                        Bearing(),
-                       osmscout::Magnification(mag),
+                       std::max(osmscout::Magnification(osmscout::Magnification::magWorld),
+                                std::min(osmscout::Magnification(mag),
+                                         osmscout::Magnification(osmscout::Magnification::magHouse))),
                        OSMScoutQt::GetInstance().GetSettings()->GetMapDPI());
   }
   return view;
