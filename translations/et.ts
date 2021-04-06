@@ -816,11 +816,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Tõus</translation>
+        <translation>Tõus</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Laskumine</translation>
+        <translation>Langus</translation>
     </message>
 </context>
 <context>
@@ -890,18 +890,18 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Tõus</translation>
+        <translation>Tõus</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Laskumine</translation>
+        <translation>Langus</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõrguste kaardi jaoks pole pisiavalt andmeid</translation>
     </message>
 </context>
 <context>
