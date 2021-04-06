@@ -816,11 +816,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Wznios</translation>
+        <translation>Wznios</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Spadek</translation>
+        <translation>Spadek</translation>
     </message>
 </context>
 <context>
@@ -890,18 +890,18 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Wznios</translation>
+        <translation>Wznios</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Spadek</translation>
+        <translation>Spadek</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak wystarczającej ilości danych do wykresu wysokości</translation>
     </message>
 </context>
 <context>
@@ -934,29 +934,29 @@
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Samochód</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>Pieszo</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished"></translation>
+        <translation>Rower Szosowy</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished"></translation>
+        <translation>Rower górski</translation>
     </message>
     <message>
         <source>Allow footways</source>
         <extracomment>switch to allow footways while routing for bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zezwalaj na piesze ścieżki</translation>
     </message>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zezwól na główne drogi</translation>
     </message>
 </context>
 <context>
