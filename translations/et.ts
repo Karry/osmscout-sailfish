@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>Loading collection</source>
-        <translation>Laen kogumikku</translation>
+        <translation>Laadin kogumikku</translation>
     </message>
     <message>
         <source>Export</source>
@@ -519,7 +519,7 @@
     </message>
     <message>
         <source>Downloaded Maps</source>
-        <translation>Allalaetud kaardid</translation>
+        <translation>Allalaaditud kaardid</translation>
     </message>
     <message>
         <source>Deleting</source>
@@ -687,7 +687,7 @@
     </message>
     <message>
         <source>Download</source>
-        <translation>Lae alla</translation>
+        <translation>Laadi alla</translation>
     </message>
     <message>
         <source>Directory</source>
@@ -703,7 +703,7 @@
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Allalaetud</translation>
+        <translation>Allalaaditud</translation>
     </message>
     <message>
         <source>Up-to-date</source>
@@ -934,29 +934,29 @@
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>autoga</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>jalgsi</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished"></translation>
+        <translation>linnarattaga</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished"></translation>
+        <translation>maastikurattaga</translation>
     </message>
     <message>
         <source>Allow footways</source>
         <extracomment>switch to allow footways while routing for bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kasuta jalgradu</translation>
     </message>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kasuta põhimaanteid</translation>
     </message>
 </context>
 <context>
