@@ -816,11 +816,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Anstieg</translation>
+        <translation>Anstieg</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Abstieg</translation>
+        <translation>Abstieg</translation>
     </message>
 </context>
 <context>
@@ -890,18 +890,18 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Anstieg</translation>
+        <translation>Anstieg</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Abstieg</translation>
+        <translation>Abstieg</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht genug Daten für Höhendiagramm</translation>
     </message>
 </context>
 <context>
@@ -934,29 +934,29 @@
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu Fuß</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished"></translation>
+        <translation>Straßen-Fahrrad</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished"></translation>
+        <translation>Mountain Bike</translation>
     </message>
     <message>
         <source>Allow footways</source>
         <extracomment>switch to allow footways while routing for bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Erlaube Fußwege</translation>
     </message>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Erlaube Hauptstraßen</translation>
     </message>
 </context>
 <context>

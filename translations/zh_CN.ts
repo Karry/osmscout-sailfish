@@ -816,11 +816,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">上坡</translation>
+        <translation>上坡</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">下坡</translation>
+        <translation>下坡</translation>
     </message>
 </context>
 <context>
@@ -890,18 +890,18 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">上坡</translation>
+        <translation>上坡</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">下坡</translation>
+        <translation>下坡</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>没有足够数据用于海拔高度图表</translation>
     </message>
 </context>
 <context>
@@ -934,29 +934,29 @@
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>开车</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>步行</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished"></translation>
+        <translation>公路自行车</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished"></translation>
+        <translation>山地自行车</translation>
     </message>
     <message>
         <source>Allow footways</source>
         <extracomment>switch to allow footways while routing for bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>允许步行</translation>
     </message>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>允许干道</translation>
     </message>
 </context>
 <context>
@@ -1059,12 +1059,12 @@
     </message>
     <message>
         <source>Charging station</source>
-        <translation type="unfinished"></translation>
+        <translation>充电站</translation>
     </message>
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>路标</translation>
     </message>
 </context>
 <context>
