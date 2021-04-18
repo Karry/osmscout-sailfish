@@ -111,23 +111,26 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
   app->setApplicationVersion(OSMSCOUT_SAILFISH_VERSION_STRING);
 
-  ArgParser argParser(app, argc, argv);
+  Arguments args;
+  {
+    ArgParser argParser(app, argc, argv);
 
-  osmscout::CmdLineParseResult argResult=argParser.Parse();
-  if (argResult.HasError()) {
-    std::cerr << "ERROR: " << argResult.GetErrorDescription() << std::endl;
-    std::cout << argParser.GetHelp() << std::endl;
-    return 1;
-  }
+    osmscout::CmdLineParseResult argResult = argParser.Parse();
+    if (argResult.HasError()) {
+      std::cerr << "ERROR: " << argResult.GetErrorDescription() << std::endl;
+      std::cout << argParser.GetHelp() << std::endl;
+      return 1;
+    }
 
-  Arguments args=argParser.GetArguments();
-  if (args.help) {
-    std::cout << argParser.GetHelp() << std::endl;
-    return 0;
-  }
-  if (args.version) {
-    std::cout << versionStrings() << std::endl;
-    return 0;
+    args = argParser.GetArguments();
+    if (args.help) {
+      std::cout << argParser.GetHelp() << std::endl;
+      return 0;
+    }
+    if (args.version) {
+      std::cout << versionStrings() << std::endl;
+      return 0;
+    }
   }
 
   osmscout::log.Debug(args.logLevel >= Arguments::LogLevel::Debug);
