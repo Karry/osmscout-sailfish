@@ -212,17 +212,17 @@ Item {
             if (navigationModel.destinationSet){
                 navigationModel.locationChanged(valid, // valid
                                                 lat, lon,
-                                                position.horizontalAccuracyValid,
-                                                position.horizontalAccuracy);
+                                                horizontalAccuracyValid,
+                                                horizontalAccuracy);
             }
             // console.log("position: " + latitude + " " + longitude);
             if (tracker.tracking){
                 tracker.locationChanged(lastUpdate,
                                         valid,
                                         lat, lon,
-                                        position.horizontalAccuracyValid, position.horizontalAccuracy,
-                                        position.altitudeValid, position.coordinate.altitude,
-                                        position.verticalAccuracyValid, position.verticalAccuracy);
+                                        horizontalAccuracyValid, horizontalAccuracy,
+                                        altitudeValid, altitude,
+                                        verticalAccuracyValid, verticalAccuracy);
 
             }
         }
