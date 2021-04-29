@@ -55,10 +55,11 @@ private:
   osmscout::gpx::TrackPoint segmentEnd{osmscout::GeoCoord(0,0)};
 
 signals:
-  void positionChanged(double latitude,
-                       double longitude,
-                       bool horizontalAccuracyValid,
-                       double horizontalAccuracy);
+  void positionChanged(double latitude, double longitude,
+                       bool horizontalAccuracyValid, double horizontalAccuracy,
+                       bool altitudeValid, double altitude,
+                       bool verticalAccuracyValid, double verticalAccuracy);
+
   void runningChanged(bool);
   void startChanged(double latitude, double longitude);
   void endChanged(double latitude, double longitude);

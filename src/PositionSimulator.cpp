@@ -152,7 +152,10 @@ void PositionSimulator::tick()
       }
       osmscout::log.Debug() << "Simulator point: " << osmscout::TimestampToISO8601TimeString(point.time.value_or(simulationTime)) << " @ " << point.coord.GetDisplayText();
       currentPosition=point.coord;
-      emit positionChanged(currentPosition.GetLat(), currentPosition.GetLon(), point.hdop.has_value(), point.hdop.value_or(0));
+      emit positionChanged(currentPosition.GetLat(), currentPosition.GetLon(),
+                           point.hdop.has_value(), point.hdop.value_or(0),
+                           point.elevation.has_value(), point.elevation.value_or(0),
+                           point.vdop.has_value(), point.vdop.value_or(0));
       currentPoint++;
       if (!point.time){
         return;

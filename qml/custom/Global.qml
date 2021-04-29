@@ -141,6 +141,40 @@ Item {
         id: tracker
     }
 
+    PositionSimulator {
+        id: positionSimulator
+        track: PositionSimulationTrack
+        Component.onCompleted: {
+            if (PositionSimulationTrack != ""){
+                console.log("PositionSimulationTrack: " + PositionSimulationTrack)
+                positionSource.active = false;
+            }
+        }
+
+        onPositionChanged: {
+            console.log("simulate position: " + latitude + " " + longitude);
+
+            positionSource.lat = latitude;
+            positionSource.lon = longitude;
+            positionSource.horizontalAccuracyValid = horizontalAccuracyValid;
+            positionSource.horizontalAccuracy = horizontalAccuracy;
+
+            positionSource.positionValid = !isNaN(latitude) && !isNaN(longitude);
+
+            positionSource.lastUpdate = new Date();
+            positionSource.altitudeValid = altitudeValid;
+            if (altitudeValid){
+                positionSource.altitude = altitude;
+                positionSource.lastAltitudeUpdate = positionSource.lastUpdate;
+                positionSource.verticalAccuracy = verticalAccuracy;
+                positionSource.verticalAccuracyValid = verticalAccuracyValid;
+            }
+
+            positionSource.updateInternal();
+        }
+    }
+
+
     PositionSource {
         id: positionSource
 
@@ -166,8 +200,31 @@ Item {
 
         signal update(bool positionValid, double lat, double lon, bool horizontalAccuracyValid, double horizontalAccuracy, date lastUpdate)
 
+        // trigger update signal with recent data
         function updateRequest(){
             update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
+        }
+
+        function updateInternal() {
+            update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
+
+            // update location for navigation
+            if (navigationModel.destinationSet){
+                navigationModel.locationChanged(valid, // valid
+                                                lat, lon,
+                                                position.horizontalAccuracyValid,
+                                                position.horizontalAccuracy);
+            }
+            // console.log("position: " + latitude + " " + longitude);
+            if (tracker.tracking){
+                tracker.locationChanged(lastUpdate,
+                                        valid,
+                                        lat, lon,
+                                        position.horizontalAccuracyValid, position.horizontalAccuracy,
+                                        position.altitudeValid, position.coordinate.altitude,
+                                        position.verticalAccuracyValid, position.verticalAccuracy);
+
+            }
         }
 
         onPositionValidChanged: {
@@ -208,25 +265,7 @@ Item {
                 verticalAccuracyValid = position.verticalAccuracyValid;
             }
 
-            update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
-
-            // update location for navigation
-            if (navigationModel.destinationSet){
-                navigationModel.locationChanged(valid, // valid
-                                                lat, lon,
-                                                position.horizontalAccuracyValid,
-                                                position.horizontalAccuracy);
-            }
-            // console.log("position: " + latitude + " " + longitude);
-            if (tracker.tracking){
-                tracker.locationChanged(lastUpdate,
-                                        valid,
-                                        lat, lon,
-                                        position.horizontalAccuracyValid, position.horizontalAccuracy,
-                                        position.altitudeValid, position.coordinate.altitude,
-                                        position.verticalAccuracyValid, position.verticalAccuracy);
-
-            }
+            updateInternal();
         }
     }
 
