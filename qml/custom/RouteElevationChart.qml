@@ -36,7 +36,7 @@ ElevationChart {
         wrapMode: Text.WordWrap
         font.pixelSize: Theme.fontSizeSmall
         color: elevationChart.textColor
-        visible: !elevationChart.loading && elevationChart.pointCount < 2
+        visible: !elevationChart.loading && elevationChart.pointCount < 2 && elevationChart.way != null
         text: qsTr("No enough data for elevation chart")
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
