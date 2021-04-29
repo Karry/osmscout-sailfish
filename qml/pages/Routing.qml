@@ -41,7 +41,7 @@ Dialog {
         id: route
 
         property string vehicle: "car";
-        property RoutingProfile profile: RoutingProfile{}
+        property RoutingProfile profile: null
 
         onRouteFailed: {
             remorse.execute(qsTranslate("message", reason), function() { }, 10 * 1000);
@@ -149,9 +149,11 @@ Dialog {
                 property string selected: ""
                 property var vehicleProfiles: ["car", "road-bike", "mountain-bike", "foot"]
 
-                property RoutingProfile routingProfile: RoutingProfile{}
-
                 function prepareProfile() {
+                    var routingProfile = Qt.createQmlObject("import harbour.osmscout.map 1.0\n" +
+                                                            "RoutingProfile{}",
+                                                            Global.navigationModel,
+                                                            "dynamicRoutingProfile");
                     if (selected=="car"){
                         routingProfile.vehicle=RoutingProfile.CarVehicle;
                     } else if (selected == "road-bike" || selected == "mountain-bike") {

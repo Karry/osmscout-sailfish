@@ -84,7 +84,7 @@ Dialog {
         mapPage.showRoute(routeWay, 0);
         console.log("add overlay way \"" + routeWay.type + "\" ("+routeWay.size+" nodes)");
         if (fromCurrentLocation && destination && destination.type != "none"){
-            console.log("Navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle);
+            console.log("Navigation destination: \"" + Utils.locationStr(destination) + "\" by " + route.vehicle + " profile: " + route.profile);
             Global.navigationModel.setup(route.vehicle, route.profile, route.route, destination)
         }
     }
