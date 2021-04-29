@@ -147,7 +147,6 @@ Item {
         Component.onCompleted: {
             if (PositionSimulationTrack != ""){
                 console.log("PositionSimulationTrack: " + PositionSimulationTrack)
-                positionSource.active = false;
             }
         }
 
@@ -178,7 +177,7 @@ Item {
     PositionSource {
         id: positionSource
 
-        active: true
+        active: PositionSimulationTrack == ""
 
         updateInterval: 1000 // ms
 
@@ -206,6 +205,7 @@ Item {
         }
 
         function updateInternal() {
+            // console.log("update internal: " + lat + " " + lon + " (active: " + positionSource.active + ")");
             update(positionValid, lat, lon, horizontalAccuracyValid, horizontalAccuracy, lastUpdate);
 
             // update location for navigation
