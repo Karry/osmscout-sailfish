@@ -314,7 +314,9 @@ set(HEADER_FILES
     src/MemoryManager.h
     src/NearWaypointModel.h
     src/Tracker.h
-    src/SearchHistoryModel.h)
+    src/SearchHistoryModel.h
+    src/PositionSimulator.h
+    )
 
 # keep qml files in source list - it makes qtcreator happy
 # find qml -type f
@@ -397,7 +399,8 @@ set(SOURCE_FILES
     src/TrackElevationChartWidget.cpp
     src/Tracker.cpp
     src/SearchHistoryModel.cpp
-    src/NearWaypointModel.cpp)
+    src/NearWaypointModel.cpp
+    src/PositionSimulator.cpp)
 
 # XML files with translated phrases.
 # You can add new language translation just by adding new entry here, and run build.

@@ -35,6 +35,7 @@ struct Arguments {
   bool version{false};
   LogLevel logLevel{LogLevel::Warn};
   bool desktop{false};
+  QString positionSimulatorFile;
 };
 
 class ArgParser: public osmscout::CmdLineParser
@@ -79,6 +80,13 @@ ArgParser(QGuiApplication *app,
             }),
             "log",
             "Set logging level (debug, info, warn, error, none). Default warn.",
+            false);
+
+  AddOption(osmscout::CmdLineStringOption([this](const std::string& value) {
+              args.positionSimulatorFile = QString::fromStdString(value);
+            }),
+            "simulate-position",
+            "Simulate position by record from gpx file",
             false);
 
   AddOption(osmscout::CmdLineFlag([this](const bool& value) {

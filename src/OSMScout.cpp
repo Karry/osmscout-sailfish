@@ -38,6 +38,7 @@
 #include "SearchHistoryModel.h"
 #include "NearWaypointModel.h"
 #include "TrackElevationChartWidget.h"
+#include "PositionSimulator.h"
 
 #include <harbour-osmscout/private/Config.h>
 #include <harbour-osmscout/private/Version.h>
@@ -179,6 +180,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   qmlRegisterType<NearWaypointModel>("harbour.osmscout.map", 1, 0, "NearWaypointModel");
   qmlRegisterType<LocFile>("harbour.osmscout.map", 1, 0, "LocFile");
   qmlRegisterType<TrackElevationChartWidget>("harbour.osmscout.map", 1, 0, "TrackElevationChart");
+  qmlRegisterType<PositionSimulator>("harbour.osmscout.map", 1, 0, "PositionSimulator");
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 
@@ -259,6 +261,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   if (!args.desktop) {
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
+    view->rootContext()->setContextProperty("PositionSimulationTrack", args.positionSimulatorFile);
     view->engine()->addImageProvider(QLatin1String("harbour-osmscout"), new IconProvider());
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->showFullScreen();
