@@ -465,4 +465,4 @@
 - update core library:
 -- custom implementation for utf8 transformations (faster search)
 -- fixed memory leak in map widget destruction
--- preparison for custom track (gpx) colors
+-- preparation for custom track (gpx) colors
