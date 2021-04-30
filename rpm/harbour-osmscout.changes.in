@@ -459,7 +459,7 @@
 - add gesture for zoom with one finger (tap followed by dragging)
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.13
-- update translations (German, Chinese)
+- update translations (German, Chinese, Hungarian)
 - allow to simulate gps position by track from gpx file (for easier navigation debugging)
 - fix navigation re-routing
 - update core library:

@@ -28,8 +28,8 @@
         <translation>Čeština: Lukáš Karas</translation>
     </message>
     <message>
-        <source>Hungarian: Miklós Márton</source>
-        <translation>Maďarština: Miklós Márton</translation>
+        <source>Hungarian: Márton Miklós, Szabó G.</source>
+        <translation>Maďarština: Márton Miklós, Szabó G.</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>

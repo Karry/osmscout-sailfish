@@ -28,8 +28,8 @@
         <translation>tšehhi keel: Lukáš Karas</translation>
     </message>
     <message>
-        <source>Hungarian: Miklós Márton</source>
-        <translation>ungari keel: Miklós Márton</translation>
+        <source>Hungarian: Márton Miklós, Szabó G.</source>
+        <translation>ungari keel: Márton Miklós, Szabó G.</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>

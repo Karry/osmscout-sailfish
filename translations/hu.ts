@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>A Sailfish operációs rendszeren futó OSM Scout alkalmazást a fejlesztők szabad idejükben fejlesztik. Segítheted munkájukat hibák bejelentésével, fordítások készítésével és új programfunkciók fejlesztésével. Minden segítséget köszönettel fogadunk!</translation>
+        <translation>A Sailfish operációs rendszeren futó OSM Scout alkalmazást a fejlesztők szabadidejükben fejlesztik. Segítheted munkájukat hibák bejelentésével, fordítások készítésével és új programfunkciók fejlesztésével. Minden segítséget köszönettel fogadunk!</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -28,8 +28,8 @@
         <translation>Cseh: Lukáš Karas</translation>
     </message>
     <message>
-        <source>Hungarian: Miklós Márton</source>
-        <translation>Magyar: Márton Miklós</translation>
+        <source>Hungarian: Márton Miklós, Szabó G.</source>
+        <translation>Magyar: Márton Miklós, Szabó G.</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
@@ -106,16 +106,16 @@
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény betöltése</translation>
     </message>
     <message>
         <source>Export</source>
         <extracomment>track context menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Exportálás</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Útpont szerkesztése</translation>
     </message>
     <message>
         <source>Edit track</source>
@@ -128,7 +128,7 @@
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>Áthelyezés</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
@@ -141,27 +141,27 @@
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény szerkesztése</translation>
     </message>
     <message>
         <source>Export Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény exportálása</translation>
     </message>
     <message>
         <source>Edit Collection</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény szerkesztése</translation>
     </message>
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rendezés alapja</translation>
     </message>
     <message>
         <source>Name and description</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Név és leírás</translation>
     </message>
     <message>
         <source>Crop start</source>
@@ -192,7 +192,7 @@
     <name>CollectionComboBox</name>
     <message>
         <source>Collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény</translation>
     </message>
 </context>
 <context>
@@ -210,7 +210,7 @@
     <name>CollectionEntryDialog</name>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Új gyűjtemény</translation>
     </message>
     <message>
         <source>Default</source>
@@ -229,7 +229,7 @@
     <name>CollectionExport</name>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportálás</translation>
     </message>
     <message>
         <source>File name</source>
@@ -278,7 +278,7 @@
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény-rendezés</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -467,11 +467,11 @@
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Új gyűjtemény</translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gyűjtemény szerkesztése</translation>
     </message>
     <message>
         <source>Hide on map</source>
@@ -484,7 +484,7 @@
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rendezés alapja</translation>
     </message>
 </context>
 <context>

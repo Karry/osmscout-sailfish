@@ -28,8 +28,8 @@
         <translation>چکی: Lukáš Karas</translation>
     </message>
     <message>
-        <source>Hungarian: Miklós Márton</source>
-        <translation>مجارستانی: Miklós Márton</translation>
+        <source>Hungarian: Márton Miklós, Szabó G.</source>
+        <translation>مجارستانی: Márton Miklós, Szabó G.</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>

@@ -28,7 +28,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hungarian: Miklós Márton</source>
+        <source>Hungarian: Márton Miklós, Szabó G.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
