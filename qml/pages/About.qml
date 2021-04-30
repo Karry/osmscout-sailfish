@@ -169,7 +169,7 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
-                    text: qsTr("Hungarian: Miklós Márton")
+                    text: qsTr("Hungarian: Márton Miklós, Szabó G.")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
                 }
