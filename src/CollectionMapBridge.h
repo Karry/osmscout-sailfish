@@ -34,12 +34,14 @@ class CollectionMapBridge : public QObject {
   Q_PROPERTY(QObject* map READ getMap WRITE setMap)
   Q_PROPERTY(QString waypointType READ getWaypointType WRITE setWaypointType)
   Q_PROPERTY(QString trackType READ getTrackType WRITE setTrackType)
+  Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
 
 signals:
   void collectionLoadRequest();
   void collectionDetailRequest(Collection);
   void trackDataRequest(Track track, std::optional<double> accuracyFilter);
   void error(QString message);
+  void enabledChanged(bool enabled);
 
 public slots:
   void init();
@@ -74,10 +76,21 @@ public:
 
   void setTrackType(QString type);
 
+  bool isEnabled() const
+  {
+    return enabled;
+  }
+
+  void setEnabled(bool b);
+
+private:
+  void Invalidate();
+
 private:
   osmscout::MapWidget *delegatedMap{nullptr};
   QString waypointTypeName{"_waypoint"};
   QString trackTypeName{"_track"};
+  bool enabled{true};
 
   qint64 nextObjectId{50000};
 

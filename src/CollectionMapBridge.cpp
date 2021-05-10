@@ -149,6 +149,7 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, std::optional<double> a
       accuracyFilter != std::nullopt ||
       !complete ||
       !ok ||
+      !enabled ||
       !displayedCollection.contains(track.collectionId) ||
       displayedCollection[track.collectionId].tracks[track.id].lastModification == track.lastModification
       ){
@@ -212,7 +213,7 @@ void CollectionMapBridge::onCollectionsLoaded(std::vector<Collection> collection
     QMap<qint64, DisplayedCollection> collectionToHide = displayedCollection;
 
     for (const auto &c: collections){
-      if (c.visible){
+      if (c.visible && enabled){
         collectionToHide.remove(c.id);
         collectionDetailRequest(c);
       }
@@ -242,14 +243,38 @@ void CollectionMapBridge::setMap(QObject *map)
   init();
 }
 
+void CollectionMapBridge::Invalidate()
+{
+  for (auto &col : displayedCollection) {
+    for (auto &wpt : col.waypoints){
+      wpt.lastModification = QDateTime();
+    }
+    for (auto &trk : col.tracks){
+      trk.lastModification = QDateTime();
+    }
+  }
+}
+
 void CollectionMapBridge::setWaypointType(QString name)
 {
   waypointTypeName = name;
+  Invalidate();
   init();
 }
 
 void CollectionMapBridge::setTrackType(QString type)
 {
   trackTypeName = type;
+  Invalidate();
   init();
+}
+
+void CollectionMapBridge::setEnabled(bool b)
+{
+  if (enabled == b) {
+    return;
+  }
+  enabled = b;
+  init();
+  emit enabledChanged(enabled);
 }

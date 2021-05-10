@@ -466,6 +466,7 @@ Page {
 
             CollectionMapBridge{
                 map: map
+                enabled: AppSettings.showCollections
             }
 
             onTap: {
@@ -650,7 +651,7 @@ Page {
                 Image {
                     id: newPlaceIcon
                     anchors.fill: parent
-                    source: "image://theme/icon-m-favorite"
+                    source: "image://harbour-osmscout/pics/new-place.svg?" + Theme.primaryColor
                     fillMode: Image.PreserveAspectFit
                     horizontalAlignment: Image.AlignHCenter
                     verticalAlignment: Image.AlignVCenter
@@ -1101,6 +1102,43 @@ Page {
                 }
             }
         }
+        Rectangle {
+            id : showCollectionsBtn
+            anchors{
+                right: parent.right
+                top: menuBtn.bottom
 
+                topMargin: Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
+                bottomMargin: Theme.paddingMedium
+                leftMargin: Theme.paddingMedium
+            }
+
+            property bool active: AppSettings.showCollectionToggle
+            visible: active
+            width: Theme.iconSizeLarge
+            height: active ? width : 0
+
+            radius: Theme.paddingMedium
+
+            color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+            Image{
+                source: AppSettings.showCollections ? "image://theme/icon-m-favorite-selected" : "image://theme/icon-m-favorite"
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+            MouseArea {
+                id: showCollectionsBtnMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    AppSettings.showCollections = !AppSettings.showCollections
+                }
+            }
+        }
     }
 }

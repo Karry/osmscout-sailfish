@@ -195,6 +195,7 @@ Window {
 
             CollectionMapBridge{
                 map: map
+                enabled: AppSettings.showCollections
             }
 
             renderingType: "tiled" // plane or tiled

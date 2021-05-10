@@ -1158,6 +1158,15 @@
         <extracomment>switch for keep display on during navigation</extracomment>
         <translation>Nie wyłączaj wyświetlacza</translation>
     </message>
+    <message>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collection visibility</source>
+        <extracomment>Button for fast show/hide collection entries</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

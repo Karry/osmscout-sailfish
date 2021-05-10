@@ -273,6 +273,32 @@ void AppSettings::SetShowNewPlace(bool b)
   }
 }
 
+bool AppSettings::GetShowCollectionToggle() const
+{
+  return settings.value("showCollectionToggle", "false").toBool();
+}
+
+void AppSettings::SetShowCollectionToggle(bool b)
+{
+  if (GetShowCollectionToggle() != b){
+    settings.setValue("showCollectionToggle", b);
+    emit ShowCollectionToggleChanged(b);
+  }
+}
+
+bool AppSettings::GetShowCollections() const
+{
+  return settings.value("showCollections", "true").toBool();
+}
+
+void AppSettings::SetShowCollections(bool b)
+{
+  if (GetShowCollections() != b){
+    settings.setValue("showCollections", b);
+    emit ShowCollectionsChanged(b);
+  }
+}
+
 bool AppSettings::GetNavigationKeepAlive() const
 {
   return settings.value("navigationKeepAlive", "true").toBool();

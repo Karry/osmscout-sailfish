@@ -398,7 +398,9 @@ Page {
                     DelegateModel {
                         id: delegateModel
                     }
-                    icon.source: "image://theme/icon-m-favorite"
+                    icon.source: "image://harbour-osmscout/pics/new-place.svg?" + Theme.primaryColor
+                    icon.sourceSize.width: Theme.iconSizeMedium
+                    icon.sourceSize.height: Theme.iconSizeMedium
                     onClicked: {
                         var info = placeTools.placeInfo();
                         var name = info.name;

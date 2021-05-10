@@ -333,6 +333,19 @@ Page {
                 }
             }
 
+            TextSwitch{
+                id: showCollectionToggleSwitch
+                width: parent.width
+
+                checked: AppSettings.showCollectionToggle
+                //: Button for fast show/hide collection entries
+                text: qsTr("Collection visibility")
+                description: qsTr("Fast toggle for hidde or show tracks and waypoints from collections")
+
+                onCheckedChanged: {
+                    AppSettings.showCollectionToggle = checked;
+                }
+            }
         }
     }
 }

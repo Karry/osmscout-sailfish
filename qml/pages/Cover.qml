@@ -183,6 +183,7 @@ CoverBackground {
 
         CollectionMapBridge{
             map: map
+            enabled: AppSettings.showCollections
         }
 
         followVehicle: Global.navigationModel.destinationSet

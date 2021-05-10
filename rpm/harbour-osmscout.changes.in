@@ -469,3 +469,4 @@
 
 * 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.14
 - fix cleanup of partially downloaded database on application termination
+- add fast toggle for show or hide collections

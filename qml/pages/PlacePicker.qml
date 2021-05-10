@@ -66,6 +66,7 @@ Dialog {
         }
         CollectionMapBridge{
             map: map
+            enabled: AppSettings.showCollections
         }
         onTap: {
             map.addPositionMark(0, lat, lon);

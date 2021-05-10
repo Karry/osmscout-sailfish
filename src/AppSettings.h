@@ -45,6 +45,10 @@ class AppSettings: public QObject{
   Q_PROPERTY(bool showMapOrientation  READ GetShowMapOrientation  WRITE SetShowMapOrientation   NOTIFY ShowMapOrientationChanged)
   Q_PROPERTY(bool showCurrentPosition READ GetShowCurrentPosition WRITE SetShowCurrentPosition  NOTIFY ShowCurrentPositionChanged)
   Q_PROPERTY(bool showNewPlace        READ GetShowNewPlace        WRITE SetShowNewPlace         NOTIFY ShowNewPlaceChanged)
+  Q_PROPERTY(bool showCollectionToggle READ GetShowCollectionToggle WRITE SetShowCollectionToggle NOTIFY ShowCollectionToggleChanged)
+
+  // collection map bridge
+  Q_PROPERTY(bool showCollections     READ GetShowCollections     WRITE SetShowCollections      NOTIFY ShowCollectionsChanged)
 
   // order of collection items
   Q_PROPERTY(bool waypointFirst       READ GetWaypointFirst       WRITE SetWaypointFirst        NOTIFY WaypointFirstChanged)
@@ -70,12 +74,14 @@ signals:
   void ShowTrackerDistanceChanged(bool);
   void ShowElevationChanged(bool);
   void ShowAccuracyChanged(bool);
+  void ShowCollectionsChanged(bool);
   void WaypointFirstChanged(bool);
   void CollectionOrderingChanged(int);
   void CollectionsOrderingChanged(int);
   void ShowMapOrientationChanged(bool);
   void ShowCurrentPositionChanged(bool);
   void ShowNewPlaceChanged(bool);
+  void ShowCollectionToggleChanged(bool);
   void NavigationKeepAliveChanged(bool);
   void RoadBikeAllowMainRoadsChanged(bool);
   void MountainBikeAllowMainRoadsChanged(bool);
@@ -137,6 +143,12 @@ public:
 
   bool GetShowNewPlace() const;
   void SetShowNewPlace(bool);
+
+  bool GetShowCollectionToggle() const;
+  void SetShowCollectionToggle(bool);
+
+  bool GetShowCollections() const;
+  void SetShowCollections(bool);
 
   bool GetNavigationKeepAlive() const;
   void SetNavigationKeepAlive(bool);
