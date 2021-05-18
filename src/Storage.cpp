@@ -31,7 +31,7 @@
 #include <QtSql/QSqlRecord>
 
 namespace {
-  static constexpr int DbSchema = 2;
+  static constexpr int DbSchema = 3;
   static constexpr int TrackPointBatchSize = 10000;
   static constexpr int WayPointBatchSize = 100;
 
@@ -119,6 +119,8 @@ QString sqlCreateTrack(){
   sql.append(",").append( "`open` tinyint(1) NOT NULL");
   sql.append(",").append( "`creation_time` datetime NOT NULL");
   sql.append(",").append( "`modification_time` datetime NOT NULL");
+  sql.append(",").append( "`color` varchar(12) NULL");
+  sql.append(",").append( "`type` varchar(80) NULL");
 
   // statistics
   sql.append(",").append( "`from_time` datetime NULL");
@@ -275,24 +277,68 @@ bool Storage::updateSchema(){
   }
 
   // upgrade schema
+  // Sqlite support adding (to the end), removing or renaming columns, but don't support changing
+  // column type or attributes. For that reason we do these steps for upgrade:
+  // - start transaction
+  // - disable foreign keys
+  // - rename table to _{tableName}
+  // - create table with new schema
+  // - copy data
+  // - drop _{tableName}
+  // - enable foreign keys
+  // - commit
+  // - profit
   QStringList updateQueries;
+  bool updateTrackPointTable = false;
+  bool updateWaypointTable = false;
+  bool updateTrackTable = false;
   if (currentSchema < 2){
     // from schema v2 may be timestamps null
+    updateTrackPointTable = true;
+    updateWaypointTable = true;
+  }
 
+  if (currentSchema < 3) {
+    // from schema v3 track may have type and color
+    updateTrackTable = true;
+  }
+
+  if (updateTrackPointTable) {
     // alter track_point
     updateQueries << "ALTER TABLE `track_point` RENAME TO `_track_point`";
     updateQueries << sqlCreateTrackPoint();
     updateQueries << "INSERT INTO `track_point` SELECT * FROM `_track_point`";
     updateQueries << "DROP TABLE `_track_point`";
+  }
 
+  if (updateWaypointTable) {
     // alter waypoint
     updateQueries << "ALTER TABLE `waypoint` RENAME TO `_waypoint`";
     updateQueries << sqlCreateWaypoint();
     updateQueries << "INSERT INTO `waypoint` SELECT * FROM `_waypoint`";
     updateQueries << "DROP TABLE `_waypoint`";
+  }
 
-    updateQueries << "INSERT INTO `version` (`version`) VALUES (2)";
-    currentSchema = 2;
+  if (updateTrackTable) {
+    // alter waypoint
+    updateQueries << "ALTER TABLE `track` RENAME TO `_track`";
+    updateQueries << sqlCreateTrack();
+    if (currentSchema < 3) {
+      // in v3 we added two columns, so we need to explicitly name columns (from v2)
+      updateQueries << (QString("INSERT INTO `track` (")
+          .append("`id`, `collection_id`, `name`, `description`, `open`, `creation_time`, ")
+          .append("`modification_time`, `from_time`, `to_time`, `distance`, `raw_distance`, ")
+          .append("`duration`, `moving_duration`, `max_speed`, `average_speed`, `moving_average_speed`, ")
+          .append("`ascent`, `descent`, `min_elevation`, `max_elevation`, `bbox_min_lat`, `bbox_min_lon`, ")
+          .append("`bbox_max_lat`, `bbox_max_lon`")
+          .append(") SELECT * FROM `_track`"));
+    }
+    updateQueries << "DROP TABLE `_track`";
+  }
+
+  if (currentSchema < DbSchema){
+    updateQueries << QString("INSERT INTO `version` (`version`) VALUES (%1)").arg(DbSchema);
+    currentSchema = DbSchema;
   }
 
   // do upgrade commands
