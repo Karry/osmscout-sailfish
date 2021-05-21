@@ -121,6 +121,7 @@ QString sqlCreateTrack(){
   sql.append(",").append( "`modification_time` datetime NOT NULL");
   sql.append(",").append( "`color` varchar(12) NULL");
   sql.append(",").append( "`type` varchar(80) NULL");
+  sql.append(",").append( "`visible` tinyint(1) NOT NULL"); // track is visible when collection.visible && track.visible
 
   // statistics
   sql.append(",").append( "`from_time` datetime NULL");
@@ -187,6 +188,7 @@ QString sqlCreateWaypoint(){
   sql.append(",").append( "`name` varchar(255) NOT NULL ");
   sql.append(",").append( "`description` varchar(255) NULL ");
   sql.append(",").append( "`symbol` varchar(255) NULL ");
+  sql.append(",").append( "`visible` tinyint(1) NOT NULL"); // waypoint is visible when collection.visible && waypoint.visible
   sql.append(");");
 
   return sql;
@@ -299,8 +301,9 @@ bool Storage::updateSchema(){
   }
 
   if (currentSchema < 3) {
-    // from schema v3 track may have type and color
+    // from schema v3 track may have type and color and explicit visi column
     updateTrackTable = true;
+    updateWaypointTable = true;
   }
 
   if (updateTrackPointTable) {
@@ -315,7 +318,19 @@ bool Storage::updateSchema(){
     // alter waypoint
     updateQueries << "ALTER TABLE `waypoint` RENAME TO `_waypoint`";
     updateQueries << sqlCreateWaypoint();
-    updateQueries << "INSERT INTO `waypoint` SELECT * FROM `_waypoint`";
+
+    // in v3 we added one column (visible), so we need to explicitly name columns (from v2)
+    static_assert(DbSchema==3);
+    updateQueries << (QString("INSERT INTO `waypoint` (")
+      .append("`id`, `collection_id`, `modification_time`, `timestamp`, `latitude`,")
+      .append("`longitude`, `elevation`, `name`, `description`,")
+      .append("`symbol`, `visible`")
+      .append(") SELECT ")
+      .append("`id`, `collection_id`, `modification_time`, `timestamp`, `latitude`,")
+      .append("`longitude`, `elevation`, `name`, `description`,")
+      .append("`symbol`, 1")
+      .append(" FROM `_waypoint`"));
+
     updateQueries << "DROP TABLE `_waypoint`";
   }
 
@@ -323,16 +338,25 @@ bool Storage::updateSchema(){
     // alter waypoint
     updateQueries << "ALTER TABLE `track` RENAME TO `_track`";
     updateQueries << sqlCreateTrack();
-    if (currentSchema < 3) {
-      // in v3 we added two columns, so we need to explicitly name columns (from v2)
-      updateQueries << (QString("INSERT INTO `track` (")
-          .append("`id`, `collection_id`, `name`, `description`, `open`, `creation_time`, ")
-          .append("`modification_time`, `from_time`, `to_time`, `distance`, `raw_distance`, ")
-          .append("`duration`, `moving_duration`, `max_speed`, `average_speed`, `moving_average_speed`, ")
-          .append("`ascent`, `descent`, `min_elevation`, `max_elevation`, `bbox_min_lat`, `bbox_min_lon`, ")
-          .append("`bbox_max_lat`, `bbox_max_lon`")
-          .append(") SELECT * FROM `_track`"));
-    }
+
+    // in v3 we added three columns, so we need to explicitly name columns (from v2)
+    static_assert(DbSchema==3);
+    updateQueries << (QString("INSERT INTO `track` (")
+      .append("`id`, `collection_id`, `name`, `description`, `open`, `creation_time`, ")
+      .append("`modification_time`, `color`, `type`, `visible`, ")
+      .append("`from_time`, `to_time`, `distance`, `raw_distance`, ")
+      .append("`duration`, `moving_duration`, `max_speed`, `average_speed`, `moving_average_speed`, ")
+      .append("`ascent`, `descent`, `min_elevation`, `max_elevation`, `bbox_min_lat`, `bbox_min_lon`, ")
+      .append("`bbox_max_lat`, `bbox_max_lon`")
+      .append(") SELECT ")
+      .append("`id`, `collection_id`, `name`, `description`, `open`, `creation_time`, ")
+      .append("`modification_time`, NULL, NULL, 1, ")
+      .append("`from_time`, `to_time`, `distance`, `raw_distance`, ")
+      .append("`duration`, `moving_duration`, `max_speed`, `average_speed`, `moving_average_speed`, ")
+      .append("`ascent`, `descent`, `min_elevation`, `max_elevation`, `bbox_min_lat`, `bbox_min_lon`, ")
+      .append("`bbox_max_lat`, `bbox_max_lon`")
+      .append(" FROM `_track`"));
+
     updateQueries << "DROP TABLE `_track`";
   }
 
@@ -572,6 +596,7 @@ Track Storage::makeTrack(QSqlQuery &sqlTrack) const
                varToBool(sqlTrack.value("open")),
                varToDateTime(sqlTrack.value("creation_time")),
                varToDateTime(sqlTrack.value("modification_time")),
+               varToBool(sqlTrack.value("visible")),
                TrackStatistics(
                  varToDateTime(sqlTrack.value("from_time")),
                  varToDateTime(sqlTrack.value("to_time")),
@@ -627,13 +652,16 @@ Waypoint Storage::makeWaypoint(QSqlQuery &sql) const
   }
   wpt.elevation = varToDoubleOpt(sql.value("elevation"));
 
-  return Waypoint(varToLong(sql.value("id")), varToDateTime(sql.value("modification_time")), std::move(wpt));
+  return Waypoint(varToLong(sql.value("id")),
+                  varToDateTime(sql.value("modification_time")),
+                  varToBool(sql.value("visible")),
+                  std::move(wpt));
 }
 
 std::shared_ptr<std::vector<Waypoint>> Storage::loadWaypoints(qint64 collectionId)
 {
   QSqlQuery sql(db);
-  sql.prepare("SELECT `id`, `name`, `description`, `symbol`, `timestamp`, `modification_time`, `latitude`, `longitude`, `elevation` FROM `waypoint` WHERE collection_id = :collectionId;");
+  sql.prepare("SELECT * FROM `waypoint` WHERE collection_id = :collectionId;");
   sql.bindValue(":collectionId", collectionId);
   sql.exec();
 
@@ -908,8 +936,8 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
   db.transaction();
   QSqlQuery sqlWpt(db);
   sqlWpt.prepare(
-    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`) "
-    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :elevation,  :name,  :description,  :symbol)");
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `elevation`, `name`, `description`, `symbol`, `visible`) "
+    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :elevation,  :name,  :description,  :symbol, :visible)");
   for (const auto &wpt: gpxFile.waypoints) {
     wptNum++;
 
@@ -927,6 +955,7 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
     sqlWpt.bindValue(":description",
                      (wpt.description ? QString::fromStdString(*wpt.description) : QVariant()));
     sqlWpt.bindValue(":symbol", (wpt.symbol ? QString::fromStdString(*wpt.symbol) : QVariant()));
+    sqlWpt.bindValue(":visible", true);
 
     sqlWpt.exec();
     if (sqlWpt.lastError().isValid()) {
@@ -1141,6 +1170,7 @@ QSqlQuery Storage::trackInsertSql()
 
   sqlTrk.prepare(QString("INSERT INTO `track` (")
                    .append("`collection_id`, `name`, `description`, `open`, `creation_time`, `modification_time`, ")
+                   .append("`color`, `type`, `visible`, ")
                    .append("`from_time`, ")
                    .append("`to_time`, ")
                    .append("`distance`, ")
@@ -1158,6 +1188,7 @@ QSqlQuery Storage::trackInsertSql()
                    .append(") ")
                    .append("VALUES (")
                    .append(":collection_id,  :name,  :description,  :open,  :creation_time,  :modification_time, ")
+                   .append(":color, :type, :visible, ")
                    .append(":from_time, ")
                    .append(":to_time, ")
                    .append(":distance, ")
@@ -1181,6 +1212,9 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
                                  qint64 collectionId,
                                  const QString &trackName,
                                  const QStringOpt &desc,
+                                 const std::optional<osmscout::Color> &color,
+                                 const QString &type,
+                                 bool visible,
                                  const TrackStatistics &stat,
                                  bool open)
 {
@@ -1192,6 +1226,10 @@ void Storage::prepareTrackInsert(QSqlQuery &sqlTrk,
 
   sqlTrk.bindValue(":creation_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sqlTrk.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
+
+  sqlTrk.bindValue(":color",  color.has_value() ? QVariant::fromValue(colorToSQL(color.value())) : QVariant());
+  sqlTrk.bindValue(":type", type.isEmpty() ? QVariant() : QVariant::fromValue(type));
+  sqlTrk.bindValue(":visible", visible);
 
   sqlTrk.bindValue(":from_time", dateTimeToSQL(stat.from));
   sqlTrk.bindValue(":to_time", dateTimeToSQL(stat.to));
@@ -1235,7 +1273,10 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
                       QStringOpt(QString::fromStdString(*trk.desc)) :
                       std::nullopt;
 
-    prepareTrackInsert(sqlTrk, collectionId, trackName, desc, stat, false);
+
+    prepareTrackInsert(sqlTrk, collectionId, trackName, desc,
+                       trk.displayColor, "", true,
+                       stat, false);
 
     sqlTrk.exec();
     if (sqlTrk.lastError().isValid()) {
@@ -1430,8 +1471,8 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
 
   QSqlQuery sqlWpt(db);
   sqlWpt.prepare(
-    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`) "
-    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description)");
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`, `visible`) "
+    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description, :visible)");
 
   sqlWpt.bindValue(":collection_id", collectionId);
   sqlWpt.bindValue(":timestamp", dateTimeToSQL(QDateTime::currentDateTime()));
@@ -1440,6 +1481,7 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
   sqlWpt.bindValue(":longitude", lon);
   sqlWpt.bindValue(":name", name);
   sqlWpt.bindValue(":description", (description.isEmpty() ? QVariant() : description));
+  sqlWpt.bindValue(":visible", true);
 
   sqlWpt.exec();
   if (sqlWpt.lastError().isValid()) {
@@ -1466,7 +1508,9 @@ void Storage::createTrack(qint64 collectionId, QString name, QString description
                     std::nullopt :
                     QStringOpt(description);
 
-  prepareTrackInsert(sqlTrk, collectionId, name, desc, TrackStatistics{}, open);
+  prepareTrackInsert(sqlTrk, collectionId, name, desc,
+                     std::nullopt, "", true,
+                     TrackStatistics{}, open);
 
   sqlTrk.exec();
   if (sqlTrk.lastError().isValid()) {

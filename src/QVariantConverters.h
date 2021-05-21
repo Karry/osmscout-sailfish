@@ -50,6 +50,11 @@ inline QString dateTimeToSQL(const QDateTime &dateTime)
   return dateTime.toUTC().toString("yyyy-MM-ddTHH:mm:ss.zzzZ");
 }
 
+inline QString colorToSQL(const osmscout::Color &color)
+{
+  return QString::fromStdString(color.ToHexString());
+}
+
 inline qlonglong varToLong(const QVariant &var, qlonglong def = -1)
 {
   bool ok;

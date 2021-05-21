@@ -238,10 +238,10 @@ public:
   Track() = default;
 
   Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,
-        const QDateTime &creationTime, const QDateTime &lastModification,
+        const QDateTime &creationTime, const QDateTime &lastModification, bool visible,
         const TrackStatistics &statistics):
     id(id), collectionId(collectionId), name(name), description(description), open(open),
-    creationTime(creationTime), lastModification(lastModification),
+    creationTime(creationTime), lastModification(lastModification), visible(visible),
     statistics(statistics)
   {};
 
@@ -261,6 +261,7 @@ public:
   bool open{false};
   QDateTime creationTime;
   QDateTime lastModification;
+  bool visible{false};
 
   TrackStatistics statistics;
   std::shared_ptr<osmscout::gpx::Track> data;
@@ -271,17 +272,18 @@ class Waypoint
 public:
   Waypoint() = default;
 
-  Waypoint(qint64 id, const QDateTime &lastModification, const osmscout::gpx::Waypoint &data):
-    id(id), lastModification(lastModification), data(data)
+  Waypoint(qint64 id, const QDateTime &lastModification, bool visible, const osmscout::gpx::Waypoint &data):
+    id(id), lastModification(lastModification), visible(visible), data(data)
   {}
 
-  Waypoint(qint64 id, const QDateTime &lastModification, osmscout::gpx::Waypoint &&data):
-    id(id), lastModification(lastModification), data(std::move(data))
+  Waypoint(qint64 id, const QDateTime &lastModification, bool visible, osmscout::gpx::Waypoint &&data):
+    id(id), lastModification(lastModification), visible(visible), data(std::move(data))
   {}
 
 public:
   qint64 id{-1};
   QDateTime lastModification;
+  bool visible{false};
   osmscout::gpx::Waypoint data{osmscout::GeoCoord()};
 };
 
@@ -547,6 +549,9 @@ private:
                           qint64 collectionId,
                           const QString &trackName,
                           const QStringOpt &desc,
+                          const std::optional<osmscout::Color> &color,
+                          const QString &type,
+                          bool visible,
                           const TrackStatistics &stat,
                           bool open);
 
