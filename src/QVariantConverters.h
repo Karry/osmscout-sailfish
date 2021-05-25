@@ -73,6 +73,21 @@ inline QString varToString(const QVariant &var, QString def = "")
   return def;
 }
 
+inline std::optional<osmscout::Color> varToColorOpt(const QVariant &var)
+{
+  if (!var.isNull() &&
+      var.isValid() &&
+      var.canConvert(QMetaType::QString)) {
+    std::string str = var.toString().toStdString();
+    osmscout::Color color;
+    if (osmscout::Color::FromW3CKeywordString(str, color) ||
+        osmscout::Color::FromHexString(str, color)) {
+      return color;
+    }
+  }
+  return std::nullopt;
+}
+
 inline std::optional<std::string> varToStringOpt(const QVariant &var)
 {
   if (!var.isNull() &&

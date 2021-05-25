@@ -238,10 +238,12 @@ public:
   Track() = default;
 
   Track(qint64 id, qint64 collectionId,  QString name,  QString description, bool open,
-        const QDateTime &creationTime, const QDateTime &lastModification, bool visible,
+        const QDateTime &creationTime, const QDateTime &lastModification,
+        QString type, std::optional<osmscout::Color> color, bool visible,
         const TrackStatistics &statistics):
     id(id), collectionId(collectionId), name(name), description(description), open(open),
-    creationTime(creationTime), lastModification(lastModification), visible(visible),
+    creationTime(creationTime), lastModification(lastModification),
+    type(type), color(color), visible(visible),
     statistics(statistics)
   {};
 
@@ -261,6 +263,8 @@ public:
   bool open{false};
   QDateTime creationTime;
   QDateTime lastModification;
+  QString type;
+  std::optional<osmscout::Color> color;
   bool visible{false};
 
   TrackStatistics statistics;

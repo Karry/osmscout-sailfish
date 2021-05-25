@@ -596,6 +596,8 @@ Track Storage::makeTrack(QSqlQuery &sqlTrack) const
                varToBool(sqlTrack.value("open")),
                varToDateTime(sqlTrack.value("creation_time")),
                varToDateTime(sqlTrack.value("modification_time")),
+               varToString(sqlTrack.value("type")),
+               varToColorOpt(sqlTrack.value("color")),
                varToBool(sqlTrack.value("visible")),
                TrackStatistics(
                  varToDateTime(sqlTrack.value("from_time")),
@@ -816,10 +818,15 @@ bool Storage::loadTrackDataPrivate(Track &track, std::optional<double> accuracyF
 
   track.data = std::make_shared<gpx::Track>();
 
+  // duplicate some properties to data
   track.data->name = track.name.toStdString();
   if (!track.description.isEmpty()) {
     track.data->desc = track.description.toStdString();
   }
+  if (!track.type.isEmpty()) {
+    track.data->type = track.type.toStdString();
+  }
+  track.data->displayColor = track.color;
 
   QSqlQuery sql(db);
   sql.prepare("SELECT `id` FROM `track_segment` WHERE track_id = :trackId;");
@@ -1274,8 +1281,9 @@ bool Storage::importTracks(const gpx::GpxFile &gpxFile, qint64 collectionId)
                       std::nullopt;
 
 
+    QString type = trk.type.has_value() ? QString::fromStdString(*trk.type) : QString();
     prepareTrackInsert(sqlTrk, collectionId, trackName, desc,
-                       trk.displayColor, "", true,
+                       trk.displayColor, type, true,
                        stat, false);
 
     sqlTrk.exec();
