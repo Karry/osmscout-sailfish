@@ -368,8 +368,11 @@ bool Storage::updateSchema(){
   // do upgrade commands
   if (!updateQueries.empty()) {
     db.transaction();
+    // disable foreign keys checking and don't update them while renaming tables
     updateQueries.prepend("PRAGMA foreign_keys=off");
+    updateQueries.prepend("PRAGMA legacy_alter_table=on");
     updateQueries << "PRAGMA foreign_keys=on";
+    updateQueries << "PRAGMA legacy_alter_table=off";
 
     for (QString query: updateQueries) {
       QSqlQuery sqlUpdate(db);
