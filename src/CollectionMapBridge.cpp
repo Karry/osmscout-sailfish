@@ -194,6 +194,9 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, std::optional<double> a
     osmscout::OverlayWay trkOverlay(points);
     trkOverlay.setTypeName(trackTypeName);
     trkOverlay.setName(track.name);
+    if (track.color.has_value()) {
+      trkOverlay.setColorValue(track.color.value());
+    }
     delegatedMap->addOverlayObject(ids[i],&trkOverlay);
   }
   displayedCollection[track.collectionId].tracks[track.id]=DisplayedTrack{

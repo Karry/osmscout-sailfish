@@ -264,7 +264,11 @@ QObject* CollectionTrackModel::createOverlayForSegment(int segment)
   for (auto const &p:seg.points){
     points.emplace_back(0, p.coord);
   }
-  return new OverlayWay(points);
+  auto trkOverlay = new OverlayWay(points);
+  if (track.color.has_value()) {
+    trkOverlay->setColorValue(track.color.value());
+  }
+  return trkOverlay;
 }
 
 QPointF CollectionTrackModel::getPoint(quint64 index) const
