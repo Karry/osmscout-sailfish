@@ -471,3 +471,4 @@
 - fix cleanup of partially downloaded database on application termination
 - add fast toggle for show or hide collections
 - solve interference with music player when navigation voice is disabled
+- fix used track in tracker elevation chart

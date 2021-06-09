@@ -296,7 +296,7 @@ Page {
                 textPixelSize: Theme.fontSizeTiny
                 textPadding: Theme.paddingSmall
 
-                trackId: Global.tracker.openTrackId
+                trackId: Global.tracker.trackId
 
                 Timer {
                     id: updateEleChartTimer
