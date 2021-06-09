@@ -472,3 +472,4 @@
 - add fast toggle for show or hide collections
 - solve interference with music player when navigation voice is disabled
 - fix used track in tracker elevation chart
+- always create new track segment on tracking resume

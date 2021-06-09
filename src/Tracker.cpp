@@ -253,8 +253,10 @@ void Tracker::locationChanged(const QDateTime &timestamp,
         " seconds!";
     }
   } else {
+    // track resumed
     if (accumulator.getTo()){
       diffFromLast = *(point.time) - *(accumulator.getTo());
+      distanceFromLast = Kilometers(42); // always start with the new segment on track resume (and track is not "empty")
     }else {
       diffFromLast = Timestamp::duration::zero();
     }
