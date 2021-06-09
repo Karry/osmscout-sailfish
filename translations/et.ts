@@ -1160,12 +1160,12 @@
     </message>
     <message>
         <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda teekonnapunktide ja radade nähtavust kogumikus</translation>
     </message>
     <message>
         <source>Collection visibility</source>
         <extracomment>Button for fast show/hide collection entries</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kogumiku nähtavus</translation>
     </message>
 </context>
 <context>

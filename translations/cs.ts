@@ -1160,12 +1160,12 @@
     </message>
     <message>
         <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Rychlý přepínač pro zobrazení či schování tras a míst z kolekcí</translation>
     </message>
     <message>
         <source>Collection visibility</source>
         <extracomment>Button for fast show/hide collection entries</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Viditelnost sbírek</translation>
     </message>
 </context>
 <context>
