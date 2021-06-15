@@ -474,3 +474,5 @@
 - fix used track in tracker elevation chart
 - always create new track segment on tracking resume
 - update translations (Estonian, Czech, Polish, Swedish)
+
+* 2020-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.15
