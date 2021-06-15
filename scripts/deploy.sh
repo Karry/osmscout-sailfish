@@ -15,7 +15,7 @@ export TYPE="$1" # emulator
 ##################################################################
 ## configure SDK
 PATH=$PATH:~/SailfishOS/bin/
-export OS_VERSION=4.0.1.48
+export OS_VERSION=4.1.0.24
 
 # device may be configured in SailfishOS SDK
 if [ $# -ge 2 ] ; then
@@ -25,7 +25,7 @@ else
   if [ "$TYPE" = "emulator" ] ; then
     export DEV_DEVICE="Sailfish OS Emulator ${OS_VERSION}"
   elif [ "$TYPE" = "aarch64" ]; then
-    export DEV_DEVICE=""
+    export DEV_DEVICE="Xperia"
   else
     export DEV_DEVICE="Intex"
   fi
