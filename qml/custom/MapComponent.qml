@@ -28,6 +28,7 @@ import ".." // Global singleton
 MapBase {
   id: map
 
+  preventMouseStealing: true
   property double topMargin:0
 
   Connections {
