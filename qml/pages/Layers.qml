@@ -37,9 +37,24 @@ Page {
         }
     }
 
+    PageHeader {
+        id: header
+        title: qsTr("Map settings")
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+        }
+    }
+
     Drawer {
         id: drawer
-        anchors.fill: parent
+        anchors {
+            top: header.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
 
         dock: layersPage.isPortrait ? Dock.Bottom : Dock.Right
         backgroundSize: layersPage.isPortrait ? drawer.height * 0.6 : drawer.width * 0.6
@@ -73,8 +88,6 @@ Page {
                 Column {
                     id: content
                     width: parent.width
-
-                    PageHeader { title: qsTr("Map settings") }
 
                     Slider{
                         id: mapDpiSlider
