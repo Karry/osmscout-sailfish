@@ -272,6 +272,9 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   }
 
   Storage::clearInstance();
+  if (args.shutdownWait) {
+    OSMScoutQt::GetInstance().waitForReleasingResources(100, std::numeric_limits<long>::max());
+  }
   OSMScoutQt::FreeInstance();
 
   return result;

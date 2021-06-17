@@ -35,6 +35,7 @@ struct Arguments {
   bool version{false};
   LogLevel logLevel{LogLevel::Warn};
   bool desktop{false};
+  bool shutdownWait{false}; //!< Infinite wait for thread shutdown (for debugging)
   QString positionSimulatorFile;
 };
 
@@ -96,6 +97,12 @@ ArgParser(QGuiApplication *app,
             "Use desktop UI (Qt Quick instead of Silica)",
             false);
 
+  AddOption(osmscout::CmdLineFlag([this](const bool& value) {
+              args.shutdownWait=value;
+            }),
+            "shutdown-wait",
+            "Infinite wait for thread shutdown (for debugging)",
+            false);
 }
 
 Arguments GetArguments() const
