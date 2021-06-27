@@ -526,6 +526,10 @@ install(DIRECTORY icons/routestep/
         DESTINATION share/${HARBOUR_APP_NAME}/routestep
         FILES_MATCHING PATTERN "*.svg")
 
+install(DIRECTORY icons/laneturn/
+        DESTINATION share/${HARBOUR_APP_NAME}/laneturn
+        FILES_MATCHING PATTERN "*.svg")
+
 install(DIRECTORY icons/map/
         DESTINATION share/${HARBOUR_APP_NAME}/map-icons
         FILES_MATCHING PATTERN "*.svg")
