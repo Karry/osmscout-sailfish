@@ -100,7 +100,7 @@ check_function_exists(posix_madvise HAVE_POSIX_MADVISE)
 
 find_package(LibXml2)
 
-find_package(iconv QUIET)
+find_package(ICONV QUIET)
 if(ICONV_FOUND)
     set(HAVE_ICONV TRUE)
     if(${ICONV_SECOND_ARGUMENT_IS_CONST})
