@@ -2084,13 +2084,14 @@ void Storage::filterTrackNodes(Track track, std::optional<double> accuracyFilter
 void Storage::setTrackColor(Track track, std::optional<osmscout::Color> colorOpt){
   QSqlQuery sql(db);
   if (colorOpt) {
-    sql.prepare("UPDATE `track` SET `color` = :color WHERE `id` = :trackId");
+    sql.prepare("UPDATE `track` SET `color` = :color, `modification_time` = :modification_time WHERE `id` = :trackId");
     sql.bindValue(":color", QString::fromStdString(colorOpt->ToHexString()));
   } else {
-    sql.prepare("UPDATE `track` SET `color` = NULL WHERE `id` = :trackId");
+    sql.prepare("UPDATE `track` SET `color` = NULL, `modification_time` = :modification_time WHERE `id` = :trackId");
   }
 
   sql.bindValue(":trackId", track.id);
+  sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sql.exec();
   // qDebug() << sql.executedQuery() << " ... " << sql.boundValues();
 
