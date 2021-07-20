@@ -490,6 +490,14 @@ public slots:
   void filterTrackNodes(Track track, std::optional<double> accuracyFilter);
 
   /**
+   * emits collectionDetailsLoaded and trackDataLoaded
+   *
+   * @param track
+   * @param colorOpt
+   */
+  void setTrackColor(Track track, std::optional<osmscout::Color> colorOpt);
+
+  /**
    * emit openTrackLoaded()
    */
   void loadRecentOpenTrack();

@@ -62,6 +62,10 @@ CollectionTrackModel::CollectionTrackModel()
   connect(storage, &Storage::trackDataLoaded,
           this, &CollectionTrackModel::onTrackDataLoaded,
           Qt::QueuedConnection);
+
+  connect(this, &CollectionTrackModel::setColorRequest,
+          storage, &Storage::setTrackColor,
+          Qt::QueuedConnection);
 }
 
 void CollectionTrackModel::storageInitialised()
@@ -329,3 +333,26 @@ void CollectionTrackModel::filterNodes(double accuracyFilter)
   emit filterNodesRequest(track, accuracyFilter);
   emit loadingChanged();
 }
+
+void CollectionTrackModel::setupColor(const QString &color)
+{
+  if (track.id < 0){
+    return;
+  }
+  std::optional<osmscout::Color> colorValue;
+  if (!color.isEmpty()){
+    Color cv;
+    std::string str(color.toLower().toStdString());
+    if (Color::FromHexString(str, cv) ||
+        Color::FromW3CKeywordString(str, cv)) {
+      colorValue = std::optional<Color>(cv);
+    } else {
+      osmscout::log.Error() << "Cannot parse color " << str;
+      return;
+    }
+  }
+  loading = true;
+  emit setColorRequest(track, colorValue);
+  emit loadingChanged();
+}
+

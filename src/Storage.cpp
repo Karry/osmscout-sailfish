@@ -2059,19 +2059,49 @@ void Storage::filterTrackNodes(Track track, std::optional<double> accuracyFilter
 
   if (sql.lastError().isValid()) {
     loadCollectionDetails(Collection(track.collectionId));
-    emit trackDataLoaded(track, std::nullopt, true, true);
+    emit trackDataLoaded(track, std::nullopt, true, false);
     qWarning() << "Filter nodes failed: " << sql.lastError();
     return;
   }
 
   if (!loadTrackDataPrivate(track, std::nullopt)){
     loadCollectionDetails(Collection(track.collectionId));
-    emit trackDataLoaded(track, std::nullopt, true, true);
+    emit trackDataLoaded(track, std::nullopt, true, false);
     return;
   }
 
   track.statistics = computeTrackStatistics(*track.data);
   if (!updateTrackStatistics(track.id, track.statistics)){
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, std::nullopt, true, false);
+    return;
+  }
+
+  loadCollectionDetails(Collection(track.collectionId));
+  emit trackDataLoaded(track, std::nullopt, true, true);
+}
+
+void Storage::setTrackColor(Track track, std::optional<osmscout::Color> colorOpt){
+  QSqlQuery sql(db);
+  if (colorOpt) {
+    sql.prepare("UPDATE `track` SET `color` = :color WHERE `id` = :trackId");
+    sql.bindValue(":color", QString::fromStdString(colorOpt->ToHexString()));
+  } else {
+    sql.prepare("UPDATE `track` SET `color` = NULL WHERE `id` = :trackId");
+  }
+
+  sql.bindValue(":trackId", track.id);
+  sql.exec();
+  // qDebug() << sql.executedQuery() << " ... " << sql.boundValues();
+
+  if (sql.lastError().isValid()) {
+    loadCollectionDetails(Collection(track.collectionId));
+    emit trackDataLoaded(track, std::nullopt, true, false);
+    qWarning() << "Setting color failed: " << sql.lastError();
+    return;
+  }
+
+  if (!loadTrackDataPrivate(track, std::nullopt)){
     loadCollectionDetails(Collection(track.collectionId));
     emit trackDataLoaded(track, std::nullopt, true, false);
     return;

@@ -65,6 +65,7 @@ signals:
   void cropEndRequest(Track track, quint64 position);
   void splitRequest(Track track, quint64 position);
   void filterNodesRequest(Track track, std::optional<double> accuracyFilter);
+  void setColorRequest(Track track, std::optional<osmscout::Color> colorOpt);
 
 public slots:
   void storageInitialised();
@@ -110,6 +111,7 @@ public:
   Q_INVOKABLE void cropEnd(quint64 position);
   Q_INVOKABLE void split(quint64 position);
   Q_INVOKABLE void filterNodes(double accuracyFilter);
+  Q_INVOKABLE void setupColor(const QString &color);
 
 private:
   bool loading{false};

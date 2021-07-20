@@ -40,8 +40,8 @@ Dialog {
 
     canAccept: !trackModel.loading && color !== ""
     onAccepted: {
-        //trackModel.filterNodes(accuracyFilter);
-        console.log("TODO: setup track color: " + color);
+        console.log("setup track color: " + color);
+        trackModel.setupColor(color);
     }
 
     function updatePreview() {
