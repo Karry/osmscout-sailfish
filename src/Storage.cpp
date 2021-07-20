@@ -1017,6 +1017,7 @@ TrackStatisticsAccumulator::TrackStatisticsAccumulator(const TrackStatistics &st
 
 void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
 {
+  using namespace std::chrono;
   // filter inaccurate points
   bool filter=true;
   if (filter && p.hdop.has_value() && *(p.hdop) > maxDilution){
@@ -1067,7 +1068,7 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
     if (previousTime) {
       maxSpeedBuf.insert(p);
       auto diff = *(p.time) - *previousTime;
-      if (diff < std::chrono::minutes(5)) {
+      if (diff < minutes(5)) {
         movingDuration += diff;
       }
     }
@@ -1075,10 +1076,11 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
   }
 
   // elevation
-  if (filter && p.elevation && (!p.vdop || *(p.vdop) < 50.0)){
+  if (p.elevation && (!p.vdop || *(p.vdop) < 50.0)){
 
     // min/max
     double current = *p.elevation;
+    qDebug() << current;
     if (!minElevation.has_value() || minElevation->AsMeter() > current){
       minElevation = Meters(current);
     }
@@ -1088,19 +1090,34 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
 
     // ascent / descent
     if (!prevElevation.has_value()) {
-      prevElevation=p.elevation;
+      prevElevation = p.elevation;
+      prevElevationTime = p.time;
     } else {
       double previous=*prevElevation;
       // when difference is less than 9 meters, don't count to ascent/descent
       // this threshold was experimentally set to get similar ascent like on strava.com :-)
       if (std::abs(current - previous) >= 9.0) {
-        if (current > previous) {
-          ascent += (current - previous);
-        } else {
-          descent += (previous - current);
+        double eleChangeSpeed = 0; // m/s
+        if (prevElevationTime && p.time){
+          double timeDiffSec = duration_cast<seconds>(*p.time - *prevElevationTime).count();
+          if (timeDiffSec > 0) {
+            eleChangeSpeed = std::abs(current - previous) / timeDiffSec;
+          }
         }
+        // when elevation change is very fast, it is error usually
+        // limit is experimentally set to 20 m/s (72 km/h)
+        // downside is that this computation fails for free fall
+        if (eleChangeSpeed < 20) {
+          if (current > previous) {
+            ascent += (current - previous);
+          } else {
+            descent += (previous - current);
+          }
+        }
+        qDebug() << current << " speed: " << eleChangeSpeed << " asc: " << ascent << " desc: " << descent;
         prevElevation = p.elevation;
       }
+      prevElevationTime = p.time;
     }
   }
 

@@ -228,6 +228,7 @@ private:
   std::optional<osmscout::Distance> minElevation;
   std::optional<osmscout::Distance> maxElevation;
   std::optional<double> prevElevation; // m
+  std::optional<osmscout::Timestamp> prevElevationTime;
   double ascent=0;
   double descent=0;
 };
