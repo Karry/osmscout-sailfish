@@ -388,6 +388,8 @@ Page {
                 //: track edit menu
                 ListElement { itemtext: QT_TR_NOOP("Name and description");  itemicon: "image://theme/icon-m-edit"; action: "rename";}
                 //: track edit menu
+                ListElement { itemtext: QT_TR_NOOP("Color");                 itemicon: "image://theme/icon-m-ambience"; action: "color";}
+                //: track edit menu
                 ListElement { itemtext: QT_TR_NOOP("Crop start");            itemicon: "image://theme/icon-m-crop"; action: "crop-start";}
                 //: track edit menu
                 ListElement { itemtext: QT_TR_NOOP("Crop end");              itemicon: "image://theme/icon-m-crop"; action: "crop-end";}
@@ -409,6 +411,12 @@ Page {
                         editDialog.acceptDestination = collectionPage;
                         editDialog.acceptDestinationAction = PageStackAction.Pop;
                         editDialog.open();
+                    } else if (action == "color"){
+                        pageStack.push(Qt.resolvedUrl("TrackColor.qml"),
+                                       {
+                                            trackId: editTrackDialog.itemId,
+                                            acceptPage: collectionPage
+                                       });
                     } else if (action == "filter"){
                         pageStack.push(Qt.resolvedUrl("TrackFilter.qml"),
                                        {

@@ -378,6 +378,7 @@ set(QML_FILES
     qml/pages/NewWaypoint.qml
     qml/pages/CollectionExport.qml
     qml/pages/Settings.qml
+    qml/pages/TrackColor.qml
     qml/pages/Tracker.qml
     qml/pages/TrackEdit.qml
     qml/pages/TrackFilter.qml

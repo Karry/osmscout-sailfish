@@ -187,6 +187,11 @@
         <extracomment>track edit menu</extracomment>
         <translation>弃用不精确的节点</translation>
     </message>
+    <message>
+        <source>Color</source>
+        <extracomment>track edit menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -1325,6 +1330,13 @@
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
         <translation>%1, 部分 2</translation>
+    </message>
+</context>
+<context>
+    <name>TrackColor</name>
+    <message>
+        <source>Set color</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
