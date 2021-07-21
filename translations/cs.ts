@@ -190,7 +190,7 @@
     <message>
         <source>Color</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Barva</translation>
     </message>
 </context>
 <context>
@@ -1336,7 +1336,7 @@
     <name>TrackColor</name>
     <message>
         <source>Set color</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit barvu</translation>
     </message>
 </context>
 <context>
