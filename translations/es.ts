@@ -988,7 +988,7 @@
     </message>
     <message>
         <source>ATM</source>
-        <translation>Cajero automático</translation>
+        <translation type="vanished">Cajero automático</translation>
     </message>
     <message>
         <source>Drinking water</source>
@@ -1069,6 +1069,10 @@
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ATM, Bank</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

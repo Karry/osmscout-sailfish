@@ -646,7 +646,7 @@ Page {
         ListElement { label: QT_TR_NOOP("Cafe");          iconType: "amenity_cafe";       distance: 1500; types: "amenity_cafe amenity_cafe_building"; }
         ListElement { label: QT_TR_NOOP("Pub");           iconType: "amenity_pub";        distance: 1500; types: "amenity_pub amenity_pub_building"; }
         ListElement { label: QT_TR_NOOP("Bar");           iconType: "amenity_bar";        distance: 1500; types: "amenity_bar amenity_bar_building"; }
-        ListElement { label: QT_TR_NOOP("ATM");           iconType: "amenity_atm";        distance: 1500; types: "amenity_atm"; }
+        ListElement { label: QT_TR_NOOP("ATM, Bank");     iconType: "amenity_atm";        distance: 1500; types: "amenity_atm amenity_bank amenity_bank_building"; }
         ListElement { label: QT_TR_NOOP("Drinking water"); iconType: "amenity_drinking_water"; distance: 1500; types: "amenity_drinking_water"; }
         ListElement { label: QT_TR_NOOP("Toilets");       iconType: "amenity_toilets";    distance: 1500; types: "amenity_toilets"; }
 

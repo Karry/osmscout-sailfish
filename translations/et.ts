@@ -988,7 +988,7 @@
     </message>
     <message>
         <source>ATM</source>
-        <translation>Sularahaautomaat</translation>
+        <translation type="vanished">Sularahaautomaat</translation>
     </message>
     <message>
         <source>Drinking water</source>
@@ -1070,6 +1070,10 @@
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
         <translation>Teekonnapunkt</translation>
+    </message>
+    <message>
+        <source>ATM, Bank</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

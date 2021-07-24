@@ -988,7 +988,7 @@
     </message>
     <message>
         <source>ATM</source>
-        <translation>Guichet automatique bancaire</translation>
+        <translation type="vanished">Guichet automatique bancaire</translation>
     </message>
     <message>
         <source>Drinking water</source>
@@ -1070,6 +1070,10 @@
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
         <translation>Repère</translation>
+    </message>
+    <message>
+        <source>ATM, Bank</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
