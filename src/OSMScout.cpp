@@ -108,7 +108,8 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   QGuiApplication *app = SailfishApp::application(argc, argv);
 
-  app->setOrganizationDomain("libosmscout.sf.net");
+  app->setOrganizationDomain("osmscout.karry.cz");
+  app->setOrganizationName("osmscout.karry.cz"); // needed for Sailjail
   app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
   app->setApplicationVersion(OSMSCOUT_SAILFISH_VERSION_STRING);
 
