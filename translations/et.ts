@@ -190,7 +190,7 @@
     <message>
         <source>Color</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Värv</translation>
     </message>
 </context>
 <context>
@@ -987,10 +987,6 @@
         <translation>Kohvik</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">Sularahaautomaat</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>Joogivesi</translation>
     </message>
@@ -1073,7 +1069,7 @@
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>Pangaautomaat või pank</translation>
     </message>
 </context>
 <context>
@@ -1340,7 +1336,7 @@
     <name>TrackColor</name>
     <message>
         <source>Set color</source>
-        <translation type="unfinished"></translation>
+        <translation>Seadista värv</translation>
     </message>
 </context>
 <context>

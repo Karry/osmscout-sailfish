@@ -987,10 +987,6 @@
         <translation>Kávéház</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">ATM</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>Ivóvíz</translation>
     </message>

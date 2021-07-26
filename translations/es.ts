@@ -987,10 +987,6 @@
         <translation>Cafetería</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">Cajero automático</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>Agua potable</translation>
     </message>

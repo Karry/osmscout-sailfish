@@ -987,10 +987,6 @@
         <translation>Kawiarnia</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">Bankomat</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>Woda pitna</translation>
     </message>

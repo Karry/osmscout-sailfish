@@ -987,10 +987,6 @@
         <translation>Kavárna</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">Bankomat</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>Fontánka s pitnou vodou</translation>
     </message>
@@ -1073,7 +1069,7 @@
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>Bankomat, Banka</translation>
     </message>
 </context>
 <context>

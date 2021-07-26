@@ -987,10 +987,6 @@
         <translation>咖啡</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">自动取款机</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>饮水</translation>
     </message>

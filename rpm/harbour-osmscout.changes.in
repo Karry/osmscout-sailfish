@@ -479,5 +479,5 @@
 - prevent stealing gesture from map widget - it is easy to interact with map even in dialogs
 - fix packaging or lane-turn icons
 - make possible to change track color
-- update translations (Czech, French, Polish, Swedish)
+- update translations (Estonian, Czech, French, Polish, Swedish)
 - use moving window average for elevation chart and track statistics

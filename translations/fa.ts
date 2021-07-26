@@ -987,10 +987,6 @@
         <translation>کافه</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">خودپرداز</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>آب آشامیدنی</translation>
     </message>

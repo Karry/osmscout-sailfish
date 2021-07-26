@@ -987,10 +987,6 @@
         <translation>Кафе</translation>
     </message>
     <message>
-        <source>ATM</source>
-        <translation type="vanished">Банкомат</translation>
-    </message>
-    <message>
         <source>Drinking water</source>
         <translation>Питьевая вода</translation>
     </message>
