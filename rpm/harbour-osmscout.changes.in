@@ -480,3 +480,4 @@
 - fix packaging or lane-turn icons
 - make possible to change track color
 - update translations (Czech, French, Polish, Swedish)
+- use moving window average for elevation chart and track statistics

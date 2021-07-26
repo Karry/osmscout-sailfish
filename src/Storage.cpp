@@ -99,6 +99,105 @@ void MaxSpeedBuffer::setMaxSpeed(double speed)
   maxSpeed=speed;
 }
 
+ElevationFilter::ElevationFilter(const std::optional<osmscout::Distance> &minElevation,
+                                 const std::optional<osmscout::Distance> &maxElevation,
+                                 const osmscout::Distance &ascent,
+                                 const osmscout::Distance &descent):
+                minElevation(minElevation),
+                maxElevation(maxElevation),
+                ascent(ascent),
+                descent(descent)
+{}
+
+void ElevationFilter::flush() {
+  qDebug() << "flush buffer";
+  distanceFifo.clear();
+  elevationFifo.clear();
+  bufferLength = Meters(0);
+  bufferElevation = Meters(0);
+  lastPoint = std::nullopt;
+  lastEleStep = std::nullopt;
+}
+
+std::optional<osmscout::Distance> ElevationFilter::update(const osmscout::gpx::TrackPoint &p) {
+  using namespace std::chrono;
+  if (!p.elevation || (p.vdop && *(p.vdop) >= 50.0) || (p.hdop && *(p.hdop) >= 30.0)) {
+    return std::nullopt;
+  }
+
+  osmscout::Distance currentEle = Meters(*p.elevation);
+  // qDebug() << currentEle.AsMeter() << "m";
+
+  if (lastPoint) {
+    Distance distanceDiff = GetEllipsoidalDistance(lastPoint->coord, p.coord);
+    bool flushBuffer = false;
+    if (p.time && lastPoint->time) {
+      using SecondDuration = std::chrono::duration<double, std::ratio<1>>;
+      double timeDiff = duration_cast<SecondDuration>(*(p.time) - *(lastPoint->time)).count();
+      if (timeDiff > 0) {
+        Distance eleDiff = Meters(*(p.elevation) - *(lastPoint->elevation));
+        double speed = std::abs(eleDiff.AsMeter()) / timeDiff; // m/s
+        if (speed > 50) { // too fast change, almost free fall (human on Earth)
+          qDebug() << "too high elevation change speed:" << speed << "m/s";
+          flushBuffer = true;
+        }
+      }
+    }
+    if (flushBuffer){
+      flush();
+    } else {
+      // push buffer
+      distanceFifo.push_back(distanceDiff);
+      elevationFifo.push_back(currentEle);
+      bufferLength += distanceDiff;
+      bufferElevation += currentEle;
+    }
+  }
+  if (distanceFifo.empty()) {
+    // push initial point to buffer
+    distanceFifo.push_back(Meters(0));
+    elevationFifo.push_back(currentEle);
+    bufferLength = Meters(0);
+    bufferElevation = currentEle;
+  }
+
+  lastPoint = p;
+
+  if (!distanceFifo.empty() && (bufferLength > Meters(250) || distanceFifo.size() > 60)) {
+    // we have enough samples, or distance is significant
+    osmscout::Distance eleAvg = bufferElevation / distanceFifo.size();
+    // qDebug() << "ele avg.:" << eleAvg.AsMeter() << "m";
+
+    // pop buffer
+    bufferLength -= distanceFifo.front();
+    distanceFifo.pop_front();
+    bufferElevation -= elevationFifo.front();
+    elevationFifo.pop_front();
+
+    // update statistics
+    minElevation = minElevation ? std::min(eleAvg, *minElevation) : eleAvg;
+    maxElevation = maxElevation ? std::max(eleAvg, *maxElevation) : eleAvg;
+    if (lastEleStep){
+      osmscout::Distance step = eleAvg - *lastEleStep;
+      if (std::abs(step.AsMeter()) > 9.0) {
+        if (step > Meters(0)){
+          ascent += step;
+        } else {
+          descent -= step;
+        }
+        lastEleStep = eleAvg;
+      }
+    } else {
+      lastEleStep = eleAvg;
+    }
+
+    return std::make_optional(eleAvg);
+  } else {
+    // no enough data in buffer
+    return std::nullopt;
+  }
+}
+
 namespace {
 QString sqlCreateCollection() {
   QString sql("CREATE TABLE `collection`");
@@ -1007,10 +1106,7 @@ TrackStatisticsAccumulator::TrackStatisticsAccumulator(const TrackStatistics &st
   // moving duration
   movingDuration{statistics.movingDuration},
   // elevation
-  minElevation{statistics.minElevation},
-  maxElevation{statistics.maxElevation},
-  ascent{statistics.ascent.AsMeter()},
-  descent{statistics.descent.AsMeter()}
+  elevationFilter(statistics.minElevation, statistics.maxElevation, statistics.ascent, statistics.descent)
 {
   maxSpeedBuf.setMaxSpeed(statistics.maxSpeed);
 }
@@ -1076,51 +1172,7 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
   }
 
   // elevation
-  if (p.elevation && (!p.vdop || *(p.vdop) < 50.0)){
-
-    // min/max
-    double current = *p.elevation;
-    qDebug() << current;
-    if (!minElevation.has_value() || minElevation->AsMeter() > current){
-      minElevation = Meters(current);
-    }
-    if (!maxElevation.has_value() || maxElevation->AsMeter() < current){
-      maxElevation = Meters(current);
-    }
-
-    // ascent / descent
-    if (!prevElevation.has_value()) {
-      prevElevation = p.elevation;
-      prevElevationTime = p.time;
-    } else {
-      double previous=*prevElevation;
-      // when difference is less than 9 meters, don't count to ascent/descent
-      // this threshold was experimentally set to get similar ascent like on strava.com :-)
-      if (std::abs(current - previous) >= 9.0) {
-        double eleChangeSpeed = 0; // m/s
-        if (prevElevationTime && p.time){
-          double timeDiffSec = duration_cast<seconds>(*p.time - *prevElevationTime).count();
-          if (timeDiffSec > 0) {
-            eleChangeSpeed = std::abs(current - previous) / timeDiffSec;
-          }
-        }
-        // when elevation change is very fast, it is error usually
-        // limit is experimentally set to 20 m/s (72 km/h)
-        // downside is that this computation fails for free fall
-        if (eleChangeSpeed < 20) {
-          if (current > previous) {
-            ascent += (current - previous);
-          } else {
-            descent += (previous - current);
-          }
-        }
-        qDebug() << current << " speed: " << eleChangeSpeed << " asc: " << ascent << " desc: " << descent;
-        prevElevation = p.elevation;
-      }
-      prevElevationTime = p.time;
-    }
-  }
-
+  elevationFilter.update(p);
 }
 
 void TrackStatisticsAccumulator::segmentEnd()
@@ -1139,7 +1191,7 @@ void TrackStatisticsAccumulator::segmentEnd()
   previousTime=std::nullopt;
 
   // elevation
-  prevElevation=std::nullopt;
+  elevationFilter.flush();
 }
 
 TrackStatistics TrackStatisticsAccumulator::accumulate() const
@@ -1164,10 +1216,10 @@ TrackStatistics TrackStatisticsAccumulator::accumulate() const
     maxSpeedBuf.getMaxSpeed(),
     /*averageSpeed*/ durationInSeconds == 0 ? -1 : length.AsMeter() / durationInSeconds,
     /*movingAverageSpeed*/ movingDurationInSeconds == 0 ? -1 : length.AsMeter() / movingDurationInSeconds,
-    Distance::Of<Meter>(ascent),
-    Distance::Of<Meter>(descent),
-    minElevation,
-    maxElevation,
+    elevationFilter.getAscent(),
+    elevationFilter.getDescent(),
+    elevationFilter.getMinElevation(),
+    elevationFilter.getMaxElevation(),
     bbox);
 }
 

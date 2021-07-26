@@ -141,7 +141,8 @@ public:
   osmscout::GeoBox bbox;
 };
 
-class MaxSpeedBuffer{
+class MaxSpeedBuffer
+{
 public:
   MaxSpeedBuffer() = default;
   ~MaxSpeedBuffer() = default;
@@ -161,6 +162,68 @@ private:
   osmscout::Timestamp::duration bufferTime{0};
   std::shared_ptr<osmscout::gpx::TrackPoint> lastPoint;
   double maxSpeed{0}; // m / s
+};
+
+/**
+ * Filter using moving window average for elevation computations (min, max, ascent, descent).
+ * Window (buffer) is flushed on high speed of change, or explicitly (on segment end).
+ */
+class ElevationFilter
+{
+public:
+  ElevationFilter() = default;
+
+  ElevationFilter(const std::optional<osmscout::Distance> &minElevation,
+                  const std::optional<osmscout::Distance> &maxElevation,
+                  const osmscout::Distance &ascent,
+                  const osmscout::Distance &descent);
+
+  ~ElevationFilter() = default;
+
+  void flush();
+
+  /**
+   * Update internal filter state.
+   *
+   * @param p
+   * @return current window average
+   */
+  std::optional<osmscout::Distance> update(const osmscout::gpx::TrackPoint &p);
+
+  osmscout::Distance getAscent() const
+  {
+    return ascent;
+  }
+
+  osmscout::Distance getDescent() const
+  {
+    return descent;
+  }
+
+  std::optional<osmscout::Distance> getMinElevation() const
+  {
+    return minElevation;
+  }
+
+  std::optional<osmscout::Distance> getMaxElevation() const
+  {
+    return maxElevation;
+  }
+
+
+private:
+  std::optional<osmscout::Distance> minElevation;
+  std::optional<osmscout::Distance> maxElevation;
+  osmscout::Distance ascent;
+  osmscout::Distance descent;
+  std::optional<osmscout::Distance> lastEleStep; // last elevation used for ascent/descent computation
+
+  // buffer
+  QList<osmscout::Distance> distanceFifo; // distances from previous
+  QList<osmscout::Distance> elevationFifo; // point elevations
+  osmscout::Distance bufferLength; // distance of segment in buffer
+  osmscout::Distance bufferElevation; // summary of points elevations in buffer
+  std::optional<osmscout::gpx::TrackPoint> lastPoint=std::nullopt;
 };
 
 class TrackStatisticsAccumulator
@@ -225,12 +288,7 @@ private:
   osmscout::Timestamp::duration movingDuration{0};
 
   // elevation
-  std::optional<osmscout::Distance> minElevation;
-  std::optional<osmscout::Distance> maxElevation;
-  std::optional<double> prevElevation; // m
-  std::optional<osmscout::Timestamp> prevElevationTime;
-  double ascent=0;
-  double descent=0;
+  ElevationFilter elevationFilter;
 };
 
 class Track

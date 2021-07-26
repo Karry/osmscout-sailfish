@@ -72,12 +72,14 @@ void TrackElevationChartWidget::onTrackDataLoaded(Track track, std::optional<dou
     timer.start();
     points.clear();
     TrackStatisticsAccumulator trackStat;
+    ElevationFilter elevationFilter;
     for (const auto &segment : track.data->segments) {
       points.reserve(points.size()+segment.points.size());
       for (const auto &point : segment.points) {
         trackStat.update(point);
-        if (point.elevation.has_value()) {
-          ElevationPoint pt{trackStat.getLength(), Meters(point.elevation.value()), point.coord, nullptr};
+        std::optional<osmscout::Distance> eleOpt = elevationFilter.update(point);
+        if (eleOpt.has_value()) {
+          ElevationPoint pt{trackStat.getLength(), *eleOpt, point.coord, nullptr};
           // qDebug() << "On" << pt.distance.AsMeter() << "ele" << pt.elevation.AsMeter();
           points.push_back(pt);
           if (!lowest.has_value() || lowest->elevation > pt.elevation){
@@ -89,6 +91,7 @@ void TrackElevationChartWidget::onTrackDataLoaded(Track track, std::optional<dou
         }
       }
       trackStat.segmentEnd();
+      elevationFilter.flush();
     }
     // be careful with elapsed time, method is processed in UI thread
     qDebug() << "Preparing elevation profile took" << timer.elapsed() << "ms";
