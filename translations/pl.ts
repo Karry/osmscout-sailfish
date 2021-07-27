@@ -1069,7 +1069,7 @@
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation>Bankomat,Bank</translation>
+        <translation>Bankomat, Bank</translation>
     </message>
 </context>
 <context>
