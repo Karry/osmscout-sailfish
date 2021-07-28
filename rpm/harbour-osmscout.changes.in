@@ -437,20 +437,20 @@
 - support for simple track edits: crop, split and filter of inaccurate nodes
 - update translations (Czech, French, Swedish, German, Estonian)
 
-* 2020-01-23 Lukáš Karas <lukas.karas@centrum.cz> 2.10-1
+* 2021-01-23 Lukáš Karas <lukas.karas@centrum.cz> 2.10-1
 - show chart with estimated elevation profile for bike or pedestrian routes (router)
 - show elevation chart in track detail (collections)
 - add support for collection and configuration backup with My Backup app (Openrepos.net)
 - update translations (Czech, Swedish, Estonian)
 
-* 2020-02-26 Lukáš Karas <lukas.karas@centrum.cz> 2.11-1
+* 2021-02-26 Lukáš Karas <lukas.karas@centrum.cz> 2.11-1
 - update translations (Chinese, Czech, Estonian, French, Polish, Swedish)
 - add ability to list near waypoints in Search page
 - add shortcut for searching nearest charging stations
 - fix map icon for charging stations
 - add elevation chart to tracker page
 
-* 2020-04-11 Lukáš Karas <lukas.karas@centrum.cz> 2.12-1
+* 2021-04-11 Lukáš Karas <lukas.karas@centrum.cz> 2.12-1
 - fix search result sorting
 - add separate routing profile for road bike and mountain bike
 - customize routing from UI, make possible to avoid main roads on bike and foot
@@ -458,7 +458,7 @@
 - update translations (Czech, Estonian, German, Polish, Swedish)
 - add gesture for zoom with one finger (tap followed by dragging)
 
-* 2020-04-30 Lukáš Karas <lukas.karas@centrum.cz> 2.13
+* 2021-04-30 Lukáš Karas <lukas.karas@centrum.cz> 2.13
 - update translations (German, Chinese, Hungarian)
 - allow to simulate gps position by track from gpx file (for easier navigation debugging)
 - fix navigation re-routing
@@ -467,7 +467,7 @@
 -- fixed memory leak in map widget destruction
 -- preparation for custom track (gpx) colors
 
-* 2020-06-09 Lukáš Karas <lukas.karas@centrum.cz> 2.14
+* 2021-06-09 Lukáš Karas <lukas.karas@centrum.cz> 2.14
 - fix cleanup of partially downloaded database on application termination
 - add fast toggle for show or hide collections
 - solve interference with music player when navigation voice is disabled
@@ -475,7 +475,7 @@
 - always create new track segment on tracking resume
 - update translations (Estonian, Czech, Polish, Swedish)
 
-* 2020-07-27 Lukáš Karas <lukas.karas@centrum.cz> 2.15
+* 2021-07-27 Lukáš Karas <lukas.karas@centrum.cz> 2.15
 - prevent stealing gesture from map widget - it is easy to interact with map even in dialogs
 - fix packaging or lane-turn icons
 - make possible to change track color
