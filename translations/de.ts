@@ -190,7 +190,7 @@
     <message>
         <source>Color</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Farbe</translation>
     </message>
 </context>
 <context>
@@ -1069,7 +1069,7 @@
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>Geldautomat, Bank</translation>
     </message>
 </context>
 <context>
@@ -1165,12 +1165,12 @@
     </message>
     <message>
         <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnellschalter um Tracks und Wegpunkte aus Sammlungen zu verstecken/anzuzeigen</translation>
     </message>
     <message>
         <source>Collection visibility</source>
         <extracomment>Button for fast show/hide collection entries</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sammlungen Sichtbarkeit</translation>
     </message>
 </context>
 <context>
@@ -1336,7 +1336,7 @@
     <name>TrackColor</name>
     <message>
         <source>Set color</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbe festlegen</translation>
     </message>
 </context>
 <context>
