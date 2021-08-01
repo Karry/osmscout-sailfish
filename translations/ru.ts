@@ -1530,6 +1530,14 @@
             <numerusform></numerusform>
         </translation>
     </message>
+    <message>
+        <source>Edit track</source>
+        <translation type="unfinished">Редактировать путь</translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

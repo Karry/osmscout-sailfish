@@ -1528,6 +1528,14 @@
             <numerusform>追踪时产生 %n 个错误，最近: %2</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Edit track</source>
+        <translation type="unfinished">编辑路线</translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

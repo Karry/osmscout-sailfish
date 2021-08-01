@@ -71,6 +71,10 @@ Tracker::Tracker() {
           this, &Tracker::onTrackDeleted,
           Qt::QueuedConnection);
 
+  connect(this, &Tracker::editTrackRequest,
+          storage, &Storage::editTrack,
+          Qt::QueuedConnection);
+
   init();
 }
 
@@ -306,18 +310,33 @@ void Tracker::onCollectionDetailsLoaded(Collection collection, bool ok) {
         if (track.collectionId != t.collectionId) {
           qDebug() << "Track was moved";
           track.collectionId = t.collectionId;
+          emit trackingChanged();
         }
         if (track.name != t.name) {
           qDebug() << "Track was renamed";
           track.name = t.name;
+          emit trackingChanged();
         }
         if (track.description != t.description) {
           qDebug() << "Track description was changed";
           track.description = t.description;
+          emit trackingChanged();
         }
       }
     }
   }
+}
+
+void Tracker::editTrack(QString idStr, QString name, QString description)
+{
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+
+  emit editTrackRequest(track.collectionId, id, name, description);
 }
 
 void Tracker::onCollectionDeleted(qint64 collectionId) {

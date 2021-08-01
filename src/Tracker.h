@@ -73,6 +73,7 @@ signals:
                           std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
                           TrackStatistics statistics,
                           bool createNewSegment);
+  void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
 
 public slots:
   // for Storage
@@ -96,6 +97,8 @@ public slots:
                        bool horizontalAccuracyValid, double horizontalAccuracy,
                        bool elevationValid, double elevation,
                        bool verticalAccuracyValid, double verticalAccuracy);
+
+  void editTrack(QString id, QString name, QString description);
 
 public:
   Tracker();

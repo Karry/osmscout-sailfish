@@ -1529,6 +1529,14 @@
             <numerusform>There was %n error(s) during tracking. Recent: %2</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Edit track</source>
+        <translation type="unfinished">Modifier la trace</translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

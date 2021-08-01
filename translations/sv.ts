@@ -1529,6 +1529,14 @@
             <numerusform>%n fel inträffade under spårning. Senast: %2</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Edit track</source>
+        <translation type="unfinished">Redigera spår</translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

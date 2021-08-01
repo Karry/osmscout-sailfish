@@ -1529,6 +1529,14 @@
             <numerusform>Hubieron %n errores durante el seguimiento. Reciente: %2</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Edit track</source>
+        <translation type="unfinished">Editar rastro</translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>

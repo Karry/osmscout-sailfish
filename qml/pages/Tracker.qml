@@ -74,6 +74,22 @@ Page {
         }
     }
 
+    CollectionEditDialog {
+        id: editDialog
+
+        property string itemId: ""
+        title: qsTr("Edit track")
+
+        onAccepted: {
+            console.log("Edit track " + itemId + ": " + name + " / " + description);
+            Global.tracker.editTrack(itemId, name, description);
+            parent.focus = true;
+        }
+        onRejected: {
+            parent.focus = true;
+        }
+    }
+
     CollectionEntryDialog{
         id: newTrackDialog
 
@@ -104,6 +120,16 @@ Page {
         RemorsePopup { id: remorse }
 
         PullDownMenu {
+            MenuItem {
+                text: qsTr("Rename track")
+                enabled: Global.tracker.tracking
+                onClicked: {
+                    editDialog.itemId = Global.tracker.trackId;
+                    editDialog.name = Global.tracker.name;
+                    editDialog.description = Global.tracker.description;
+                    editDialog.open();
+                }
+            }
             MenuItem {
                 text: qsTr("Stop tracking")
                 enabled: Global.tracker.tracking
