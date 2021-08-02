@@ -1069,7 +1069,7 @@
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>ATM, Bank</translation>
     </message>
 </context>
 <context>
@@ -1531,11 +1531,11 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Redigera spår</translation>
+        <translation>Redigera spåret</translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt namn på spåret</translation>
     </message>
 </context>
 <context>

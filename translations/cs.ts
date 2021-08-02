@@ -1532,11 +1532,11 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Upravit trasu</translation>
+        <translation>Upravit trasu</translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished"></translation>
+        <translation>Přejmenovat trasu</translation>
     </message>
 </context>
 <context>
