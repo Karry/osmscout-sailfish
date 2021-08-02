@@ -29,11 +29,13 @@ PkgConfigBR:
   - Qt5Core
   - Qt5DBus
   - Qt5Multimedia
+  - Qt5Network
   - Qt5Positioning
   - Qt5Qml
   - Qt5Quick
   - Qt5Sql
   - Qt5Svg
+  - Qt5Xml
   - sailfishapp >= 1.0.2
 
 # All installed files
