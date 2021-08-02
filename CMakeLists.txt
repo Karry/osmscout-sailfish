@@ -27,7 +27,8 @@ execute_process(COMMAND git rev-parse --short HEAD
                 RESULT_VARIABLE GIT_RETURN_CODE)
 
 if(NOT GIT_RETURN_CODE EQUAL "0")
-    message(FATAL_ERROR "git command failed")
+    message(WARNING "git command failed")
+    set(LIBOSMSCOUT_GIT_HASH "?")
 endif()
 
 message(STATUS "libosmscout Git hash: ${LIBOSMSCOUT_GIT_HASH}")
