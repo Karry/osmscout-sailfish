@@ -1532,11 +1532,11 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Edytuj ślad</translation>
+        <translation>Edytuj ślad</translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień nazwę śladu</translation>
     </message>
 </context>
 <context>
