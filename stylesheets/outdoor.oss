@@ -696,7 +696,7 @@ STYLE
        WAY#outline { color: darken(@secondaryColor,0.4); width: 8m; displayWidth: 0.5mm; priority: -1; joinCap: butt;  zIndex: -1;}
        WAY { color: @secondaryColor; width: 8m;}
      }
-     [SIZE 8m <0.25mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm; }
+     [SIZE 10m <0.45mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm; }
    }
 
  }
@@ -728,7 +728,7 @@ STYLE
        WAY#outline { color: darken(@tertiaryColor,0.6); width: 7m; displayWidth: 0.5mm; priority: -1; joinCap: butt;  zIndex: -1;}
        WAY { color: @tertiaryColor; width: 7m;}
      }
-     [SIZE 7m <0.25mm:3px] WAY { color: lighten(@tertiaryColor,0.3); displayWidth: 0.25mm;}
+     [SIZE 10m <0.45mm:3px] WAY { color: lighten(@tertiaryColor,0.3); displayWidth: 0.25mm;}
    }
 
    [TYPE highway_road] {
@@ -754,7 +754,7 @@ STYLE
        WAY#outline { color: darken(@primaryColor,0.4); width: 6m; displayWidth: 0.5mm; priority: -1; joinCap: butt; zIndex: -1; }
        WAY { color: @primaryColor; width: 6m;}
      }
-     [SIZE 6m <0.4mm:3px] WAY { color: lighten(@primaryColor,0.3); displayWidth: 0.4mm;}
+     [SIZE 10m <0.45mm:3px] WAY { color: lighten(@primaryColor,0.3); displayWidth: 0.4mm;}
    }
 
    [TYPE highway_secondary_link] {
@@ -762,7 +762,7 @@ STYLE
        WAY#outline { color: darken(@secondaryColor,0.4); width: 6m; displayWidth: 0.5mm; priority: -1; joinCap: butt; zIndex: -1; }
        WAY { color: @secondaryColor; width: 6m;}
      }
-     [SIZE 6m <0.25mm:3px] WAY { color: lighten(@secondaryColor,0.3); displayWidth: 0.25mm;}
+     [SIZE 10m <0.45mm:3px] WAY { color: lighten(@secondaryColor,0.3); displayWidth: 0.25mm;}
    }
 
    [TYPE highway_tertiary_link] {
@@ -770,7 +770,7 @@ STYLE
        WAY#outline { color: darken(@tertiaryColor,0.6); width: 5m; displayWidth: 0.5mm; priority: -1; joinCap: butt; zIndex: -1; }
        WAY { color: @tertiaryColor; width: 5m;}
      }
-     [SIZE 6m <0.25mm:3px] WAY { color: lighten(@tertiaryColor,0.3); displayWidth: 0.25mm;}
+     [SIZE 10m <0.45mm:3px] WAY { color: lighten(@tertiaryColor,0.3); displayWidth: 0.25mm;}
    }
 
    [TYPE highway_unclassified,
