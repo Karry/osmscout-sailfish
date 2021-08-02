@@ -35,6 +35,7 @@ BuildRequires:  pkgconfig(Qt5Positioning)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Sql)
+BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  cmake
 BuildRequires:  chrpath

@@ -33,6 +33,7 @@ PkgConfigBR:
   - Qt5Qml
   - Qt5Quick
   - Qt5Sql
+  - Qt5Svg
   - sailfishapp >= 1.0.2
 
 # All installed files
