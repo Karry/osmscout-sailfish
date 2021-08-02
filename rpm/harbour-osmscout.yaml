@@ -22,6 +22,8 @@ PkgBR:
   - cmake
   - chrpath
   - git
+  - desktop-file-utils
+  - qt5-qttools-linguist
 
 # This section specifies build dependencies that are resolved using pkgconfig.
 PkgConfigBR:

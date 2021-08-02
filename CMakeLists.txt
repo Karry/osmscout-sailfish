@@ -65,6 +65,7 @@ find_package( Qt5 ${QT_MIN_VERSION}
               Core
               DBus
               Gui
+              LinguistTools
               Multimedia
               Network
               Positioning

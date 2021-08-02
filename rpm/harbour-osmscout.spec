@@ -41,8 +41,9 @@ BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  cmake
 BuildRequires:  chrpath
-BuildRequires:  git
 BuildRequires:  desktop-file-utils
+BuildRequires:  git
+BuildRequires:  qt5-qttools-linguist
 
 %description
 OSM Scout is offline map viewer and routing application.
