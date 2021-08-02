@@ -42,8 +42,10 @@ Dialog{
 
     onStatusChanged: {
         console.log("dialog status: "+ editCollectionDialog.status);
-        if (editCollectionDialog.status == DialogStatus.Opening) {
+        if (editCollectionDialog.status == DialogStatus.Opened) {
             nameTextField.focus = true;
+            nameTextField.forceActiveFocus();
+            nameTextField.selectAll();
         }
     }
 

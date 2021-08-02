@@ -73,9 +73,12 @@ Dialog{
             if (newCollectionRequested){
                 newCollectionDialog.open();
                 newCollectionRequested = false;
-            }
-            if (rejectRequested){
+            } else if (rejectRequested){
                 waypointDialog.reject();
+            } else {
+                nameTextField.focus = true;
+                nameTextField.forceActiveFocus();
+                nameTextField.selectAll();
             }
         }
         if (waypointDialog.status == DialogStatus.Closed){
