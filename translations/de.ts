@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation>Bearbeite Track &quot;%1&quot;</translation>
+        <translation>Bearbeite Strecke &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
@@ -1531,11 +1531,11 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Bearbeite Strecke</translation>
+        <translation>Bearbeite Strecke</translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished"></translation>
+        <translation>Strecke umbenennen</translation>
     </message>
 </context>
 <context>

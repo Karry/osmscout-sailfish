@@ -1531,11 +1531,11 @@
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Muuda rada</translation>
+        <translation>Muuda rada</translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda raja nime</translation>
     </message>
 </context>
 <context>
