@@ -485,4 +485,7 @@
 * 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.16
 - allow to rename track from Tracker page
 - update translations (Czech, Estonian, German, Polish, Swedish)
-- update core library (remove limit for prefix-based search, fixed route rendering...)
+- update core library:
+-- remove limit for prefix-based search
+-- fixed missing entries in search model
+-- fixed route rendering...
