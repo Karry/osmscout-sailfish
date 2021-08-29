@@ -27,8 +27,13 @@
 #include <QObject>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QAudioDeviceInfo>
+#include <QAudioOutputSelectorControl>
+#include <QMediaService>
 
 #include <MediaPlayer.h>
+
+#include <cassert>
 
 void MediaPlayerTest::playerStateChanged(QMediaPlayer::State state){
   if (state==QMediaPlayer::StoppedState) {
@@ -53,6 +58,23 @@ MediaPlayerTest::MediaPlayerTest(QGuiApplication *app,
   QMediaPlaylist *currentPlaylist = new QMediaPlaylist(mediaPlayer);
   connect(mediaPlayer, &QMediaPlayer::stateChanged, this, &MediaPlayerTest::playerStateChanged);
   mediaPlayer->setPlaylist(currentPlaylist);
+
+  qDebug() << "device count:" << QAudioDeviceInfo::availableDevices(QAudio::AudioOutput ).size();
+  for (const auto &dev: QAudioDeviceInfo::availableDevices(QAudio::AudioOutput )){
+    qDebug() << "QAudioDeviceInfo:" << dev.deviceName();
+  }
+
+  QMediaService *mediaService = mediaPlayer->service();
+  assert(mediaService);
+  QAudioOutputSelectorControl* ctl = mediaService->requestControl<QAudioOutputSelectorControl*>();
+  if(ctl){
+    for (const auto &out: ctl->availableOutputs()){
+      qDebug() << "device:" << out;
+    }
+    mediaService->releaseControl(ctl);
+  } else {
+    qWarning() << "QAudioOutputSelectorControl is not available";
+  }
 
   auto sampleUrl = QUrl::fromLocalFile(file);
   qDebug() << "Adding to playlist:" << sampleUrl;
