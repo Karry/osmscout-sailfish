@@ -149,8 +149,15 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   QByteArray envVar = qgetenv("NEMO_RESOURCE_CLASS_OVERRIDE");
   if (envVar.isEmpty()) {
-    // setup audio class to navigator, music player is paused on navigation message and resumed then
-    qputenv("NEMO_RESOURCE_CLASS_OVERRIDE", "navigator");
+    // setup audio class for proper audio routing and interaction with audio player
+    // see SFOS forum for problem description: https://forum.sailfishos.org/t/playing-audio-file-with-qmediaplayer-pause-media-player/2732/5
+
+    // pre-defined classes: navigator, call, camera, game, player, event ( https://github.com/qt/qtmultimedia/commit/1c5ea95 )
+    // pulseaudio behaviour is configured in /etc/pulse/xpolicy.conf
+    // best class should be *navigator*, but this class is routed to device speaker even when bluetooth headset is connected
+    // *player* class is routed (pulse route_audio flag), but system player is paused and not resumed after voice message
+    // *game* class seems to be best for car navigation
+    qputenv("NEMO_RESOURCE_CLASS_OVERRIDE", "game");
   }
 
 #ifdef QT_QML_DEBUG
