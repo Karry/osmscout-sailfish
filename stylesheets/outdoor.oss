@@ -400,6 +400,10 @@ SYMBOL amenity_charging_station
     AREA {color: #ffffff; }
   }
 
+SYMBOL mini_roundabout
+  CIRCLE GROUND 0,0 3 {
+    AREA {color: #8080ff; }
+  }
 
 STYLE
  // -------------------------------------------------------
@@ -1688,6 +1692,9 @@ STYLE
    [TYPE amenity_fuel, amenity_fuel_building] {
      NODE.ICON { name: fuel; }
      AREA.ICON { name: fuel; }
+   }
+   [TYPE highway_mini_roundabout] {
+     NODE.ICON { symbol: mini_roundabout; name: mini_roundabout; }
    }
  }
 

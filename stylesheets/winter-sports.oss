@@ -476,6 +476,11 @@ CONST
       AREA { color: #000000; } // horizontal bar
     }
 
+  SYMBOL mini_roundabout
+    CIRCLE GROUND 0,0 3 {
+      AREA {color: #8080ff; }
+    }
+
   SYMBOL speed_camera
     CIRCLE 0,0 1.5 {
       AREA {color: @red; }
@@ -1026,6 +1031,10 @@ STYLE
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; offset: -4m; displayOffset: -0.25mm;}
        WAY#rbridge {color: @bridgeColor; displayWidth: 0.2mm; offset: 4m; displayOffset: 0.25mm;}
      }
+   }
+
+   [TYPE highway_mini_roundabout] {
+     NODE.ICON { symbol: mini_roundabout; name: mini_roundabout; }
    }
  }
 
