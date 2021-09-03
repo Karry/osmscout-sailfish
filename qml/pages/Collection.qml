@@ -279,10 +279,10 @@ Page {
                     signal exportTrack(string directory, string name, bool includeWaypoints, int accuracyFilter)
 
                     onExported: {
-                        console.log("Track " + id + " exported to " + filePath);
-                        if (id != model.id) {
+                        if (id != model.id && model.type == "track") {
                             return;
                         }
+                        console.log("Track " + id + " exported to " + filePath);
 
                         shareAction.mimeType = "text/xml"
                         // TODO: who will delete temporary file?
