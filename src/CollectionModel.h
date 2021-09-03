@@ -56,6 +56,8 @@ signals:
   void moveWaypointRequest(qint64 waypointId, qint64 collectionId);
   void moveTrackRequest(qint64 trackId, qint64 collectionId);
   void orderingChanged();
+  void exported(qint64 collectionId, QString file);
+  void trackExported(qint64 trackId, QString file);
 
 public slots:
   void storageInitialised();
@@ -68,8 +70,8 @@ public slots:
   void editTrack(QString id, QString name, QString description);
   void exportToFile(QString fileName, QString directory, bool includeWaypoints, int accuracyFilter);
   void exportTrackToFile(QString id, QString name, QString directory, bool includeWaypoints, int accuracyFilter);
-  void onCollectionExported(bool);
-  void onTrackExported(bool);
+  void onCollectionExported(qint64 collectionId, QString file, bool);
+  void onTrackExported(qint64 trackId, QString file, bool success);
   void moveWaypoint(QString waypointId, QString collectionId);
   void moveTrack(QString trackId, QString collectionId);
 

@@ -19,6 +19,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Sailfish.Share 1.0
 import QtPositioning 5.2
 import QtQml.Models 2.2
 
@@ -337,12 +338,11 @@ Page {
                     id: shareBtn
                     icon.source: "image://theme/icon-m-share"
 
-                    function shortCoord(deg){
-                        return (Math.round(deg * 100000)/100000).toString();
-                    }
+                    ShareAction {
+                        id: shareAction
 
-                    LocFile {
-                        id: locFile
+                        //: Page header for share method selection
+                        title: qsTr("Share place link")
                     }
 
                     onClicked: {
@@ -361,12 +361,12 @@ Page {
                         //   vkshare: text/plain, text/x-url
 
                         var mimeType = "text/x-url"; // "text/x-url" can be shared on social media, but it cannot be uploaded to remote drives :-(
-                        var placeLink = "https://osm.org/?mlat=" + shortCoord(placeLat) + "&mlon=" + shortCoord(placeLon);
+                        var placeLink = Utils.shareLink(placeLat, placeLon);
                         var info = placeTools.placeInfo();
                         var name = info.name;
                         var address = info.address;
                         var status = (address === "" ?  placeLink : address + ": " + placeLink);
-                        var linkTitle = (name === "" ?  placeLocationLabel.text : name);
+                        var linkTitle = (name === "" ?  placeLocationLabel.text : placeLocationLabel.text + "\n" + name);
                         var content = {
                             "data": placeLink,
                             "type": mimeType
@@ -377,18 +377,15 @@ Page {
                         content["linkTitle"] = linkTitle;
 
                         // attachment for e-mail sharing
-                        content["name"] = "place.loc";
-                        var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
+                        // content["name"] = "place.loc";
+                        // LocFile {
+                        //   id: locFile
+                        // }
+                        //var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
 
-                        pageStack.animatorPush("Sailfish.TransferEngine.SharePage",
-                                               {
-                                                   //: Page header for share method selection
-                                                   "header": qsTr("Share place link"),
-                                                   "serviceFilter": ["sharing", "e-mail", "IM"],
-                                                   "mimeType": mimeType,
-                                                   "content": content,
-                                                   "source": fileSource
-                                               })
+                        shareAction.resources = [content]
+                        shareAction.mimeType = mimeType
+                        shareAction.trigger()
                     }
                 }
 
