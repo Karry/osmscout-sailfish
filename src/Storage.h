@@ -398,8 +398,8 @@ signals:
   void collectionsLoaded(std::vector<Collection> collections, bool ok);
   void collectionDetailsLoaded(Collection collection, bool ok);
   void trackDataLoaded(Track track, std::optional<double>, bool complete, bool ok);
-  void collectionExported(bool success);
-  void trackExported(bool success);
+  void collectionExported(qint64 collectionId, QString file, bool success);
+  void trackExported(qint64 trackId, QString file, bool success);
 
   void trackCreated(qint64 collectionId, qint64 trackId, QString name);
   void waypointCreated(qint64 collectionId, qint64 waypointId, QString name);

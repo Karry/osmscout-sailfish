@@ -486,6 +486,8 @@
 - allow to rename track from Tracker page
 - update translations (Czech, Estonian, German, Polish, Swedish)
 - workaround incorrect voice audio routing with bluetooth headset
+- update sharing api to Sailfish OS 4.2
+- allow to share collection entries
 - update core library:
 -- remove limit for prefix-based search
 -- fixed missing entries in search model

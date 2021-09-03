@@ -1715,7 +1715,6 @@ bool Storage::exportPrivate(qint64 collectionId,
   Collection collection(collectionId);
   gpx::GpxFile gpxFile;
   if (!loadCollectionDetailsPrivate(collection)){
-    emit collectionExported(false);
     return false;
   }
 
@@ -1741,7 +1740,6 @@ bool Storage::exportPrivate(qint64 collectionId,
   for (Track &t : *(collection.tracks)){
     if (!trackId || *trackId == t.id) {
       if (!loadTrackDataPrivate(t, accuracyFilter)) {
-        emit collectionExported(false);
         return false;
       }
       assert(t.data);
@@ -1772,23 +1770,23 @@ bool Storage::exportPrivate(qint64 collectionId,
 void Storage::exportCollection(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
-    emit collectionExported(false);
+    emit collectionExported(collectionId, file, false);
     return;
   }
 
   bool success = exportPrivate(collectionId, file, std::nullopt, includeWaypoints, accuracyFilter);
-  emit collectionExported(success);
+  emit collectionExported(collectionId, file, success);
 }
 
 void Storage::exportTrack(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter)
 {
   if (!checkAccess(__FUNCTION__)){
-    emit collectionExported(false);
+    emit trackExported(trackId, file, false);
     return;
   }
 
   bool success = exportPrivate(collectionId, file, trackId, includeWaypoints, accuracyFilter);
-  emit trackExported(success);
+  emit trackExported(trackId, file, success);
 }
 
 void Storage::moveWaypoint(qint64 waypointId, qint64 collectionId)
