@@ -338,10 +338,6 @@ Page {
                     id: shareBtn
                     icon.source: "image://theme/icon-m-share"
 
-                    function shortCoord(deg){
-                        return (Math.round(deg * 100000)/100000).toString();
-                    }
-
                     ShareAction {
                         id: shareAction
 
@@ -365,7 +361,7 @@ Page {
                         //   vkshare: text/plain, text/x-url
 
                         var mimeType = "text/x-url"; // "text/x-url" can be shared on social media, but it cannot be uploaded to remote drives :-(
-                        var placeLink = "https://osm.org/?mlat=" + shortCoord(placeLat) + "&mlon=" + shortCoord(placeLon);
+                        var placeLink = Utils.shareLink(placeLat, placeLon);
                         var info = placeTools.placeInfo();
                         var name = info.name;
                         var address = info.address;

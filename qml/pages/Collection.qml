@@ -295,10 +295,6 @@ Page {
                         collectionModel.exportTrackToFile(model.id, name, directory, includeWaypoints, accuracyFilter);
                     }
 
-                    function shortCoord(deg){
-                        return (Math.round(deg * 100000)/100000).toString();
-                    }
-
                     onClicked: {
                         if (model.type == "track") {
                             console.log("Opening export dialog...")
@@ -315,7 +311,7 @@ Page {
                             exportPage.selected.connect(exportTrack);
                         } else { // waypoint
                             var mimeType = "text/x-url";
-                            var placeLink = "https://osm.org/?mlat=" + shortCoord(model.latitude) + "&mlon=" + shortCoord(model.longitude);
+                            var placeLink = Utils.shareLink(model.latitude, model.longitude);
 
                             var status = model.name + (model.description === "" ? "": "\n" + model.description) + "\n" + placeLink;
                             var linkTitle = model.name;
