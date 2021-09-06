@@ -201,7 +201,7 @@ collection pull down menu</extracomment>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Udostępnij</translation>
     </message>
 </context>
 <context>
