@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>Muuda kogumikku</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Ekspordi kogumik</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Muuda kogumikku</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation>Sortimisjärjekord on...</translation>
@@ -201,7 +191,7 @@ collection pull down menu</extracomment>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Jaga</translation>
     </message>
 </context>
 <context>

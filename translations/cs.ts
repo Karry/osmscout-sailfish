@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>Upravit sbírku</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Exportovat sbírku</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Upravit sbírku</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation>Seřadit podle...</translation>
@@ -201,7 +191,7 @@ collection pull down menu</extracomment>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sdílet</translation>
     </message>
 </context>
 <context>
