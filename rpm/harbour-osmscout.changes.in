@@ -482,12 +482,12 @@
 - update translations (Czech, Estonian, French, Polish, Swedish)
 - use moving window average for elevation chart and track statistics
 
-* 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.16
+* 2021-09-17 Lukáš Karas <lukas.karas@centrum.cz> 2.16
 - allow to rename track from Tracker page
 - update translations (Czech, Estonian, German, Polish, Swedish)
 - workaround incorrect voice audio routing with bluetooth headset
 - update sharing api to Sailfish OS 4.2
-- allow to share collection entries
+- allow to share collection entries (waypoints as a link, tracks as a file)
 - update core library:
 -- remove limit for prefix-based search
 -- fixed missing entries in search model
