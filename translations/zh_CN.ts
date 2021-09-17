@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>编辑收藏</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">输出收藏</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">编辑收藏</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation>分类方式</translation>

@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>Редактирование коллекции</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Экспортировать коллекцию</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Редактировать коллекцию</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished"></translation>

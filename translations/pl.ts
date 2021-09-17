@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>Edytuj kolekcję</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Eksportuj kolekcję</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Edytuj kolekcję</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation>Sortuj według...</translation>

@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>Redigera samling</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Exportera samling</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Redigera samling</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation>Ordna efter...</translation>
@@ -201,7 +191,7 @@ collection pull down menu</extracomment>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dela</translation>
     </message>
 </context>
 <context>

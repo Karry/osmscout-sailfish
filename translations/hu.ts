@@ -148,16 +148,6 @@ collection pull down menu</extracomment>
         <translation>Gyűjtemény szerkesztése</translation>
     </message>
     <message>
-        <source>Export Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Gyűjtemény exportálása</translation>
-    </message>
-    <message>
-        <source>Edit Collection</source>
-        <extracomment>collection pull down menu</extracomment>
-        <translation type="vanished">Gyűjtemény szerkesztése</translation>
-    </message>
-    <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
         <translation>Rendezés alapja</translation>
