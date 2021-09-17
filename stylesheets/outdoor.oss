@@ -79,7 +79,7 @@ CONST
   
   // Ground tiles
 
-  COLOR waterColor            = #9acffd;
+  COLOR waterColor            = #aad3df;
   COLOR landColor             = #f1eee9;
   COLOR unknownColor          = #c4dff6;
 
