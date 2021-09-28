@@ -492,3 +492,6 @@
 -- remove limit for prefix-based search
 -- fixed missing entries in search model
 -- fixed route rendering...
+
+* 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.17
+- show warning on search or navigation where there is no offline database
