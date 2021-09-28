@@ -213,13 +213,13 @@ function humanDurationLong(seconds){
 
 function humanDirectory(directory){
     return directory
-        .replace(/^\/home\/nemo$/i, qsTr("Home"))
-        .replace(/^\/home\/nemo\/Documents$/i, qsTr("Documents"))
+        .replace(/^\/home\/[^/]*$/i, qsTr("Home"))
+        .replace(/^\/home\/[^/]*\/Documents$/i, qsTr("Documents"))
         .replace(/^\/media\/sdcard\/[^/]*$/i, qsTr("SD card"))
-        .replace(/^\/run\/media\/nemo\/[^/]*$/i, qsTr("SD card"))
-        .replace(/^\/home\/nemo\//i, "[" + qsTr("Home") + "] ")
+        .replace(/^\/run\/media\/[^/]*\/[^/]*$/i, qsTr("SD card"))
+        .replace(/^\/home\/[^/]*\//i, "[" + qsTr("Home") + "] ")
         .replace(/^\/media\/sdcard\/[^/]*\//i, "[" + qsTr("SD card") + "] ")
-        .replace(/^\/run\/media\/nemo\/[^/]*\//i, "[" + qsTr("SD card") + "] ");
+        .replace(/^\/run\/media\/[^/]*\/[^/]*\//i, "[" + qsTr("SD card") + "] ");
 }
 
 function locationStr(location){
