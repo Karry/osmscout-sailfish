@@ -512,7 +512,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak bazy danych offline!</translation>
     </message>
 </context>
 <context>
@@ -799,11 +799,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Baza danych map offline jest wymagana, aby móc wyszukiwać.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Baza danych map offline jest wymagana, aby móc nawigować.</translation>
     </message>
 </context>
 <context>
