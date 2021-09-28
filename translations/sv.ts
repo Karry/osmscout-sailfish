@@ -509,6 +509,13 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>DatabaseWarning</name>
+    <message>
+        <source>No offline database!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Downloads</name>
     <message>
         <source>Download Progress</source>
@@ -789,6 +796,14 @@ collection pull down menu</extracomment>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
         <translation>Fel vid nerladdning av kartor</translation>
+    </message>
+    <message>
+        <source>Offline map database is required for search functionality.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline map database is required for navigation functionality.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

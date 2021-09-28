@@ -360,6 +360,7 @@ set(QML_FILES
     qml/pages/Cover.qml
     qml/pages/Search.qml
     qml/pages/MapList.qml
+    qml/pages/DatabaseWarning.qml
     qml/pages/Downloads.qml
     qml/pages/MapDetail.qml
     qml/pages/About.qml

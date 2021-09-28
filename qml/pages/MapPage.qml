@@ -354,6 +354,10 @@ Page {
                 ListElement { itemtext: QT_TR_NOOP("About");        itemicon: "image://theme/icon-m-about";          action: "about";    }
             }
 
+            InstalledMapsModel{
+                id: installedMapsModel
+            }
+
             delegate: ListItem{
                 id: searchRow
 
@@ -384,6 +388,15 @@ Page {
                     }else if (action == "about"){
                         pageStack.push(Qt.resolvedUrl("About.qml"))
                     }else if (action == "search"){
+                        console.log("installedMapsModel.rowCount(): " + installedMapsModel.rowCount());
+                        if (installedMapsModel.rowCount() <= 0) {
+                            pageStack.push(Qt.resolvedUrl("DatabaseWarning.qml"),
+                                           {
+                                              description: qsTr("Offline map database is required for search functionality.")
+                                           });
+                            return;
+                        }
+
                         var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
                                                       {
                                                           searchCenterLat: Global.positionSource.lat,
@@ -392,6 +405,13 @@ Page {
                                                       });
                         searchPage.selectLocation.connect(selectLocation);
                     }else if (action == "routing"){
+                        if (installedMapsModel.rowCount() <= 0) {
+                            pageStack.push(Qt.resolvedUrl("DatabaseWarning.qml"),
+                                           {
+                                              description: qsTr("Offline map database is required for navigation functionality.")
+                                           });
+                            return;
+                        }
                         pageStack.push(Qt.resolvedUrl("Routing.qml"))
                     }else if (action == "layers"){
                         pageStack.push(Qt.resolvedUrl("Layers.qml"))
