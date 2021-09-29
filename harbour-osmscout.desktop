@@ -29,7 +29,6 @@ BackupPathList=.local/share/cz.karry.osmscout/OSMScout:.config/cz.karry.osmscout
 
 [X-Sailjail]
 # TODO: solve access to ~/Maps directory and migration of .cache, .share, .config
-# Privileged permission is necessary for sharing via email
-Permissions=Sharing;Privileged;Internet;Audio;Location;RemovableMedia;Documents;Downloads
+Permissions=Sharing;Internet;Audio;Location;RemovableMedia;Documents;Downloads
 OrganizationName=cz.karry.osmscout
 ApplicationName=OSMScout
