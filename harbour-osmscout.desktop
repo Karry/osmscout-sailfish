@@ -13,7 +13,8 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 
 Icon=harbour-osmscout
-Exec=/usr/bin/sailjail -p harbour-osmscout.desktop /usr/bin/harbour-osmscout
+Exec=harbour-osmscout
+# Exec=/usr/bin/sailjail -p harbour-osmscout.desktop /usr/bin/harbour-osmscout
 
 Name=OSM Scout
 # translation example:
