@@ -314,6 +314,7 @@ set(HEADER_FILES
     src/IconProvider.h
     src/LocFile.h
     src/MemoryManager.h
+    src/Migration.h
     src/NearWaypointModel.h
     src/Tracker.h
     src/SearchHistoryModel.h
@@ -394,6 +395,7 @@ set(SOURCE_FILES
     src/AppSettings.cpp
     src/LocFile.cpp
     src/MemoryManager.cpp
+    src/Migration.cpp
     src/OSMScout.cpp
     src/Storage.cpp
     src/CollectionModel.cpp

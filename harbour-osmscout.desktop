@@ -28,7 +28,6 @@ Name[hu]=OSMScout
 BackupPathList=.local/share/cz.karry.osmscout/OSMScout:.config/cz.karry.osmscout/OSMScout.conf
 
 [X-Sailjail]
-# TODO: solve access to ~/Maps directory and migration of .cache, .share, .config
 Permissions=Sharing;Internet;Audio;Location;RemovableMedia;Documents;Downloads
 OrganizationName=cz.karry.osmscout
 ApplicationName=OSMScout
