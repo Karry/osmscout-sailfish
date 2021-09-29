@@ -25,7 +25,7 @@ Name=OSM Scout
 Name[hu]=OSMScout
 
 [X-HarbourBackup]
-BackupPathList=.local/share/harbour-osmscout/:.config/harbour-osmscout/harbour-osmscout.conf
+BackupPathList=.local/share/cz.karry.osmscout/:.config/cz.karry.osmscout/harbour-osmscout.conf
 
 [X-Sailjail]
 # TODO: solve access to ~/Maps directory and migration of .cache, .share, .config
