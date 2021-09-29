@@ -199,6 +199,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   
   QStringList databaseLookupDirectories;
 
+  // TODO: migrate to new path used with Sailjail:
+  // ~/.config/harbour-osmscout      -> ~/.config/cz.karry.osmscout
+  // ~/.local/share/harbour-osmscout -> ~/.local/share/cz.karry.osmscout
+  // ~/Maps                          -> ~/Downloads/Maps
+
   // if user has Maps directory in "Documents" already, we will use it
   // for compatibility reasons
   if (QFile::exists(docs + QDir::separator() + "Maps")) {
