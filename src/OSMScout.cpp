@@ -110,7 +110,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   app->setOrganizationDomain("osmscout.karry.cz");
   app->setOrganizationName("cz.karry.osmscout"); // needed for Sailjail
-  app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
+  app->setApplicationName("OSMScout");
   app->setApplicationVersion(OSMSCOUT_SAILFISH_VERSION_STRING);
 
   Arguments args;
@@ -200,9 +200,10 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   QStringList databaseLookupDirectories;
 
   // TODO: migrate to new path used with Sailjail:
-  // ~/.config/harbour-osmscout      -> ~/.config/cz.karry.osmscout
-  // ~/.local/share/harbour-osmscout -> ~/.local/share/cz.karry.osmscout
-  // ~/Maps                          -> ~/Downloads/Maps
+  // ~/.config/harbour-osmscout/harbour-osmscout.conf -> ~/.config/cz.karry.osmscout/OSMScout.conf
+  // ~/.local/share/harbour-osmscout/harbour-osmscout -> ~/.local/share/cz.karry.osmscout/OSMScout
+  // ~/Maps                                           -> ~/Downloads/Maps
+  // wipe ~/.cache/harbour-osmscout/harbour-osmscout/
 
   // if user has Maps directory in "Documents" already, we will use it
   // for compatibility reasons
