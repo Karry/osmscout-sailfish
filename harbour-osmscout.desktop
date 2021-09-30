@@ -28,6 +28,10 @@ Name[hu]=OSMScout
 BackupPathList=.local/share/cz.karry.osmscout/OSMScout:.config/cz.karry.osmscout/OSMScout.conf
 
 [X-Sailjail]
-Permissions=Sharing;Internet;Audio;Location;RemovableMedia;Documents;Downloads
+# for testing Sailjail on SFOS 4.2:
+#  - it is necessary to add Sharing permission, it will be enabled by default in 4.3
+#  - remove X-Nemo-Application-Type
+#  - use sailjail Exec
+Permissions=Internet;Audio;Location;RemovableMedia;Documents;Downloads
 OrganizationName=cz.karry.osmscout
 ApplicationName=OSMScout
