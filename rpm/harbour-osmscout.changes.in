@@ -495,3 +495,6 @@
 
 * 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.17
 - show warning on search or navigation where there is no offline database
+- prepare for Sailjail sandboxing, process data migration on first startup:
+-- application data and configuration migrated to new location
+-- downloaded maps from ~/Maps are moved from ~/Downloads/Maps

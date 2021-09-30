@@ -14,6 +14,7 @@ X-Nemo-Application-Type=silica-qt5
 
 Icon=harbour-osmscout
 Exec=harbour-osmscout
+# Exec=/usr/bin/sailjail -p harbour-osmscout.desktop /usr/bin/harbour-osmscout
 
 Name=OSM Scout
 # translation example:
@@ -24,5 +25,13 @@ Name=OSM Scout
 Name[hu]=OSMScout
 
 [X-HarbourBackup]
-BackupPathList=.local/share/harbour-osmscout/:.config/harbour-osmscout/harbour-osmscout.conf
+BackupPathList=.local/share/cz.karry.osmscout/OSMScout:.config/cz.karry.osmscout/OSMScout.conf
 
+[X-Sailjail]
+# for testing Sailjail on SFOS 4.2:
+#  - it is necessary to add Sharing permission, it will be enabled by default in 4.3
+#  - remove X-Nemo-Application-Type
+#  - use sailjail Exec
+Permissions=Internet;Audio;Location;RemovableMedia;Documents;Downloads
+OrganizationName=cz.karry.osmscout
+ApplicationName=OSMScout

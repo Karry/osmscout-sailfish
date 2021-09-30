@@ -112,9 +112,9 @@ Page {
 
         remoteActions: [ {
                         name: "default",
-                        service: "harbour.osmscout.service",
-                        path: "/harbour/osmscout/service",
-                        iface: "harbour.osmscout.service",
+                        service: "cz.karry.osmscout.OSMScout",
+                        path: "/cz/karry/osmscout/OSMScout",
+                        iface: "cz.karry.osmscout.OSMScout",
                         method: "openPage",
                         arguments: [ "Downloads", {} ]
                     } ]
@@ -185,11 +185,11 @@ Page {
         }
 
         DBusAdaptor {
-               service: "harbour.osmscout.service"
-               iface: "harbour.osmscout.service"
-               path: "/harbour/osmscout/service"
+               service: "cz.karry.osmscout.OSMScout"
+               iface: "cz.karry.osmscout.OSMScout"
+               path: "/cz/karry/osmscout/OSMScout"
                xml: '\
-         <interface name="harbour.osmscout.service">
+         <interface name="cz.karry.osmscout.OSMScout">
            <method name="openPage">
              <arg name="page" type="s" direction="in">
                <doc:doc>
@@ -239,9 +239,9 @@ Page {
 
             remoteActions: [ {
                             name: "default",
-                            service: "harbour.osmscout.service",
-                            path: "/harbour/osmscout/service",
-                            iface: "harbour.osmscout.service",
+                            service: "cz.karry.osmscout.OSMScout",
+                            path: "/cz/karry/osmscout/OSMScout",
+                            iface: "cz.karry.osmscout.OSMScout",
                             method: "openPage",
                             arguments: [ "Tracker", {} ]
                         } ]

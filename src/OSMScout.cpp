@@ -25,6 +25,7 @@
 #include "IconProvider.h" // IconProvider
 #include "Arguments.h"
 #include "MemoryManager.h"
+#include "Migration.h"
 #include "LocFile.h"
 
 // collections
@@ -108,8 +109,9 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   QGuiApplication *app = SailfishApp::application(argc, argv);
 
-  app->setOrganizationDomain("libosmscout.sf.net");
-  app->setApplicationName("harbour-osmscout"); // Harbour name have to be used - for correct cache dir
+  app->setOrganizationDomain("osmscout.karry.cz");
+  app->setOrganizationName("cz.karry.osmscout"); // needed for Sailjail
+  app->setApplicationName("OSMScout");
   app->setApplicationVersion(OSMSCOUT_SAILFISH_VERSION_STRING);
 
   Arguments args;
@@ -195,18 +197,27 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   QString home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
   QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
   QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+  QString download = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
   
   QStringList databaseLookupDirectories;
 
-  // if user has Maps directory in "Documents" already, we will use it
-  // for compatibility reasons
-  if (QFile::exists(docs + QDir::separator() + "Maps")) {
-    databaseLookupDirectories << docs + QDir::separator() + "Maps";
-  }else{
-    // we will use Maps in "Home" directory otherwise
-    databaseLookupDirectories << home + QDir::separator() + "Maps";
+  { // TODO: remove this migration when Sailjail will be really enabled (old paths will be unavailable)
+    Migration migration("", "harbour-osmscout");
+    // migrate to new path used with Sailjail:
+    migration.migrateConfig(); // ~/.config/harbour-osmscout/harbour-osmscout.conf -> ~/.config/cz.karry.osmscout/OSMScout.conf
+    migration.migrateLocal(); // ~/.local/share/harbour-osmscout/harbour-osmscout -> ~/.local/share/cz.karry.osmscout/OSMScout
+    migration.wipeOldCache(); // wipe ~/.cache/harbour-osmscout/harbour-osmscout/
+    // ~/Maps -> ~/Downloads/Maps
+    if (!migration.migrate(home + QDir::separator() + "Maps", download + QDir::separator() + "Maps")) {
+      // possibly ~/Documents/Maps -> ~/Downloads/Maps
+      migration.migrate(docs + QDir::separator() + "Maps", download + QDir::separator() + "Maps");
+    }
   }
 
+  // lookup Maps in "Downloads" directory
+  databaseLookupDirectories << download + QDir::separator() + "Maps";
+
+  // and in SD card root / Maps directory
   for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
 
     QString mountPoint = storage.rootPath();
