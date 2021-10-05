@@ -38,6 +38,10 @@ void PositionSimulator::setTrack(const QString &t)
   setRunning(false);
   fileLoaded=false;
 
+  if (trackFile.isEmpty()) {
+    osmscout::log.Debug() << "Stopping position simulator";
+    return;
+  }
   osmscout::gpx::GpxFile gpxFile;
 
   osmscout::log.Info() << "Loading " << trackFile.toStdString();
