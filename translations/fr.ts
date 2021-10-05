@@ -696,7 +696,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Last Update</source>
-        <translation>Dernière mise à jour</translation>
+        <translation type="vanished">Dernière mise à jour</translation>
     </message>
     <message>
         <source>Download</source>
@@ -716,11 +716,27 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Téléchargé</translation>
+        <translation type="vanished">Téléchargé</translation>
     </message>
     <message>
         <source>Up-to-date</source>
         <translation>Mis à jour</translation>
+    </message>
+    <message>
+        <source>Downloaded version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available version</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -696,7 +696,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Last Update</source>
-        <translation>Viimane saadaolev uuendus</translation>
+        <translation type="vanished">Viimane saadaolev uuendus</translation>
     </message>
     <message>
         <source>Download</source>
@@ -716,11 +716,27 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Allalaaditud</translation>
+        <translation type="vanished">Allalaaditud</translation>
     </message>
     <message>
         <source>Up-to-date</source>
         <translation>Uuendatud ja ajakohane</translation>
+    </message>
+    <message>
+        <source>Downloaded version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available version</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

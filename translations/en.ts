@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation type="unfinished"></translation>
     </message>
@@ -715,11 +711,23 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloaded</source>
+        <source>Up-to-date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up-to-date</source>
+        <source>Downloaded version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available version</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

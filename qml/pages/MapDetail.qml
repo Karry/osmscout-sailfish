@@ -38,6 +38,9 @@ Page {
     property bool updateAvailable: false
     property string updateDirectory: ""
     property variant installedTime
+    property variant installedDirectory
+    property variant installedSize
+    property variant installedVersion
 
     MapDownloadsModel{
         id:mapDownloadsModel
@@ -106,11 +109,15 @@ Page {
 
             //console.log("Installed count: "+installedMapsModel.rowCount());
             for (var row=0; row < installedMapsModel.rowCount(); row++){
-                var p=installedMapsModel.data(installedMapsModel.index(row, 0), InstalledMapsModel.PathRole);
-                var directory=installedMapsModel.data(installedMapsModel.index(row, 0), InstalledMapsModel.DirectoryRole);
+                var index = installedMapsModel.index(row, 0);
+                var p=installedMapsModel.data(index, InstalledMapsModel.PathRole);
 
                 //console.log("Installed "+row+": "+p+" == "+path+" = "+equalPath(p,path));
                 if (equalPath(p,path)){
+                    var directory = installedMapsModel.data(index, InstalledMapsModel.DirectoryRole);
+                    installedDirectory = directory;
+                    installedSize = installedMapsModel.data(index, InstalledMapsModel.SizeRole);
+                    installedVersion = installedMapsModel.data(index, InstalledMapsModel.VersionRole);
                     updateDirectory = directory.substring(0, directory.lastIndexOf("/"));
                     break;
                 }
@@ -150,59 +157,53 @@ Page {
                 text: mapItem.description
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeSmall
+                visible: mapItem.description !== ""
             }
 
-            Column{
-                width: parent.width - 2*Theme.paddingMedium
-                x: Theme.paddingMedium
-                Label{
-                    text: qsTr("Size")
-                    color: Theme.primaryColor
-                }
-                Label{
-                    text: mapItem.size
-                    color: Theme.highlightColor
-                }
-            }
 
-            Column{
-                width: parent.width - 2*Theme.paddingMedium
-                x: Theme.paddingMedium
+            SectionHeader {
                 visible: updateAvailable || upToDate
-                Label{
-                    text: qsTr("Downloaded")
-                    color: Theme.primaryColor
-                }
-                Label{
-                    text: Qt.formatDate(installedTime)
-                    color: Theme.highlightColor
-                }
+                text: qsTr("Downloaded version")
             }
-
-            Column{
+            Label {
+                visible: updateAvailable || upToDate
                 width: parent.width - 2*Theme.paddingMedium
                 x: Theme.paddingMedium
-                Label{
-                    text: qsTr("Last Update")
-                    color: Theme.primaryColor
-                }
-                Label{
-                    text: Qt.formatDate(mapItem.time)
-                    color: Theme.highlightColor
-                }
+                text: Utils.humanDirectory(installedDirectory)
+                color: Theme.highlightColor
+                wrapMode: Text.WordWrap
+                font.pixelSize: Theme.fontSizeSmall
+            }
+            DetailItem {
+                visible: updateAvailable || upToDate
+                label: qsTr("Date")
+                value: Qt.formatDate(installedTime)
+            }
+            DetailItem {
+                visible: updateAvailable || upToDate
+                label: qsTr("Size")
+                value: installedSize
+            }
+            DetailItem {
+                visible: updateAvailable || upToDate
+                label: qsTr("Data version")
+                value: installedVersion
             }
 
-            Column{
-                width: parent.width - 2*Theme.paddingMedium
-                x: Theme.paddingMedium
-                Label{
-                    text: qsTr("Data Version")
-                    color: Theme.primaryColor
-                }
-                Label{
-                    text: mapItem.version
-                    color: Theme.highlightColor
-                }
+            SectionHeader{
+                text: qsTr("Available version")
+            }
+            DetailItem {
+                label: qsTr("Date")
+                value: Qt.formatDate(mapItem.time)
+            }
+            DetailItem {
+                label: qsTr("Size")
+                value: mapItem.size
+            }
+            DetailItem {
+                label: qsTr("Data Version")
+                value: mapItem.version
             }
 
             SectionHeader{

@@ -287,31 +287,29 @@ Page {
                         }
                         onClicked: {
                             //console.log("click for update: " + updateAvailable);
-                            if (updateAvailable){
-                                var map=availableMapsModel.mapByPath(path);
-                                if (map==null){
-                                    return;
-                                }
-                                var item = {
-                                    name: map.name,
-                                    version: map.version,
-                                    description: map.description,
-                                    time: map.time,
-                                    size: map.size,
-                                    map: map,
-                                    path: map.path
-                                };
-
-                                console.log("open map for update: " + item.name + " / "+item.map+ " / " + item.time);
-
-                                pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
-                                               {
-                                                   availableMapsModel: availableMapsModel,
-                                                   mapName: item.name,
-                                                   mapItem: item,
-                                                   downloadsPage: downloadsPage
-                                               })
+                            var map=availableMapsModel.mapByPath(path);
+                            if (map==null){
+                                return;
                             }
+                            var item = {
+                                name: map.name,
+                                version: map.version,
+                                description: map.description,
+                                time: map.time,
+                                size: map.size,
+                                map: map,
+                                path: map.path
+                            };
+
+                            console.log("open map for update: " + item.name + " / "+item.map+ " / " + item.time);
+
+                            pageStack.push(Qt.resolvedUrl("MapDetail.qml"),
+                                           {
+                                               availableMapsModel: availableMapsModel,
+                                               mapName: item.name,
+                                               mapItem: item,
+                                               downloadsPage: downloadsPage
+                                           })
                         }
                         menu: ContextMenu {
                             MenuItem {

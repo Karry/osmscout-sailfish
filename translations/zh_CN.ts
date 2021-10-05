@@ -696,7 +696,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Last Update</source>
-        <translation>上次更新</translation>
+        <translation type="vanished">上次更新</translation>
     </message>
     <message>
         <source>Download</source>
@@ -716,11 +716,27 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>下载的</translation>
+        <translation type="vanished">下载的</translation>
     </message>
     <message>
         <source>Up-to-date</source>
         <translation>最新</translation>
+    </message>
+    <message>
+        <source>Downloaded version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available version</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
