@@ -251,16 +251,6 @@ Page {
                             anchors.topMargin: Theme.paddingMedium
                             //width: Math.max(sizeLabel.width, dateLabel.width) + Theme.paddingMedium
 
-                            /*
-                            Label{
-                                id: sizeLabel
-                                anchors.right: parent.right
-                                visible: !dir
-                                text: size
-                                font.pixelSize: Theme.fontSizeExtraSmall
-                                color: Theme.secondaryColor
-                            }
-                            */
                             Label{
                                 id: dateLabel
                                 anchors.right: parent.right
@@ -287,19 +277,30 @@ Page {
                         }
                         onClicked: {
                             //console.log("click for update: " + updateAvailable);
-                            var map=availableMapsModel.mapByPath(path);
-                            if (map==null){
-                                return;
+                            var map = availableMapsModel.mapByPath(path);
+                            if (map == null){
+                                // Even when availableMapsModel is not loaded or installed map was build locally
+                                // we should be able to open map details.
+                                var item = {
+                                    name: model.name,
+                                    version: 0,
+                                    description: "",
+                                    time: null,
+                                    size: 0,
+                                    map: null,
+                                    path: path
+                                };
+                            } else {
+                                var item = {
+                                    name: map.name,
+                                    version: map.version,
+                                    description: map.description,
+                                    time: map.time,
+                                    size: map.size,
+                                    map: map,
+                                    path: map.path
+                                };
                             }
-                            var item = {
-                                name: map.name,
-                                version: map.version,
-                                description: map.description,
-                                time: map.time,
-                                size: map.size,
-                                map: map,
-                                path: map.path
-                            };
 
                             console.log("open map for update: " + item.name + " / "+item.map+ " / " + item.time);
 

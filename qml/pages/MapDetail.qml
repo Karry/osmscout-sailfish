@@ -191,17 +191,21 @@ Page {
             }
 
             SectionHeader{
+                visible: mapItem.time !== null
                 text: qsTr("Available version")
             }
             DetailItem {
+                visible: mapItem.time !== null
                 label: qsTr("Date")
                 value: Qt.formatDate(mapItem.time)
             }
             DetailItem {
+                visible: mapItem.time !== null
                 label: qsTr("Size")
                 value: mapItem.size
             }
             DetailItem {
+                visible: mapItem.time !== null
                 label: qsTr("Data Version")
                 value: mapItem.version
             }
