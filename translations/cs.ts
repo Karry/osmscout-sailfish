@@ -512,7 +512,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Žádná offline databáze!</translation>
     </message>
 </context>
 <context>
@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Velikost</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Poslední aktualizace</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Stáhnout</translation>
     </message>
@@ -715,28 +711,24 @@ collection pull down menu</extracomment>
         <translation>Aktualizovat</translation>
     </message>
     <message>
-        <source>Downloaded</source>
-        <translation type="vanished">Staženo</translation>
-    </message>
-    <message>
         <source>Up-to-date</source>
         <translation>Aktuální</translation>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Stažená verze</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verze dat</translation>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostupná verze</translation>
     </message>
 </context>
 <context>
@@ -815,11 +807,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pro hledání je vyžadována offline mapa.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pro navigaci je vyžadována offline mapa.</translation>
     </message>
 </context>
 <context>

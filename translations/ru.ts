@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Размер</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Обновлено</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Загрузка</translation>
     </message>
@@ -713,10 +709,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Update</source>
         <translation>Обновить</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">Загружено</translation>
     </message>
     <message>
         <source>Up-to-date</source>

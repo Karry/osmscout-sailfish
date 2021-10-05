@@ -512,7 +512,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen lokalt lagrad databas!</translation>
     </message>
 </context>
 <context>
@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Storlek</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Senast uppdaterad</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Ladda ner</translation>
     </message>
@@ -713,10 +709,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Update</source>
         <translation>Uppdatera</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">Nerladdat</translation>
     </message>
     <message>
         <source>Up-to-date</source>
@@ -815,11 +807,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalt lagrad kartdatabas krävs för sökfunktionen.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalt lagrad kartdatabas krävs för navigationsfunktionen.</translation>
     </message>
 </context>
 <context>

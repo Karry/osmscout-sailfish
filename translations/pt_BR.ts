@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Tamanho</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Última Atualização</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Baixar</translation>
     </message>

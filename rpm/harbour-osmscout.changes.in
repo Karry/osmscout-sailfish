@@ -499,3 +499,4 @@
 -- application data and configuration migrated to new location
 -- downloaded maps from ~/Maps are moved from ~/Downloads/Maps
 - show more details about downloaded map
+- update translations (Czech, Estonian, Polish, Swedish)

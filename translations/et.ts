@@ -512,7 +512,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Võrguühenduseta kasutatavate kaartide andmekogu ei leidu!</translation>
     </message>
 </context>
 <context>
@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Suurus</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Viimane saadaolev uuendus</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Laadi alla</translation>
     </message>
@@ -713,10 +709,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Update</source>
         <translation>Uuenda</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">Allalaaditud</translation>
     </message>
     <message>
         <source>Up-to-date</source>
@@ -815,11 +807,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Võrguühenduseta kasutatavate kaartide andmekogu on vajalik otsingute tegemiseks.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Võrguühenduseta kasutatavate kaartide andmekogu on vajalik tee juhatamiseks.</translation>
     </message>
 </context>
 <context>

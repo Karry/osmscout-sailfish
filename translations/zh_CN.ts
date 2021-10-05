@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>大小</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">上次更新</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>下载</translation>
     </message>
@@ -713,10 +709,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Update</source>
         <translation>更新</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">下载的</translation>
     </message>
     <message>
         <source>Up-to-date</source>

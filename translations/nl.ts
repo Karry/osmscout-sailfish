@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Grootte</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Laatst bijgewerkt</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Downloaden</translation>
     </message>
@@ -713,10 +709,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Update</source>
         <translation>Bijwerken</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="vanished">Gedownload</translation>
     </message>
     <message>
         <source>Up-to-date</source>

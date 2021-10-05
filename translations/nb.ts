@@ -695,10 +695,6 @@ collection pull down menu</extracomment>
         <translation>Størrelse</translation>
     </message>
     <message>
-        <source>Last Update</source>
-        <translation type="vanished">Sist oppdatering</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Last ned</translation>
     </message>
