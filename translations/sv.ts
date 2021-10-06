@@ -716,19 +716,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Nerladdad version</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Dataversion</translation>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillgänglig version</translation>
     </message>
 </context>
 <context>
