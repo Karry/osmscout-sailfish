@@ -1375,11 +1375,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Crop end</source>
-        <translation>Fin de cultivo</translation>
+        <translation>Fin de cosecha</translation>
     </message>
     <message>
         <source>Crop position</source>
-        <translation>Posición de cultivo</translation>
+        <translation>Posición de cosecha</translation>
     </message>
     <message>
         <source>Split position</source>
@@ -1394,12 +1394,12 @@ collection pull down menu</extracomment>
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Soltar nodos</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">Soltar nodos inexactos</translation>
+        <translation>Soltar nodos inexactos</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
@@ -1555,11 +1555,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Editar rastro</translation>
+        <translation>Editar rastro</translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished"></translation>
+        <translation>Renombrar rastro</translation>
     </message>
 </context>
 <context>
@@ -2139,19 +2139,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>skiingDownhill</source>
-        <translation type="unfinished"></translation>
+        <translation>EsquíoCuestaAbajo</translation>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation type="unfinished"></translation>
+        <translation>EsquíoNórdico</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>RutasCiclista</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>RutasDeSenderismo</translation>
     </message>
 </context>
 <context>
