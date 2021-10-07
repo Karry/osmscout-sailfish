@@ -2147,7 +2147,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation>RutasCiclista</translation>
+        <translation>RutasDeCiclista</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
