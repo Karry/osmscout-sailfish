@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Estonian: Priit Jõerüüt</source>
-        <translation type="unfinished"></translation>
+        <translation>Estonia: Priit Jõerüüt</translation>
     </message>
 </context>
 <context>
@@ -155,43 +155,43 @@ collection pull down menu</extracomment>
     <message>
         <source>Name and description</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nombre y descripción</translation>
     </message>
     <message>
         <source>Crop start</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar cosecha</translation>
     </message>
     <message>
         <source>Crop end</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Finalizar cosecha</translation>
     </message>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Separar</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar rastro &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">Soltar nodos inexactos</translation>
+        <translation>Soltar nodos inexactos</translation>
     </message>
     <message>
         <source>Color</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Share</source>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Compartir</translation>
     </message>
 </context>
 <context>
@@ -512,7 +512,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>No hay base de datos sin linea!</translation>
     </message>
 </context>
 <context>
@@ -666,7 +666,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation>Preferir nombres en inglés</translation>
+        <translation>Preferir nombres en Inglés</translation>
     </message>
 </context>
 <context>
@@ -716,19 +716,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión bajada</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha</translation>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión de datos</translation>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión disponible</translation>
     </message>
 </context>
 <context>
@@ -807,11 +807,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de búsqueda.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de navegación.</translation>
     </message>
 </context>
 <context>
@@ -841,15 +841,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Perfil de elevación</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascendente</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Descendente</translation>
     </message>
 </context>
 <context>
@@ -915,22 +915,22 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Perfil de elevación</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascendente</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Descendente</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>No hay datos suficientes para el gráfico de elevación</translation>
     </message>
 </context>
 <context>
@@ -963,29 +963,29 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Automóvil</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>A pie</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished"></translation>
+        <translation>A bicicleta</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished"></translation>
+        <translation>A bicicleta de montaña</translation>
     </message>
     <message>
         <source>Allow footways</source>
         <extracomment>switch to allow footways while routing for bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Permitir aceras</translation>
     </message>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Permitir carreteras principales </translation>
     </message>
 </context>
 <context>
@@ -1084,16 +1084,16 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Charging station</source>
-        <translation type="unfinished"></translation>
+        <translation>Estación de carga</translation>
     </message>
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Punto definido</translation>
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>Cajeros, Bancos</translation>
     </message>
 </context>
 <context>
@@ -1353,41 +1353,41 @@ collection pull down menu</extracomment>
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, parte 2</translation>
     </message>
 </context>
 <context>
     <name>TrackColor</name>
     <message>
         <source>Set color</source>
-        <translation type="unfinished"></translation>
+        <translation>Establecer color</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>Separar</translation>
     </message>
     <message>
         <source>Crop start</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar cosecha</translation>
     </message>
     <message>
         <source>Crop end</source>
-        <translation type="unfinished"></translation>
+        <translation>Fin de cultivo</translation>
     </message>
     <message>
         <source>Crop position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición de cultivo</translation>
     </message>
     <message>
         <source>Split position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición separada</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
