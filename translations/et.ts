@@ -716,19 +716,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Allalaaditud versioon</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuupäev</translation>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Andmete versioon</translation>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Saadaval versioon</translation>
     </message>
 </context>
 <context>
