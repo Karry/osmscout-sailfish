@@ -30,7 +30,7 @@
 #define HAVE_MALLINFO 1
 
 #include <osmscout/Database.h>
-#include <osmscout/MapService.h>
+#include <osmscoutmap/MapService.h>
 
 #if defined(HAVE_LIB_OSMSCOUTMAPCAIRO)
 #include <osmscout/MapPainterCairo.h>
@@ -65,7 +65,7 @@
 #endif
 #endif
 
-#include <osmscout/MapPainterNoOp.h>
+#include <osmscoutmap/MapPainterNoOp.h>
 
 #include <osmscout/system/Math.h>
 
