@@ -18,10 +18,10 @@
 */
 #pragma once
 
-#include <osmscout/gpx/Track.h>
-#include <osmscout/gpx/Waypoint.h>
-#include <osmscout/gpx/Utils.h>
-#include <osmscout/gpx/GpxFile.h>
+#include <osmscoutgpx/Track.h>
+#include <osmscoutgpx/Waypoint.h>
+#include <osmscoutgpx/Utils.h>
+#include <osmscoutgpx/GpxFile.h>
 #include <osmscout/util/GeoBox.h>
 
 #include <QObject>

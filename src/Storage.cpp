@@ -21,9 +21,9 @@
 #include "QVariantConverters.h"
 
 #include <osmscout/OSMScoutQt.h>
-#include <osmscout/gpx/GpxFile.h>
-#include <osmscout/gpx/Import.h>
-#include <osmscout/gpx/Export.h>
+#include <osmscoutgpx/GpxFile.h>
+#include <osmscoutgpx/Import.h>
+#include <osmscoutgpx/Export.h>
 
 #include <QDebug>
 #include <QThread>
