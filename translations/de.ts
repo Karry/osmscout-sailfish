@@ -191,7 +191,7 @@ collection pull down menu</extracomment>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Teilen</translation>
     </message>
 </context>
 <context>
@@ -512,7 +512,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Offline-Datenbank</translation>
     </message>
 </context>
 <context>
@@ -716,19 +716,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Heruntergeladene Version</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Daten Version</translation>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verfügbare Version</translation>
     </message>
 </context>
 <context>
@@ -807,11 +807,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline-Kartendatenbank wird für Suchfunktionalität benötigt</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline-Kartendatenbank wird für Navigationsfunktion benötigt</translation>
     </message>
 </context>
 <context>
