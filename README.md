@@ -1,6 +1,6 @@
 # OSM Scout for Sailfish OS
 
-[![Last build by Travis CI](https://travis-ci.org/Karry/osmscout-sailfish.svg?branch=master)](https://travis-ci.org/Karry/osmscout-sailfish)
+[![Last build by Github Actions](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_20_04.yml/badge.svg)](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_20_04.yml)
 [![Flattr this project](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=rowzv7&url=https%3A%2F%2Fgithub.com%2FKarry%2Fosmscout-sailfish)
 [![Donate via PayPal.me](https://img.shields.io/badge/donate-paypal.me-blue.svg)](https://paypal.me/OSMScoutForSailfish)
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/OSMScoutForSailfishOS/donate)
