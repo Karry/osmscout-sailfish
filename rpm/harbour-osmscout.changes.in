@@ -493,7 +493,7 @@
 -- fixed missing entries in search model
 -- fixed route rendering...
 
-* 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.17
+* 2021-10-20 Lukáš Karas <lukas.karas@centrum.cz> 2.17
 - show warning on search or navigation where there is no offline database
 - prepare for Sailjail sandboxing, process data migration on first startup:
 -- application data and configuration migrated to new location
