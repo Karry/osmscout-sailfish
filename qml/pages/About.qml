@@ -39,13 +39,13 @@ Page {
         Image{
             id: header
 
-            source: 'image://harbour-osmscout/pics/cover.png'
+            source: 'image://harbour-osmscout/pics/cover.jpg'
 
             width: parent.width
             x:0
             y:0
             fillMode: Image.PreserveAspectCrop
-            horizontalAlignment: Image.AlignLeft // AlignLeft AlignRight AlignHCenter
+            horizontalAlignment: Image.AlignRight // AlignLeft AlignRight AlignHCenter
             verticalAlignment: Image.AlignTop
             height: Math.min((width / 1920) * 1080, 512)
         }
