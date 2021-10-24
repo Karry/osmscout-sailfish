@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMScout es un programa libre desarrollado por voluntarios; lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o creando nuevas características en su fuente, toda ayuda es bienvenida.</translation>
+        <translation> OSMScout es un programa libre desarrollado por voluntarios, lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o desarrolando nuevas características desde la fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -409,7 +409,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation>Velocidad de movimiento</translation>
+        <translation>Veloc. de movimiento</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
@@ -736,7 +736,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
-        <translation>Buscador</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Where am I?</source>
@@ -779,7 +779,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Cambiar automóvil</translation>
+        <translation>Cambiar vehículo</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -837,7 +837,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Cambiar automóvil</translation>
+        <translation>Cambiar vehículo</translation>
     </message>
     <message>
         <source>Elevation profile</source>
@@ -1462,7 +1462,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation>Tiempo de movimiento</translation>
+        <translation>Tiempo de movim.</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -1478,7 +1478,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation>Velocidad de movimiento</translation>
+        <translation>Velocidad de movim.</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
@@ -1502,7 +1502,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>ascenso</translation>
+        <translation>Ascenso</translation>
     </message>
     <message>
         <source>Descent</source>
