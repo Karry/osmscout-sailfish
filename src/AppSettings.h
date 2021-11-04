@@ -23,7 +23,7 @@
 
 #include <osmscout/InputHandler.h>
 
-class AppSettings: public QObject{
+class AppSettings: public QObject {
   Q_OBJECT
   Q_PROPERTY(QObject  *mapView          READ GetMapView           WRITE SetMapView           NOTIFY MapViewChanged)
   Q_PROPERTY(QString  gpsFormat         READ GetGpsFormat         WRITE SetGpsFormat         NOTIFY GpsFormatChanged)
@@ -168,6 +168,7 @@ public:
   bool GetMountainBikeAllowFootways() const;
   void SetMountainBikeAllowFootways(bool);
 
+  static QString settingFile();
 private:
   QSettings         settings;
   osmscout::MapView *view;

@@ -53,7 +53,7 @@ public:
    * @param appName
    * @return
    */
-  QString configFile(const QString &organization, const QString &appName) const;
+  QString configFile(const QString &organization, const QString &appName, bool defaultQtConfig) const;
 
   QString localDir(const QString &organization, const QString &appName) const;
 

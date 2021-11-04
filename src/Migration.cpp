@@ -55,11 +55,12 @@ QString Migration::cacheDir(const QString &organization, const QString &appName)
          appName;
 }
 
-QString Migration::configFile(const QString &organization, const QString &appName) const
+QString Migration::configFile(const QString &organization, const QString &appName, bool defaultQtConfig) const
 {
   return home.absolutePath() + QDir::separator() +
          ".config" + QDir::separator() +
          (organization.isEmpty() ? appName : organization) + QDir::separator() +
+         (defaultQtConfig ? "" : appName + QDir::separator()) +
          appName + ".conf";
 }
 
@@ -95,8 +96,17 @@ bool Migration::migrate(const QString &oldLocation, const QString &newLocation) 
 
 bool Migration::migrateConfig() const
 {
-  return migrate(configFile(oldOrganization, oldAppName),
-                 configFile(newOrganization, newAppName));
+  // try  ~/.config/harbour-osmscout/harbour-osmscout.conf -> ~/.config/cz.karry.osmscout/OSMScout/OSMScout.conf
+  if (migrate(configFile(oldOrganization, oldAppName, true),
+              configFile(newOrganization, newAppName, false))) {
+    return true;
+  }
+  // try ~/.config/cz.karry.osmscout/OSMScout.conf -> ~/.config/cz.karry.osmscout/OSMScout/OSMScout.conf
+  if (migrate(configFile(newOrganization, newAppName, true),
+              configFile(newOrganization, newAppName, false))) {
+    return true;
+  }
+  return false;
 }
 
 bool Migration::migrateLocal() const

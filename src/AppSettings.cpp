@@ -25,7 +25,9 @@
 
 using namespace osmscout;
 
-AppSettings::AppSettings(): view(nullptr)
+AppSettings::AppSettings():
+  settings(settingFile(), QSettings::NativeFormat),
+  view(nullptr)
 {
 }
 
@@ -369,4 +371,15 @@ void AppSettings::SetMountainBikeAllowFootways(bool b)
     settings.setValue("mountainBikeAllowFootways", b);
     emit MountainBikeAllowFootwaysChanged(b);
   }
+}
+
+QString AppSettings::settingFile()
+{
+  QString config = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+  QString file = config + QDir::separator() +
+                 QCoreApplication::organizationName() + QDir::separator() +
+                 QCoreApplication::applicationName()  + QDir::separator() +
+                 QCoreApplication::applicationName() + ".conf";
+  qDebug() << "config:" << file;
+  return file;
 }

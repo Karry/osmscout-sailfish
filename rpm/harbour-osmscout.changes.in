@@ -503,4 +503,4 @@
 
 * 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.18
 - update translations (Spanish)
-
+- update configuration path to comply Sailjail requirements (again)
