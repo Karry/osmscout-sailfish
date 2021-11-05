@@ -26,8 +26,7 @@ Name[hu]=OSMScout
 [X-HarbourBackup]
 BackupPathList=.local/share/cz.karry.osmscout/OSMScout:.config/cz.karry.osmscout/OSMScout.conf
 
-#[X-Sailjail]
-## for testing Sailjail, just uncomment these comments (on SFOS 4.3)
-#Permissions=Internet;Audio;Location;RemovableMedia;Documents;Downloads
-#OrganizationName=cz.karry.osmscout
-#ApplicationName=OSMScout
+[X-Sailjail]
+Permissions=Internet;Audio;Location;RemovableMedia;Documents;Downloads
+OrganizationName=cz.karry.osmscout
+ApplicationName=OSMScout
