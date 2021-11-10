@@ -19,8 +19,8 @@
 
 #include "CollectionTrackModel.h"
 
-#include <osmscout/LocationEntry.h>
-#include <osmscout/OverlayObject.h>
+#include <osmscoutclientqt/LocationEntry.h>
+#include <osmscoutclientqt/OverlayObject.h>
 
 #include <QDebug>
 

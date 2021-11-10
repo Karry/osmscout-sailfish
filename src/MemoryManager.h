@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include <osmscout/OSMScoutQt.h>
+#include <osmscoutclientqt/OSMScoutQt.h>
 
 /**
  * This class listen for events about memory state from MCE daemon

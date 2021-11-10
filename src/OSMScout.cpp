@@ -19,7 +19,7 @@
 */
 
 #include <osmscout/util/Logger.h>
-#include <osmscout/OSMScoutQt.h>
+#include <osmscoutclientqt/OSMScoutQt.h>
 
 #include "AppSettings.h" // Application settings
 #include "IconProvider.h" // IconProvider

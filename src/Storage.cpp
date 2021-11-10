@@ -20,7 +20,7 @@
 #include "Storage.h"
 #include "QVariantConverters.h"
 
-#include <osmscout/OSMScoutQt.h>
+#include <osmscoutclientqt/OSMScoutQt.h>
 #include <osmscoutgpx/GpxFile.h>
 #include <osmscoutgpx/Import.h>
 #include <osmscoutgpx/Export.h>

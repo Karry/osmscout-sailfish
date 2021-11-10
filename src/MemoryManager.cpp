@@ -19,7 +19,7 @@
 
 #include "MemoryManager.h"
 
-#include <osmscout/OSMScoutQt.h>
+#include <osmscoutclientqt/OSMScoutQt.h>
 
 #include <QDebug>
 #include <QtDBus/QtDBus>

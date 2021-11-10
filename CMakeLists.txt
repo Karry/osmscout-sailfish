@@ -436,7 +436,7 @@ set(TRANSLATION_TS_FILES
 set(TRANSLATION_SOURCE_FILES
         ${SOURCE_FILES}
         ${QML_FILES}
-        dependencies/libosmscout/libosmscout-client-qt/src/osmscout/RouteDescriptionBuilder.cpp
+        dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/RouteDescriptionBuilder.cpp
         )
 
 # See http://doc.qt.io/qt-5/cmake-manual.html

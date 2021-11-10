@@ -21,7 +21,7 @@
 
 #include "Storage.h"
 
-#include <osmscout/MapWidget.h>
+#include <osmscoutclientqt/MapWidget.h>
 
 #include <QObject>
 #include <QtCore/QSet>

@@ -18,7 +18,7 @@
 */
 #pragma once
 
-#include <osmscout/ElevationChartWidget.h>
+#include <osmscoutclientqt/ElevationChartWidget.h>
 
 #include "Storage.h"
 

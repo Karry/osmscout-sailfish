@@ -20,7 +20,7 @@
 #include "NearWaypointModel.h"
 
 #include <osmscout/util/Geometry.h>
-#include <osmscout/LocationEntry.h>
+#include <osmscoutclientqt/LocationEntry.h>
 
 NearWaypointModel::NearWaypointModel()
 {
