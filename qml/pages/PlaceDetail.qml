@@ -370,7 +370,7 @@ Page {
                         var name = info.name;
                         var address = info.address;
                         var status = (address === "" ?  placeLink : address + ": " + placeLink);
-                        var linkTitle = (name === "" ?  placeLocationLabel.text : placeLocationLabel.text + "\n" + name);
+                        var linkTitle = (name === "" ?  placeLocationLabel.text : name);
                         var content = {
                             "data": placeLink,
                             "type": mimeType
