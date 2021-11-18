@@ -516,20 +516,14 @@ void CollectionModel::exportTrackToFile(QString trackIdStr, QString fileName, QS
   emit exportTrackRequest(collection.id, trackId, file.absoluteFilePath(), includeWaypoints, accuracyFilterOpt);
 }
 
-void CollectionModel::onCollectionExported(qint64 collectionId, QString file, bool success)
+void CollectionModel::onCollectionExported(bool)
 {
-  if (success) {
-    emit exported(collectionId, file);
-  }
   collectionExporting = false;
   emit exportingChanged();
 }
 
-void CollectionModel::onTrackExported(qint64 trackId, QString file, bool success)
+void CollectionModel::onTrackExported(bool)
 {
-  if (success) {
-    emit trackExported(trackId, file);
-  }
   collectionExporting = false;
   emit exportingChanged();
 }

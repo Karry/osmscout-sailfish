@@ -36,7 +36,6 @@ Dialog {
     property alias includeWaypoints: waypointSwitch.checked
     property int accuracyFilter: -1
     property ListModel directories
-    property bool selectDirectory: true
 
     signal selected(string directory, string name, bool includeWaypoints, int accuracyFilter)
 
@@ -68,7 +67,6 @@ Dialog {
 
         ComboBox {
             id: destinationDirectoryComboBox
-            visible: exportPage.selectDirectory
 
             property string selected
 

@@ -20,7 +20,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Sailfish.Pickers 1.0
-import Sailfish.Share 1.0
 import QtPositioning 5.2
 import QtQml.Models 2.1
 
@@ -266,75 +265,6 @@ Page {
                     }
                 }
                 MenuItem {
-                    //: track context menu
-                    text: qsTr("Share")
-
-                    ShareAction {
-                        id: shareAction
-                        mimeType: "text/xml"
-                    }
-
-                    signal exported(int id, string filePath)
-                    property ListModel directories: ListModel {}
-                    signal exportTrack(string directory, string name, bool includeWaypoints, int accuracyFilter)
-
-                    onExported: {
-                        if (id != model.id && model.type == "track") {
-                            return;
-                        }
-                        console.log("Track " + id + " exported to " + filePath);
-
-                        shareAction.mimeType = "text/xml"
-                        // TODO: who will delete temporary file?
-                        shareAction.resources = [filePath]
-                        shareAction.trigger()
-                    }
-                    onExportTrack: {
-                        console.log("Exporting to file " + name + " to " + directory);
-                        collectionModel.trackExported.connect(exported);
-                        collectionModel.exportTrackToFile(model.id, name, directory, includeWaypoints, accuracyFilter);
-                    }
-
-                    function shortCoord(deg){
-                        return (Math.round(deg * 100000)/100000).toString();
-                    }
-
-                    onClicked: {
-                        if (model.type == "track") {
-                            console.log("Opening export dialog...")
-                            directories.append({"dir": "/tmp"});
-
-                            var exportPage = pageStack.push(Qt.resolvedUrl("CollectionExport.qml"),
-                                           {
-                                                name: model.filesystemName,
-                                                directories: directories,
-                                                includeWaypoints: false,
-                                                selectDirectory: false
-                                           })
-
-                            exportPage.selected.connect(exportTrack);
-                        } else { // waypoint
-                            var mimeType = "text/x-url";
-                            var placeLink = "https://osm.org/?mlat=" + shortCoord(model.latitude) + "&mlon=" + shortCoord(model.longitude);
-
-                            var status = model.name + (model.description === "" ? "": "\n" + model.description) + "\n" + placeLink;
-                            var linkTitle = model.name;
-                            var content = {
-                                "data": placeLink,
-                                "type": mimeType
-                            }
-
-                            // also some non-standard fields for Twitter/Facebook status sharing:
-                            content["status"] = status;
-                            content["linkTitle"] = linkTitle;
-
-                            shareAction.resources = [content]
-                            shareAction.mimeType = mimeType
-                            shareAction.trigger()
-                        }
-                    }
-                }
-                MenuItem {
                     //: track/waypoint context menu
                     text: qsTr("Delete")
                     onClicked: {
@@ -378,7 +308,7 @@ Page {
         PullDownMenu {
             MenuItem {
                 //: collection pull down menu
-                text: qsTr("Export")
+                text: qsTr("Export Collection")
 
                 property ListModel directories: ListModel {}
                 signal exportCollection(string directory, string name, bool includeWaypoints, int accuracyFilter)
@@ -411,51 +341,6 @@ Page {
             }
             MenuItem {
                 //: collection pull down menu
-                text: qsTr("Share")
-
-                ShareAction {
-                    id: collectionShareAction
-                    mimeType: "text/xml"
-                }
-
-                signal exported(int id, string filePath)
-                property ListModel directories: ListModel {}
-                signal exportCollection(string directory, string name, bool includeWaypoints, int accuracyFilter)
-
-                onExported: {
-                    console.log("Collection " + id + " exported to " + filePath);
-                    if (id != collectionModel.collectionId) {
-                        return;
-                    }
-
-                    collectionShareAction.mimeType = "text/xml"
-                    // TODO: who will delete temporary file?
-                    collectionShareAction.resources = [filePath]
-                    collectionShareAction.trigger()
-                }
-                onExportCollection: {
-                    console.log("Exporting to file " + name + " to " + directory);
-                    collectionModel.exported.connect(exported);
-                    collectionModel.exportToFile(name, directory, includeWaypoints, accuracyFilter);
-                }
-
-                onClicked: {
-                    console.log("Opening export dialog...")
-                    directories.append({"dir": "/tmp"});
-
-                    var exportPage = pageStack.push(Qt.resolvedUrl("CollectionExport.qml"),
-                                   {
-                                        name: collectionModel.filesystemName,
-                                        directories: directories,
-                                        includeWaypoints: true,
-                                        selectDirectory: false
-                                   })
-
-                    exportPage.selected.connect(exportCollection);
-                }
-            }
-            MenuItem {
-                //: collection pull down menu
                 text: qsTr("Order by...")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("CollectionOrdering.qml"));
@@ -463,7 +348,7 @@ Page {
             }
             MenuItem {
                 //: collection pull down menu
-                text: qsTr("Edit")
+                text: qsTr("Edit Collection")
                 onClicked: {
                     editDialog.itemType = "collection";
                     editDialog.itemId = collectionModel.collectionId;
