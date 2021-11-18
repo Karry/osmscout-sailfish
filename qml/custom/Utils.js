@@ -48,14 +48,6 @@ function formatCoord(lat, lon, format){
     return formatDegree( Math.abs(lat) ) + (lat>0? "N":"S") + " " + formatDegree( Math.abs(lon) ) + (lon>0? "E":"W");
 }
 
-function shortCoord(deg){
-    return (Math.round(deg * 100000)/100000).toString();
-}
-
-function shareLink(lat, lon) {
-    return "https://osm.org/?mlat=" + shortCoord(lat) + "&mlon=" + shortCoord(lon);
-}
-
 function humanDistance(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var feet = distance * 3.2808;
