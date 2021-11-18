@@ -92,9 +92,7 @@
     <name>Collection</name>
     <message>
         <source>Edit</source>
-        <extracomment>track/waypoint context menu
-----------
-collection pull down menu</extracomment>
+        <extracomment>track/waypoint context menu</extracomment>
         <translation>Editar</translation>
     </message>
     <message>
@@ -112,9 +110,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Export</source>
-        <extracomment>track context menu
-----------
-collection pull down menu</extracomment>
+        <extracomment>track context menu</extracomment>
         <translation>Exportar</translation>
     </message>
     <message>
@@ -187,10 +183,13 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Share</source>
-        <extracomment>track context menu
-----------
-collection pull down menu</extracomment>
+        <source>Export Collection</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit Collection</source>
+        <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
