@@ -19,7 +19,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import Sailfish.Share 1.0
 import QtPositioning 5.2
 import QtQml.Models 2.2
 
@@ -342,11 +341,8 @@ Page {
                         return (Math.round(deg * 100000)/100000).toString();
                     }
 
-                    ShareAction {
-                        id: shareAction
-
-                        //: Page header for share method selection
-                        title: qsTr("Share place link")
+                    LocFile {
+                        id: locFile
                     }
 
                     onClicked: {
@@ -381,15 +377,18 @@ Page {
                         content["linkTitle"] = linkTitle;
 
                         // attachment for e-mail sharing
-                        // content["name"] = "place.loc";
-                        // LocFile {
-                        //   id: locFile
-                        // }
-                        //var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
+                        content["name"] = "place.loc";
+                        var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
 
-                        shareAction.resources = [content]
-                        shareAction.mimeType = mimeType
-                        shareAction.trigger()
+                        pageStack.animatorPush("Sailfish.TransferEngine.SharePage",
+                                               {
+                                                   //: Page header for share method selection
+                                                   "header": qsTr("Share place link"),
+                                                   "serviceFilter": ["sharing", "e-mail", "IM"],
+                                                   "mimeType": mimeType,
+                                                   "content": content,
+                                                   "source": fileSource
+                                               })
                     }
                 }
 
