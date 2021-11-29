@@ -513,3 +513,4 @@
 -- support for mini roundabouts (highway=mini_roundabout on node)
 -- filter out useless instructions
 -- show proper icon on motorway exit
+-- show destinations on motorway exits

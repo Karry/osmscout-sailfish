@@ -772,7 +772,7 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) + navigationContextMenu.height : 0
+            height: Global.navigationModel.destinationSet ? nextStepBackground.height + navigationContextMenu.height : 0
             visible: Global.navigationModel.destinationSet
             color: "transparent"
 
@@ -788,7 +788,10 @@ Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
+                height: Global.navigationModel.destinationSet ?
+                            Math.max(Theme.iconSizeLarge + 3*Theme.paddingMedium,
+                                     Theme.paddingMedium + distanceToNextStep.height + Theme.paddingMedium + nextStepDescription.height +
+                                     (destinationsText.visible ? Theme.paddingSmall + destinationsText.height : 0)) : 0
 
                 //color: "transparent"
                 color: nextStepMouseArea.pressed ? Theme.rgba(Theme.highlightDimmerColor, 0.5) : Theme.rgba(Theme.highlightDimmerColor, 0.7)
@@ -857,6 +860,23 @@ Page {
                         right: parent.right
                         margins: Theme.paddingSmall
                     }
+                }
+                Label {
+                    id: destinationsText
+
+                    visible: Global.navigationModel.nextRouteStep.destinations.length > 0
+                    anchors{
+                        left: distanceToNextStep.left
+                        top: nextStepDescription.bottom
+                        margins: Theme.paddingSmall
+                    }
+
+                    text: qsTr("Destinations: %1").arg(Global.navigationModel.nextRouteStep.destinations.join(", "))
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryColor
+
+                    wrapMode: Text.NoWrap
+                    truncationMode: TruncationMode.Fade
                 }
 
                 MouseArea{

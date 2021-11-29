@@ -813,6 +813,10 @@ collection pull down menu</extracomment>
         <source>Offline map database is required for navigation functionality.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -985,6 +989,17 @@ collection pull down menu</extracomment>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RoutingStep</name>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
