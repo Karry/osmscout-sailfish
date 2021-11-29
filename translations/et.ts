@@ -1830,18 +1830,22 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>unnamed road</source>
+        <extracomment>unknown road name</extracomment>
         <translation>nimeta tee</translation>
     </message>
     <message>
         <source>(%1)</source>
+        <extracomment>road just with ref number</extracomment>
         <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
+        <extracomment>road just with name, without ref</extracomment>
         <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
+        <extracomment>road with name (%1) and ref (%2)</extracomment>
         <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
@@ -1975,6 +1979,51 @@ collection pull down menu</extracomment>
     <message>
         <source>Take the %1th exit</source>
         <translation>Vali  %1. ärapööre</translation>
+    </message>
+    <message>
+        <source>On unnamed exit</source>
+        <extracomment>unnamed motorway exit</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit %1</source>
+        <extracomment>motorway exit just with ref</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit &quot;%1&quot;</source>
+        <extracomment>motorway exit with name, without ref</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit %1 &quot;%2&quot;</source>
+        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

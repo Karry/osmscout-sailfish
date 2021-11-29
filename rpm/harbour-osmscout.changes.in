@@ -509,3 +509,7 @@
 - enable explicit Sailjail sandboxing
 -- when you are upgrading from older version than 2.18, execute application without Sailjail first,
 -- to make sure that your data are migrated to new locations
+- improve navigation instructions
+-- support for mini roundabouts (highway=mini_roundabout on node)
+-- filter out useless instructions
+-- show proper icon on motorway exit
