@@ -35,8 +35,8 @@ Page {
         id: settings
     }
 
-    property double placeLat: Global.positionSource.lat == 0 ? 50.0886581 : Global.positionSource.lat
-    property double placeLon: Global.positionSource.lon == 0 ? 14.4111289 : Global.positionSource.lon
+    property double placeLat: Global.positionSource.lat === 0 || isNaN(Global.positionSource.lat) ? 50.0886581 : Global.positionSource.lat
+    property double placeLon: Global.positionSource.lon === 0 || isNaN(Global.positionSource.lat) ? 14.4111289 : Global.positionSource.lon
 
     SilicaFlickable {
         id: flickable
