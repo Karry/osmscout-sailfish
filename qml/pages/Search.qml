@@ -532,6 +532,7 @@ Page {
                     width: parent.width
                     color: Theme.secondaryHighlightColor
                     font.pixelSize: Theme.fontSizeSmall
+                    visible: !isNaN(distance)
                     text: Utils.humanDistance(distance) + " " + Utils.humanBearing(bearing)
                 }
             }
