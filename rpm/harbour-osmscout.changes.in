@@ -506,6 +506,7 @@
 - update configuration path to comply Sailjail requirements (again)
 
 * 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.19
+- update translations (Czech, Polish, Swedish)
 - enable explicit Sailjail sandboxing
 -- when you are upgrading from older version than 2.18, execute application without Sailjail first,
 -- to make sure that your data are migrated to new locations

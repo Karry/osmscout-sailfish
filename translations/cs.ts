@@ -815,7 +815,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Směr: %1</translation>
     </message>
 </context>
 <context>
@@ -996,11 +996,11 @@ collection pull down menu</extracomment>
     <name>RoutingStep</name>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzdálenost</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Směr: %1</translation>
     </message>
 </context>
 <context>
@@ -1942,15 +1942,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation>Změna dálnice</translation>
+        <translation>Změňte dálnici</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Změna dálnice&lt;/strong&gt; z %1 na %2</translation>
+        <translation>&lt;strong&gt;Změňte dálnici&lt;/strong&gt; z %1 na %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Změna dálnice&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Změňte dálnici&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
@@ -1999,47 +1999,47 @@ collection pull down menu</extracomment>
     <message>
         <source>On unnamed exit</source>
         <extracomment>unnamed motorway exit</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Na bezejmenném sjezdu</translation>
     </message>
     <message>
         <source>On exit %1</source>
         <extracomment>motorway exit just with ref</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Na sjezdu %1</translation>
     </message>
     <message>
         <source>On exit &quot;%1&quot;</source>
         <extracomment>motorway exit with name, without ref</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Na sjezdu &quot;%1&quot;</translation>
     </message>
     <message>
         <source>On exit %1 &quot;%2&quot;</source>
         <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Na sjezdu %1 &quot;%2&quot;</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 &lt;strong&gt;změňte dálnici&lt;/strong&gt; z %2 na %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 &lt;strong&gt;změňte dálnici&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 &lt;strong&gt;sjeďte z dálnice&lt;/strong&gt; %2 na %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 &lt;strong&gt;sjeďte z dálnice&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 &lt;strong&gt;sjeďte z dálnice&lt;/strong&gt;</translation>
     </message>
 </context>
 <context>
