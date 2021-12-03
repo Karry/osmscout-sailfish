@@ -1000,7 +1000,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Destinos: %1</translation>
     </message>
 </context>
 <context>
