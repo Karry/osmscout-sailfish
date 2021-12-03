@@ -515,3 +515,6 @@
 -- filter out useless instructions
 -- show proper icon on motorway exit
 -- show destinations on motorway exits
+-- voice message for motorway exit
+-- fix voice message for turn to motorway link
+-- minor fixes of navigation voice messages
