@@ -696,7 +696,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Download</source>
-        <translation>Bajar</translation>
+        <translation>Ruta a bajar</translation>
     </message>
     <message>
         <source>Directory</source>
@@ -716,7 +716,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation>Versión de bajada</translation>
+        <translation>Versión bajada</translation>
     </message>
     <message>
         <source>Date</source>
