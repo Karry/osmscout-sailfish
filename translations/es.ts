@@ -704,7 +704,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Data Version</source>
-        <translation>Versión de datos</translation>
+        <translation>Dato</translation>
     </message>
     <message>
         <source>Update</source>
@@ -712,11 +712,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation>Hasta la fecha</translation>
+        <translation>Actualizado</translation>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation>Versión bajada</translation>
+        <translation>Versión de bajada</translation>
     </message>
     <message>
         <source>Date</source>
@@ -815,7 +815,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Destinos: %1</translation>
     </message>
 </context>
 <context>
