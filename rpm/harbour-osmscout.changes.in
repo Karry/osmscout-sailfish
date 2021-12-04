@@ -505,7 +505,7 @@
 - update translations (Spanish)
 - update configuration path to comply Sailjail requirements (again)
 
-* 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.19
+* 2021-12-04 Lukáš Karas <lukas.karas@centrum.cz> 2.19
 - update translations (Czech, Polish, Spanish, Swedish)
 - enable explicit Sailjail sandboxing
 -- when you are upgrading from older version than 2.18, execute application without Sailjail first,
