@@ -518,3 +518,6 @@
 -- voice message for motorway exit
 -- fix voice message for turn to motorway link
 -- minor fixes of navigation voice messages
+
+* 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.20
+- update translations (German)
