@@ -92,6 +92,29 @@ Page {
                 target: collectionItem
             }
 
+            Rectangle {
+                x: Theme.paddingMedium * 0.2
+                y: 0
+                height: entryIcon.height
+                width: Theme.paddingMedium * 0.6
+                radius: width / 2
+
+                function waypointColor() {
+                    // TODO: use model.symbol
+                    return "#ff0000"; // default symbol is red cyrcle (marker)
+                }
+
+                function routeColor() {
+                    if (model.color !== "") {
+                        return model.color;
+                    }
+                    return "#10a000"; // default route color in standard stylesheet
+                }
+
+                color: model.type === "waypoint" ? waypointColor() : routeColor()
+            }
+
+
             Image{
                 id: entryIcon
 

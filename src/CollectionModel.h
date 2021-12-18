@@ -104,7 +104,8 @@ public:
     ElevationRole = Qt::UserRole+10,
 
     // type == track
-    DistanceRole = Qt::UserRole+11
+    DistanceRole = Qt::UserRole+11,
+    ColorRole = Qt::UserRole+12
   };
   Q_ENUM(Roles)
 

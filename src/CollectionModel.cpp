@@ -298,6 +298,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case TimeRole: return track.statistics.from;
       case LastModificationRole: return track.lastModification;
       case DistanceRole: return track.statistics.distance.AsMeter();
+      case ColorRole: return QString::fromStdString(track.color.has_value() ? track.color.value().ToHexString(): ""s);
       default: return QVariant();
     }
   }
@@ -325,6 +326,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
 
   // track
   roles[DistanceRole] = "distance";
+  roles[ColorRole] = "color";
 
   return roles;
 }
