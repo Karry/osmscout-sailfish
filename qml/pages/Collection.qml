@@ -32,9 +32,9 @@ import "../custom/Utils.js" as Utils
 Page {
     id: collectionPage
     property string collectionId: "-1"
-    signal selectWaypoint(double lat, double lon)
-    signal selectTrack(LocationEntry bbox, var trackId);
-    property var acceptDestination;
+    signal selectWaypoint(double lat, double lon, var waypointId)
+    signal selectTrack(LocationEntry bbox, var trackId)
+    property var acceptDestination
 
     RemorsePopup { id: remorse }
 
@@ -44,13 +44,16 @@ Page {
                     true,
                     collectionModel.name,
                     collectionModel.description);
+        AppSettings.showCollections = true;
     }
 
     onSelectTrack: {
         makeVisible();
+        collectionModel.setTrackVisibility(trackId, true);
     }
     onSelectWaypoint: {
         makeVisible();
+        collectionModel.setWaypointVisibility(waypointId, true);
     }
 
     CollectionListModel {
@@ -129,6 +132,38 @@ Page {
 
                 sourceSize.width: width
                 sourceSize.height: height
+
+            }
+            Image {
+                id: visibleIcon
+                source: "image://theme/icon-m-favorite-selected"
+                visible: model.visible
+
+                width: Theme.iconSizeSmall
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                height: width
+
+                x: Theme.paddingMedium + entryIcon.width - width*1.0
+                y: entryIcon.height - height*0.75
+
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+            MouseArea{
+                anchors.left: entryIcon.left
+                anchors.top: entryIcon.top
+                anchors.right: visibleIcon.right
+                anchors.bottom: visibleIcon.bottom
+                onClicked: {
+                    console.log("Changing entry (" + model.id + ") visibility to: " + !model.visible);
+                    if (model.type == "waypoint"){
+                        collectionModel.setWaypointVisibility(model.id, !model.visible);
+                    } else {
+                        collectionModel.setTrackVisibility(model.id, !model.visible);
+                    }
+                }
             }
             Column{
                 id: entryDescription
@@ -182,6 +217,7 @@ Page {
             }
             onClicked: {
                 if (model.type == "waypoint"){
+                    waypointDialog.id = model.id;
                     waypointDialog.name = model.name;
                     waypointDialog.description = model.description;
                     waypointDialog.latitude = model.latitude;

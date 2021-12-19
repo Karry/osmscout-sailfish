@@ -58,6 +58,8 @@ signals:
   void orderingChanged();
   void exported(qint64 collectionId, QString file);
   void trackExported(qint64 trackId, QString file);
+  void waypointVisibilityRequest(qint64 wptId, bool visible);
+  void trackVisibilityRequest(qint64 trackId, bool visible);
 
 public slots:
   void storageInitialised();
@@ -74,6 +76,8 @@ public slots:
   void onTrackExported(qint64 trackId, QString file, bool success);
   void moveWaypoint(QString waypointId, QString collectionId);
   void moveTrack(QString trackId, QString collectionId);
+  void setWaypointVisibility(QString id, bool visible);
+  void setTrackVisibility(QString id, bool visible);
 
 public:
   CollectionModel();
@@ -96,16 +100,17 @@ public:
     IdRole = Qt::UserRole+4,
     TimeRole = Qt::UserRole+5,
     LastModificationRole = Qt::UserRole+6,
+    VisibleRole = Qt::UserRole+7,
 
     // type == waypoint
-    SymbolRole = Qt::UserRole+7,
-    LatitudeRole = Qt::UserRole+8,
-    LongitudeRole = Qt::UserRole+9,
-    ElevationRole = Qt::UserRole+10,
+    SymbolRole = Qt::UserRole+8,
+    LatitudeRole = Qt::UserRole+9,
+    LongitudeRole = Qt::UserRole+10,
+    ElevationRole = Qt::UserRole+11,
 
     // type == track
-    DistanceRole = Qt::UserRole+11,
-    ColorRole = Qt::UserRole+12
+    DistanceRole = Qt::UserRole+12,
+    ColorRole = Qt::UserRole+13
   };
   Q_ENUM(Roles)
 

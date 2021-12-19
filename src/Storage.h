@@ -354,20 +354,22 @@ class Collection
 {
 public:
   Collection() = default;
-  Collection(qint64 id):
+  explicit Collection(qint64 id):
     id(id)
   {};
 
   Collection(qint64 id,
              bool visible,
+             bool visibleAll,
              const QString &name,
              const QString &description):
-    id(id), visible(visible), name(name), description(description)
+    id(id), visible(visible), visibleAll(visibleAll), name(name), description(description)
   {};
 
 public:
   qint64 id{-1};
   bool visible{false};
+  bool visibleAll{false};
   QString name;
   QString description;
 
@@ -448,6 +450,23 @@ public slots:
    * emits collectionsLoaded, collectionDeleted
    */
   void deleteCollection(qint64 id);
+
+  /**
+   * set all entries in collection `id` as visible / hide
+   * emits collectionsLoaded
+   */
+  void visibleAll(qint64 id, bool);
+
+  /**
+   * emits collectionDetailsLoaded, collectionsLoaded
+   */
+  void waypointVisibility(qint64 wptId, bool visible);
+
+  /**
+   * emits collectionDetailsLoaded, collectionsLoaded
+   */
+  void trackVisibility(qint64 trackId, bool visible);
+
 
   /**
    * import collection from gpx file

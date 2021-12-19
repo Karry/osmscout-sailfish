@@ -30,7 +30,7 @@ import "../custom"
 Page {
     id: collectionListPage
 
-    signal selectWaypoint(double lat, double lon)
+    signal selectWaypoint(double lat, double lon, var waypointId)
     signal selectTrack(LocationEntry bbox, var trackId);
     property var acceptDestination;
 
@@ -70,7 +70,9 @@ Page {
             Image{
                 id: entryIcon
 
-                source: model.visible ? "image://theme/icon-m-favorite-selected" : "image://theme/icon-m-favorite"
+                source: model.visible ?
+                            (model.visibleAll ? "image://theme/icon-m-favorite-selected" : ("image://harbour-osmscout/pics/icon-m-favorite-halfselected.png?" + Theme.primaryColor)) :
+                            "image://theme/icon-m-favorite"
 
                 width: Theme.iconSizeMedium
                 fillMode: Image.PreserveAspectFit
@@ -128,6 +130,20 @@ Page {
                     onClicked: {
                         console.log("Changing collection (" + model.id + ") visibility to: " + !model.visible);
                         collectionListModel.editCollection(model.id, !model.visible, model.name, model.description);
+                    }
+                }
+                MenuItem {
+                    text: model.visibleAll ? qsTr("Show none on map") : qsTr("Show all on map")
+                    onClicked: {
+                        if (model.visibleAll) {
+                            collectionListModel.visibleNone(model.id);
+                        } else {
+                            if (!model.visible) {
+                                console.log("Changing collection (" + model.id + ") visibility to: " + !model.visible);
+                                collectionListModel.editCollection(model.id, !model.visible, model.name, model.description);
+                            }
+                            collectionListModel.visibleAll(model.id);
+                        }
                     }
                 }
                 MenuItem {

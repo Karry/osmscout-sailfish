@@ -522,3 +522,4 @@
 * 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.20
 - update translations (German)
 - show track and waypoint color in collection list
+- make possible to display individual tracks/waypoints, not all in collection

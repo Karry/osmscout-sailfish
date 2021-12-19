@@ -101,6 +101,13 @@ CollectionModel::CollectionModel()
           storage, &Storage::moveTrack,
           Qt::QueuedConnection);
 
+  connect(this, &CollectionModel::waypointVisibilityRequest,
+          storage, &Storage::waypointVisibility,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionModel::trackVisibilityRequest,
+          storage, &Storage::trackVisibility,
+          Qt::QueuedConnection);
 }
 
 void CollectionModel::handleChanges(std::vector<Item> &current, const std::vector<Item> &newItems)
@@ -283,6 +290,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
 
       case TimeRole: return timestampToDateTime(waypoint.data.time);
       case LastModificationRole: return waypoint.lastModification;
+      case VisibleRole: return waypoint.visible;
       default: return QVariant();
     }
   } else {
@@ -297,6 +305,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
 
       case TimeRole: return track.statistics.from;
       case LastModificationRole: return track.lastModification;
+      case VisibleRole: return track.visible;
       case DistanceRole: return track.statistics.distance.AsMeter();
       case ColorRole: return QString::fromStdString(track.color.has_value() ? track.color.value().ToHexString(): ""s);
       default: return QVariant();
@@ -317,6 +326,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   roles[IdRole] = "id";
   roles[TimeRole] = "time";
   roles[LastModificationRole] = "lastModification";
+  roles[VisibleRole] = "visible";
 
   // waypoint
   roles[SymbolRole] = "symbol";
@@ -593,4 +603,28 @@ void CollectionModel::moveTrack(QString trackIdStr, QString collectionIdStr)
   collectionLoaded = false;
   emit loadingChanged();
   emit moveTrackRequest(trackId, collectionId);
+}
+
+void CollectionModel::setWaypointVisibility(QString idStr, bool visible)
+{
+  bool ok;
+  qint64 wptId = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+  emit loadingChanged();
+  emit waypointVisibilityRequest(wptId, visible);
+}
+
+void CollectionModel::setTrackVisibility(QString idStr, bool visible)
+{
+  bool ok;
+  qint64 trackId = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+  emit loadingChanged();
+  emit trackVisibilityRequest(trackId, visible);
 }

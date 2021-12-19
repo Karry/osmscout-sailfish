@@ -492,6 +492,14 @@ collection pull down menu</extracomment>
         <extracomment>collection pull down menu</extracomment>
         <translation>Classé par ...</translation>
     </message>
+    <message>
+        <source>Show all on map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show none on map</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -1369,6 +1377,30 @@ collection pull down menu</extracomment>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
         <translation>%1, 2ème partie</translation>
+    </message>
+    <message>
+        <source>Updating visibility of tracks failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoints failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoint failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waypoint select failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track select failed: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

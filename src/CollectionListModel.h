@@ -35,6 +35,7 @@ signals:
   void loadingChanged() const;
   void collectionLoadRequest();
   void updateCollectionRequest(Collection);
+  void visibleAllRequest(qint64, bool);
   void deleteCollectionRequest(qint64);
   void importCollectionRequest(QString);
   void error(QString message);
@@ -47,6 +48,8 @@ public slots:
   void createCollection(QString name, QString description);
   void deleteCollection(QString id);
   void editCollection(QString id, bool visible, QString name, QString description);
+  void visibleAll(QString id);
+  void visibleNone(QString id);
   void importCollection(QString filePath);
 
 public:
@@ -66,7 +69,8 @@ public:
     NameRole = Qt::UserRole,
     DescriptionRole = Qt::UserRole+1,
     IdRole = Qt::UserRole+2,
-    VisibleRole = Qt::UserRole+3
+    VisibleRole = Qt::UserRole+3,
+    VisibleAllRole = Qt::UserRole+4
   };
   Q_ENUM(Roles)
 

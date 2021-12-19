@@ -30,6 +30,7 @@ import "../custom"
 Dialog{
     id: waypointDialog
 
+    property string id;
     property string name;
     property string description;
     property double latitude;
@@ -42,7 +43,7 @@ Dialog{
     acceptDestination: collectionPage.acceptDestination
     acceptDestinationAction: PageStackAction.Pop
     onAccepted: {
-        selectWaypoint(latitude, longitude);
+        selectWaypoint(latitude, longitude, id);
     }
 
     DialogHeader {

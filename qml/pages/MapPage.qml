@@ -47,7 +47,7 @@ Page {
         drawer.open = false;
     }
     onShowWaypoint: {
-        console.log("selectWaypoint: " + lat + ", " + lon);
+        console.log("selectWaypoint: " + lat + ", " + lon + " (" + waypointId + ")");
         map.showCoordinates(lat, lon);
         drawer.open = false;
     }
