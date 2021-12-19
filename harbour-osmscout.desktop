@@ -24,7 +24,7 @@ Name=OSM Scout
 Name[hu]=OSMScout
 
 [X-HarbourBackup]
-BackupPathList=.local/share/cz.karry.osmscout/OSMScout:.config/cz.karry.osmscout/OSMScout
+BackupPathList=.local/share/cz.karry.osmscout/OSMScout/:.config/cz.karry.osmscout/OSMScout/
 
 [X-Sailjail]
 Permissions=Internet;Audio;Location;RemovableMedia;Documents;Downloads
