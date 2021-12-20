@@ -494,11 +494,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show all on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż wszystkie na mapie</translation>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie pokazuj na mapie</translation>
     </message>
 </context>
 <context>
@@ -1380,27 +1380,27 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Updating visibility of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja widoczności śladów nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja widoczności punktów trasy nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja widoczności punktu trasy nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Waypoint select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się wybrać punktu trasy: %1</translation>
     </message>
     <message>
         <source>Updating visibility of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja widoczności trasy nie powiodła się: %1</translation>
     </message>
     <message>
         <source>Track select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się wybrać trasy: %1</translation>
     </message>
 </context>
 <context>
