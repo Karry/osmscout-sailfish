@@ -36,7 +36,7 @@ Page {
     id: mapPage
 
     signal selectLocation(LocationEntry location)
-    signal showWaypoint(double lat, double lon)
+    signal showWaypoint(double lat, double lon, var waypointId)
     signal showTrack(LocationEntry bbox, var trackId)
     signal showRoute(OverlayWay route, var routeId)
 
