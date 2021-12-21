@@ -18,6 +18,7 @@
 */
 
 #include "CollectionMapBridge.h"
+#include "CollectionModel.h"
 
 CollectionMapBridge::CollectionMapBridge(QObject *parent):
   QObject(parent)
@@ -123,8 +124,10 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
                    << "(" << wpt.id << ")"
                    << wpt.lastModification;
 
+          QString type = CollectionModel::waypointType(wpt.data.symbol, waypointTypeName);
+
           osmscout::OverlayNode wptOverlay;
-          wptOverlay.setTypeName(waypointTypeName);
+          wptOverlay.setTypeName(type);
           wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
           wptOverlay.setName(QString::fromStdString(wpt.data.name.value_or(""s)));
           delegatedMap->addOverlayObject(wptVisible[wpt.id].id, &wptOverlay);

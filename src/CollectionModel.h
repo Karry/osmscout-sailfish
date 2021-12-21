@@ -101,16 +101,17 @@ public:
     TimeRole = Qt::UserRole+5,
     LastModificationRole = Qt::UserRole+6,
     VisibleRole = Qt::UserRole+7,
+    ColorRole = Qt::UserRole+8,
 
     // type == waypoint
-    SymbolRole = Qt::UserRole+8,
-    LatitudeRole = Qt::UserRole+9,
-    LongitudeRole = Qt::UserRole+10,
-    ElevationRole = Qt::UserRole+11,
+    SymbolRole = Qt::UserRole+9,
+    LatitudeRole = Qt::UserRole+10,
+    LongitudeRole = Qt::UserRole+11,
+    ElevationRole = Qt::UserRole+12,
+    WaypointTypeRole = Qt::UserRole+13,
 
     // type == track
-    DistanceRole = Qt::UserRole+12,
-    ColorRole = Qt::UserRole+13
+    DistanceRole = Qt::UserRole+14,
   };
   Q_ENUM(Roles)
 
@@ -149,6 +150,9 @@ public:
   }
 
   void setOrdering(Ordering ordering);
+
+  static QString waypointType(const std::optional<std::string> &symbol, const QString &defaultType = "_waypoint");
+  static QString waypointColor(const std::optional<std::string> &symbol, const QString &defaultColor = "");
 
 private:
   /**

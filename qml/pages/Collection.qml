@@ -103,7 +103,9 @@ Page {
                 radius: width / 2
 
                 function waypointColor() {
-                    // TODO: use model.symbol
+                    if (model.color !== "") {
+                        return model.color;
+                    }
                     return "#ff0000"; // default symbol is red cyrcle (marker)
                 }
 
@@ -228,7 +230,8 @@ Page {
                     waypointDialog.previewMap.removeAllOverlayObjects();
                     waypointDialog.previewMap.showCoordinatesInstantly(model.latitude, model.longitude);
 
-                    var wpt = waypointDialog.previewMap.createOverlayNode("_waypoint");
+                    console.log("Creating overlay node type: " + model.waypointType);
+                    var wpt = waypointDialog.previewMap.createOverlayNode(model.waypointType);
                     wpt.addPoint(model.latitude, model.longitude);
                     wpt.name = model.name;
                     waypointDialog.previewMap.addOverlayObject(0, wpt);

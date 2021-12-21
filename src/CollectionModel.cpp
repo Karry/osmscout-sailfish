@@ -263,6 +263,48 @@ int CollectionModel::rowCount([[maybe_unused]] const QModelIndex &parentIndex) c
   return items.size();
 }
 
+QString CollectionModel::waypointType(const std::optional<std::string> &symbol, const QString &defaultType)
+{
+  static const QMap<QString, QString> waypointSymbolType {
+    {"Red Circle", "_waypoint_red_circle"},
+    {"Green Circle", "_waypoint_green_circle"},
+    {"Blue Circle", "_waypoint_blue_circle"},
+    {"Red Square", "_waypoint_red_square"},
+    {"Green Square", "_waypoint_green_square"},
+    {"Blue Square", "_waypoint_blue_square"},
+  };
+
+  QString type = defaultType;
+  if (symbol.has_value()) {
+    QString symbolStr = QString::fromStdString(symbol.value());
+    if (waypointSymbolType.contains(symbolStr)) {
+      type = waypointSymbolType[symbolStr];
+    }
+  }
+  return type;
+}
+
+QString CollectionModel::waypointColor(const std::optional<std::string> &symbol, const QString &defaultColor)
+{
+  static const QMap<QString, QString> waypointSymbolColors {
+    {"Red Circle", "#ff0000"},
+    {"Green Circle", "#00ff00"},
+    {"Blue Circle", "#0000ff"},
+    {"Red Square", "#ff0000"},
+    {"Green Square", "#00ff00"},
+    {"Blue Square", "#0000ff"},
+  };
+
+  if (!symbol.has_value()) {
+    return defaultColor;
+  }
+  QString symbolName = QString::fromStdString(symbol.value());
+  if (waypointSymbolColors.contains(symbolName)) {
+    return waypointSymbolColors[symbolName];
+  }
+  return defaultColor;
+}
+
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
 {
   using namespace converters;
@@ -291,6 +333,8 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case TimeRole: return timestampToDateTime(waypoint.data.time);
       case LastModificationRole: return waypoint.lastModification;
       case VisibleRole: return waypoint.visible;
+      case ColorRole: return waypointColor(waypoint.data.symbol);
+      case WaypointTypeRole: return waypointType(waypoint.data.symbol);
       default: return QVariant();
     }
   } else {
@@ -327,16 +371,17 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   roles[TimeRole] = "time";
   roles[LastModificationRole] = "lastModification";
   roles[VisibleRole] = "visible";
+  roles[ColorRole] = "color";
 
   // waypoint
   roles[SymbolRole] = "symbol";
   roles[LatitudeRole] = "latitude";
   roles[LongitudeRole] = "longitude";
   roles[ElevationRole] = "elevation";
+  roles[WaypointTypeRole] = "waypointType";
 
   // track
   roles[DistanceRole] = "distance";
-  roles[ColorRole] = "color";
 
   return roles;
 }
