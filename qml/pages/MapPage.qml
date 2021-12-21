@@ -473,6 +473,7 @@ Page {
             vehiclePosition: Global.navigationModel.vehiclePosition
             followVehicle: Global.navigationModel.destinationSet
             renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
+            vehicleAutoRotateMap: AppSettings.vehicleAutoRotateMap
 
             Connections {
                 target: Global.navigationModel
@@ -735,6 +736,16 @@ Page {
                     sourceSize.height: height
                 }
 
+                IconButton{
+                    id: compassLockIcon
+                    icon.source: "image://theme/icon-s-secure"
+                    x: parent.width - (width * 0.75)
+                    y: parent.height - (height * 0.75)
+
+                    opacity: map.vehicleAutoRotateMap ? 0 : 1
+                    Behavior on opacity { PropertyAnimation {} }
+                }
+
                 MouseArea {
                   id: compasBtnMouseArea
                   anchors.fill: parent
@@ -744,6 +755,9 @@ Page {
                   onClicked: {
                       console.log("Rotate back to 0");
                       map.rotateTo(0);
+                  }
+                  onDoubleClicked: {
+                      AppSettings.vehicleAutoRotateMap = !AppSettings.vehicleAutoRotateMap;
                   }
                 }
             }

@@ -35,6 +35,7 @@ class AppSettings: public QObject {
   Q_PROPERTY(int      exportAccuracy    READ GetExportAccuracy    WRITE SetExportAccuracy    NOTIFY ExportAccuracyChanged)
 
   Q_PROPERTY(bool navigationKeepAlive READ GetNavigationKeepAlive WRITE SetNavigationKeepAlive NOTIFY NavigationKeepAliveChanged)
+  Q_PROPERTY(bool vehicleAutoRotateMap READ GetVehicleAutoRotateMap WRITE SetVehicleAutoRotateMap NOTIFY VehicleAutoRotateMapChanged)
 
   // flags for visible information on main screen
   Q_PROPERTY(bool showTrackerDistance READ GetShowTrackerDistance WRITE SetShowTrackerDistance  NOTIFY ShowTrackerDistanceChanged)
@@ -83,6 +84,7 @@ signals:
   void ShowNewPlaceChanged(bool);
   void ShowCollectionToggleChanged(bool);
   void NavigationKeepAliveChanged(bool);
+  void VehicleAutoRotateMapChanged(bool);
   void RoadBikeAllowMainRoadsChanged(bool);
   void MountainBikeAllowMainRoadsChanged(bool);
   void FootAllowMainRoadsChanged(bool);
@@ -152,6 +154,9 @@ public:
 
   bool GetNavigationKeepAlive() const;
   void SetNavigationKeepAlive(bool);
+
+  bool GetVehicleAutoRotateMap() const;
+  void SetVehicleAutoRotateMap(bool);
 
   bool GetRoadBikeAllowMainRoads() const;
   void SetRoadBikeAllowMainRoads(bool);

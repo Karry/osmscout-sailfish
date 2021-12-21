@@ -1219,6 +1219,11 @@ collection pull down menu</extracomment>
         <extracomment>Button for fast show/hide collection entries</extracomment>
         <translation>Viditelnost sbírek</translation>
     </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

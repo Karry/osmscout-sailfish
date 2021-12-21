@@ -245,6 +245,19 @@ Page {
                         AppSettings.navigationKeepAlive = checked;
                     }
                 }
+
+                TextSwitch{
+                    id: vehicleAutoRotateMapSwitch
+                    width: parent.width
+
+                    checked: AppSettings.vehicleAutoRotateMap
+                    //: switch for rotate map on during navigation
+                    text: qsTr("Rotate map")
+
+                    onCheckedChanged: {
+                        AppSettings.vehicleAutoRotateMap = checked;
+                    }
+                }
             }
 
             //: setting section for information panel on main screen
