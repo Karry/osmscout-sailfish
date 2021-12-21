@@ -494,11 +494,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show all on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Näita kaardil kõiki</translation>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Ära näita kaardil ühtegi</translation>
     </message>
 </context>
 <context>
@@ -1385,27 +1385,27 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Updating visibility of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Radade nähtavuse uuendamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunktide nähtavuse uuendamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkti nähtavuse uuendamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Waypoint select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonna valimine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Updating visibility of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja nähtavuse uuendamine ei õnnestunud: %1</translation>
     </message>
     <message>
         <source>Track select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Raja valimine ei õnnestunud: %1</translation>
     </message>
 </context>
 <context>

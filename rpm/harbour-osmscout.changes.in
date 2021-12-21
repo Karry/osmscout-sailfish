@@ -520,7 +520,7 @@
 -- minor fixes of navigation voice messages
 
 * 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.20
-- update translations (Czech, Estonian, German, Swedish)
+- update translations (Czech, Polish, Estonian, German, Swedish)
 - show track and waypoint color in collection list
 - make possible to display individual tracks/waypoints, not all in collection
 - fix My Backup configuration
