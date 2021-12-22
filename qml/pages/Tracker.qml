@@ -122,6 +122,17 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Change color")
+                enabled: Global.tracker.tracking
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("TrackColor.qml"),
+                                   {
+                                        trackId: Global.tracker.trackId,
+                                        acceptPage: trackerPage
+                                   });
+                }
+            }
+            MenuItem {
                 text: qsTr("Rename track")
                 enabled: Global.tracker.tracking
                 onClicked: {

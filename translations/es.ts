@@ -1620,6 +1620,10 @@ collection pull down menu</extracomment>
         <source>Rename track</source>
         <translation>Renombrar rastro</translation>
     </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>
