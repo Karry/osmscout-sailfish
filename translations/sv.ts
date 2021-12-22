@@ -1222,7 +1222,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rotera kartan</translation>
     </message>
 </context>
 <context>

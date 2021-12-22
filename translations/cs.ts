@@ -1412,7 +1412,7 @@ collection pull down menu</extracomment>
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol</translation>
     </message>
 </context>
 <context>
