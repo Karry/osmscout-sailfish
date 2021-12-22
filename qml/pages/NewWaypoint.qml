@@ -30,6 +30,8 @@ import "../custom/Utils.js" as Utils
 CollectionEntryDialog{
     id: waypointDialog
 
+    symbolSelectorVisible: true
+
     property double latitude
     property double longitude
 

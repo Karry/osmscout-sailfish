@@ -92,6 +92,7 @@ Page {
 
     CollectionEntryDialog{
         id: newTrackDialog
+        symbolSelectorVisible: false
 
         title: qsTr("New track")
 

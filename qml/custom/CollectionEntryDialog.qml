@@ -37,7 +37,7 @@ Dialog{
     property alias title: waypointDialogheader.title
     property bool rejectRequested: false
     property bool newCollectionRequested: false
-    property bool symbolSelectorVisible: true
+    property bool symbolSelectorVisible: false
     property alias symbol: symbolSelector.symbol
 
     canAccept: nameTextField.text.length > 0 && collectionId.length > 0
