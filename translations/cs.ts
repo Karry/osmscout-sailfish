@@ -1623,7 +1623,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Změnit barvu</translation>
     </message>
 </context>
 <context>

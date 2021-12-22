@@ -1412,7 +1412,7 @@ collection pull down menu</extracomment>
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol</translation>
     </message>
 </context>
 <context>
@@ -1622,7 +1622,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt färg</translation>
     </message>
 </context>
 <context>
