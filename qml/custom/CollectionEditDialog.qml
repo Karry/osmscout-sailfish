@@ -31,6 +31,8 @@ Dialog{
     property alias name: nameTextField.text
     property alias description: descriptionTextArea.text
     property alias title: newCollectionheader.title
+    property bool symbolSelectorVisible: true
+    property alias symbol: symbolSelector.symbol
 
     canAccept: nameTextField.text.length > 0
 
@@ -73,6 +75,11 @@ Dialog{
             height: 300
             label: qsTr("Description")
             placeholderText: qsTr("Description")
+        }
+
+        SymbolSelector {
+            id: symbolSelector
+            visible: symbolSelectorVisible
         }
     }
 }

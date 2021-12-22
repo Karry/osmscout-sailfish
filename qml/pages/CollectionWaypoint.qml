@@ -102,7 +102,7 @@ Dialog{
                             wrapMode: Text.WordWrap
                         }
                         DetailItem {
-                            id: duration
+                            id: created
                             visible: Qt.formatDateTime(waypointDialog.time) != ""
                             //: date time when waypoint was created
                             label: qsTr("Created")

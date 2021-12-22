@@ -269,9 +269,15 @@ QString CollectionModel::waypointType(const std::optional<std::string> &symbol, 
     {"Red Circle", "_waypoint_red_circle"},
     {"Green Circle", "_waypoint_green_circle"},
     {"Blue Circle", "_waypoint_blue_circle"},
+    {"Yellow Circle", "_waypoint_yellow_circle"},
     {"Red Square", "_waypoint_red_square"},
     {"Green Square", "_waypoint_green_square"},
     {"Blue Square", "_waypoint_blue_square"},
+    {"Yellow Square", "_waypoint_yellow_square"},
+    {"Red Triangle", "_waypoint_red_triangle"},
+    {"Green Triangle", "_waypoint_green_triangle"},
+    {"Blue Triangle", "_waypoint_blue_triangle"},
+    {"Yellow Triangle", "_waypoint_yellow_triangle"},
   };
 
   QString type = defaultType;
@@ -287,12 +293,18 @@ QString CollectionModel::waypointType(const std::optional<std::string> &symbol, 
 QString CollectionModel::waypointColor(const std::optional<std::string> &symbol, const QString &defaultColor)
 {
   static const QMap<QString, QString> waypointSymbolColors {
-    {"Red Circle", "#ff0000"},
-    {"Green Circle", "#00ff00"},
-    {"Blue Circle", "#0000ff"},
-    {"Red Square", "#ff0000"},
-    {"Green Square", "#00ff00"},
-    {"Blue Square", "#0000ff"},
+    {"Red Circle", "#b32020"},
+    {"Green Circle", "#00b200"},
+    {"Blue Circle", "#203bb3"},
+    {"Yellow Circle", "#dfed00"},
+    {"Red Square", "#b32020"},
+    {"Green Square", "#00b200"},
+    {"Blue Square", "#203bb3"},
+    {"Yellow Square", "#dfed00"},
+    {"Red Triangle", "#b32020"},
+    {"Green Triangle", "#00b200"},
+    {"Blue Triangle", "#203bb3"},
+    {"Yellow Triangle", "#dfed00"},
   };
 
   if (!symbol.has_value()) {
@@ -461,11 +473,11 @@ void CollectionModel::setOrdering(Ordering ordering)
   }
 }
 
-void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description)
+void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description, QString symbol)
 {
   collectionLoaded = true;
   emit loadingChanged();
-  emit createWaypointRequest(collection.id, lat, lon, name, description);
+  emit createWaypointRequest(collection.id, lat, lon, name, description, symbol);
 }
 
 void CollectionModel::deleteWaypoint(QString idStr)
@@ -496,7 +508,7 @@ void CollectionModel::deleteTrack(QString idStr)
   emit deleteTrackRequest(collection.id, id);
 }
 
-void CollectionModel::editWaypoint(QString idStr, QString name, QString description)
+void CollectionModel::editWaypoint(QString idStr, QString name, QString description, QString symbol)
 {
   bool ok;
   qint64 id = idStr.toLongLong(&ok);
@@ -507,7 +519,7 @@ void CollectionModel::editWaypoint(QString idStr, QString name, QString descript
 
   collectionLoaded = true;
   emit loadingChanged();
-  emit editWaypointRequest(collection.id, id, name, description);
+  emit editWaypointRequest(collection.id, id, name, description, symbol);
 }
 
 void CollectionModel::editTrack(QString idStr, QString name, QString description)

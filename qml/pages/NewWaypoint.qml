@@ -46,8 +46,8 @@ CollectionEntryDialog{
     }
 
     onAccepted: {
-        console.log("Adding waypoint " + name + " to collection " + collectionId);
+        console.log("Adding waypoint " + name + " to collection " + collectionId + " symbol " + symbol);
         AppSettings.lastCollection = collectionId;
-        collectionModel.createWaypoint(latitude, longitude, name, description);
+        collectionModel.createWaypoint(latitude, longitude, name, description, symbol);
     }
 }

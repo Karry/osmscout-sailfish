@@ -47,8 +47,8 @@ signals:
   void collectionDetailRequest(Collection);
   void deleteWaypointRequest(qint64 collectionId, qint64 id);
   void deleteTrackRequest(qint64 collectionId, qint64 id);
-  void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
-  void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description, QString symbol);
+  void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description, QString symbol);
   void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void exportCollectionRequest(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
   void exportTrackRequest(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
@@ -65,10 +65,10 @@ public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
   void onCollectionDetailsLoaded(Collection collection, bool ok);
-  void createWaypoint(double lat, double lon, QString name, QString description);
+  void createWaypoint(double lat, double lon, QString name, QString description, QString symbol);
   void deleteWaypoint(QString id);
   void deleteTrack(QString id);
-  void editWaypoint(QString id, QString name, QString description);
+  void editWaypoint(QString id, QString name, QString description, QString symbol);
   void editTrack(QString id, QString name, QString description);
   void exportToFile(QString fileName, QString directory, bool includeWaypoints, int accuracyFilter);
   void exportTrackToFile(QString id, QString name, QString directory, bool includeWaypoints, int accuracyFilter);

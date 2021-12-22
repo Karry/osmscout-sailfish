@@ -257,12 +257,15 @@ Page {
                             editDialog.itemType = model.type;
                             editDialog.name = model.name;
                             editDialog.description = model.description;
+                            editDialog.symbolSelectorVisible = true;
+                            editDialog.symbol = model.symbol;
                             editDialog.open();
                         } else {
                             editTrackDialog.itemId = model.id;
                             editTrackDialog.itemType = model.type;
                             editTrackDialog.name = model.name;
                             editTrackDialog.description = model.description;
+                            editDialog.symbolSelectorVisible = false;
                             pageStack.push(editTrackDialog)
                         }
                     }
@@ -648,7 +651,7 @@ Page {
         onAccepted: {
             if (itemType == "waypoint"){
                 console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
-                collectionModel.editWaypoint(itemId, name, description);
+                collectionModel.editWaypoint(itemId, name, description, symbol);
             }else if (itemType === "track"){
                 console.log("Edit track " + itemId + ": " + name + " / " + description);
                 collectionModel.editTrack(itemId, name, description);

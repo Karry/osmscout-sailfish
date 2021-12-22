@@ -525,3 +525,4 @@
 - make possible to display individual tracks/waypoints, not all in collection
 - fix My Backup configuration
 - allow to disable map auto rotation during navigation
+- allow to change waypoint symbol (circle, square or triangle)

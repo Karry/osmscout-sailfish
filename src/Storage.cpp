@@ -1640,7 +1640,7 @@ void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description)
+void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description, QString symbol)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
@@ -1649,8 +1649,8 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
 
   QSqlQuery sqlWpt(db);
   sqlWpt.prepare(
-    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`, `visible`) "
-    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description, :visible)");
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`, `visible`, `symbol`) "
+    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description, :visible, :symbol)");
 
   sqlWpt.bindValue(":collection_id", collectionId);
   sqlWpt.bindValue(":timestamp", dateTimeToSQL(QDateTime::currentDateTime()));
@@ -1660,6 +1660,7 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
   sqlWpt.bindValue(":name", name);
   sqlWpt.bindValue(":description", (description.isEmpty() ? QVariant() : description));
   sqlWpt.bindValue(":visible", true);
+  sqlWpt.bindValue(":symbol", (symbol.isEmpty() ? QVariant() : symbol));
 
   sqlWpt.exec();
   if (sqlWpt.lastError().isValid()) {
@@ -1749,7 +1750,7 @@ void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString description)
+void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString description, QString symbol)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
@@ -1757,11 +1758,14 @@ void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString
   }
 
   QSqlQuery sql(db);
-  sql.prepare("UPDATE `waypoint` SET `name` = :name, `description` = :description, `modification_time` = :modification_time WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.prepare("UPDATE `waypoint` SET "
+              "`name` = :name, `description` = :description, `modification_time` = :modification_time, `symbol` = :symbol "
+              "WHERE `id` = :id AND `collection_id` = :collection_id;");
   sql.bindValue(":id", id);
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
-  sql.bindValue(":description", description);
+  sql.bindValue(":description", (description.isEmpty() ? QVariant() : description));
+  sql.bindValue(":symbol", (symbol.isEmpty() ? QVariant() : symbol));
   sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sql.exec();
 

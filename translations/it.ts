@@ -1409,6 +1409,13 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>SymbolSelector</name>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TrackColor</name>
     <message>
         <source>Set color</source>

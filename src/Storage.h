@@ -496,7 +496,7 @@ public slots:
    * create waypoint
    * emits waypointCreated (or error), collectionDetailsLoaded
    */
-  void createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description);
+  void createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description, QString symbol);
 
   /**
    * create empty track
@@ -508,7 +508,7 @@ public slots:
    * edit waypoint
    * emits collectionDetailsLoaded
    */
-  void editWaypoint(qint64 collectionId, qint64 id, QString name, QString description);
+  void editWaypoint(qint64 collectionId, qint64 id, QString name, QString description, QString symbol);
 
   /**
    * edit track
