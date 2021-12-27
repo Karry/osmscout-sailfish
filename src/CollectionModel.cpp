@@ -101,6 +101,13 @@ CollectionModel::CollectionModel()
           storage, &Storage::moveTrack,
           Qt::QueuedConnection);
 
+  connect(this, &CollectionModel::waypointVisibilityRequest,
+          storage, &Storage::waypointVisibility,
+          Qt::QueuedConnection);
+
+  connect(this, &CollectionModel::trackVisibilityRequest,
+          storage, &Storage::trackVisibility,
+          Qt::QueuedConnection);
 }
 
 void CollectionModel::handleChanges(std::vector<Item> &current, const std::vector<Item> &newItems)
@@ -256,6 +263,60 @@ int CollectionModel::rowCount([[maybe_unused]] const QModelIndex &parentIndex) c
   return items.size();
 }
 
+QString CollectionModel::waypointType(const std::optional<std::string> &symbol, const QString &defaultType)
+{
+  static const QMap<QString, QString> waypointSymbolType {
+    {"Red Circle", "_waypoint_red_circle"},
+    {"Green Circle", "_waypoint_green_circle"},
+    {"Blue Circle", "_waypoint_blue_circle"},
+    {"Yellow Circle", "_waypoint_yellow_circle"},
+    {"Red Square", "_waypoint_red_square"},
+    {"Green Square", "_waypoint_green_square"},
+    {"Blue Square", "_waypoint_blue_square"},
+    {"Yellow Square", "_waypoint_yellow_square"},
+    {"Red Triangle", "_waypoint_red_triangle"},
+    {"Green Triangle", "_waypoint_green_triangle"},
+    {"Blue Triangle", "_waypoint_blue_triangle"},
+    {"Yellow Triangle", "_waypoint_yellow_triangle"},
+  };
+
+  QString type = defaultType;
+  if (symbol.has_value()) {
+    QString symbolStr = QString::fromStdString(symbol.value());
+    if (waypointSymbolType.contains(symbolStr)) {
+      type = waypointSymbolType[symbolStr];
+    }
+  }
+  return type;
+}
+
+QString CollectionModel::waypointColor(const std::optional<std::string> &symbol, const QString &defaultColor)
+{
+  static const QMap<QString, QString> waypointSymbolColors {
+    {"Red Circle", "#b32020"},
+    {"Green Circle", "#00b200"},
+    {"Blue Circle", "#203bb3"},
+    {"Yellow Circle", "#dfed00"},
+    {"Red Square", "#b32020"},
+    {"Green Square", "#00b200"},
+    {"Blue Square", "#203bb3"},
+    {"Yellow Square", "#dfed00"},
+    {"Red Triangle", "#b32020"},
+    {"Green Triangle", "#00b200"},
+    {"Blue Triangle", "#203bb3"},
+    {"Yellow Triangle", "#dfed00"},
+  };
+
+  if (!symbol.has_value()) {
+    return defaultColor;
+  }
+  QString symbolName = QString::fromStdString(symbol.value());
+  if (waypointSymbolColors.contains(symbolName)) {
+    return waypointSymbolColors[symbolName];
+  }
+  return defaultColor;
+}
+
 QVariant CollectionModel::data(const QModelIndex &index, int role) const
 {
   using namespace converters;
@@ -283,6 +344,9 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
 
       case TimeRole: return timestampToDateTime(waypoint.data.time);
       case LastModificationRole: return waypoint.lastModification;
+      case VisibleRole: return waypoint.visible;
+      case ColorRole: return waypointColor(waypoint.data.symbol);
+      case WaypointTypeRole: return waypointType(waypoint.data.symbol);
       default: return QVariant();
     }
   } else {
@@ -297,7 +361,9 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
 
       case TimeRole: return track.statistics.from;
       case LastModificationRole: return track.lastModification;
+      case VisibleRole: return track.visible;
       case DistanceRole: return track.statistics.distance.AsMeter();
+      case ColorRole: return QString::fromStdString(track.color.has_value() ? track.color.value().ToHexString(): ""s);
       default: return QVariant();
     }
   }
@@ -316,12 +382,15 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   roles[IdRole] = "id";
   roles[TimeRole] = "time";
   roles[LastModificationRole] = "lastModification";
+  roles[VisibleRole] = "visible";
+  roles[ColorRole] = "color";
 
   // waypoint
   roles[SymbolRole] = "symbol";
   roles[LatitudeRole] = "latitude";
   roles[LongitudeRole] = "longitude";
   roles[ElevationRole] = "elevation";
+  roles[WaypointTypeRole] = "waypointType";
 
   // track
   roles[DistanceRole] = "distance";
@@ -404,11 +473,11 @@ void CollectionModel::setOrdering(Ordering ordering)
   }
 }
 
-void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description)
+void CollectionModel::createWaypoint(double lat, double lon, QString name, QString description, QString symbol)
 {
   collectionLoaded = true;
   emit loadingChanged();
-  emit createWaypointRequest(collection.id, lat, lon, name, description);
+  emit createWaypointRequest(collection.id, lat, lon, name, description, symbol);
 }
 
 void CollectionModel::deleteWaypoint(QString idStr)
@@ -439,7 +508,7 @@ void CollectionModel::deleteTrack(QString idStr)
   emit deleteTrackRequest(collection.id, id);
 }
 
-void CollectionModel::editWaypoint(QString idStr, QString name, QString description)
+void CollectionModel::editWaypoint(QString idStr, QString name, QString description, QString symbol)
 {
   bool ok;
   qint64 id = idStr.toLongLong(&ok);
@@ -450,7 +519,7 @@ void CollectionModel::editWaypoint(QString idStr, QString name, QString descript
 
   collectionLoaded = true;
   emit loadingChanged();
-  emit editWaypointRequest(collection.id, id, name, description);
+  emit editWaypointRequest(collection.id, id, name, description, symbol);
 }
 
 void CollectionModel::editTrack(QString idStr, QString name, QString description)
@@ -585,4 +654,28 @@ void CollectionModel::moveTrack(QString trackIdStr, QString collectionIdStr)
   collectionLoaded = false;
   emit loadingChanged();
   emit moveTrackRequest(trackId, collectionId);
+}
+
+void CollectionModel::setWaypointVisibility(QString idStr, bool visible)
+{
+  bool ok;
+  qint64 wptId = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+  emit loadingChanged();
+  emit waypointVisibilityRequest(wptId, visible);
+}
+
+void CollectionModel::setTrackVisibility(QString idStr, bool visible)
+{
+  bool ok;
+  qint64 trackId = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+  emit loadingChanged();
+  emit trackVisibilityRequest(trackId, visible);
 }

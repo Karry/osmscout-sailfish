@@ -498,6 +498,14 @@ collection pull down menu</extracomment>
         <extracomment>collection pull down menu</extracomment>
         <translation>Sortimisjärjekord on...</translation>
     </message>
+    <message>
+        <source>Show all on map</source>
+        <translation>Näita kaardil kõiki</translation>
+    </message>
+    <message>
+        <source>Show none on map</source>
+        <translation>Ära näita kaardil ühtegi</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -596,7 +604,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Võta veebikaardid kasutusele</translation>
+        <translation>Kasuta veebipõhiseid kaarte</translation>
     </message>
     <message>
         <source>Style</source>
@@ -608,7 +616,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Võta võrguühenduseta kaardid kasutusele</translation>
+        <translation>Kasuta eelnevalt allalaaditud kaarte</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -819,6 +827,10 @@ collection pull down menu</extracomment>
         <source>Offline map database is required for navigation functionality.</source>
         <translation>Võrguühenduseta kasutatavate kaartide andmekogu on vajalik tee juhatamiseks.</translation>
     </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation>Sihtkohad: %1</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -992,6 +1004,17 @@ collection pull down menu</extracomment>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
         <translation>Kasuta põhimaanteid</translation>
+    </message>
+</context>
+<context>
+    <name>RoutingStep</name>
+    <message>
+        <source>Distance</source>
+        <translation>Vahemaa</translation>
+    </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation>Sihtkohad: %1</translation>
     </message>
 </context>
 <context>
@@ -1202,6 +1225,11 @@ collection pull down menu</extracomment>
         <extracomment>Button for fast show/hide collection entries</extracomment>
         <translation>Kogumiku nähtavus</translation>
     </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Pööra kaarti</translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1360,6 +1388,37 @@ collection pull down menu</extracomment>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
         <translation>%1, 2. osa</translation>
+    </message>
+    <message>
+        <source>Updating visibility of tracks failed: %1</source>
+        <translation>Radade nähtavuse uuendamine ei õnnestunud: %1</translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoints failed: %1</source>
+        <translation>Teekonnapunktide nähtavuse uuendamine ei õnnestunud: %1</translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoint failed: %1</source>
+        <translation>Teekonnapunkti nähtavuse uuendamine ei õnnestunud: %1</translation>
+    </message>
+    <message>
+        <source>Waypoint select failed: %1</source>
+        <translation>Teekonna valimine ei õnnestunud: %1</translation>
+    </message>
+    <message>
+        <source>Updating visibility of track failed: %1</source>
+        <translation>Raja nähtavuse uuendamine ei õnnestunud: %1</translation>
+    </message>
+    <message>
+        <source>Track select failed: %1</source>
+        <translation>Raja valimine ei õnnestunud: %1</translation>
+    </message>
+</context>
+<context>
+    <name>SymbolSelector</name>
+    <message>
+        <source>Symbol</source>
+        <translation>Sümbol</translation>
     </message>
 </context>
 <context>
@@ -1566,6 +1625,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Rename track</source>
         <translation>Muuda raja nime</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>Muuda värvi</translation>
     </message>
 </context>
 <context>
@@ -1836,18 +1899,22 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>unnamed road</source>
+        <extracomment>unknown road name</extracomment>
         <translation>nimeta tee</translation>
     </message>
     <message>
         <source>(%1)</source>
+        <extracomment>road just with ref number</extracomment>
         <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
+        <extracomment>road just with name, without ref</extracomment>
         <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
+        <extracomment>road with name (%1) and ref (%2)</extracomment>
         <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
@@ -1981,6 +2048,51 @@ collection pull down menu</extracomment>
     <message>
         <source>Take the %1th exit</source>
         <translation>Vali  %1. ärapööre</translation>
+    </message>
+    <message>
+        <source>On unnamed exit</source>
+        <extracomment>unnamed motorway exit</extracomment>
+        <translation>Nimeta ärapöördel</translation>
+    </message>
+    <message>
+        <source>On exit %1</source>
+        <extracomment>motorway exit just with ref</extracomment>
+        <translation>Ärapöördel %1</translation>
+    </message>
+    <message>
+        <source>On exit &quot;%1&quot;</source>
+        <extracomment>motorway exit with name, without ref</extracomment>
+        <translation>„%1“ ärapöördel</translation>
+    </message>
+    <message>
+        <source>On exit %1 &quot;%2&quot;</source>
+        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
+        <translation>„%2“ ärapöördel %1</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - %2 asemel %3, ärapööre %1</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>&lt;strong&gt;Sõida teisele kiirteele&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt; - %2 asemel %3, ärapööre %1</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>&lt;strong&gt;Lahku kiirteelt %2&lt;/strong&gt; - ärapööre %1</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>&lt;strong&gt;Lahku kiirteelt&lt;/strong&gt; - ärapööre %1</translation>
     </message>
 </context>
 <context>

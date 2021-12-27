@@ -30,6 +30,8 @@ import "../custom/Utils.js" as Utils
 CollectionEntryDialog{
     id: waypointDialog
 
+    symbolSelectorVisible: true
+
     property double latitude
     property double longitude
 
@@ -46,8 +48,8 @@ CollectionEntryDialog{
     }
 
     onAccepted: {
-        console.log("Adding waypoint " + name + " to collection " + collectionId);
+        console.log("Adding waypoint " + name + " to collection " + collectionId + " symbol " + symbol);
         AppSettings.lastCollection = collectionId;
-        collectionModel.createWaypoint(latitude, longitude, name, description);
+        collectionModel.createWaypoint(latitude, longitude, name, description, symbol);
     }
 }

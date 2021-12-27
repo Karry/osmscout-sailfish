@@ -505,7 +505,24 @@
 - update translations (Spanish)
 - update configuration path to comply Sailjail requirements (again)
 
-* 2021-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.19
+* 2021-12-04 Lukáš Karas <lukas.karas@centrum.cz> 2.19
+- update translations (Czech, Polish, Spanish, Swedish)
 - enable explicit Sailjail sandboxing
 -- when you are upgrading from older version than 2.18, execute application without Sailjail first,
 -- to make sure that your data are migrated to new locations
+- improve navigation instructions
+-- support for mini roundabouts (highway=mini_roundabout on node)
+-- filter out useless instructions
+-- show proper icon on motorway exit
+-- show destinations on motorway exits
+-- voice message for motorway exit
+-- fix voice message for turn to motorway link
+-- minor fixes of navigation voice messages
+
+* 2021-12-27 Lukáš Karas <lukas.karas@centrum.cz> 2.20
+- update translations (Czech, Polish, Estonian, German, Swedish)
+- show track and waypoint color in collection list
+- make possible to display individual tracks/waypoints, not all in collection
+- fix My Backup configuration
+- allow to disable map auto rotation during navigation
+- allow to change waypoint symbol (circle, square or triangle)

@@ -59,6 +59,10 @@ CollectionListModel::CollectionListModel()
           storage, &Storage::importCollection,
           Qt::QueuedConnection);
 
+  connect(this, &CollectionListModel::visibleAllRequest,
+          storage, &Storage::visibleAll,
+          Qt::QueuedConnection);
+
   emit collectionLoadRequest();
 }
 
@@ -152,6 +156,7 @@ QVariant CollectionListModel::data(const QModelIndex &index, int role) const
     case DescriptionRole: return collection.description;
     case IdRole: return QString::number(collection.id);
     case VisibleRole: return collection.visible;
+    case VisibleAllRole: return collection.visibleAll;
   }
   return QVariant();
 }
@@ -164,6 +169,7 @@ QHash<int, QByteArray> CollectionListModel::roleNames() const
   roles[DescriptionRole]="description";
   roles[IdRole]="id";
   roles[VisibleRole]="visible";
+  roles[VisibleAllRole]="visibleAll";
 
   return roles;
 }
@@ -186,7 +192,7 @@ void CollectionListModel::createCollection(QString name, QString description)
 {
   collectionsLoaded=false;
   emit loadingChanged();
-  emit updateCollectionRequest(Collection(-1, false, name, description));
+  emit updateCollectionRequest(Collection(-1, false, false, name, description));
 }
 
 void CollectionListModel::deleteCollection(QString idStr)
@@ -212,7 +218,33 @@ void CollectionListModel::editCollection(QString idStr, bool visible, QString na
   }
   collectionsLoaded=false;
   emit loadingChanged();
-  emit updateCollectionRequest(Collection(id, visible, name, description));
+  emit updateCollectionRequest(Collection(id, visible, false, name, description));
+}
+
+void CollectionListModel::visibleAll(QString idStr)
+{
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+  collectionsLoaded=false;
+  emit loadingChanged();
+  emit visibleAllRequest(id, true);
+}
+
+void CollectionListModel::visibleNone(QString idStr)
+{
+  bool ok;
+  qint64 id = idStr.toLongLong(&ok);
+  if (!ok){
+    qWarning() << "Can't convert" << idStr << "to number";
+    return;
+  }
+  collectionsLoaded=false;
+  emit loadingChanged();
+  emit visibleAllRequest(id, false);
 }
 
 void CollectionListModel::importCollection(QString filePath)

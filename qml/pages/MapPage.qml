@@ -36,7 +36,7 @@ Page {
     id: mapPage
 
     signal selectLocation(LocationEntry location)
-    signal showWaypoint(double lat, double lon)
+    signal showWaypoint(double lat, double lon, var waypointId)
     signal showTrack(LocationEntry bbox, var trackId)
     signal showRoute(OverlayWay route, var routeId)
 
@@ -47,7 +47,7 @@ Page {
         drawer.open = false;
     }
     onShowWaypoint: {
-        console.log("selectWaypoint: " + lat + ", " + lon);
+        console.log("selectWaypoint: " + lat + ", " + lon + " (" + waypointId + ")");
         map.showCoordinates(lat, lon);
         drawer.open = false;
     }
@@ -473,6 +473,7 @@ Page {
             vehiclePosition: Global.navigationModel.vehiclePosition
             followVehicle: Global.navigationModel.destinationSet
             renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
+            vehicleAutoRotateMap: AppSettings.vehicleAutoRotateMap
 
             Connections {
                 target: Global.navigationModel
@@ -735,6 +736,16 @@ Page {
                     sourceSize.height: height
                 }
 
+                IconButton{
+                    id: compassLockIcon
+                    icon.source: "image://theme/icon-s-secure"
+                    x: parent.width - (width * 0.75)
+                    y: parent.height - (height * 0.75)
+
+                    opacity: map.vehicleAutoRotateMap ? 0 : 1
+                    Behavior on opacity { PropertyAnimation {} }
+                }
+
                 MouseArea {
                   id: compasBtnMouseArea
                   anchors.fill: parent
@@ -744,6 +755,9 @@ Page {
                   onClicked: {
                       console.log("Rotate back to 0");
                       map.rotateTo(0);
+                  }
+                  onDoubleClicked: {
+                      AppSettings.vehicleAutoRotateMap = !AppSettings.vehicleAutoRotateMap;
                   }
                 }
             }
@@ -772,7 +786,7 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) + navigationContextMenu.height : 0
+            height: Global.navigationModel.destinationSet ? nextStepBackground.height + navigationContextMenu.height : 0
             visible: Global.navigationModel.destinationSet
             color: "transparent"
 
@@ -788,7 +802,10 @@ Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: Global.navigationModel.destinationSet ? (Theme.iconSizeLarge + 3*Theme.paddingMedium) : 0
+                height: Global.navigationModel.destinationSet ?
+                            Math.max(Theme.iconSizeLarge + 3*Theme.paddingMedium,
+                                     Theme.paddingMedium + distanceToNextStep.height + Theme.paddingMedium + nextStepDescription.height +
+                                     (destinationsText.visible ? Theme.paddingSmall + destinationsText.height : 0)) : 0
 
                 //color: "transparent"
                 color: nextStepMouseArea.pressed ? Theme.rgba(Theme.highlightDimmerColor, 0.5) : Theme.rgba(Theme.highlightDimmerColor, 0.7)
@@ -857,6 +874,23 @@ Page {
                         right: parent.right
                         margins: Theme.paddingSmall
                     }
+                }
+                Label {
+                    id: destinationsText
+
+                    visible: Global.navigationModel.nextRouteStep.destinations.length > 0
+                    anchors{
+                        left: distanceToNextStep.left
+                        top: nextStepDescription.bottom
+                        margins: Theme.paddingSmall
+                    }
+
+                    text: qsTr("Destinations: %1").arg(Global.navigationModel.nextRouteStep.destinations.join(", "))
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryColor
+
+                    wrapMode: Text.NoWrap
+                    truncationMode: TruncationMode.Fade
                 }
 
                 MouseArea{

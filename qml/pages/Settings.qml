@@ -35,8 +35,8 @@ Page {
         id: settings
     }
 
-    property double placeLat: Global.positionSource.lat == 0 ? 50.0886581 : Global.positionSource.lat
-    property double placeLon: Global.positionSource.lon == 0 ? 14.4111289 : Global.positionSource.lon
+    property double placeLat: Global.positionSource.lat === 0 || isNaN(Global.positionSource.lat) ? 50.0886581 : Global.positionSource.lat
+    property double placeLon: Global.positionSource.lon === 0 || isNaN(Global.positionSource.lat) ? 14.4111289 : Global.positionSource.lon
 
     SilicaFlickable {
         id: flickable
@@ -243,6 +243,19 @@ Page {
 
                     onCheckedChanged: {
                         AppSettings.navigationKeepAlive = checked;
+                    }
+                }
+
+                TextSwitch{
+                    id: vehicleAutoRotateMapSwitch
+                    width: parent.width
+
+                    checked: AppSettings.vehicleAutoRotateMap
+                    //: switch for rotate map on during navigation
+                    text: qsTr("Rotate map")
+
+                    onCheckedChanged: {
+                        AppSettings.vehicleAutoRotateMap = checked;
                     }
                 }
             }

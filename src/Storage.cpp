@@ -662,7 +662,10 @@ void Storage::loadCollections()
     return;
   }
 
-  QString sql("SELECT `id`, `visible`, `name`, `description` FROM `collection`;");
+  auto sql = QString("SELECT `id`, `visible`, `name`, `description`, ")
+    .append("(SELECT COUNT(*) FROM `waypoint` AS `wpt` WHERE `wpt`.`collection_id` = `collection`.`id` AND NOT `wpt`.`visible`) AS `wpt_hidden`, ")
+    .append("(SELECT COUNT(*) FROM `track`    AS `trk` WHERE `trk`.`collection_id` = `collection`.`id` AND NOT `trk`.`visible`) AS `trk_hidden` ")
+    .append("FROM `collection`;");
 
   QSqlQuery q = db.exec(sql);
   if (q.lastError().isValid()) {
@@ -670,9 +673,11 @@ void Storage::loadCollections()
   }
   std::vector<Collection> result;
   while (q.next()) {
+    bool visibleAll = varToLong(q.value("wpt_hidden")) == 0 && varToLong(q.value("trk_hidden")) == 0;
     result.emplace_back(
       varToLong(q.value("id")),
       varToBool(q.value("visible")),
+      visibleAll,
       varToString(q.value("name")),
       varToString(q.value("description"))
     );
@@ -1034,6 +1039,99 @@ void Storage::deleteCollection(qint64 id)
     emit collectionDeleted(id);
   }
 
+  loadCollections();
+}
+
+void Storage::visibleAll(qint64 id, bool value)
+{
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionsLoaded(std::vector<Collection>(), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("UPDATE `track` SET `visible` = :value WHERE (`collection_id` = :id)");
+  sql.bindValue(":id", id);
+  sql.bindValue(":value", value ? 1 : 0);
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Updating visibility of tracks failed: " << sql.lastError();
+    emit error(tr("Updating visibility of tracks failed: %1").arg(sql.lastError().text()));
+  }
+
+  sql.prepare("UPDATE `waypoint` SET `visible` = :value WHERE (`collection_id` = :id)");
+  sql.bindValue(":id", id);
+  sql.bindValue(":value", value ? 1 : 0);
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Updating visibility of waypoints failed: " << sql.lastError();
+    emit error(tr("Updating visibility of waypoints failed: %1").arg(sql.lastError().text()));
+  }
+
+  loadCollections();
+}
+
+void Storage::waypointVisibility(qint64 wptId, bool visible)
+{
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionsLoaded(std::vector<Collection>(), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("UPDATE `waypoint` SET `visible` = :value WHERE (`id` = :id)");
+  sql.bindValue(":id", wptId);
+  sql.bindValue(":value", visible ? 1 : 0);
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Updating visibility of waypoint failed: " << sql.lastError();
+    emit error(tr("Updating visibility of waypoint failed: %1").arg(sql.lastError().text()));
+  }
+
+  sql.prepare("SELECT `collection_id` FROM `waypoint` WHERE (`id` = :id)");
+  sql.bindValue(":id", wptId);
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Waypoint select failed: " << sql.lastError();
+    emit error(tr("Waypoint select failed: %1").arg(sql.lastError().text()));
+  }
+
+  if (sql.next()) {
+    long id = varToLong(sql.value("collection_id"));
+    loadCollectionDetails(Collection(id));
+  }
+  loadCollections();
+}
+
+void Storage::trackVisibility(qint64 trackId, bool visible)
+{
+  if (!checkAccess(__FUNCTION__)){
+    emit collectionsLoaded(std::vector<Collection>(), false);
+    return;
+  }
+
+  QSqlQuery sql(db);
+  sql.prepare("UPDATE `track` SET `visible` = :value WHERE (`id` = :id)");
+  sql.bindValue(":id", trackId);
+  sql.bindValue(":value", visible ? 1 : 0);
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Updating visibility of track failed: " << sql.lastError();
+    emit error(tr("Updating visibility of track failed: %1").arg(sql.lastError().text()));
+  }
+
+  sql.prepare("SELECT `collection_id` FROM `track` WHERE (`id` = :id)");
+  sql.bindValue(":id", trackId);
+  sql.exec();
+  if (sql.lastError().isValid()){
+    qWarning() << "Track select failed: " << sql.lastError();
+    emit error(tr("Track select failed: %1").arg(sql.lastError().text()));
+  }
+
+  if (sql.next()) {
+    long id = varToLong(sql.value("collection_id"));
+    loadCollectionDetails(Collection(id));
+  }
   loadCollections();
 }
 
@@ -1542,7 +1640,7 @@ void Storage::deleteWaypoint(qint64 collectionId, qint64 waypointId)
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description)
+void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QString name, QString description, QString symbol)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
@@ -1551,8 +1649,8 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
 
   QSqlQuery sqlWpt(db);
   sqlWpt.prepare(
-    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`, `visible`) "
-    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description, :visible)");
+    "INSERT INTO `waypoint` (`collection_id`, `timestamp`, `modification_time`, `latitude`, `longitude`, `name`, `description`, `visible`, `symbol`) "
+    "VALUES                 (:collection_id,  :timestamp,  :modification_time,  :latitude,  :longitude,  :name,  :description, :visible, :symbol)");
 
   sqlWpt.bindValue(":collection_id", collectionId);
   sqlWpt.bindValue(":timestamp", dateTimeToSQL(QDateTime::currentDateTime()));
@@ -1562,6 +1660,7 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
   sqlWpt.bindValue(":name", name);
   sqlWpt.bindValue(":description", (description.isEmpty() ? QVariant() : description));
   sqlWpt.bindValue(":visible", true);
+  sqlWpt.bindValue(":symbol", (symbol.isEmpty() ? QVariant() : symbol));
 
   sqlWpt.exec();
   if (sqlWpt.lastError().isValid()) {
@@ -1651,7 +1750,7 @@ void Storage::deleteTrack(qint64 collectionId, qint64 trackId)
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString description)
+void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString description, QString symbol)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
@@ -1659,11 +1758,14 @@ void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString
   }
 
   QSqlQuery sql(db);
-  sql.prepare("UPDATE `waypoint` SET `name` = :name, `description` = :description, `modification_time` = :modification_time WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.prepare("UPDATE `waypoint` SET "
+              "`name` = :name, `description` = :description, `modification_time` = :modification_time, `symbol` = :symbol "
+              "WHERE `id` = :id AND `collection_id` = :collection_id;");
   sql.bindValue(":id", id);
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
-  sql.bindValue(":description", description);
+  sql.bindValue(":description", (description.isEmpty() ? QVariant() : description));
+  sql.bindValue(":symbol", (symbol.isEmpty() ? QVariant() : symbol));
   sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
   sql.exec();
 

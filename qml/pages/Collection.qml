@@ -31,9 +31,9 @@ import "../custom/Utils.js" as Utils
 Page {
     id: collectionPage
     property string collectionId: "-1"
-    signal selectWaypoint(double lat, double lon)
-    signal selectTrack(LocationEntry bbox, var trackId);
-    property var acceptDestination;
+    signal selectWaypoint(double lat, double lon, var waypointId)
+    signal selectTrack(LocationEntry bbox, var trackId)
+    property var acceptDestination
 
     RemorsePopup { id: remorse }
 
@@ -43,13 +43,16 @@ Page {
                     true,
                     collectionModel.name,
                     collectionModel.description);
+        AppSettings.showCollections = true;
     }
 
     onSelectTrack: {
         makeVisible();
+        collectionModel.setTrackVisibility(trackId, true);
     }
     onSelectWaypoint: {
         makeVisible();
+        collectionModel.setWaypointVisibility(waypointId, true);
     }
 
     CollectionListModel {
@@ -91,6 +94,31 @@ Page {
                 target: collectionItem
             }
 
+            Rectangle {
+                x: Theme.paddingMedium * 0.2
+                y: 0
+                height: entryIcon.height
+                width: Theme.paddingMedium * 0.6
+                radius: width / 2
+
+                function waypointColor() {
+                    if (model.color !== "") {
+                        return model.color;
+                    }
+                    return "#ff0000"; // default symbol is red cyrcle (marker)
+                }
+
+                function routeColor() {
+                    if (model.color !== "") {
+                        return model.color;
+                    }
+                    return "#10a000"; // default route color in standard stylesheet
+                }
+
+                color: model.type === "waypoint" ? waypointColor() : routeColor()
+            }
+
+
             Image{
                 id: entryIcon
 
@@ -105,6 +133,38 @@ Page {
 
                 sourceSize.width: width
                 sourceSize.height: height
+
+            }
+            Image {
+                id: visibleIcon
+                source: "image://theme/icon-m-favorite-selected"
+                visible: model.visible
+
+                width: Theme.iconSizeSmall
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                height: width
+
+                x: Theme.paddingMedium + entryIcon.width - width*1.0
+                y: entryIcon.height - height*0.75
+
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+            MouseArea{
+                anchors.left: entryIcon.left
+                anchors.top: entryIcon.top
+                anchors.right: visibleIcon.right
+                anchors.bottom: visibleIcon.bottom
+                onClicked: {
+                    console.log("Changing entry (" + model.id + ") visibility to: " + !model.visible);
+                    if (model.type == "waypoint"){
+                        collectionModel.setWaypointVisibility(model.id, !model.visible);
+                    } else {
+                        collectionModel.setTrackVisibility(model.id, !model.visible);
+                    }
+                }
             }
             Column{
                 id: entryDescription
@@ -158,6 +218,7 @@ Page {
             }
             onClicked: {
                 if (model.type == "waypoint"){
+                    waypointDialog.id = model.id;
                     waypointDialog.name = model.name;
                     waypointDialog.description = model.description;
                     waypointDialog.latitude = model.latitude;
@@ -168,7 +229,8 @@ Page {
                     waypointDialog.previewMap.removeAllOverlayObjects();
                     waypointDialog.previewMap.showCoordinatesInstantly(model.latitude, model.longitude);
 
-                    var wpt = waypointDialog.previewMap.createOverlayNode("_waypoint");
+                    console.log("Creating overlay node type: " + model.waypointType);
+                    var wpt = waypointDialog.previewMap.createOverlayNode(model.waypointType);
                     wpt.addPoint(model.latitude, model.longitude);
                     wpt.name = model.name;
                     waypointDialog.previewMap.addOverlayObject(0, wpt);
@@ -194,12 +256,15 @@ Page {
                             editDialog.itemType = model.type;
                             editDialog.name = model.name;
                             editDialog.description = model.description;
+                            editDialog.symbolSelectorVisible = true;
+                            editDialog.symbol = model.symbol;
                             editDialog.open();
                         } else {
                             editTrackDialog.itemId = model.id;
                             editTrackDialog.itemType = model.type;
                             editTrackDialog.name = model.name;
                             editTrackDialog.description = model.description;
+                            editDialog.symbolSelectorVisible = false;
                             pageStack.push(editTrackDialog)
                         }
                     }
@@ -475,7 +540,7 @@ Page {
         onAccepted: {
             if (itemType == "waypoint"){
                 console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
-                collectionModel.editWaypoint(itemId, name, description);
+                collectionModel.editWaypoint(itemId, name, description, symbol);
             }else if (itemType === "track"){
                 console.log("Edit track " + itemId + ": " + name + " / " + description);
                 collectionModel.editTrack(itemId, name, description);

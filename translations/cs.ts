@@ -498,6 +498,14 @@ collection pull down menu</extracomment>
         <extracomment>collection pull down menu</extracomment>
         <translation>Řadit podle...</translation>
     </message>
+    <message>
+        <source>Show all on map</source>
+        <translation>Zobrazit na mapě vše</translation>
+    </message>
+    <message>
+        <source>Show none on map</source>
+        <translation>Nezobrazovat na mapě nic</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -819,6 +827,10 @@ collection pull down menu</extracomment>
         <source>Offline map database is required for navigation functionality.</source>
         <translation>Pro navigaci je vyžadována offline mapa.</translation>
     </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation>Směr: %1</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -992,6 +1004,17 @@ collection pull down menu</extracomment>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
         <translation>Povolit hlavní silnice</translation>
+    </message>
+</context>
+<context>
+    <name>RoutingStep</name>
+    <message>
+        <source>Distance</source>
+        <translation>Vzdálenost</translation>
+    </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation>Směr: %1</translation>
     </message>
 </context>
 <context>
@@ -1202,6 +1225,11 @@ collection pull down menu</extracomment>
         <extracomment>Button for fast show/hide collection entries</extracomment>
         <translation>Viditelnost sbírek</translation>
     </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Automaticky otáčet mapu</translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1360,6 +1388,37 @@ collection pull down menu</extracomment>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
         <translation>%1, část 2</translation>
+    </message>
+    <message>
+        <source>Updating visibility of tracks failed: %1</source>
+        <translation>Nastavení viditelnosti tras selhalo: %1</translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoints failed: %1</source>
+        <translation>Nastavení viditelnosti míst selhalo: %1</translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoint failed: %1</source>
+        <translation>Nastavení viditelnosti místa selhalo: %1</translation>
+    </message>
+    <message>
+        <source>Waypoint select failed: %1</source>
+        <translation>Výběr místa selhal: %1</translation>
+    </message>
+    <message>
+        <source>Updating visibility of track failed: %1</source>
+        <translation>Nastavení viditelnosti trasy selhalo: %1</translation>
+    </message>
+    <message>
+        <source>Track select failed: %1</source>
+        <translation>Výběr trasy selhal: %1</translation>
+    </message>
+</context>
+<context>
+    <name>SymbolSelector</name>
+    <message>
+        <source>Symbol</source>
+        <translation>Symbol</translation>
     </message>
 </context>
 <context>
@@ -1567,6 +1626,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Rename track</source>
         <translation>Přejmenovat trasu</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>Změnit barvu</translation>
     </message>
 </context>
 <context>
@@ -1837,18 +1900,22 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>unnamed road</source>
+        <extracomment>unknown road name</extracomment>
         <translation>nepojmenovaná cesta</translation>
     </message>
     <message>
         <source>(%1)</source>
+        <extracomment>road just with ref number</extracomment>
         <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
+        <extracomment>road just with name, without ref</extracomment>
         <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
+        <extracomment>road with name (%1) and ref (%2)</extracomment>
         <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
@@ -1929,15 +1996,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change motorway</source>
-        <translation>Změna dálnice</translation>
+        <translation>Změňte dálnici</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Změna dálnice&lt;/strong&gt; z %1 na %2</translation>
+        <translation>&lt;strong&gt;Změňte dálnici&lt;/strong&gt; z %1 na %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Změna dálnice&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Změňte dálnici&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
@@ -1982,6 +2049,51 @@ collection pull down menu</extracomment>
     <message>
         <source>Take the %1th exit</source>
         <translation>Použijte %1. výjezd</translation>
+    </message>
+    <message>
+        <source>On unnamed exit</source>
+        <extracomment>unnamed motorway exit</extracomment>
+        <translation>Na bezejmenném sjezdu</translation>
+    </message>
+    <message>
+        <source>On exit %1</source>
+        <extracomment>motorway exit just with ref</extracomment>
+        <translation>Na sjezdu %1</translation>
+    </message>
+    <message>
+        <source>On exit &quot;%1&quot;</source>
+        <extracomment>motorway exit with name, without ref</extracomment>
+        <translation>Na sjezdu &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>On exit %1 &quot;%2&quot;</source>
+        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
+        <translation>Na sjezdu %1 &quot;%2&quot;</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;změňte dálnici&lt;/strong&gt; z %2 na %3</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;změňte dálnici&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;sjeďte z dálnice&lt;/strong&gt; %2 na %3</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;sjeďte z dálnice&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;sjeďte z dálnice&lt;/strong&gt;</translation>
     </message>
 </context>
 <context>

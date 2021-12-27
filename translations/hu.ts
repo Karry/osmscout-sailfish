@@ -491,6 +491,14 @@
         <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished">Rendezés alapja</translation>
     </message>
+    <message>
+        <source>Show all on map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show none on map</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -812,6 +820,10 @@
         <source>Offline map database is required for navigation functionality.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -984,6 +996,17 @@
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RoutingStep</name>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1195,6 +1218,11 @@
         <extracomment>Button for fast show/hide collection entries</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1352,6 +1380,37 @@
     <message>
         <source>%1, part 2</source>
         <extracomment>name for new track created by splitting</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of tracks failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoints failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of waypoint failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waypoint select failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating visibility of track failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track select failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SymbolSelector</name>
+    <message>
+        <source>Symbol</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1557,6 +1616,10 @@
     </message>
     <message>
         <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change color</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1828,18 +1891,22 @@
     </message>
     <message>
         <source>unnamed road</source>
+        <extracomment>unknown road name</extracomment>
         <translation>névelen út</translation>
     </message>
     <message>
         <source>(%1)</source>
+        <extracomment>road just with ref number</extracomment>
         <translation>(%1)</translation>
     </message>
     <message>
         <source>&quot;%1&quot;</source>
+        <extracomment>road just with name, without ref</extracomment>
         <translation>&quot;%1&quot;</translation>
     </message>
     <message>
         <source>&quot;%1&quot; (%2)</source>
+        <extracomment>road with name (%1) and ref (%2)</extracomment>
         <translation>&quot;%1&quot; (%2)</translation>
     </message>
     <message>
@@ -1972,6 +2039,51 @@
     </message>
     <message>
         <source>Take the %1th exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On unnamed exit</source>
+        <extracomment>unnamed motorway exit</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit %1</source>
+        <extracomment>motorway exit just with ref</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit &quot;%1&quot;</source>
+        <extracomment>motorway exit with name, without ref</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit %1 &quot;%2&quot;</source>
+        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

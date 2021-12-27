@@ -21,16 +21,34 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 import harbour.osmscout.map 1.0
+import "Utils.js" as Utils
 
 Item {
     id: item
 
     anchors.right: parent.right;
     anchors.left: parent.left;
-    height: Math.max(entryDescription.implicitHeight+Theme.paddingMedium, icon.height)
+    height: stepDelta.height + Math.max(entryDescription.implicitHeight +
+                                            (destinationsText.visible ? destinationsText.implicitHeight : 0) +
+                                            Theme.paddingMedium,
+                                        icon.height)
+
+    Column{
+        id: stepDelta
+        width: parent.width - 2*Theme.paddingMedium
+        x: Theme.paddingMedium
+
+        DetailItem {
+            id: distanceItem
+            visible: model.distanceDelta > 0
+            label: qsTr("Distance")
+            value: routeReady ? Utils.humanDistance(model.distanceDelta) : "?"
+        }
+    }
 
     RouteStepIcon{
         id: icon
+        anchors.top: stepDelta.bottom
         stepType: model.type
         roundaboutExit: model.roundaboutExit
         roundaboutClockwise: model.roundaboutClockwise
@@ -48,9 +66,27 @@ Item {
         x: Theme.paddingMedium
 
         anchors.left: icon.right
+        anchors.top: stepDelta.bottom
         width: parent.width - (2*Theme.paddingMedium) - icon.width
         text: model.description
-        //font.pixelSize: Theme.textFontSize
         wrapMode: Text.Wrap
     }
+
+    Label {
+        id: destinationsText
+
+        y: Theme.paddingMedium
+        x: Theme.paddingMedium
+        visible: destinations.length > 0
+        anchors.left: icon.right
+        anchors.top: entryDescription.bottom
+        width: parent.width - (2*Theme.paddingMedium) - icon.width
+
+        text: qsTr("Destinations: %1").arg(destinations.join(", "))
+        font.pixelSize: Theme.fontSizeExtraSmall
+        color: Theme.secondaryColor
+
+        wrapMode: Text.Wrap
+    }
+
 }

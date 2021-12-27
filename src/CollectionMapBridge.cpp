@@ -18,6 +18,7 @@
 */
 
 #include "CollectionMapBridge.h"
+#include "CollectionModel.h"
 
 CollectionMapBridge::CollectionMapBridge(QObject *parent):
   QObject(parent)
@@ -97,34 +98,40 @@ void CollectionMapBridge::onCollectionDetailsLoaded(Collection collection, bool 
 
   if (collection.tracks){
     for (const auto &trk: *(collection.tracks)){
-      trkToHide.remove(trk.id);
-      if (!trkVisible.contains(trk.id) || trkVisible[trk.id].lastModification != trk.lastModification) {
-        qDebug() << "Request track data (" << trk.id << ")"
-                 << trkVisible[trk.id].lastModification << "/" << trk.lastModification;
-        emit trackDataRequest(trk, std::nullopt);
+      if (trk.visible) {
+        trkToHide.remove(trk.id);
+        if (!trkVisible.contains(trk.id) || trkVisible[trk.id].lastModification != trk.lastModification) {
+          qDebug() << "Request track data (" << trk.id << ")"
+                   << trkVisible[trk.id].lastModification << "/" << trk.lastModification;
+          emit trackDataRequest(trk, std::nullopt);
+        }
       }
     }
   }
 
   if (collection.waypoints){
     for (const auto &wpt: *(collection.waypoints)){
-      wptToHide.remove(wpt.id);
-      if (!wptVisible.contains(wpt.id) || wptVisible[wpt.id].lastModification != wpt.lastModification) {
-        if (!wptVisible.contains(wpt.id)){
-          wptVisible[wpt.id]=DisplayedWaypoint{wpt.lastModification, nextObjectId++};
-        }else{
-          wptVisible[wpt.id].lastModification=wpt.lastModification;
-        }
-        qDebug() << "Adding overlay waypoint"
-                 << QString::fromStdString(wpt.data.name.value_or("<empty>"s))
-                 << "(" << wpt.id << ")"
-                 << wpt.lastModification;
+      if (wpt.visible) {
+        wptToHide.remove(wpt.id);
+        if (!wptVisible.contains(wpt.id) || wptVisible[wpt.id].lastModification != wpt.lastModification) {
+          if (!wptVisible.contains(wpt.id)) {
+            wptVisible[wpt.id] = DisplayedWaypoint{wpt.lastModification, nextObjectId++};
+          } else {
+            wptVisible[wpt.id].lastModification = wpt.lastModification;
+          }
+          qDebug() << "Adding overlay waypoint"
+                   << QString::fromStdString(wpt.data.name.value_or("<empty>"s))
+                   << "(" << wpt.id << ")"
+                   << wpt.lastModification;
 
-        osmscout::OverlayNode wptOverlay;
-        wptOverlay.setTypeName(waypointTypeName);
-        wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
-        wptOverlay.setName(QString::fromStdString(wpt.data.name.value_or(""s)));
-        delegatedMap->addOverlayObject(wptVisible[wpt.id].id, &wptOverlay);
+          QString type = CollectionModel::waypointType(wpt.data.symbol, waypointTypeName);
+
+          osmscout::OverlayNode wptOverlay;
+          wptOverlay.setTypeName(type);
+          wptOverlay.addPoint(wpt.data.coord.GetLat(), wpt.data.coord.GetLon());
+          wptOverlay.setName(QString::fromStdString(wpt.data.name.value_or(""s)));
+          delegatedMap->addOverlayObject(wptVisible[wpt.id].id, &wptOverlay);
+        }
       }
     }
   }
@@ -151,6 +158,7 @@ void CollectionMapBridge::onTrackDataLoaded(Track track, std::optional<double> a
       !ok ||
       !enabled ||
       !displayedCollection.contains(track.collectionId) ||
+      !track.visible ||
       displayedCollection[track.collectionId].tracks[track.id].lastModification == track.lastModification
       ){
     return;

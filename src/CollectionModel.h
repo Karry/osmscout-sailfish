@@ -47,8 +47,8 @@ signals:
   void collectionDetailRequest(Collection);
   void deleteWaypointRequest(qint64 collectionId, qint64 id);
   void deleteTrackRequest(qint64 collectionId, qint64 id);
-  void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description);
-  void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description, QString symbol);
+  void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description, QString symbol);
   void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
   void exportCollectionRequest(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
   void exportTrackRequest(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
@@ -56,15 +56,19 @@ signals:
   void moveWaypointRequest(qint64 waypointId, qint64 collectionId);
   void moveTrackRequest(qint64 trackId, qint64 collectionId);
   void orderingChanged();
+  void exported(qint64 collectionId, QString file);
+  void trackExported(qint64 trackId, QString file);
+  void waypointVisibilityRequest(qint64 wptId, bool visible);
+  void trackVisibilityRequest(qint64 trackId, bool visible);
 
 public slots:
   void storageInitialised();
   void storageInitialisationError(QString);
   void onCollectionDetailsLoaded(Collection collection, bool ok);
-  void createWaypoint(double lat, double lon, QString name, QString description);
+  void createWaypoint(double lat, double lon, QString name, QString description, QString symbol);
   void deleteWaypoint(QString id);
   void deleteTrack(QString id);
-  void editWaypoint(QString id, QString name, QString description);
+  void editWaypoint(QString id, QString name, QString description, QString symbol);
   void editTrack(QString id, QString name, QString description);
   void exportToFile(QString fileName, QString directory, bool includeWaypoints, int accuracyFilter);
   void exportTrackToFile(QString id, QString name, QString directory, bool includeWaypoints, int accuracyFilter);
@@ -72,6 +76,8 @@ public slots:
   void onTrackExported(bool);
   void moveWaypoint(QString waypointId, QString collectionId);
   void moveTrack(QString trackId, QString collectionId);
+  void setWaypointVisibility(QString id, bool visible);
+  void setTrackVisibility(QString id, bool visible);
 
 public:
   CollectionModel();
@@ -94,15 +100,18 @@ public:
     IdRole = Qt::UserRole+4,
     TimeRole = Qt::UserRole+5,
     LastModificationRole = Qt::UserRole+6,
+    VisibleRole = Qt::UserRole+7,
+    ColorRole = Qt::UserRole+8,
 
     // type == waypoint
-    SymbolRole = Qt::UserRole+7,
-    LatitudeRole = Qt::UserRole+8,
-    LongitudeRole = Qt::UserRole+9,
-    ElevationRole = Qt::UserRole+10,
+    SymbolRole = Qt::UserRole+9,
+    LatitudeRole = Qt::UserRole+10,
+    LongitudeRole = Qt::UserRole+11,
+    ElevationRole = Qt::UserRole+12,
+    WaypointTypeRole = Qt::UserRole+13,
 
     // type == track
-    DistanceRole = Qt::UserRole+11
+    DistanceRole = Qt::UserRole+14,
   };
   Q_ENUM(Roles)
 
@@ -141,6 +150,9 @@ public:
   }
 
   void setOrdering(Ordering ordering);
+
+  static QString waypointType(const std::optional<std::string> &symbol, const QString &defaultType = "_waypoint");
+  static QString waypointColor(const std::optional<std::string> &symbol, const QString &defaultColor = "");
 
 private:
   /**

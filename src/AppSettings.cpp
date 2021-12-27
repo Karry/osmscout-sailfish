@@ -313,6 +313,19 @@ void AppSettings::SetNavigationKeepAlive(bool b)
   }
 }
 
+bool AppSettings::GetVehicleAutoRotateMap() const
+{
+  return settings.value("vehicleAutoRotateMap", "true").toBool();
+}
+
+void AppSettings::SetVehicleAutoRotateMap(bool b)
+{
+  if (GetVehicleAutoRotateMap() != b){
+    settings.setValue("vehicleAutoRotateMap", b);
+    emit VehicleAutoRotateMapChanged(b);
+  }
+}
+
 bool AppSettings::GetRoadBikeAllowMainRoads() const
 {
   return settings.value("roadBikeAllowMainRoads", "true").toBool();
