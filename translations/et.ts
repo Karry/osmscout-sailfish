@@ -598,7 +598,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Võta veebikaardid kasutusele</translation>
+        <translation>Kasuta veebipõhiseid kaarte</translation>
     </message>
     <message>
         <source>Style</source>
@@ -610,7 +610,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Võta võrguühenduseta kaardid kasutusele</translation>
+        <translation>Kasuta eelnevalt allalaaditud kaarte</translation>
     </message>
     <message>
         <source>Sea rendering</source>
@@ -1222,7 +1222,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pööra kaarti</translation>
     </message>
 </context>
 <context>
@@ -1412,7 +1412,7 @@ collection pull down menu</extracomment>
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Sümbol</translation>
     </message>
 </context>
 <context>
@@ -1622,7 +1622,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuda värvi</translation>
     </message>
 </context>
 <context>
