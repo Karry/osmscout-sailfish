@@ -494,11 +494,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show all on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige alles auf Karte</translation>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige nichts auf Karte</translation>
     </message>
 </context>
 <context>
@@ -1222,7 +1222,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Drehe Karte</translation>
     </message>
 </context>
 <context>
@@ -1385,34 +1385,34 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Updating visibility of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierung der Sichtbarkeit von Tracks fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierung der Sichtbarkeit von Wegpunkten fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierung der Sichtbarkeit des Wegpunktes fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Waypoint select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Auswählen des Wegpunktes fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Updating visibility of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierung der Sichtbarkeit des Tracks fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Track select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Auswählen des Tracks fehlgeschlagen: %1</translation>
     </message>
 </context>
 <context>
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol</translation>
     </message>
 </context>
 <context>
@@ -1622,7 +1622,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändere Farbe</translation>
     </message>
 </context>
 <context>
