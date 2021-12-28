@@ -1222,7 +1222,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Obracanie mapy</translation>
     </message>
 </context>
 <context>
@@ -1412,7 +1412,7 @@ collection pull down menu</extracomment>
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol</translation>
     </message>
 </context>
 <context>
@@ -1623,7 +1623,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień kolor</translation>
     </message>
 </context>
 <context>
