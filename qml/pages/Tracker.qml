@@ -79,6 +79,7 @@ Page {
 
         property string itemId: ""
         title: qsTr("Edit track")
+        symbolSelectorVisible: false
 
         onAccepted: {
             console.log("Edit track " + itemId + ": " + name + " / " + description);
