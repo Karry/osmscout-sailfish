@@ -232,44 +232,44 @@ Page {
                         pageStack.push(Qt.resolvedUrl("VoiceSelector.qml"))
                     }
                 }
+            }
 
-                TextSwitch{
-                    id: navigationKeepAliveSwitch
-                    width: parent.width
+            TextSwitch{
+                id: navigationKeepAliveSwitch
+                width: parent.width
 
-                    checked: AppSettings.navigationKeepAlive
-                    //: switch for keep display on during navigation
-                    text: qsTr("Keep display on")
+                checked: AppSettings.navigationKeepAlive
+                //: switch for keep display on during navigation
+                text: qsTr("Keep display on")
 
-                    onCheckedChanged: {
-                        AppSettings.navigationKeepAlive = checked;
-                    }
+                onCheckedChanged: {
+                    AppSettings.navigationKeepAlive = checked;
                 }
+            }
 
-                TextSwitch{
-                    id: vehicleAutoRotateMapSwitch
-                    width: parent.width
+            TextSwitch{
+                id: vehicleAutoRotateMapSwitch
+                width: parent.width
 
-                    checked: AppSettings.vehicleAutoRotateMap
-                    //: switch for rotate map on during navigation
-                    text: qsTr("Rotate map")
+                checked: AppSettings.vehicleAutoRotateMap
+                //: switch for rotate map on during navigation
+                text: qsTr("Rotate map")
 
-                    onCheckedChanged: {
-                        AppSettings.vehicleAutoRotateMap = checked;
-                    }
+                onCheckedChanged: {
+                    AppSettings.vehicleAutoRotateMap = checked;
                 }
+            }
 
-                TextSwitch{
-                    id: automaticNightModeSwitch
-                    width: parent.width
+            TextSwitch{
+                id: automaticNightModeSwitch
+                width: parent.width
 
-                    checked: AppSettings.automaticNightMode
-                    //: automatic night mode during navigation
-                    text: qsTr("Automatic night mode")
+                checked: AppSettings.automaticNightMode
+                //: automatic night mode during navigation
+                text: qsTr("Automatic night mode")
 
-                    onCheckedChanged: {
-                        AppSettings.automaticNightMode = checked;
-                    }
+                onCheckedChanged: {
+                    AppSettings.automaticNightMode = checked;
                 }
             }
 
