@@ -477,6 +477,7 @@ Page {
 
             // automatic day/night switch
             property bool automaticNightModeEnabled: AppSettings.automaticNightMode && Global.navigationModel.destinationSet && Global.sunriseSunset.ready
+            property bool daylight: Global.sunriseSunset.day && !Global.navigationModel.positionEstimateInTunnel
             property string recentStylesheet: ""
 
             StyleFlagsModel {
@@ -485,7 +486,7 @@ Page {
 
             function dayNightSwitch() {
                 if (automaticNightModeEnabled) {
-                    styleFlagsModel.setFlag("daylight", Global.sunriseSunset.day);
+                    styleFlagsModel.setFlag("daylight", daylight);
                 }
             }
 
@@ -497,13 +498,7 @@ Page {
                 }
             }
             onAutomaticNightModeEnabledChanged: dayNightSwitch()
-
-            Connections {
-                target: Global.sunriseSunset
-                onDayChanged: {
-                    dayNightSwitch();
-                }
-            }
+            onDaylightChanged: dayNightSwitch();
 
             // automatic map rotation
             Connections {

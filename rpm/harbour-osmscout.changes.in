@@ -529,4 +529,4 @@
 
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.21
 - update translations (German, Polish)
-- automatic night mode during navigation
+- automatic night mode during navigation (before sunrise, after sunset and in tunnel)
