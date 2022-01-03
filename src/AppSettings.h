@@ -34,8 +34,10 @@ class AppSettings: public QObject {
   Q_PROPERTY(QString  lastMapDirectory  READ GetLastMapDirectory  WRITE SetLastMapDirectory  NOTIFY LastMapDirectoryChanged)
   Q_PROPERTY(int      exportAccuracy    READ GetExportAccuracy    WRITE SetExportAccuracy    NOTIFY ExportAccuracyChanged)
 
-  Q_PROPERTY(bool navigationKeepAlive READ GetNavigationKeepAlive WRITE SetNavigationKeepAlive NOTIFY NavigationKeepAliveChanged)
+  // navigation settings
+  Q_PROPERTY(bool navigationKeepAlive  READ GetNavigationKeepAlive  WRITE SetNavigationKeepAlive  NOTIFY NavigationKeepAliveChanged)
   Q_PROPERTY(bool vehicleAutoRotateMap READ GetVehicleAutoRotateMap WRITE SetVehicleAutoRotateMap NOTIFY VehicleAutoRotateMapChanged)
+  Q_PROPERTY(bool automaticNightMode   READ GetAutomaticNightMode   WRITE SetAutomaticNightMode   NOTIFY AutomaticNightModeChanged)
 
   // flags for visible information on main screen
   Q_PROPERTY(bool showTrackerDistance READ GetShowTrackerDistance WRITE SetShowTrackerDistance  NOTIFY ShowTrackerDistanceChanged)
@@ -85,6 +87,7 @@ signals:
   void ShowCollectionToggleChanged(bool);
   void NavigationKeepAliveChanged(bool);
   void VehicleAutoRotateMapChanged(bool);
+  void AutomaticNightModeChanged(bool);
   void RoadBikeAllowMainRoadsChanged(bool);
   void MountainBikeAllowMainRoadsChanged(bool);
   void FootAllowMainRoadsChanged(bool);
@@ -157,6 +160,9 @@ public:
 
   bool GetVehicleAutoRotateMap() const;
   void SetVehicleAutoRotateMap(bool);
+
+  bool GetAutomaticNightMode() const;
+  void SetAutomaticNightMode(bool);
 
   bool GetRoadBikeAllowMainRoads() const;
   void SetRoadBikeAllowMainRoads(bool);

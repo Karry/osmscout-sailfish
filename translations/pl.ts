@@ -1224,6 +1224,11 @@ collection pull down menu</extracomment>
         <extracomment>switch for rotate map on during navigation</extracomment>
         <translation>Obracanie mapy</translation>
     </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>

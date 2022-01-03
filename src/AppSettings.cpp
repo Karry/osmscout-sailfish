@@ -326,6 +326,19 @@ void AppSettings::SetVehicleAutoRotateMap(bool b)
   }
 }
 
+bool AppSettings::GetAutomaticNightMode() const
+{
+  return settings.value("automaticNightMode", "true").toBool();
+}
+
+void AppSettings::SetAutomaticNightMode(bool b)
+{
+  if (GetAutomaticNightMode() != b){
+    settings.setValue("automaticNightMode", b);
+    emit AutomaticNightModeChanged(b);
+  }
+}
+
 bool AppSettings::GetRoadBikeAllowMainRoads() const
 {
   return settings.value("roadBikeAllowMainRoads", "true").toBool();

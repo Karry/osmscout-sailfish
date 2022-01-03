@@ -258,6 +258,19 @@ Page {
                         AppSettings.vehicleAutoRotateMap = checked;
                     }
                 }
+
+                TextSwitch{
+                    id: automaticNightModeSwitch
+                    width: parent.width
+
+                    checked: AppSettings.automaticNightMode
+                    //: automatic night mode during navigation
+                    text: qsTr("Automatic night mode")
+
+                    onCheckedChanged: {
+                        AppSettings.automaticNightMode = checked;
+                    }
+                }
             }
 
             //: setting section for information panel on main screen

@@ -475,6 +475,37 @@ Page {
             renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
             vehicleAutoRotateMap: AppSettings.vehicleAutoRotateMap
 
+            // automatic day/night switch
+            property bool automaticNightModeEnabled: AppSettings.automaticNightMode && Global.navigationModel.destinationSet && Global.sunriseSunset.ready
+            property string recentStylesheet: ""
+
+            StyleFlagsModel {
+                id: styleFlagsModel
+            }
+
+            function dayNightSwitch() {
+                if (automaticNightModeEnabled) {
+                    styleFlagsModel.setFlag("daylight", Global.sunriseSunset.day);
+                }
+            }
+
+            Component.onCompleted: dayNightSwitch()
+            onStylesheetFilenameChanged: {
+                if (recentStylesheet !== map.stylesheetFilename) {
+                    recentStylesheet = map.stylesheetFilename;
+                    dayNightSwitch();
+                }
+            }
+            onAutomaticNightModeEnabledChanged: dayNightSwitch()
+
+            Connections {
+                target: Global.sunriseSunset
+                onDayChanged: {
+                    dayNightSwitch();
+                }
+            }
+
+            // automatic map rotation
             Connections {
                 target: Global.navigationModel
                 onDestinationSetChanged: {
@@ -491,7 +522,6 @@ Page {
             }
 
             onTap: {
-
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
                 if (drawer.open){
                     drawer.open = false;
@@ -509,17 +539,6 @@ Page {
                                    mainMap: map
                                })
             }
-            /*
-            onViewChanged: {
-                //console.log("map center "+ map.view.lat + " " + map.view.lon + "");
-            }
-            */
-
-            /*
-            void doubleTap(const QPoint p, const osmscout::GeoCoord c);
-            void longTap(const QPoint p, const osmscout::GeoCoord c);
-            void tapLongTap(const QPoint p, const osmscout::GeoCoord c);
-            */
 
             Keys.onPressed: {
                 if (event.key === Qt.Key_Plus) {
