@@ -1227,7 +1227,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatiskt nattläge</translation>
     </message>
     <message>
         <source>Night mode</source>

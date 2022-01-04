@@ -1227,12 +1227,12 @@ collection pull down menu</extracomment>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatický noční režim</translation>
     </message>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Noční režim</translation>
     </message>
 </context>
 <context>

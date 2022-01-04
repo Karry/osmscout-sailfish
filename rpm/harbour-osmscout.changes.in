@@ -528,6 +528,6 @@
 - allow to change waypoint symbol (circle, square or triangle)
 
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.21
-- update translations (German, Polish)
+- update translations (Czech, German, Polish, Swedish)
 - automatic night mode during navigation (before sunrise, after sunset and in tunnel)
 - fast toggle for day / night mode
