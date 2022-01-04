@@ -49,6 +49,7 @@ class AppSettings: public QObject {
   Q_PROPERTY(bool showCurrentPosition READ GetShowCurrentPosition WRITE SetShowCurrentPosition  NOTIFY ShowCurrentPositionChanged)
   Q_PROPERTY(bool showNewPlace        READ GetShowNewPlace        WRITE SetShowNewPlace         NOTIFY ShowNewPlaceChanged)
   Q_PROPERTY(bool showCollectionToggle READ GetShowCollectionToggle WRITE SetShowCollectionToggle NOTIFY ShowCollectionToggleChanged)
+  Q_PROPERTY(bool showNightModeToggle READ GetShowNightModeToggle WRITE SetShowNightModeToggle NOTIFY ShowNightModeToggleChanged)
 
   // collection map bridge
   Q_PROPERTY(bool showCollections     READ GetShowCollections     WRITE SetShowCollections      NOTIFY ShowCollectionsChanged)
@@ -85,6 +86,7 @@ signals:
   void ShowCurrentPositionChanged(bool);
   void ShowNewPlaceChanged(bool);
   void ShowCollectionToggleChanged(bool);
+  void ShowNightModeToggleChanged(bool);
   void NavigationKeepAliveChanged(bool);
   void VehicleAutoRotateMapChanged(bool);
   void AutomaticNightModeChanged(bool);
@@ -151,6 +153,9 @@ public:
 
   bool GetShowCollectionToggle() const;
   void SetShowCollectionToggle(bool);
+
+  bool GetShowNightModeToggle() const;
+  void SetShowNightModeToggle(bool);
 
   bool GetShowCollections() const;
   void SetShowCollections(bool);

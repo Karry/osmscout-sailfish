@@ -288,6 +288,19 @@ void AppSettings::SetShowCollectionToggle(bool b)
   }
 }
 
+bool AppSettings::GetShowNightModeToggle() const
+{
+  return settings.value("showNightModeToggle", "false").toBool();
+}
+
+void AppSettings::SetShowNightModeToggle(bool b)
+{
+  if (GetShowNightModeToggle() != b){
+    settings.setValue("showNightModeToggle", b);
+    emit ShowNightModeToggleChanged(b);
+  }
+}
+
 bool AppSettings::GetShowCollections() const
 {
   return settings.value("showCollections", "true").toBool();

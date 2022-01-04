@@ -1208,5 +1208,69 @@ Page {
                 }
             }
         }
+        Rectangle {
+            id : nightModeBtn
+            anchors{
+                right: parent.right
+                top: showCollectionsBtn.bottom
+
+                topMargin: Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
+                bottomMargin: Theme.paddingMedium
+                leftMargin: Theme.paddingMedium
+            }
+
+            property bool active: AppSettings.showNightModeToggle
+            property bool daylight: false
+            visible: active
+            width: Theme.iconSizeLarge
+            height: active ? width : 0
+
+            radius: Theme.paddingMedium
+
+            color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+            function update() {
+                for (var row = 0; row < styleFlagsModel.rowCount(); row++) {
+                    var index = styleFlagsModel.index(row, 0);
+                    var key = styleFlagsModel.data(index, StyleFlagsModel.KeyRole);
+                    if (key === "daylight") {
+                        nightModeBtn.daylight = styleFlagsModel.data(index, StyleFlagsModel.ValueRole);
+                        // console.log("update daylight to " + nightModeBtn.daylight);
+                        return;
+                    }
+                }
+                console.log("stylesheet has no daylight flag (" + styleFlagsModel.rowCount() + " flags)");
+            }
+
+            Connections {
+                target: map
+                onStylesheetFilenameChanged: nightModeBtn.update()
+            }
+            Connections {
+                target: styleFlagsModel
+                onModelReset: nightModeBtn.update()
+            }
+
+            Component.onCompleted: update()
+
+            Image{
+                source: nightModeBtn.daylight ? "image://theme/icon-m-day" : "image://theme/icon-m-night"
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+            MouseArea {
+                id: nightModeBtnMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    //AppSettings.showCollections = !AppSettings.showCollections
+                    styleFlagsModel.setFlag("daylight", !nightModeBtn.daylight);
+                }
+            }
+        }
     }
 }
