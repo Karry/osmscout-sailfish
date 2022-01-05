@@ -219,7 +219,18 @@ Page {
                console.log("unsupported url: " + url);
                return;
            }
-           var coords = urlStr.substring(4).split(';')[0].split(',');
+           var arr = urlStr.substring(4).split('?', 2);
+           var search = "";
+           if (arr.length >= 2){
+               var params = arr[1].split('&');
+               for (var i=0; i < params.length; i++){
+                   if (Utils.startsWith(params[i], "q=")) {
+                       search=params[i].substring(2);
+                   }
+               }
+           }
+
+           var coords = arr[0].split(';')[0].split(',');
            if (coords.length < 2) {
                console.log("cannot parse url: " + url);
                return;
@@ -232,14 +243,32 @@ Page {
            }
 
            __silica_applicationwindow_instance.activate()
-           // go to location and even open its details...
-           map.showCoordinates(lat, lon);
-           pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
-                          {
-                              placeLat: lat,
-                              placeLon: lon
-                          })
 
+           if (search !== "") {
+               if (lat == 0 && lon == 0) {
+                   lat = Global.positionSource.lat;
+                   lon = Global.positionSource.lon;
+               } else {
+                   map.showCoordinates(lat, lon);
+               }
+
+               var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                             {
+                                                 searchCenterLat: lat,
+                                                 searchCenterLon: lon,
+                                                 searchFieldText: search,
+                                                 acceptDestination: mapPage
+                                             });
+               searchPage.selectLocation.connect(selectLocation);
+           } else {
+               // go to location and even open its details...
+               map.showCoordinates(lat, lon);
+               pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
+                              {
+                                  placeLat: lat,
+                                  placeLon: lon
+                              })
+           }
        }
 
        function openPage(page, arguments) {
