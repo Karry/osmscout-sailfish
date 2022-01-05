@@ -215,25 +215,31 @@ Page {
        function openUrl(url) {
            var urlStr = url + "";
            console.log("open url: " + url);
-           if (Utils.startsWith(urlStr, "geo:")) {
-               var coords = urlStr.substring(4).split(',');
-               if (coords.length >= 2) {
-                   var lat = coords[0];
-                   var lon = coords[1];
-                   __silica_applicationwindow_instance.activate()
-                   // go to location and even open its details...
-                   map.showCoordinates(lat, lon);
-                   pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
-                                  {
-                                      placeLat: lat,
-                                      placeLon: lon
-                                  })
-               } else {
-                   console.log("cannot parse url: " + url);
-               }
-           } else {
+           if (!Utils.startsWith(urlStr, "geo:")) {
                console.log("unsupported url: " + url);
+               return;
            }
+           var coords = urlStr.substring(4).split(';')[0].split(',');
+           if (coords.length < 2) {
+               console.log("cannot parse url: " + url);
+               return;
+           }
+           var lat = Number(coords[0]);
+           var lon = Number(coords[1]);
+           if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180){
+               console.log("cannot parse url: " + url);
+               return;
+           }
+
+           __silica_applicationwindow_instance.activate()
+           // go to location and even open its details...
+           map.showCoordinates(lat, lon);
+           pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
+                          {
+                              placeLat: lat,
+                              placeLon: lon
+                          })
+
        }
 
        function openPage(page, arguments) {
