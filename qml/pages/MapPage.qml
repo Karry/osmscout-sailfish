@@ -220,6 +220,7 @@ Page {
                if (coords.length >= 2) {
                    var lat = coords[0];
                    var lon = coords[1];
+                   __silica_applicationwindow_instance.activate()
                    // go to location and even open its details...
                    map.showCoordinates(lat, lon);
                    pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
