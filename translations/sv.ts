@@ -1232,7 +1232,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nattläge</translation>
     </message>
 </context>
 <context>
