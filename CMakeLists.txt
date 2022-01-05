@@ -511,6 +511,12 @@ DESTINATION share/${HARBOUR_APP_NAME}/translations)
 install(FILES harbour-osmscout.desktop
 DESTINATION share/applications)
 
+install(FILES harbour-osmscout-open-url.desktop
+DESTINATION share/applications)
+
+install(FILES cz.karry.osmscout.OSMScout.service
+DESTINATION share/dbus-1/services)
+
 install(FILES icons/86x86/harbour-osmscout.png
 DESTINATION share/icons/hicolor/86x86/apps)
 

@@ -174,6 +174,76 @@ Page {
         id: settings
     }
 
+    DBusAdaptor {
+        // test:
+        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:test
+        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openPage string:Downloads string:nothing
+
+        service: "cz.karry.osmscout.OSMScout"
+        iface: "cz.karry.osmscout.OSMScout"
+        path: "/cz/karry/osmscout/OSMScout"
+        xml: '\
+     <interface name="cz.karry.osmscout.OSMScout">
+       <method name="openPage">
+         <arg name="page" type="s" direction="in">
+           <doc:doc>
+             <doc:summary>
+               Name of the page to open
+               (https://github.com/mentaljam/harbour-osmscout/tree/master/qml/pages)
+             </doc:summary>
+           </doc:doc>
+         </arg>
+         <arg name="arguments" type="a{sv}" direction="in">
+           <doc:doc>
+             <doc:summary>
+               Arguments to pass to the page
+             </doc:summary>
+           </doc:doc>
+         </arg>
+       </method>
+       <method name="openUrl">
+         <arg name="url" type="s" direction="in">
+           <doc:doc>
+             <doc:summary>
+               url of map service
+             </doc:summary>
+           </doc:doc>
+         </arg>
+       </method>
+     </interface>'
+
+       function openUrl(url) {
+           var urlStr = url + "";
+           console.log("open url: " + url);
+           if (Utils.startsWith(urlStr, "geo:")) {
+               var coords = urlStr.substring(4).split(',');
+               if (coords.length >= 2) {
+                   var lat = coords[0];
+                   var lon = coords[1];
+                   // go to location and even open its details...
+                   map.showCoordinates(lat, lon);
+                   pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
+                                  {
+                                      placeLat: lat,
+                                      placeLon: lon
+                                  })
+               } else {
+                   console.log("cannot parse url: " + url);
+               }
+           } else {
+               console.log("unsupported url: " + url);
+           }
+       }
+
+       function openPage(page, arguments) {
+           __silica_applicationwindow_instance.activate()
+           console.log("D-Bus: activate page " + page + " (current: " + pageStack.currentPage.objectName + ")");
+           if ((page === "Tracker" || page === "Downloads") && page !== pageStack.currentPage.objectName) {
+               pageStack.push(Qt.resolvedUrl("%1.qml".arg(page)), arguments)
+           }
+       }
+    }
+
     // resume tracking when some track is still open
     Dialog {
         id: trackerResumeDialog
@@ -182,40 +252,6 @@ Page {
             if (Global.tracker.canBeResumed && !Global.tracker.tracking){
                 trackerResumeDialog.open();
             }
-        }
-
-        DBusAdaptor {
-               service: "cz.karry.osmscout.OSMScout"
-               iface: "cz.karry.osmscout.OSMScout"
-               path: "/cz/karry/osmscout/OSMScout"
-               xml: '\
-         <interface name="cz.karry.osmscout.OSMScout">
-           <method name="openPage">
-             <arg name="page" type="s" direction="in">
-               <doc:doc>
-                 <doc:summary>
-                   Name of the page to open
-                   (https://github.com/mentaljam/harbour-osmscout/tree/master/qml/pages)
-                 </doc:summary>
-               </doc:doc>
-             </arg>
-             <arg name="arguments" type="a{sv}" direction="in">
-               <doc:doc>
-                 <doc:summary>
-                   Arguments to pass to the page
-                 </doc:summary>
-               </doc:doc>
-             </arg>
-           </method>
-         </interface>'
-
-           function openPage(page, arguments) {
-               __silica_applicationwindow_instance.activate()
-               console.log("D-Bus: activate page " + page + " (current: " + pageStack.currentPage.objectName + ")");
-               if ((page === "Tracker" || page === "Downloads") && page !== pageStack.currentPage.objectName) {
-                   pageStack.push(Qt.resolvedUrl("%1.qml".arg(page)), arguments)
-               }
-           }
         }
 
         Notification {

@@ -120,3 +120,16 @@ sha1sum    %{buildroot}%{_bindir}/%{name}
 %{_datadir}/icons/hicolor/256x256/apps/%{name}.png
 # >> files
 # << files
+
+# D-Bus service files and second *.desktop files are not allowed in Harbour (yet),
+# we have to create separate package and distribute it via OpenRepos
+%package open-url
+Summary: Open url support for %{name}
+BuildArch: noarch
+
+%description open-url
+Open url support for %{name}
+
+%files open-url
+%{_datadir}/applications/%{name}-open-url.desktop
+%{_datadir}/dbus-1/services/cz.karry.osmscout.OSMScout.service
