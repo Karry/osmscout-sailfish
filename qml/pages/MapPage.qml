@@ -174,6 +174,11 @@ Page {
         id: settings
     }
 
+    Notification {
+        id: networkErrorNotification
+        category: "network.error"
+    }
+
     DBusAdaptor {
         // test:
         // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:test
@@ -213,10 +218,14 @@ Page {
      </interface>'
 
        function openUrl(url) {
+           __silica_applicationwindow_instance.activate()
+
            var urlStr = url + "";
            console.log("open url: " + url);
            if (!Utils.startsWith(urlStr, "geo:")) {
                console.log("unsupported url: " + url);
+               networkErrorNotification.previewBody = qsTr("Unsupported url %1").arg(url);
+               networkErrorNotification.publish();
                return;
            }
            var arr = urlStr.substring(4).split('?', 2);
@@ -233,16 +242,18 @@ Page {
            var coords = arr[0].split(';')[0].split(',');
            if (coords.length < 2) {
                console.log("cannot parse url: " + url);
+               networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
+               networkErrorNotification.publish();
                return;
            }
            var lat = Number(coords[0]);
            var lon = Number(coords[1]);
            if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180){
                console.log("cannot parse url: " + url);
+               networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
+               networkErrorNotification.publish();
                return;
            }
-
-           __silica_applicationwindow_instance.activate()
 
            if (search !== "") {
                if (lat == 0 && lon == 0) {

@@ -825,6 +825,14 @@ collection pull down menu</extracomment>
         <source>Destinations: %1</source>
         <translation>Sihtkohad: %1</translation>
     </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
