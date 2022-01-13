@@ -827,11 +827,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>URL som saknar stöd %1</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte tolka URL %1</translation>
     </message>
 </context>
 <context>

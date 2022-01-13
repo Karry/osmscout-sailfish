@@ -827,11 +827,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodporované url %1</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba při parsování url %1</translation>
     </message>
 </context>
 <context>
