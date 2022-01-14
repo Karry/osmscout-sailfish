@@ -827,11 +827,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 url ei ole toetatud</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 urli töötlemine ei õnnestu</translation>
     </message>
 </context>
 <context>
@@ -1235,12 +1235,12 @@ collection pull down menu</extracomment>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatne öörežiim</translation>
     </message>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Öörežiim</translation>
     </message>
 </context>
 <context>

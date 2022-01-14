@@ -528,7 +528,7 @@
 - allow to change waypoint symbol (circle, square or triangle)
 
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.21
-- update translations (Czech, German, Polish, Swedish)
+- update translations (Czech, Estonian, German, Polish, Swedish)
 - automatic night mode during navigation (before sunrise, after sunset and in tunnel)
 - fast toggle for day / night mode
 - support for opening "geo:" links. It requires installation of separate package harbour-osmscout-open-url from OpenRepos.net
