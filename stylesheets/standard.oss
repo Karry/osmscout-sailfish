@@ -250,6 +250,15 @@ CONST
     COLOR pedestrianColor          = #ededed;
     
     COLOR wayLabelColor            = #000000; // black
+
+    COLOR footwayColor             = #f64762;
+    COLOR footwayOutlineColor      = #ffffff50;
+    COLOR cyclewayColor            = #4645fa;
+    COLOR cyclewayOutlineColor     = #ffffff50;
+    COLOR pathColor                = #555555;
+    COLOR pathOutlineColor         = #ffffff50;
+    COLOR hwTrackColor             = #90570c;
+    COLOR hwTrackOutlineColor      = #ffffff50;
   }
   ELSE {
     COLOR motorwayColor            = darken(#d07971, 0.3);
@@ -263,6 +272,15 @@ CONST
     COLOR pedestrianColor          = darken(#ededed, 0.7);
     
     COLOR wayLabelColor            = #cccccc;
+
+    COLOR footwayColor             = darken(#f64762, 0.4);
+    COLOR footwayOutlineColor      = #40404050;
+    COLOR cyclewayColor            = darken(#4645fa, 0.4);
+    COLOR cyclewayOutlineColor     = #40404050;
+    COLOR pathColor                = #555555;
+    COLOR pathOutlineColor         = #40404050;
+    COLOR hwTrackColor             = #462a06;
+    COLOR hwTrackOutlineColor      = #40404050;
   }
   
   COLOR motorwayShieldColor        = @motorwayColor;
@@ -310,10 +328,18 @@ CONST
   COLOR churchBuildingBorderColor  = darken(@churchBuildingColor, 0.3);
 
   // Tourism
-  COLOR tourismColor               = #c8c8db;
-  COLOR tourismBuildingColor       = #a6a6d9;
-  COLOR tourismBuildingBorderColor = darken(@tourismColor, 0.3);
-  COLOR tourismLabelColor          = darken(@tourismColor, 0.5);
+  IF daylight {
+    COLOR tourismColor                  = #c8c8db;
+    COLOR tourismBuildingColor          = #a6a6d9;
+    COLOR tourismBuildingBorderColor    = darken(@tourismColor, 0.3);
+    COLOR tourismLabelColor             = darken(@tourismColor, 0.5);
+  }
+  ELSE{
+    COLOR tourismColor                  = #494950;
+    COLOR tourismBuildingColor          = #53536c;
+    COLOR tourismBuildingBorderColor    = lighten(@tourismColor, 0.3);
+    COLOR tourismLabelColor             = @labelColor;
+  }
 
   // Shop
   COLOR shopColor                  = #d9bb98;
@@ -324,10 +350,12 @@ CONST
   IF daylight {
     COLOR amenityColor             = #f0f0d8;
     COLOR amenityBuildingColor     = #d9b8b8;
+    COLOR amenityGraveYardColor    = #bde3cb;
   }
   ELSE {
     COLOR amenityColor             = darken(#f0f0d8, 0.5);
     COLOR amenityBuildingColor     = darken(#d9b8b8, 0.5);
+    COLOR amenityGraveYardColor    = darken(#bde3cb, 0.5);
   }
   COLOR amenityLabelColor          = darken(@amenityBuildingColor, 0.5);
   COLOR amenityBuildingBorderColor = darken(@amenityBuildingColor, 0.3);
@@ -1317,8 +1345,8 @@ STYLE
    [TYPE highway_bus_stop] NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
 
    [TYPE highway_track] {
-     WAY#outline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
-     WAY {color: #90570c; dash: 3,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm;}
+     WAY#outline {color: @hwTrackOutlineColor; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
+     WAY {color: @hwTrackColor; dash: 3,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm;}
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.6mm;}
@@ -1330,21 +1358,21 @@ STYLE
    }
 
    [TYPE highway_path] {
-     WAY#outline {color: #ffffff50; displayWidth: 0.8mm; joinCap: butt; endCap: butt;}
-     WAY {color: #555555; dash: 8,2; joinCap: butt; endCap: butt; displayWidth: 0.25mm;}
+     WAY#outline {color: @pathOutlineColor; displayWidth: 0.8mm; joinCap: butt; endCap: butt;}
+     WAY {color: @pathColor; dash: 8,2; joinCap: butt; endCap: butt; displayWidth: 0.25mm;}
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.4mm;}
        WAY#rbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: 0.4mm;}
      }
      
-     AREA {color: #555555;}
-     AREA.BORDER {color: #ffffff50; width: 0.1mm;}
+     AREA {color: @pathColor;}
+     AREA.BORDER {color: @pathOutlineColor; width: 0.1mm;}
    }
 
    [TYPE highway_footway] {
-     WAY#outline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
-     WAY {color: #f64762; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.2mm; }
+     WAY#outline {color: @footwayOutlineColor; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
+     WAY {color: @footwayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.2mm; }
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.6mm;}
@@ -1362,8 +1390,8 @@ STYLE
    }
 
    [TYPE highway_cycleway] {
-     WAY#outline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
-     WAY {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm;}
+     WAY#outline {color: @cyclewayOutlineColor; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
+     WAY {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm;}
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.6mm;}
@@ -1373,29 +1401,29 @@ STYLE
 
    // Cycleways on way
    [FEATURE Sideway.cyclewayLaneLeft] {
-     WAY#cyclewayLaneLeft {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: 1mm; priority: 1;}
+     WAY#cyclewayLaneLeft {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: 1mm; priority: 1;}
    }
    [FEATURE Sideway.cyclewayLaneRight] {
-     WAY#cyclewayLaneRight {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: -1mm; priority: 1;}
+     WAY#cyclewayLaneRight {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: -1mm; priority: 1;}
    }
 
    // Cycleways besides way
    [FEATURE Sideway.cyclewayTrackLeft] {
-     WAY#cyclewayTrackLeft {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -1mm; priority: -1;}
+     WAY#cyclewayTrackLeft {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -1mm; priority: -1;}
    }
    [FEATURE Sideway.cyclewayTrackRight] {
-     WAY#cyclewayTrackRight {color: #4645fa; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 1mm; priority: -1;}
+     WAY#cyclewayTrackRight {color: @cyclewayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 1mm; priority: -1;}
    }
 
    // sidewalk besides way
    [FEATURE Sideway.sidewalkTrackLeft] {
-     WAY#sidewalkTrackLeftOutline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt; offsetRel: leftOutline; displayOffset: -0.5mm; priority: -2;}
-     WAY#sidewalkTrackLeft {color: #f64762; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -0.5mm; priority: -1;}
+     WAY#sidewalkTrackLeftOutline {color: @footwayOutlineColor; displayWidth: 1.2mm; joinCap: butt; endCap: butt; offsetRel: leftOutline; displayOffset: -0.5mm; priority: -2;}
+     WAY#sidewalkTrackLeft {color: @footwayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: leftOutline; displayOffset: -0.5mm; priority: -1;}
    }
 
    [FEATURE Sideway.sidewalkTrackRight] {
-     WAY#sidewalkTrackRightOutline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt; offsetRel: rightOutline; displayOffset: 0.5mm; priority: -2;}
-     WAY#sidewalkTrackRight {color: #f64762; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 0.5mm; priority: -1;}
+     WAY#sidewalkTrackRightOutline {color: @footwayOutlineColor; displayWidth: 1.2mm; joinCap: butt; endCap: butt; offsetRel: rightOutline; displayOffset: 0.5mm; priority: -2;}
+     WAY#sidewalkTrackRight {color: @footwayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; offsetRel: rightOutline; displayOffset: 0.5mm; priority: -1;}
    }
  }
 
@@ -1403,8 +1431,8 @@ STYLE
    //[TYPE highway_bus_stop] NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
 
    [TYPE highway_footway] {
-     WAY#outline {color: #ffffff50; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
-     WAY {color: #f64762; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; }
+     WAY#outline {color: @footwayOutlineColor; displayWidth: 1.2mm; joinCap: butt; endCap: butt;}
+     WAY {color: @footwayColor; dash: 1,1; joinCap: butt; endCap: butt; displayWidth: 0.4mm; }
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.6mm;}
@@ -1910,7 +1938,7 @@ STYLE
          military_range,
          military_naval_base] AREA { color: #f59897; }
 
-   [TYPE amenity_grave_yard] AREA { color: #bde3cb; }
+   [TYPE amenity_grave_yard] AREA { color: @amenityGraveYardColor; }
  }
 
  [MAG detail-] {
