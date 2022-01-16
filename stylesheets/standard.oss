@@ -165,6 +165,14 @@ CONST
   COLOR majorContourColor          = #90b090;
   COLOR mediumContourColor         = #a5b5a5;
   COLOR minorContourColor          = #90b090;
+  IF daylight {
+    COLOR majorContourLabelColor   = darken(@majorContourColor, 0.7);
+    COLOR mediumContourLabelColor  = darken(@mediumContourColor, 0.7);
+  }
+  ELSE {
+    COLOR majorContourLabelColor   = lighten(@majorContourColor, 0.7);
+    COLOR mediumContourLabelColor  = lighten(@mediumContourColor, 0.7);
+  }
 
   // Landuse, water
   IF daylight {
@@ -853,14 +861,14 @@ STYLE
     [MAG suburb-] {
       [TYPE elevation_contour_major] {
         WAY {color: @majorContourColor; displayWidth: 0.150mm; }
-        WAY.TEXT { label: Ele.inLocaleUnit; color: darken(@majorContourColor, 0.7); size: 0.8; priority: @labelPrioElevationContour; }
+        WAY.TEXT { label: Ele.inLocaleUnit; color: @majorContourLabelColor; size: 0.8; priority: @labelPrioElevationContour; }
       }
     }
 
     [MAG detail-] {
       [TYPE elevation_contour_medium] {
         WAY {color: @mediumContourColor; displayWidth: 0.100mm; }
-        WAY.TEXT { label: Ele.inLocaleUnit; color: darken(@mediumContourColor, 0.7); size: 0.6; priority: @labelPrioElevationContour; }
+        WAY.TEXT { label: Ele.inLocaleUnit; color: @mediumContourLabelColor; size: 0.6; priority: @labelPrioElevationContour; }
       }
 
       [TYPE elevation_contour_minor] {
