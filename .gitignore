@@ -87,3 +87,7 @@ CMakeLists.txt.user
 # QML cache
 *.qmlc
 qml/custom/Utils.jsc
+
+# unsaved stylesheets
+*.tmp
+
