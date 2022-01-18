@@ -526,3 +526,10 @@
 - fix My Backup configuration
 - allow to disable map auto rotation during navigation
 - allow to change waypoint symbol (circle, square or triangle)
+
+* 2022-01-18 Lukáš Karas <lukas.karas@centrum.cz> 2.21
+- update translations (Czech, Estonian, German, Polish, Swedish)
+- automatic night mode during navigation (before sunrise, after sunset and in tunnel)
+- fast toggle for day / night mode
+- improve night style of standard and winter-sports stylesheet
+- support for opening "geo:" links. It requires installation of separate package harbour-osmscout-open-url from OpenRepos.net

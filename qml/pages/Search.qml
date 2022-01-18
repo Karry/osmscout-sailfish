@@ -66,6 +66,7 @@ Page {
     property double searchCenterLat
     property double searchCenterLon
     property bool enableContextMenu: true
+    property alias searchFieldText: searchField.text
 
     property string postponedSearchString
 

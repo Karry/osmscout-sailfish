@@ -232,31 +232,44 @@ Page {
                         pageStack.push(Qt.resolvedUrl("VoiceSelector.qml"))
                     }
                 }
+            }
 
-                TextSwitch{
-                    id: navigationKeepAliveSwitch
-                    width: parent.width
+            TextSwitch{
+                id: navigationKeepAliveSwitch
+                width: parent.width
 
-                    checked: AppSettings.navigationKeepAlive
-                    //: switch for keep display on during navigation
-                    text: qsTr("Keep display on")
+                checked: AppSettings.navigationKeepAlive
+                //: switch for keep display on during navigation
+                text: qsTr("Keep display on")
 
-                    onCheckedChanged: {
-                        AppSettings.navigationKeepAlive = checked;
-                    }
+                onCheckedChanged: {
+                    AppSettings.navigationKeepAlive = checked;
                 }
+            }
 
-                TextSwitch{
-                    id: vehicleAutoRotateMapSwitch
-                    width: parent.width
+            TextSwitch{
+                id: vehicleAutoRotateMapSwitch
+                width: parent.width
 
-                    checked: AppSettings.vehicleAutoRotateMap
-                    //: switch for rotate map on during navigation
-                    text: qsTr("Rotate map")
+                checked: AppSettings.vehicleAutoRotateMap
+                //: switch for rotate map on during navigation
+                text: qsTr("Rotate map")
 
-                    onCheckedChanged: {
-                        AppSettings.vehicleAutoRotateMap = checked;
-                    }
+                onCheckedChanged: {
+                    AppSettings.vehicleAutoRotateMap = checked;
+                }
+            }
+
+            TextSwitch{
+                id: automaticNightModeSwitch
+                width: parent.width
+
+                checked: AppSettings.automaticNightMode
+                //: automatic night mode during navigation
+                text: qsTr("Automatic night mode")
+
+                onCheckedChanged: {
+                    AppSettings.automaticNightMode = checked;
                 }
             }
 
@@ -311,7 +324,7 @@ Page {
                 width: parent.width
 
                 checked: AppSettings.showCurrentPosition
-                //: Button for jumping to current position
+                //: Setting toggle for button on main screen for jumping to current position
                 text: qsTr("Show current position")
 
                 onCheckedChanged: {
@@ -324,7 +337,7 @@ Page {
                 width: parent.width
 
                 checked: AppSettings.showMapOrientation
-                //: switch for diplay map ofientation button on main screen
+                //: Setting toggle for map orientation indicator on main screen
                 text: qsTr("Map orientation")
                 description: qsTr("Show north when map is rotated during navigation")
 
@@ -338,7 +351,7 @@ Page {
                 width: parent.width
 
                 checked: AppSettings.showNewPlace
-                //: Button for storing current position to collection
+                //: Setting toggle for button  on main screen for storing current position to collection
                 text: qsTr("New place")
 
                 onCheckedChanged: {
@@ -351,7 +364,7 @@ Page {
                 width: parent.width
 
                 checked: AppSettings.showCollectionToggle
-                //: Button for fast show/hide collection entries
+                //: Setting toggle for button  on main screen for show/hide collection entries
                 text: qsTr("Collection visibility")
                 description: qsTr("Fast toggle for hidde or show tracks and waypoints from collections")
 
@@ -359,6 +372,20 @@ Page {
                     AppSettings.showCollectionToggle = checked;
                 }
             }
+
+            TextSwitch{
+                id: showNightModeToggleSwitch
+                width: parent.width
+
+                checked: AppSettings.showNightModeToggle
+                //: Setting toggle for button on main screen for night/daylight mode
+                text: qsTr("Night mode")
+
+                onCheckedChanged: {
+                    AppSettings.showNightModeToggle = checked;
+                }
+            }
+
         }
     }
 }

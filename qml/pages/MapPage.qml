@@ -174,6 +174,123 @@ Page {
         id: settings
     }
 
+    Notification {
+        id: networkErrorNotification
+        category: "network.error"
+    }
+
+    DBusAdaptor {
+        // test:
+        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:test
+        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openPage string:Downloads string:nothing
+
+        service: "cz.karry.osmscout.OSMScout"
+        iface: "cz.karry.osmscout.OSMScout"
+        path: "/cz/karry/osmscout/OSMScout"
+        xml: '\
+     <interface name="cz.karry.osmscout.OSMScout">
+       <method name="openPage">
+         <arg name="page" type="s" direction="in">
+           <doc:doc>
+             <doc:summary>
+               Name of the page to open
+               (https://github.com/mentaljam/harbour-osmscout/tree/master/qml/pages)
+             </doc:summary>
+           </doc:doc>
+         </arg>
+         <arg name="arguments" type="a{sv}" direction="in">
+           <doc:doc>
+             <doc:summary>
+               Arguments to pass to the page
+             </doc:summary>
+           </doc:doc>
+         </arg>
+       </method>
+       <method name="openUrl">
+         <arg name="url" type="s" direction="in">
+           <doc:doc>
+             <doc:summary>
+               url of map service
+             </doc:summary>
+           </doc:doc>
+         </arg>
+       </method>
+     </interface>'
+
+       function openUrl(url) {
+           __silica_applicationwindow_instance.activate()
+
+           var urlStr = url + "";
+           console.log("open url: " + url);
+           if (!Utils.startsWith(urlStr, "geo:")) {
+               console.log("unsupported url: " + url);
+               networkErrorNotification.previewBody = qsTr("Unsupported url %1").arg(url);
+               networkErrorNotification.publish();
+               return;
+           }
+           var arr = urlStr.substring(4).split('?', 2);
+           var search = "";
+           if (arr.length >= 2){
+               var params = arr[1].split('&');
+               for (var i=0; i < params.length; i++){
+                   if (Utils.startsWith(params[i], "q=")) {
+                       search=params[i].substring(2);
+                   }
+               }
+           }
+
+           var coords = arr[0].split(';')[0].split(',');
+           if (coords.length < 2) {
+               console.log("cannot parse url: " + url);
+               networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
+               networkErrorNotification.publish();
+               return;
+           }
+           var lat = Number(coords[0]);
+           var lon = Number(coords[1]);
+           if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180){
+               console.log("cannot parse url: " + url);
+               networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
+               networkErrorNotification.publish();
+               return;
+           }
+
+           if (search !== "") {
+               if (lat == 0 && lon == 0) {
+                   lat = Global.positionSource.lat;
+                   lon = Global.positionSource.lon;
+               } else {
+                   map.showCoordinates(lat, lon);
+               }
+
+               var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                             {
+                                                 searchCenterLat: lat,
+                                                 searchCenterLon: lon,
+                                                 searchFieldText: search,
+                                                 acceptDestination: mapPage
+                                             });
+               searchPage.selectLocation.connect(selectLocation);
+           } else {
+               // go to location and even open its details...
+               map.showCoordinates(lat, lon);
+               pageStack.push(Qt.resolvedUrl("PlaceDetail.qml"),
+                              {
+                                  placeLat: lat,
+                                  placeLon: lon
+                              })
+           }
+       }
+
+       function openPage(page, arguments) {
+           __silica_applicationwindow_instance.activate()
+           console.log("D-Bus: activate page " + page + " (current: " + pageStack.currentPage.objectName + ")");
+           if ((page === "Tracker" || page === "Downloads") && page !== pageStack.currentPage.objectName) {
+               pageStack.push(Qt.resolvedUrl("%1.qml".arg(page)), arguments)
+           }
+       }
+    }
+
     // resume tracking when some track is still open
     Dialog {
         id: trackerResumeDialog
@@ -182,40 +299,6 @@ Page {
             if (Global.tracker.canBeResumed && !Global.tracker.tracking){
                 trackerResumeDialog.open();
             }
-        }
-
-        DBusAdaptor {
-               service: "cz.karry.osmscout.OSMScout"
-               iface: "cz.karry.osmscout.OSMScout"
-               path: "/cz/karry/osmscout/OSMScout"
-               xml: '\
-         <interface name="cz.karry.osmscout.OSMScout">
-           <method name="openPage">
-             <arg name="page" type="s" direction="in">
-               <doc:doc>
-                 <doc:summary>
-                   Name of the page to open
-                   (https://github.com/mentaljam/harbour-osmscout/tree/master/qml/pages)
-                 </doc:summary>
-               </doc:doc>
-             </arg>
-             <arg name="arguments" type="a{sv}" direction="in">
-               <doc:doc>
-                 <doc:summary>
-                   Arguments to pass to the page
-                 </doc:summary>
-               </doc:doc>
-             </arg>
-           </method>
-         </interface>'
-
-           function openPage(page, arguments) {
-               __silica_applicationwindow_instance.activate()
-               console.log("D-Bus: activate page " + page + " (current: " + pageStack.currentPage.objectName + ")");
-               if ((page === "Tracker" || page === "Downloads") && page !== pageStack.currentPage.objectName) {
-                   pageStack.push(Qt.resolvedUrl("%1.qml".arg(page)), arguments)
-               }
-           }
         }
 
         Notification {
@@ -475,6 +558,32 @@ Page {
             renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
             vehicleAutoRotateMap: AppSettings.vehicleAutoRotateMap
 
+            // automatic day/night switch
+            property bool automaticNightModeEnabled: AppSettings.automaticNightMode && Global.navigationModel.destinationSet && Global.sunriseSunset.ready
+            property bool daylight: Global.sunriseSunset.day && !Global.navigationModel.positionEstimateInTunnel
+            property string recentStylesheet: ""
+
+            StyleFlagsModel {
+                id: styleFlagsModel
+            }
+
+            function dayNightSwitch() {
+                if (automaticNightModeEnabled) {
+                    styleFlagsModel.setFlag("daylight", daylight);
+                }
+            }
+
+            Component.onCompleted: dayNightSwitch()
+            onStylesheetFilenameChanged: {
+                if (recentStylesheet !== map.stylesheetFilename) {
+                    recentStylesheet = map.stylesheetFilename;
+                    dayNightSwitch();
+                }
+            }
+            onAutomaticNightModeEnabledChanged: dayNightSwitch()
+            onDaylightChanged: dayNightSwitch();
+
+            // automatic map rotation
             Connections {
                 target: Global.navigationModel
                 onDestinationSetChanged: {
@@ -491,7 +600,6 @@ Page {
             }
 
             onTap: {
-
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
                 if (drawer.open){
                     drawer.open = false;
@@ -509,17 +617,6 @@ Page {
                                    mainMap: map
                                })
             }
-            /*
-            onViewChanged: {
-                //console.log("map center "+ map.view.lat + " " + map.view.lon + "");
-            }
-            */
-
-            /*
-            void doubleTap(const QPoint p, const osmscout::GeoCoord c);
-            void longTap(const QPoint p, const osmscout::GeoCoord c);
-            void tapLongTap(const QPoint p, const osmscout::GeoCoord c);
-            */
 
             Keys.onPressed: {
                 if (event.key === Qt.Key_Plus) {
@@ -1191,6 +1288,70 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     AppSettings.showCollections = !AppSettings.showCollections
+                }
+            }
+        }
+        Rectangle {
+            id : nightModeBtn
+            anchors{
+                right: parent.right
+                top: showCollectionsBtn.bottom
+
+                topMargin: Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
+                bottomMargin: Theme.paddingMedium
+                leftMargin: Theme.paddingMedium
+            }
+
+            property bool active: AppSettings.showNightModeToggle
+            property bool daylight: false
+            visible: active
+            width: Theme.iconSizeLarge
+            height: active ? width : 0
+
+            radius: Theme.paddingMedium
+
+            color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
+
+            function update() {
+                for (var row = 0; row < styleFlagsModel.rowCount(); row++) {
+                    var index = styleFlagsModel.index(row, 0);
+                    var key = styleFlagsModel.data(index, StyleFlagsModel.KeyRole);
+                    if (key === "daylight") {
+                        nightModeBtn.daylight = styleFlagsModel.data(index, StyleFlagsModel.ValueRole);
+                        // console.log("update daylight to " + nightModeBtn.daylight);
+                        return;
+                    }
+                }
+                console.log("stylesheet has no daylight flag (" + styleFlagsModel.rowCount() + " flags)");
+            }
+
+            Connections {
+                target: map
+                onStylesheetFilenameChanged: nightModeBtn.update()
+            }
+            Connections {
+                target: styleFlagsModel
+                onModelReset: nightModeBtn.update()
+            }
+
+            Component.onCompleted: update()
+
+            Image{
+                source: nightModeBtn.daylight ? "image://theme/icon-m-day" : "image://theme/icon-m-night"
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectFit
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+            MouseArea {
+                id: nightModeBtnMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    //AppSettings.showCollections = !AppSettings.showCollections
+                    styleFlagsModel.setFlag("daylight", !nightModeBtn.daylight);
                 }
             }
         }

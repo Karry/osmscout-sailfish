@@ -288,6 +288,19 @@ void AppSettings::SetShowCollectionToggle(bool b)
   }
 }
 
+bool AppSettings::GetShowNightModeToggle() const
+{
+  return settings.value("showNightModeToggle", "false").toBool();
+}
+
+void AppSettings::SetShowNightModeToggle(bool b)
+{
+  if (GetShowNightModeToggle() != b){
+    settings.setValue("showNightModeToggle", b);
+    emit ShowNightModeToggleChanged(b);
+  }
+}
+
 bool AppSettings::GetShowCollections() const
 {
   return settings.value("showCollections", "true").toBool();
@@ -323,6 +336,19 @@ void AppSettings::SetVehicleAutoRotateMap(bool b)
   if (GetVehicleAutoRotateMap() != b){
     settings.setValue("vehicleAutoRotateMap", b);
     emit VehicleAutoRotateMapChanged(b);
+  }
+}
+
+bool AppSettings::GetAutomaticNightMode() const
+{
+  return settings.value("automaticNightMode", "true").toBool();
+}
+
+void AppSettings::SetAutomaticNightMode(bool b)
+{
+  if (GetAutomaticNightMode() != b){
+    settings.setValue("automaticNightMode", b);
+    emit AutomaticNightModeChanged(b);
   }
 }
 

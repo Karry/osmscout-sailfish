@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.20.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.21.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -510,6 +510,12 @@ DESTINATION share/${HARBOUR_APP_NAME}/translations)
 
 install(FILES harbour-osmscout.desktop
 DESTINATION share/applications)
+
+install(FILES harbour-osmscout-open-url.desktop
+DESTINATION share/applications)
+
+install(FILES cz.karry.osmscout.OSMScout.service
+DESTINATION share/dbus-1/services)
 
 install(FILES icons/86x86/harbour-osmscout.png
 DESTINATION share/icons/hicolor/86x86/apps)

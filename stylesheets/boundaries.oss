@@ -1,9 +1,36 @@
 OSS
+  FLAG
+    daylight = true;
+
   CONST
-    COLOR waterColor                 = #9acffd;
-    COLOR landColor                  = #f1eee9;
-    COLOR unknownColor               = @waterColor;
-    COLOR highlightedColor           = #ff000088;
+    IF daylight {
+      COLOR waterColor               = #9acffd;
+      COLOR landColor                = #f1eee9;
+      COLOR unknownColor             = #f1eee9;
+      COLOR highlightedColor         = #ff000088;
+
+      COLOR adminAreaColor           = #dddddd;
+      COLOR adminAreaBorderColor     = #aaaaaa;
+    }
+    ELSE {
+      COLOR waterColor               = darken(#9acffd, 0.5);
+      COLOR landColor                = #333333;
+      COLOR unknownColor             = #333333;
+      COLOR highlightedColor         = #ff000088;
+
+      COLOR adminAreaColor           = #404040;
+      COLOR adminAreaBorderColor     = #707070;
+    }
+
+    // Default label color
+    IF daylight {
+      COLOR labelColor               = #000000;
+      COLOR emphasizeColor           = #ffffff;
+    }
+    ELSE {
+      COLOR labelColor               = #fff0f0;
+      COLOR emphasizeColor           = #707070;
+    }
 
     COLOR waypointRedColor           = #b32020;
     COLOR waypointGreenColor         = #00b200;
@@ -11,7 +38,7 @@ OSS
     COLOR waypointYellowColor        = #dfed00;
 
     // Label priorities
-    UINT labelPrioWaypoint            = 0;
+    UINT labelPrioWaypoint           = 0;
 
   SYMBOL place_city
     CIRCLE 0,0 2.5 {
@@ -87,7 +114,7 @@ OSS
    [TYPE _tile_sea] AREA {color: @waterColor;}
    //[TYPE _tile_coast] AREA {color: @waterColor;}
    [TYPE _tile_land] AREA {color: @landColor;}
-   //[TYPE _tile_unknown] AREA {color: @unknownColor;}
+   [TYPE _tile_unknown] AREA {color: @unknownColor;}
 
   [TYPE _tile_coastline] WAY {color: #ff0000; displayWidth: 0.2mm;}
 
@@ -152,28 +179,28 @@ OSS
   }
 
   [TYPE boundary_administrative] {
-    AREA {color: #dddddd; }
-    AREA.BORDER {color: #aaaaaa; width: 0.5mm;}
-    AREA.TEXT { label: Name.name; style: emphasize; size: 1.5; priority: 6; }
+    AREA {color: @adminAreaColor; }
+    AREA.BORDER {color: @adminAreaBorderColor; width: 0.5mm;}
+    AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 1.5; priority: 6; }
   }
 
   [TYPE place_millioncity MAG stateOver-] {
     NODE.ICON {symbol: place_city; }
-    NODE.TEXT {label: Name.name; style: emphasize; size: 1.3; priority: 2;}
+    NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 1.3; priority: 2;}
   }
 
   [TYPE place_bigcity MAG stateOver-] {
     NODE.ICON {symbol: place_city; }
-    NODE.TEXT {label: Name.name; style: emphasize; size: 1.2; priority: 3;}
+    NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 1.2; priority: 3;}
   }
 
   [TYPE place_city MAG stateOver-] {
     NODE.ICON {symbol: place_city; }
-    NODE.TEXT {label: Name.name; style: emphasize; size: 1.1; priority: 4;}
+    NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 1.1; priority: 4;}
   }
 
   [TYPE place_town MAG county-] {
-    NODE.TEXT {label: Name.name; style: normal;  priority: 5;}
+    NODE.TEXT {label: Name.name; style: normal; color: @labelColor; priority: 5;}
     NODE.ICON {symbol: place_town;}
   }
 END

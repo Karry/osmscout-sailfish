@@ -230,6 +230,7 @@ Page {
         property string collectionId: ""
         property bool collectionVisible: false
         title: collectionId.length == 0 ? qsTr("New collection"): qsTr("Edit collection")
+        symbolSelectorVisible: false
 
         onAccepted: {
             if (collectionId.length == 0){

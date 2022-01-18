@@ -36,6 +36,7 @@ Item {
     property alias navigationModel: navigationModel
     property alias positionSource: positionSource
     property alias tracker: tracker
+    property alias sunriseSunset: sunriseSunset
 
     Settings {
         id: settings
@@ -273,4 +274,13 @@ Item {
         }
     }
 
+    SunriseSunset {
+        id: sunriseSunset
+        latitude: positionSource.positionValid ? positionSource.lat : NaN
+        longitude: positionSource.positionValid ? positionSource.lon : NaN
+
+        onUpdated: {
+            console.log("updated, ready: " + ready + " sunrise: " + sunrise + " sunset: " + sunset + " day: " + day)
+        }
+    }
 }

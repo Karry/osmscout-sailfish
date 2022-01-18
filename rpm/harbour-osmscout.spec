@@ -20,7 +20,7 @@ Name:       harbour-osmscout-jolla1
 # << macros
 
 Summary:    OSMScout for Sailfish with compatibility patches for Jolla 1
-Version:    2.20
+Version:    2.21
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
@@ -121,3 +121,16 @@ sha1sum    %{buildroot}%{_bindir}/harbour-osmscout
 %{_datadir}/icons/hicolor/256x256/apps/harbour-osmscout.png
 # >> files
 # << files
+
+# D-Bus service files and second *.desktop files are not allowed in Harbour (yet),
+# we have to create separate package and distribute it via OpenRepos
+%package open-url
+Summary: Open url support for %{name}
+BuildArch: noarch
+
+%description open-url
+Open url support for %{name}
+
+%files open-url
+%{_datadir}/applications/%{name}-open-url.desktop
+%{_datadir}/dbus-1/services/cz.karry.osmscout.OSMScout.service

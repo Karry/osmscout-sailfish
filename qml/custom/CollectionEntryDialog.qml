@@ -93,6 +93,7 @@ Dialog{
     CollectionEditDialog {
         id: newCollectionDialog
         title: qsTr("New collection")
+        symbolSelectorVisible: false
         name: qsTr("Default")
         onRejected: {
             rejectRequested = true;

@@ -831,6 +831,14 @@ collection pull down menu</extracomment>
         <source>Destinations: %1</source>
         <translation>Sihtkohad: %1</translation>
     </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>%1 url ei ole toetatud</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>%1 urli töötlemine ei õnnestu</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
@@ -1190,17 +1198,17 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show current position</source>
-        <extracomment>Button for jumping to current position</extracomment>
+        <extracomment>Setting toggle for button on main screen for jumping to current position</extracomment>
         <translation>Näita praegust asukohta</translation>
     </message>
     <message>
         <source>Map orientation</source>
-        <extracomment>switch for diplay map ofientation button on main screen</extracomment>
+        <extracomment>Setting toggle for map orientation indicator on main screen</extracomment>
         <translation>Kaardi suund</translation>
     </message>
     <message>
         <source>New place</source>
-        <extracomment>Button for storing current position to collection</extracomment>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
         <translation>Uus asukoht</translation>
     </message>
     <message>
@@ -1222,13 +1230,23 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Collection visibility</source>
-        <extracomment>Button for fast show/hide collection entries</extracomment>
+        <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
         <translation>Kogumiku nähtavus</translation>
     </message>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
         <translation>Pööra kaarti</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automatne öörežiim</translation>
+    </message>
+    <message>
+        <source>Night mode</source>
+        <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
+        <translation>Öörežiim</translation>
     </message>
 </context>
 <context>

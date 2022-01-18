@@ -419,6 +419,7 @@ Page {
                     editDialog.itemId = collectionModel.collectionId;
                     editDialog.name = collectionModel.name;
                     editDialog.description = collectionModel.description;
+                    editDialog.symbolSelectorVisible = false;
                     editDialog.open();
                 }
             }
