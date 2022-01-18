@@ -511,7 +511,7 @@ DESTINATION share/${HARBOUR_APP_NAME}/translations)
 install(FILES harbour-osmscout.desktop
 DESTINATION share/applications)
 
-install(FILES harbour-osmscout-open-url.desktop
+install(FILES harbour-osmscout-jolla1-open-url.desktop
 DESTINATION share/applications)
 
 install(FILES cz.karry.osmscout.OSMScout.service
