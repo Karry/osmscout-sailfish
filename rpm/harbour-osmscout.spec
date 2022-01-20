@@ -48,6 +48,17 @@ BuildRequires:  qt5-qttools-linguist
 %description
 OSM Scout is offline map viewer and routing application.
 
+PackageName: OSM Scout
+Type: desktop-application
+Categories:
+  - Maps
+Custom:
+  Repo: https://github.com/Karry/osmscout-sailfish
+Icon: https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/harbour-osmscout.svg
+Screenshots:
+  - https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-04-prague.png
+  - https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-05-winter-sports.png
+  - https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-06-track.png
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -129,6 +140,16 @@ BuildArch: noarch
 
 %description open-url
 Open url support for %{name}
+
+PackageName: OSM Scout, url support
+Type: desktop-application
+Categories:
+  - Maps
+Custom:
+  Repo: https://github.com/Karry/osmscout-sailfish
+Icon: https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/harbour-osmscout.svg
+Screenshots:
+  - https://raw.githubusercontent.com/Karry/osmscout-sailfish/master/graphics/screenshot-07-geo-url.png
 
 %files open-url
 %{_datadir}/applications/%{name}-open-url.desktop
