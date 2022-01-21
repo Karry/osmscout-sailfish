@@ -533,3 +533,5 @@
 - fast toggle for day / night mode
 - improve night style of standard and winter-sports stylesheet
 - support for opening "geo:" links. It requires installation of separate package harbour-osmscout-open-url from OpenRepos.net
+
+* 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.22
