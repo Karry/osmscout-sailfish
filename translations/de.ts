@@ -827,11 +827,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht unsterstützte url%1</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kann url %1 nicht parsen</translation>
     </message>
 </context>
 <context>
@@ -1235,12 +1235,12 @@ collection pull down menu</extracomment>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatischer Nacht-Modus</translation>
     </message>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nacht-Modus</translation>
     </message>
 </context>
 <context>

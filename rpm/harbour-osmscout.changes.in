@@ -535,3 +535,4 @@
 - support for opening "geo:" links. It requires installation of separate package harbour-osmscout-open-url from OpenRepos.net
 
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.22
+- update translations (German)
