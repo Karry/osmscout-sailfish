@@ -91,3 +91,5 @@ qml/custom/Utils.jsc
 # unsaved stylesheets
 *.tmp
 
+# not ready for publishing
+chum-notes.md
