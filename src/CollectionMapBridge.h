@@ -83,6 +83,8 @@ public:
 
   void setEnabled(bool b);
 
+  Q_INVOKABLE QVariantList getWaypointIds(qint64 objectId) const;
+
 private:
   void Invalidate();
 

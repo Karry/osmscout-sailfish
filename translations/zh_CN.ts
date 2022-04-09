@@ -833,6 +833,15 @@ collection pull down menu</extracomment>
         <source>Cannot parse url %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished">分享位置链接</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished">编辑路标</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

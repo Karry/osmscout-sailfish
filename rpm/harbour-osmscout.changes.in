@@ -539,3 +539,5 @@
 - improve label positioning for areas
 
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.23
+- fix amenity_atm icon
+- active (clickable) map icons / symbols

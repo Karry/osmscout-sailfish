@@ -833,6 +833,15 @@ collection pull down menu</extracomment>
         <source>Cannot parse url %1</source>
         <translation>Nie można sparsować adresu URL</translation>
     </message>
+    <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished">Udostępnij link do miejsca</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished">Edytuj punkt trasy</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

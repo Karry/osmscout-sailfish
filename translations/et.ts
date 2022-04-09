@@ -833,6 +833,15 @@ collection pull down menu</extracomment>
         <source>Cannot parse url %1</source>
         <translation>%1 urli töötlemine ei õnnestu</translation>
     </message>
+    <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished">Jaga viidet asukohale</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished">Muuda teekonnapunkti</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
