@@ -2148,8 +2148,8 @@ STYLE
      AREA.ICON { name: toilets; }
    }
    [TYPE amenity_atm] {
-     NODE.ICON { name: toilets; }
-     AREA.ICON { name: toilets; }
+     NODE.ICON { name: atm; }
+     AREA.ICON { name: atm; }
    }
    [TYPE leisure_playground] {
      NODE.ICON { name: playground; }
