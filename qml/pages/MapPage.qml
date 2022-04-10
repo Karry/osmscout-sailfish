@@ -606,12 +606,15 @@ Page {
             onIconTapped: {
                 //(QPoint screenCoord, double lat, double lon, QString databasePath,
                 //            QString objectType, quint64 objectId, int poiId, QString type,
-                //            QString name, QString phone, QString website);
+                //            QString name, QString altName, QString ref, QString operatorName, QString phone, QString website);
                 poiBox.objectType = objectType;
                 poiBox.objectId = objectId;
                 poiBox.poiId = poiId;
                 poiBox.type = type;
                 poiBox.name = name;
+                poiBox.altName = altName;
+                poiBox.ref = ref;
+                poiBox.operatorName = operatorName;
                 poiBox.phone = phone;
                 poiBox.website = website;
                 poiBox.lat = lat;
@@ -907,6 +910,9 @@ Page {
             property double lon
             property string type: ""
             property string name: ""
+            property string altName: ""
+            property string ref: ""
+            property string operatorName: ""
             property string phone: ""
             property string website: ""
 
@@ -1008,7 +1014,10 @@ Page {
                         }
                         Label {
                             width: poiBox.width - poiIcon.width - (2*Theme.paddingSmall)
-                            text: poiBox.name
+                            property string nameFormated: settings.showAltLanguage && poiBox.altName != "" ?
+                                                              (poiBox.altName + (poiBox.name != ""? " (" +poiBox.name+ ")" : "")) :
+                                                              poiBox.name
+                            text: nameFormated != "" ? nameFormated : (poiBox.operatorName!=""? poiBox.operatorName : poiBox.ref)
                             font.pixelSize: Theme.fontSizeMedium
                         }
                         PhoneRow {
