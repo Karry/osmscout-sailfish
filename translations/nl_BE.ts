@@ -790,17 +790,25 @@ collection pull down menu</extracomment>
         <translation>Voertuig wijzigen</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <extracomment>menu item for application settings</extracomment>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished">Koppeling naar locatie delen</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished">Routepunt bewerken</translation>
+    </message>
+    <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
+        <source>Unsupported url %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Resume tracking?</source>
+        <source>Cannot parse url %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -809,8 +817,17 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
+        <source>Resume tracking?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <extracomment>menu item for application settings</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -824,23 +841,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Share place link</source>
-        <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Koppeling naar locatie delen</translation>
-    </message>
-    <message>
-        <source>Edit waypoint</source>
-        <translation type="unfinished">Routepunt bewerken</translation>
     </message>
 </context>
 <context>
@@ -1818,6 +1818,210 @@ collection pull down menu</extracomment>
     <message>
         <source>building</source>
         <translation>Gebouw</translation>
+    </message>
+    <message>
+        <source>amenity_atm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_cafe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_cafe_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_drinking_water</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fast_food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fast_food_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_ferry_terminal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fuel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fuel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_charging_station</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_parking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_parking_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_pharmacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_post_box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_post_office</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_pub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_recycling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_restaurant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_restaurant_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_toilets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>_highlighted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>highway_bus_stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>highway_mini_roundabout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>highway_street_lamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_castle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_castle_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_memorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_memorial_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_monument</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_monument_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>leisure_playground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_peak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_spring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_halt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_station</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_tram_stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>speed_camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_artwork</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hostel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hostel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hotel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hotel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_motel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_motel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_museum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_museum_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waterway_waterfall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waterway_weir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waypoint</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

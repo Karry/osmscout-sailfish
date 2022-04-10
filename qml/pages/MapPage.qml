@@ -1008,7 +1008,7 @@ Page {
                     Column{
                         Label {
                             width: poiBox.width - poiIcon.width - (2*Theme.paddingSmall)
-                            text: poiBox.type
+                            text: qsTranslate("objectType", Utils.startsWith(poiBox.type, "_waypoint") ? "waypoint" : poiBox.type)
                             font.pixelSize: Theme.fontSizeExtraSmall
                             color: Theme.secondaryColor
                         }
