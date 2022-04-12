@@ -836,11 +836,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Udostępnij link do miejsca</translation>
+        <translation>Udostępnij link do miejsca</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished">Edytuj punkt trasy</translation>
+        <translation>Edytuj punkt trasy</translation>
     </message>
 </context>
 <context>
@@ -2022,7 +2022,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>punkt trasy</translation>
     </message>
 </context>
 <context>
