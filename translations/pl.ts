@@ -742,6 +742,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Błąd pobierania mapy</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>Nieobsługiwany adres URL %1</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>Nie można sparsować adresu URL</translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Błąd trackera</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Wznowić śledzenie?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Wyszukaj</translation>
@@ -750,21 +772,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Gdzie jestem?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>O OSM Scout</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Mapy do pobrania</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Ustawienia mapy</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -777,17 +784,19 @@ collection pull down menu</extracomment>
         <translation>Kolekcje</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Zatrzymaj nawigację</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Tracker</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>ETA %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Mapy do pobrania</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Zmień pojazd</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Ustawienia mapy</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -795,23 +804,9 @@ collection pull down menu</extracomment>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Tracker</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Wznowić śledzenie?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Błąd trackera</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Błąd pobierania mapy</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>O OSM Scout</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -822,18 +817,6 @@ collection pull down menu</extracomment>
         <translation>Baza danych map offline jest wymagana, aby móc nawigować.</translation>
     </message>
     <message>
-        <source>Destinations: %1</source>
-        <translation>Cele podróży: %1</translation>
-    </message>
-    <message>
-        <source>Unsupported url %1</source>
-        <translation>Nieobsługiwany adres URL %1</translation>
-    </message>
-    <message>
-        <source>Cannot parse url %1</source>
-        <translation>Nie można sparsować adresu URL</translation>
-    </message>
-    <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
         <translation>Udostępnij link do miejsca</translation>
@@ -841,6 +824,23 @@ collection pull down menu</extracomment>
     <message>
         <source>Edit waypoint</source>
         <translation>Edytuj punkt trasy</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>ETA %1</translation>
+    </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation>Cele podróży: %1</translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>Zatrzymaj nawigację</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Zmień pojazd</translation>
     </message>
 </context>
 <context>
