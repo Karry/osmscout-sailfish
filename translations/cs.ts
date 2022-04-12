@@ -742,6 +742,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Chyba při stahování mapy</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>Nepodporované url %1</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>Chyba při parsování url %1</translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Chyba stopaře</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Obnovit stopaře?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Hledat</translation>
@@ -750,21 +772,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Kde jsem?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>O OSM Scout</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Offline mapy</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Mapa</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -777,17 +784,19 @@ collection pull down menu</extracomment>
         <translation>Sbírky</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Zastavit navigaci</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Stopař</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>ETA %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Offline mapy</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Změnit prostředek</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -795,23 +804,9 @@ collection pull down menu</extracomment>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Stopař</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Obnovit stopaře?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Chyba stopaře</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Chyba při stahování mapy</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>O OSM Scout</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -822,25 +817,30 @@ collection pull down menu</extracomment>
         <translation>Pro navigaci je vyžadována offline mapa.</translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation>Sdílet odkaz na místo</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation>Upravit místo</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>ETA %1</translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation>Směr: %1</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation>Nepodporované url %1</translation>
+        <source>Stop navigation</source>
+        <translation>Zastavit navigaci</translation>
     </message>
     <message>
-        <source>Cannot parse url %1</source>
-        <translation>Chyba při parsování url %1</translation>
-    </message>
-    <message>
-        <source>Share place link</source>
-        <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Sdílet odkaz na místo</translation>
-    </message>
-    <message>
-        <source>Edit waypoint</source>
-        <translation type="unfinished">Upravit místo</translation>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Změnit prostředek</translation>
     </message>
 </context>
 <context>
@@ -1822,207 +1822,207 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_atm</source>
-        <translation type="unfinished"></translation>
+        <translation>Bankomat</translation>
     </message>
     <message>
         <source>amenity_bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar</translation>
     </message>
     <message>
         <source>amenity_cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kavárna</translation>
     </message>
     <message>
         <source>amenity_cafe_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kavárna</translation>
     </message>
     <message>
         <source>amenity_drinking_water</source>
-        <translation type="unfinished"></translation>
+        <translation>Pítko pitné vody</translation>
     </message>
     <message>
         <source>amenity_fast_food</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast food</translation>
     </message>
     <message>
         <source>amenity_fast_food_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast food</translation>
     </message>
     <message>
         <source>amenity_ferry_terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Přívoz / trajekt</translation>
     </message>
     <message>
         <source>amenity_fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Čerpací stanice</translation>
     </message>
     <message>
         <source>amenity_fuel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Čerpací stanice</translation>
     </message>
     <message>
         <source>amenity_charging_station</source>
-        <translation type="unfinished"></translation>
+        <translation>Nabícejí stanice</translation>
     </message>
     <message>
         <source>amenity_parking</source>
-        <translation type="unfinished"></translation>
+        <translation>Parkoviště</translation>
     </message>
     <message>
         <source>amenity_parking_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Parkoviště</translation>
     </message>
     <message>
         <source>amenity_pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Lékárna</translation>
     </message>
     <message>
         <source>amenity_post_box</source>
-        <translation type="unfinished"></translation>
+        <translation>Poštovní schránka</translation>
     </message>
     <message>
         <source>amenity_post_office</source>
-        <translation type="unfinished"></translation>
+        <translation>Pošta</translation>
     </message>
     <message>
         <source>amenity_pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hospoda</translation>
     </message>
     <message>
         <source>amenity_recycling</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontejner na reciklovatelný odpad</translation>
     </message>
     <message>
         <source>amenity_restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurace</translation>
     </message>
     <message>
         <source>amenity_restaurant_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurace</translation>
     </message>
     <message>
         <source>amenity_toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Veřejné toalety</translation>
     </message>
     <message>
         <source>_highlighted</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýrazněný objekt</translation>
     </message>
     <message>
         <source>highway_bus_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastávka autobusu</translation>
     </message>
     <message>
         <source>highway_mini_roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Malý kruhový objezd</translation>
     </message>
     <message>
         <source>highway_street_lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouliční lampa</translation>
     </message>
     <message>
         <source>historic_castle</source>
-        <translation type="unfinished"></translation>
+        <translation>Hrad</translation>
     </message>
     <message>
         <source>historic_castle_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hrad</translation>
     </message>
     <message>
         <source>historic_memorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Památník</translation>
     </message>
     <message>
         <source>historic_memorial_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Památník</translation>
     </message>
     <message>
         <source>historic_monument</source>
-        <translation type="unfinished"></translation>
+        <translation>Pomník</translation>
     </message>
     <message>
         <source>historic_monument_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Pomník</translation>
     </message>
     <message>
         <source>leisure_playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Dětské hřiště</translation>
     </message>
     <message>
         <source>natural_peak</source>
-        <translation type="unfinished"></translation>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>natural_spring</source>
-        <translation type="unfinished"></translation>
+        <translation>Pramen</translation>
     </message>
     <message>
         <source>natural_tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Strom</translation>
     </message>
     <message>
         <source>railway_halt</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastávka vlaku</translation>
     </message>
     <message>
         <source>railway_station</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlakové nádraží</translation>
     </message>
     <message>
         <source>railway_tram_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastávka tramvaje</translation>
     </message>
     <message>
         <source>speed_camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>tourism_artwork</source>
-        <translation type="unfinished"></translation>
+        <translation>Umění</translation>
     </message>
     <message>
         <source>tourism_hostel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hostel</translation>
     </message>
     <message>
         <source>tourism_hostel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hostel</translation>
     </message>
     <message>
         <source>tourism_hotel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel</translation>
     </message>
     <message>
         <source>tourism_hotel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel</translation>
     </message>
     <message>
         <source>tourism_motel</source>
-        <translation type="unfinished"></translation>
+        <translation>Motel</translation>
     </message>
     <message>
         <source>tourism_motel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Motel</translation>
     </message>
     <message>
         <source>tourism_museum</source>
-        <translation type="unfinished"></translation>
+        <translation>Muzeum</translation>
     </message>
     <message>
         <source>tourism_museum_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Muzeum</translation>
     </message>
     <message>
         <source>waterway_waterfall</source>
-        <translation type="unfinished"></translation>
+        <translation>Vodopád</translation>
     </message>
     <message>
         <source>waterway_weir</source>
-        <translation type="unfinished"></translation>
+        <translation>Jez</translation>
     </message>
     <message>
         <source>waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložené místo</translation>
     </message>
 </context>
 <context>
