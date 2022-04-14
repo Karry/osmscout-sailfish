@@ -845,7 +845,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mažu</translation>
     </message>
 </context>
 <context>
@@ -2031,75 +2031,75 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Občanská vybavenost</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
-        <translation type="unfinished"></translation>
+        <translation>Nemocnice</translation>
     </message>
     <message>
         <source>christian_church</source>
-        <translation type="unfinished"></translation>
+        <translation>Kostel</translation>
     </message>
     <message>
         <source>christian_church_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kostel</translation>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vstup do jeskyně</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vstup do metra</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Horská chata</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Horská chata</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Kemp</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Autokemp</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Penzion</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Penzion</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistická chata</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistická chata</translation>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistické informace</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistické informace</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozcestník</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyhlídka</translation>
     </message>
 </context>
 <context>
