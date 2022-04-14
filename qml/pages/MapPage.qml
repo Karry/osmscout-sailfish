@@ -1143,7 +1143,8 @@ Page {
 
                             IconButton{
                                 id: waypointBtn
-                                icon.source: "image://harbour-osmscout/pics/new-place.svg?" + Theme.primaryColor
+                                icon.source: poiBox.isWaypoint ? "image://harbour-osmscout/pics/edit-place.svg?" + Theme.primaryColor :
+                                                                 "image://harbour-osmscout/pics/new-place.svg?" + Theme.primaryColor
                                 icon.sourceSize.width: Theme.iconSizeMedium
                                 icon.sourceSize.height: Theme.iconSizeMedium
 
