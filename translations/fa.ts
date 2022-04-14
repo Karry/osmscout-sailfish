@@ -2027,6 +2027,78 @@ collection pull down menu</extracomment>
         <source>waypoint</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>amenity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_hospital</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_church</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_church_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_cave_entrance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_subway_entrance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_camp_site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_caravan_site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_guest_house</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_guest_house_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_chalet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_chalet_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_information_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_information_guidepost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_viewpoint</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>osmscout::RouteDescriptionBuilder</name>
