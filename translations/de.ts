@@ -842,6 +842,11 @@ collection pull down menu</extracomment>
         <source>Edit waypoint</source>
         <translation type="unfinished">Bearbeite Wegpunkt</translation>
     </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation type="unfinished">Lösche</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

@@ -842,6 +842,11 @@ collection pull down menu</extracomment>
         <source>Edit waypoint</source>
         <translation type="unfinished">Muuda teekonnapunkti</translation>
     </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation type="unfinished">Kustutan</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

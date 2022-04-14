@@ -842,6 +842,11 @@ collection pull down menu</extracomment>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation type="unfinished">删除中</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

@@ -842,6 +842,11 @@ collection pull down menu</extracomment>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
         <translation>Byt fordon</translation>
     </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation type="unfinished">Tar bort</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

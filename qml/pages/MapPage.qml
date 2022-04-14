@@ -619,14 +619,14 @@ Page {
                 poiBox.website = website;
                 poiBox.lat = lat;
                 poiBox.lon = lon;
+                poiBox.show();
             }
             onTap: {
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
                 if (drawer.open){
                     drawer.open = false;
                 }
-                poiBox.objectType = "";
-                poiBox.type = "";
+                poiBox.hide();
             }
             onLongTap: {
 
@@ -909,12 +909,20 @@ Page {
             property double lat
             property double lon
             property string type: ""
+            property bool isWaypoint: Utils.startsWith(poiBox.type, "_waypoint")
             property string name: ""
             property string altName: ""
             property string ref: ""
             property string operatorName: ""
             property string phone: ""
             property string website: ""
+
+            function hide() {
+                state = "HIDDEN";
+            }
+            function show() {
+                state = "MINIMAL";
+            }
 
             state: "HIDDEN"
 
@@ -1008,7 +1016,7 @@ Page {
                     Column{
                         Label {
                             width: poiBox.width - poiIcon.width - (2*Theme.paddingSmall)
-                            text: qsTranslate("objectType", Utils.startsWith(poiBox.type, "_waypoint") ? "waypoint" : poiBox.type)
+                            text: qsTranslate("objectType", poiBox.isWaypoint ? "waypoint" : poiBox.type)
                             font.pixelSize: Theme.fontSizeExtraSmall
                             color: Theme.secondaryColor
                         }
@@ -1089,56 +1097,64 @@ Page {
                                 }
                             }
 
+                            CollectionModel {
+                                id: collectionModel
+                                property int waypointId;
+                                property string operation
+                                onLoadingChanged: {
+                                    if (operation!="edit"){
+                                        return;
+                                    }
+
+                                    for (var row=0; row<collectionModel.rowCount(); row++){
+                                        var index=collectionModel.index(row, 0);
+                                        var id=collectionModel.data(index, CollectionModel.IdRole);
+                                        var type=collectionModel.data(index, CollectionModel.TypeRole);
+                                        if (id==waypointId && type=="waypoint") {
+                                            editDialog.itemId = id;
+                                            editDialog.name = collectionModel.data(index, CollectionModel.NameRole);
+                                            editDialog.description = collectionModel.data(index, CollectionModel.DescriptionRole);
+                                            editDialog.symbolSelectorVisible = true;
+                                            editDialog.symbol = collectionModel.data(index, CollectionModel.SymbolRole);
+                                            editDialog.open();
+                                            collectionModel.operation="";
+                                            return;
+                                        }
+                                    }
+                                    console.log("Waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ") was not found.");
+                                    collectionModel.operation="";
+                                }
+                            }
+
+                            CollectionEditDialog {
+                                id: editDialog
+
+                                property string itemId: ""
+                                title: qsTr("Edit waypoint")
+
+                                onAccepted: {
+                                    console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
+                                    collectionModel.editWaypoint(itemId, name, description, symbol);
+                                    poiBox.hide();
+                                }
+                                onRejected: {
+                                }
+                            }
+
                             IconButton{
                                 id: waypointBtn
                                 icon.source: "image://harbour-osmscout/pics/new-place.svg?" + Theme.primaryColor
                                 icon.sourceSize.width: Theme.iconSizeMedium
                                 icon.sourceSize.height: Theme.iconSizeMedium
 
-                                CollectionModel {
-                                    id: collectionModel
-                                    property int waypointId;
-                                    onLoadingChanged: {
-                                        for (var row=0; row<collectionModel.rowCount(); row++){
-                                            var index=collectionModel.index(row, 0);
-                                            var id=collectionModel.data(index, CollectionModel.IdRole);
-                                            var type=collectionModel.data(index, CollectionModel.TypeRole);
-                                            if (id==waypointId && type=="waypoint") {
-                                                editDialog.itemId = id;
-                                                editDialog.name = collectionModel.data(index, CollectionModel.NameRole);
-                                                editDialog.description = collectionModel.data(index, CollectionModel.DescriptionRole);
-                                                editDialog.symbolSelectorVisible = true;
-                                                editDialog.symbol = collectionModel.data(index, CollectionModel.SymbolRole);
-                                                editDialog.open();
-                                                return;
-                                            }
-                                        }
-                                        console.log("Waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ") was not found.");
-                                    }
-                                }
-
-                                CollectionEditDialog {
-                                    id: editDialog
-
-                                    property string itemId: ""
-                                    title: qsTr("Edit waypoint")
-
-                                    onAccepted: {
-                                        console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
-                                        collectionModel.editWaypoint(itemId, name, description, symbol);
-                                        poiBox.objectType = ""; // hide poi panel
-                                    }
-                                    onRejected: {
-                                    }
-                                }
-
                                 onClicked: {
-                                    if (Utils.startsWith(poiBox.type, "_waypoint")) {
+                                    if (poiBox.isWaypoint) {
                                         // edit poi editor when it is poi
                                         var ids = collectionMapBridge.getWaypointIds(poiBox.poiId);
                                         if (ids.length<2) {
                                             console.log("Cannot find waypoint with poi id \"" + poiBox.poiId + "\"");
                                         } else {
+                                            collectionModel.operation = "edit"
                                             collectionModel.waypointId = ids[1];
                                             collectionModel.collectionId = ids[0];
                                             console.log("Request for edit waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ")");
@@ -1147,7 +1163,7 @@ Page {
                                     }
 
                                     var name = poiBox.name;
-                                    console.log("add waypoint \"" + name + "\"");
+                                    console.log("Add waypoint \"" + name + "\"");
                                     pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
                                                   {
                                                     latitude: poiBox.lat,
@@ -1156,6 +1172,34 @@ Page {
                                                     description: "",
                                                     name: name
                                                   });
+                                }
+                            }
+
+                            IconButton{
+                                id: waypointDeteleBtn
+                                icon.source: "image://theme/icon-m-delete"
+                                visible: poiBox.isWaypoint
+                                onClicked: {
+                                    var ids = collectionMapBridge.getWaypointIds(poiBox.poiId);
+                                    if (ids.length<2) {
+                                        console.log("Cannot find waypoint with poi id \"" + poiBox.poiId + "\"");
+                                    } else {
+                                        collectionModel.operation = "delete"
+                                        collectionModel.waypointId = ids[1];
+                                        collectionModel.collectionId = ids[0];
+                                        console.log("Request for delete waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ")");
+                                        //: remorse dialog
+                                        remorse.execute(qsTr("Deleting"),
+                                                        function() {
+                                                            if (collectionModel.operation == "delete") {
+                                                                collectionModel.deleteWaypoint(collectionModel.waypointId);
+                                                                collectionModel.operation = "";
+                                                                poiBox.hide();
+                                                                map.deactivateIcons();
+                                                            }
+                                                        },
+                                                        5 * 1000);
+                                    }
                                 }
                             }
 
