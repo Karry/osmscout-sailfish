@@ -2030,75 +2030,75 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Amenity</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
-        <translation type="unfinished"></translation>
+        <translation>Hospital</translation>
     </message>
     <message>
         <source>christian_church</source>
-        <translation type="unfinished"></translation>
+        <translation>Christian church</translation>
     </message>
     <message>
         <source>christian_church_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Christian church</translation>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Cave entrance</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Subway entrance</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Alphine hut</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpine hut</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Camp site</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Caravan site</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Guest house</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Guest house</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>Chalet</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Chalet</translation>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourism information</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourism information</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourism guidepost</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Viewpoint</translation>
     </message>
 </context>
 <context>
