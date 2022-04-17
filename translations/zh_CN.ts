@@ -742,6 +742,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>地图下载错误</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>追踪系统错误</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>是否继续追踪?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>搜索</translation>
@@ -750,21 +772,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>我在哪儿？</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>关于</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>地图下载</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>地图设置</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -777,17 +784,19 @@ collection pull down menu</extracomment>
         <translation>收藏</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>停止导航</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>追踪系统</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>ETA %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>地图下载</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>换乘</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>地图设置</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -795,23 +804,17 @@ collection pull down menu</extracomment>
         <translation>设置</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>追踪系统</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>关于</translation>
     </message>
     <message>
-        <source>Resume tracking?</source>
-        <translation>是否继续追踪?</translation>
+        <source>Offline map database is required for search functionality.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>追踪系统错误</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>地图下载错误</translation>
+        <source>Offline map database is required for navigation functionality.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -823,24 +826,21 @@ collection pull down menu</extracomment>
         <translation type="unfinished">编辑路标</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <source>ETA %1</source>
+        <translation>ETA %1</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>停止导航</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>换乘</translation>
     </message>
     <message>
         <source>Deleting</source>

@@ -742,6 +742,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Error al bajar el mapa</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Error del rastreador</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Resumir rastreo?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Buscar</translation>
@@ -750,21 +772,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Ubicación</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>Acerca de</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Nube</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Mapa</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -777,17 +784,19 @@ collection pull down menu</extracomment>
         <translation>Colecciones</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Parar navegación</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Rastreador</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>HEA %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Nube</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Cambiar vehículo</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -795,23 +804,9 @@ collection pull down menu</extracomment>
         <translation>Ajustes</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Rastreador</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Resumir rastreo?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Error del rastreador</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Error al bajar el mapa</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -820,10 +815,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
         <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de navegación.</translation>
-    </message>
-    <message>
-        <source>Destinations: %1</source>
-        <translation>Destinos: %1</translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -835,12 +826,21 @@ collection pull down menu</extracomment>
         <translation type="unfinished">Editar punto definido</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <source>ETA %1</source>
+        <translation>HEA %1</translation>
     </message>
     <message>
-        <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <source>Destinations: %1</source>
+        <translation>Destinos: %1</translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>Parar navegación</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Cambiar vehículo</translation>
     </message>
     <message>
         <source>Deleting</source>

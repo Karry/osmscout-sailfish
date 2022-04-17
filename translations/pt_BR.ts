@@ -742,21 +742,6 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>Sobre</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Configurações do mapa</translation>
-    </message>
-    <message>
-        <source>Collections</source>
-        <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation>Coleções</translation>
-    </message>
-    <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
         <translation type="unfinished"></translation>
@@ -794,6 +779,11 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
+        <translation>Coleções</translation>
+    </message>
+    <message>
         <source>Tracker</source>
         <extracomment>menu item for GPS tracker</extracomment>
         <translation type="unfinished"></translation>
@@ -804,9 +794,19 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Configurações do mapa</translation>
+    </message>
+    <message>
         <source>Settings</source>
         <extracomment>menu item for application settings</extracomment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>Sobre</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>

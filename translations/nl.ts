@@ -742,63 +742,6 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
-        <source>Search</source>
-        <extracomment>menu item for Search on map</extracomment>
-        <translation>Zoeken</translation>
-    </message>
-    <message>
-        <source>Where am I?</source>
-        <extracomment>menu item for path with place details</extracomment>
-        <translation>Waar ben ik?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>Over</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Kaartdownloads</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Kaartinstellingen</translation>
-    </message>
-    <message>
-        <source>Navigation</source>
-        <extracomment>menu item for navigation and routing</extracomment>
-        <translation>Routering</translation>
-    </message>
-    <message>
-        <source>Collections</source>
-        <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation>Verzamelingen</translation>
-    </message>
-    <message>
-        <source>Stop navigation</source>
-        <translation>Navigatie stoppen</translation>
-    </message>
-    <message>
-        <source>ETA %1</source>
-        <translation>ETA %1</translation>
-    </message>
-    <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Voertuig wijzigen</translation>
-    </message>
-    <message>
-        <source>Share place link</source>
-        <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Koppeling naar locatie delen</translation>
-    </message>
-    <message>
-        <source>Edit waypoint</source>
-        <translation type="unfinished">Routepunt bewerken</translation>
-    </message>
-    <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
         <translation type="unfinished"></translation>
@@ -821,14 +764,49 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search</source>
+        <extracomment>menu item for Search on map</extracomment>
+        <translation>Zoeken</translation>
+    </message>
+    <message>
+        <source>Where am I?</source>
+        <extracomment>menu item for path with place details</extracomment>
+        <translation>Waar ben ik?</translation>
+    </message>
+    <message>
+        <source>Navigation</source>
+        <extracomment>menu item for navigation and routing</extracomment>
+        <translation>Routering</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
+        <translation>Verzamelingen</translation>
+    </message>
+    <message>
         <source>Tracker</source>
         <extracomment>menu item for GPS tracker</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Kaartdownloads</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Kaartinstellingen</translation>
+    </message>
+    <message>
         <source>Settings</source>
         <extracomment>menu item for application settings</extracomment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>Over</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -839,8 +817,30 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished">Koppeling naar locatie delen</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished">Routepunt bewerken</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>ETA %1</translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>Navigatie stoppen</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Voertuig wijzigen</translation>
     </message>
     <message>
         <source>Deleting</source>

@@ -742,77 +742,6 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
-        <source>Search</source>
-        <extracomment>menu item for Search on map</extracomment>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <source>Where am I?</source>
-        <extracomment>menu item for path with place details</extracomment>
-        <translation>Где я?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>О программе</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Загрузка карт</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Настройка карты</translation>
-    </message>
-    <message>
-        <source>Navigation</source>
-        <extracomment>menu item for navigation and routing</extracomment>
-        <translation>Навигация</translation>
-    </message>
-    <message>
-        <source>Collections</source>
-        <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation>Точки и пути</translation>
-    </message>
-    <message>
-        <source>Stop navigation</source>
-        <translation>Отменить маршрут</translation>
-    </message>
-    <message>
-        <source>ETA %1</source>
-        <translation>Осталось %1</translation>
-    </message>
-    <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Сменить вид транспорта</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <extracomment>menu item for application settings</extracomment>
-        <translation>Настройка</translation>
-    </message>
-    <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Трекер</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Продолжить запись пути</translation>
-    </message>
-    <message>
-        <source>Share place link</source>
-        <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Поделиться ссылкой на место</translation>
-    </message>
-    <message>
-        <source>Edit waypoint</source>
-        <translation type="unfinished">Редактировать путевую точку</translation>
-    </message>
-    <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
         <translation type="unfinished"></translation>
@@ -831,6 +760,55 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Resume tracking?</source>
+        <translation>Продолжить запись пути</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <extracomment>menu item for Search on map</extracomment>
+        <translation>Поиск</translation>
+    </message>
+    <message>
+        <source>Where am I?</source>
+        <extracomment>menu item for path with place details</extracomment>
+        <translation>Где я?</translation>
+    </message>
+    <message>
+        <source>Navigation</source>
+        <extracomment>menu item for navigation and routing</extracomment>
+        <translation>Навигация</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
+        <translation>Точки и пути</translation>
+    </message>
+    <message>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Трекер</translation>
+    </message>
+    <message>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Загрузка карт</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Настройка карты</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <extracomment>menu item for application settings</extracomment>
+        <translation>Настройка</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>О программе</translation>
+    </message>
+    <message>
         <source>Offline map database is required for search functionality.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -839,8 +817,30 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished">Поделиться ссылкой на место</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished">Редактировать путевую точку</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>Осталось %1</translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>Отменить маршрут</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Сменить вид транспорта</translation>
     </message>
     <message>
         <source>Deleting</source>

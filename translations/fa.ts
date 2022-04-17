@@ -742,45 +742,6 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
-        <source>Search</source>
-        <extracomment>menu item for Search on map</extracomment>
-        <translation>جستجو</translation>
-    </message>
-    <message>
-        <source>Where am I?</source>
-        <extracomment>menu item for path with place details</extracomment>
-        <translation>من کجا هستم؟</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>درباره</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>بارگیری‌های نقشه</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>تنظیمات نقشه</translation>
-    </message>
-    <message>
-        <source>Navigation</source>
-        <extracomment>menu item for navigation and routing</extracomment>
-        <translation>مسیریابی</translation>
-    </message>
-    <message>
-        <source>Collections</source>
-        <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation>مجموعه‌ها</translation>
-    </message>
-    <message>
-        <source>Stop navigation</source>
-        <translation>توقف مسیریابی</translation>
-    </message>
-    <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
         <translation type="unfinished"></translation>
@@ -803,14 +764,49 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search</source>
+        <extracomment>menu item for Search on map</extracomment>
+        <translation>جستجو</translation>
+    </message>
+    <message>
+        <source>Where am I?</source>
+        <extracomment>menu item for path with place details</extracomment>
+        <translation>من کجا هستم؟</translation>
+    </message>
+    <message>
+        <source>Navigation</source>
+        <extracomment>menu item for navigation and routing</extracomment>
+        <translation>مسیریابی</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <extracomment>menu item for collections of tracks and waypoints</extracomment>
+        <translation>مجموعه‌ها</translation>
+    </message>
+    <message>
         <source>Tracker</source>
         <extracomment>menu item for GPS tracker</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>بارگیری‌های نقشه</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>تنظیمات نقشه</translation>
+    </message>
+    <message>
         <source>Settings</source>
         <extracomment>menu item for application settings</extracomment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>درباره</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -836,6 +832,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>توقف مسیریابی</translation>
     </message>
     <message>
         <source>Change vehicle</source>

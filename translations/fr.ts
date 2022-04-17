@@ -742,6 +742,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Erreur de téléchargement de carte</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Erreur de la trace GPS</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Reprendre la trace ?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Rechercher</translation>
@@ -750,21 +772,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Où suis-je ?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>À propos</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Téléchargements de carte</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Réglages de la carte</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -777,17 +784,19 @@ collection pull down menu</extracomment>
         <translation>Collections</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Arrêter la  navigation</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Trace GPS</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>Heure d&apos;arrivée estimée %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Téléchargements de carte</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Changer de moyen de transport</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Réglages de la carte</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -795,23 +804,17 @@ collection pull down menu</extracomment>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Trace GPS</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>À propos</translation>
     </message>
     <message>
-        <source>Resume tracking?</source>
-        <translation>Reprendre la trace ?</translation>
+        <source>Offline map database is required for search functionality.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Erreur de la trace GPS</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Erreur de téléchargement de carte</translation>
+        <source>Offline map database is required for navigation functionality.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -823,24 +826,21 @@ collection pull down menu</extracomment>
         <translation type="unfinished">Modifier le repère</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <source>ETA %1</source>
+        <translation>Heure d&apos;arrivée estimée %1</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>Arrêter la  navigation</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Changer de moyen de transport</translation>
     </message>
     <message>
         <source>Deleting</source>

@@ -742,6 +742,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Viga kaardi allalaadimisel</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>%1 url ei ole toetatud</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>%1 urli töötlemine ei õnnestu</translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Viga raja salvestamisel</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Kas jätkame raja salvestamist?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Leia kaardilt</translation>
@@ -750,21 +772,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Kus ma praegu olen?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>OSM Scout rakenduse teave</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Võrguühenduseta kaardid</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Kaart</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -777,17 +784,19 @@ collection pull down menu</extracomment>
         <translation>Kogumikud</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Lõpeta tee näitamine</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Radade salvestaja</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>Saabume %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Võrguühenduseta kaardid</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Muuda liikumisviisi</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Kaart</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -795,23 +804,9 @@ collection pull down menu</extracomment>
         <translation>Seadistused</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Radade salvestaja</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Kas jätkame raja salvestamist?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Viga raja salvestamisel</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Viga kaardi allalaadimisel</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>OSM Scout rakenduse teave</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -822,18 +817,6 @@ collection pull down menu</extracomment>
         <translation>Võrguühenduseta kasutatavate kaartide andmekogu on vajalik tee juhatamiseks.</translation>
     </message>
     <message>
-        <source>Destinations: %1</source>
-        <translation>Sihtkohad: %1</translation>
-    </message>
-    <message>
-        <source>Unsupported url %1</source>
-        <translation>%1 url ei ole toetatud</translation>
-    </message>
-    <message>
-        <source>Cannot parse url %1</source>
-        <translation>%1 urli töötlemine ei õnnestu</translation>
-    </message>
-    <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
         <translation type="unfinished">Jaga viidet asukohale</translation>
@@ -841,6 +824,23 @@ collection pull down menu</extracomment>
     <message>
         <source>Edit waypoint</source>
         <translation type="unfinished">Muuda teekonnapunkti</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>Saabume %1</translation>
+    </message>
+    <message>
+        <source>Destinations: %1</source>
+        <translation>Sihtkohad: %1</translation>
+    </message>
+    <message>
+        <source>Stop navigation</source>
+        <translation>Lõpeta tee näitamine</translation>
+    </message>
+    <message>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Muuda liikumisviisi</translation>
     </message>
     <message>
         <source>Deleting</source>
