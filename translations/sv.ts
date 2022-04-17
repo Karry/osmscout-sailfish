@@ -845,7 +845,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Tar bort</translation>
+        <translation>Tar bort</translation>
     </message>
 </context>
 <context>
@@ -2022,83 +2022,83 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>waterway_weir</source>
-        <translation type="unfinished"></translation>
+        <translation>Damm</translation>
     </message>
     <message>
         <source>waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Vägpunkt</translation>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekvämlighet</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
-        <translation type="unfinished"></translation>
+        <translation>Sjukhus</translation>
     </message>
     <message>
         <source>christian_church</source>
-        <translation type="unfinished"></translation>
+        <translation>Kristen kyrka</translation>
     </message>
     <message>
         <source>christian_church_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kristen kyrka</translation>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Grottingång</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Tunnelbanestation</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjällstuga</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjällstuga</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Tältplats</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Husvagnsplats</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Gäststuga</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Gäststuga</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>Stuga</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Stuga</translation>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistinformation</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistinformation</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Turistguide</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Utsiktspunkt</translation>
     </message>
 </context>
 <context>
