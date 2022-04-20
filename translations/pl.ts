@@ -845,7 +845,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Usuwanie</translation>
+        <translation>Usuwanie</translation>
     </message>
 </context>
 <context>
@@ -2031,51 +2031,51 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Miejsca</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
-        <translation type="unfinished"></translation>
+        <translation>Szpital</translation>
     </message>
     <message>
         <source>christian_church</source>
-        <translation type="unfinished"></translation>
+        <translation>Kościół katolicki</translation>
     </message>
     <message>
         <source>christian_church_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kościół katolicki</translation>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaskinia</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Wejście do metra</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Chata alpejska</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Chata alpejska</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Pole namiotowe</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Miejsce dla przyczep kempingowych</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Pensjonat</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Pensjonat</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
@@ -2087,19 +2087,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>informacja turystyczna</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacja turystyczna</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacja turystyczna</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Punkt widokowy</translation>
     </message>
 </context>
 <context>
