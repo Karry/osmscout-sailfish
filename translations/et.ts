@@ -819,11 +819,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Jaga viidet asukohale</translation>
+        <translation>Jaga viidet asukohale</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished">Muuda teekonnapunkti</translation>
+        <translation>Muuda teekonnapunkti</translation>
     </message>
     <message>
         <source>ETA %1</source>
@@ -845,7 +845,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Kustutan</translation>
+        <translation>Kustutan</translation>
     </message>
 </context>
 <context>
@@ -1826,279 +1826,279 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_atm</source>
-        <translation type="unfinished"></translation>
+        <translation>Sularahaautomaat</translation>
     </message>
     <message>
         <source>amenity_bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Baar</translation>
     </message>
     <message>
         <source>amenity_cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kohvik</translation>
     </message>
     <message>
         <source>amenity_cafe_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kohvik</translation>
     </message>
     <message>
         <source>amenity_drinking_water</source>
-        <translation type="unfinished"></translation>
+        <translation>Joogivee allikas</translation>
     </message>
     <message>
         <source>amenity_fast_food</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiirtoidukoht</translation>
     </message>
     <message>
         <source>amenity_fast_food_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiirtoidukoht</translation>
     </message>
     <message>
         <source>amenity_ferry_terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Praamiterminal</translation>
     </message>
     <message>
         <source>amenity_fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Tankla</translation>
     </message>
     <message>
         <source>amenity_fuel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tankla</translation>
     </message>
     <message>
         <source>amenity_charging_station</source>
-        <translation type="unfinished"></translation>
+        <translation>Laadimisjaam</translation>
     </message>
     <message>
         <source>amenity_parking</source>
-        <translation type="unfinished"></translation>
+        <translation>Parkla</translation>
     </message>
     <message>
         <source>amenity_parking_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Parkla</translation>
     </message>
     <message>
         <source>amenity_pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Apteek</translation>
     </message>
     <message>
         <source>amenity_post_box</source>
-        <translation type="unfinished"></translation>
+        <translation>Postkast</translation>
     </message>
     <message>
         <source>amenity_post_office</source>
-        <translation type="unfinished"></translation>
+        <translation>Postkontor</translation>
     </message>
     <message>
         <source>amenity_pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Pubi</translation>
     </message>
     <message>
         <source>amenity_recycling</source>
-        <translation type="unfinished"></translation>
+        <translation>Taaskasutuskonteiner</translation>
     </message>
     <message>
         <source>amenity_restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Restoran</translation>
     </message>
     <message>
         <source>amenity_restaurant_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Restoran</translation>
     </message>
     <message>
         <source>amenity_toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Tualettruumid</translation>
     </message>
     <message>
         <source>_highlighted</source>
-        <translation type="unfinished"></translation>
+        <translation>Esiletõstetud objekt</translation>
     </message>
     <message>
         <source>highway_bus_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Bussipeatus</translation>
     </message>
     <message>
         <source>highway_mini_roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Väike ringtee</translation>
     </message>
     <message>
         <source>highway_street_lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Tänavalamp</translation>
     </message>
     <message>
         <source>historic_castle</source>
-        <translation type="unfinished"></translation>
+        <translation>Kindlus</translation>
     </message>
     <message>
         <source>historic_castle_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kindlus</translation>
     </message>
     <message>
         <source>historic_memorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Mälestusmärk</translation>
     </message>
     <message>
         <source>historic_memorial_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Mälestusmärk</translation>
     </message>
     <message>
         <source>historic_monument</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausammas</translation>
     </message>
     <message>
         <source>historic_monument_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausammas</translation>
     </message>
     <message>
         <source>leisure_playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Mänguväljak</translation>
     </message>
     <message>
         <source>natural_peak</source>
-        <translation type="unfinished"></translation>
+        <translation>Mäetipp</translation>
     </message>
     <message>
         <source>natural_spring</source>
-        <translation type="unfinished"></translation>
+        <translation>Allikas</translation>
     </message>
     <message>
         <source>natural_tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Puu</translation>
     </message>
     <message>
         <source>railway_halt</source>
-        <translation type="unfinished"></translation>
+        <translation>Teivasjaam</translation>
     </message>
     <message>
         <source>railway_station</source>
-        <translation type="unfinished"></translation>
+        <translation>Raudteejaam</translation>
     </message>
     <message>
         <source>railway_tram_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Trammipeatus</translation>
     </message>
     <message>
         <source>speed_camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaamera</translation>
     </message>
     <message>
         <source>tourism_artwork</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunstiteos</translation>
     </message>
     <message>
         <source>tourism_hostel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hostel</translation>
     </message>
     <message>
         <source>tourism_hostel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hostel</translation>
     </message>
     <message>
         <source>tourism_hotel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotell</translation>
     </message>
     <message>
         <source>tourism_hotel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotell</translation>
     </message>
     <message>
         <source>tourism_motel</source>
-        <translation type="unfinished"></translation>
+        <translation>Motell</translation>
     </message>
     <message>
         <source>tourism_motel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Motell</translation>
     </message>
     <message>
         <source>tourism_museum</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuseum</translation>
     </message>
     <message>
         <source>tourism_museum_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuseum</translation>
     </message>
     <message>
         <source>waterway_waterfall</source>
-        <translation type="unfinished"></translation>
+        <translation>Kosk</translation>
     </message>
     <message>
         <source>waterway_weir</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalatõke</translation>
     </message>
     <message>
         <source>waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Teekonnapunkt</translation>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Mugavusteenus</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
-        <translation type="unfinished"></translation>
+        <translation>Haigla</translation>
     </message>
     <message>
         <source>christian_church</source>
-        <translation type="unfinished"></translation>
+        <translation>Kristlik kirik</translation>
     </message>
     <message>
         <source>christian_church_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kristlik kirik</translation>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Sissepääs koopasse</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Sissepääs metroosse</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpimaja</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpimaja</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Laagriplats</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Haagissuvilate parkla</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Võõrastemaja</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Võõrastemaja</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation> Mägimajake</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation> Mägimajake</translation>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>Infopunkt turistidele</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Infopunkt turistidele</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Infotahvel turistidele</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaateplatvorm</translation>
     </message>
 </context>
 <context>
