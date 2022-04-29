@@ -741,6 +741,28 @@
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Søk</translation>
@@ -749,21 +771,6 @@
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Hvor er jeg?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>Om</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Kartnedlasting</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Kartinstillinger</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -776,17 +783,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Stop navigation</source>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation type="unfinished"></translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Kartnedlasting</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Kartinstillinger</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -794,23 +803,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -821,15 +816,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
+        <source>Stop navigation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cannot parse url %1</source>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1808,6 +1822,282 @@
     <message>
         <source>building</source>
         <translation>bygning</translation>
+    </message>
+    <message>
+        <source>amenity_atm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_cafe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_cafe_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_drinking_water</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fast_food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fast_food_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_ferry_terminal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fuel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_fuel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_charging_station</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_parking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_parking_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_pharmacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_post_box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_post_office</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_pub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_recycling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_restaurant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_restaurant_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_toilets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>_highlighted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>highway_bus_stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>highway_mini_roundabout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>highway_street_lamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_castle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_castle_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_memorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_memorial_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_monument</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>historic_monument_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>leisure_playground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_peak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_spring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_halt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_station</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_tram_stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>speed_camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_artwork</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hostel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hostel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hotel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_hotel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_motel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_motel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_museum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_museum_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waterway_waterfall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waterway_weir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>waypoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_hospital</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_church</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_church_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>natural_cave_entrance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>railway_subway_entrance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_camp_site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_caravan_site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_guest_house</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_guest_house_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_chalet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_chalet_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_information_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_information_guidepost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tourism_viewpoint</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

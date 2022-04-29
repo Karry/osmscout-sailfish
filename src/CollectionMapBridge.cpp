@@ -289,3 +289,18 @@ void CollectionMapBridge::setEnabled(bool b)
   init();
   emit enabledChanged(enabled);
 }
+
+QVariantList CollectionMapBridge::getWaypointIds(qint64 objectId) const
+{
+  for (auto colIt=displayedCollection.begin(); colIt!=displayedCollection.end(); colIt++) {
+    for (auto wptIt=colIt->waypoints.begin(); wptIt!=colIt->waypoints.end(); wptIt++){
+      if (wptIt->id==objectId){
+        QVariantList result;
+        result << colIt.key();
+        result << wptIt.key();
+        return result;
+      }
+    }
+  }
+  return QVariantList();
+}

@@ -748,6 +748,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Fel vid nerladdning av kartor</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>URL som saknar stöd %1</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>Kan inte tolka URL %1</translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Spårningsfel</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Vill du återuppta spårningen?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Sök</translation>
@@ -756,21 +778,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Var är jag?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>Om</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Ladda ner kartor</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Kartinställningar</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -783,17 +790,19 @@ collection pull down menu</extracomment>
         <translation>Samlingar</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Avsluta navigering</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Spårare</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>Beräknad ankomsttid %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Ladda ner kartor</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Byt fordon</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Kartinställningar</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -801,23 +810,9 @@ collection pull down menu</extracomment>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Spårare</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Vill du återuppta spårningen?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Spårningsfel</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Fel vid nerladdning av kartor</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -828,16 +823,35 @@ collection pull down menu</extracomment>
         <translation>Lokalt lagrad kartdatabas krävs för navigationsfunktionen.</translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation>Dela platslänk</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation>Redigera vägpunkt</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>Beräknad ankomsttid %1</translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation>Destinationer: %1</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation>URL som saknar stöd %1</translation>
+        <source>Stop navigation</source>
+        <translation>Avsluta navigering</translation>
     </message>
     <message>
-        <source>Cannot parse url %1</source>
-        <translation>Kan inte tolka URL %1</translation>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Byt fordon</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation>Tar bort</translation>
     </message>
 </context>
 <context>
@@ -1815,6 +1829,282 @@ collection pull down menu</extracomment>
     <message>
         <source>building</source>
         <translation>byggnad</translation>
+    </message>
+    <message>
+        <source>amenity_atm</source>
+        <translation>Uttagsautomat</translation>
+    </message>
+    <message>
+        <source>amenity_bar</source>
+        <translation>Bar</translation>
+    </message>
+    <message>
+        <source>amenity_cafe</source>
+        <translation>Kafé</translation>
+    </message>
+    <message>
+        <source>amenity_cafe_building</source>
+        <translation>Kafé</translation>
+    </message>
+    <message>
+        <source>amenity_drinking_water</source>
+        <translation>Dricksvattenkälla</translation>
+    </message>
+    <message>
+        <source>amenity_fast_food</source>
+        <translation>Snabbmat</translation>
+    </message>
+    <message>
+        <source>amenity_fast_food_building</source>
+        <translation>Snabbmat</translation>
+    </message>
+    <message>
+        <source>amenity_ferry_terminal</source>
+        <translation>Färjeterminal</translation>
+    </message>
+    <message>
+        <source>amenity_fuel</source>
+        <translation>Bensinstation</translation>
+    </message>
+    <message>
+        <source>amenity_fuel_building</source>
+        <translation>Bensinstation</translation>
+    </message>
+    <message>
+        <source>amenity_charging_station</source>
+        <translation>Laddstation</translation>
+    </message>
+    <message>
+        <source>amenity_parking</source>
+        <translation>Parkering</translation>
+    </message>
+    <message>
+        <source>amenity_parking_building</source>
+        <translation>Parkering</translation>
+    </message>
+    <message>
+        <source>amenity_pharmacy</source>
+        <translation>Apotek</translation>
+    </message>
+    <message>
+        <source>amenity_post_box</source>
+        <translation>Brevlåda</translation>
+    </message>
+    <message>
+        <source>amenity_post_office</source>
+        <translation>Postkontor</translation>
+    </message>
+    <message>
+        <source>amenity_pub</source>
+        <translation>Pub</translation>
+    </message>
+    <message>
+        <source>amenity_recycling</source>
+        <translation>Återvinningsstation</translation>
+    </message>
+    <message>
+        <source>amenity_restaurant</source>
+        <translation>Restaurang</translation>
+    </message>
+    <message>
+        <source>amenity_restaurant_building</source>
+        <translation>Restaurang</translation>
+    </message>
+    <message>
+        <source>amenity_toilets</source>
+        <translation>Toalett</translation>
+    </message>
+    <message>
+        <source>_highlighted</source>
+        <translation>Markerat objekt</translation>
+    </message>
+    <message>
+        <source>highway_bus_stop</source>
+        <translation>Busshållplats</translation>
+    </message>
+    <message>
+        <source>highway_mini_roundabout</source>
+        <translation>Minirondell</translation>
+    </message>
+    <message>
+        <source>highway_street_lamp</source>
+        <translation>Gatlykta </translation>
+    </message>
+    <message>
+        <source>historic_castle</source>
+        <translation>Slott</translation>
+    </message>
+    <message>
+        <source>historic_castle_building</source>
+        <translation>Slott</translation>
+    </message>
+    <message>
+        <source>historic_memorial</source>
+        <translation>Minnesplats</translation>
+    </message>
+    <message>
+        <source>historic_memorial_building</source>
+        <translation>Minnesplats</translation>
+    </message>
+    <message>
+        <source>historic_monument</source>
+        <translation>Monument</translation>
+    </message>
+    <message>
+        <source>historic_monument_building</source>
+        <translation>Monument</translation>
+    </message>
+    <message>
+        <source>leisure_playground</source>
+        <translation>Lekplats</translation>
+    </message>
+    <message>
+        <source>natural_peak</source>
+        <translation>Topp</translation>
+    </message>
+    <message>
+        <source>natural_spring</source>
+        <translation>Källa</translation>
+    </message>
+    <message>
+        <source>natural_tree</source>
+        <translation>Träd</translation>
+    </message>
+    <message>
+        <source>railway_halt</source>
+        <translation>Järnvägshållplats</translation>
+    </message>
+    <message>
+        <source>railway_station</source>
+        <translation>Järnvägsstation</translation>
+    </message>
+    <message>
+        <source>railway_tram_stop</source>
+        <translation>Spårvagnshållplats</translation>
+    </message>
+    <message>
+        <source>speed_camera</source>
+        <translation>Kamera</translation>
+    </message>
+    <message>
+        <source>tourism_artwork</source>
+        <translation>Konstinstallation</translation>
+    </message>
+    <message>
+        <source>tourism_hostel</source>
+        <translation>Härbärge</translation>
+    </message>
+    <message>
+        <source>tourism_hostel_building</source>
+        <translation>Härbärge</translation>
+    </message>
+    <message>
+        <source>tourism_hotel</source>
+        <translation>Hotell</translation>
+    </message>
+    <message>
+        <source>tourism_hotel_building</source>
+        <translation>Hotell</translation>
+    </message>
+    <message>
+        <source>tourism_motel</source>
+        <translation>Motell</translation>
+    </message>
+    <message>
+        <source>tourism_motel_building</source>
+        <translation>Motell</translation>
+    </message>
+    <message>
+        <source>tourism_museum</source>
+        <translation>Museum</translation>
+    </message>
+    <message>
+        <source>tourism_museum_building</source>
+        <translation>Museum</translation>
+    </message>
+    <message>
+        <source>waterway_waterfall</source>
+        <translation>Vattenfall</translation>
+    </message>
+    <message>
+        <source>waterway_weir</source>
+        <translation>Damm</translation>
+    </message>
+    <message>
+        <source>waypoint</source>
+        <translation>Vägpunkt</translation>
+    </message>
+    <message>
+        <source>amenity</source>
+        <translation>Bekvämlighet</translation>
+    </message>
+    <message>
+        <source>amenity_hospital</source>
+        <translation>Sjukhus</translation>
+    </message>
+    <message>
+        <source>christian_church</source>
+        <translation>Kristen kyrka</translation>
+    </message>
+    <message>
+        <source>christian_church_building</source>
+        <translation>Kristen kyrka</translation>
+    </message>
+    <message>
+        <source>natural_cave_entrance</source>
+        <translation>Grottingång</translation>
+    </message>
+    <message>
+        <source>railway_subway_entrance</source>
+        <translation>Tunnelbanestation</translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut</source>
+        <translation>Fjällstuga</translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut_building</source>
+        <translation>Fjällstuga</translation>
+    </message>
+    <message>
+        <source>tourism_camp_site</source>
+        <translation>Tältplats</translation>
+    </message>
+    <message>
+        <source>tourism_caravan_site</source>
+        <translation>Husvagnsplats</translation>
+    </message>
+    <message>
+        <source>tourism_guest_house</source>
+        <translation>Gäststuga</translation>
+    </message>
+    <message>
+        <source>tourism_guest_house_building</source>
+        <translation>Gäststuga</translation>
+    </message>
+    <message>
+        <source>tourism_chalet</source>
+        <translation>Stuga</translation>
+    </message>
+    <message>
+        <source>tourism_chalet_building</source>
+        <translation>Stuga</translation>
+    </message>
+    <message>
+        <source>tourism_information</source>
+        <translation>Turistinformation</translation>
+    </message>
+    <message>
+        <source>tourism_information_building</source>
+        <translation>Turistinformation</translation>
+    </message>
+    <message>
+        <source>tourism_information_guidepost</source>
+        <translation>Turistguide</translation>
+    </message>
+    <message>
+        <source>tourism_viewpoint</source>
+        <translation>Utsiktspunkt</translation>
     </message>
 </context>
 <context>

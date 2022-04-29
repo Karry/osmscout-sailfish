@@ -30,6 +30,7 @@ MapBase {
 
   preventMouseStealing: true
   property double topMargin:0
+  property double bottomMargin:0
 
   Connections {
       target: Global.positionSource
@@ -72,6 +73,7 @@ MapBase {
       anchors{
           left: parent.left
           bottom: parent.bottom
+          bottomMargin: map.bottomMargin
       }
   }
 }

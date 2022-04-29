@@ -19,6 +19,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Sailfish.Share 1.0
 import Nemo.KeepAlive 1.2
 import Nemo.Notifications 1.0
 import Nemo.DBus 2.0
@@ -550,9 +551,11 @@ Page {
 
             topMargin: nextStepBox.height +
                        speedIndicator.height + (speedIndicator.height > 0 ? Theme.paddingMedium: 0) +
-                       trackerIndicator.height + (trackerIndicator.height > 0 ? Theme.paddingMedium: 0);
+                       infoPanel.height + (infoPanel.height > 0 ? Theme.paddingMedium: 0);
+            bottomMargin: poiBox.height
 
             showCurrentPosition: true
+            interactiveIcons: true
             vehiclePosition: Global.navigationModel.vehiclePosition
             followVehicle: Global.navigationModel.destinationSet
             renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
@@ -595,15 +598,35 @@ Page {
             }
 
             CollectionMapBridge{
+                id: collectionMapBridge
                 map: map
                 enabled: AppSettings.showCollections
             }
 
+            onIconTapped: {
+                //(QPoint screenCoord, double lat, double lon, QString databasePath,
+                //            QString objectType, quint64 objectId, int poiId, QString type,
+                //            QString name, QString altName, QString ref, QString operatorName, QString phone, QString website);
+                poiBox.objectType = objectType;
+                poiBox.objectId = objectId;
+                poiBox.poiId = poiId;
+                poiBox.type = type;
+                poiBox.name = name;
+                poiBox.altName = altName;
+                poiBox.ref = ref;
+                poiBox.operatorName = operatorName;
+                poiBox.phone = phone;
+                poiBox.website = website;
+                poiBox.lat = lat;
+                poiBox.lon = lon;
+                poiBox.show();
+            }
             onTap: {
                 console.log("tap: " + screenX + "x" + screenY + " @ " + lat + " " + lon + " (map center "+ map.view.lat + " " + map.view.lon + ")");
                 if (drawer.open){
                     drawer.open = false;
                 }
+                poiBox.hide();
             }
             onLongTap: {
 
@@ -678,7 +701,7 @@ Page {
                     right: parent.right
                     bottom: parent.bottom
                     rightMargin: Theme.paddingMedium
-                    bottomMargin: active ? Theme.paddingMedium : 0
+                    bottomMargin: (active ? Theme.paddingMedium : 0) + poiBox.height
                 }
                 width: Theme.iconSizeLarge
                 height: active ? width : 0
@@ -856,6 +879,369 @@ Page {
                   onDoubleClicked: {
                       AppSettings.vehicleAutoRotateMap = !AppSettings.vehicleAutoRotateMap;
                   }
+                }
+            }
+        }
+
+        ShaderEffectSource {
+            id: poiBlurSource
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            height: poiBox.height
+            visible: poiBox.visible
+
+            //color: "transparent"
+
+            sourceItem: map
+            recursive: true
+            live: true
+            sourceRect: Qt.rect(poiBlurSource.x, poiBlurSource.y, poiBlurSource.width, poiBlurSource.height)
+        }
+
+        Rectangle {
+            id: poiBox
+
+            property string objectType: ""
+            property int objectId: 0
+            property int poiId: 0
+            property double lat
+            property double lon
+            property string type: ""
+            property bool isWaypoint: Utils.startsWith(poiBox.type, "_waypoint")
+            property string name: ""
+            property string altName: ""
+            property string ref: ""
+            property string operatorName: ""
+            property string phone: ""
+            property string website: ""
+
+            function hide() {
+                state = "HIDDEN";
+            }
+            function show() {
+                state = "MINIMAL";
+            }
+
+            state: "HIDDEN"
+
+            states: [
+                State {
+                    name: "HIDDEN"
+                    PropertyChanges { target: poiBox; height: 0; }
+                },
+                State {
+                    name: "MINIMAL"
+                    PropertyChanges { target: poiBox; height: poiDetails.height; }
+                },
+                State {
+                    name: "INFORMATIVE"
+                    PropertyChanges { target: poiBox; height: poiDetails.height; }
+                }
+            ]
+
+            onObjectTypeChanged: {
+                if (objectType=="") {
+                    state = "HIDDEN";
+                } else {
+                    state = "MINIMAL";
+                }
+            }
+
+            Behavior on height {
+              NumberAnimation {
+                duration: 200
+              }
+            }
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            height: 0
+            visible: height > 0
+            color: "transparent"
+
+            FastBlur {
+                id: poiBlur
+                anchors.fill: parent
+                source: poiBlurSource
+                radius: 32
+            }
+
+            Rectangle {
+                id: poiBackground
+                anchors.fill: parent
+                color: nextStepMouseArea.pressed ? Theme.rgba(Theme.highlightDimmerColor, 0.5) : Theme.rgba(Theme.highlightDimmerColor, 0.7)
+
+                IconButton{
+                    id: poiMoreIcon
+                    icon.source: "image://theme/icon-m-change-type"
+                    anchors{
+                        right: parent.right
+                        top: parent.top
+                    }
+                    rotation: poiBox.state == "INFORMATIVE" ? 180 : 0
+                    Behavior on rotation {
+                        PropertyAnimation {
+                            duration: 200
+                        }
+                    }
+                }
+                MouseArea {
+                    anchors{
+                        top: parent.top
+                        right: parent.right
+                        left: parent.left
+                    }
+                    height: Theme.iconSizeMedium
+
+                    onClicked: {
+                        if (poiBox.state == "INFORMATIVE") {
+                            poiBox.state = "MINIMAL";
+                        } else {
+                            poiBox.state = "INFORMATIVE";
+                        }
+                    }
+                }
+
+                Row {
+                    id: poiDetails
+                    POIIcon{
+                        id: poiIcon
+                        poiType: poiBox.type
+                        width: Theme.iconSizeMedium
+                        height: Theme.iconSizeMedium
+                    }
+                    Column{
+                        Label {
+                            width: poiBox.width - poiIcon.width - (2*Theme.paddingSmall)
+                            text: qsTranslate("objectType", poiBox.isWaypoint ? "waypoint" : poiBox.type)
+                            font.pixelSize: Theme.fontSizeExtraSmall
+                            color: Theme.secondaryColor
+                        }
+                        Label {
+                            width: poiBox.width - poiIcon.width - (2*Theme.paddingSmall)
+                            property string nameFormated: settings.showAltLanguage && poiBox.altName != "" ?
+                                                              (poiBox.altName + (poiBox.name != ""? " (" +poiBox.name+ ")" : "")) :
+                                                              poiBox.name
+                            text: nameFormated != "" ? nameFormated : (poiBox.operatorName!=""? poiBox.operatorName : poiBox.ref)
+                            font.pixelSize: Theme.fontSizeMedium
+                        }
+                        PhoneRow {
+                            id: phoneRow
+                            phone: poiBox.phone
+                            visible: poiBox.phone!="" && poiBox.state == "INFORMATIVE"
+                        }
+                        WebsiteRow {
+                            id: websiteRow
+                            website: poiBox.website
+                            visible: poiBox.website!="" && poiBox.state == "INFORMATIVE"
+                        }
+                        Row{
+                            id : placeTools
+                            visible: poiBox.state == "INFORMATIVE"
+                            width: shareBtn.width+waypointBtn.width+osmNoteBtn.width+searchBtn.width+routeBtn.width+Theme.paddingLarge
+                            height: shareBtn.height
+
+                            IconButton{
+                                id: shareBtn
+                                icon.source: "image://theme/icon-m-share"
+
+                                ShareAction {
+                                    id: shareAction
+
+                                    //: Page header for share method selection
+                                    title: qsTr("Share place link")
+                                }
+
+                                onClicked: {
+                                    // Share plugins:
+                                    //   bluetoothshare: application/*, audio/*, image/*, text/vcard, text/calendar, text/x-vcalendar,
+                                    //                   text/x-vmessage, text/x-vnote, text/xml, text/plain, video/*
+                                    //   dropboxshare: image/*, video/*
+                                    //   emailshare: *
+                                    //   facebookshare: text/plain, text/x-url, image/png, image/jpeg
+                                    //   mmsshare: image/*, text/vcard
+                                    //   nextcloudshare: application/*, audio/*, image/*, video/*, text/x-vnote, text/xml, text/plain
+                                    //   onedriveshare: image/*, video/*
+                                    //   qrshare: text/*
+                                    //   signingshare: *
+                                    //   twittershare: image/png, text/x-url, text/plain
+                                    //   vkshare: text/plain, text/x-url
+
+                                    var mimeType = "text/x-url"; // "text/x-url" can be shared on social media, but it cannot be uploaded to remote drives :-(
+                                    var placeLink = Utils.shareLink(poiBox.lat, poiBox.lon);
+                                    var name = poiBox.name;
+                                    var status = placeLink;
+                                    var linkTitle = name;
+                                    var content = {
+                                        "data": placeLink,
+                                        "type": mimeType
+                                    }
+
+                                    // also some non-standard fields for Twitter/Facebook status sharing:
+                                    content["status"] = status;
+                                    content["linkTitle"] = linkTitle;
+
+                                    // attachment for e-mail sharing
+                                    // content["name"] = "place.loc";
+                                    // LocFile {
+                                    //   id: locFile
+                                    // }
+                                    //var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
+
+                                    shareAction.resources = [content]
+                                    shareAction.mimeType = mimeType
+                                    shareAction.trigger()
+                                }
+                            }
+
+                            CollectionModel {
+                                id: collectionModel
+                                property int waypointId;
+                                property string operation
+                                onLoadingChanged: {
+                                    if (operation!="edit"){
+                                        return;
+                                    }
+
+                                    for (var row=0; row<collectionModel.rowCount(); row++){
+                                        var index=collectionModel.index(row, 0);
+                                        var id=collectionModel.data(index, CollectionModel.IdRole);
+                                        var type=collectionModel.data(index, CollectionModel.TypeRole);
+                                        if (id==waypointId && type=="waypoint") {
+                                            editDialog.itemId = id;
+                                            editDialog.name = collectionModel.data(index, CollectionModel.NameRole);
+                                            editDialog.description = collectionModel.data(index, CollectionModel.DescriptionRole);
+                                            editDialog.symbolSelectorVisible = true;
+                                            editDialog.symbol = collectionModel.data(index, CollectionModel.SymbolRole);
+                                            editDialog.open();
+                                            collectionModel.operation="";
+                                            return;
+                                        }
+                                    }
+                                    console.log("Waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ") was not found.");
+                                    collectionModel.operation="";
+                                }
+                            }
+
+                            CollectionEditDialog {
+                                id: editDialog
+
+                                property string itemId: ""
+                                title: qsTr("Edit waypoint")
+
+                                onAccepted: {
+                                    console.log("Edit waypoint " + itemId + ": " + name + " / " + description);
+                                    collectionModel.editWaypoint(itemId, name, description, symbol);
+                                    poiBox.hide();
+                                }
+                                onRejected: {
+                                }
+                            }
+
+                            IconButton{
+                                id: waypointBtn
+                                icon.source: poiBox.isWaypoint ? "image://harbour-osmscout/pics/edit-place.svg?" + Theme.primaryColor :
+                                                                 "image://harbour-osmscout/pics/new-place.svg?" + Theme.primaryColor
+                                icon.sourceSize.width: Theme.iconSizeMedium
+                                icon.sourceSize.height: Theme.iconSizeMedium
+
+                                onClicked: {
+                                    if (poiBox.isWaypoint) {
+                                        // edit poi editor when it is poi
+                                        var ids = collectionMapBridge.getWaypointIds(poiBox.poiId);
+                                        if (ids.length<2) {
+                                            console.log("Cannot find waypoint with poi id \"" + poiBox.poiId + "\"");
+                                        } else {
+                                            collectionModel.operation = "edit"
+                                            collectionModel.waypointId = ids[1];
+                                            collectionModel.collectionId = ids[0];
+                                            console.log("Request for edit waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ")");
+                                            return;
+                                        }
+                                    }
+
+                                    var name = poiBox.name;
+                                    console.log("Add waypoint \"" + name + "\"");
+                                    pageStack.push(Qt.resolvedUrl("NewWaypoint.qml"),
+                                                  {
+                                                    latitude: poiBox.lat,
+                                                    longitude: poiBox.lon,
+                                                    acceptDestination: Global.mapPage,
+                                                    description: "",
+                                                    name: name
+                                                  });
+                                }
+                            }
+
+                            IconButton{
+                                id: waypointDeteleBtn
+                                icon.source: "image://theme/icon-m-delete"
+                                visible: poiBox.isWaypoint
+                                onClicked: {
+                                    var ids = collectionMapBridge.getWaypointIds(poiBox.poiId);
+                                    if (ids.length<2) {
+                                        console.log("Cannot find waypoint with poi id \"" + poiBox.poiId + "\"");
+                                    } else {
+                                        collectionModel.operation = "delete"
+                                        collectionModel.waypointId = ids[1];
+                                        collectionModel.collectionId = ids[0];
+                                        console.log("Request for delete waypoint " + collectionModel.waypointId + " (collection " + collectionModel.collectionId + ")");
+                                        //: remorse dialog
+                                        remorse.execute(qsTr("Deleting"),
+                                                        function() {
+                                                            if (collectionModel.operation == "delete") {
+                                                                collectionModel.deleteWaypoint(collectionModel.waypointId);
+                                                                collectionModel.operation = "";
+                                                                poiBox.hide();
+                                                                map.deactivateIcons();
+                                                            }
+                                                        },
+                                                        5 * 1000);
+                                    }
+                                }
+                            }
+
+                            IconButton{
+                                id: osmNoteBtn
+
+                                icon.source: "image://theme/icon-m-edit"
+                                onClicked: Qt.openUrlExternally("https://www.openstreetmap.org/note/new#map="+map.view.magLevel+"/"+poiBox.lat.toString()+"/"+poiBox.lon.toString()+"")
+                            }
+
+                            IconButton{
+                                id: searchBtn
+
+                                icon.source: "image://theme/icon-m-search"
+                                onClicked: {
+
+                                    var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                                  {
+                                                    searchCenterLat: poiBox.lat,
+                                                    searchCenterLon: poiBox.lon,
+                                                    acceptDestination: Global.mapPage
+                                                  });
+                                    searchPage.selectLocation.connect(Global.mapPage.selectLocation);
+                                }
+                            }
+
+                            IconButton{
+                                id: routeBtn
+
+                                icon.source: "image://theme/icon-m-shortcut"
+                                onClicked: {
+
+                                    pageStack.push(Qt.resolvedUrl("Routing.qml"),
+                                                   {
+                                                       toLat: poiBox.lat,
+                                                       toLon: poiBox.lon
+                                                   })
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

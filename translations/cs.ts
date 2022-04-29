@@ -748,6 +748,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Chyba při stahování mapy</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>Nepodporované url %1</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>Chyba při parsování url %1</translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Chyba stopaře</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Obnovit stopaře?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Hledat</translation>
@@ -756,21 +778,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Kde jsem?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>O OSM Scout</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Offline mapy</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Mapa</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -783,17 +790,19 @@ collection pull down menu</extracomment>
         <translation>Sbírky</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Zastavit navigaci</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Stopař</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>ETA %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Offline mapy</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Změnit prostředek</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -801,23 +810,9 @@ collection pull down menu</extracomment>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Stopař</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Obnovit stopaře?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Chyba stopaře</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Chyba při stahování mapy</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>O OSM Scout</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -828,16 +823,35 @@ collection pull down menu</extracomment>
         <translation>Pro navigaci je vyžadována offline mapa.</translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation>Sdílet odkaz na místo</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation>Upravit místo</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>ETA %1</translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation>Směr: %1</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation>Nepodporované url %1</translation>
+        <source>Stop navigation</source>
+        <translation>Zastavit navigaci</translation>
     </message>
     <message>
-        <source>Cannot parse url %1</source>
-        <translation>Chyba při parsování url %1</translation>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Změnit prostředek</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation>Mažu</translation>
     </message>
 </context>
 <context>
@@ -1816,6 +1830,282 @@ collection pull down menu</extracomment>
     <message>
         <source>building</source>
         <translation>Budova</translation>
+    </message>
+    <message>
+        <source>amenity_atm</source>
+        <translation>Bankomat</translation>
+    </message>
+    <message>
+        <source>amenity_bar</source>
+        <translation>Bar</translation>
+    </message>
+    <message>
+        <source>amenity_cafe</source>
+        <translation>Kavárna</translation>
+    </message>
+    <message>
+        <source>amenity_cafe_building</source>
+        <translation>Kavárna</translation>
+    </message>
+    <message>
+        <source>amenity_drinking_water</source>
+        <translation>Pítko pitné vody</translation>
+    </message>
+    <message>
+        <source>amenity_fast_food</source>
+        <translation>Fast food</translation>
+    </message>
+    <message>
+        <source>amenity_fast_food_building</source>
+        <translation>Fast food</translation>
+    </message>
+    <message>
+        <source>amenity_ferry_terminal</source>
+        <translation>Přívoz / trajekt</translation>
+    </message>
+    <message>
+        <source>amenity_fuel</source>
+        <translation>Čerpací stanice</translation>
+    </message>
+    <message>
+        <source>amenity_fuel_building</source>
+        <translation>Čerpací stanice</translation>
+    </message>
+    <message>
+        <source>amenity_charging_station</source>
+        <translation>Nabícejí stanice</translation>
+    </message>
+    <message>
+        <source>amenity_parking</source>
+        <translation>Parkoviště</translation>
+    </message>
+    <message>
+        <source>amenity_parking_building</source>
+        <translation>Parkoviště</translation>
+    </message>
+    <message>
+        <source>amenity_pharmacy</source>
+        <translation>Lékárna</translation>
+    </message>
+    <message>
+        <source>amenity_post_box</source>
+        <translation>Poštovní schránka</translation>
+    </message>
+    <message>
+        <source>amenity_post_office</source>
+        <translation>Pošta</translation>
+    </message>
+    <message>
+        <source>amenity_pub</source>
+        <translation>Hospoda</translation>
+    </message>
+    <message>
+        <source>amenity_recycling</source>
+        <translation>Kontejner na reciklovatelný odpad</translation>
+    </message>
+    <message>
+        <source>amenity_restaurant</source>
+        <translation>Restaurace</translation>
+    </message>
+    <message>
+        <source>amenity_restaurant_building</source>
+        <translation>Restaurace</translation>
+    </message>
+    <message>
+        <source>amenity_toilets</source>
+        <translation>Veřejné toalety</translation>
+    </message>
+    <message>
+        <source>_highlighted</source>
+        <translation>Zvýrazněný objekt</translation>
+    </message>
+    <message>
+        <source>highway_bus_stop</source>
+        <translation>Zastávka autobusu</translation>
+    </message>
+    <message>
+        <source>highway_mini_roundabout</source>
+        <translation>Malý kruhový objezd</translation>
+    </message>
+    <message>
+        <source>highway_street_lamp</source>
+        <translation>Pouliční lampa</translation>
+    </message>
+    <message>
+        <source>historic_castle</source>
+        <translation>Hrad</translation>
+    </message>
+    <message>
+        <source>historic_castle_building</source>
+        <translation>Hrad</translation>
+    </message>
+    <message>
+        <source>historic_memorial</source>
+        <translation>Památník</translation>
+    </message>
+    <message>
+        <source>historic_memorial_building</source>
+        <translation>Památník</translation>
+    </message>
+    <message>
+        <source>historic_monument</source>
+        <translation>Pomník</translation>
+    </message>
+    <message>
+        <source>historic_monument_building</source>
+        <translation>Pomník</translation>
+    </message>
+    <message>
+        <source>leisure_playground</source>
+        <translation>Dětské hřiště</translation>
+    </message>
+    <message>
+        <source>natural_peak</source>
+        <translation>Hora</translation>
+    </message>
+    <message>
+        <source>natural_spring</source>
+        <translation>Pramen</translation>
+    </message>
+    <message>
+        <source>natural_tree</source>
+        <translation>Strom</translation>
+    </message>
+    <message>
+        <source>railway_halt</source>
+        <translation>Zastávka vlaku</translation>
+    </message>
+    <message>
+        <source>railway_station</source>
+        <translation>Vlakové nádraží</translation>
+    </message>
+    <message>
+        <source>railway_tram_stop</source>
+        <translation>Zastávka tramvaje</translation>
+    </message>
+    <message>
+        <source>speed_camera</source>
+        <translation>Kamera</translation>
+    </message>
+    <message>
+        <source>tourism_artwork</source>
+        <translation>Umění</translation>
+    </message>
+    <message>
+        <source>tourism_hostel</source>
+        <translation>Hostel</translation>
+    </message>
+    <message>
+        <source>tourism_hostel_building</source>
+        <translation>Hostel</translation>
+    </message>
+    <message>
+        <source>tourism_hotel</source>
+        <translation>Hotel</translation>
+    </message>
+    <message>
+        <source>tourism_hotel_building</source>
+        <translation>Hotel</translation>
+    </message>
+    <message>
+        <source>tourism_motel</source>
+        <translation>Motel</translation>
+    </message>
+    <message>
+        <source>tourism_motel_building</source>
+        <translation>Motel</translation>
+    </message>
+    <message>
+        <source>tourism_museum</source>
+        <translation>Muzeum</translation>
+    </message>
+    <message>
+        <source>tourism_museum_building</source>
+        <translation>Muzeum</translation>
+    </message>
+    <message>
+        <source>waterway_waterfall</source>
+        <translation>Vodopád</translation>
+    </message>
+    <message>
+        <source>waterway_weir</source>
+        <translation>Jez</translation>
+    </message>
+    <message>
+        <source>waypoint</source>
+        <translation>Uložené místo</translation>
+    </message>
+    <message>
+        <source>amenity</source>
+        <translation>Občanská vybavenost</translation>
+    </message>
+    <message>
+        <source>amenity_hospital</source>
+        <translation>Nemocnice</translation>
+    </message>
+    <message>
+        <source>christian_church</source>
+        <translation>Kostel</translation>
+    </message>
+    <message>
+        <source>christian_church_building</source>
+        <translation>Kostel</translation>
+    </message>
+    <message>
+        <source>natural_cave_entrance</source>
+        <translation>Vstup do jeskyně</translation>
+    </message>
+    <message>
+        <source>railway_subway_entrance</source>
+        <translation>Vstup do metra</translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut</source>
+        <translation>Horská chata</translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut_building</source>
+        <translation>Horská chata</translation>
+    </message>
+    <message>
+        <source>tourism_camp_site</source>
+        <translation>Kemp</translation>
+    </message>
+    <message>
+        <source>tourism_caravan_site</source>
+        <translation>Autokemp</translation>
+    </message>
+    <message>
+        <source>tourism_guest_house</source>
+        <translation>Penzion</translation>
+    </message>
+    <message>
+        <source>tourism_guest_house_building</source>
+        <translation>Penzion</translation>
+    </message>
+    <message>
+        <source>tourism_chalet</source>
+        <translation>Turistická chata</translation>
+    </message>
+    <message>
+        <source>tourism_chalet_building</source>
+        <translation>Turistická chata</translation>
+    </message>
+    <message>
+        <source>tourism_information</source>
+        <translation>Turistické informace</translation>
+    </message>
+    <message>
+        <source>tourism_information_building</source>
+        <translation>Turistické informace</translation>
+    </message>
+    <message>
+        <source>tourism_information_guidepost</source>
+        <translation>Rozcestník</translation>
+    </message>
+    <message>
+        <source>tourism_viewpoint</source>
+        <translation>Vyhlídka</translation>
     </message>
 </context>
 <context>

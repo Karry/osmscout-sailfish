@@ -748,6 +748,28 @@ collection pull down menu</extracomment>
 <context>
     <name>MapPage</name>
     <message>
+        <source>Map download error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Viga kaardi allalaadimisel</translation>
+    </message>
+    <message>
+        <source>Unsupported url %1</source>
+        <translation>%1 url ei ole toetatud</translation>
+    </message>
+    <message>
+        <source>Cannot parse url %1</source>
+        <translation>%1 urli töötlemine ei õnnestu</translation>
+    </message>
+    <message>
+        <source>Tracker error</source>
+        <extracomment>notification summary</extracomment>
+        <translation>Viga raja salvestamisel</translation>
+    </message>
+    <message>
+        <source>Resume tracking?</source>
+        <translation>Kas jätkame raja salvestamist?</translation>
+    </message>
+    <message>
         <source>Search</source>
         <extracomment>menu item for Search on map</extracomment>
         <translation>Leia kaardilt</translation>
@@ -756,21 +778,6 @@ collection pull down menu</extracomment>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
         <translation>Kus ma praegu olen?</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <extracomment>menu item for about page</extracomment>
-        <translation>OSM Scout rakenduse teave</translation>
-    </message>
-    <message>
-        <source>Offline maps</source>
-        <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Võrguühenduseta kaardid</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <extracomment>menu item for map settings</extracomment>
-        <translation>Kaart</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -783,17 +790,19 @@ collection pull down menu</extracomment>
         <translation>Kogumikud</translation>
     </message>
     <message>
-        <source>Stop navigation</source>
-        <translation>Lõpeta tee näitamine</translation>
+        <source>Tracker</source>
+        <extracomment>menu item for GPS tracker</extracomment>
+        <translation>Radade salvestaja</translation>
     </message>
     <message>
-        <source>ETA %1</source>
-        <translation>Saabume %1</translation>
+        <source>Offline maps</source>
+        <extracomment>menu item for offline map downloader</extracomment>
+        <translation>Võrguühenduseta kaardid</translation>
     </message>
     <message>
-        <source>Change vehicle</source>
-        <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Muuda liikumisviisi</translation>
+        <source>Map</source>
+        <extracomment>menu item for map settings</extracomment>
+        <translation>Kaart</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -801,23 +810,9 @@ collection pull down menu</extracomment>
         <translation>Seadistused</translation>
     </message>
     <message>
-        <source>Tracker</source>
-        <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Radade salvestaja</translation>
-    </message>
-    <message>
-        <source>Resume tracking?</source>
-        <translation>Kas jätkame raja salvestamist?</translation>
-    </message>
-    <message>
-        <source>Tracker error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Viga raja salvestamisel</translation>
-    </message>
-    <message>
-        <source>Map download error</source>
-        <extracomment>notification summary</extracomment>
-        <translation>Viga kaardi allalaadimisel</translation>
+        <source>About</source>
+        <extracomment>menu item for about page</extracomment>
+        <translation>OSM Scout rakenduse teave</translation>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
@@ -828,16 +823,35 @@ collection pull down menu</extracomment>
         <translation>Võrguühenduseta kasutatavate kaartide andmekogu on vajalik tee juhatamiseks.</translation>
     </message>
     <message>
+        <source>Share place link</source>
+        <extracomment>Page header for share method selection</extracomment>
+        <translation>Jaga viidet asukohale</translation>
+    </message>
+    <message>
+        <source>Edit waypoint</source>
+        <translation>Muuda teekonnapunkti</translation>
+    </message>
+    <message>
+        <source>ETA %1</source>
+        <translation>Saabume %1</translation>
+    </message>
+    <message>
         <source>Destinations: %1</source>
         <translation>Sihtkohad: %1</translation>
     </message>
     <message>
-        <source>Unsupported url %1</source>
-        <translation>%1 url ei ole toetatud</translation>
+        <source>Stop navigation</source>
+        <translation>Lõpeta tee näitamine</translation>
     </message>
     <message>
-        <source>Cannot parse url %1</source>
-        <translation>%1 urli töötlemine ei õnnestu</translation>
+        <source>Change vehicle</source>
+        <extracomment>menu item: open routing page with current navigation destination</extracomment>
+        <translation>Muuda liikumisviisi</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation>Kustutan</translation>
     </message>
 </context>
 <context>
@@ -1815,6 +1829,282 @@ collection pull down menu</extracomment>
     <message>
         <source>building</source>
         <translation>Hooned</translation>
+    </message>
+    <message>
+        <source>amenity_atm</source>
+        <translation>Sularahaautomaat</translation>
+    </message>
+    <message>
+        <source>amenity_bar</source>
+        <translation>Baar</translation>
+    </message>
+    <message>
+        <source>amenity_cafe</source>
+        <translation>Kohvik</translation>
+    </message>
+    <message>
+        <source>amenity_cafe_building</source>
+        <translation>Kohvik</translation>
+    </message>
+    <message>
+        <source>amenity_drinking_water</source>
+        <translation>Joogivee allikas</translation>
+    </message>
+    <message>
+        <source>amenity_fast_food</source>
+        <translation>Kiirtoidukoht</translation>
+    </message>
+    <message>
+        <source>amenity_fast_food_building</source>
+        <translation>Kiirtoidukoht</translation>
+    </message>
+    <message>
+        <source>amenity_ferry_terminal</source>
+        <translation>Praamiterminal</translation>
+    </message>
+    <message>
+        <source>amenity_fuel</source>
+        <translation>Tankla</translation>
+    </message>
+    <message>
+        <source>amenity_fuel_building</source>
+        <translation>Tankla</translation>
+    </message>
+    <message>
+        <source>amenity_charging_station</source>
+        <translation>Laadimisjaam</translation>
+    </message>
+    <message>
+        <source>amenity_parking</source>
+        <translation>Parkla</translation>
+    </message>
+    <message>
+        <source>amenity_parking_building</source>
+        <translation>Parkla</translation>
+    </message>
+    <message>
+        <source>amenity_pharmacy</source>
+        <translation>Apteek</translation>
+    </message>
+    <message>
+        <source>amenity_post_box</source>
+        <translation>Postkast</translation>
+    </message>
+    <message>
+        <source>amenity_post_office</source>
+        <translation>Postkontor</translation>
+    </message>
+    <message>
+        <source>amenity_pub</source>
+        <translation>Pubi</translation>
+    </message>
+    <message>
+        <source>amenity_recycling</source>
+        <translation>Taaskasutuskonteiner</translation>
+    </message>
+    <message>
+        <source>amenity_restaurant</source>
+        <translation>Restoran</translation>
+    </message>
+    <message>
+        <source>amenity_restaurant_building</source>
+        <translation>Restoran</translation>
+    </message>
+    <message>
+        <source>amenity_toilets</source>
+        <translation>Tualettruumid</translation>
+    </message>
+    <message>
+        <source>_highlighted</source>
+        <translation>Esiletõstetud objekt</translation>
+    </message>
+    <message>
+        <source>highway_bus_stop</source>
+        <translation>Bussipeatus</translation>
+    </message>
+    <message>
+        <source>highway_mini_roundabout</source>
+        <translation>Väike ringtee</translation>
+    </message>
+    <message>
+        <source>highway_street_lamp</source>
+        <translation>Tänavalamp</translation>
+    </message>
+    <message>
+        <source>historic_castle</source>
+        <translation>Kindlus</translation>
+    </message>
+    <message>
+        <source>historic_castle_building</source>
+        <translation>Kindlus</translation>
+    </message>
+    <message>
+        <source>historic_memorial</source>
+        <translation>Mälestusmärk</translation>
+    </message>
+    <message>
+        <source>historic_memorial_building</source>
+        <translation>Mälestusmärk</translation>
+    </message>
+    <message>
+        <source>historic_monument</source>
+        <translation>Ausammas</translation>
+    </message>
+    <message>
+        <source>historic_monument_building</source>
+        <translation>Ausammas</translation>
+    </message>
+    <message>
+        <source>leisure_playground</source>
+        <translation>Mänguväljak</translation>
+    </message>
+    <message>
+        <source>natural_peak</source>
+        <translation>Mäetipp</translation>
+    </message>
+    <message>
+        <source>natural_spring</source>
+        <translation>Allikas</translation>
+    </message>
+    <message>
+        <source>natural_tree</source>
+        <translation>Puu</translation>
+    </message>
+    <message>
+        <source>railway_halt</source>
+        <translation>Teivasjaam</translation>
+    </message>
+    <message>
+        <source>railway_station</source>
+        <translation>Raudteejaam</translation>
+    </message>
+    <message>
+        <source>railway_tram_stop</source>
+        <translation>Trammipeatus</translation>
+    </message>
+    <message>
+        <source>speed_camera</source>
+        <translation>Kaamera</translation>
+    </message>
+    <message>
+        <source>tourism_artwork</source>
+        <translation>Kunstiteos</translation>
+    </message>
+    <message>
+        <source>tourism_hostel</source>
+        <translation>Hostel</translation>
+    </message>
+    <message>
+        <source>tourism_hostel_building</source>
+        <translation>Hostel</translation>
+    </message>
+    <message>
+        <source>tourism_hotel</source>
+        <translation>Hotell</translation>
+    </message>
+    <message>
+        <source>tourism_hotel_building</source>
+        <translation>Hotell</translation>
+    </message>
+    <message>
+        <source>tourism_motel</source>
+        <translation>Motell</translation>
+    </message>
+    <message>
+        <source>tourism_motel_building</source>
+        <translation>Motell</translation>
+    </message>
+    <message>
+        <source>tourism_museum</source>
+        <translation>Muuseum</translation>
+    </message>
+    <message>
+        <source>tourism_museum_building</source>
+        <translation>Muuseum</translation>
+    </message>
+    <message>
+        <source>waterway_waterfall</source>
+        <translation>Kosk</translation>
+    </message>
+    <message>
+        <source>waterway_weir</source>
+        <translation>Kalatõke</translation>
+    </message>
+    <message>
+        <source>waypoint</source>
+        <translation>Teekonnapunkt</translation>
+    </message>
+    <message>
+        <source>amenity</source>
+        <translation>Mugavusteenus</translation>
+    </message>
+    <message>
+        <source>amenity_hospital</source>
+        <translation>Haigla</translation>
+    </message>
+    <message>
+        <source>christian_church</source>
+        <translation>Kristlik kirik</translation>
+    </message>
+    <message>
+        <source>christian_church_building</source>
+        <translation>Kristlik kirik</translation>
+    </message>
+    <message>
+        <source>natural_cave_entrance</source>
+        <translation>Sissepääs koopasse</translation>
+    </message>
+    <message>
+        <source>railway_subway_entrance</source>
+        <translation>Sissepääs metroosse</translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut</source>
+        <translation>Alpimaja</translation>
+    </message>
+    <message>
+        <source>tourism_alpine_hut_building</source>
+        <translation>Alpimaja</translation>
+    </message>
+    <message>
+        <source>tourism_camp_site</source>
+        <translation>Laagriplats</translation>
+    </message>
+    <message>
+        <source>tourism_caravan_site</source>
+        <translation>Haagissuvilate parkla</translation>
+    </message>
+    <message>
+        <source>tourism_guest_house</source>
+        <translation>Võõrastemaja</translation>
+    </message>
+    <message>
+        <source>tourism_guest_house_building</source>
+        <translation>Võõrastemaja</translation>
+    </message>
+    <message>
+        <source>tourism_chalet</source>
+        <translation> Mägimajake</translation>
+    </message>
+    <message>
+        <source>tourism_chalet_building</source>
+        <translation> Mägimajake</translation>
+    </message>
+    <message>
+        <source>tourism_information</source>
+        <translation>Infopunkt turistidele</translation>
+    </message>
+    <message>
+        <source>tourism_information_building</source>
+        <translation>Infopunkt turistidele</translation>
+    </message>
+    <message>
+        <source>tourism_information_guidepost</source>
+        <translation>Infotahvel turistidele</translation>
+    </message>
+    <message>
+        <source>tourism_viewpoint</source>
+        <translation>Vaateplatvorm</translation>
     </message>
 </context>
 <context>
