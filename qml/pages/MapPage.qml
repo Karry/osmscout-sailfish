@@ -19,7 +19,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import Sailfish.Share 1.0
 import Nemo.KeepAlive 1.2
 import Nemo.Notifications 1.0
 import Nemo.DBus 2.0
@@ -1041,61 +1040,8 @@ Page {
                         Row{
                             id : placeTools
                             visible: poiBox.state == "INFORMATIVE"
-                            width: shareBtn.width+waypointBtn.width+osmNoteBtn.width+searchBtn.width+routeBtn.width+Theme.paddingLarge
-                            height: shareBtn.height
-
-                            IconButton{
-                                id: shareBtn
-                                icon.source: "image://theme/icon-m-share"
-
-                                ShareAction {
-                                    id: shareAction
-
-                                    //: Page header for share method selection
-                                    title: qsTr("Share place link")
-                                }
-
-                                onClicked: {
-                                    // Share plugins:
-                                    //   bluetoothshare: application/*, audio/*, image/*, text/vcard, text/calendar, text/x-vcalendar,
-                                    //                   text/x-vmessage, text/x-vnote, text/xml, text/plain, video/*
-                                    //   dropboxshare: image/*, video/*
-                                    //   emailshare: *
-                                    //   facebookshare: text/plain, text/x-url, image/png, image/jpeg
-                                    //   mmsshare: image/*, text/vcard
-                                    //   nextcloudshare: application/*, audio/*, image/*, video/*, text/x-vnote, text/xml, text/plain
-                                    //   onedriveshare: image/*, video/*
-                                    //   qrshare: text/*
-                                    //   signingshare: *
-                                    //   twittershare: image/png, text/x-url, text/plain
-                                    //   vkshare: text/plain, text/x-url
-
-                                    var mimeType = "text/x-url"; // "text/x-url" can be shared on social media, but it cannot be uploaded to remote drives :-(
-                                    var placeLink = Utils.shareLink(poiBox.lat, poiBox.lon);
-                                    var name = poiBox.name;
-                                    var status = placeLink;
-                                    var linkTitle = name;
-                                    var content = {
-                                        "data": placeLink,
-                                        "type": mimeType
-                                    }
-
-                                    // also some non-standard fields for Twitter/Facebook status sharing:
-                                    content["status"] = status;
-                                    content["linkTitle"] = linkTitle;
-
-                                    // attachment for e-mail sharing
-                                    // content["name"] = "place.loc";
-                                    // LocFile {
-                                    //   id: locFile
-                                    // }
-                                    //var fileSource = locFile.writeLocFile(placeLat, placeLon, linkTitle);
-
-                                    shareAction.resources = [content]
-                                    shareAction.mimeType = mimeType
-                                    shareAction.trigger()
-                                }
-                            }
+                            width: waypointBtn.width+osmNoteBtn.width+searchBtn.width+routeBtn.width+Theme.paddingLarge
+                            height: waypointBtn.height
 
                             CollectionModel {
                                 id: collectionModel
