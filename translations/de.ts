@@ -819,11 +819,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Teile Orts als link</translation>
+        <translation>Teile Ort als Link</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished">Bearbeite Wegpunkt</translation>
+        <translation>Bearbeite Wegpunkt</translation>
     </message>
     <message>
         <source>ETA %1</source>
@@ -845,7 +845,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Lösche</translation>
+        <translation>Lösche</translation>
     </message>
 </context>
 <context>
@@ -1826,279 +1826,279 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_atm</source>
-        <translation type="unfinished"></translation>
+        <translation>Geldautomat</translation>
     </message>
     <message>
         <source>amenity_bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar</translation>
     </message>
     <message>
         <source>amenity_cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Café</translation>
     </message>
     <message>
         <source>amenity_cafe_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Café</translation>
     </message>
     <message>
         <source>amenity_drinking_water</source>
-        <translation type="unfinished"></translation>
+        <translation>Trinkwasserquelle</translation>
     </message>
     <message>
         <source>amenity_fast_food</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast Food</translation>
     </message>
     <message>
         <source>amenity_fast_food_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Fast Food</translation>
     </message>
     <message>
         <source>amenity_ferry_terminal</source>
-        <translation type="unfinished"></translation>
+        <translation>Fährhafen</translation>
     </message>
     <message>
         <source>amenity_fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Tankstelle</translation>
     </message>
     <message>
         <source>amenity_fuel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tankstelle</translation>
     </message>
     <message>
         <source>amenity_charging_station</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladestation</translation>
     </message>
     <message>
         <source>amenity_parking</source>
-        <translation type="unfinished"></translation>
+        <translation>Parken</translation>
     </message>
     <message>
         <source>amenity_parking_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Parken</translation>
     </message>
     <message>
         <source>amenity_pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Apotheke</translation>
     </message>
     <message>
         <source>amenity_post_box</source>
-        <translation type="unfinished"></translation>
+        <translation>Briefkasten</translation>
     </message>
     <message>
         <source>amenity_post_office</source>
-        <translation type="unfinished"></translation>
+        <translation>Postfiliale</translation>
     </message>
     <message>
         <source>amenity_pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Kneipe</translation>
     </message>
     <message>
         <source>amenity_recycling</source>
-        <translation type="unfinished"></translation>
+        <translation>Recycling Container</translation>
     </message>
     <message>
         <source>amenity_restaurant</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurant</translation>
     </message>
     <message>
         <source>amenity_restaurant_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurant</translation>
     </message>
     <message>
         <source>amenity_toilets</source>
-        <translation type="unfinished"></translation>
+        <translation>Toiletten</translation>
     </message>
     <message>
         <source>_highlighted</source>
-        <translation type="unfinished"></translation>
+        <translation>Markiertes Objekt</translation>
     </message>
     <message>
         <source>highway_bus_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Bushaltestelle</translation>
     </message>
     <message>
         <source>highway_mini_roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>kleiner Kreisverkehr</translation>
     </message>
     <message>
         <source>highway_street_lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Straßenlaterne</translation>
     </message>
     <message>
         <source>historic_castle</source>
-        <translation type="unfinished"></translation>
+        <translation>Burg</translation>
     </message>
     <message>
         <source>historic_castle_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Burg</translation>
     </message>
     <message>
         <source>historic_memorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Gedenkstätte</translation>
     </message>
     <message>
         <source>historic_memorial_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Gedenkstätte</translation>
     </message>
     <message>
         <source>historic_monument</source>
-        <translation type="unfinished"></translation>
+        <translation>Denkmal</translation>
     </message>
     <message>
         <source>historic_monument_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Denkmal</translation>
     </message>
     <message>
         <source>leisure_playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Spielplatz</translation>
     </message>
     <message>
         <source>natural_peak</source>
-        <translation type="unfinished"></translation>
+        <translation>Gipfel</translation>
     </message>
     <message>
         <source>natural_spring</source>
-        <translation type="unfinished"></translation>
+        <translation>Quelle</translation>
     </message>
     <message>
         <source>natural_tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Baum</translation>
     </message>
     <message>
         <source>railway_halt</source>
-        <translation type="unfinished"></translation>
+        <translation>Zughaltestelle</translation>
     </message>
     <message>
         <source>railway_station</source>
-        <translation type="unfinished"></translation>
+        <translation>Bahnhof</translation>
     </message>
     <message>
         <source>railway_tram_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Straßenbahn-Haltestelle</translation>
     </message>
     <message>
         <source>speed_camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>tourism_artwork</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunst</translation>
     </message>
     <message>
         <source>tourism_hostel</source>
-        <translation type="unfinished"></translation>
+        <translation>Herberge</translation>
     </message>
     <message>
         <source>tourism_hostel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Herberge</translation>
     </message>
     <message>
         <source>tourism_hotel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel</translation>
     </message>
     <message>
         <source>tourism_hotel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel</translation>
     </message>
     <message>
         <source>tourism_motel</source>
-        <translation type="unfinished"></translation>
+        <translation>Motel</translation>
     </message>
     <message>
         <source>tourism_motel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Motel</translation>
     </message>
     <message>
         <source>tourism_museum</source>
-        <translation type="unfinished"></translation>
+        <translation>Museum</translation>
     </message>
     <message>
         <source>tourism_museum_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Museum</translation>
     </message>
     <message>
         <source>waterway_waterfall</source>
-        <translation type="unfinished"></translation>
+        <translation>Wasserfall</translation>
     </message>
     <message>
         <source>waterway_weir</source>
-        <translation type="unfinished"></translation>
+        <translation>Stauwehr</translation>
     </message>
     <message>
         <source>waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Wegpunkt</translation>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Annehmlichkeiten</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
-        <translation type="unfinished"></translation>
+        <translation>Krankenhaus</translation>
     </message>
     <message>
         <source>christian_church</source>
-        <translation type="unfinished"></translation>
+        <translation>christliche Kirche</translation>
     </message>
     <message>
         <source>christian_church_building</source>
-        <translation type="unfinished"></translation>
+        <translation>christliche Kirche</translation>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Höhleneingang</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>U-Bahneingang</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Berghütte</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Berghütte</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Campingplatz</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Wohnwagen-Stellplatz</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Gästehaus</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Gästehaus</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>Hütte</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Hütte</translation>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>Touristeninformation</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Touristeninformation</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Tourismus Wegweiser</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Aussichtspunkt</translation>
     </message>
 </context>
 <context>
