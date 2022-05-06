@@ -1717,7 +1717,7 @@ collection pull down menu</extracomment>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation>Norwest</translation>
+        <translation>Nordwest</translation>
     </message>
     <message>
         <source>feet</source>
