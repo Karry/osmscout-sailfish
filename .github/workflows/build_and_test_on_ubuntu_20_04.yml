@@ -38,3 +38,4 @@ jobs:
         run: cmake --build build -- all
       - name: Run tests
         run: ctest --output-on-failure
+        working-directory: build
