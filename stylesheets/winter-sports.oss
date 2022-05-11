@@ -136,6 +136,7 @@ CONST
   // Pseudo types
   COLOR routeColor                 = #ff000088;
   COLOR trackColor                 = #10a000a0;
+  COLOR highlightedColor           = @routeColor;
 
   // Ground tiles
 
@@ -151,6 +152,7 @@ CONST
     COLOR landColor                = #333333;
     COLOR unknownColor             = #000000;
   }
+  COLOR seaColor                   = @waterColor;
 
   // Default label color
   IF daylight {
@@ -383,313 +385,18 @@ CONST
   COLOR waypointBlueColor          = #203bb3;
   COLOR waypointYellowColor        = #dfed00;
 
-  SYMBOL viaFerrataEasyCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataEasyColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataEasyColor;  }
-    }
+MODULE "include/symbols"
 
-  SYMBOL viaFerrataModerateCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataModerateColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataModerateColor; }
-    }
+MODULE "include/land_sea"
+MODULE "include/route"
+MODULE "include/track"
+MODULE "include/waypoint"
 
-  SYMBOL viaFerrataDifficultCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataDifficultColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataDifficultColor;  }
-    }
-
-  SYMBOL viaFerrataExtremeCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataExtremeColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataExtremeColor;  }
-    }
-
-  SYMBOL oneway_arrow
-    POLYGON 0,0.5 1,0 0,-0.5 {
-      AREA { color:  @onewayArrowColor; }
-    }
-
-  SYMBOL stream_arrow
-    POLYGON 0,0.5 1,0 0,-0.5 {
-      AREA { color: @waterLabelColor; }
-    }
-
-  SYMBOL natural_peak
-    POLYGON -0.75,0 0.75,0 0.0,-1.5 {
-      AREA { color: @peakSymbolColor; }
-    }
-
-  SYMBOL railway_station
-    RECTANGLE 0,0 2 x 2 {
-      AREA { color: @railwaySymbolColor; }
-    }
-
-  SYMBOL railway_halt
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: @railwaySymbolColor; }
-    }
-
-  SYMBOL railway_tram_stop
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: @railwaySymbolColor; }
-    }
-
-  SYMBOL highway_bus_stop
-    CIRCLE 0,0 1.5 {
-      AREA {color: @busSymbolColor; }
-    }
-
-  SYMBOL amenity
-    RECTANGLE 0,0 1 x 1 {
-      AREA {color: #b89c9c; }
-    }
-
-  SYMBOL amenity_hospital
-    CIRCLE 0,0 1.2 {
-      AREA.BORDER {color: @hospitalSymbolColor; width: 0.2mm; }
-    }
-    // Horizontal bar
-    RECTANGLE -0.75,-0.25 1.5 x 0.5 {
-      AREA { color: @hospitalSymbolColor; }
-    }
-    // Vertical bar
-    RECTANGLE -0.25,-0.75 0.5 x 1.5 {
-      AREA { color: @hospitalSymbolColor; }
-    }
-
-  SYMBOL amenity_pharmacy
-    // Box
-    RECTANGLE -1,-1 2 x 2 {
-      AREA.BORDER {color: @pharmacySymbolColor; width: 0.2mm; }
-    }
-    // Horizontal bar
-    RECTANGLE -0.75,-0.25 1.5 x 0.5 {
-      AREA { color: @pharmacySymbolColor; }
-    }
-    // Vertical bar
-    RECTANGLE -0.25,-0.75 0.5 x 1.5 {
-      AREA {color: @pharmacySymbolColor; }
-    }
-
-  SYMBOL amenity_parking
-    CIRCLE 0,0 1.5 {
-      AREA {color: #4bb2da; }
-    }
-
-  SYMBOL amenity_post_box
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: @postSymbolColor; }
-    }
-
-  SYMBOL amenity_post_office
-    RECTANGLE 0,0 2 x 2 {
-      AREA { color: @postSymbolColor; }
-    }
-
-  SYMBOL christian_church_cross
-    RECTANGLE 0.5,-2 0.5 x 2 {
-      AREA { color: #000000; }   // vertical bar
-    }
-    RECTANGLE 0,-1.5 1.5 x 0.5 {
-      AREA { color: #000000; } // horizontal bar
-    }
-
-  SYMBOL mini_roundabout
-    CIRCLE GROUND 0,0 3 {
-      AREA {color: #8080ff; }
-    }
-
-  SYMBOL speed_camera
-    CIRCLE 0,0 1.5 {
-      AREA {color: @red; }
-    }
-
-  SYMBOL highway_street_lamp
-    CIRCLE 0,0 2 {
-      AREA {color: #f5fb5b; }
-    }
-
-  SYMBOL marker
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointRedColor; }
-    }
-
-  SYMBOL green_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointYellowColor; }
-    }
-
-  SYMBOL red_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointRedColor; }
-    }
-
-  SYMBOL green_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointYellowColor; }
-    }
-
-  SYMBOL red_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointRedColor; }
-    }
-
-  SYMBOL green_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointYellowColor; }
-    }
-
-  SYMBOL cliff_small
-    POLYGON 0,0 0.5,0 0.25,0.75 { 
-      AREA { color: lighten(@cliffColor, 0.5);}
-    }
-
-  SYMBOL cliff
-    POLYGON 0,0 1,0 0.5,1.5 { 
-      AREA { color: @cliffColor;}
-    }
 STYLE
   // -------------------------------------------------------
   //
   // Synthetic
   //
-
-  /*
-  NODE "internal_start"
-    ICON { name: start;}
-
-  NODE "internal_target"
-    ICON { name: target;} */
-
-  [TYPE _track] {
-    [MAG world-] {
-      WAY {color: alpha(@trackColor, 1.0); displayWidth: 0.3mm; priority: 100; preferColorFeature: true; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@trackColor, 0.9); displayWidth: 0.5mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@trackColor, 0.4); displayWidth: 1.1mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-  }
-  [TYPE _route] {
-    [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.4mm; priority: 100; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.6mm; priority: 100; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
-    }
-  }
-
-  [MAG world-] {
-    [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
-    [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
-    [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-
-    [TYPE _waypoint, _waypoint_red_circle] {
-        NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_circle] {
-        NODE.ICON { symbol: green_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_circle] {
-        NODE.ICON { symbol: blue_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_circle] {
-        NODE.ICON { symbol: yellow_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_square] {
-        NODE.ICON { symbol: red_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_square] {
-        NODE.ICON { symbol: green_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_square] {
-        NODE.ICON { symbol: blue_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_square] {
-        NODE.ICON { symbol: yellow_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_triangle] {
-        NODE.ICON { symbol: red_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_triangle] {
-        NODE.ICON { symbol: green_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_triangle] {
-        NODE.ICON { symbol: blue_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_triangle] {
-        NODE.ICON { symbol: yellow_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-
-    [TYPE _tile_sea] AREA {color: @waterColor;}
-    //[TYPE _tile_coast] AREA {color: @waterColor;}
-    //[TYPE _tile_coast] AREA {color: @waterColor;  borderColor: #000000; borderWidth: 0.1mm;}
-    [TYPE _tile_land] AREA {color: @landColor;}
-    [TYPE _tile_unknown] AREA {color: @unknownColor;}
-
-    //[TYPE _osm_tile_border] WAY {color: #222222; displayWidth: 0.2mm; }
-    //[TYPE _osm_subtile_border] WAY {color: #444444; displayWidth: 0.1mm; }
-
-    // [TYPE _tile_coastline] WAY {color: #ff0000; displayWidth: 0.1mm;}
-  }
 
   [MAG continent-] {
     [TYPE boundary_country] WAY {color: @countryBorderColor; displayWidth: 0.4mm; dash: 3,7;}
@@ -700,7 +407,6 @@ STYLE
   //
   // contour lines
   //
-
 
   IF elevationContours {
     [MAG suburb-] {

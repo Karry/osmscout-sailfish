@@ -23,6 +23,7 @@ CONST
 
   COLOR routeColor                 = #ff000088;
   COLOR trackColor                 = #10a000a0;
+  COLOR highlightedColor           = @routeColor;
 
   // Label priorities
   UINT labelPrioWaypoint            = 0;
@@ -35,6 +36,22 @@ CONST
   COLOR waypointBlueColor          = #203bb3;
   COLOR waypointYellowColor        = #dfed00;
 
+  COLOR viaFerrataEasyColor        = darken(#fdac44, 0.4);
+  COLOR viaFerrataModerateColor    = #fdac44;
+  COLOR viaFerrataDifficultColor   = #ec4044;
+  COLOR viaFerrataExtremeColor     = #ff0000;
+
+  COLOR railwaySymbolColor         = #60005070;
+  COLOR busSymbolColor             = #7885b0;
+  COLOR onewayArrowColor           = #00000028;
+  COLOR waterLabelColor            =darken(@waterColor, 0.5);
+  COLOR peakSymbolColor            = #9c5e29;
+  COLOR hospitalSymbolColor        = #da0092;
+  COLOR pharmacySymbolColor        = #da0092;
+  COLOR postSymbolColor            = #e8f000;
+  COLOR red                        = #ff0000;
+  COLOR cliffColor                 = #440000;
+
 SYMBOL place_city
   CIRCLE 0,0 2.5 {
     AREA {color: #ff000050; }
@@ -45,173 +62,29 @@ SYMBOL place_town
     AREA {color: #ff000040; }
   }
 
-SYMBOL railway_station
+SYMBOL railway_station2
   CIRCLE 0,0 1.0 {
     AREA {color: #60005070; }
   }
 
-SYMBOL railway_halt
+SYMBOL railway_halt2
   CIRCLE 0,0 0.5 {
     AREA {color: #00800080; }
   }
-SYMBOL railway_tram_stop
-  RECTANGLE 0,0 1 x 1 {
-    AREA { color: #b05bec; }
-  }
-SYMBOL ferry_terminal
-  RECTANGLE 0,0 1 x 1 {
-    AREA { color: #30307080; }
-  }
-SYMBOL highway_bus_stop
-  RECTANGLE 0,0 1 x 1 {
-    AREA { color: #10107080; }
-  }
+
 SYMBOL subway_entrance
   POLYGON -0.4,0 -0.4,-0.8 0,-0.4 0.4,-0.8 0.4,0 1,0 0,1 -1,0 {
     AREA { color: #60005070; }
   }
 
-  SYMBOL marker
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointRedColor; }
-    }
+MODULE "include/symbols"
 
-  SYMBOL green_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointYellowColor; }
-    }
-
-  SYMBOL red_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointRedColor; }
-    }
-
-  SYMBOL green_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointYellowColor; }
-    }
-
-  SYMBOL red_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointRedColor; }
-    }
-
-  SYMBOL green_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointYellowColor; }
-    }
+MODULE "include/land_sea"
+MODULE "include/route"
+MODULE "include/track"
+MODULE "include/waypoint"
 
 STYLE
-  [TYPE _tile_sea] AREA {color: @seaColor;}
-  // [TYPE _tile_coast] AREA {color: @seaColor;}
-  [TYPE _tile_land] AREA {color: @landColor;}
-  // [TYPE _tile_unknown] AREA {color: @unknownColor;}
-
-  [TYPE _track] {
-    [MAG world-] {
-      WAY {color: alpha(@trackColor, 1.0); displayWidth: 0.3mm; priority: 100; preferColorFeature: true; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@trackColor, 0.9); displayWidth: 0.5mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@trackColor, 0.4); displayWidth: 1.1mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-  }
-  [TYPE _route] {
-    [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.0); displayWidth: 0.4mm; priority: 100; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.6); displayWidth: 0.6mm; priority: 100; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@routeColor, 0.5); displayWidth: 1.5mm; priority: 100; }
-    }
-  }
-
-  [TYPE _highlighted] WAY {color: @routeColor; displayWidth: 1.5mm; priority: 100; }
-  [TYPE _highlighted] AREA.BORDER {color: @routeColor; width: 1.0mm; }
-  [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-
-    [TYPE _waypoint, _waypoint_red_circle] {
-        NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_circle] {
-        NODE.ICON { symbol: green_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_circle] {
-        NODE.ICON { symbol: blue_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_circle] {
-        NODE.ICON { symbol: yellow_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_square] {
-        NODE.ICON { symbol: red_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_square] {
-        NODE.ICON { symbol: green_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_square] {
-        NODE.ICON { symbol: blue_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_square] {
-        NODE.ICON { symbol: yellow_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_triangle] {
-        NODE.ICON { symbol: red_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_triangle] {
-        NODE.ICON { symbol: green_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_triangle] {
-        NODE.ICON { symbol: blue_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_triangle] {
-        NODE.ICON { symbol: yellow_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
 
   [MAG continent-] {
     [TYPE boundary_country] WAY {color: @countryBorderColor; displayWidth: 0.4mm; dash: 3,7;}
@@ -330,8 +203,8 @@ STYLE
     [MAG proximity-] {
       AREA {color: #cb4040;}
 
-      AREA.ICON {symbol: railway_station; }
-      NODE.ICON {symbol: railway_station; }
+      AREA.ICON {symbol: railway_station2; }
+      NODE.ICON {symbol: railway_station2; }
 
       AREA.TEXT {label: Name.name; color: #302000; style: normal; priority: 6;}
       NODE.TEXT {label: Name.name; color: #302000; style: normal; priority: 6;}
@@ -352,7 +225,7 @@ STYLE
   }
 
   [TYPE railway_halt] {
-    [MAG proximity-] NODE.ICON {symbol: railway_halt;}
+    [MAG proximity-] NODE.ICON {symbol: railway_halt2;}
     [MAG proximity-] NODE.TEXT {label: Name.name; color: #808080; priority: 7;}
     [MAG cityOver-] NODE.TEXT {color: #204020;}
     [MAG detail-] NODE.TEXT {size: 1.3; color: #204020;}

@@ -548,13 +548,9 @@ install(DIRECTORY icons/map/
         DESTINATION share/${HARBOUR_APP_NAME}/map-icons
         FILES_MATCHING PATTERN "*.svg")
 
-install(FILES
-        stylesheets/boundaries.oss
-        stylesheets/public-transport.oss
-        stylesheets/standard.oss
-        stylesheets/outdoor.oss
-        stylesheets/winter-sports.oss
-DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
+install(DIRECTORY stylesheets
+        DESTINATION share/${HARBOUR_APP_NAME}/map-styles
+        FILES_MATCHING PATTERN "*.oss")
 
 # ==================================================================================================
 # PerformanceTest binary

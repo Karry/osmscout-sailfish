@@ -82,6 +82,7 @@ CONST
   COLOR waterColor            = #aad3df;
   COLOR landColor             = #f1eee9;
   COLOR unknownColor          = #c4dff6;
+  COLOR seaColor              = @waterColor;
 
   COLOR coastColor            = lighten(@waterColor,0.5);
   COLOR waterLabelColor       = darken(@waterColor, 0.5);
@@ -465,103 +466,12 @@ SYMBOL mini_roundabout
     AREA {color: #8080ff; }
   }
 
+MODULE "include/land_sea"
+MODULE "include/route"
+MODULE "include/track"
+MODULE "include/waypoint"
+
 STYLE
- // -------------------------------------------------------
- //
- // Synthetic
- //
-
- /*
- NODE "internal_start"
-  ICON { name: start;}
-
- NODE "internal_target"
-  ICON { name: target;} */
-
-  [TYPE _track] {
-    [MAG world-] {
-      WAY {color: alpha(@trackColor, 1.0); displayWidth: 0.3mm; priority: 100; preferColorFeature: true; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@trackColor, 0.9); displayWidth: 0.5mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@trackColor, 0.4); displayWidth: 1.1mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-  }
-  [TYPE _route] {
-    [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.00); displayWidth: 0.8mm; priority: 100; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.80); displayWidth: 1.8mm; priority: 100; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@routeColor, 0.70); displayWidth: 3.0mm; priority: 100; }
-    }
-  }
-
- [MAG world-] {
-    [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
-    [TYPE _highlighted] AREA.BORDER {color: @highlightedColor; width: 1.0mm; }
-    [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-
-    [TYPE _waypoint, _waypoint_red_circle] {
-        NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_circle] {
-        NODE.ICON { symbol: green_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_circle] {
-        NODE.ICON { symbol: blue_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_circle] {
-        NODE.ICON { symbol: yellow_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_square] {
-        NODE.ICON { symbol: red_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_square] {
-        NODE.ICON { symbol: green_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_square] {
-        NODE.ICON { symbol: blue_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_square] {
-        NODE.ICON { symbol: yellow_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_triangle] {
-        NODE.ICON { symbol: red_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_triangle] {
-        NODE.ICON { symbol: green_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_triangle] {
-        NODE.ICON { symbol: blue_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_triangle] {
-        NODE.ICON { symbol: yellow_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-
-   [TYPE _tile_sea] AREA {color: @waterColor;}
-   //[TYPE _tile_coast] AREA {color: @waterColor;}
-   //[TYPE _tile_coast] AREA {color: @waterColor;  borderColor: #000000; borderWidth: 0.1mm;}
-   [TYPE _tile_land] AREA {color: @landColor;}
-   //[TYPE _tile_unknown] AREA {color: @unknownColor;}
-
- }
 
  // -------------------------------------------------------
  //
