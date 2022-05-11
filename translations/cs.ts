@@ -2597,5 +2597,9 @@ collection pull down menu</extracomment>
         <source>outdoor</source>
         <translation>Outdoor</translation>
     </message>
+    <message>
+        <source>cycle</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

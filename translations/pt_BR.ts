@@ -2596,5 +2596,9 @@ collection pull down menu</extracomment>
         <source>outdoor</source>
         <translation>Ao ar livre</translation>
     </message>
+    <message>
+        <source>cycle</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

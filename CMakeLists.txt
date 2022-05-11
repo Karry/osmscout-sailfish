@@ -558,6 +558,7 @@ install(FILES
         stylesheets/standard.oss
         stylesheets/outdoor.oss
         stylesheets/winter-sports.oss
+        stylesheets/cycle.oss
         DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
 
 # ==================================================================================================
@@ -639,7 +640,8 @@ set(STYLESHEETS
         winter-sports.oss
         boundaries.oss
         public-transport.oss
-        outdoor.oss)
+        outdoor.oss
+        cycle.oss)
 
 foreach(STYLESHEET ${STYLESHEETS})
     add_test(NAME CheckStyleSheet-${STYLESHEET}
