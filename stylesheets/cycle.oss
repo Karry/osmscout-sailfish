@@ -355,10 +355,12 @@ CONST
   IF daylight {
     COLOR amenityColor             = #f0f0d8;
     COLOR amenityBuildingColor     = #d9b8b8;
+    COLOR amenityGraveYardColor    = #bde3cb;
   }
   ELSE {
     COLOR amenityColor             = darken(#f0f0d8, 0.5);
     COLOR amenityBuildingColor     = darken(#d9b8b8, 0.5);
+    COLOR amenityGraveYardColor    = darken(#bde3cb, 0.5);
   }
   COLOR amenityLabelColor          = darken(@amenityBuildingColor, 0.5);
   COLOR amenityBuildingBorderColor = darken(@amenityBuildingColor, 0.3);

@@ -19,7 +19,7 @@ STYLE
          military_range,
          military_naval_base] AREA { color: #f59897; }
 
-   [TYPE amenity_grave_yard] AREA { color: #bde3cb; }
+   [TYPE amenity_grave_yard] AREA { color: @amenityGraveYardColor; }
  }
 
  [MAG detail-] {
@@ -131,6 +131,26 @@ STYLE
      AREA {color: lighten(@wallColor, 0.5);}
      AREA.BORDER {color: @wallColor; width: 0.3mm; }
    }
+
+   [TYPE tourism_museum, tourism_museum_building] {
+     NODE.ICON { name: museum; }
+     AREA.ICON { name: museum; }
+   }
+   [TYPE historic_castle, historic_castle_building] {
+     NODE.ICON { name: castle; }
+     AREA.ICON { name: castle; }
+   }
+   [TYPE amenity_ferry_terminal] {
+     NODE.ICON { name: ferry; }
+     AREA.ICON { name: ferry; }
+   }
+   [TYPE amenity_fuel, amenity_fuel_building] {
+     NODE.ICON { name: fuel; }
+     AREA.ICON { name: fuel; }
+   }
+   [TYPE amenity_charging_station] {
+     NODE.ICON { symbol: amenity_charging_station; name: charging_station; }
+   }
  }
 
  [MAG veryClose-] {
@@ -142,18 +162,74 @@ STYLE
 
    [TYPE amenity_drinking_water] NODE.ICON { symbol: amenity_drinking_water; }
 
-   // Amenities without special color
+   // Amenities without special color and icon
    [TYPE amenity,
          amenity_bank,
-         amenity_cafe,
-         amenity_fast_food,
-         amenity_fuel,
          amenity_kindergarten,
          amenity_library,
-         amenity_recycling,
-         amenity_restaurant,
          amenity_school] {
          NODE.ICON { symbol: amenity; }
+   }
+
+   // these types are too dense in big cities, lets show its icons from veryClose [16]
+   [TYPE amenity_restaurant] NODE.ICON { name: restaurant; }
+   [TYPE amenity_restaurant_building] AREA.ICON { name: restaurant; }
+   [TYPE amenity_fast_food] NODE.ICON { name: fastfood;}
+   [TYPE amenity_fast_food_building] AREA.ICON { name: fastfood;}
+   [TYPE amenity_cafe] NODE.ICON { name: cafe;}
+   [TYPE amenity_cafe_building] AREA.ICON { name: cafe;}
+   [TYPE amenity_recycling] NODE.ICON { name: recycling;}
+
+   [TYPE amenity_bar] {
+     NODE.ICON { name: bar; }
+     AREA.ICON { name: bar; }
+   }
+   [TYPE amenity_pub] {
+     NODE.ICON { name: pub; }
+     AREA.ICON { name: pub; }
+   }
+   [TYPE amenity_drinking_water] {
+     NODE.ICON { name: drinking_water; }
+     AREA.ICON { name: drinking_water; }
+   }
+   [TYPE tourism_artwork] {
+     NODE.ICON { name: artwork; }
+     AREA.ICON { name: artwork; }
+   }
+   [TYPE tourism_hotel, tourism_hotel_building] {
+     NODE.ICON { name: hotel; }
+     AREA.ICON { name: hotel; }
+   }
+   [TYPE tourism_motel, tourism_motel_building] {
+     NODE.ICON { name: motel; }
+     AREA.ICON { name: motel; }
+   }
+   [TYPE tourism_hostel, tourism_hostel_building] {
+     NODE.ICON { name: hostel; }
+     AREA.ICON { name: hostel; }
+   }
+   [TYPE historic_monument, historic_monument_building] {
+     NODE.ICON { name: monument; }
+     AREA.ICON { name: monument; }
+   }
+   [TYPE historic_memorial, historic_memorial_building] {
+     NODE.ICON { name: memorial; }
+     AREA.ICON { name: memorial; }
+   }
+   [TYPE amenity_toilets] {
+     NODE.ICON { name: toilets; }
+     AREA.ICON { name: toilets; }
+   }
+   [TYPE amenity_atm] {
+     NODE.ICON { name: atm; }
+     AREA.ICON { name: atm; }
+   }
+   [TYPE leisure_playground] {
+     NODE.ICON { name: playground; }
+     AREA.ICON { name: playground; }
+   }
+   [TYPE amenity_pharmacy] {
+     NODE.ICON { symbol: amenity_pharmacy;}
    }
 
    [TYPE barrier_fence] {
