@@ -2079,11 +2079,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>szalet</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>szalet</translation>
     </message>
     <message>
         <source>tourism_information</source>
@@ -2599,7 +2599,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>rowerowa</translation>
     </message>
 </context>
 </TS>
