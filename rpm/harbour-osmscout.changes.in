@@ -546,4 +546,5 @@
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.24
 - update translations (German)
 - add Cycle stylesheet. Thanks to Jean-Luc Barrière, aka janbar
+- remove Boundaries stylesheet, it was there mainly for debugging
 - fix English labels with outdoor stylesheet

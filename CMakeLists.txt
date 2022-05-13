@@ -553,7 +553,6 @@ install(DIRECTORY stylesheets/include
         FILES_MATCHING PATTERN "*.oss")
 
 install(FILES
-        stylesheets/boundaries.oss
         stylesheets/public-transport.oss
         stylesheets/standard.oss
         stylesheets/outdoor.oss
