@@ -2598,7 +2598,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Cykel</translation>
     </message>
 </context>
 </TS>

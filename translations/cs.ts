@@ -2599,7 +2599,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Cyklo</translation>
     </message>
 </context>
 </TS>
