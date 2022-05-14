@@ -547,4 +547,5 @@
 - update translations (Czech, German, Polish, Swedish)
 - add Cycle stylesheet. Thanks to Jean-Luc Barrière, aka janbar
 - remove Boundaries stylesheet, it was there mainly for debugging
+- display power lines (and towers, poles) in outdoor stylesheet
 - fix English labels with outdoor stylesheet

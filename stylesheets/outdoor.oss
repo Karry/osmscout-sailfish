@@ -466,6 +466,16 @@ SYMBOL mini_roundabout
     AREA {color: #8080ff; }
   }
 
+SYMBOL power_tower
+  RECTANGLE GROUND -1,-1 2 x 2 {
+    AREA.BORDER {color: #404040; width: 0.2mm; }
+ }
+
+SYMBOL power_pole
+  CIRCLE GROUND 0,0 1.0 {
+    AREA {color: #404040; }
+  }
+
 MODULE "include/land_sea"
 MODULE "include/route"
 MODULE "include/track"
@@ -1907,6 +1917,16 @@ STYLE
          amenity_parking_building] AREA.TEXT { label: IName; style: emphasize; color: #4bb2da; size: 0.8; }
  }
 
+
+ [MAG detail-] {
+   [TYPE power_line] WAY { color: #40404080; displayWidth: 0.1mm; }
+ }
+ [MAG closer-] {
+   [TYPE power_line] WAY { color: #40404080; displayWidth: 0.2mm; }
+   [TYPE power_minor_line] WAY { color: #40404080; displayWidth: 0.1mm; }
+   [TYPE power_tower] NODE.ICON { symbol: power_tower; }
+   [TYPE power_pole] NODE.ICON { symbol: power_pole; } 
+ }
 
  // -------------------------------------------------------
  //
