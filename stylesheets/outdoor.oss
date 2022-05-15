@@ -162,6 +162,7 @@ CONST
  
   // Man made
   COLOR historicCityWallsColor= #994444;
+  COLOR wallColor             = #994444;
 
   // Contour
   COLOR minorContourColor     = #558855;
@@ -1586,6 +1587,18 @@ STYLE
    [TYPE barrier_city_wall] {
      [SIZE 5m 0.1mm:2px<] WAY {color: @historicCityWallsColor; width: 5.0m; joinCap: butt;}
      [SIZE 5m <0.1mm:2px] WAY {color: @historicCityWallsColor; displayWidth: 0.2mm; }
+     AREA {color: lighten(@historicCityWallsColor, 0.5);}
+     AREA.BORDER {color: @historicCityWallsColor; width: 0.3mm; }
+   }
+   [TYPE barrier_wall] {
+     WAY {color: @wallColor; displayWidth: 0.1mm; width: 0.5m;}
+     AREA {color: lighten(@wallColor, 0.5); }
+     AREA.BORDER {color: @wallColor; width: 0.1mm; }
+   }
+   [TYPE barrier_retaining_wall] {
+     WAY {color: lighten(@wallColor, 0.5); displayWidth: 0.12mm; width: 0.5m;}
+     AREA {color: lighten(@wallColor, 0.5); }
+     AREA.BORDER {color: @wallColor; width: 0.1mm; }
    }
  }
 
