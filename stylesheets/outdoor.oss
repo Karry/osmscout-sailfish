@@ -1623,6 +1623,9 @@ STYLE
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
    [TYPE leisure_sports_centre] AREA { color: #bde3cb; }
+   [TYPE leisure_swimming_pool] {
+     AREA { color: #74daff;}
+   }
    [TYPE leisure_playground] AREA { color: #ccffff; }
    [TYPE leisure_garden] AREA { color: #ceeca8; }
    [TYPE building] {
