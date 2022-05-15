@@ -1600,6 +1600,10 @@ STYLE
      AREA {color: lighten(@wallColor, 0.5); }
      AREA.BORDER {color: @wallColor; width: 0.1mm; }
    }
+   [TYPE waterway_dam] {
+     AREA { color: darken(@industrialColor, 0.2); }
+     WAY { color: darken(@industrialColor, 0.2); width: 4.0m; }
+   }
  }
 
  [MAG veryClose-] {
