@@ -82,8 +82,8 @@ STYLE
    }
 
    [TYPE waterway_dam] {
-     AREA { color: darken(@industrialColor, 0.2); }
-     WAY { color: darken(@industrialColor, 0.2); width: 4.0m; }
+     AREA { color: @damColor; }
+     WAY { color: @damColor; width: 4.0m; }
    }
 
    [TYPE railway_station] NODE.ICON { symbol: railway_station; }

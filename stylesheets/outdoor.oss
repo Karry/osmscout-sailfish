@@ -104,6 +104,7 @@ CONST
   COLOR greenFieldColor       = #dcdcc8;
   COLOR heathColor            = #d6d99f;
   COLOR industrialColor       = #dfd1d6;
+  COLOR damColor              = #b2a7ab;
   COLOR landFillColor         = #b6b591;
   COLOR militaryColor         = #fe989822;
   COLOR quarryColor           = #b3b3b3;
@@ -1601,8 +1602,8 @@ STYLE
      AREA.BORDER {color: @wallColor; width: 0.1mm; }
    }
    [TYPE waterway_dam] {
-     AREA { color: darken(@industrialColor, 0.2); }
-     WAY { color: darken(@industrialColor, 0.2); width: 4.0m; }
+     AREA { color: @damColor; }
+     WAY { color: @damColor; width: 4.0m; }
    }
  }
 
