@@ -848,7 +848,7 @@ STYLE
    [TYPE railway_tram] WAY {color: #444444; displayWidth: 0.25mm; width: 3m;}
    [TYPE railway_light_rail] WAY {color: #b3b3b3; displayWidth: 0.25mm; width: 3m;}
 
-   [TYPE railway_narrow_gauge, railway_preserved] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
+   [TYPE railway_narrow_gauge, railway_preserved, railway_monorail] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
    [TYPE railway_funicular] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
 
    // Aerialways
