@@ -284,10 +284,14 @@ CONST
     COLOR golfCourseColor     = #c7f1a3;
     COLOR marinaColor         = #b5d6f180;
     COLOR marinaBorderColor   = #b5d6f1;
+    COLOR parkColor           = #c6f09040;
+    COLOR parkBorderColor     = darken(#c6f090a0,0.1);
   } ELSE {
     COLOR golfCourseColor     = #242c1e;
     COLOR marinaColor         = #57677480;
     COLOR marinaBorderColor   = #48545f;
+    COLOR parkColor           = #c6f09020;
+    COLOR parkBorderColor     = darken(#c6f090c0,0.1);
   }
 
   IF daylight {
@@ -1603,8 +1607,8 @@ STYLE
    [TYPE leisure_ice_rink] AREA { color: #b5d6f1; }
 
    [TYPE leisure_park] { 
-     AREA { color: #c6f09080; }
-     AREA.BORDER { color: darken(#c6f09080,0.1); width: 0.2mm; dash: 3,3;}
+     AREA { color: @parkColor; }
+     AREA.BORDER { color: @parkBorderColor; width: 0.2mm; dash: 3,3;}
    }
  }
 
