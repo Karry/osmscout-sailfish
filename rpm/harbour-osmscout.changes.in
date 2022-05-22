@@ -548,4 +548,5 @@
 - add Cycle stylesheet. Thanks to Jean-Luc Barrière, aka janbar
 - remove Boundaries stylesheet, it was there mainly for debugging
 - display power lines (and towers, poles) in outdoor stylesheet
+- separate flags for road and MTB cycle routes in outdoor stylesheet
 - fix English labels with outdoor stylesheet

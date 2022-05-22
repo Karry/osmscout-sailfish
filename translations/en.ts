@@ -2573,6 +2573,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>Hiking routes</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation>Mountain bike routes</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>

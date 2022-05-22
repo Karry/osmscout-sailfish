@@ -2574,6 +2574,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>trasy turystyczne</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
