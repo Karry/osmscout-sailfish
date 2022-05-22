@@ -550,3 +550,4 @@
 - display power lines (and towers, poles) in outdoor stylesheet
 - separate flags for road and MTB cycle routes in outdoor stylesheet
 - fix English labels with outdoor stylesheet
+- initial support for night colors in outdoor stylesheet
