@@ -2576,7 +2576,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>mtbRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasy MTB</translation>
     </message>
 </context>
 <context>
