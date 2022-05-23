@@ -147,7 +147,7 @@ CONST
     COLOR farmyardColor         = #1d1913;
     COLOR fellColor             = #161616;
     COLOR glacierColor          = #17252a;
-    COLOR grassColor            = #1a1e15;
+    COLOR grassColor            = #151811;
     COLOR greenFieldColor       = #1d1d1a;
     COLOR heathColor            = #1a1a13;
     COLOR industrialColor       = #1a1819;
@@ -162,7 +162,7 @@ CONST
     COLOR vineyardColor         = #131812;
     COLOR wetlandColor          = #181b1b;
     COLOR wetlandBogColor       = #161618;
-    COLOR woodColor             = #171b15;
+    COLOR woodColor             = #242a21;
     COLOR rockColor             = #161616;
     COLOR landuseRailwayColor   = #282824;
   }
