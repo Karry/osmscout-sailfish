@@ -2575,7 +2575,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>mtbRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Mägiratastele sobivad rajad</translation>
     </message>
 </context>
 <context>
@@ -2602,7 +2602,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Jalgratas</translation>
     </message>
 </context>
 </TS>
