@@ -2579,6 +2579,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>RutasDeSenderismo</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2601,6 +2605,10 @@ collection pull down menu</extracomment>
     <message>
         <source>outdoor</source>
         <translation>al aire libre</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

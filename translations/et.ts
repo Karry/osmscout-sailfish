@@ -2579,6 +2579,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>Matkarajad</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation>Mägiratastele sobivad rajad</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2601,6 +2605,10 @@ collection pull down menu</extracomment>
     <message>
         <source>outdoor</source>
         <translation>Välitingimused</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation>Jalgratas</translation>
     </message>
 </context>
 </TS>

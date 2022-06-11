@@ -36,3 +36,6 @@ jobs:
         run: cmake -B build -DCMAKE_UNITY_BUILD=ON -Wno-dev
       - name: Build project
         run: cmake --build build -- all
+      - name: Run tests
+        run: ctest --output-on-failure
+        working-directory: build

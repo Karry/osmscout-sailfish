@@ -2579,6 +2579,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>Vandringsleder</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation>Mountainbike-leder</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2601,6 +2605,10 @@ collection pull down menu</extracomment>
     <message>
         <source>outdoor</source>
         <translation>Utomhus</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation>Cykel</translation>
     </message>
 </context>
 </TS>

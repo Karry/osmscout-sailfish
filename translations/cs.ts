@@ -2580,6 +2580,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>Turistické trasy</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation>MTB trasy</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2602,6 +2606,10 @@ collection pull down menu</extracomment>
     <message>
         <source>outdoor</source>
         <translation>Outdoor</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation>Cyklo</translation>
     </message>
 </context>
 </TS>

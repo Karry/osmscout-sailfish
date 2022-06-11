@@ -2573,6 +2573,10 @@
         <source>hikingRoutes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2595,6 +2599,10 @@
     <message>
         <source>outdoor</source>
         <translation>походный</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

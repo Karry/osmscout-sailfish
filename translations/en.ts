@@ -2572,6 +2572,10 @@
         <source>hikingRoutes</source>
         <translation>Hiking routes</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation>Mountain bike routes</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2594,6 +2598,10 @@
     <message>
         <source>outdoor</source>
         <translation>Outdoor</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation>Cycle</translation>
     </message>
 </context>
 </TS>

@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.23.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.24.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -548,13 +548,17 @@ install(DIRECTORY icons/map/
         DESTINATION share/${HARBOUR_APP_NAME}/map-icons
         FILES_MATCHING PATTERN "*.svg")
 
+install(DIRECTORY stylesheets/include
+        DESTINATION share/${HARBOUR_APP_NAME}/map-styles
+        FILES_MATCHING PATTERN "*.oss")
+
 install(FILES
-        stylesheets/boundaries.oss
         stylesheets/public-transport.oss
         stylesheets/standard.oss
         stylesheets/outdoor.oss
         stylesheets/winter-sports.oss
-DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
+        stylesheets/cycle.oss
+        DESTINATION share/${HARBOUR_APP_NAME}/map-styles)
 
 # ==================================================================================================
 # PerformanceTest binary
@@ -620,3 +624,43 @@ target_link_libraries(MediaPlayer
 
         ${LIBSAILFISHAPP_LIBRARIES}
         )
+
+# ==================================================================================================
+# OSTAndOSSCheck
+
+add_executable(OSTAndOSSCheck ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/OSTAndOSSCheck.cpp)
+set_property(TARGET OSTAndOSSCheck PROPERTY CXX_STANDARD 17)
+target_link_libraries(OSTAndOSSCheck OSMScout OSMScoutMap)
+
+enable_testing()
+
+set(STYLESHEETS
+        standard.oss
+        winter-sports.oss
+        boundaries.oss
+        public-transport.oss
+        outdoor.oss
+        cycle.oss)
+
+foreach(STYLESHEET ${STYLESHEETS})
+    add_test(NAME CheckStyleSheet-${STYLESHEET}
+             COMMAND OSTAndOSSCheck
+             --warning-as-error
+             --poi-type _track
+             --poi-type _highlighted
+             --poi-type _waypoint
+             --poi-type _waypoint_red_circle
+             --poi-type _waypoint_green_circle
+             --poi-type _waypoint_blue_circle
+             --poi-type _waypoint_yellow_circle
+             --poi-type _waypoint_red_square
+             --poi-type _waypoint_green_square
+             --poi-type _waypoint_blue_square
+             --poi-type _waypoint_yellow_square
+             --poi-type _waypoint_red_triangle
+             --poi-type _waypoint_green_triangle
+             --poi-type _waypoint_blue_triangle
+             --poi-type _waypoint_yellow_triangle
+             ${CMAKE_CURRENT_SOURCE_DIR}/stylesheets/map.ost
+             ${CMAKE_CURRENT_SOURCE_DIR}/stylesheets/${STYLESHEET})
+endforeach()

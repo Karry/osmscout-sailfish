@@ -2085,11 +2085,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>szalet</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>szalet</translation>
     </message>
     <message>
         <source>tourism_information</source>
@@ -2580,6 +2580,10 @@ collection pull down menu</extracomment>
         <source>hikingRoutes</source>
         <translation>trasy turystyczne</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation>Trasy MTB</translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2602,6 +2606,10 @@ collection pull down menu</extracomment>
     <message>
         <source>outdoor</source>
         <translation>na zewnątrz</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation>rowerowa</translation>
     </message>
 </context>
 </TS>

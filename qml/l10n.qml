@@ -42,6 +42,7 @@ Item{
         QT_TRANSLATE_NOOP("stylesheet", "public-transport"),
         QT_TRANSLATE_NOOP("stylesheet", "outdoor"),
         QT_TRANSLATE_NOOP("stylesheet", "winter-sports"),
+        QT_TRANSLATE_NOOP("stylesheet", "cycle"),
 
         QT_TRANSLATE_NOOP("styleflag", "daylight"),
         QT_TRANSLATE_NOOP("styleflag", "waterway"),
@@ -55,6 +56,7 @@ Item{
         QT_TRANSLATE_NOOP("styleflag", "skiingDownhill"),
         QT_TRANSLATE_NOOP("styleflag", "skiingNordic"),
         QT_TRANSLATE_NOOP("styleflag", "cycloRoutes"),
+        QT_TRANSLATE_NOOP("styleflag", "mtbRoutes"),
         QT_TRANSLATE_NOOP("styleflag", "hikingRoutes"),
 
         QT_TRANSLATE_NOOP("message", "Directory already exists"),

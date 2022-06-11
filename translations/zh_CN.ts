@@ -2571,6 +2571,10 @@
         <source>hikingRoutes</source>
         <translation>徒步路线</translation>
     </message>
+    <message>
+        <source>mtbRoutes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>stylesheet</name>
@@ -2593,6 +2597,10 @@
     <message>
         <source>outdoor</source>
         <translation>户外</translation>
+    </message>
+    <message>
+        <source>cycle</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

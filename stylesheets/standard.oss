@@ -70,6 +70,15 @@ CONST
 
   MAG minorBuildingMag             = veryClose;
 
+  // road width
+  WIDTH motorwayWidth               = 20m;
+  WIDTH trunkWidth                  = 18m;
+  WIDTH primaryWidth                = 14m;
+  WIDTH secondaryWidth              = 12m;
+  WIDTH tertiaryWidth               = 10m;
+  WIDTH roadWidth                   =  8m;
+  WIDTH wayWidth                    =  8m;
+
   // Label priorities
   UINT labelPrioWaypoint            = 0;
   UINT labelPrioContinent           = 1;
@@ -158,6 +167,8 @@ CONST
     COLOR unknownColor             = @landColor;
   }
 
+  COLOR seaColor                   = @waterColor;
+
   // Borders
   COLOR countryBorderColor         = #ff0000;
 
@@ -208,6 +219,7 @@ CONST
   COLOR greenFieldColor            = #dcdcc8;
   COLOR heathColor                 = #ffffc0;
   COLOR industrialColor            = #dfd1d6;
+  COLOR damColor                   = #b2a7ab;
   
   IF daylight {
     COLOR landFillColor            = #b6b591;
@@ -395,9 +407,6 @@ CONST
 
   COLOR wallColor                  = #663e1b;
 
-  COLOR turnSymbolColor            = #ffffff80;
-  COLOR turnSymbolOutlineColor     = #a0a0a080;
-
   COLOR waypointRedColor           = #b32020;
   COLOR waypointGreenColor         = #00b200;
   COLOR waypointBlueColor          = #203bb3;
@@ -416,436 +425,19 @@ CONST
     COLOR aerodromeApron           = darken(#e8d1fe, 0.6);
   }
 
-  SYMBOL viaFerrataEasyCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataEasyColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataEasyColor;  }
-    }
+MODULE "include/symbols"
 
-  SYMBOL viaFerrataModerateCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataModerateColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataModerateColor; }
-    }
-
-  SYMBOL viaFerrataDifficultCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataDifficultColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataDifficultColor;  }
-    }
-
-  SYMBOL viaFerrataExtremeCross
-    POLYGON -0.5,-0.5 0.5,0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataExtremeColor;  }
-    }
-    POLYGON -0.5,0.5 0.5,-0.5 {
-      AREA.BORDER { width: 0.1mm; color:  @viaFerrataExtremeColor;  }
-    }
-
-  SYMBOL oneway_arrow
-    POLYGON 0,0.5 1,0 0,-0.5 {
-      AREA { color:  @onewayArrowColor; }
-    }
-
-  SYMBOL stream_arrow
-    POLYGON 0,0.5 1,0 0,-0.5 {
-      AREA { color: @waterLabelColor; }
-    }
-
-  SYMBOL natural_spring
-    CIRCLE 0,0 1.0 {
-      AREA.BORDER {color: @waterLabelColor; width: 0.2mm; }
-    }
-    CIRCLE 0,0 0.3 {
-      AREA {color: @waterLabelColor; }
-    }
-
-  SYMBOL amenity_charging_station
-    RECTANGLE -1,-1 2 x 2 {
-      AREA { color: #0000ff; }
-    }
-    CIRCLE 0,0 0.8 {
-      AREA {color: #ffffff; }
-    }
-
-  SYMBOL amenity_drinking_water
-    CIRCLE 0,0 0.4 {
-      AREA {color: @waterLabelColor; }
-    }
-
-  SYMBOL waterway_waterfall
-    RECTANGLE 0,0 1.75 x 0.5 {
-      AREA { color: darken(@waterColor, 0.4); }
-    }
-    POLYGON 1.75,0.5 2.0,1 {
-      AREA.BORDER { width: 0.25mm; color: darken(@waterColor, 0.2);  }
-    }
-    POLYGON 1.25,0.5 1.5,1 {
-      AREA.BORDER { width: 0.25mm; color: darken(@waterColor, 0.2);  }
-    }
-    POLYGON 0.75,0.5 1,1 {
-      AREA.BORDER { width: 0.25mm; color: darken(@waterColor, 0.2);  }
-    }
-
-  SYMBOL waterway_weir
-    RECTANGLE 0,0 2 x 0.5 {
-      AREA { color: darken(@waterColor, 0.4); }
-    }
-    CIRCLE 0.25,0.8 0.25 {
-      AREA {color: darken(@waterColor, 0.2); }
-    }
-    CIRCLE 1,0.8 0.25 {
-      AREA {color: darken(@waterColor, 0.2); }
-    }
-    CIRCLE 1.75,0.8 0.25 {
-      AREA {color: darken(@waterColor, 0.2); }
-    }
-
-  SYMBOL natural_tree
-    CIRCLE GROUND 0,0 5 {
-      AREA {color: #9acd3250; }
-    }
-    CIRCLE GROUND 0,0 0.3 {
-      AREA {color: #8b4513; }
-    }
-
-  SYMBOL natural_peak
-    POLYGON -0.75,0 0.75,0 0.0,-1.5 {
-      AREA { color: @peakSymbolColor; }
-    }
-
-  SYMBOL railway_station
-    RECTANGLE 0,0 2 x 2 {
-      AREA { color: @railwaySymbolColor; }
-    }
-
-  SYMBOL railway_halt
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: @railwaySymbolColor; }
-    }
-
-  SYMBOL railway_tram_stop
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: @railwaySymbolColor; }
-    }
-
-  SYMBOL highway_bus_stop
-    CIRCLE 0,0 1.5 {
-      AREA {color: @busSymbolColor; }
-    }
-
-  SYMBOL ferry_terminal
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: #30307080; }
-    }
-
-  SYMBOL amenity
-    RECTANGLE 0,0 1 x 1 {
-      AREA {color: #b89c9c; }
-    }
-
-  SYMBOL amenity_hospital
-    CIRCLE 0,0 1.2 {
-      AREA.BORDER {color: @hospitalSymbolColor; width: 0.2mm; }
-    }
-    // Horizontal bar
-    RECTANGLE -0.75,-0.25 1.5 x 0.5 {
-      AREA { color: @hospitalSymbolColor; }
-    }
-    // Vertical bar
-    RECTANGLE -0.25,-0.75 0.5 x 1.5 {
-      AREA { color: @hospitalSymbolColor; }
-    }
-
-  SYMBOL amenity_pharmacy
-    // Box
-    RECTANGLE -1,-1 2 x 2 {
-      AREA.BORDER {color: @pharmacySymbolColor; width: 0.2mm; }
-    }
-    // Horizontal bar
-    RECTANGLE -0.75,-0.25 1.5 x 0.5 {
-      AREA { color: @pharmacySymbolColor; }
-    }
-    // Vertical bar
-    RECTANGLE -0.25,-0.75 0.5 x 1.5 {
-      AREA {color: @pharmacySymbolColor; }
-    }
-
-  SYMBOL amenity_parking
-    CIRCLE 0,0 1.5 {
-      AREA {color: #4bb2da; }
-    }
-
-  SYMBOL amenity_post_box
-    RECTANGLE 0,0 1 x 1 {
-      AREA { color: @postSymbolColor; }
-    }
-
-  SYMBOL amenity_post_office
-    RECTANGLE 0,0 2 x 2 {
-      AREA { color: @postSymbolColor; }
-    }
-
-  SYMBOL christian_church_cross
-    RECTANGLE 0.5,-2 0.5 x 2 {
-      AREA { color: #000000; }   // vertical bar
-    }
-    RECTANGLE 0,-1.5 1.5 x 0.5 {
-      AREA { color: #000000; } // horizontal bar
-    }
-
-  SYMBOL mini_roundabout
-    CIRCLE GROUND 0,0 3 {
-      AREA {color: #8080ff; }
-    }
-
-  SYMBOL speed_camera
-    CIRCLE 0,0 1.5 {
-      AREA {color: @red; }
-    }
-
-  SYMBOL highway_street_lamp
-    CIRCLE GROUND 0,0 20 {
-      AREA {color: #f5fb5b44; }
-    }
-
-  SYMBOL marker
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointRedColor; }
-    }
-
-  SYMBOL green_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_circle
-    CIRCLE 0,0 1.5 {
-      AREA {color: @waypointYellowColor; }
-    }
-
-  SYMBOL red_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointRedColor; }
-    }
-
-  SYMBOL green_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_square
-    RECTANGLE -1.5,-1.5 3 x 3 {
-      AREA {color: @waypointYellowColor; }
-    }
-
-  SYMBOL red_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointRedColor; }
-    }
-
-  SYMBOL green_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointGreenColor; }
-    }
-
-  SYMBOL blue_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointBlueColor; }
-    }
-
-  SYMBOL yellow_triangle
-    POLYGON -1.5,0 1.5,0 0.0,-2.4 {
-      AREA { color: @waypointYellowColor; }
-    }
-
-  SYMBOL cliff_small
-    POLYGON 0,0 0.5,0 0.25,0.75 { 
-      AREA { color: lighten(@cliffColor, 0.5);}
-    }
-
-  SYMBOL cliff
-    POLYGON 0,0 1,0 0.5,1.5 { 
-      AREA { color: @cliffColor;}
-    }
-
-  SYMBOL turn_forward_left
-    POLYGON 2.04,1.92 2.65,1.38 2.98,1.57 3.01,0.60 2.04,0.90 2.36,1.14 1.93,1.52 -0.32,1.53 -0.33,1.93 2.04,1.92 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_forward_through_left
-    POLYGON 1.90,1.87 3.10,1.27 1.90,0.67 1.90,1.07 0.79,1.07 1.18,0.48 1.51,0.67 1.54,-0.30 0.61,0.08 0.90,0.29 0.40,1.07 -0.60,1.07 -0.60,1.47 1.90,1.47 1.90,1.87 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_forward_through
-    POLYGON 1.90,0.90 3.10,0.30 1.90,-0.30 1.90,0.10 -0.60,0.10 -0.60,0.50 1.90,0.50  {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_forward_through_right
-    POLYGON 1.90,0.30 3.10,0.90 1.90,1.50 1.90,1.10 0.79,1.10 1.18,1.69 1.51,1.50 1.54,2.47 0.61,2.10 0.90,1.88 0.40,1.10 -0.60,1.10 -0.60,0.70 1.90,0.70 1.90,0.30 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_forward_right
-    POLYGON 2.04,-0.59 2.65,-0.05 2.98,-0.24 3.01,0.73 2.04,0.43 2.36,0.19 1.93,-0.19 -0.32,-0.20 -0.33,-0.60  {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_backward_left
-    POLYGON 1.31,1.92 0.69,1.38 0.36,1.57 0.33,0.60 1.30,0.90 0.98,1.14 1.41,1.52 3.66,1.53 3.67,1.93 1.31,1.92 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_backward_through_left
-    POLYGON 1.80,1.87 0.60,1.27 1.80,0.67 1.80,1.07 2.91,1.07 2.52,0.48 2.19,0.67 2.16,-0.30 3.09,0.08 2.80,0.29 3.30,1.07 4.30,1.07 4.30,1.47 1.80,1.47 1.80,1.87 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_backward_through
-    POLYGON 1.80,0.90 0.60,0.30 1.80,-0.30 1.80,0.10 4.30,0.10 4.30,0.50 1.80,0.50 1.80,0.90 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_backward_through_right
-    POLYGON 1.80,0.30 0.60,0.90 1.80,1.50 1.80,1.10 2.91,1.10 2.52,1.69 2.19,1.50 2.16,2.47 3.09,2.10 2.80,1.88 3.30,1.10 4.30,1.10 4.30,0.70 1.80,0.70 1.80,0.30 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
-
-  SYMBOL turn_backward_right
-    POLYGON 1.31,-0.59 0.69,-0.05 0.36,-0.24 0.33,0.73 1.30,0.43 0.98,0.19 1.41,-0.19 3.66,-0.20 3.67,-0.60 1.31,-0.59 {
-      AREA { color: @turnSymbolColor; }
-      AREA.BORDER { width: 0.1mm; color:  @turnSymbolOutlineColor; }
-    }
+MODULE "include/land_sea"
+MODULE "include/route"
+MODULE "include/track"
+MODULE "include/waypoint"
+MODULE "include/man_made"
 
 STYLE
   // -------------------------------------------------------
   //
   // Synthetic
   //
-
-  /*
-  NODE "internal_start"
-    ICON { name: start;}
-
-  NODE "internal_target"
-    ICON { name: target;} */
-
-  [TYPE _track] {
-    [MAG world-] {
-      WAY {color: alpha(@trackColor, 1.0); displayWidth: 0.3mm; priority: 100; preferColorFeature: true; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@trackColor, 0.9); displayWidth: 0.5mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@trackColor, 0.4); displayWidth: 1.1mm; width: 2.2m; priority: 100; preferColorFeature: true; }
-    }
-  }
-  [TYPE _route] {
-    [MAG world-] {
-      WAY {color: alpha(@routeColor, 1.00); displayWidth: 0.8mm; priority: 100; }
-    }
-    [MAG city-] {
-      WAY {color: alpha(@routeColor, 0.80); displayWidth: 1.8mm; priority: 100; }
-    }
-    [MAG veryClose-] {
-      WAY {color: alpha(@routeColor, 0.70); displayWidth: 3.0mm; priority: 100; }
-    }
-  }
-
-  [MAG world-] {
-    [TYPE _highlighted] WAY {color: @highlightedColor; displayWidth: 1.5mm; priority: 100; }
-    [TYPE _highlighted] AREA.BORDER {color: @highlightedColor; width: 1.0mm; }
-    [TYPE _highlighted] NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-
-    [TYPE _waypoint, _waypoint_red_circle] {
-        NODE.ICON { symbol: marker; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_circle] {
-        NODE.ICON { symbol: green_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_circle] {
-        NODE.ICON { symbol: blue_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_circle] {
-        NODE.ICON { symbol: yellow_circle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_square] {
-        NODE.ICON { symbol: red_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_square] {
-        NODE.ICON { symbol: green_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_square] {
-        NODE.ICON { symbol: blue_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_square] {
-        NODE.ICON { symbol: yellow_square; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_red_triangle] {
-        NODE.ICON { symbol: red_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointRedColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_green_triangle] {
-        NODE.ICON { symbol: green_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointGreenColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_blue_triangle] {
-        NODE.ICON { symbol: blue_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointBlueColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-    [TYPE _waypoint_yellow_triangle] {
-        NODE.ICON { symbol: yellow_triangle; priority: @labelPrioWaypoint; }
-        NODE.TEXT { label: Name.name; color: @waypointYellowColor; size: 1.0; priority: @labelPrioWaypoint; }
-    }
-
-    [TYPE _tile_sea] AREA {color: @waterColor;}
-    //[TYPE _tile_coast] AREA {color: @waterColor;}
-    //[TYPE _tile_coast] AREA {color: @waterColor;  borderColor: #000000; borderWidth: 0.1mm;}
-    [TYPE _tile_land] AREA {color: @landColor;}
-    [TYPE _tile_unknown] AREA {color: @unknownColor;}
-
-    //[TYPE _osm_tile_border] WAY {color: #222222; displayWidth: 0.2mm; }
-    //[TYPE _osm_subtile_border] WAY {color: #444444; displayWidth: 0.1mm; }
-
-    // [TYPE _tile_coastline] WAY {color: #ff0000; displayWidth: 0.1mm;}
-  }
 
   [MAG continent-] {
     [TYPE boundary_country] WAY {color: @countryBorderColor; displayWidth: 0.4mm; dash: 3,7;}
@@ -909,12 +501,12 @@ STYLE
             natural_wetland_marsh,
             natural_wetland_tidalflat,
             natural_beach,
-            natural_land] AREA.TEXT { label: Name.name ; priority: @labelPrioNatural; autoSize: true; color: @labelColor; }
+            natural_land] AREA.TEXT { label: IName ; priority: @labelPrioNatural; color: @labelColor; autoSize: true; }
 
-      [TYPE natural_water] AREA.TEXT { label: Name.name ; priority: @labelPrioNatural; color: @waterLabelColor; autoSize: true;}
+      [TYPE natural_water] AREA.TEXT { label: IName ; priority: @labelPrioNatural; color: @waterLabelColor; autoSize: true;}
 
       [TYPE natural_peak] {
-        NODE.TEXT#peakName { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 1; }
+        NODE.TEXT#peakName { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 1; }
         NODE.TEXT#ele { label: Ele.inLocaleUnit; style: emphasize; emphasizeColor: @emphasizeColor; color: @peakLabelColor; priority: @labelPrioPeak; size: 0.9; position: 2;}
       }
 
@@ -932,7 +524,7 @@ STYLE
       }
       [TYPE natural_spring] {
         NODE.ICON { symbol: natural_spring; }
-        NODE.TEXT { label: Name.name; color: @waterLabelColor; priority: @labelPrioSpring; size: 0.9; }
+        NODE.TEXT { label: IName; color: @waterLabelColor; priority: @labelPrioSpring; size: 0.9; }
       }
     }
 
@@ -1041,18 +633,18 @@ STYLE
             waterway_waterfall,
             waterway_river,
             waterway_canal]
-        WAY.TEXT { label: Name.name; color: @waterLabelColor; priority: @labelPrioNatural; }
+        WAY.TEXT { label: IName; color: @waterLabelColor; priority: @labelPrioNatural; }
 
       [TYPE waterway_weir,
             waterway_waterfall]
-        NODE.TEXT { label: Name.name; color: @waterLabelColor; priority: @labelPrioNatural; }
+        NODE.TEXT { label: IName; color: @waterLabelColor; priority: @labelPrioNatural; }
 
       [TYPE waterway_stream,
             waterway_river,
             waterway_canal]
         WAY.SYMBOL {symbol: stream_arrow; symbolSpace: 50mm;}
 
-      [TYPE waterway_riverbank] AREA.TEXT { label: Name.name; priority: 25; color: @waterLabelColor; }
+      [TYPE waterway_riverbank] AREA.TEXT { label: IName; priority: 25; color: @waterLabelColor; }
     }
   }
 
@@ -1063,11 +655,11 @@ STYLE
 
  [MAG continent-] {
    [TYPE highway_motorway] {
-     [SIZE 20m 0.45mm:3px<] {
-       WAY#outline { color: darken(@motorwayColor,0.2); width: 20m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @motorwayColor; width: 20m;}
+     [SIZE @motorwayWidth 0.45mm:3px<] {
+       WAY#outline { color: darken(@motorwayColor,0.2); width: @motorwayWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @motorwayColor; width: @motorwayWidth;}
      }
-     [SIZE 20m <0.45mm:3px] {
+     [SIZE @motorwayWidth <0.45mm:3px] {
        WAY#outline { color: darken(@motorwayColor,0.2); displayWidth: 0.6mm; priority: -1; joinCap: butt; }
        WAY { color: @motorwayColor; displayWidth: 0.30mm; }
      }
@@ -1077,50 +669,50 @@ STYLE
  [MAG county-] {
    [TYPE highway_trunk,
          highway_motorway_trunk] {
-     [SIZE 18m 0.4mm:3px<] {
-       WAY#outline { color: darken(@trunkColor,0.4); width: 18m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @trunkColor; width: 18m;}
+     [SIZE @trunkWidth 0.4mm:3px<] {
+       WAY#outline { color: darken(@trunkColor,0.4); width: @trunkWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @trunkColor; width: @trunkWidth;}
      }
-     [SIZE 18m <0.4mm:3px] WAY { color: lighten(@trunkColor,0.1); displayWidth: 0.4mm;}
+     [SIZE @trunkWidth <0.4mm:3px] WAY { color: lighten(@trunkColor,0.1); displayWidth: 0.4mm;}
    }
 
    [TYPE highway_primary,
          highway_motorway_primary] {
-     [SIZE 14m 0.4mm:3px<] {
-       WAY#outline { color: darken(@primaryColor,0.4); width: 14m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @primaryColor; width: 14m;}
+     [SIZE @primaryWidth 0.4mm:3px<] {
+       WAY#outline { color: darken(@primaryColor,0.4); width: @primaryWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @primaryColor; width: @primaryWidth;}
      }
-     [SIZE 14m <0.4mm:3px] WAY { color: lighten(@primaryColor,0.1); displayWidth: 0.5mm;}
+     [SIZE @primaryWidth <0.4mm:3px] WAY { color: lighten(@primaryColor,0.1); displayWidth: 0.5mm;}
    }
  }
 
  [MAG cityOver-] {
    [TYPE highway_secondary] {
-     [SIZE 12m 0.25mm:3px<] {
-       WAY#outline { color: darken(@secondaryColor,0.4); width: 12m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @secondaryColor; width: 12m;}
+     [SIZE @secondaryWidth 0.25mm:3px<] {
+       WAY#outline { color: darken(@secondaryColor,0.4); width: @secondaryWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @secondaryColor; width: @secondaryWidth;}
      }
-     [SIZE 12m <0.25mm:3px] WAY { color: #f0b549; displayWidth: 0.4mm; }
+     [SIZE @secondaryWidth <0.25mm:3px] WAY { color: #f0b549; displayWidth: 0.4mm; }
    }
  }
 
  [MAG city-] {
    [TYPE highway_tertiary] {
-     [SIZE 10m 0.25mm:3px<] {
-       WAY#outline { color: darken(@tertiaryColor,0.4); width: 10m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @tertiaryColor; width: 10m;}
+     [SIZE @tertiaryWidth 0.25mm:3px<] {
+       WAY#outline { color: darken(@tertiaryColor,0.4); width: @tertiaryWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @tertiaryColor; width: @tertiaryWidth;}
      }
-     [SIZE 10m <0.25mm:3px] WAY { color: #c4ac53; displayWidth: 0.4mm;}
+     [SIZE @tertiaryWidth <0.25mm:3px] WAY { color: #c4ac53; displayWidth: 0.4mm;}
    }
  }
 
  [MAG suburb-] {
     [TYPE highway_motorway_link] {
-      [SIZE 20m 0.45mm:3px<] {
-        WAY#outline { color: darken(@motorwayColor,0.4); width: 20m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-        WAY { color: @motorwayColor; width: 20m;}
+      [SIZE @motorwayWidth 0.45mm:3px<] {
+        WAY#outline { color: darken(@motorwayColor,0.4); width: @motorwayWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+        WAY { color: @motorwayColor; width: @motorwayWidth;}
       }
-      [SIZE 20m <0.45mm:3px] WAY { color: lighten(@motorwayColor,0.3); displayWidth: 0.45mm;}
+      [SIZE @motorwayWidth <0.45mm:3px] WAY { color: lighten(@motorwayColor,0.3); displayWidth: 0.45mm;}
     }
 
    [TYPE route_ferry] {
@@ -1135,57 +727,57 @@ STYLE
 
  [TYPE amenity_ferry_terminal] {
    [MAG detail-] NODE.ICON { symbol: ferry_terminal;}
-   [MAG close-] NODE.TEXT { label: Name.name; color: #303070; }
+   [MAG close-] NODE.TEXT { label: IName; color: #303070; }
  }
  
  [MAG suburb-] {
    [TYPE highway_trunk_link] {
-     [SIZE 18m 0.4mm:3px<] {
-       WAY#outline { color: darken(@trunkColor,0.4); width: 18m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @trunkColor; width: 18m;}
+     [SIZE @trunkWidth 0.4mm:3px<] {
+       WAY#outline { color: darken(@trunkColor,0.4); width: @trunkWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @trunkColor; width: @trunkWidth;}
      }
-     [SIZE 18m <0.4mm:3px] WAY { color: lighten(@trunkColor,0.3); displayWidth: 0.4mm;}
+     [SIZE @trunkWidth <0.4mm:3px] WAY { color: lighten(@trunkColor,0.3); displayWidth: 0.4mm;}
    }
 
    [TYPE highway_primary_link] {
-     [SIZE 14m 0.4mm:3px<] {
-       WAY#outline { color: darken(@primaryColor,0.4); width: 14m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @primaryColor; width: 14m;}
+     [SIZE @primaryWidth 0.4mm:3px<] {
+       WAY#outline { color: darken(@primaryColor,0.4); width: @primaryWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @primaryColor; width: @primaryWidth;}
      }
-     [SIZE 14m <0.4mm:3px] WAY { color: lighten(@primaryColor,0.3); displayWidth: 0.4mm;}
+     [SIZE @primaryWidth <0.4mm:3px] WAY { color: lighten(@primaryColor,0.3); displayWidth: 0.4mm;}
    }
 
    [TYPE highway_secondary_link] {
-     [SIZE 12m 0.25mm:3px<] {
-       WAY#outline { color: darken(@secondaryColor,0.4); width: 12m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @secondaryColor; width: 12m;}
+     [SIZE @secondaryWidth 0.25mm:3px<] {
+       WAY#outline { color: darken(@secondaryColor,0.4); width: @secondaryWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @secondaryColor; width: @secondaryWidth;}
      }
-     [SIZE 12m <0.25mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm;}
+     [SIZE @secondaryWidth <0.25mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm;}
    }
 
    [TYPE highway_tertiary_link] {
-     [SIZE 10m 0.25mm:3px<] {
-       WAY#outline { color: darken(@secondaryColor,0.4); width: 10m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @secondaryColor; width: 10m;}
+     [SIZE @tertiaryWidth 0.25mm:3px<] {
+       WAY#outline { color: darken(@secondaryColor,0.4); width: @tertiaryWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @secondaryColor; width: @tertiaryWidth;}
      }
-     [SIZE 10m <0.25mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm; }
+     [SIZE @tertiaryWidth <0.25mm:3px] WAY { color: #fdd654; displayWidth: 0.25mm; }
    }
 
    [TYPE highway_road] {
-     [SIZE 8m 0.1mm:3px<] {
-       WAY#outline { color: @roadBColor; width: 8m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @roadColor; width: 8m;}
+     [SIZE @roadWidth 0.1mm:3px<] {
+       WAY#outline { color: @roadBColor; width: @roadWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @roadColor; width: @roadWidth;}
      }
-     [SIZE 8m <0.1mm:3px] WAY { color: #888888; displayWidth: 0.1mm;}
+     [SIZE @roadWidth <0.1mm:3px] WAY { color: #888888; displayWidth: 0.1mm;}
    }
 
    [TYPE highway_unclassified,
          highway_residential] {
-     [SIZE 8m 0.1mm:3px<] {
-       WAY#outline { color: @roadBColor; width: 8m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @roadColor; width: 8m;}
+     [SIZE @wayWidth 0.1mm:3px<] {
+       WAY#outline { color: @roadBColor; width: @wayWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @roadColor; width: @wayWidth;}
      }
-     [SIZE 8m <0.1mm:3px] WAY { color: #806060; displayWidth: 0.1mm; }
+     [SIZE @wayWidth <0.1mm:3px] WAY { color: #806060; displayWidth: 0.1mm; }
 
      AREA { color: @roadColor;}
      AREA.BORDER { color: @roadBColor; width: 0.1mm;}
@@ -1194,22 +786,22 @@ STYLE
 
  [MAG closer-] {
    [TYPE highway_service] {
-     [SIZE 8m 0.1mm:3px<] {
-       WAY#outline { color: @roadBColor; width: 8m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @roadColor; width: 8m;}
+     [SIZE @wayWidth 0.1mm:3px<] {
+       WAY#outline { color: @roadBColor; width: @wayWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @roadColor; width: @wayWidth;}
      }
-     [SIZE 8m <0.1mm:3px] WAY { color: #999999; displayWidth: 0.1mm;}
+     [SIZE @wayWidth <0.1mm:3px] WAY { color: #999999; displayWidth: 0.1mm;}
 
      AREA { color: @roadColor; }
      AREA.BORDER { color: @roadBColor; width: 0.1mm; }
    }
 
    [TYPE highway_living_street] {
-     [SIZE 8m 0.1mm:3px<] {
-       WAY#outline { color: @roadBColor; width: 8m; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
-       WAY { color: @livingStreetColor; width: 8m;}
+     [SIZE @wayWidth 0.1mm:3px<] {
+       WAY#outline { color: @roadBColor; width: @wayWidth; displayWidth: 0.5mm; priority: -1; joinCap: butt; }
+       WAY { color: @livingStreetColor; width: @wayWidth;}
      }
-     [SIZE 8m <0.1mm:3px] WAY { color: @livingStreetColor; displayWidth: 0.1mm;}
+     [SIZE @wayWidth <0.1mm:3px] WAY { color: @livingStreetColor; displayWidth: 0.1mm;}
    }
 
 
@@ -1236,13 +828,13 @@ STYLE
 
  [MAG closer-] {
    [TYPE highway_pedestrian] {
-     [SIZE 8m 0.1mm:3px<] WAY {color: @pedestrianColor; width: 8m; }
-     [SIZE 8m <0.1mm:3px] WAY {color: @pedestrianColor; displayWidth: 0.1mm; }
+     [SIZE @wayWidth 0.1mm:3px<] WAY {color: @pedestrianColor; width: @wayWidth; }
+     [SIZE @wayWidth <0.1mm:3px] WAY {color: @pedestrianColor; displayWidth: 0.1mm; }
    }
 
    [TYPE highway_bus_guideway] WAY {color: #90570c; displayWidth: 0.1mm; }
 
-   [TYPE highway_motorway, highway_motorway_link SIZE 20m 0.45mm:3px<] {
+   [TYPE highway_motorway, highway_motorway_link SIZE @motorwayWidth 0.45mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@motorwayColor,0.3);}
@@ -1254,7 +846,7 @@ STYLE
      }
    }
 
-   [TYPE highway_trunk, highway_trunk_link, highway_motorway_trunk SIZE 18m 0.4mm:3px<] {
+   [TYPE highway_trunk, highway_trunk_link, highway_motorway_trunk SIZE @trunkWidth 0.4mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@trunkColor,0.3);}
@@ -1266,7 +858,7 @@ STYLE
      }
    }
 
-   [TYPE highway_primary, highway_primary_link, highway_motorway_primary SIZE 14m 0.4mm:3px<] {
+   [TYPE highway_primary, highway_primary_link, highway_motorway_primary SIZE @primaryWidth 0.4mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@primaryColor,0.3);}
@@ -1278,7 +870,7 @@ STYLE
      }
    }
 
-   [TYPE highway_secondary, highway_secondary_link SIZE 12m 0.25mm:3px<] {
+   [TYPE highway_secondary, highway_secondary_link SIZE @secondaryWidth 0.25mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@secondaryColor,0.3);}
@@ -1290,7 +882,7 @@ STYLE
      }
    }
 
-   [TYPE highway_tertiary SIZE 10m 0.25mm:3px<] {
+   [TYPE highway_tertiary SIZE @tertiaryWidth 0.25mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@tertiaryColor,0.3);}
@@ -1302,7 +894,7 @@ STYLE
      }
    }
 
-   [TYPE highway_road SIZE 8m 0.1mm:3px<] {
+   [TYPE highway_road SIZE @roadWidth 0.1mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@roadColor,0.3);}
@@ -1314,7 +906,7 @@ STYLE
      }
    }
 
-   [TYPE highway_unclassified, highway_residential SIZE 8m 0.1mm:3px<] {
+   [TYPE highway_unclassified, highway_residential SIZE @wayWidth 0.1mm:3px<] {
      // Better rendering?
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
@@ -1326,7 +918,7 @@ STYLE
      }
    }
 
-   [TYPE highway_service SIZE 8m 0.1mm:3px<] {
+   [TYPE highway_service SIZE @wayWidth 0.1mm:3px<] {
        // Better rendering?
        [FEATURE Tunnel] {
          WAY#outline { dash: 0.5,0.5; }
@@ -1338,7 +930,7 @@ STYLE
      }
    }
 
-   [TYPE highway_living_street SIZE 8m 0.1mm:3px<] {
+   [TYPE highway_living_street SIZE @wayWidth 0.1mm:3px<] {
      [FEATURE Tunnel] {
        WAY#outline { dash: 0.5,0.5; }
        WAY { color: lighten(@livingStreetColor,0.3);}
@@ -1388,8 +980,8 @@ STYLE
      }
    }
    [TYPE highway_pedestrian] {
-     [SIZE 8m 0.1mm:3px<] WAY {color: @pedestrianColor; width: 8m; }
-     [SIZE 8m <0.1mm:3px] WAY {color: @pedestrianColor; displayWidth: 0.1mm; }
+     [SIZE @wayWidth 0.1mm:3px<] WAY {color: @pedestrianColor; width: @wayWidth; }
+     [SIZE @wayWidth <0.1mm:3px] WAY {color: @pedestrianColor; displayWidth: 0.1mm; }
 
      [FEATURE Bridge] {
        WAY#lbridge {color: @bridgeColor; displayWidth: 0.2mm; displayOffset: -0.3mm;}
@@ -1671,7 +1263,7 @@ STYLE
 
      [TYPE railway_tram] WAY {color: #444444; displayWidth: 0.25mm; width: 5m;}
      [TYPE railway_light_rail] WAY {color: #b3b3b3; displayWidth: 0.25mm; width: 5m;}
-     [TYPE railway_narrow_gauge, railway_preserved] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
+     [TYPE railway_narrow_gauge, railway_preserved, railway_monorail] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
      [TYPE railway_funicular] WAY {color: #b3b3b3; displayWidth: 0.20mm; width: 4m;}
 
      [TYPE railway_subway] {
@@ -1720,12 +1312,12 @@ STYLE
    }
 
    [MAG close-] {
-     [TYPE railway_station] NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; priority: @labelPrioRailwayStation; } 
+     [TYPE railway_station] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; priority: @labelPrioRailwayStation; }
    }
    
    [MAG veryClose-] {
-     [TYPE railway_halt] NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; priority: @labelPrioRailwayHalt;}
-     [TYPE railway_tram_stop] NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; priority: @labelPrioTramHalt; }
+     [TYPE railway_halt] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; priority: @labelPrioRailwayHalt;}
+     [TYPE railway_tram_stop] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; priority: @labelPrioTramHalt; }
    }
 
    [MAG @labelPathsMag-] {
@@ -1864,7 +1456,7 @@ STYLE
        AREA.BORDER#solid { color: lighten(@natureReserveBorderColor, 0.3); width: 1.0mm; }
      }
      [MAG stateOver-detail]{
-       AREA.TEXT { label: Name.name; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
+       AREA.TEXT { label: IName; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
      }
      // Semiransparent overlay just for low zoom
      [MAG stateOver-proximity]{
@@ -1878,7 +1470,7 @@ STYLE
        AREA { color: @natureReserveColor;}
        AREA.BORDER#dashed { color: @natureReserveBorderColor; width: 0.3mm; dash: 6,6; displayOffset: -0.5mm; }
        AREA.BORDER#solid { color: lighten(@natureReserveBorderColor, 0.3); width: 1.0mm; }
-       AREA.TEXT { label: Name.name; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
+       AREA.TEXT { label: IName; priority: @labelPrioNatural; color: @natureReserveLabelColor; autoSize: true;}
      }
 
      [TYPE leisure_pitch,
@@ -1921,247 +1513,7 @@ STYLE
            leisure_playground,
            leisure_garden,
            leisure_common,
-           leisure_ice_rink] AREA.TEXT { label: Name.name; priority: @labelPrioLeisure; autoSize: true; color: @labelColor; }
-   }
- }
- 
-
- // -------------------------------------------------------
- //
- // Man made:
- // amenity, tourism, history, military, power, barrier
- //
-
- [MAG city-] {
-   [TYPE tourism_theme_park,
-         tourism_zoo,
-         historic_archaeological_site,
-         historic_battlefield] AREA { color: @tourismColor; }
- }
-
- [MAG city-] {
-
-   [TYPE military_airfield,
-         military_danger_area,
-         military_range,
-         military_naval_base] AREA { color: #f59897; }
-
-   [TYPE amenity_grave_yard] AREA { color: @amenityGraveYardColor; }
- }
-
- [MAG detail-] {
-   [TYPE amenity_grave_yard] AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.8;}
- }
-
- [MAG detail-] {
-   [TYPE tourism_alpine_hut,
-         tourism_camp_site,
-         tourism_caravan_site,
-         tourism_attraction,
-         tourism_artwork,
-         tourism_chalet,
-         tourism_guest_house,
-         tourism_hostel,
-         tourism_hotel,
-         tourism_information,
-         tourism_motel,
-         tourism_museum,
-         tourism_picnic_site,
-         historic_castle,
-         historic_monument,
-         historic_memorial,
-         historic_ruins,
-         historic_wreck] AREA { color: @tourismColor; }
-
-   [TYPE power_generator] AREA { color: #bca9a9; }
-
-   // Special amenities
-   [TYPE amenity_post_office] AREA { color: @postColor; }
-
-   [TYPE amenity_hospital] {
-     AREA { color: @hospitalColor;}
-     AREA.BORDER { color: @hospitalBorderColor; width: 0.1mm; }
-   }
-
-   [TYPE amenity_taxi] AREA { color: #d2d2d2; }
-
-   // (Major) Amenities without special color
-   [TYPE amenity,
-         amenity_bank,
-         amenity_cafe,
-         amenity_fast_food,
-         amenity_fuel,
-         amenity_kindergarten,
-         amenity_library,
-         amenity_restaurant,
-         amenity_school] AREA { color: @amenityColor; }
- }
-
- [MAG close-] {
-   // (Minor) Amenities without special color
-   [TYPE amenity_atm,
-         amenity_recycling] AREA { color: @amenityColor; }
-
-   [TYPE man_made_pier] {
-     [SIZE 5m 0.1mm:3px<] WAY {color: #ffffff; width: 5.0m;}
-     [SIZE 5m <0.1mm:3px] WAY {color: #ffffff; displayWidth: 0.1mm;}
-     AREA { color: #ffffff; }
-   }
-
-   [TYPE railway_station] NODE.ICON { symbol: railway_station; }
- }
-
- [MAG closer-] {
-   [TYPE amenity_hospital,
-         amenity_hospital_building] {
-     AREA.ICON { symbol: amenity_hospital; }
-     NODE.ICON { symbol: amenity_hospital; }
-   }
-
-   [TYPE amenity_parking_building] {
-     NODE.ICON { symbol: amenity_parking; name: parking; }
-     AREA.ICON { name: parking;}
-   }
- 
-   [TYPE amenity_parking] {
-     NODE.ICON { symbol: amenity_parking; name: parking; }
-     AREA.ICON { name: parking;}
-   }
-
-   [TYPE amenity_parking] {
-     AREA { color: @parkingColor;}
-     AREA.BORDER { color: @parkingBorderColor; width: 0.1mm; }
-   }
-
-   [TYPE railway_station] AREA.ICON { symbol: railway_station; }
-
-
-   [TYPE barrier_wall] WAY {color: @wallColor; displayWidth: 0.1mm; width: 0.5m;}
-   [TYPE barrier_retaining_wall] WAY {color: lighten(@wallColor, 0.5); displayWidth: 0.12mm; width: 0.5m;}
-
-   [TYPE barrier_city_wall] WAY {color: @wallColor; displayWidth: 0.1mm; width: 0.5m;}
-   [TYPE barrier_city_wall] WAY#decor {color: @wallColor; 
-             dash: 1,5; displayOffset: 0.09mm; offset: 0.5m; joinCap: butt; endCap: butt;
-             displayWidth: 0.1mm; width: 0.5m;
-   }
-   [TYPE barrier_wall] {
-     AREA {color: lighten(@wallColor, 0.5); }
-     AREA.BORDER {color: @wallColor; width: 0.1mm; }
-   }
-
-   [TYPE barrier_retaining_wall] {
-     AREA {color: lighten(@wallColor, 0.5); }
-     AREA.BORDER {color: @wallColor; width: 0.1mm; }
-   }
-
-   [TYPE barrier_city_wall] {
-     AREA {color: lighten(@wallColor, 0.5);}
-     AREA.BORDER {color: @wallColor; width: 0.3mm; }
-   }
-
-   [TYPE tourism_museum, tourism_museum_building] {
-     NODE.ICON { name: museum; }
-     AREA.ICON { name: museum; }
-   }
-   [TYPE historic_castle, historic_castle_building] {
-     NODE.ICON { name: castle; }
-     AREA.ICON { name: castle; }
-   }
-   [TYPE amenity_ferry_terminal] {
-     NODE.ICON { name: ferry; }
-     AREA.ICON { name: ferry; }
-   }
-   [TYPE amenity_fuel, amenity_fuel_building] {
-     NODE.ICON { name: fuel; }
-     AREA.ICON { name: fuel; }
-   }
-   [TYPE amenity_charging_station] {
-     NODE.ICON { symbol: amenity_charging_station; name: charging_station; }
-   }
- }
-
- [MAG veryClose-] {
-   [TYPE amenity_pharmacy] NODE.ICON { symbol: amenity_pharmacy;}
-
-   [TYPE amenity_post_box] NODE.ICON { symbol: amenity_post_box; name: post_box; }
-
-   [TYPE amenity_post_office] NODE.ICON { symbol: amenity_post_office; name: post_office;}
-
-   [TYPE amenity_drinking_water] NODE.ICON { symbol: amenity_drinking_water; }
-
-   // Amenities without special color and icon
-   [TYPE amenity,
-         amenity_bank,
-         amenity_kindergarten,
-         amenity_library,
-         amenity_school] {
-         NODE.ICON { symbol: amenity; }
-   }
-
-   // these types are too dense in big cities, lets show its icons from veryClose [16]
-   [TYPE amenity_restaurant] NODE.ICON { name: restaurant; }
-   [TYPE amenity_restaurant_building] AREA.ICON { name: restaurant; }
-   [TYPE amenity_fast_food] NODE.ICON { name: fastfood;}
-   [TYPE amenity_fast_food_building] AREA.ICON { name: fastfood;}
-   [TYPE amenity_cafe] NODE.ICON { name: cafe;}
-   [TYPE amenity_cafe_building] AREA.ICON { name: cafe;}
-   [TYPE amenity_recycling] NODE.ICON { name: recycling;}
-
-   [TYPE amenity_bar] {
-     NODE.ICON { name: bar; }
-     AREA.ICON { name: bar; }
-   }
-   [TYPE amenity_pub] {
-     NODE.ICON { name: pub; }
-     AREA.ICON { name: pub; }
-   }
-   [TYPE amenity_drinking_water] {
-     NODE.ICON { name: drinking_water; }
-     AREA.ICON { name: drinking_water; }
-   }
-   [TYPE tourism_artwork] {
-     NODE.ICON { name: artwork; }
-     AREA.ICON { name: artwork; }
-   }
-   [TYPE tourism_hotel, tourism_hotel_building] {
-     NODE.ICON { name: hotel; }
-     AREA.ICON { name: hotel; }
-   }
-   [TYPE tourism_motel, tourism_motel_building] {
-     NODE.ICON { name: motel; }
-     AREA.ICON { name: motel; }
-   }
-   [TYPE tourism_hostel, tourism_hostel_building] {
-     NODE.ICON { name: hostel; }
-     AREA.ICON { name: hostel; }
-   }
-   [TYPE historic_monument, historic_monument_building] {
-     NODE.ICON { name: monument; }
-     AREA.ICON { name: monument; }
-   }
-   [TYPE historic_memorial, historic_memorial_building] {
-     NODE.ICON { name: memorial; }
-     AREA.ICON { name: memorial; }
-   }
-   [TYPE amenity_toilets] {
-     NODE.ICON { name: toilets; }
-     AREA.ICON { name: toilets; }
-   }
-   [TYPE amenity_atm] {
-     NODE.ICON { name: atm; }
-     AREA.ICON { name: atm; }
-   }
-   [TYPE leisure_playground] {
-     NODE.ICON { name: playground; }
-     AREA.ICON { name: playground; }
-   }
-   [TYPE amenity_pharmacy] {
-     NODE.ICON { symbol: amenity_pharmacy;}
-   }
-
-   [TYPE barrier_fence] {
-      WAY {color: #aaaaaa; displayWidth: 0.1mm;}
-      AREA.BORDER {color: #aaaaaa; width: 0.1mm;}
+           leisure_ice_rink] AREA.TEXT { label: IName; priority: @labelPrioLeisure; autoSize: true; color: @labelColor; }
    }
  }
  
@@ -2295,21 +1647,21 @@ STYLE
  }
 
  [MAG @labelSpecialBuildingMag-] {
-   [TYPE railway_station] AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; }
+   [TYPE railway_station] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; }
 
    [TYPE christian_church_building,
          christian_church] {
-     AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @churchLabelColor; size: 0.9; priority: @labelPrioSpecialBuilding;}
+     AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @churchLabelColor; size: 0.9; priority: @labelPrioSpecialBuilding;}
      AREA.ICON {symbol: christian_church_cross; }
 
-     NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @churchLabelColor; size: 0.9; priority: @labelPrioSpecialBuilding;}
+     NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @churchLabelColor; size: 0.9; priority: @labelPrioSpecialBuilding;}
      NODE.ICON {symbol: christian_church_cross; }
    }
 
    [TYPE amenity_hospital_building,
          amenity_hospital] {
-     NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: #da0092; size: 1.0; priority: @labelPrioSpecialBuilding;}
-     AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: #da0092; size: 1.0; priority: @labelPrioSpecialBuilding;}
+     NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: #da0092; size: 1.0; priority: @labelPrioSpecialBuilding;}
+     AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: #da0092; size: 1.0; priority: @labelPrioSpecialBuilding;}
    }
  }
 
@@ -2321,35 +1673,35 @@ STYLE
      }
 
      [TYPE building] {
-       AREA.TEXT#buildingName { label: Name.name; color: @buildingLabelColor; size: 0.7; priority: @labelPrioBuilding; }
+       AREA.TEXT#buildingName { label: IName; color: @buildingLabelColor; size: 0.7; priority: @labelPrioBuilding; }
      }
 
      [TYPE military_bunker,
-           military_barracks] AREA.TEXT { label: Name.name; priority: @labelPrioLeisure; color: @labelColor; }
+           military_barracks] AREA.TEXT { label: IName; priority: @labelPrioLeisure; color: @labelColor; }
 
      [TYPE leisure_building,
-           sport_building] AREA.TEXT { label: Name.name; priority: @labelPrioSpecialBuilding; color: @labelColor; }
+           sport_building] AREA.TEXT { label: IName; priority: @labelPrioSpecialBuilding; color: @labelColor; }
 
      [TYPE leisure_pitch,
-           leisure_fitness_station] AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @pitchLabelColor; size: 0.9;}
+           leisure_fitness_station] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @pitchLabelColor; size: 0.9;}
 
      [TYPE amenity_school_building,
-           amenity_school] AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.9; priority: @labelPrioMajorBuilding; }
+           amenity_school] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.9; priority: @labelPrioMajorBuilding; }
 
 
      [TYPE shop, shop_building] {
-       NODE.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @shopLabelColor; size: 0.8; priority: @labelPrioShop;}
-       AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @shopLabelColor; size: 0.8; priority: @labelPrioShop;}
+       NODE.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @shopLabelColor; size: 0.8; priority: @labelPrioShop;}
+       AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @shopLabelColor; size: 0.8; priority: @labelPrioShop;}
      }
 
-     [TYPE landuse_farmyard_building] AREA.TEXT { label: Name.name; priority: @labelPrioLanduse; color: @labelColor; }
+     [TYPE landuse_farmyard_building] AREA.TEXT { label: IName; priority: @labelPrioLanduse; color: @labelColor; }
 
      [TYPE leisure_building,
-           sport_building] AREA.TEXT { label: Name.name;  priority: @labelPrioSpecialBuilding; color: @labelColor; }
+           sport_building] AREA.TEXT { label: IName;  priority: @labelPrioSpecialBuilding; color: @labelColor; }
 
      [GROUP tourism] {
-       NODE.TEXT { label: Name.name; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding; }
-       AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @tourismLabelColor; size: 0.9;  priority: @labelPrioMajorBuilding; }
+       NODE.TEXT { label: IName; style: emphasize; color: @tourismLabelColor; size: 0.9; priority: @labelPrioMajorBuilding; }
+       AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @tourismLabelColor; size: 0.9;  priority: @labelPrioMajorBuilding; }
      }
 
      [TYPE power_sub_station,
@@ -2361,8 +1713,8 @@ STYLE
            historic_memorial,
            historic_ruins,
            historic_wreck] {
-       NODE.TEXT { label: Name.name; style: emphasize; color: @labelColor; size: 0.9;  priority: @labelPrioMajorBuilding;}
-       AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.9;  priority: @labelPrioMajorBuilding;}
+       NODE.TEXT { label: IName; style: emphasize; color: @labelColor; size: 0.9;  priority: @labelPrioMajorBuilding;}
+       AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.9;  priority: @labelPrioMajorBuilding;}
      }
 
      [TYPE amenity,
@@ -2386,15 +1738,15 @@ STYLE
            amenity_school_building,
            amenity_school,
            amenity_taxi] {
-       NODE.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
-       AREA.TEXT { label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
+       NODE.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
+       AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
      }
 
      [TYPE amenity_charging_station] {
        NODE.TEXT { label: Operator.name; style: emphasize; emphasizeColor: @emphasizeColor; color: @amenityLabelColor; size: 0.9; priority: @labelPrioAmenity; }
      }
 
-     [TYPE amenity_pharmacy] NODE.TEXT {label: Name.name; style: emphasize; emphasizeColor: @emphasizeColor; color: #da0092; size: 0.9; priority: @labelPrioMajorBuilding;}
+     [TYPE amenity_pharmacy] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: #da0092; size: 0.9; priority: @labelPrioMajorBuilding;}
 
      [TYPE amenity_post_office,
            amenity_post_office_building] {
