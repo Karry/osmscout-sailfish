@@ -182,7 +182,7 @@ Page {
 
     DBusAdaptor {
         // test:
-        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:test
+        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:geo:37.786,-122.399
         // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openPage string:Downloads string:nothing
 
         service: "cz.karry.osmscout.OSMScout"
