@@ -31,6 +31,8 @@ import ".." // Global singleton
 Page {
     id: navigationInstructions
 
+    property bool routeReady: Global.navigationModel.route != null
+
     SilicaListView {
         id: stepsView
         model: Global.navigationModel
