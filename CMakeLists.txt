@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.24.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.25.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
