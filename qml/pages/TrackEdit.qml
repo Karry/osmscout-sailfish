@@ -115,7 +115,6 @@ Dialog {
         spacing: trackEditDialog.isPortrait ? Theme.paddingLarge : 0
     }
 
-
     Slider{
         id: positionSlider
         width: parent.width
@@ -136,6 +135,31 @@ Dialog {
 
         onValueChanged: {
             trackEditDialog.position = Math.round(value);
+        }
+    }
+
+    IconButton{
+        id: prevIcon
+        icon.source: "image://theme/icon-m-left"
+        enabled: trackEditDialog.position > 0
+        anchors{
+            left: parent.left
+            bottom: parent.bottom
+        }
+        onClicked: {
+            trackEditDialog.position--;
+        }
+    }
+    IconButton{
+        id: nextIcon
+        icon.source: "image://theme/icon-m-right"
+        enabled: trackEditDialog.position < trackModel.pointCount
+        anchors{
+            right: parent.right
+            bottom: parent.bottom
+        }
+        onClicked: {
+            trackEditDialog.position++;
         }
     }
 
