@@ -38,7 +38,7 @@ Dialog{
     acceptDestination: trackDialog.acceptPage
     acceptDestinationAction: PageStackAction.Pop
 
-    canAccept: !trackModel.loading
+    canAccept: !trackModel.loading && trackModel.pointCount > 0
     onAccepted: {
         selectTrack(trackModel.boundingBox, trackId);
     }
