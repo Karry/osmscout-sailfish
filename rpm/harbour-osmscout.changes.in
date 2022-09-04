@@ -556,3 +556,4 @@
 - fix step distances in navigation itinerary
 - refuse to show track without nodes
 - add buttons for precise track point selection
+- fix GPX, waypoint and basemap rendering without offline database (or disabled offline maps)
