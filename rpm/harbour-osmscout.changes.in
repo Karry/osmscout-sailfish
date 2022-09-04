@@ -557,4 +557,4 @@
 - refuse to show track without nodes
 - add buttons for precise track point selection
 - fix GPX, waypoint and basemap rendering without offline database (or disabled offline maps)
-- load user defined online map providers from ~/.local/share/cz.karry.osmscout/OSMScout/online-tile-providers.json
+- load user defined online map providers from user home (~/.local/share/cz.karry.osmscout/OSMScout/online-tile-providers.json)
