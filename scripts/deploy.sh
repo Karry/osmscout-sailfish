@@ -42,7 +42,7 @@ elif [ "$TYPE" = "aarch64" ]; then
 elif [ "$TYPE" = "armv7hl" ]; then
   export ARCHITECTURE=armv7hl
 else
-  echo "Uknown build type: $TYPE" > &2
+  echo "Uknown build type: $TYPE" 1>&2
   exit 1
 fi
 
