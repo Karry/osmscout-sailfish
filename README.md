@@ -40,7 +40,3 @@ Any help is welcome!
  - [Howto build for Sailfish OS](https://github.com/Karry/osmscout-sailfish/wiki/Howto-build-for-Sailfish-OS)
  - [Local development](https://github.com/Karry/osmscout-sailfish/wiki/Local-development)
  - [Howto create translation](https://github.com/Karry/osmscout-sailfish/wiki/Howto-create-translation)
-
-## Translations
-
-[![Translate on Transifex](https://www.transifex.com/projects/p/osm-scout/resource/ents/chart/image_png/)](https://www.transifex.com/osm-scout/osm-scout)
