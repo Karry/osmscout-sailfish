@@ -1,6 +1,10 @@
 OST
 
 /*
+  Please see http://libosmscout.sourceforge.net/documentation/typedef/ for a detailed
+  description of the format of this file. The documentation below contains only the
+  most important information and is not a complete description.
+
   Types:
     A type can be support for any of the following types:
     * NODE
@@ -60,6 +64,10 @@ OST
     IGNORESEALAND:
       Ignore this type for calculation of land masses (because objects of this type can
       occur on sea, too, and thus have no distinguishing character).
+    LANES[bidirectional oneway]:
+      Default value for the number of lanes, if the way is either bidirectional or
+      oneway. Default value will be overwritten during parsing of concrete ways by the
+      actual values.
     IGNORE:
       Ignore objects of this type
 */
@@ -162,6 +170,10 @@ GRADES
     "rocks"
   }
 
+/*
+  Allows to give features a localized name. This can be helpful for
+  UI visualisation.
+*/
 FEATURES
   FEATURE Address
   DESC
@@ -431,12 +443,7 @@ TYPES
 
   TYPE highway_mini_roundabout
     = NODE ("highway"=="mini_roundabout")
-      {Name, NameAlt}
-
-  TYPE highway_bus_stop
-    = NODE ("highway"=="bus_stop" OR (!("bus" IN ["no", "false", "0"]) AND ("public_transport" IN ["platform", "stop_position"])))
-      {Name, NameAlt}
-      POI
+      {Name, NameAlt, ClockwiseDirection}
 
   TYPE highway_turning_cycle
     = NODE ("highway"=="turning_cycle")
@@ -457,7 +464,7 @@ TYPES
       PATH[CAR]
 
   TYPE highway_street_lamp
-    IGNORE // Too many for mobile offline map?
+    // Too many for mobile offline map?
     = NODE ("highway"=="street_lamp")
 
   // Since rendering of speed cameras is not allowed everwhere, it is disabled by default
@@ -610,6 +617,14 @@ TYPES
   TYPE railway_turntable
     = NODE AREA ("railway"=="turntable")
       {Bridge, Tunnel}
+
+  //
+  // Other public transport (not railway)
+  //
+
+  TYPE highway_bus_stop
+    = NODE ("highway"=="bus_stop" OR (!("bus" IN ["no", "false", "0"]) AND ("public_transport" IN ["platform", "stop_position"])))
+      {Name, NameAlt}
 
   TYPE public_transport_platform
      = WAY AREA ("public_transport"=="platform" OR
@@ -1131,7 +1146,6 @@ TYPES
       GROUP amenity, building
 
   TYPE amenity_bench
-    IGNORE // Too many for mobile?
     = NODE ("amenity"=="bench")
       GROUP amenity
 
@@ -1363,12 +1377,10 @@ TYPES
       GROUP amenity
 
   TYPE amenity_waste_disposal
-    IGNORE // Too many for mobile?
     = NODE ("amenity"=="waste_disposal")
       GROUP amenity
 
   TYPE amenity_waste_basket
-    IGNORE // Too many for mobile?
     = NODE ("amenity"=="waste_basket")
       GROUP amenity
 
@@ -1388,23 +1400,86 @@ TYPES
       POI
       GROUP amenity
 
-  // Churches
+  TYPE amenity_shelter
+    = NODE ("amenity"=="shelter")
+      GROUP amenity
+
+  // Religious
+  TYPE temple_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "building"=="temple")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE shrine_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "building"=="shrine")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
   TYPE christian_church_building
     = AREA ("amenity"=="place_of_worship" AND
             "religion"=="christian" AND
-            EXISTS "building" AND !("building" IN ["no","false","0"]))
+            "building"=="church")
       {Name, NameAlt}
       ADDRESS POI
-      GROUP routingPOI
+      GROUP religious, routingPOI
 
-
+  // old type name - for green tests
   TYPE christian_church
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="church")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE christian_cathedral_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="cathedral")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE christian_chapel_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="chapel")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE christian_worship
     = NODE ("amenity"=="place_of_worship" AND
             "religion"=="christian")
       {Name, NameAlt}
       ADDRESS POI
-      GROUP routingPOI
+      GROUP religious, routingPOI
 
+  TYPE jewish_synagogue_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="jewish" AND
+            "building"=="synagogue")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE muslim_mosque_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="muslin" AND
+            "building"=="mosque")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE worship_building
+    = AREA ("amenity"=="place_of_worship" AND EXISTS "building" AND !("building" IN ["no","false","0"]))
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
 
   // Everything else is just an 'amenity' for now
   TYPE amenity_building
@@ -1423,19 +1498,33 @@ TYPES
   // Shops
   //
 
-  // Everything else is just an 'amenity' for now
   TYPE shop_building
     = AREA (EXISTS "shop" AND EXISTS "building" AND !("building" IN ["no","false","0"]))
       {Name, NameAlt}
       ADDRESS
-      GROUP amenity, building, routingPOI
+      GROUP shop, building, routingPOI
 
-  // Currently all shops are the same...
   TYPE shop
     = NODE AREA (EXISTS "shop")
       {Name, NameAlt}
       ADDRESS
-      GROUP amenity, routingPOI
+      GROUP shop, routingPOI
+
+  //
+  // Office
+  //
+
+  TYPE office_building
+    = AREA (EXISTS "office" AND EXISTS "building" AND !("building" IN ["no","false","0"]))
+      {Name, NameAlt}
+      ADDRESS
+      GROUP office, building, routingPOI
+
+  TYPE office
+    = NODE AREA (EXISTS "office")
+      {Name, NameAlt}
+      ADDRESS
+      GROUP office, routingPOI
 
   //
   // Tourism
@@ -1536,6 +1625,11 @@ TYPES
       ADDRESS POI
       GROUP tourism
 
+  TYPE tourism_information_guidepost
+    = NODE ("tourism"=="information" AND "information"=="guidepost")
+      {Name, NameAlt}
+      GROUP tourism
+
   TYPE tourism_hostel_building
     = AREA ("tourism"=="hostel" AND EXISTS "building" AND !("building" IN ["no","false","0"]))
       {Name, NameAlt}
@@ -1559,11 +1653,6 @@ TYPES
       {Name, NameAlt}
       ADDRESS POI
       GROUP tourism, routingPOI
-
-  TYPE tourism_information_guidepost
-    = NODE ("tourism"=="information" AND "information"=="guidepost")
-      {Name, NameAlt}
-      GROUP tourism
 
   TYPE tourism_information_building
     = AREA ("tourism"=="information" AND EXISTS "building" AND !("building" IN ["no","false","0"]))
@@ -1708,7 +1797,7 @@ TYPES
       GROUP historic, building, routingPOI
 
   TYPE historic
-    = NODE AREA (EXISTS "historic" AND !("historic" IN ["citywalls"]))
+    = NODE AREA (EXISTS "historic" AND !("historic" IN ["citywalls"]) AND !("barrier"=="city_wall"))
       {Name, NameAlt}
       ADDRESS POI
       GROUP historic
@@ -2483,5 +2572,4 @@ TYPES
 
   TYPE datapolygon
     = AREA (EXISTS "datapolygon")
-
 END
