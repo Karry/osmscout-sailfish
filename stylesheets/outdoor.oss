@@ -364,11 +364,11 @@ SYMBOL cliff
     AREA { color: @cliffColor;}
   }
 
-SYMBOL natural_tree
-  CIRCLE GROUND 0,0 5 {
+SYMBOL GROUND natural_tree
+  CIRCLE 0,0 5 {
     AREA {color: #9acd3250; }
   }
-CIRCLE GROUND 0,0 0.3 {
+  CIRCLE 0,0 0.3 {
     AREA {color: #8b4513; }
   }
 
@@ -612,18 +612,18 @@ SYMBOL small_embankment
       AREA {color: #ffffff; }
     }
 
-  SYMBOL mini_roundabout
-    CIRCLE GROUND 0,0 3 {
+  SYMBOL GROUND mini_roundabout
+    CIRCLE 0,0 3 {
       AREA {color: #8080ff; }
     }
 
-  SYMBOL power_tower
-    RECTANGLE GROUND -1,-1 2 x 2 {
+  SYMBOL GROUND power_tower
+    RECTANGLE -1,-1 2 x 2 {
       AREA.BORDER {color: #404040; width: 0.2mm; }
    }
 
-  SYMBOL power_pole
-    CIRCLE GROUND 0,0 1.0 {
+  SYMBOL GROUND power_pole
+    CIRCLE 0,0 1.0 {
       AREA {color: #404040; }
     }
 
@@ -1774,9 +1774,7 @@ STYLE
      AREA { color: #b89c9c; }
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
- }
 
- [MAG 17-] {
    [TYPE amenity_parking_building] {
      AREA { color: #c4c393; }
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
