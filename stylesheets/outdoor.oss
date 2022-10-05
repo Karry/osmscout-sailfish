@@ -1826,12 +1826,23 @@ STYLE
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
 
-   [TYPE christian_church_building] {
+   [TYPE temple_building,
+         shrine_building,
+         christian_cathedral_building,
+         christian_chapel_building,
+         christian_church_building,
+         jewish_synagogue_building,
+         muslim_mosque_building,
+         worship_building] {
      AREA { color: #888888; }
      AREA.BORDER { color: #666666; width: 0.1mm;}
    }
 
-   [TYPE christian_church, christian_church_building] {
+   [TYPE christian_cathedral_building,
+         christian_chapel_building,
+         christian_worship,
+         christian_church,
+         christian_church_building] {
      NODE.ICON { symbol: christian_church_cross; }
      AREA.ICON { symbol: christian_church_cross; }
    }
@@ -2025,8 +2036,16 @@ STYLE
  }
 
  [MAG block-] {
-   [TYPE christian_church_building,
-         christian_church] {
+   [TYPE temple_building,
+         shrine_building,
+         christian_cathedral_building,
+         christian_chapel_building,
+         christian_worship,
+         christian_church,
+         christian_church_building,
+         jewish_synagogue_building,
+         muslim_mosque_building,
+         worship_building] {
      AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; }
    }
 
