@@ -1610,7 +1610,8 @@ STYLE
        AREA.BORDER { color: @postBuildingBorderColor; width: 0.1mm; }
      }
 
-     [TYPE amenity_building,
+     [TYPE office_building,
+           amenity_building,
            amenity_bank_building,
            amenity_cafe_building,
            amenity_fast_food_building,
@@ -1737,7 +1738,9 @@ STYLE
        AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.9;  priority: @labelPrioMajorBuilding;}
      }
 
-     [TYPE amenity,
+     [TYPE office,
+           office_building,
+           amenity,
            amenity_building,
            amenity_bank_building,
            amenity_bank,

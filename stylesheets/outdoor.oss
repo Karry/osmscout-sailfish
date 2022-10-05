@@ -1788,7 +1788,8 @@ STYLE
    [TYPE amenity_post_office] AREA { color: #f0f0d8; }
 
    [TYPE amenity_taxi] AREA { color: #d2d2d2; }
-   [TYPE amenity_building] {
+   [TYPE amenity_building,
+         office_building] {
       AREA { color: @buildingColor; }
       AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
@@ -2079,7 +2080,9 @@ STYLE
          amenity_post_office,
          amenity_taxi,
          amenity_building,
-         amenity] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.8; }
+         amenity,
+         office,
+         office_building] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.8; }
 
    [TYPE amenity_parking,
          amenity_parking_building] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: #4bb2da; size: 0.8; }

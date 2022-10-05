@@ -380,6 +380,7 @@ STYLE
         muslim_mosque_building,
         worship_building,
         amenity_building,
+        office_building,
         tourism_attraction_building,
         tourism_alpine_hut_building,
         tourism_chalet_building,
