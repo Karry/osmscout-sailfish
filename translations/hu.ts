@@ -160,17 +160,17 @@ collection pull down menu</extracomment>
     <message>
         <source>Crop start</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vágás kezdete</translation>
     </message>
     <message>
         <source>Crop end</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vágás vége</translation>
     </message>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Darabolás</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
@@ -392,7 +392,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sebesség ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
@@ -401,23 +401,23 @@ collection pull down menu</extracomment>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Időtartam</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mozgás időtartama</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mozgás sebessége ⌀</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
@@ -831,7 +831,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Célok: %1</translation>
     </message>
     <message>
         <source>Stop navigation</source>
