@@ -359,6 +359,9 @@ set(QML_FILES
     qml/custom/RouteProfileMenuItem.qml
     qml/custom/SymbolSelector.qml
     qml/custom/SymbolIcon.qml
+    qml/custom/TrackTypeMenuItem.qml
+    qml/custom/TrackTypes.qml
+    qml/custom/TrackTypeIcon.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml

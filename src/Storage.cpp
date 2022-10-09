@@ -1674,7 +1674,7 @@ void Storage::createWaypoint(qint64 collectionId, double lat, double lon, QStrin
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::createTrack(qint64 collectionId, QString name, QString description, bool open)
+void Storage::createTrack(qint64 collectionId, QString name, QString description, bool open, QString type)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
@@ -1688,7 +1688,7 @@ void Storage::createTrack(qint64 collectionId, QString name, QString description
                     QStringOpt(description);
 
   prepareTrackInsert(sqlTrk, collectionId, name, desc,
-                     std::nullopt, "", true,
+                     std::nullopt, type, true,
                      TrackStatistics{}, open);
 
   sqlTrk.exec();
@@ -1778,7 +1778,7 @@ void Storage::editWaypoint(qint64 collectionId, qint64 id, QString name, QString
   loadCollectionDetails(Collection(collectionId));
 }
 
-void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString description)
+void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString description, QString type)
 {
   if (!checkAccess(__FUNCTION__)){
     emit collectionDetailsLoaded(Collection(collectionId), false);
@@ -1786,12 +1786,13 @@ void Storage::editTrack(qint64 collectionId, qint64 id, QString name, QString de
   }
 
   QSqlQuery sql(db);
-  sql.prepare("UPDATE `track` SET `name` = :name, `description` = :description, `modification_time` = :modification_time WHERE `id` = :id AND `collection_id` = :collection_id;");
+  sql.prepare("UPDATE `track` SET `name` = :name, `description` = :description, `modification_time` = :modification_time, `type` = :type WHERE `id` = :id AND `collection_id` = :collection_id;");
   sql.bindValue(":id", id);
   sql.bindValue(":collection_id", collectionId);
   sql.bindValue(":name", name);
   sql.bindValue(":description", description);
   sql.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
+  sql.bindValue(":type", type);
   sql.exec();
 
   if (sql.lastError().isValid()) {

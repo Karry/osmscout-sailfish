@@ -30,6 +30,7 @@ class AppSettings: public QObject {
   Q_PROPERTY(bool     hillShades        READ GetHillShades        WRITE SetHillShades        NOTIFY HillShadesChanged)
   Q_PROPERTY(double   hillShadesOpacity READ GetHillShadesOpacity WRITE SetHillShadesOpacity NOTIFY HillShadesOpacityChanged)
   Q_PROPERTY(QString  lastVehicle       READ GetLastVehicle       WRITE SetLastVehicle       NOTIFY LastVehicleChanged)
+  Q_PROPERTY(QString  lastTrackType     READ GetLastTrackType     WRITE SetLastTrackType     NOTIFY LastTrackTypeChanged)
   Q_PROPERTY(QString  lastCollection    READ GetLastCollection    WRITE SetLastCollection    NOTIFY LastCollectionChanged)
   Q_PROPERTY(QString  lastMapDirectory  READ GetLastMapDirectory  WRITE SetLastMapDirectory  NOTIFY LastMapDirectoryChanged)
   Q_PROPERTY(int      exportAccuracy    READ GetExportAccuracy    WRITE SetExportAccuracy    NOTIFY ExportAccuracyChanged)
@@ -72,6 +73,7 @@ signals:
   void HillShadesChanged(bool);
   void HillShadesOpacityChanged(double);
   void LastVehicleChanged(const QString vehicle);
+  void LastTrackTypeChanged(const QString type);
   void LastCollectionChanged(const QString collectionId);
   void LastMapDirectoryChanged(const QString directory);
   void ExportAccuracyChanged(int);
@@ -114,6 +116,9 @@ public:
 
   QString GetLastVehicle() const;
   void SetLastVehicle(const QString vehicle);
+
+  QString GetLastTrackType() const;
+  void SetLastTrackType(const QString type);
 
   QString GetLastCollection() const;
   void SetLastCollection(const QString id);

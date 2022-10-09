@@ -131,6 +131,19 @@ void AppSettings::SetLastVehicle(const QString vehicle)
   }
 }
 
+QString AppSettings::GetLastTrackType() const
+{
+  return settings.value("lastTrackType", "foot").toString();
+}
+
+void AppSettings::SetLastTrackType(const QString type)
+{
+  if (GetLastTrackType() != type){
+    settings.setValue("lastTrackType", type);
+    emit LastTrackTypeChanged(type);
+  }
+}
+
 QString AppSettings::GetLastCollection() const
 {
   return settings.value("lastCollection", "-1").toString();

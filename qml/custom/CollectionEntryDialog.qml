@@ -38,7 +38,9 @@ Dialog{
     property bool rejectRequested: false
     property bool newCollectionRequested: false
     property bool symbolSelectorVisible: false
+    property bool trackTypeSelectorVisible: false
     property alias symbol: symbolSelector.symbol
+    property alias trackType: trackTypeComboBox.selected
 
     canAccept: nameTextField.text.length > 0 && collectionId.length > 0
 
@@ -154,6 +156,44 @@ Dialog{
             SymbolSelector {
                 id: symbolSelector
                 visible: symbolSelectorVisible
+            }
+
+            ComboBox {
+                id: trackTypeComboBox
+                visible: trackTypeSelectorVisible
+                label: qsTr("Type")
+
+                property string selected: ""
+
+                TrackTypes {
+                    id: trackTypes
+                }
+
+                menu: ContextMenu {
+                    Repeater {
+                        model: trackTypes.types
+                        TrackTypeMenuItem {
+                            type: modelData
+                        }
+                    }
+                }
+                onPressAndHold: {
+                    // improve default ComboBox UX :-)
+                    vehicleComboBox.clicked(mouse);
+                }
+                onCurrentItemChanged: {
+                    selected = trackTypes.types[currentIndex];
+                    console.log("Selected type: "+selected);
+                }
+                onSelectedChanged: {
+                    for (var i in trackTypes.types){
+                        var type = trackTypes.types[i];
+                        console.log("Type: "+type);
+                        if (type==AppSettings.lastTrackType && currentIndex != i){
+                            currentIndex = i;
+                        }
+                    }
+                }
             }
         }
     }
