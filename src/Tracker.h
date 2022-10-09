@@ -38,6 +38,7 @@ class Tracker : public QObject {
   Q_PROPERTY(qint64 trackId READ getTrackId NOTIFY trackingChanged)
   Q_PROPERTY(QString name READ getName NOTIFY trackingChanged)
   Q_PROPERTY(QString description READ getDescription NOTIFY trackingChanged)
+  Q_PROPERTY(QString type READ getType NOTIFY trackingChanged)
 
   Q_PROPERTY(qint64 errors READ getErrors NOTIFY errorsChanged)
   Q_PROPERTY(QString lastError READ getLastError NOTIFY errorsChanged)
@@ -67,13 +68,13 @@ signals:
 
   // for storage
   void openTrackRequested();
-  void createTrackRequest(qint64 collectionId, QString name, QString description, bool open);
+  void createTrackRequest(qint64 collectionId, QString name, QString description, bool open, QString type);
   void closeTrackRequest(qint64 collectionId, qint64 trackId);
   void appendNodesRequest(qint64 trackId,
                           std::shared_ptr<std::vector<osmscout::gpx::TrackPoint>> batch,
                           TrackStatistics statistics,
                           bool createNewSegment);
-  void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description, QString type);
 
 public slots:
   // for Storage
@@ -88,7 +89,7 @@ public slots:
   // slot for UI
   void resumeTrack(QString trackId);
   void closeOpen(QString trackId);
-  void startTracking(QString collectionId, QString trackName, QString trackDescription);
+  void startTracking(QString collectionId, QString trackName, QString trackDescription, QString type);
   void stopTracking();
 
   void locationChanged(const QDateTime &timestamp,
@@ -98,7 +99,7 @@ public slots:
                        bool elevationValid, double elevation,
                        bool verticalAccuracyValid, double verticalAccuracy);
 
-  void editTrack(QString id, QString name, QString description);
+  void editTrack(QString id, QString name, QString description, QString type);
 
 public:
   Tracker();
@@ -138,6 +139,7 @@ public:
 
   QString getName() const;
   QString getDescription() const;
+  QString getType() const;
 
   QDateTime getFrom() const;
   QDateTime getTo() const;

@@ -211,6 +211,10 @@ collection pull down menu</extracomment>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionEntryDialog</name>
@@ -228,6 +232,10 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1515,6 +1523,57 @@ collection pull down menu</extracomment>
     <message>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackTypes</name>
+    <message>
+        <source>Walk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

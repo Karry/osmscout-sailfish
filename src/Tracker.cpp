@@ -156,7 +156,7 @@ void Tracker::closeOpen(QString trackId){
   emit openTrackLoaded("-1", "");
 }
 
-void Tracker::startTracking(QString collectionId, QString trackName, QString trackDescription){
+void Tracker::startTracking(QString collectionId, QString trackName, QString trackDescription, QString type){
 
   bool ok;
   qint64 collId = collectionId.toLongLong(&ok);
@@ -181,7 +181,7 @@ void Tracker::startTracking(QString collectionId, QString trackName, QString tra
 
   emit trackingChanged();
 
-  emit createTrackRequest(collId, trackName, trackDescription, true);
+  emit createTrackRequest(collId, trackName, trackDescription, true, type);
 }
 
 void Tracker::flushBatch(bool createNewSegment){
@@ -322,12 +322,17 @@ void Tracker::onCollectionDetailsLoaded(Collection collection, bool ok) {
           track.description = t.description;
           emit trackingChanged();
         }
+        if (track.type != t.type) {
+          qDebug() << "Track type was changed";
+          track.type = t.type;
+          emit trackingChanged();
+        }
       }
     }
   }
 }
 
-void Tracker::editTrack(QString idStr, QString name, QString description)
+void Tracker::editTrack(QString idStr, QString name, QString description, QString type)
 {
   bool ok;
   qint64 id = idStr.toLongLong(&ok);
@@ -336,7 +341,7 @@ void Tracker::editTrack(QString idStr, QString name, QString description)
     return;
   }
 
-  emit editTrackRequest(track.collectionId, id, name, description);
+  emit editTrackRequest(track.collectionId, id, name, description, type);
 }
 
 void Tracker::onCollectionDeleted(qint64 collectionId) {
@@ -359,6 +364,10 @@ QString Tracker::getName() const {
 
 QString Tracker::getDescription() const {
   return track.description;
+}
+
+QString Tracker::getType() const {
+  return track.type;
 }
 
 QDateTime Tracker::getFrom() const
