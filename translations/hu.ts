@@ -123,7 +123,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Nyo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move to</source>
@@ -179,7 +179,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished">Pontatlan csomók eldobása</translation>
+        <translation type="unfinished">Pontatlan csomópontok kihagyása</translation>
     </message>
     <message>
         <source>Color</source>
@@ -392,7 +392,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished">Sebesség ⌀/max</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
@@ -409,7 +409,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished">Mozgás sebessége ⌀</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
@@ -761,7 +761,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation type="unfinished">Folytatod a trackelést?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search</source>
@@ -1485,7 +1485,7 @@ collection pull down menu</extracomment>
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished">Csomópontok kihagyása</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
@@ -1557,7 +1557,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished">Sebesség ⌀/max</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
@@ -1569,7 +1569,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished">Mozgás sebessége ⌀</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 mi/h</source>
@@ -1606,7 +1606,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished">Jelenlegi adat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Last update</source>
@@ -1627,7 +1627,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished">%1 m tengerszint fölött</translation>
+        <translation type="unfinished">%1 m tengerszint felett</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
@@ -1645,11 +1645,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit track</source>
-        <translation type="unfinished">Track szerkesztése</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rename track</source>
-        <translation type="unfinished">Track átnevezése</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change color</source>
@@ -1806,7 +1806,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished">Időtúllépés</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network session error.</source>
@@ -1825,15 +1825,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_atm</source>
-        <translation type="unfinished"></translation>
+        <translation>ATM</translation>
     </message>
     <message>
         <source>amenity_bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bár</translation>
     </message>
     <message>
         <source>amenity_cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kávézó</translation>
     </message>
     <message>
         <source>amenity_cafe_building</source>
