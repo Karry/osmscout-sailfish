@@ -2575,7 +2575,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>mtbRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Mountain Bike Strecke</translation>
     </message>
 </context>
 <context>

@@ -560,6 +560,6 @@
 - load user defined online map providers from user home (~/.local/share/cz.karry.osmscout/OSMScout/online-tile-providers.json)
 
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.26
-- update translations (Hungarian)
+- update translations (German, Hungarian)
 - new icons for outdoor map (bench, shelter, basket)
 - prepare split of christian church type to cathedral, chapel, church and its jewish and muslim equivalent
