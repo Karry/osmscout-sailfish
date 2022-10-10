@@ -116,6 +116,11 @@ QString CollectionTrackModel::getDescription() const
   return track.description;
 }
 
+QString CollectionTrackModel::getType() const
+{
+  return track.type;
+}
+
 QDateTime CollectionTrackModel::getFrom() const
 {
   return track.statistics.from;
