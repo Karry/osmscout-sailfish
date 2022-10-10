@@ -431,6 +431,11 @@ collection pull down menu</extracomment>
         <source>%1 / %2 ft a.s.l.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
@@ -1712,6 +1717,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Change color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

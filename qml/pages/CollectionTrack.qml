@@ -153,6 +153,13 @@ Dialog{
                             wrapMode: Text.WordWrap
                         }
                         DetailItem {
+                            id: typeDetail
+                            visible: trackModel.type != ""
+                            //: track type
+                            label: qsTr("Type")
+                            value: qsTr(trackModel.type)
+                        }
+                        DetailItem {
                             id: distanceItem
                             label: qsTr("Distance")
                             value: trackModel.distance < 0 ? "?" :Utils.humanDistance(trackModel.distance)

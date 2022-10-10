@@ -210,6 +210,14 @@ Page {
                 }
             }
 
+            DetailItem {
+                id: typeDetail
+                visible: Global.tracker.type != ""
+                //: track type
+                label: qsTr("Type")
+                value: qsTr(Global.tracker.type)
+            }
+
             SectionHeader{ text: qsTr("Current data") }
 
             DetailItem {
