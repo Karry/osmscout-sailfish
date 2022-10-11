@@ -43,7 +43,7 @@ Item {
      */
     property variant iconMapping: {
         'Walk': 'pics/foot',
-        'Hike': 'pics/foot',
+        'Hike': 'pics/hike',
         'Run': 'pics/runner',
         'Road bike': 'pics/road-bike',
         'Mountain bike': 'pics/mountain-bike',
