@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 19 19"
+   height="19"
+   width="19"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="nordic-skiing.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs12">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect7777"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect7071"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect5294"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect2682"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect2682-3"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="16.000001"
+     inkscape:cx="3.3749999"
+     inkscape:cy="27.531249"
+     inkscape:window-width="1920"
+     inkscape:window-height="1136"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title2">pitch-15.svg</title>
+  <rect
+     fill="none"
+     x="0"
+     y="0"
+     width="19"
+     height="19"
+     id="rect4"
+     style="stroke:none;stroke-opacity:1" />
+  <path
+     fill="#fff"
+     transform="translate(2,2)"
+     d="M 5,3 C 4.4477,3 4,2.5523 4,2 4,1.4477 4.4477,1 5,1 5.5523,1 6,1.4477 6,2 6,2.5523 5.5523,3 5,3 Z M 11.650417,12.783003 10,10 9,7 7.9710083,5.290741 l 0.655468,0.3133718 -0.5360214,1.005255 -0.074203,0.406847 c -0.052627,0.2885452 -0.055734,0.4298141 0.039302,0.5839264 0.086245,0.1398569 0.4745428,0.053724 0.6264945,-0.2791505 0,0 1.3359266,-1.9208766 0.9777528,-2.265505 L 9.1085244,4.7103409 7,4 5,5 4,6 H 2.5 C 2.2239,6 2,6.2239 2,6.5 2,6.7761 2.2239,7 2.5,7 H 5 L 6,6 7,8 5,10 v 3.5 C 5,13.7761 5.2239,14 5.5,14 5.7761,14 6,13.7761 6,13.5 V 10.39 L 8,9 l 1,2 1.977508,2.385157 c 0.177152,0.213671 0.632773,0.02417 0.708527,-0.265846 0.03106,-0.257397 0.0012,-0.246587 -0.03562,-0.336308 z"
+     id="path6"
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+     sodipodi:nodetypes="sssssccccccssscccccsssccccssscccsccc" />
+  <metadata
+     id="metadata829">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>pitch-15.svg</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.408;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 4.4098481,7.6892851 4.9864913,15.191011"
+     id="path2680"
+     inkscape:path-effect="#path-effect2682"
+     inkscape:original-d="M 4.4098481,7.6892851 4.9864913,15.191011"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.408;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 10.090455,8.6093678 14.54668,13.433048"
+     id="path2680-6"
+     inkscape:path-effect="#path-effect2682-3"
+     inkscape:original-d="M 10.090455,8.6093678 14.54668,13.433048"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-width:0.977889;-inkscape-stroke:none"
+     d="m 8.5784163,14.64709 -0.1917414,0.288653 c 0.1961201,0.189977 0.4423794,0.351098 0.6902685,0.471479 0.2478887,0.12038 0.4974077,0.200022 0.7000478,0.227043 l 7.6158778,-0.0066 -0.0039,-0.381012 -7.6289068,0.04856 c 0,0 -0.3616071,-0.05293 -0.6350885,-0.202521 C 8.9171558,14.979022 8.5784163,14.64709 8.5784163,14.64709 Z"
+     id="path7775"
+     sodipodi:nodetypes="ccsccccsc" />
+  <path
+     style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-width:1.04541;-inkscape-stroke:none"
+     d="m 2.8804902,15.115078 -0.191741,0.32989 c 0.19612,0.217117 0.442379,0.401255 0.690268,0.538835 0.247889,0.137578 0.497408,0.228597 0.700048,0.259478 l 7.6158778,-0.0075 -0.0039,-0.435444 -7.6289068,0.0555 c 0,0 -0.361607,-0.06049 -0.635089,-0.231453 -0.207818,-0.129911 -0.546557,-0.509263 -0.546557,-0.509263 z"
+     id="path7775-7"
+     sodipodi:nodetypes="ccsccccsc" />
+</svg>
