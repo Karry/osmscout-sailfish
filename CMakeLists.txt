@@ -358,6 +358,7 @@ set(QML_FILES
     qml/custom/RouteElevationChart.qml
     qml/custom/RouteProfileMenuItem.qml
     qml/custom/SymbolSelector.qml
+    qml/custom/TrackTypeComboBox.qml
     qml/custom/SymbolIcon.qml
     qml/custom/TrackTypeMenuItem.qml
     qml/custom/TrackTypes.qml
