@@ -50,7 +50,7 @@ Item {
         'Car': 'pics/car',
         'Walking the dog': 'poi-icons/dog-park',
         'Swimming': 'poi-icons/swimming',
-        'Inline skating': 'pics/runner',
+        'Inline skating': 'pics/inline-skating',
         'Skiing': 'poi-icons/skiing',
         'Nordic skiing': 'pics/nordic-skiing',
         'Horseback riding': 'pics/runner'

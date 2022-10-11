@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 19 19"
+   height="19"
+   width="19"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="inline-skating.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="4.7105263"
+     inkscape:cx="20.592179"
+     inkscape:cy="1.8044693"
+     inkscape:window-width="1920"
+     inkscape:window-height="1136"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title2">pitch-15.svg</title>
+  <rect
+     fill="none"
+     x="0"
+     y="0"
+     width="19"
+     height="19"
+     id="rect4" />
+  <path
+     fill="#fff"
+     transform="translate(2,2)"
+     d="M 5,3 C 4.4477,3 4,2.5523 4,2 4,1.4477 4.4477,1 5,1 5.5523,1 6,1.4477 6,2 6,2.5523 5.5523,3 5,3 Z m 7.5,7 H 10 L 9,7 8,5.25 9,5 11.3,6 V 6 C 11.5761,6.1105 11.8895,5.9761 12,5.7 12.1105,5.4239 11.9761,5.1105 11.7,5 V 5 L 9,4 H 7 L 5,5 4,6 H 2.5 C 2.2239,6 2,6.2239 2,6.5 2,6.7761 2.2239,7 2.5,7 H 5 L 6,6 7,8 5,10 v 3.5 C 5,13.7761 2.1142082,14.794157 5.7750681,14.462395 6.0500412,14.437476 6,13.7761 6,13.5 V 10.39 L 8,9 9,11 h 3.5 c 0.2761,0 1.145482,2.552883 0.909862,-0.974698 C 13.391461,9.7498161 12.7761,10 12.5,10 Z"
+     id="path6"
+     style="fill:#010101;fill-opacity:1"
+     sodipodi:nodetypes="sssssscccccssscccccsssccccssscccsss" />
+  <metadata
+     id="metadata885">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>pitch-15.svg</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <ellipse
+     style="color:#000000;overflow:visible;fill:#010101;fill-opacity:1;stroke:none;stroke-width:0.655287;stroke-linecap:round;stroke-opacity:1"
+     id="path1268-7"
+     cx="16.235031"
+     cy="13.67841"
+     rx="0.49788281"
+     ry="0.49974281" />
+  <ellipse
+     style="color:#000000;overflow:visible;fill:#010101;fill-opacity:1;stroke:none;stroke-width:0.655287;stroke-linecap:round;stroke-opacity:1"
+     id="path1268-7-6"
+     cx="6.1321621"
+     cy="17.430773"
+     rx="0.49788281"
+     ry="0.49974281" />
+  <ellipse
+     style="color:#000000;overflow:visible;fill:#010101;fill-opacity:1;stroke:none;stroke-width:0.655287;stroke-linecap:round;stroke-opacity:1"
+     id="path1268-7-2"
+     cx="7.5342398"
+     cy="17.392727"
+     rx="0.49788281"
+     ry="0.49974281" />
+  <ellipse
+     style="color:#000000;overflow:visible;fill:#010101;fill-opacity:1;stroke:none;stroke-width:0.682499;stroke-linecap:round;stroke-opacity:1"
+     id="path1268-35"
+     cx="16.273846"
+     cy="12.197655"
+     rx="0.51855808"
+     ry="0.52049536" />
+</svg>
