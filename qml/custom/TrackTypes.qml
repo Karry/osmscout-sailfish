@@ -61,11 +61,15 @@ Item {
     }
 
     function typeIcon(type){
-      if (typeof iconMapping[type] === 'undefined'){
-          console.log("Can't find icon for track type " + type);
-          return iconUrl(unknownTypeIcon);
-      }
-      return iconUrl(iconMapping[type]);
+        if (type=="") {
+            return iconUrl(unknownTypeIcon);
+        }
+
+        if (typeof iconMapping[type] === 'undefined'){
+            console.log("Can't find icon for track type " + type);
+            return iconUrl(unknownTypeIcon);
+        }
+        return iconUrl(iconMapping[type]);
     }
 
 }
