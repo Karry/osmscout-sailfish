@@ -32,7 +32,6 @@ Item {
         QT_TR_NOOP('Swimming'),
         QT_TR_NOOP('Inline skating'),
         QT_TR_NOOP('Skiing'),
-        QT_TR_NOOP('Skiing'),
         QT_TR_NOOP('Nordic skiing'),
         QT_TR_NOOP('Horseback riding')
         ]
@@ -52,7 +51,7 @@ Item {
         'Walking the dog': 'poi-icons/dog-park',
         'Swimming': 'poi-icons/swimming',
         'Inline skating': 'pics/runner',
-        'Skiing': 'pics/runner',
+        'Skiing': 'poi-icons/skiing',
         'Nordic skiing': 'pics/runner',
         'Horseback riding': 'pics/runner'
     }
