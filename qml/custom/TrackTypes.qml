@@ -52,7 +52,7 @@ Item {
         'Swimming': 'poi-icons/swimming',
         'Inline skating': 'pics/runner',
         'Skiing': 'poi-icons/skiing',
-        'Nordic skiing': 'pics/runner',
+        'Nordic skiing': 'pics/nordic-skiing',
         'Horseback riding': 'pics/runner'
     }
 
