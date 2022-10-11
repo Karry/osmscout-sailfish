@@ -211,10 +211,6 @@ collection pull down menu</extracomment>
         <source>Description</source>
         <translation>Description</translation>
     </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>CollectionEntryDialog</name>
@@ -233,10 +229,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Description</source>
         <translation>Description</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Car</source>
@@ -1545,6 +1537,13 @@ collection pull down menu</extracomment>
         <source>&gt; 10 m</source>
         <extracomment>option dropping inaccurate nodes (track edit)</extracomment>
         <translation>&gt; 10 m</translation>
+    </message>
+</context>
+<context>
+    <name>TrackTypeComboBox</name>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

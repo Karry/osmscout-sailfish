@@ -65,6 +65,7 @@ Page {
         if (trackerPage.status == PageStatus.Active) {
             //console.log("newTrackRequested: " + newTrackRequested + ", rejectRequested: " + rejectRequested);
             if (newTrackRequested){
+                newTrackDialog.trackType = AppSettings.lastTrackType;
                 newTrackDialog.open();
                 newTrackRequested = false;
             }
