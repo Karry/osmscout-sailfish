@@ -121,6 +121,7 @@ Page {
                 }
 
                 color: model.type === "waypoint" ? waypointColor() : routeColor()
+                opacity: 0.6
             }
 
 
@@ -173,7 +174,8 @@ Page {
             }
             Column{
                 id: entryDescription
-                x: Theme.paddingMedium
+
+                anchors.leftMargin: Theme.paddingMedium
                 anchors.left: entryIcon.right
                 anchors.right: detailColumn.left
                 anchors.verticalCenter: entryIcon.verticalCenter
