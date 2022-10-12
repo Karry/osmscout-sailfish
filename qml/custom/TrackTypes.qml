@@ -53,7 +53,7 @@ Item {
         'Inline skating': 'pics/inline-skating',
         'Skiing': 'poi-icons/skiing',
         'Nordic skiing': 'pics/nordic-skiing',
-        'Horseback riding': 'pics/runner'
+        'Horseback riding': 'pics/horseback-riding'
     }
 
     function iconUrl(icon){
