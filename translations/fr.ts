@@ -230,22 +230,6 @@ collection pull down menu</extracomment>
         <source>Description</source>
         <translation>Description</translation>
     </message>
-    <message>
-        <source>Car</source>
-        <translation type="obsolete">Voiture</translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation type="obsolete">Vélo de route</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation type="obsolete">VTT</translation>
-    </message>
-    <message>
-        <source>Foot</source>
-        <translation type="obsolete">À pied</translation>
-    </message>
 </context>
 <context>
     <name>CollectionExport</name>
@@ -1585,15 +1569,15 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Skiing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nordic skiing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
