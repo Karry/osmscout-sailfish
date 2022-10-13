@@ -49,7 +49,7 @@ signals:
   void deleteTrackRequest(qint64 collectionId, qint64 id);
   void createWaypointRequest(qint64 collectionId, double lat, double lon, QString name, QString description, QString symbol);
   void editWaypointRequest(qint64 collectionId, qint64 id, QString name, QString description, QString symbol);
-  void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description);
+  void editTrackRequest(qint64 collectionId, qint64 id, QString name, QString description, QString type);
   void exportCollectionRequest(qint64 collectionId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
   void exportTrackRequest(qint64 collectionId, qint64 trackId, QString file, bool includeWaypoints, std::optional<double> accuracyFilter);
   void error(QString message);
@@ -69,7 +69,7 @@ public slots:
   void deleteWaypoint(QString id);
   void deleteTrack(QString id);
   void editWaypoint(QString id, QString name, QString description, QString symbol);
-  void editTrack(QString id, QString name, QString description);
+  void editTrack(QString id, QString name, QString description, QString type);
   void exportToFile(QString fileName, QString directory, bool includeWaypoints, int accuracyFilter);
   void exportTrackToFile(QString id, QString name, QString directory, bool includeWaypoints, int accuracyFilter);
   void onCollectionExported(bool);
@@ -112,6 +112,7 @@ public:
 
     // type == track
     DistanceRole = Qt::UserRole+14,
+    TrackTypeRole = Qt::UserRole+15,
   };
   Q_ENUM(Roles)
 

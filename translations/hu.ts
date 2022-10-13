@@ -156,17 +156,17 @@
     <message>
         <source>Crop start</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vágás kezdete</translation>
     </message>
     <message>
         <source>Crop end</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vágás vége</translation>
     </message>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Darabolás</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
@@ -175,12 +175,17 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pontatlan csomópontok kihagyása</translation>
     </message>
     <message>
         <source>Color</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Szín</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <extracomment>track context menu collection pull down menu</extracomment>
+        <translation type="vanished">Megosztás</translation>
     </message>
     <message>
         <source>Export Collection</source>
@@ -251,17 +256,17 @@
     <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Útpontok belefoglalása</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>gpx track export option</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pontatlan csomópontok kihagyása</translation>
     </message>
     <message>
         <source>Keep everything</source>
         <extracomment>option dropping inaccurate nodes (gpx track export)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Minden megtartása</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
@@ -287,97 +292,97 @@
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Dátum, csökkenő</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Név, csökkenő</translation>
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Dátum, növekvő</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Név, növekvő</translation>
     </message>
 </context>
 <context>
     <name>CollectionModel</name>
     <message>
         <source>Invalid export directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Érvénytelen exportálási mappa</translation>
     </message>
     <message>
         <source>Invalid file name</source>
-        <translation type="unfinished"></translation>
+        <translation>Érvénytelen fájlnév</translation>
     </message>
 </context>
 <context>
     <name>CollectionOrdering</name>
     <message>
         <source>Order by</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendezés alapja</translation>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény bejegyzéseinek rendezése</translation>
     </message>
     <message>
         <source>Date, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Dátum, csökkenő</translation>
     </message>
     <message>
         <source>Name, descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Név, csökkenő</translation>
     </message>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Útvonalpontok elöl</translation>
     </message>
     <message>
         <source>Date, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Dátum, növekvő</translation>
     </message>
     <message>
         <source>Name, ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Név, növekvő</translation>
     </message>
 </context>
 <context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjelenítés</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyers távolság</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Növekvő</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Csökkenő</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Emelkedő min/max</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>From</source>
@@ -400,11 +405,11 @@
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Időtartam</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mozgás időtartama</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
@@ -412,14 +417,19 @@
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -427,28 +437,28 @@
     <name>CollectionWaypoint</name>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjelenítés</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Eleváció</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m tengerszint felett</translation>
     </message>
     <message>
         <source>Created</source>
         <extracomment>date time when waypoint was created</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Létrehozás ideje</translation>
     </message>
 </context>
 <context>
     <name>Collections</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Szerkesztés</translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -460,44 +470,44 @@
     </message>
     <message>
         <source>Collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemények</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importálás</translation>
     </message>
     <message>
         <source>Create new</source>
-        <translation type="unfinished"></translation>
+        <translation>Új létrehozása</translation>
     </message>
     <message>
         <source>New collection</source>
-        <translation type="unfinished">Új gyűjtemény</translation>
+        <translation>Új gyűjtemény</translation>
     </message>
     <message>
         <source>Edit collection</source>
-        <translation type="unfinished">Gyűjtemény szerkesztése</translation>
+        <translation>Gyűjtemény szerkesztése</translation>
     </message>
     <message>
         <source>Hide on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Elrejtés a térképen</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjelenítés a térképen</translation>
     </message>
     <message>
         <source>Order by...</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Rendezés alapja</translation>
+        <translation>Rendezés alapja...</translation>
     </message>
     <message>
         <source>Show all on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Az összes megjelenítése a térképen</translation>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Semmi ne jelenjen meg a térképen</translation>
     </message>
 </context>
 <context>
@@ -519,7 +529,7 @@
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs offline adatbázis!</translation>
     </message>
 </context>
 <context>
@@ -561,7 +571,7 @@
     <message>
         <source>Canceling</source>
         <extracomment>label for remorse timer when canceling the download</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>Available maps</source>
@@ -578,7 +588,7 @@
     <message>
         <source>Stopping navigation</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Navigáció leállítása</translation>
     </message>
 </context>
 <context>
@@ -669,11 +679,11 @@
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>A viewfinderpanoramas.org által gyűjtött SRTM, ASTER, GDEM és más szabad adatforrások alapján</translation>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished"></translation>
+        <translation>Angol nevek használata</translation>
     </message>
 </context>
 <context>
@@ -723,19 +733,19 @@
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltött verzió</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Dátum</translation>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Adat verzió</translation>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérhető verzió</translation>
     </message>
 </context>
 <context>
@@ -743,20 +753,20 @@
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Térképletöltési hiba</translation>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem támogatott url %1</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem értelmezhető url %1</translation>
     </message>
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tracker hiba</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
@@ -770,7 +780,7 @@
     <message>
         <source>Where am I?</source>
         <extracomment>menu item for path with place details</extracomment>
-        <translation>Jelenlegi pozíció</translation>
+        <translation>Hol vagyok?</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -780,12 +790,12 @@
     <message>
         <source>Collections</source>
         <extracomment>menu item for collections of tracks and waypoints</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemények</translation>
     </message>
     <message>
         <source>Tracker</source>
         <extracomment>menu item for GPS tracker</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tracker</translation>
     </message>
     <message>
         <source>Offline maps</source>
@@ -800,7 +810,7 @@
     <message>
         <source>Settings</source>
         <extracomment>menu item for application settings</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>About</source>
@@ -809,20 +819,20 @@
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>A keresés használatához offline térképadatbázis szükséges.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>A navigáció használatához offline térképadatbázis szükséges.</translation>
     </message>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Hely linkjének megosztása</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished">Útpont szerkesztése</translation>
+        <translation>Útpont szerkesztése</translation>
     </message>
     <message>
         <source>ETA %1</source>
@@ -830,66 +840,66 @@
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Célok: %1</translation>
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigáció leállítása</translation>
     </message>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Járműváltás</translation>
     </message>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
 </context>
 <context>
     <name>NavigationInstructions</name>
     <message>
         <source>Stop navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigáció leállítása</translation>
     </message>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Útvonal</translation>
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Érkezés</translation>
     </message>
     <message>
         <source>Distance</source>
         <extracomment>Distance to target, itinerary page</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Járműváltás</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Elevációs profil</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Emelkedő</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Lejtő</translation>
     </message>
 </context>
 <context>
     <name>NewWaypoint</name>
     <message>
         <source>New waypoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Új útpont</translation>
     </message>
 </context>
 <context>
@@ -909,7 +919,7 @@
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Hely linkjének megosztása</translation>
     </message>
 </context>
 <context>
@@ -936,34 +946,34 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Időtartam</translation>
     </message>
     <message>
         <source>Route steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Útvonal lépései</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Elevációs profil</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Emelkedő</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Lejtő</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs elég adat a magassági diagramhoz</translation>
     </message>
 </context>
 <context>
@@ -996,40 +1006,40 @@
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Autóval</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyalog</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished"></translation>
+        <translation>Országúti kerékpárral</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished"></translation>
+        <translation>Hegyi kerékpárral</translation>
     </message>
     <message>
         <source>Allow footways</source>
         <extracomment>switch to allow footways while routing for bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gyalogutak engedélyezése</translation>
     </message>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Főutak engedélyezése</translation>
     </message>
 </context>
 <context>
     <name>RoutingStep</name>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Célok: %1</translation>
     </message>
 </context>
 <context>
@@ -1064,11 +1074,11 @@
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation>Buszmegálló</translation>
+        <translation>Tömegközlekedési megálló</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation>Üzemanyag</translation>
+        <translation>Üzemanyagtöltő állomás</translation>
     </message>
     <message>
         <source>Accomodation</source>
@@ -1080,7 +1090,7 @@
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation>Vasút</translation>
+        <translation>Via ferrata út</translation>
     </message>
     <message>
         <source>Route to</source>
@@ -1089,94 +1099,94 @@
     <message>
         <source>Add as waypoint</source>
         <extracomment>&quot;Add to collection&quot; alternatively</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás útpontként</translation>
     </message>
     <message>
         <source>Pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Kocsma</translation>
     </message>
     <message>
         <source>Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bár</translation>
     </message>
     <message>
         <source>Pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyógyszertár</translation>
     </message>
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Forrás</translation>
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation type="unfinished"></translation>
+        <translation>Kastély, uradalom</translation>
     </message>
     <message>
         <source>Search history</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresési előzmények</translation>
     </message>
     <message>
         <source>Remove</source>
         <extracomment>context menu for removing phrase from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás</translation>
     </message>
     <message>
         <source>Removing</source>
         <extracomment>label for remorse timer when removing item from search history</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás folyamatban</translation>
     </message>
     <message>
         <source>Charging station</source>
-        <translation type="unfinished"></translation>
+        <translation>Elektromos töltőállomás</translation>
     </message>
     <message>
         <source>Waypoint</source>
         <extracomment>search page, entry for list near waypoints from collections</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Útpont</translation>
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>ATM, Bank</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Units</source>
-        <translation type="unfinished"></translation>
+        <translation>Mértékegységek</translation>
     </message>
     <message>
         <source>Metrics</source>
-        <translation type="unfinished"></translation>
+        <translation>Metrikus</translation>
     </message>
     <message>
         <source>Imperial</source>
-        <translation type="unfinished"></translation>
+        <translation>Birodalmi</translation>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation type="unfinished"></translation>
+        <translation>Koordináták</translation>
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished">Útvonaltervezés</translation>
+        <translation>Útvonaltervezés</translation>
     </message>
     <message>
         <source>Voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Hang</translation>
     </message>
     <message>
         <source>No voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs hang</translation>
     </message>
     <message>
         <source>Play sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Minta lejátszása</translation>
     </message>
     <message>
         <source>Tracker distance</source>
@@ -1186,50 +1196,50 @@
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Inormációs panel</translation>
     </message>
     <message>
         <source>Current elevation</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi eleváció</translation>
     </message>
     <message>
         <source>GPS Accuracy</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>GPS pontosság</translation>
     </message>
     <message>
         <source>Fast buttons</source>
         <extracomment>setting section for bottons on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsgombok</translation>
     </message>
     <message>
         <source>Show current position</source>
         <extracomment>Setting toggle for button on main screen for jumping to current position</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi pozíció megjelenítése</translation>
     </message>
     <message>
         <source>Map orientation</source>
         <extracomment>Setting toggle for map orientation indicator on main screen</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Térképtájolás</translation>
     </message>
     <message>
         <source>New place</source>
         <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Új hely</translation>
     </message>
     <message>
         <source>Show north when map is rotated during navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Észak megjelenítése a navigáció alatti térképforgatáskor</translation>
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérhető hangok</translation>
     </message>
     <message>
         <source>Keep display on</source>
         <extracomment>switch for keep display on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kijelző ébrentartása</translation>
     </message>
     <message>
         <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
@@ -1238,33 +1248,33 @@
     <message>
         <source>Collection visibility</source>
         <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gyűjtemény láthatósága</translation>
     </message>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Térkép elforgatása</translation>
     </message>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Automatikus éjszakai mód</translation>
     </message>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Éjszakai mód</translation>
     </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
     <message>
         <source>km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>km/h</translation>
     </message>
     <message>
         <source>mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>mi/h</translation>
     </message>
 </context>
 <context>
@@ -1443,29 +1453,29 @@
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Szimbólum</translation>
     </message>
 </context>
 <context>
     <name>TrackColor</name>
     <message>
         <source>Set color</source>
-        <translation type="unfinished"></translation>
+        <translation>Szín beállítása</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>Darabolás</translation>
     </message>
     <message>
         <source>Crop start</source>
-        <translation type="unfinished"></translation>
+        <translation>Vágás kezdete</translation>
     </message>
     <message>
         <source>Crop end</source>
-        <translation type="unfinished"></translation>
+        <translation>Vágás vége</translation>
     </message>
     <message>
         <source>Crop position</source>
@@ -1477,7 +1487,7 @@
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
@@ -1489,7 +1499,7 @@
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pontatlan csomópontok kihagyása</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
@@ -1518,22 +1528,80 @@
     </message>
 </context>
 <context>
+    <name>TrackTypeComboBox</name>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackTypes</name>
+    <message>
+        <source>Walk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation type="unfinished">Országúti kerékpárral</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation type="unfinished">Hegyi kerékpárral</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished">Autóval</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
-        <translation type="unfinished"></translation>
+        <translation>Új track</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>Trackelés befejezése</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyers távolság</translation>
     </message>
     <message>
         <source>From</source>
@@ -1548,11 +1616,11 @@
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Időtartam</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozgás időtartama</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -1560,11 +1628,11 @@
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
@@ -1572,15 +1640,15 @@
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Eleváció min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
@@ -1592,11 +1660,11 @@
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Emelkedő</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Lejtő</translation>
     </message>
     <message>
         <source>Stopping tracker</source>
@@ -1610,15 +1678,15 @@
     <message>
         <source>Last update</source>
         <extracomment>Last GPS update time</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Legutóbbi frissítés</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízszintes pontosság</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Magasság</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
@@ -1626,15 +1694,15 @@
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 m tengerszint felett</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Függőleges pontosság</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statisztikák</translation>
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
@@ -1652,6 +1720,11 @@
     </message>
     <message>
         <source>Change color</source>
+        <translation>Szín megváltoztatása</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1695,39 +1768,39 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentumok</translation>
     </message>
     <message>
         <source>northeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>északkelet</translation>
     </message>
     <message>
         <source>southeast</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHEAST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>délkelet</translation>
     </message>
     <message>
         <source>southwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located SOUTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>délnyugat</translation>
     </message>
     <message>
         <source>northwest</source>
         <extracomment>in sense indicating location of some place: &quot;place is located NORTHWEST&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>északnyugat</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"></translation>
+        <translation>láb</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"></translation>
+        <translation>mérföld</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"></translation>
+        <translation>yard</translation>
     </message>
     <message>
         <source>ft</source>
@@ -1755,19 +1828,19 @@
     <message>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
-        <translation type="unfinished">Frissítés</translation>
+        <translation>Frissítés</translation>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="unfinished"></translation>
+        <translation>A hangmintákat a &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projekt részeként hozták létre. Licencelve a &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; licenc hatálya alatt.</translation>
     </message>
     <message>
         <source>Author: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerző: %1</translation>
     </message>
     <message>
         <source>Available voices</source>
-        <translation type="unfinished"></translation>
+        <translation>Elérhető hangok</translation>
     </message>
 </context>
 <context>
@@ -1809,11 +1882,11 @@
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hálózati munkamenet hiba.</translation>
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs eléh hely</translation>
     </message>
 </context>
 <context>
@@ -1824,15 +1897,15 @@
     </message>
     <message>
         <source>amenity_atm</source>
-        <translation type="unfinished"></translation>
+        <translation>ATM</translation>
     </message>
     <message>
         <source>amenity_bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bár</translation>
     </message>
     <message>
         <source>amenity_cafe</source>
-        <translation type="unfinished"></translation>
+        <translation>Kávézó</translation>
     </message>
     <message>
         <source>amenity_cafe_building</source>
@@ -2411,15 +2484,15 @@
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Domborzat</translation>
     </message>
     <message>
         <source>Toner</source>
@@ -2427,79 +2500,79 @@
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízfesték</translation>
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"></translation>
+        <translation>Amerikai angol</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"></translation>
+        <translation>Brit angol</translation>
     </message>
     <message>
         <source>Chinese Simplified</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyszerűsített kínai</translation>
     </message>
     <message>
         <source>Croatian</source>
-        <translation type="unfinished"></translation>
+        <translation>Horvát</translation>
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Cseh</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Holland</translation>
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Francia</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Német</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Görög</translation>
     </message>
     <message>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Olasz</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Lengyel</translation>
     </message>
     <message>
         <source>Punjabi</source>
-        <translation type="unfinished"></translation>
+        <translation>Punjabi</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Román</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>Orosz</translation>
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanyol</translation>
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Török</translation>
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrán</translation>
     </message>
 </context>
 <context>
@@ -2521,15 +2594,15 @@
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation>Nappal</translation>
+        <translation>Nappali</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízfelület</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>Erdő</translation>
     </message>
     <message>
         <source>natural</source>
@@ -2553,54 +2626,54 @@
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>Szintvonalak</translation>
     </message>
     <message>
         <source>skiingDownhill</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesiklás</translation>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation type="unfinished"></translation>
+        <translation>Északi sízés</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Bicikliutak</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Túrautak</translation>
     </message>
     <message>
         <source>mtbRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Hegyikerékpár-utak</translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"></translation>
+        <translation>határok</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"></translation>
+        <translation>standard</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation>Téli sportok</translation>
+        <translation>téli sportok</translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation>Tömegközlekedéssel</translation>
+        <translation>tömegközlekedés</translation>
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>kültéri</translation>
     </message>
     <message>
         <source>cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>kerékpáros</translation>
     </message>
 </context>
 </TS>

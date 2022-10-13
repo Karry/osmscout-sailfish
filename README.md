@@ -1,7 +1,7 @@
 # OSM Scout for Sailfish OS
 
 [![Last build by Github Actions](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_20_04.yml/badge.svg)](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_20_04.yml)
-[![Flattr this project](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=rowzv7&url=https%3A%2F%2Fgithub.com%2FKarry%2Fosmscout-sailfish)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flattr_Logo.svg/320px-Flattr_Logo.svg.png" alt="Flattr this project" width="70" style="background: white; margin: 6px">](https://flattr.com/submit/auto?fid=rowzv7&url=https%3A%2F%2Fgithub.com%2FKarry%2Fosmscout-sailfish)
 [![Donate via PayPal.me](https://img.shields.io/badge/donate-paypal.me-blue.svg)](https://paypal.me/OSMScoutForSailfish)
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/OSMScoutForSailfishOS/donate)
 
@@ -40,7 +40,3 @@ Any help is welcome!
  - [Howto build for Sailfish OS](https://github.com/Karry/osmscout-sailfish/wiki/Howto-build-for-Sailfish-OS)
  - [Local development](https://github.com/Karry/osmscout-sailfish/wiki/Local-development)
  - [Howto create translation](https://github.com/Karry/osmscout-sailfish/wiki/Howto-create-translation)
-
-## Translations
-
-[![Translate on Transifex](https://www.transifex.com/projects/p/osm-scout/resource/ents/chart/image_png/)](https://www.transifex.com/osm-scout/osm-scout)

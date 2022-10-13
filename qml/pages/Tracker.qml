@@ -65,6 +65,7 @@ Page {
         if (trackerPage.status == PageStatus.Active) {
             //console.log("newTrackRequested: " + newTrackRequested + ", rejectRequested: " + rejectRequested);
             if (newTrackRequested){
+                newTrackDialog.trackType = AppSettings.lastTrackType;
                 newTrackDialog.open();
                 newTrackRequested = false;
             }
@@ -80,10 +81,11 @@ Page {
         property string itemId: ""
         title: qsTr("Edit track")
         symbolSelectorVisible: false
+        trackTypeSelectorVisible: true
 
         onAccepted: {
-            console.log("Edit track " + itemId + ": " + name + " / " + description);
-            Global.tracker.editTrack(itemId, name, description);
+            console.log("Edit track " + itemId + ": " + name + " / " + description + " type: " + trackType);
+            Global.tracker.editTrack(itemId, name, description, trackType);
             parent.focus = true;
         }
         onRejected: {
@@ -94,6 +96,7 @@ Page {
     CollectionEntryDialog{
         id: newTrackDialog
         symbolSelectorVisible: false
+        trackTypeSelectorVisible: true
 
         title: qsTr("New track")
 
@@ -101,9 +104,10 @@ Page {
         //acceptDestinationAction: PageStackAction.Pop
 
         onAccepted: {
-            console.log("Start tracking, track " + name + " in collection " + collectionId);
+            console.log("Start tracking, track " + name + " in collection " + collectionId + ", type " + trackType);
             AppSettings.lastCollection = collectionId;
-            Global.tracker.startTracking(collectionId, name, description);
+            AppSettings.lastTrackType = trackType;
+            Global.tracker.startTracking(collectionId, name, description, trackType);
         }
         onRejected: {
             trackerPage.rejectRequested = true;
@@ -140,6 +144,8 @@ Page {
                     editDialog.itemId = Global.tracker.trackId;
                     editDialog.name = Global.tracker.name;
                     editDialog.description = Global.tracker.description;
+                    editDialog.trackType = Global.tracker.type;
+                    console.log("edit dialog track type: " + Global.tracker.type);
                     editDialog.open();
                 }
             }
@@ -203,6 +209,14 @@ Page {
                     wrapMode: Text.WordWrap
                     width: parent.width - (errorIcon.width +2*errorRow.spacing)
                 }
+            }
+
+            DetailItem {
+                id: typeDetail
+                visible: Global.tracker.type != ""
+                //: track type
+                label: qsTr("Type")
+                value: qsTr(Global.tracker.type)
             }
 
             SectionHeader{ text: qsTr("Current data") }

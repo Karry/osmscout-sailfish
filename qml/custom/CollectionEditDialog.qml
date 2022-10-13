@@ -32,7 +32,9 @@ Dialog{
     property alias description: descriptionTextArea.text
     property alias title: newCollectionheader.title
     property bool symbolSelectorVisible: true
+    property bool trackTypeSelectorVisible: false
     property alias symbol: symbolSelector.symbol
+    property alias trackType: trackTypeComboBox.selected
 
     canAccept: nameTextField.text.length > 0
 
@@ -80,6 +82,11 @@ Dialog{
         SymbolSelector {
             id: symbolSelector
             visible: symbolSelectorVisible
+        }
+
+        TrackTypeComboBox {
+            id: trackTypeComboBox
+            visible: trackTypeSelectorVisible
         }
     }
 }

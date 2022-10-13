@@ -38,7 +38,9 @@ Dialog{
     property bool rejectRequested: false
     property bool newCollectionRequested: false
     property bool symbolSelectorVisible: false
+    property bool trackTypeSelectorVisible: false
     property alias symbol: symbolSelector.symbol
+    property alias trackType: trackTypeComboBox.selected
 
     canAccept: nameTextField.text.length > 0 && collectionId.length > 0
 
@@ -154,6 +156,11 @@ Dialog{
             SymbolSelector {
                 id: symbolSelector
                 visible: symbolSelectorVisible
+            }
+
+            TrackTypeComboBox {
+                id: trackTypeComboBox
+                visible: trackTypeSelectorVisible
             }
         }
     }

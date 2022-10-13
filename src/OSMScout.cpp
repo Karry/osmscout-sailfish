@@ -194,10 +194,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   qmlRegisterSingletonType<AppSettings>("harbour.osmscout.map", 1, 0, "AppSettings", appSettingsSingletontypeProvider);
 
-  QString home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-  QString docs = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);  
-  QString cache = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-  QString download = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+  QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+  QString docsDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+  QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+  QString downloadDir = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+  QString dataDir = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
   
   QStringList databaseLookupDirectories;
 
@@ -208,14 +209,14 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     migration.migrateLocal(); // ~/.local/share/harbour-osmscout/harbour-osmscout -> ~/.local/share/cz.karry.osmscout/OSMScout
     migration.wipeOldCache(); // wipe ~/.cache/harbour-osmscout/harbour-osmscout/
     // ~/Maps -> ~/Downloads/Maps
-    if (!migration.migrate(home + QDir::separator() + "Maps", download + QDir::separator() + "Maps")) {
+    if (!migration.migrate(homeDir + QDir::separator() + "Maps", downloadDir + QDir::separator() + "Maps")) {
       // possibly ~/Documents/Maps -> ~/Downloads/Maps
-      migration.migrate(docs + QDir::separator() + "Maps", download + QDir::separator() + "Maps");
+      migration.migrate(docsDir + QDir::separator() + "Maps", downloadDir + QDir::separator() + "Maps");
     }
   }
 
   // lookup Maps in "Downloads" directory
-  databaseLookupDirectories << download + QDir::separator() + "Maps";
+  databaseLookupDirectories << downloadDir + QDir::separator() + "Maps";
 
   // and in SD card root / Maps directory
   for (const QStorageInfo &storage : QStorageInfo::mountedVolumes()) {
@@ -254,9 +255,12 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   bool initSuccess=OSMScoutQt::NewInstance()
     .WithSettingsStorage(new QSettings(AppSettings::settingFile(), QSettings::NativeFormat, app))
-    .WithOnlineTileProviders(SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile())
-    .WithMapProviders(SailfishApp::pathTo("resources/map-providers.json").toLocalFile())
-    .WithVoiceProviders(SailfishApp::pathTo("resources/voice-providers.json").toLocalFile())
+    .AddOnlineTileProviders(SailfishApp::pathTo("resources/online-tile-providers.json").toLocalFile())
+    .AddOnlineTileProviders(dataDir + QDir::separator() + "online-tile-providers.json")
+    .AddMapProviders(SailfishApp::pathTo("resources/map-providers.json").toLocalFile())
+    .AddOnlineTileProviders(dataDir + QDir::separator() + "map-providers.json")
+    .AddVoiceProviders(SailfishApp::pathTo("resources/voice-providers.json").toLocalFile())
+    .AddOnlineTileProviders(dataDir + QDir::separator() + "voice-providers.json")
     .WithBasemapLookupDirectory(SailfishApp::pathTo("resources/world").toLocalFile())
     .WithMapLookupDirectories(databaseLookupDirectories)
     .AddCustomPoiType("_highlighted")
@@ -274,7 +278,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     .AddCustomPoiType("_waypoint_blue_triangle")
     .AddCustomPoiType("_waypoint_yellow_triangle")
     .AddCustomPoiType("_track")
-    .WithCacheLocation(cache + QDir::separator() + "OsmTileCache")
+    .WithCacheLocation(cacheDir + QDir::separator() + "OsmTileCache")
     .WithIconDirectory(SailfishApp::pathTo("map-icons").toLocalFile())
     .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
     .WithTileCacheSizes(/* online */ args.desktop ?  60 : 50, /* offline */ args.desktop ? 200 : 60)
@@ -286,7 +290,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     return 1;
   }
 
-  Storage::initInstance(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+  Storage::initInstance(dataDir);
   MemoryManager memoryManager; // lives in UI thread
 
   int result;

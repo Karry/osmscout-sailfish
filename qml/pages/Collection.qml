@@ -83,6 +83,10 @@ Page {
 
         currentIndex: -1 // otherwise currentItem will steal focus
 
+        TrackTypes {
+            id: trackTypes
+        }
+
         model: collectionModel
         delegate: ListItem {
             id: collectionItem
@@ -116,13 +120,14 @@ Page {
                 }
 
                 color: model.type === "waypoint" ? waypointColor() : routeColor()
+                opacity: 0.6
             }
 
 
             Image{
                 id: entryIcon
 
-                source: 'image://harbour-osmscout/' + (model.type == "waypoint" ? 'poi-icons/marker.svg' :'pics/route.svg') + '?' + Theme.primaryColor
+                source: (model.type == "waypoint" ? 'image://harbour-osmscout/poi-icons/marker.svg?' + Theme.primaryColor : trackTypes.typeIcon(model.trackType))
 
                 width: Theme.iconSizeMedium
                 fillMode: Image.PreserveAspectFit
@@ -168,7 +173,8 @@ Page {
             }
             Column{
                 id: entryDescription
-                x: Theme.paddingMedium
+
+                anchors.leftMargin: Theme.paddingMedium
                 anchors.left: entryIcon.right
                 anchors.right: detailColumn.left
                 anchors.verticalCenter: entryIcon.verticalCenter
@@ -264,7 +270,9 @@ Page {
                             editTrackDialog.itemType = model.type;
                             editTrackDialog.name = model.name;
                             editTrackDialog.description = model.description;
+                            editTrackDialog.type = model.trackType;
                             editDialog.symbolSelectorVisible = false;
+                            editDialog.trackTypeSelectorVisible = true;
                             pageStack.push(editTrackDialog)
                         }
                     }
@@ -441,6 +449,7 @@ Page {
         property string itemId: ""
         property string name
         property string description
+        property string type
 
         SilicaListView {
             interactive: true
@@ -476,6 +485,7 @@ Page {
                         editDialog.description = editTrackDialog.description;
                         editDialog.acceptDestination = collectionPage;
                         editDialog.acceptDestinationAction = PageStackAction.Pop;
+                        editDialog.trackType = editTrackDialog.type
                         editDialog.open();
                     } else if (action == "color"){
                         pageStack.push(Qt.resolvedUrl("TrackColor.qml"),
@@ -544,10 +554,10 @@ Page {
                 collectionModel.editWaypoint(itemId, name, description, symbol);
             }else if (itemType === "track"){
                 console.log("Edit track " + itemId + ": " + name + " / " + description);
-                collectionModel.editTrack(itemId, name, description);
+                collectionModel.editTrack(itemId, name, description, trackType);
             } else { // collection
                 console.log("Edit collection " + itemId + ": " + name + " / " + description);
-                collectionListModel.editCollection(itemId, collectionModel.collectionVisible, name, description);
+                collectionListModel.editCollection(itemId, collectionModel.collectionVisible, name, description, type);
             }
             parent.focus = true;
         }

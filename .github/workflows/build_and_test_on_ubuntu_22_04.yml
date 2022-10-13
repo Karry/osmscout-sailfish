@@ -1,0 +1,41 @@
+name: Ubuntu 22.04
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build_gcc_cmake:
+    name: gcc and cmake
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Install dependencies
+        run:  "sudo apt-get update && sudo apt-get install -y --fix-broken
+               git make libtool pkg-config cmake
+               libxml2-dev libprotobuf-dev protobuf-compiler libagg-dev
+               libfreetype6-dev libcairo2-dev libpangocairo-1.0-0 libpango1.0-dev
+               freeglut3 freeglut3-dev qtdeclarative5-dev libqt5svg5-dev
+               qtlocation5-dev qtpositioning5-dev qttools5-dev-tools qttools5-dev
+               qtmultimedia5-dev"
+      - name: Install libsailfishapp
+        run:  "git clone https://github.com/sailfish-sdk/libsailfishapp.git dependencies/libsailfishapp &&
+               cd dependencies/libsailfishapp &&
+               git checkout tags/0.0.5 -b 0.0.5 &&
+               qmake PREFIX=/usr . &&
+               make &&
+               sudo make install"
+      - name: Configure build project
+        run: cmake -B build -DCMAKE_UNITY_BUILD=ON -Wno-dev
+      - name: Build project
+        run: cmake --build build -- all
+      - name: Run tests
+        run: ctest --output-on-failure
+        working-directory: build

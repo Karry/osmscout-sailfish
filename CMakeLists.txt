@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.24.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.26.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -358,7 +358,11 @@ set(QML_FILES
     qml/custom/RouteElevationChart.qml
     qml/custom/RouteProfileMenuItem.qml
     qml/custom/SymbolSelector.qml
+    qml/custom/TrackTypeComboBox.qml
     qml/custom/SymbolIcon.qml
+    qml/custom/TrackTypeMenuItem.qml
+    qml/custom/TrackTypes.qml
+    qml/custom/TrackTypeIcon.qml
 
     qml/pages/Cover.qml
     qml/pages/Search.qml

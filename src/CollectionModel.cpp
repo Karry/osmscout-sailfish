@@ -364,6 +364,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case VisibleRole: return track.visible;
       case DistanceRole: return track.statistics.distance.AsMeter();
       case ColorRole: return QString::fromStdString(track.color.has_value() ? track.color.value().ToHexString(): ""s);
+      case TrackTypeRole: return track.type;
       default: return QVariant();
     }
   }
@@ -394,6 +395,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
 
   // track
   roles[DistanceRole] = "distance";
+  roles[TrackTypeRole] = "trackType";
 
   return roles;
 }
@@ -522,7 +524,7 @@ void CollectionModel::editWaypoint(QString idStr, QString name, QString descript
   emit editWaypointRequest(collection.id, id, name, description, symbol);
 }
 
-void CollectionModel::editTrack(QString idStr, QString name, QString description)
+void CollectionModel::editTrack(QString idStr, QString name, QString description, QString type)
 {
   bool ok;
   qint64 id = idStr.toLongLong(&ok);
@@ -533,7 +535,7 @@ void CollectionModel::editTrack(QString idStr, QString name, QString description
 
   collectionLoaded = true;
   emit loadingChanged();
-  emit editTrackRequest(collection.id, id, name, description);
+  emit editTrackRequest(collection.id, id, name, description, type);
 }
 
 void CollectionModel::exportToFile(QString fileName, QString directory, bool includeWaypoints, int accuracyFilter)

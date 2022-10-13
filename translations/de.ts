@@ -429,6 +429,11 @@ collection pull down menu</extracomment>
         <source>%1 / %2 ft a.s.l.</source>
         <translation>%1 / %2 ft ü. M.</translation>
     </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
@@ -825,7 +830,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation>Teile Ort als Link</translation>
+        <translation type="vanished">Teile Ort als Link</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
@@ -1525,6 +1530,64 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>TrackTypeComboBox</name>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackTypes</name>
+    <message>
+        <source>Walk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation type="unfinished">Straßen-Fahrrad</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation type="unfinished">Mountain Bike</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation type="unfinished">Auto</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
@@ -1661,6 +1724,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Change color</source>
         <translation>Ändere Farbe</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2581,7 +2649,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>mtbRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Mountain Bike Strecke</translation>
     </message>
 </context>
 <context>

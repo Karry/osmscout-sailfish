@@ -22,7 +22,9 @@ if [ $# -ge 2 ] ; then
   export DEV_DEVICE="$2"
 else
   # use default device for TYPE
-  if [ "$TYPE" = "emulator" ] ; then
+  if [ "$TYPE" = "i486" ] ; then
+    export DEV_DEVICE="Sailfish OS Emulator ${OS_VERSION}"
+  elif [ "$TYPE" = "emulator" ] ; then
     export DEV_DEVICE="Sailfish OS Emulator ${OS_VERSION}"
   elif [ "$TYPE" = "aarch64" ]; then
     export DEV_DEVICE="Xperia"
@@ -31,12 +33,17 @@ else
   fi
 fi
 
-if [ "$TYPE" = "emulator" ] ; then
+if [ "$TYPE" = "i486" ] ; then
+  export ARCHITECTURE=i486
+elif [ "$TYPE" = "emulator" ] ; then
   export ARCHITECTURE=i486
 elif [ "$TYPE" = "aarch64" ]; then
   export ARCHITECTURE=aarch64
-else
+elif [ "$TYPE" = "armv7hl" ]; then
   export ARCHITECTURE=armv7hl
+else
+  echo "Uknown build type: $TYPE" 1>&2
+  exit 1
 fi
 
 sfdk config "target=SailfishOS-${OS_VERSION}-${ARCHITECTURE}"

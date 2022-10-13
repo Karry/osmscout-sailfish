@@ -1538,7 +1538,14 @@ STYLE
  IF _building {
 
    [MAG @specialBuildingMag-] {
-     [TYPE christian_church_building] {
+     [TYPE temple_building,
+           shrine_building,
+           christian_cathedral_building,
+           christian_chapel_building,
+           christian_church_building,
+           jewish_synagogue_building,
+           muslim_mosque_building,
+           worship_building] {
        AREA { color: @churchBuildingColor;}
        AREA.BORDER { color: @churchBuildingBorderColor; width: 0.1mm;}
      }
@@ -1603,7 +1610,8 @@ STYLE
        AREA.BORDER { color: @postBuildingBorderColor; width: 0.1mm; }
      }
 
-     [TYPE amenity_building,
+     [TYPE office_building,
+           amenity_building,
            amenity_bank_building,
            amenity_cafe_building,
            amenity_fast_food_building,
@@ -1649,12 +1657,25 @@ STYLE
  [MAG @labelSpecialBuildingMag-] {
    [TYPE railway_station] AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @railwayLabelColor; }
 
-   [TYPE christian_church_building,
-         christian_church] {
+   [TYPE temple_building,
+         shrine_building,
+         christian_cathedral_building,
+         christian_chapel_building,
+         christian_worship,
+         christian_church,
+         christian_church_building,
+         jewish_synagogue_building,
+         muslim_mosque_building,
+         worship_building] {
      AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @churchLabelColor; size: 0.9; priority: @labelPrioSpecialBuilding;}
-     AREA.ICON {symbol: christian_church_cross; }
-
      NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @churchLabelColor; size: 0.9; priority: @labelPrioSpecialBuilding;}
+   }
+   [TYPE christian_cathedral_building,
+         christian_chapel_building,
+         christian_worship,
+         christian_church,
+         christian_church_building] {
+     AREA.ICON {symbol: christian_church_cross; }
      NODE.ICON {symbol: christian_church_cross; }
    }
 
@@ -1717,7 +1738,9 @@ STYLE
        AREA.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; color: @labelColor; size: 0.9;  priority: @labelPrioMajorBuilding;}
      }
 
-     [TYPE amenity,
+     [TYPE office,
+           office_building,
+           amenity,
            amenity_building,
            amenity_bank_building,
            amenity_bank,

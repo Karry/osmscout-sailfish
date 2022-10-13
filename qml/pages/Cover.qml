@@ -116,7 +116,13 @@ CoverBackground {
 
         Image{
             id: trackerIcon
-            source: "image://harbour-osmscout/pics/runner.svg?" + Theme.primaryColor
+
+            TrackTypes {
+                id: trackTypes
+            }
+
+            source: trackTypes.typeIcon(Global.tracker.type)
+
             x: 0
             y: Theme.paddingMedium
             height: Theme.fontSizeMedium * 1.5

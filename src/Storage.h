@@ -502,7 +502,7 @@ public slots:
    * create empty track
    * emits trackCreated (or error), collectionDetailsLoaded
    */
-  void createTrack(qint64 collectionId, QString name, QString description, bool open);
+  void createTrack(qint64 collectionId, QString name, QString description, bool open, QString type);
 
   /**
    * edit waypoint
@@ -514,7 +514,7 @@ public slots:
    * edit track
    * emits collectionDetailsLoaded
    */
-  void editTrack(qint64 collectionId, qint64 id, QString name, QString description);
+  void editTrack(qint64 collectionId, qint64 id, QString name, QString description, QString type);
 
   /**
    * emits collectionExported

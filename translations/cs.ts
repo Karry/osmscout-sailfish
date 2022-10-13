@@ -429,6 +429,11 @@ collection pull down menu</extracomment>
         <source>%1 / %2 ft a.s.l.</source>
         <translation>%1 / %2 stop n.m.</translation>
     </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation>Typ</translation>
+    </message>
 </context>
 <context>
     <name>CollectionWaypoint</name>
@@ -825,7 +830,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation>Sdílet odkaz na místo</translation>
+        <translation type="vanished">Sdílet odkaz na místo</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
@@ -1525,6 +1530,64 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>TrackTypeComboBox</name>
+    <message>
+        <source>Type</source>
+        <translation>Typ</translation>
+    </message>
+</context>
+<context>
+    <name>TrackTypes</name>
+    <message>
+        <source>Walk</source>
+        <translation>Chůze</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Tůra</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Běh</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Silniční kolo</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Horské kolo</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Venčení psa</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Plavání</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Kolečkové brusle</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Jízda na koni</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Sjezdové lyžování</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Běžky</translation>
+    </message>
+</context>
+<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
@@ -1662,6 +1725,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Change color</source>
         <translation>Změnit barvu</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>

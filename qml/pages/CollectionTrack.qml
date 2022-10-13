@@ -38,7 +38,7 @@ Dialog{
     acceptDestination: trackDialog.acceptPage
     acceptDestinationAction: PageStackAction.Pop
 
-    canAccept: !trackModel.loading
+    canAccept: !trackModel.loading && trackModel.pointCount > 0
     onAccepted: {
         selectTrack(trackModel.boundingBox, trackId);
     }
@@ -151,6 +151,13 @@ Dialog{
                             color: Theme.secondaryColor
                             width: parent.width
                             wrapMode: Text.WordWrap
+                        }
+                        DetailItem {
+                            id: typeDetail
+                            visible: trackModel.type != ""
+                            //: track type
+                            label: qsTr("Type")
+                            value: qsTr(trackModel.type)
                         }
                         DetailItem {
                             id: distanceItem

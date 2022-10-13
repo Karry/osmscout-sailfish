@@ -181,7 +181,7 @@ Page {
 
     DBusAdaptor {
         // test:
-        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:test
+        // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openUrl string:geo:37.786,-122.399
         // dbus-send --session --type=method_call --print-reply --dest=cz.karry.osmscout.OSMScout /cz/karry/osmscout/OSMScout cz.karry.osmscout.OSMScout.openPage string:Downloads string:nothing
 
         service: "cz.karry.osmscout.OSMScout"
@@ -1423,13 +1423,18 @@ Page {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    width: height
-                    source: "image://harbour-osmscout/pics/runner.svg?" + Theme.primaryColor
+                    width: height                    
                     fillMode: Image.PreserveAspectFit
                     horizontalAlignment: Image.AlignHCenter
                     verticalAlignment: Image.AlignLeft
                     sourceSize.width: width
                     sourceSize.height: height
+
+                    TrackTypes {
+                        id: trackTypes
+                    }
+
+                    source: trackTypes.typeIcon(Global.tracker.type)
 
                     property double originalOpacity: 0.6
                     opacity: originalOpacity
