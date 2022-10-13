@@ -426,7 +426,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rodzaj</translation>
     </message>
 </context>
 <context>
@@ -1527,58 +1527,58 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodzaj</translation>
     </message>
 </context>
 <context>
     <name>TrackTypes</name>
     <message>
         <source>Walk</source>
-        <translation type="unfinished"></translation>
+        <translation>Spacer</translation>
     </message>
     <message>
         <source>Hike</source>
-        <translation type="unfinished"></translation>
+        <translation>Wędrówka górska</translation>
     </message>
     <message>
         <source>Run</source>
-        <translation type="unfinished"></translation>
+        <translation>Bieg</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished">Rower Szosowy</translation>
+        <translation>Rower Szosowy</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished">Rower górski</translation>
+        <translation>Rower górski</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished">Samochód</translation>
+        <translation>Samochód</translation>
     </message>
     <message>
         <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Spacer z psem</translation>
     </message>
     <message>
         <source>Swimming</source>
-        <translation type="unfinished"></translation>
+        <translation>Pływanie</translation>
     </message>
     <message>
         <source>Inline skating</source>
-        <translation type="unfinished"></translation>
+        <translation>Rolki</translation>
     </message>
     <message>
         <source>Skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Jazda na nartach</translation>
     </message>
     <message>
         <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Narty biegowe</translation>
     </message>
     <message>
         <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Jazda konna</translation>
     </message>
 </context>
 <context>
@@ -1723,7 +1723,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rodzaj</translation>
     </message>
 </context>
 <context>
