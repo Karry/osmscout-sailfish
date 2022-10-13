@@ -426,7 +426,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
@@ -1527,58 +1527,58 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
     <name>TrackTypes</name>
     <message>
         <source>Walk</source>
-        <translation type="unfinished"></translation>
+        <translation>Chůze</translation>
     </message>
     <message>
         <source>Hike</source>
-        <translation type="unfinished"></translation>
+        <translation>Tůra</translation>
     </message>
     <message>
         <source>Run</source>
-        <translation type="unfinished"></translation>
+        <translation>Běh</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished">Silniční kolo</translation>
+        <translation>Silniční kolo</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished">Horské kolo</translation>
+        <translation>Horské kolo</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Venčení psa</translation>
     </message>
     <message>
         <source>Swimming</source>
-        <translation type="unfinished"></translation>
+        <translation>Plavání</translation>
     </message>
     <message>
         <source>Inline skating</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolečkové brusle</translation>
     </message>
     <message>
         <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Jízda na koni</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Sjezdové lyžování</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Běžky</translation>
     </message>
 </context>
 <context>
@@ -1723,7 +1723,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
