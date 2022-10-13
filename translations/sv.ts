@@ -426,7 +426,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
@@ -1527,58 +1527,58 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
     <name>TrackTypes</name>
     <message>
         <source>Walk</source>
-        <translation type="unfinished"></translation>
+        <translation>Gång</translation>
     </message>
     <message>
         <source>Hike</source>
-        <translation type="unfinished"></translation>
+        <translation>Vandring</translation>
     </message>
     <message>
         <source>Run</source>
-        <translation type="unfinished"></translation>
+        <translation>Löpning</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished">Vägcykel</translation>
+        <translation>Landsvägscykel</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished">Mountainbike</translation>
+        <translation>Mountainbike</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished">Bil</translation>
+        <translation>Bil</translation>
     </message>
     <message>
         <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Hundpromenad</translation>
     </message>
     <message>
         <source>Swimming</source>
-        <translation type="unfinished"></translation>
+        <translation>Simmning</translation>
     </message>
     <message>
         <source>Inline skating</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Inlinesåkning</translation>
     </message>
     <message>
         <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Ridning</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Skidåkning</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Längdskidor</translation>
     </message>
 </context>
 <context>
@@ -1722,7 +1722,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
