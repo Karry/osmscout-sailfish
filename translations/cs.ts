@@ -193,6 +193,11 @@ collection pull down menu</extracomment>
 collection pull down menu</extracomment>
         <translation>Sdílet</translation>
     </message>
+    <message>
+        <source>Statistics</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished">Statistika</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -344,6 +349,75 @@ collection pull down menu</extracomment>
     <message>
         <source>Name, ascent</source>
         <translation>Jméno, A-Z</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionStatistics</name>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished">Nahrávám sbírky</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="obsolete">Typ</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <extracomment>Track duration</extracomment>
+        <translation type="unfinished">Čas</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished">Čas v pohybu</translation>
+    </message>
+    <message>
+        <source>Max speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished">%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished">%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished">Nadmořská výška min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished">%1 / %2 stop n.m.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished">%1 / %2 m n.m.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Stoupání</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Klesání</translation>
+    </message>
+    <message>
+        <source>Unknown type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track count</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -532,6 +532,16 @@ Page {
             }
             MenuItem {
                 //: collection pull down menu
+                text: qsTr("Statistics")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("CollectionStatistics.qml"),
+                                   {
+                                        collectionId: collectionPage.collectionId
+                                   });
+                }
+            }
+            MenuItem {
+                //: collection pull down menu
                 text: qsTr("Edit")
                 onClicked: {
                     editDialog.itemType = "collection";
