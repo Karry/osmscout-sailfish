@@ -193,6 +193,11 @@ collection pull down menu</extracomment>
 collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Statistics</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished">统计数据</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -344,6 +349,70 @@ collection pull down menu</extracomment>
     <message>
         <source>Name, ascent</source>
         <translation>名称，升序</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionStatistics</name>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished">正在搜藏中</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <extracomment>Track duration</extracomment>
+        <translation type="unfinished">时间</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished">运动时间</translation>
+    </message>
+    <message>
+        <source>Max speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished">%1 米/小时</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished">%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished">海拔最大值/最小值</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished">%1 / %2 英尺 a.s.l.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished">%1 / %2 m a.s.l.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">上坡</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">下坡</translation>
+    </message>
+    <message>
+        <source>Unknown type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track count</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

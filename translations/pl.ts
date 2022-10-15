@@ -193,6 +193,11 @@ collection pull down menu</extracomment>
 collection pull down menu</extracomment>
         <translation>Udostępnij</translation>
     </message>
+    <message>
+        <source>Statistics</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation type="unfinished">Statystyki</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -344,6 +349,75 @@ collection pull down menu</extracomment>
     <message>
         <source>Name, ascent</source>
         <translation>Nazwa, rosnąco</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionStatistics</name>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished">Ładowanie kolekcji</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="obsolete">Rodzaj</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <extracomment>Track duration</extracomment>
+        <translation type="unfinished">Czas</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation type="unfinished">Czas ruchu</translation>
+    </message>
+    <message>
+        <source>Max speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation type="unfinished">%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation type="unfinished">%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation type="unfinished">Wznios min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation type="unfinished">%1 / %2 ft n.p.m.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation type="unfinished">%1 / %2 m.n.p.m.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation type="unfinished">Wznios</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation type="unfinished">Spadek</translation>
+    </message>
+    <message>
+        <source>Unknown type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track count</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
