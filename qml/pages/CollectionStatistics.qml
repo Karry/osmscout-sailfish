@@ -165,4 +165,11 @@ Page {
             }
         }
     }
+    BusyIndicator {
+        id: busyIndicator
+        running: statisticsModel.loading
+        size: BusyIndicatorSize.Large
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+    }
 }
