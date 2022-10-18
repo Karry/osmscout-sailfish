@@ -196,7 +196,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Statistik</translation>
+        <translation>Statistik</translation>
     </message>
 </context>
 <context>
@@ -355,64 +355,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Hämtar samling</translation>
+        <translation>Läser in samling</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Avstånd</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Längsta spår</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Tid</translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Rörelsetid</translation>
+        <translation>Rörelsetid</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Maxhastighet</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/t</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/t</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Höjd min/max</translation>
+        <translation>Höjd min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 ft a.s.l.</translation>
+        <translation>%1 / %2 ft a.s.l.</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m a.s.l.</translation>
+        <translation>%1 / %2 m a.s.l.</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Stigning</translation>
+        <translation>Stigning</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Nedstigning</translation>
+        <translation>Nedstigning</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Okänd typ</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Antal spår</translation>
     </message>
 </context>
 <context>
