@@ -1638,15 +1638,15 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Horseback riding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Skiing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

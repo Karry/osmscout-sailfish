@@ -358,11 +358,6 @@ collection pull down menu</extracomment>
         <translation type="unfinished">Hämtar samling</translation>
     </message>
     <message>
-        <source>Type</source>
-        <extracomment>track type</extracomment>
-        <translation type="obsolete">Typ</translation>
-    </message>
-    <message>
         <source>Distance</source>
         <translation type="unfinished"></translation>
     </message>

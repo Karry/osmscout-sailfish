@@ -358,11 +358,6 @@ collection pull down menu</extracomment>
         <translation type="unfinished">Ładowanie kolekcji</translation>
     </message>
     <message>
-        <source>Type</source>
-        <extracomment>track type</extracomment>
-        <translation type="obsolete">Rodzaj</translation>
-    </message>
-    <message>
         <source>Distance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1643,16 +1638,16 @@ collection pull down menu</extracomment>
         <translation>Rolki</translation>
     </message>
     <message>
+        <source>Horseback riding</source>
+        <translation>Jazda konna</translation>
+    </message>
+    <message>
         <source>Skiing</source>
         <translation>Jazda na nartach</translation>
     </message>
     <message>
         <source>Nordic skiing</source>
         <translation>Narty biegowe</translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation>Jazda konna</translation>
     </message>
 </context>
 <context>
