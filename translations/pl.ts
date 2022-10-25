@@ -1600,57 +1600,6 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation>Spacer</translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation>Wędrówka górska</translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation>Bieg</translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation>Rower Szosowy</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation>Rower górski</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation>Samochód</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation>Spacer z psem</translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation>Pływanie</translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation>Rolki</translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation>Jazda konna</translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation>Jazda na nartach</translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation>Narty biegowe</translation>
-    </message>
-</context>
-<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
@@ -2741,6 +2690,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>rowerowa</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Spacer</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Wędrówka górska</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Bieg</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Rower Szosowy</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Rower górski</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Samochód</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Spacer z psem</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Pływanie</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Rolki</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Jazda konna</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Jazda na nartach</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Narty biegowe</translation>
     </message>
 </context>
 </TS>

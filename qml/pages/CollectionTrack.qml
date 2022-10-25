@@ -157,7 +157,7 @@ Dialog{
                             visible: trackModel.type != ""
                             //: track type
                             label: qsTr("Type")
-                            value: qsTr(trackModel.type)
+                            value: qsTranslate("trackType", trackModel.type)
                         }
                         DetailItem {
                             id: distanceItem

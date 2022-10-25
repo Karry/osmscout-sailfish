@@ -1600,57 +1600,6 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation>Gång</translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation>Vandring</translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation>Löpning</translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation>Landsvägscykel</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation>Mountainbike</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation>Bil</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation>Hundpromenad</translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation>Simmning</translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation>Inlinesåkning</translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation>Ridning</translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation>Skidåkning</translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation>Längdskidor</translation>
-    </message>
-</context>
-<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
@@ -2740,6 +2689,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>Cykel</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Gång</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Vandring</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Löpning</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Landsvägscykel</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Mountainbike</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Bil</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Hundpromenad</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Simmning</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Inlinesåkning</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Ridning</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Skidåkning</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Längdskidor</translation>
     </message>
 </context>
 </TS>

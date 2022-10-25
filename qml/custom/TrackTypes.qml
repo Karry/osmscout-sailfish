@@ -22,18 +22,18 @@ import Sailfish.Silica 1.0
 
 Item {
     property var types: [
-        QT_TR_NOOP('Walk'),
-        QT_TR_NOOP('Hike'),
-        QT_TR_NOOP('Run'),
-        QT_TR_NOOP('Road bike'),
-        QT_TR_NOOP('Mountain bike'),
-        QT_TR_NOOP('Car'),
-        QT_TR_NOOP('Walking the dog'),
-        QT_TR_NOOP('Swimming'),
-        QT_TR_NOOP('Inline skating'),
-        QT_TR_NOOP('Skiing'),
-        QT_TR_NOOP('Nordic skiing'),
-        QT_TR_NOOP('Horseback riding')
+        QT_TRANSLATE_NOOP("trackType", 'Walk'),
+        QT_TRANSLATE_NOOP("trackType", 'Hike'),
+        QT_TRANSLATE_NOOP("trackType", 'Run'),
+        QT_TRANSLATE_NOOP("trackType", 'Road bike'),
+        QT_TRANSLATE_NOOP("trackType", 'Mountain bike'),
+        QT_TRANSLATE_NOOP("trackType", 'Car'),
+        QT_TRANSLATE_NOOP("trackType", 'Walking the dog'),
+        QT_TRANSLATE_NOOP("trackType", 'Swimming'),
+        QT_TRANSLATE_NOOP("trackType", 'Inline skating'),
+        QT_TRANSLATE_NOOP("trackType", 'Skiing'),
+        QT_TRANSLATE_NOOP("trackType", 'Nordic skiing'),
+        QT_TRANSLATE_NOOP("trackType", 'Horseback riding')
         ]
 
     property string unknownTypeIcon: 'pics/runner'

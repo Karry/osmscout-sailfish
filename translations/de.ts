@@ -1600,57 +1600,6 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation>Gehen</translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation>Wandern</translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation>Laufen</translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation>Straßen-Fahrrad</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation>Mountainbike</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation>Gassi gehen</translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation>Schwimmen</translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation>Inline Skaten</translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation>Reiten</translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation>Ski fahren</translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation>Ski Langlauf</translation>
-    </message>
-</context>
-<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
@@ -2740,6 +2689,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>Fahrrad</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Gehen</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Wandern</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Laufen</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Straßen-Fahrrad</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Mountainbike</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Gassi gehen</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Schwimmen</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Inline Skaten</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Reiten</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Ski fahren</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Ski Langlauf</translation>
     </message>
 </context>
 </TS>

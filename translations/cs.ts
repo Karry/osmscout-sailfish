@@ -1600,57 +1600,6 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation>Chůze</translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation>Tůra</translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation>Běh</translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation>Silniční kolo</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation>Horské kolo</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation>Venčení psa</translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation>Plavání</translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation>Kolečkové brusle</translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation>Jízda na koni</translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation>Sjezdové lyžování</translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation>Běžky</translation>
-    </message>
-</context>
-<context>
     <name>Tracker</name>
     <message>
         <source>New track</source>
@@ -2741,6 +2690,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>Cyklo</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Chůze</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Tůra</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Běh</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Silniční kolo</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Horské kolo</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Venčení psa</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Plavání</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Kolečkové brusle</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Jízda na koni</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Sjezdové lyžování</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Běžky</translation>
     </message>
 </context>
 </TS>

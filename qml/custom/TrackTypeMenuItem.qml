@@ -24,7 +24,7 @@ MenuItem {
     id: menuItem
     property string type: 'unknown'
 
-    text: qsTr(type)
+    text: qsTranslate("trackType", type)
 
     horizontalAlignment: Text.AlignLeft
     leftPadding: Theme.horizontalPageMargin + icon.width

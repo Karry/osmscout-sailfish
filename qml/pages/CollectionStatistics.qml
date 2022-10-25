@@ -98,7 +98,7 @@ Page {
 
                 SectionHeader {
                     id: typeHeader
-                    text: model.type != "" ? qsTr(model.type) : qsTr("Unknown type")
+                    text: model.type != "" ? qsTranslate("trackType", model.type) : qsTr("Unknown type")
                     //width: parent.width
                 }
 
