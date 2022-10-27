@@ -2186,6 +2186,54 @@ collection pull down menu</extracomment>
         <source>tourism_viewpoint</source>
         <translation>Utsiktspunkt</translation>
     </message>
+    <message>
+        <source>amenity_bench</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_shelter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_waste_basket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_waste_disposal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_cathedral_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_chapel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_worship</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>jewish_synagogue_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>muslim_mosque_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>shrine_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>temple_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>worship_building</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>osmscout::RouteDescriptionBuilder</name>

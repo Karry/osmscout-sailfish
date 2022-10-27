@@ -2186,6 +2186,54 @@ collection pull down menu</extracomment>
         <source>tourism_viewpoint</source>
         <translation>Viewpoint</translation>
     </message>
+    <message>
+        <source>amenity_bench</source>
+        <translation>Bench</translation>
+    </message>
+    <message>
+        <source>amenity_shelter</source>
+        <translation>Shelter</translation>
+    </message>
+    <message>
+        <source>amenity_waste_basket</source>
+        <translation>Waste basket</translation>
+    </message>
+    <message>
+        <source>amenity_waste_disposal</source>
+        <translation>Waste disposal</translation>
+    </message>
+    <message>
+        <source>christian_cathedral_building</source>
+        <translation>Catedral</translation>
+    </message>
+    <message>
+        <source>christian_chapel_building</source>
+        <translation>Chapel</translation>
+    </message>
+    <message>
+        <source>christian_worship</source>
+        <translation>Worship</translation>
+    </message>
+    <message>
+        <source>jewish_synagogue_building</source>
+        <translation>Synagogue</translation>
+    </message>
+    <message>
+        <source>muslim_mosque_building</source>
+        <translation>Mosque</translation>
+    </message>
+    <message>
+        <source>shrine_building</source>
+        <translation>Shrine</translation>
+    </message>
+    <message>
+        <source>temple_building</source>
+        <translation>Temple</translation>
+    </message>
+    <message>
+        <source>worship_building</source>
+        <translation>Worship</translation>
+    </message>
 </context>
 <context>
     <name>osmscout::RouteDescriptionBuilder</name>
