@@ -2189,51 +2189,51 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_bench</source>
-        <translation type="unfinished"></translation>
+        <translation>Lavička</translation>
     </message>
     <message>
         <source>amenity_shelter</source>
-        <translation type="unfinished"></translation>
+        <translation>Přístřešek</translation>
     </message>
     <message>
         <source>amenity_waste_basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Odpadkový koš</translation>
     </message>
     <message>
         <source>amenity_waste_disposal</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontejner na odpad</translation>
     </message>
     <message>
         <source>christian_cathedral_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Katedrála</translation>
     </message>
     <message>
         <source>christian_chapel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaple</translation>
     </message>
     <message>
         <source>christian_worship</source>
-        <translation type="unfinished"></translation>
+        <translation>Modlitebna</translation>
     </message>
     <message>
         <source>jewish_synagogue_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Synagoga</translation>
     </message>
     <message>
         <source>muslim_mosque_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Mešita</translation>
     </message>
     <message>
         <source>shrine_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Svatyně</translation>
     </message>
     <message>
         <source>temple_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Chrám</translation>
     </message>
     <message>
         <source>worship_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Modlitebna</translation>
     </message>
 </context>
 <context>

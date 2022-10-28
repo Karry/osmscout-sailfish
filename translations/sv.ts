@@ -2188,51 +2188,51 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_bench</source>
-        <translation type="unfinished"></translation>
+        <translation>Bänk</translation>
     </message>
     <message>
         <source>amenity_shelter</source>
-        <translation type="unfinished"></translation>
+        <translation>Väderskydd</translation>
     </message>
     <message>
         <source>amenity_waste_basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Papperskorg</translation>
     </message>
     <message>
         <source>amenity_waste_disposal</source>
-        <translation type="unfinished"></translation>
+        <translation>Avfallshantering</translation>
     </message>
     <message>
         <source>christian_cathedral_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Katedral</translation>
     </message>
     <message>
         <source>christian_chapel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapell</translation>
     </message>
     <message>
         <source>christian_worship</source>
-        <translation type="unfinished"></translation>
+        <translation>Andakt</translation>
     </message>
     <message>
         <source>jewish_synagogue_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Synagoga</translation>
     </message>
     <message>
         <source>muslim_mosque_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Moské</translation>
     </message>
     <message>
         <source>shrine_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Helgedom</translation>
     </message>
     <message>
         <source>temple_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel</translation>
     </message>
     <message>
         <source>worship_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Andakt</translation>
     </message>
 </context>
 <context>
