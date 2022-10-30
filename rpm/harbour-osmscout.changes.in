@@ -569,3 +569,4 @@
 - update translations (Czech, German, Polish, Swedish)
 - page with collection statistics
 - use English names of administrative regions (search, place detail...) when English is preferred (in map settings)
+- preserve track type and color during track split

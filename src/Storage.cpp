@@ -2179,6 +2179,8 @@ void Storage::splitTrack(Track track, quint64 position)
   //: name for new track created by splitting
   trackTail.name = Storage::tr("%1, part 2").arg(track.name).toStdString();
   trackTail.desc = track.description.toStdString();
+  trackTail.type = track.type.toStdString();
+  trackTail.displayColor = track.color;
   quint64 skip=position;
   for (const auto &seg: track.data->segments){
     if (skip==0){
