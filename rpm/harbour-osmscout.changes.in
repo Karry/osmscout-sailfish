@@ -568,3 +568,4 @@
 * 2022-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.27
 - update translations (Czech, German, Polish, Swedish)
 - page with collection statistics
+- use English names of administrative regions (search, place detail...) when English is preferred (in map settings)

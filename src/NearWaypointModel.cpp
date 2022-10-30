@@ -21,6 +21,7 @@
 
 #include <osmscout/util/Geometry.h>
 #include <osmscoutclientqt/LocationEntry.h>
+#include <osmscoutclientqt/AdminRegionInfo.h>
 
 NearWaypointModel::NearWaypointModel()
 {
@@ -127,7 +128,7 @@ QObject* NearWaypointModel::get(int row) const
     osmscout::LocationEntry::typeObject,
     QString::fromStdString(waypoint.data.name ? waypoint.data.name.value() : waypoint.data.coord.GetDisplayText()),
     "",
-    QStringList(),
+    QList<osmscout::AdminRegionInfoRef>(),
     "",
     waypoint.data.coord,
     osmscout::GeoBox::BoxByCenterAndRadius(waypoint.data.coord, osmscout::Meters(2.0)));

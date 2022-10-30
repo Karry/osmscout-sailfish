@@ -221,7 +221,7 @@ QObject *CollectionTrackModel::getBBox() const
   return new LocationEntry(LocationEntry::Type::typeNone,
                            "bbox",
                            "bbox",
-                           QStringList(),
+                           QList<AdminRegionInfoRef>(),
                            "",
                            track.statistics.bbox.GetCenter(),
                            track.statistics.bbox);
