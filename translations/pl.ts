@@ -196,7 +196,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Statystyki</translation>
+        <translation>Statystyki</translation>
     </message>
 </context>
 <context>
@@ -355,64 +355,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Ładowanie kolekcji</translation>
+        <translation>Ładowanie kolekcji</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Dystans</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Najdłuższy ślad</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Czas</translation>
+        <translation>Czas</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Czas ruchu</translation>
+        <translation>Czas ruchu</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Prędkość maksymalna</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Wznios min/max</translation>
+        <translation>Wznios min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 ft n.p.m.</translation>
+        <translation>%1 / %2 ft n.p.m.</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m.n.p.m.</translation>
+        <translation>%1 / %2 m.n.p.m.</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Wznios</translation>
+        <translation>Wznios</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Spadek</translation>
+        <translation>Spadek</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieznany rodzaj</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Liczba śladów</translation>
     </message>
 </context>
 <context>
