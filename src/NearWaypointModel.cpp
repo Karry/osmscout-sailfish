@@ -128,6 +128,7 @@ QObject* NearWaypointModel::get(int row) const
     osmscout::LocationEntry::typeObject,
     QString::fromStdString(waypoint.data.name ? waypoint.data.name.value() : waypoint.data.coord.GetDisplayText()),
     "",
+    "",
     QList<osmscout::AdminRegionInfoRef>(),
     "",
     waypoint.data.coord,

@@ -220,6 +220,7 @@ QObject *CollectionTrackModel::getBBox() const
   // QML will take ownership
   return new LocationEntry(LocationEntry::Type::typeNone,
                            "bbox",
+                           "",
                            "bbox",
                            QList<AdminRegionInfoRef>(),
                            "",
