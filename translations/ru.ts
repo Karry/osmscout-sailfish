@@ -1330,6 +1330,15 @@ collection pull down menu</extracomment>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished">Английские названия</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
