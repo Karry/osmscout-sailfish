@@ -196,7 +196,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Statistika</translation>
+        <translation>Statistika</translation>
     </message>
 </context>
 <context>
@@ -355,64 +355,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Laadin kogumikku</translation>
+        <translation>Laadin kogumikku</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Vahemaa</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Pikim rada</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Kestus</translation>
+        <translation>Kestus</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Liikumise kestus</translation>
+        <translation>Liikumise kestus</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Suurim kiirus</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Suurim/väikseim kõrgus</translation>
+        <translation>Suurim/väikseim kõrgus</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 ft ümp</translation>
+        <translation>%1 / %2 ft ümp</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m ümp</translation>
+        <translation>%1 / %2 m ümp</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Tõus</translation>
+        <translation>Tõus</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Laskumine</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tundmatu tüüp</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Radade arv</translation>
     </message>
 </context>
 <context>
@@ -495,7 +495,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tüüp</translation>
     </message>
 </context>
 <context>
@@ -1332,12 +1332,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Eelista ingliskeelseid nimesid</translation>
+        <translation>Eelista ingliskeelseid nimesid</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kaardivaates, otsinguvormil ja asukoha teabe puhul</translation>
     </message>
 </context>
 <context>
@@ -1605,7 +1605,7 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüüp</translation>
     </message>
 </context>
 <context>
@@ -1749,7 +1749,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tüüp</translation>
     </message>
 </context>
 <context>
@@ -2197,51 +2197,51 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_bench</source>
-        <translation type="unfinished"></translation>
+        <translation>Pink</translation>
     </message>
     <message>
         <source>amenity_shelter</source>
-        <translation type="unfinished"></translation>
+        <translation>Varjualune</translation>
     </message>
     <message>
         <source>amenity_waste_basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Prügikast</translation>
     </message>
     <message>
         <source>amenity_waste_disposal</source>
-        <translation type="unfinished"></translation>
+        <translation>Prügikonteiner</translation>
     </message>
     <message>
         <source>christian_cathedral_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Katedraal</translation>
     </message>
     <message>
         <source>christian_chapel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kabel</translation>
     </message>
     <message>
         <source>christian_worship</source>
-        <translation type="unfinished"></translation>
+        <translation>Palvela</translation>
     </message>
     <message>
         <source>jewish_synagogue_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Sõnagoog</translation>
     </message>
     <message>
         <source>muslim_mosque_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Mošee</translation>
     </message>
     <message>
         <source>shrine_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Pühamu</translation>
     </message>
     <message>
         <source>temple_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel</translation>
     </message>
     <message>
         <source>worship_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Palvela</translation>
     </message>
 </context>
 <context>
@@ -2752,51 +2752,51 @@ collection pull down menu</extracomment>
     <name>trackType</name>
     <message>
         <source>Walk</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõndimine</translation>
     </message>
     <message>
         <source>Hike</source>
-        <translation type="unfinished"></translation>
+        <translation>Matkamine</translation>
     </message>
     <message>
         <source>Run</source>
-        <translation type="unfinished"></translation>
+        <translation>Jooksmine</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished">linnarattaga</translation>
+        <translation>Linnaratas</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished">maastikurattaga</translation>
+        <translation>Maastikuratas</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished">autoga</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Koertega jalutamine</translation>
     </message>
     <message>
         <source>Swimming</source>
-        <translation type="unfinished"></translation>
+        <translation>Ujumine</translation>
     </message>
     <message>
         <source>Inline skating</source>
-        <translation type="unfinished"></translation>
+        <translation>Rulluisutamine</translation>
     </message>
     <message>
         <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratsutamine</translation>
     </message>
     <message>
         <source>Skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Suusatamine</translation>
     </message>
     <message>
         <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Murdmaasuusatamine</translation>
     </message>
 </context>
 </TS>

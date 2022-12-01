@@ -1332,12 +1332,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Preferovat anglické názvy</translation>
+        <translation>Preferovat anglické názvy</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Na mapě, hledání a informacích o místech</translation>
     </message>
 </context>
 <context>
