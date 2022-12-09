@@ -883,9 +883,14 @@ Page {
                             wrapMode: Text.Wrap
                             color: Theme.highlightColor
 
+                            property string localizedLabel: settings.showAltLanguage && (typeof model.altLangName != "undefined") ?
+                                                                (model.altLangName + (model.name!=="" ? " (" + model.name +")" : "")) :
+                                                                model.name
+
                             text: (previewDialog.selectedLocation.type=="coordinate") ?
                                       Utils.formatCoord(previewDialog.selectedLocation.lat, previewDialog.selectedLocation.lon, AppSettings.gpsFormat) :
-                                      (previewDialog.selectedLocation.label==""? qsTr("Unnamed"):previewDialog.selectedLocation.label);
+                                      (localizedLabel==""? qsTr("Unnamed"):localizedLabel);
+
                         }
                         Label {
                             id: entryAddress
