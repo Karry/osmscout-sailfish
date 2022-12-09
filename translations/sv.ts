@@ -1332,12 +1332,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Föredra Engelska namn</translation>
+        <translation>Föredra Engelska namn</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>På karta, sök- och platsinformation</translation>
     </message>
 </context>
 <context>
