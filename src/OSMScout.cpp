@@ -31,6 +31,7 @@
 // collections
 #include "Storage.h"
 #include "CollectionModel.h"
+#include "CollectionStatisticsModel.h"
 #include "CollectionListModel.h"
 #include "CollectionTrackModel.h"
 #include "CollectionMapBridge.h"
@@ -183,6 +184,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
   qmlRegisterType<CollectionListModel>("harbour.osmscout.map", 1, 0, "CollectionListModel");
   qmlRegisterType<CollectionModel>("harbour.osmscout.map", 1, 0, "CollectionModel");
+  qmlRegisterType<CollectionStatisticsModel>("harbour.osmscout.map", 1, 0, "CollectionStatisticsModel");
   qmlRegisterType<CollectionTrackModel>("harbour.osmscout.map", 1, 0, "CollectionTrackModel");
   qmlRegisterType<CollectionMapBridge>("harbour.osmscout.map", 1, 0, "CollectionMapBridge");
   qmlRegisterType<Tracker>("harbour.osmscout.map", 1, 0, "Tracker");

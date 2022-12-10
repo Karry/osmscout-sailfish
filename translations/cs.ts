@@ -199,6 +199,11 @@ collection pull down menu</extracomment>
         <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Statistics</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation>Statistiky</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -350,6 +355,70 @@ collection pull down menu</extracomment>
     <message>
         <source>Name, ascent</source>
         <translation>Jméno, A-Z</translation>
+    </message>
+</context>
+<context>
+    <name>CollectionStatistics</name>
+    <message>
+        <source>Loading collection</source>
+        <translation>Upravit sbírku</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Vzdálenost</translation>
+    </message>
+    <message>
+        <source>Longest track</source>
+        <translation>Nejdelší trasa</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <extracomment>Track duration</extracomment>
+        <translation>Čas</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>Čas v pohybu</translation>
+    </message>
+    <message>
+        <source>Max speed</source>
+        <translation>Maximální rychlost</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Nadmořská výška min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation>%1 / %2 stop n.m.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation>%1 / %2 m n.m.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>Stoupání</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Klesání</translation>
+    </message>
+    <message>
+        <source>Unknown type</source>
+        <translation>Neznámý typ</translation>
+    </message>
+    <message>
+        <source>Track count</source>
+        <translation>Počet tras</translation>
     </message>
 </context>
 <context>
@@ -1267,6 +1336,15 @@ collection pull down menu</extracomment>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
         <translation>Noční režim</translation>
     </message>
+    <message>
+        <source>Prefer English names</source>
+        <translation>Preferovat anglické názvy</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>Na mapě, hledání a informacích o místech</translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1534,57 +1612,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <translation>Typ</translation>
-    </message>
-</context>
-<context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation>Chůze</translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation>Tůra</translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation>Běh</translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation>Silniční kolo</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation>Horské kolo</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation>Venčení psa</translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation>Plavání</translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation>Kolečkové brusle</translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation>Jízda na koni</translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation>Sjezdové lyžování</translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation>Běžky</translation>
     </message>
 </context>
 <context>
@@ -2175,6 +2202,54 @@ collection pull down menu</extracomment>
         <source>tourism_viewpoint</source>
         <translation>Vyhlídka</translation>
     </message>
+    <message>
+        <source>amenity_bench</source>
+        <translation>Lavička</translation>
+    </message>
+    <message>
+        <source>amenity_shelter</source>
+        <translation>Přístřešek</translation>
+    </message>
+    <message>
+        <source>amenity_waste_basket</source>
+        <translation>Odpadkový koš</translation>
+    </message>
+    <message>
+        <source>amenity_waste_disposal</source>
+        <translation>Kontejner na odpad</translation>
+    </message>
+    <message>
+        <source>christian_cathedral_building</source>
+        <translation>Katedrála</translation>
+    </message>
+    <message>
+        <source>christian_chapel_building</source>
+        <translation>Kaple</translation>
+    </message>
+    <message>
+        <source>christian_worship</source>
+        <translation>Modlitebna</translation>
+    </message>
+    <message>
+        <source>jewish_synagogue_building</source>
+        <translation>Synagoga</translation>
+    </message>
+    <message>
+        <source>muslim_mosque_building</source>
+        <translation>Mešita</translation>
+    </message>
+    <message>
+        <source>shrine_building</source>
+        <translation>Svatyně</translation>
+    </message>
+    <message>
+        <source>temple_building</source>
+        <translation>Chrám</translation>
+    </message>
+    <message>
+        <source>worship_building</source>
+        <translation>Modlitebna</translation>
+    </message>
 </context>
 <context>
     <name>osmscout::RouteDescriptionBuilder</name>
@@ -2678,6 +2753,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>Cyklo</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Chůze</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Tůra</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Běh</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Silniční kolo</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Horské kolo</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Venčení psa</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Plavání</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Kolečkové brusle</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Jízda na koni</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Sjezdové lyžování</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Běžky</translation>
     </message>
 </context>
 </TS>

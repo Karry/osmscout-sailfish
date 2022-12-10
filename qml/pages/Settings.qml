@@ -129,6 +129,20 @@ Page {
                     clicked(mouse);
                 }
             }
+            TextSwitch{
+                id: altLangSwitch
+                width: parent.width
+
+                checked: settings.showAltLanguage
+                text: qsTr("Prefer English names")
+                //: description of "Prefer English names" switch
+                description: qsTr("On the map, search and place info")
+
+                onCheckedChanged: {
+                    settings.showAltLanguage = checked;
+                }
+            }
+
 
             SectionHeader{ text: qsTr("Navigation") }
 

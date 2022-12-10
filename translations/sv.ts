@@ -199,6 +199,11 @@ collection pull down menu</extracomment>
         <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Statistics</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation>Statistik</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -353,6 +358,70 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>CollectionStatistics</name>
+    <message>
+        <source>Loading collection</source>
+        <translation>Läser in samling</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Avstånd</translation>
+    </message>
+    <message>
+        <source>Longest track</source>
+        <translation>Längsta spår</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <extracomment>Track duration</extracomment>
+        <translation>Tid</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>Rörelsetid</translation>
+    </message>
+    <message>
+        <source>Max speed</source>
+        <translation>Maxhastighet</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 mi/t</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/t</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Höjd min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation>%1 / %2 ft a.s.l.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation>%1 / %2 m a.s.l.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>Stigning</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Nedstigning</translation>
+    </message>
+    <message>
+        <source>Unknown type</source>
+        <translation>Okänd typ</translation>
+    </message>
+    <message>
+        <source>Track count</source>
+        <translation>Antal spår</translation>
+    </message>
+</context>
+<context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
@@ -432,7 +501,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
@@ -1267,6 +1336,15 @@ collection pull down menu</extracomment>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
         <translation>Nattläge</translation>
     </message>
+    <message>
+        <source>Prefer English names</source>
+        <translation>Föredra Engelska namn</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>På karta, sök- och platsinformation</translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1533,58 +1611,7 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation type="unfinished">Vägcykel</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation type="unfinished">Mountainbike</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation type="unfinished">Bil</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
@@ -1728,7 +1755,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
@@ -2173,6 +2200,54 @@ collection pull down menu</extracomment>
     <message>
         <source>tourism_viewpoint</source>
         <translation>Utsiktspunkt</translation>
+    </message>
+    <message>
+        <source>amenity_bench</source>
+        <translation>Bänk</translation>
+    </message>
+    <message>
+        <source>amenity_shelter</source>
+        <translation>Väderskydd</translation>
+    </message>
+    <message>
+        <source>amenity_waste_basket</source>
+        <translation>Papperskorg</translation>
+    </message>
+    <message>
+        <source>amenity_waste_disposal</source>
+        <translation>Avfallshantering</translation>
+    </message>
+    <message>
+        <source>christian_cathedral_building</source>
+        <translation>Katedral</translation>
+    </message>
+    <message>
+        <source>christian_chapel_building</source>
+        <translation>Kapell</translation>
+    </message>
+    <message>
+        <source>christian_worship</source>
+        <translation>Andakt</translation>
+    </message>
+    <message>
+        <source>jewish_synagogue_building</source>
+        <translation>Synagoga</translation>
+    </message>
+    <message>
+        <source>muslim_mosque_building</source>
+        <translation>Moské</translation>
+    </message>
+    <message>
+        <source>shrine_building</source>
+        <translation>Helgedom</translation>
+    </message>
+    <message>
+        <source>temple_building</source>
+        <translation>Tempel</translation>
+    </message>
+    <message>
+        <source>worship_building</source>
+        <translation>Andakt</translation>
     </message>
 </context>
 <context>
@@ -2677,6 +2752,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>Cykel</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Gång</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Vandring</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Löpning</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Landsvägscykel</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Mountainbike</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Bil</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Hundpromenad</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Simmning</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Inlinesåkning</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Ridning</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Skidåkning</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Längdskidor</translation>
     </message>
 </context>
 </TS>

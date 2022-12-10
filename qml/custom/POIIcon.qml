@@ -113,6 +113,8 @@ Image{
                 'shop': 'shop',
                 'christian_church_building':'religious-christian',
                 'christian_church': 'religious-christian',
+                'jewish_synagogue_building': 'religious-jewish',
+                'muslim_mosque_building': 'religious-muslim',
                 'landuse_cemetery': 'religious-christian',
                 'railway_subway_entrance': 'entrance',
 

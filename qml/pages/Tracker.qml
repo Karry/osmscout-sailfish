@@ -216,7 +216,7 @@ Page {
                 visible: Global.tracker.type != ""
                 //: track type
                 label: qsTr("Type")
-                value: qsTr(Global.tracker.type)
+                value: qsTranslate("trackType", Global.tracker.type)
             }
 
             SectionHeader{ text: qsTr("Current data") }

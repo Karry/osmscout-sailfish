@@ -111,6 +111,10 @@ Page {
         }
     }
 
+    Settings {
+        id: settings
+    }
+
     onSearchStringChanged: {
         if (searchString.length == 0){
             highlighRegexp = new RegExp("", 'i')
@@ -495,9 +499,14 @@ Page {
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     textFormat: Text.StyledText
-                    text: (type=="coordinate") ?
+
+                    property string localizedLabel: settings.showAltLanguage && model.altLangName !== "" ?
+                                                        (model.altLangName + (model.label!=="" ? " (" + model.label +")" : "")) :
+                                                        model.label
+
+                    text: (type==="coordinate") ?
                               Utils.formatCoord(lat, lon, AppSettings.gpsFormat) :
-                              (label== "" ? qsTr("Unnamed") :(searchString=="" ? label : Theme.highlightText(label, highlighRegexp, Theme.highlightColor)))
+                              (localizedLabel === "" ? qsTr("Unnamed") :(searchString=="" ? localizedLabel : Theme.highlightText(localizedLabel, highlighRegexp, Theme.highlightColor)))
                 }
                 Label {
                     id: entryRegion
@@ -874,9 +883,14 @@ Page {
                             wrapMode: Text.Wrap
                             color: Theme.highlightColor
 
+                            property string localizedLabel: settings.showAltLanguage && (typeof model.altLangName != "undefined") ?
+                                                                (model.altLangName + (model.name!=="" ? " (" + model.name +")" : "")) :
+                                                                model.name
+
                             text: (previewDialog.selectedLocation.type=="coordinate") ?
                                       Utils.formatCoord(previewDialog.selectedLocation.lat, previewDialog.selectedLocation.lon, AppSettings.gpsFormat) :
-                                      (previewDialog.selectedLocation.label==""? qsTr("Unnamed"):previewDialog.selectedLocation.label);
+                                      (localizedLabel==""? qsTr("Unnamed"):localizedLabel);
+
                         }
                         Label {
                             id: entryAddress

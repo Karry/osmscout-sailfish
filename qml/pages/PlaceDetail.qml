@@ -235,15 +235,29 @@ Page {
                           height: Theme.iconSizeMedium
                       }
                       Column{
-                        Label {
-                            id: entryPoi
+                          Label {
+                              id: entryPoi
 
-                            width: locationInfoView.width - poiIcon.width - (2*Theme.paddingSmall)
+                              width: locationInfoView.width - poiIcon.width - (2*Theme.paddingSmall)
 
-                            text: poi // label
-                            font.pixelSize: Theme.fontSizeLarge
-                            visible: poi != ""
-                        }
+                              // text: label
+                              text: settings.showAltLanguage && model.altLangName !== "" ?
+                                   model.altLangName :
+                                   model.poi
+
+                              font.pixelSize: Theme.fontSizeLarge
+                              visible: poi != ""
+                          }
+                          Label {
+                              id: entryPoiAltName
+
+                              width: locationInfoView.width - poiIcon.width - (2*Theme.paddingSmall)
+
+                              text: "(" + model.poi + ")"
+
+                              font.pixelSize: Theme.fontSizeLarge
+                              visible: poi != "" && model.altLangName != "" && settings.showAltLanguage
+                          }
                         Label {
                             id: entryAddress
 

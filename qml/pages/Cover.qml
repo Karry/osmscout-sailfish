@@ -127,6 +127,10 @@ CoverBackground {
             y: Theme.paddingMedium
             height: Theme.fontSizeMedium * 1.5
             width: height
+
+            fillMode: Image.PreserveAspectFit
+            sourceSize.width: trackerIcon.width
+            sourceSize.height: trackerIcon.height
         }
         Label{
             id: trackerHeaderText

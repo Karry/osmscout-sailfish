@@ -199,6 +199,11 @@ collection pull down menu</extracomment>
         <extracomment>collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Statistics</source>
+        <extracomment>collection pull down menu</extracomment>
+        <translation>Statystyki</translation>
+    </message>
 </context>
 <context>
     <name>CollectionComboBox</name>
@@ -353,6 +358,70 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>CollectionStatistics</name>
+    <message>
+        <source>Loading collection</source>
+        <translation>Ładowanie kolekcji</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Dystans</translation>
+    </message>
+    <message>
+        <source>Longest track</source>
+        <translation>Najdłuższy ślad</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <extracomment>Track duration</extracomment>
+        <translation>Czas</translation>
+    </message>
+    <message>
+        <source>Moving Time</source>
+        <translation>Czas ruchu</translation>
+    </message>
+    <message>
+        <source>Max speed</source>
+        <translation>Prędkość maksymalna</translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/h</translation>
+    </message>
+    <message>
+        <source>Elevation min/max</source>
+        <translation>Wznios min/max</translation>
+    </message>
+    <message>
+        <source>%1 / %2 ft a.s.l.</source>
+        <translation>%1 / %2 ft n.p.m.</translation>
+    </message>
+    <message>
+        <source>%1 / %2 m a.s.l.</source>
+        <translation>%1 / %2 m.n.p.m.</translation>
+    </message>
+    <message>
+        <source>Ascent</source>
+        <translation>Wznios</translation>
+    </message>
+    <message>
+        <source>Descent</source>
+        <translation>Spadek</translation>
+    </message>
+    <message>
+        <source>Unknown type</source>
+        <translation>Nieznany rodzaj</translation>
+    </message>
+    <message>
+        <source>Track count</source>
+        <translation>Liczba śladów</translation>
+    </message>
+</context>
+<context>
     <name>CollectionTrack</name>
     <message>
         <source>Show</source>
@@ -432,7 +501,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rodzaj</translation>
     </message>
 </context>
 <context>
@@ -1267,6 +1336,15 @@ collection pull down menu</extracomment>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
         <translation>Tryb nocny</translation>
     </message>
+    <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished">Preferuj nazwy angielskie</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpeedIndicator</name>
@@ -1533,58 +1611,7 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TrackTypes</name>
-    <message>
-        <source>Walk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hike</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Run</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Road bike</source>
-        <translation type="unfinished">Rower Szosowy</translation>
-    </message>
-    <message>
-        <source>Mountain bike</source>
-        <translation type="unfinished">Rower górski</translation>
-    </message>
-    <message>
-        <source>Car</source>
-        <translation type="unfinished">Samochód</translation>
-    </message>
-    <message>
-        <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swimming</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Inline skating</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodzaj</translation>
     </message>
 </context>
 <context>
@@ -1729,7 +1756,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rodzaj</translation>
     </message>
 </context>
 <context>
@@ -2174,6 +2201,54 @@ collection pull down menu</extracomment>
     <message>
         <source>tourism_viewpoint</source>
         <translation>Punkt widokowy</translation>
+    </message>
+    <message>
+        <source>amenity_bench</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_shelter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_waste_basket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amenity_waste_disposal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_cathedral_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_chapel_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>christian_worship</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>jewish_synagogue_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>muslim_mosque_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>shrine_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>temple_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>worship_building</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2678,6 +2753,57 @@ collection pull down menu</extracomment>
     <message>
         <source>cycle</source>
         <translation>rowerowa</translation>
+    </message>
+</context>
+<context>
+    <name>trackType</name>
+    <message>
+        <source>Walk</source>
+        <translation>Spacer</translation>
+    </message>
+    <message>
+        <source>Hike</source>
+        <translation>Wędrówka górska</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation>Bieg</translation>
+    </message>
+    <message>
+        <source>Road bike</source>
+        <translation>Rower Szosowy</translation>
+    </message>
+    <message>
+        <source>Mountain bike</source>
+        <translation>Rower górski</translation>
+    </message>
+    <message>
+        <source>Car</source>
+        <translation>Samochód</translation>
+    </message>
+    <message>
+        <source>Walking the dog</source>
+        <translation>Spacer z psem</translation>
+    </message>
+    <message>
+        <source>Swimming</source>
+        <translation>Pływanie</translation>
+    </message>
+    <message>
+        <source>Inline skating</source>
+        <translation>Rolki</translation>
+    </message>
+    <message>
+        <source>Horseback riding</source>
+        <translation>Jazda konna</translation>
+    </message>
+    <message>
+        <source>Skiing</source>
+        <translation>Jazda na nartach</translation>
+    </message>
+    <message>
+        <source>Nordic skiing</source>
+        <translation>Narty biegowe</translation>
     </message>
 </context>
 </TS>
