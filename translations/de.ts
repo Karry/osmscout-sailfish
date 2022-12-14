@@ -196,7 +196,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Statistik</translation>
+        <translation>Statistiken</translation>
     </message>
 </context>
 <context>
@@ -355,64 +355,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Lade Sammlung</translation>
+        <translation>Lade Sammlung</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernung</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Längster Track</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Zeit</translation>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Reisedauer</translation>
+        <translation>Bewegungszeit</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Höchstgeschwindigkeit</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Höhe min/max</translation>
+        <translation>Höhe min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 ft ü. M.</translation>
+        <translation>%1 / %2 ft ü. M.</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m ü. M.</translation>
+        <translation>%1 / %2 m ü. M.</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Anstieg</translation>
+        <translation>Anstieg</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Abstieg</translation>
+        <translation>Abstieg</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Typ</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl Tracks</translation>
     </message>
 </context>
 <context>
@@ -1332,12 +1332,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Bevorzuge Englische Bezeichnungen</translation>
+        <translation>Bevorzuge englische Namen</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Auf der Karte, Suche und Ortsinformationen</translation>
     </message>
 </context>
 <context>
@@ -2197,51 +2197,51 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_bench</source>
-        <translation type="unfinished"></translation>
+        <translation>Bank</translation>
     </message>
     <message>
         <source>amenity_shelter</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterstand</translation>
     </message>
     <message>
         <source>amenity_waste_basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Abfalleimer</translation>
     </message>
     <message>
         <source>amenity_waste_disposal</source>
-        <translation type="unfinished"></translation>
+        <translation>Abfallentsorgung</translation>
     </message>
     <message>
         <source>christian_cathedral_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kathedrale</translation>
     </message>
     <message>
         <source>christian_chapel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapelle</translation>
     </message>
     <message>
         <source>christian_worship</source>
-        <translation type="unfinished"></translation>
+        <translation>Gottesdienst</translation>
     </message>
     <message>
         <source>jewish_synagogue_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Synagoge</translation>
     </message>
     <message>
         <source>muslim_mosque_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Moschee</translation>
     </message>
     <message>
         <source>shrine_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Schrein</translation>
     </message>
     <message>
         <source>temple_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel</translation>
     </message>
     <message>
         <source>worship_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Gottesdienst</translation>
     </message>
 </context>
 <context>
