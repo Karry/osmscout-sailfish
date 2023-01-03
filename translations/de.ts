@@ -921,6 +921,10 @@ collection pull down menu</extracomment>
         <extracomment>remorse dialog</extracomment>
         <translation>Lösche</translation>
     </message>
+    <message>
+        <source>Scroll down for more entries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInstructions</name>

@@ -575,3 +575,4 @@
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.28
 - update translations (German)
 - fix routing start / destination when searched object is routable (do not use object bounding box center, but object itself)
+- add menu scroll hint, that will be shown when menu is opened first and second time

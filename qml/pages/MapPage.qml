@@ -409,6 +409,44 @@ Page {
 
             VerticalScrollDecorator {}
 
+            TouchInteractionHint {
+                id: hint
+                loops: 5
+
+                interactionMode: TouchInteraction.Swipe
+                direction: TouchInteraction.Up
+
+                Connections {
+                    target: drawer
+                    onOpenChanged: {
+                        if (counter.active && !menu.atYEnd) {
+                            hint.start()
+                            counter.increase();
+                        }
+                    }
+                }
+                Connections {
+                    target: menu
+                    onAtYEndChanged: {
+                        if (menu.atYEnd) {
+                            hint.stop();
+                        }
+                    }
+                }
+            }
+            InteractionHintLabel {
+                anchors.bottom: parent.bottom
+                text: qsTr("Scroll down for more entries")
+                opacity: hint.running ? 1.0 : 0.0
+                Behavior on opacity { FadeAnimation { duration: 1000 } }
+            }
+            FirstTimeUseCounter {
+                id: counter
+                limit: 2
+                key: "/apps/harbour-osmscout/menu_hint_count"
+            }
+
+
             model: ListModel {
                 //: menu item for Search on map
                 ListElement { itemtext: QT_TR_NOOP("Search");       itemicon: "image://theme/icon-m-search";         action: "search";   }
