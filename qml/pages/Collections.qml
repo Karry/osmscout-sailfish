@@ -47,6 +47,29 @@ Page {
         }
     }
 
+    TouchInteractionHint {
+        id: hint
+        loops: 5
+
+        interactionMode: TouchInteraction.Pull
+        direction: TouchInteraction.Down
+
+        Connections {
+            target: collectionListModel
+            onLoadingChanged: {
+                if (!collectionListModel.loading && collectionListModel.rowCount() == 0) {
+                    hint.start()
+                }
+            }
+        }
+    }
+    InteractionHintLabel {
+        anchors.bottom: parent.bottom
+        text: qsTr("Pull down to import collection or create empty one")
+        opacity: hint.running ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimation { duration: 1000 } }
+    }
+
     SilicaListView {
         id: collectionListView
         anchors.fill: parent

@@ -574,6 +574,10 @@ collection pull down menu</extracomment>
         <source>Show none on map</source>
         <translation>Semmi ne jelenjen meg a térképen</translation>
     </message>
+    <message>
+        <source>Pull down to import collection or create empty one</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -1752,6 +1756,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can return to the map, tracking will continue on background</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
