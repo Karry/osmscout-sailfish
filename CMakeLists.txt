@@ -628,6 +628,7 @@ target_link_libraries(MediaPlayer
         Qt5::Core
         Qt5::Gui
         Qt5::Multimedia
+        Qt5::Quick
 
         ${LIBSAILFISHAPP_LIBRARIES}
         )
