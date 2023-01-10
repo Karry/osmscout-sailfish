@@ -576,7 +576,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Potáhněte dolů pro import kolekce nebo vytvoření prázdné</translation>
     </message>
 </context>
 <context>
@@ -927,7 +927,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Scroll down for more entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Skroluj dolu pro více položek</translation>
     </message>
 </context>
 <context>
@@ -1762,7 +1762,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
+        <translation>Můžete se vrátit na mapu, stopař bude pokračovat na pozadí</translation>
     </message>
 </context>
 <context>
