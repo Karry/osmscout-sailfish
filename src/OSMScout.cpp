@@ -163,11 +163,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     qputenv("NEMO_RESOURCE_CLASS_OVERRIDE", "game");
   }
 
-#ifdef QT_QML_DEBUG
-  qWarning() << "Starting QML debugger on port 1234.";
-  qQmlEnableDebuggingHelper.startTcpDebugServer(1234);
-#endif
-
   OSMScoutQt::RegisterQmlTypes("harbour.osmscout.map", 1, 0);
 
   qRegisterMetaType<MapView*>("MapView*");
