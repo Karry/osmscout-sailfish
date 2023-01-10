@@ -28,13 +28,10 @@ Map{
       view: map.view
       enabled: AppSettings.hillShades
       opacity: AppSettings.hillShadesOpacity
-      // If you intend to use tiles from OpenMapSurfer services in your own applications please contact us.
-      // https://korona.geog.uni-heidelberg.de/contact.html
       provider: {
             "id": "ASTER_GDEM",
             "name": "Hillshade",
             "servers": [
-              //"https://korona.geog.uni-heidelberg.de/tiles/asterh/x=%2&y=%3&z=%1"
               "https://osmscout.karry.cz/hillshade/tile.php?z=%1&x=%2&y=%3"
             ],
             "maximumZoomLevel": 19,
