@@ -879,8 +879,8 @@ Page {
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 
                 radius: width*0.5
-                rotation: Utils.rad2Deg(map.view.angle)
-                opacity: map.view.angle === 0 ? (Global.navigationModel.destinationSet ? 0.4 : 0.0) : 1.0
+                rotation: Utils.rad2Deg(map.angle)
+                opacity: map.angle === 0 ? (Global.navigationModel.destinationSet ? 0.4 : 0.0) : 1.0
                 Behavior on opacity { PropertyAnimation {} }
 
                 Image {
