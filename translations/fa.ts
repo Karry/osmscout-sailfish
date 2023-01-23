@@ -1767,11 +1767,11 @@ collection pull down menu</extracomment>
     <name>Utils</name>
     <message>
         <source>meters</source>
-        <translation>متر</translation>
+        <translation type="vanished">متر</translation>
     </message>
     <message>
         <source>km</source>
-        <translation>کیلومتر</translation>
+        <translation type="vanished">کیلومتر</translation>
     </message>
     <message>
         <source>west</source>
@@ -1826,36 +1826,78 @@ collection pull down menu</extracomment>
         <translation>شمال غرب</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>ft</source>
-        <translation>ft</translation>
+        <translation type="vanished">ft</translation>
     </message>
     <message>
         <source>mi</source>
-        <translation>mi</translation>
+        <translation type="vanished">mi</translation>
     </message>
     <message>
         <source>m</source>
-        <translation>m</translation>
+        <translation type="vanished">m</translation>
     </message>
     <message>
         <source>%1 ft</source>
-        <translation>%1 ft</translation>
+        <translation type="vanished">%1 ft</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation>%1 m</translation>
+        <translation type="vanished">%1 m</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feets</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n miles</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n meters</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n km</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n ft</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n mi</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n m</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feet</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n yards</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>

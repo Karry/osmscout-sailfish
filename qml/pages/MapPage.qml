@@ -1599,7 +1599,7 @@ Page {
                 }
                 Text {
                     id: elevationLabel
-                    text: Utils.humanDistanceCompact(Global.positionSource.altitude)
+                    text: Utils.elevationShort(Global.positionSource.altitude)
                     anchors.left: elevationIcon.right
                     anchors.verticalCenter: parent.verticalCenter
                     color: Theme.rgba(Theme.primaryColor, 1.0)

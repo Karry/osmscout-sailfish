@@ -360,12 +360,12 @@ Page {
             DetailItem {
                 id: ascent
                 label: qsTr("Ascent")
-                value: Utils.humanSmallDistance(Global.tracker.ascent)
+                value: Utils.elevation(Global.tracker.ascent)
             }
             DetailItem {
                 id: descent
                 label: qsTr("Descent")
-                value: Utils.humanSmallDistance(Global.tracker.descent)
+                value: Utils.elevation(Global.tracker.descent)
             }
             TrackElevationChart {
                 id: elevationChart

@@ -577,3 +577,5 @@
 - fix routing start / destination when searched object is routable (do not use object bounding box center, but object itself)
 - add menu scroll hint, that will be shown when menu is opened first and second time
 - add tracker and collection list interaction hints
+- use distances with correct plurals translations
+- show elevation in base units (meters or feets)
