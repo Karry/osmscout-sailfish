@@ -1921,6 +1921,18 @@ collection pull down menu</extracomment>
             <numerusform></numerusform>
         </translation>
     </message>
+    <message>
+        <source>%1 miles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 km</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VoiceSelector</name>

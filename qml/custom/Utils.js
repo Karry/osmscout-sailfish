@@ -64,7 +64,12 @@ function humanDistance(distance){
         }
         var miles = distance / 1609.344;
         if (miles < 20){
-            return qsTr("%n miles", "", (Math.round(miles * 10)/10));
+            miles = Math.round(miles * 10)/10;
+            if (miles % 1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n miles", "", miles);
+            }
+            return qsTr("%1 miles").arg(miles);
         }
         return qsTr("%n miles", "", Math.round(miles));
     }else{
@@ -72,7 +77,12 @@ function humanDistance(distance){
             return qsTr("%n meters", "", Math.round(distance));
         }
         if (distance < 20000){
-            return qsTr("%n km", "", (Math.round((distance/1000) * 10)/10));
+            var kilometers = Math.round((distance/1000) * 10)/10;
+            if (kilometers % 1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n km", "", kilometers);
+            }
+            return qsTr("%1 km").arg(kilometers);
         }
         return qsTr("%n km", "", Math.round(distance/1000));
     }
@@ -89,7 +99,12 @@ function humanDistanceCompact(distance){
         }
         var miles = distance / 1609.344;
         if (miles < 20){
-            return qsTr("%n mi", "", (Math.round(miles * 10)/10));
+            miles = Math.round(miles * 10)/10;
+            if (miles % 1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n mi", "", miles);
+            }
+            return qsTr("%1 mi").arg(miles);
         }
         return qsTr("%n mi", "", Math.round(miles));
     }else{
@@ -97,7 +112,46 @@ function humanDistanceCompact(distance){
             return qsTr("%n m", "", Math.round(distance));
         }
         if (distance < 20000){
-            return qsTr("%n km", "", (Math.round((distance/1000) * 10)/10));
+            var kilometers = Math.round((distance/1000) * 10)/10;
+            if (kilometers % 1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n km", "", kilometers);
+            }
+            return qsTr("%1 km").arg(kilometers);
+        }
+        return qsTr("%n km", "", Math.round(distance/1000));
+    }
+}
+
+
+/**
+ * This variant is used in navigation, it is using miles/yards or km/meters
+ */
+function humanDistanceVerbose(distance){
+    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
+        var yards = distance * 0.9144;
+        if (yards < 150){
+            return qsTr("%n yards", "", (Math.round(yards / 10) * 10));
+        }
+        if (yards < 1000){
+            return qsTr("%n yards", "", (Math.round(yards / 100) * 100));
+        }
+        var miles = distance / 1609.344;
+        if (miles < 2){
+            miles = Math.round(miles *10) / 10;
+            if (miles %1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n miles", "", miles);
+            }
+            return qsTr("%1 miles").arg(miles);
+        }
+        return qsTr("%n miles", "", Math.round(miles));
+    }else{
+        if (distance < 150){
+            return qsTr("%n meters", "", Math.round(distance/10)*10);
+        }
+        if (distance < 2000){
+            return qsTr("%n meters", "", Math.round(distance/100)*100);
         }
         return qsTr("%n km", "", Math.round(distance/1000));
     }
@@ -124,34 +178,6 @@ function elevationShort(distance){
         return qsTr("%n ft", "",  Math.round(feet));
     }else{
         return qsTr("%n m", "", Math.round(distance));
-    }
-}
-
-/**
- * This variant is used in navigation, it is using miles/yards or km/meters
- */
-function humanDistanceVerbose(distance){
-    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
-        var yards = distance * 0.9144;
-        if (yards < 150){
-            return qsTr("%n yards", "", (Math.round(yards / 10) * 10));
-        }
-        if (yards < 1000){
-            return qsTr("%n yards", "", (Math.round(yards / 100) * 100));
-        }
-        var miles = distance / 1609.344;
-        if (miles < 2){
-            return qsTr("%n miles", "", (Math.round(miles *10) / 10));
-        }
-        return qsTr("%n miles", "", Math.round(miles));
-    }else{
-        if (distance < 150){
-            return qsTr("%n meters", "", Math.round(distance/10)*10);
-        }
-        if (distance < 2000){
-            return qsTr("%n meters", "", Math.round(distance/100)*100);
-        }
-        return qsTr("%n km", "", Math.round(distance/1000));
     }
 }
 
