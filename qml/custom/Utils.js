@@ -60,7 +60,7 @@ function humanDistance(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var feet = distance * 3.2808;
         if (feet < 1500){
-            return qsTr("%n feets", "", Math.round(feet));
+            return qsTr("%n feet", "", Math.round(feet));
         }
         var miles = distance / 1609.344;
         if (miles < 20){

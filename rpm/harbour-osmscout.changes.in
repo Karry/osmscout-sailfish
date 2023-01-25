@@ -578,4 +578,4 @@
 - add menu scroll hint, that will be shown when menu is opened first and second time
 - add tracker and collection list interaction hints
 - use distances with correct plurals translations
-- show elevation in base units (meters or feets)
+- show elevation in base units (meters or feet)
