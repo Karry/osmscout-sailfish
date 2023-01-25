@@ -69,6 +69,7 @@ function humanDistance(distance){
                 // use plurals just when it is not fraction
                 return qsTr("%n miles", "", miles);
             }
+            //: fraction of miles, %n cannot be used
             return qsTr("%1 miles").arg(miles);
         }
         return qsTr("%n miles", "", Math.round(miles));
@@ -80,10 +81,13 @@ function humanDistance(distance){
             var kilometers = Math.round((distance/1000) * 10)/10;
             if (kilometers % 1 == 0) {
                 // use plurals just when it is not fraction
+                //: N kilometers
                 return qsTr("%n km", "", kilometers);
             }
+            //: fraction of kilometers, %n cannot be used
             return qsTr("%1 km").arg(kilometers);
         }
+        //: N kilometers
         return qsTr("%n km", "", Math.round(distance/1000));
     }
 }
@@ -95,6 +99,7 @@ function humanDistanceCompact(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var feet = distance * 3.2808;
         if (feet < 1500){
+            //: N feet
             return qsTr("%n ft", "", Math.round(feet));
         }
         var miles = distance / 1609.344;
@@ -102,23 +107,30 @@ function humanDistanceCompact(distance){
             miles = Math.round(miles * 10)/10;
             if (miles % 1 == 0) {
                 // use plurals just when it is not fraction
+                //: N miles
                 return qsTr("%n mi", "", miles);
             }
+            //: fraction of miles, %n cannot be used
             return qsTr("%1 mi").arg(miles);
         }
+        //: N miles
         return qsTr("%n mi", "", Math.round(miles));
     }else{
         if (distance < 1500){
+            //: N meters
             return qsTr("%n m", "", Math.round(distance));
         }
         if (distance < 20000){
             var kilometers = Math.round((distance/1000) * 10)/10;
             if (kilometers % 1 == 0) {
                 // use plurals just when it is not fraction
+                //: N kilometers
                 return qsTr("%n km", "", kilometers);
             }
+            //: fraction of kilometers, %n cannot be used
             return qsTr("%1 km").arg(kilometers);
         }
+        //: N kilometers
         return qsTr("%n km", "", Math.round(distance/1000));
     }
 }
