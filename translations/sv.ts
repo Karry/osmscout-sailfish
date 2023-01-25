@@ -576,7 +576,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Dra neråt för att importera en samling eller skapa en ny</translation>
     </message>
 </context>
 <context>
@@ -927,7 +927,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Scroll down for more entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrolla neråt för fler poster</translation>
     </message>
 </context>
 <context>
@@ -1761,19 +1761,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan återvända till kartan, spårningen fortsätter i bakgrunden.</translation>
     </message>
 </context>
 <context>
     <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation type="vanished">meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
@@ -1827,18 +1819,6 @@ collection pull down menu</extracomment>
         <translation>nordväst</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation type="vanished">feet</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation type="vanished">miles</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation type="vanished">yard</translation>
-    </message>
-    <message>
         <source>ft</source>
         <translation type="vanished">ft</translation>
     </message>
@@ -1850,88 +1830,80 @@ collection pull down menu</extracomment>
         <source>m</source>
         <translation type="vanished">m</translation>
     </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 ft</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n feets</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message numerus="yes">
         <source>%n miles</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n mile</numerusform>
+            <numerusform>%n mile</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n meters</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n meter</numerusform>
+            <numerusform>%n meter</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n km</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N kilometers</extracomment>
+        <translation>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n ft</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N feet</extracomment>
+        <translation>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n mi</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N miles</extracomment>
+        <translation>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n m</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N meters</extracomment>
+        <translation>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n feet</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n fot</numerusform>
+            <numerusform>%n fot</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n yards</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n yard</numerusform>
+            <numerusform>%n yard</numerusform>
         </translation>
     </message>
     <message>
         <source>%1 miles</source>
-        <translation type="unfinished"></translation>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 mile</translation>
     </message>
     <message>
         <source>%1 km</source>
-        <translation type="unfinished"></translation>
+        <extracomment>fraction of kilometers, %n cannot be used</extracomment>
+        <translation>%1 km</translation>
     </message>
     <message>
         <source>%1 mi</source>
-        <translation type="unfinished"></translation>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 mi</translation>
     </message>
 </context>
 <context>

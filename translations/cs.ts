@@ -1768,14 +1768,6 @@ collection pull down menu</extracomment>
 <context>
     <name>Utils</name>
     <message>
-        <source>meters</source>
-        <translation type="vanished">metrů</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
         <translation>západně</translation>
@@ -1828,18 +1820,6 @@ collection pull down menu</extracomment>
         <translation>severozápadně</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation type="vanished">stop</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation type="vanished">mil</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation type="vanished">yardů</translation>
-    </message>
-    <message>
         <source>ft</source>
         <translation type="vanished">ft</translation>
     </message>
@@ -1851,97 +1831,88 @@ collection pull down menu</extracomment>
         <source>m</source>
         <translation type="vanished">m</translation>
     </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 stop</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n feets</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message numerus="yes">
         <source>%n miles</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n míle</numerusform>
+            <numerusform>%n míle</numerusform>
+            <numerusform>%n mil</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n meters</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n metr</numerusform>
+            <numerusform>%n metry</numerusform>
+            <numerusform>%n metrů</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n km</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N kilometers</extracomment>
+        <translation>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n ft</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N feet</extracomment>
+        <translation>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n mi</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N miles</extracomment>
+        <translation>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n m</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <extracomment>N meters</extracomment>
+        <translation>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n feet</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n stopa</numerusform>
+            <numerusform>%n stopy</numerusform>
+            <numerusform>%n stop</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n yards</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n yard</numerusform>
+            <numerusform>%n yardy</numerusform>
+            <numerusform>%n yardů</numerusform>
         </translation>
     </message>
     <message>
         <source>%1 miles</source>
-        <translation type="unfinished"></translation>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 míle</translation>
     </message>
     <message>
         <source>%1 km</source>
-        <translation type="unfinished"></translation>
+        <extracomment>fraction of kilometers, %n cannot be used</extracomment>
+        <translation>%1 km</translation>
     </message>
     <message>
         <source>%1 mi</source>
-        <translation type="unfinished"></translation>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 mi</translation>
     </message>
 </context>
 <context>

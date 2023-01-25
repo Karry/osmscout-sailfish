@@ -1858,12 +1858,6 @@ collection pull down menu</extracomment>
         <translation type="vanished">%1 m</translation>
     </message>
     <message numerus="yes">
-        <source>%n feets</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
         <source>%n miles</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -1877,24 +1871,28 @@ collection pull down menu</extracomment>
     </message>
     <message numerus="yes">
         <source>%n km</source>
+        <extracomment>N kilometers</extracomment>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n ft</source>
+        <extracomment>N feet</extracomment>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n mi</source>
+        <extracomment>N miles</extracomment>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n m</source>
+        <extracomment>N meters</extracomment>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
@@ -1913,14 +1911,17 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 miles</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 km</source>
+        <extracomment>fraction of kilometers, %n cannot be used</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 mi</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
