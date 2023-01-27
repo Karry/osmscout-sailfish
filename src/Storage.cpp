@@ -270,7 +270,7 @@ QString sqlCreateTrackPoint(){
   sql.append(",").append( "`vert_accuracy` double NULL ");
   sql.append(");");
 
-  // TODO: what satelites and compas?
+  // TODO: what satellites and compass?
 
   return sql;
 }
@@ -400,7 +400,7 @@ bool Storage::updateSchema(){
   }
 
   if (currentSchema < 3) {
-    // from schema v3 track may have type and color and explicit visi column
+    // from schema v3 track may have type and color and explicit visible column
     updateTrackTable = true;
     updateWaypointTable = true;
   }
@@ -434,7 +434,7 @@ bool Storage::updateSchema(){
   }
 
   if (updateTrackTable) {
-    // alter waypoint
+    // alter track
     updateQueries << "ALTER TABLE `track` RENAME TO `_track`";
     updateQueries << sqlCreateTrack();
 
@@ -570,12 +570,45 @@ bool Storage::updateSchema(){
     return false;
   }
 
+  if (!indexes.contains("idx_track_collection_id")){
+    qDebug() << "creating idx_track_collection_id index";
+
+    QSqlQuery q = db.exec("CREATE INDEX `idx_track_collection_id` on `track` (`collection_id`);");
+    if (q.lastError().isValid()){
+      qWarning() << "Storage: creating idx_track_collection_id index failed" << q.lastError();
+      db.close();
+      return false;
+    }
+  }
+
+  if (!indexes.contains("idx_track_segment_track_id")){
+    qDebug() << "creating idx_track_segment_track_id index";
+
+    QSqlQuery q = db.exec("CREATE INDEX `idx_track_segment_track_id` on `track_segment` (`track_id`);");
+    if (q.lastError().isValid()){
+      qWarning() << "Storage: creating idx_track_segment_track_id index failed" << q.lastError();
+      db.close();
+      return false;
+    }
+  }
+
   if (!indexes.contains("idx_track_point_segment_id")){
     qDebug() << "creating idx_track_point_segment_id index";
 
-    QSqlQuery q = db.exec("CREATE INDEX idx_track_point_segment_id ON track_point (segment_id)");
+    QSqlQuery q = db.exec("CREATE INDEX `idx_track_point_segment_id` ON `track_point` (`segment_id`)");
     if (q.lastError().isValid()){
       qWarning() << "Storage: creating idx_track_point_segment_id index failed" << q.lastError();
+      db.close();
+      return false;
+    }
+  }
+
+  if (!indexes.contains("idx_waypoint_collection_id")){
+    qDebug() << "creating idx_waypoint_collection_id index";
+
+    QSqlQuery q = db.exec("CREATE INDEX `idx_waypoint_collection_id` on `waypoint`(`collection_id`);");
+    if (q.lastError().isValid()){
+      qWarning() << "Storage: creating idx_waypoint_collection_id index failed" << q.lastError();
       db.close();
       return false;
     }
