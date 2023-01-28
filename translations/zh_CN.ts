@@ -1766,14 +1766,6 @@ collection pull down menu</extracomment>
 <context>
     <name>Utils</name>
     <message>
-        <source>meters</source>
-        <translation type="vanished">米</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
         <translation>西</translation>
@@ -1826,18 +1818,6 @@ collection pull down menu</extracomment>
         <translation>西北</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation type="vanished">英尺</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation type="vanished">英里</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation type="vanished">码</translation>
-    </message>
-    <message>
         <source>ft</source>
         <translation type="vanished">ft</translation>
     </message>
@@ -1848,14 +1828,6 @@ collection pull down menu</extracomment>
     <message>
         <source>m</source>
         <translation type="vanished">m</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 英尺</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
     </message>
     <message numerus="yes">
         <source>%n miles</source>

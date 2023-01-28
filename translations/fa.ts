@@ -1766,14 +1766,6 @@ collection pull down menu</extracomment>
 <context>
     <name>Utils</name>
     <message>
-        <source>meters</source>
-        <translation type="vanished">متر</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">کیلومتر</translation>
-    </message>
-    <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
         <translation>غرب</translation>
@@ -1836,14 +1828,6 @@ collection pull down menu</extracomment>
     <message>
         <source>m</source>
         <translation type="vanished">m</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 ft</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
     </message>
     <message numerus="yes">
         <source>%n miles</source>

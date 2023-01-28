@@ -1767,14 +1767,6 @@ collection pull down menu</extracomment>
 <context>
     <name>Utils</name>
     <message>
-        <source>meters</source>
-        <translation type="vanished">meetrit</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation type="vanished">km</translation>
-    </message>
-    <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
         <translation>läänes</translation>
@@ -1827,18 +1819,6 @@ collection pull down menu</extracomment>
         <translation>loodes</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation type="vanished">jalga</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation type="vanished">miili</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation type="vanished">jardi</translation>
-    </message>
-    <message>
         <source>ft</source>
         <translation type="vanished">ft</translation>
     </message>
@@ -1849,14 +1829,6 @@ collection pull down menu</extracomment>
     <message>
         <source>m</source>
         <translation type="vanished">m</translation>
-    </message>
-    <message>
-        <source>%1 ft</source>
-        <translation type="vanished">%1 ft</translation>
-    </message>
-    <message>
-        <source>%1 m</source>
-        <translation type="vanished">%1 m</translation>
     </message>
     <message numerus="yes">
         <source>%n miles</source>
