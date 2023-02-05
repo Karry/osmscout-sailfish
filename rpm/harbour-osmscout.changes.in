@@ -572,7 +572,7 @@
 - preserve track type and color during track split
 - transliterate utf8 characters in prefix-based search. In other words, "snezka" search will return "Sněžka" in results.
 
-* 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.28
+* 2023-02-05 Lukáš Karas <lukas.karas@centrum.cz> 2.28
 - update translations (Czech, German, Swedish)
 - fix routing start / destination when searched object is routable (do not use object bounding box center, but object itself)
 - add menu scroll hint, that will be shown when menu is opened first and second time
@@ -581,3 +581,4 @@
 - show elevation in base units (meters or feet)
 - improve loading time of collections (added database indexes)
 - fix decoding of %xx escaping in geo: uri
+- new icon ;-)
