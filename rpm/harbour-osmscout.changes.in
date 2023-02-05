@@ -580,3 +580,4 @@
 - correct translations of distance unit plurals
 - show elevation in base units (meters or feet)
 - improve loading time of collections (added database indexes)
+- fix decoding of %xx escaping in geo: uri

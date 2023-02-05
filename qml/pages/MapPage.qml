@@ -235,7 +235,7 @@ Page {
                var params = arr[1].split('&');
                for (var i=0; i < params.length; i++){
                    if (Utils.startsWith(params[i], "q=")) {
-                       search=params[i].substring(2);
+                       search=decodeURIComponent(params[i].substring(2));
                    }
                }
            }
