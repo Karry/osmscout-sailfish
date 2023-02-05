@@ -234,7 +234,7 @@ Page {
                var params = arr[1].split('&');
                for (var i=0; i < params.length; i++){
                    if (Utils.startsWith(params[i], "q=")) {
-                       search=params[i].substring(2);
+                       search=decodeURIComponent(params[i].substring(2));
                    }
                }
            }
@@ -407,6 +407,44 @@ Page {
             id: menu
 
             VerticalScrollDecorator {}
+
+            TouchInteractionHint {
+                id: hint
+                loops: 5
+
+                interactionMode: TouchInteraction.Swipe
+                direction: TouchInteraction.Up
+
+                Connections {
+                    target: drawer
+                    onOpenChanged: {
+                        if (counter.active && !menu.atYEnd) {
+                            hint.start()
+                            counter.increase();
+                        }
+                    }
+                }
+                Connections {
+                    target: menu
+                    onAtYEndChanged: {
+                        if (menu.atYEnd) {
+                            hint.stop();
+                        }
+                    }
+                }
+            }
+            InteractionHintLabel {
+                anchors.bottom: parent.bottom
+                text: qsTr("Scroll down for more entries")
+                opacity: hint.running ? 1.0 : 0.0
+                Behavior on opacity { FadeAnimation { duration: 1000 } }
+            }
+            FirstTimeUseCounter {
+                id: counter
+                limit: 2
+                key: "/apps/harbour-osmscout/menu_hint_count"
+            }
+
 
             model: ListModel {
                 //: menu item for Search on map
@@ -840,8 +878,8 @@ Page {
                 color: Theme.rgba(Theme.highlightDimmerColor, 0.2)
 
                 radius: width*0.5
-                rotation: Utils.rad2Deg(map.view.angle)
-                opacity: map.view.angle === 0 ? (Global.navigationModel.destinationSet ? 0.4 : 0.0) : 1.0
+                rotation: Utils.rad2Deg(map.angle)
+                opacity: map.angle === 0 ? (Global.navigationModel.destinationSet ? 0.4 : 0.0) : 1.0
                 Behavior on opacity { PropertyAnimation {} }
 
                 Image {
@@ -1507,12 +1545,25 @@ Page {
                 }
                 Text {
                     id: elevationLabel
-                    text: Utils.humanDistanceCompact(Global.positionSource.altitude)
+                    text: Utils.elevationShort(Global.positionSource.altitude)
                     anchors.left: elevationIcon.right
                     anchors.verticalCenter: parent.verticalCenter
                     color: Theme.rgba(Theme.primaryColor, 1.0)
 
                     font.pointSize: Theme.fontSizeExtraSmall
+                }
+                MouseArea {
+                    id: elevationIndicatorMouseArea
+                    anchors.fill: parent
+                    onClicked: {
+                        var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                                      {
+                                                          searchCenterLat: Global.positionSource.lat,
+                                                          searchCenterLon: Global.positionSource.lon,
+                                                          searchFieldText: "poi:10000:natural_peak",
+                                                          acceptDestination: mapPage
+                                                      });
+                    }
                 }
             }
 

@@ -580,6 +580,10 @@ collection pull down menu</extracomment>
         <source>Show none on map</source>
         <translation>Nezobrazovat na mapě nic</translation>
     </message>
+    <message>
+        <source>Pull down to import collection or create empty one</source>
+        <translation>Potáhněte dolů pro import kolekce nebo vytvoření prázdné</translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -926,6 +930,10 @@ collection pull down menu</extracomment>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Mažu</translation>
+    </message>
+    <message>
+        <source>Scroll down for more entries</source>
+        <translation>Skroluj dolu pro více položek</translation>
     </message>
 </context>
 <context>
@@ -1758,17 +1766,13 @@ collection pull down menu</extracomment>
         <extracomment>track type</extracomment>
         <translation>Typ</translation>
     </message>
+    <message>
+        <source>You can return to the map, tracking will continue on background</source>
+        <translation>Můžete se vrátit na mapu, stopař bude pokračovat na pozadí</translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>metrů</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
@@ -1822,36 +1826,99 @@ collection pull down menu</extracomment>
         <translation>severozápadně</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation>stop</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>mil</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>yardů</translation>
-    </message>
-    <message>
         <source>ft</source>
-        <translation>ft</translation>
+        <translation type="vanished">ft</translation>
     </message>
     <message>
         <source>mi</source>
-        <translation>mi</translation>
+        <translation type="vanished">mi</translation>
     </message>
     <message>
         <source>m</source>
-        <translation>m</translation>
+        <translation type="vanished">m</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n miles</source>
+        <translation>
+            <numerusform>%n míle</numerusform>
+            <numerusform>%n míle</numerusform>
+            <numerusform>%n mil</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n meters</source>
+        <translation>
+            <numerusform>%n metr</numerusform>
+            <numerusform>%n metry</numerusform>
+            <numerusform>%n metrů</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n km</source>
+        <extracomment>N kilometers</extracomment>
+        <translation>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n ft</source>
+        <extracomment>N feet</extracomment>
+        <translation>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n mi</source>
+        <extracomment>N miles</extracomment>
+        <translation>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n m</source>
+        <extracomment>N meters</extracomment>
+        <translation>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feet</source>
+        <translation>
+            <numerusform>%n stopa</numerusform>
+            <numerusform>%n stopy</numerusform>
+            <numerusform>%n stop</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n yards</source>
+        <translation>
+            <numerusform>%n yard</numerusform>
+            <numerusform>%n yardy</numerusform>
+            <numerusform>%n yardů</numerusform>
+        </translation>
     </message>
     <message>
-        <source>%1 ft</source>
-        <translation>%1 stop</translation>
+        <source>%1 miles</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 míle</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
+        <source>%1 km</source>
+        <extracomment>fraction of kilometers, %n cannot be used</extracomment>
+        <translation>%1 km</translation>
+    </message>
+    <message>
+        <source>%1 mi</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 mi</translation>
     </message>
 </context>
 <context>

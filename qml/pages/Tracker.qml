@@ -116,6 +116,37 @@ Page {
         }
     }
 
+
+    TouchInteractionHint {
+        id: hint
+        loops: 5
+
+        interactionMode: TouchInteraction.Swipe
+        direction: TouchInteraction.Right
+
+        Connections {
+            target: Global.tracker
+            onTrackingChanged: {
+                if (counter.active && Global.tracker.tracking) {
+                    hint.start()
+                    counter.increase();
+                }
+            }
+        }
+    }
+    InteractionHintLabel {
+        anchors.bottom: parent.bottom
+        text: qsTr("You can return to the map, tracking will continue on background")
+        opacity: hint.running ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimation { duration: 1000 } }
+    }
+    FirstTimeUseCounter {
+        id: counter
+        limit: 2
+        key: "/apps/harbour-osmscout/tracker_hint_count"
+    }
+
+
     SilicaFlickable{
         id: flickable
         anchors.fill: parent
@@ -329,12 +360,12 @@ Page {
             DetailItem {
                 id: ascent
                 label: qsTr("Ascent")
-                value: Utils.humanSmallDistance(Global.tracker.ascent)
+                value: Utils.elevation(Global.tracker.ascent)
             }
             DetailItem {
                 id: descent
                 label: qsTr("Descent")
-                value: Utils.humanSmallDistance(Global.tracker.descent)
+                value: Utils.elevation(Global.tracker.descent)
             }
             TrackElevationChart {
                 id: elevationChart

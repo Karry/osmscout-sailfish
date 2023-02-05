@@ -202,7 +202,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Statistik</translation>
+        <translation>Statistiken</translation>
     </message>
 </context>
 <context>
@@ -361,64 +361,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Lade Sammlung</translation>
+        <translation>Lade Sammlung</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernung</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Längster Track</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Zeit</translation>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Reisedauer</translation>
+        <translation>Bewegungszeit</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Höchstgeschwindigkeit</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Höhe min/max</translation>
+        <translation>Höhe min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 ft ü. M.</translation>
+        <translation>%1 / %2 ft ü. M.</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m ü. M.</translation>
+        <translation>%1 / %2 m ü. M.</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Anstieg</translation>
+        <translation>Anstieg</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Abstieg</translation>
+        <translation>Abstieg</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Typ</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl Tracks</translation>
     </message>
 </context>
 <context>
@@ -579,6 +579,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Show none on map</source>
         <translation>Zeige nichts auf Karte</translation>
+    </message>
+    <message>
+        <source>Pull down to import collection or create empty one</source>
+        <translation>Ziehe nach unten um eine Sammlung zu importieren oder eine leere zu generieren</translation>
     </message>
 </context>
 <context>
@@ -926,6 +930,10 @@ collection pull down menu</extracomment>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
         <translation>Lösche</translation>
+    </message>
+    <message>
+        <source>Scroll down for more entries</source>
+        <translation>Scrolle nach unten für weitere Einträge</translation>
     </message>
 </context>
 <context>
@@ -1338,12 +1346,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Bevorzuge Englische Bezeichnungen</translation>
+        <translation>Bevorzuge englische Namen</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Auf der Karte, Suche und Ortsinformationen</translation>
     </message>
 </context>
 <context>
@@ -1757,17 +1765,13 @@ collection pull down menu</extracomment>
         <extracomment>track type</extracomment>
         <translation>Art</translation>
     </message>
+    <message>
+        <source>You can return to the map, tracking will continue on background</source>
+        <translation>Du kannst zur Karte zurückkehren, das Tracking wird im Hintergrund fortgesetzt</translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>Meter</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
@@ -1821,36 +1825,91 @@ collection pull down menu</extracomment>
         <translation>Nordwest</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation>Fuß</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>Meilen</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>Yards</translation>
-    </message>
-    <message>
         <source>ft</source>
-        <translation>ft</translation>
+        <translation type="vanished">ft</translation>
     </message>
     <message>
         <source>mi</source>
-        <translation>mi</translation>
+        <translation type="vanished">mi</translation>
     </message>
     <message>
         <source>m</source>
-        <translation>m</translation>
+        <translation type="vanished">m</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n miles</source>
+        <translation>
+            <numerusform>%n Meile</numerusform>
+            <numerusform>%n Meilen</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n meters</source>
+        <translation>
+            <numerusform>% Meter</numerusform>
+            <numerusform>%n Meter</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n km</source>
+        <extracomment>N kilometers</extracomment>
+        <translation>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n ft</source>
+        <extracomment>N feet</extracomment>
+        <translation>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n mi</source>
+        <extracomment>N miles</extracomment>
+        <translation>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n m</source>
+        <extracomment>N meters</extracomment>
+        <translation>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feet</source>
+        <translation>
+            <numerusform>%n Fuß</numerusform>
+            <numerusform>%n Fuß</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n yards</source>
+        <translation>
+            <numerusform>%n Yard</numerusform>
+            <numerusform>%n Yards</numerusform>
+        </translation>
     </message>
     <message>
-        <source>%1 ft</source>
-        <translation>%1 ft</translation>
+        <source>%1 miles</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 Meilen</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
+        <source>%1 km</source>
+        <extracomment>fraction of kilometers, %n cannot be used</extracomment>
+        <translation>%1 km</translation>
+    </message>
+    <message>
+        <source>%1 mi</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation>%1 mi</translation>
     </message>
 </context>
 <context>
@@ -2203,51 +2262,51 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_bench</source>
-        <translation type="unfinished"></translation>
+        <translation>Bank</translation>
     </message>
     <message>
         <source>amenity_shelter</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterstand</translation>
     </message>
     <message>
         <source>amenity_waste_basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Abfalleimer</translation>
     </message>
     <message>
         <source>amenity_waste_disposal</source>
-        <translation type="unfinished"></translation>
+        <translation>Abfallentsorgung</translation>
     </message>
     <message>
         <source>christian_cathedral_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kathedrale</translation>
     </message>
     <message>
         <source>christian_chapel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapelle</translation>
     </message>
     <message>
         <source>christian_worship</source>
-        <translation type="unfinished"></translation>
+        <translation>Gottesdienst</translation>
     </message>
     <message>
         <source>jewish_synagogue_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Synagoge</translation>
     </message>
     <message>
         <source>muslim_mosque_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Moschee</translation>
     </message>
     <message>
         <source>shrine_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Schrein</translation>
     </message>
     <message>
         <source>temple_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel</translation>
     </message>
     <message>
         <source>worship_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Gottesdienst</translation>
     </message>
 </context>
 <context>

@@ -20,7 +20,7 @@ Name:       harbour-osmscout-jolla1
 # << macros
 
 Summary:    OSMScout for Sailfish with compatibility patches for Jolla 1
-Version:    2.27
+Version:    2.28
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
@@ -75,7 +75,11 @@ mkdir -p rpmbuilddir-%{_arch}
 ## for production build:
 cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQT_QML_DEBUG=no -DSANITIZER=none -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/harbour-osmscout/lib/: ..
 ## for debug build, use these cmake arguments instead:
+<<<<<<< HEAD
 #cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=DEBUG -DQT_QML_DEBUG=yes -DSANITIZER=none -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/harbour-osmscout/lib/: ..
+=======
+# cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" -DQT_QML_DEBUG=yes -DSANITIZER=none -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
+>>>>>>> master
 
 cd ..
 make -C rpmbuilddir-%{_arch} VERBOSE=1 %{?_smp_mflags}

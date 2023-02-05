@@ -233,12 +233,12 @@ Dialog{
                         DetailItem {
                             id: ascent
                             label: qsTr("Ascent")
-                            value: Utils.humanSmallDistance(trackModel.ascent)
+                            value: Utils.elevation(trackModel.ascent)
                         }
                         DetailItem {
                             id: descent
                             label: qsTr("Descent")
-                            value: Utils.humanSmallDistance(trackModel.descent)
+                            value: Utils.elevation(trackModel.descent)
                         }
                         TrackElevationChart {
                             id: elevationChart

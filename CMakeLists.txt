@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.27.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.28.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -628,6 +628,7 @@ target_link_libraries(MediaPlayer
         Qt5::Core
         Qt5::Gui
         Qt5::Multimedia
+        Qt5::Quick
 
         ${LIBSAILFISHAPP_LIBRARIES}
         )

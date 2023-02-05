@@ -580,6 +580,10 @@ collection pull down menu</extracomment>
         <source>Show none on map</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Pull down to import collection or create empty one</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Cover</name>
@@ -926,6 +930,10 @@ collection pull down menu</extracomment>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
         <translation type="unfinished">Borrando</translation>
+    </message>
+    <message>
+        <source>Scroll down for more entries</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1757,17 +1765,13 @@ collection pull down menu</extracomment>
         <extracomment>track type</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>You can return to the map, tracking will continue on background</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Utils</name>
-    <message>
-        <source>meters</source>
-        <translation>metros</translation>
-    </message>
-    <message>
-        <source>km</source>
-        <translation>km</translation>
-    </message>
     <message>
         <source>west</source>
         <extracomment>in sense indicating location of some place: &quot;place is located WEST&quot;</extracomment>
@@ -1821,36 +1825,91 @@ collection pull down menu</extracomment>
         <translation>noroeste</translation>
     </message>
     <message>
-        <source>feet</source>
-        <translation>pies</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>millas</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>Yardas</translation>
-    </message>
-    <message>
         <source>ft</source>
-        <translation>ps</translation>
+        <translation type="vanished">ps</translation>
     </message>
     <message>
         <source>mi</source>
-        <translation>mi</translation>
+        <translation type="vanished">mi</translation>
     </message>
     <message>
         <source>m</source>
-        <translation>m</translation>
+        <translation type="vanished">m</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n miles</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n meters</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n km</source>
+        <extracomment>N kilometers</extracomment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n ft</source>
+        <extracomment>N feet</extracomment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n mi</source>
+        <extracomment>N miles</extracomment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n m</source>
+        <extracomment>N meters</extracomment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feet</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n yards</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
-        <source>%1 ft</source>
-        <translation>%1 pi</translation>
+        <source>%1 miles</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
+        <source>%1 km</source>
+        <extracomment>fraction of kilometers, %n cannot be used</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi</source>
+        <extracomment>fraction of miles, %n cannot be used</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

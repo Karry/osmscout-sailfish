@@ -52,21 +52,35 @@ function humanDistance(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var feet = distance * 3.2808;
         if (feet < 1500){
-            return Math.round(feet) + " " + qsTr("feet");
+            return qsTr("%n feet", "", Math.round(feet));
         }
         var miles = distance / 1609.344;
         if (miles < 20){
-            return (Math.round(miles * 10)/10) + " " + qsTr("miles");
+            miles = Math.round(miles * 10)/10;
+            if (miles % 1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n miles", "", miles);
+            }
+            //: fraction of miles, %n cannot be used
+            return qsTr("%1 miles").arg(miles);
         }
-        return Math.round(miles) + " " + qsTr("miles");
+        return qsTr("%n miles", "", Math.round(miles));
     }else{
         if (distance < 1500){
-            return Math.round(distance) + " " + qsTr("meters");
+            return qsTr("%n meters", "", Math.round(distance));
         }
         if (distance < 20000){
-            return (Math.round((distance/1000) * 10)/10) + " " + qsTr("km");
+            var kilometers = Math.round((distance/1000) * 10)/10;
+            if (kilometers % 1 == 0) {
+                // use plurals just when it is not fraction
+                //: N kilometers
+                return qsTr("%n km", "", kilometers);
+            }
+            //: fraction of kilometers, %n cannot be used
+            return qsTr("%1 km").arg(kilometers);
         }
-        return Math.round(distance/1000) + " " + qsTr("km");
+        //: N kilometers
+        return qsTr("%n km", "", Math.round(distance/1000));
     }
 }
 
@@ -77,23 +91,42 @@ function humanDistanceCompact(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var feet = distance * 3.2808;
         if (feet < 1500){
-            return Math.round(feet) + " " + qsTr("ft");
+            //: N feet
+            return qsTr("%n ft", "", Math.round(feet));
         }
         var miles = distance / 1609.344;
         if (miles < 20){
-            return (Math.round(miles * 10)/10) + " " + qsTr("mi");
+            miles = Math.round(miles * 10)/10;
+            if (miles % 1 == 0) {
+                // use plurals just when it is not fraction
+                //: N miles
+                return qsTr("%n mi", "", miles);
+            }
+            //: fraction of miles, %n cannot be used
+            return qsTr("%1 mi").arg(miles);
         }
-        return Math.round(miles) + " " + qsTr("mi");
+        //: N miles
+        return qsTr("%n mi", "", Math.round(miles));
     }else{
         if (distance < 1500){
-            return Math.round(distance) + " " + qsTr("m");
+            //: N meters
+            return qsTr("%n m", "", Math.round(distance));
         }
         if (distance < 20000){
-            return (Math.round((distance/1000) * 10)/10) + " " + qsTr("km");
+            var kilometers = Math.round((distance/1000) * 10)/10;
+            if (kilometers % 1 == 0) {
+                // use plurals just when it is not fraction
+                //: N kilometers
+                return qsTr("%n km", "", kilometers);
+            }
+            //: fraction of kilometers, %n cannot be used
+            return qsTr("%1 km").arg(kilometers);
         }
-        return Math.round(distance/1000) + " " + qsTr("km");
+        //: N kilometers
+        return qsTr("%n km", "", Math.round(distance/1000));
     }
 }
+
 
 /**
  * This variant is used in navigation, it is using miles/yards or km/meters
@@ -102,32 +135,61 @@ function humanDistanceVerbose(distance){
     if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
         var yards = distance * 0.9144;
         if (yards < 150){
-            return (Math.round(yards / 10) * 10) + " " + qsTr("yards");
+            return qsTr("%n yards", "", (Math.round(yards / 10) * 10));
         }
         if (yards < 1000){
-            return (Math.round(yards / 100) * 100) + " " + qsTr("yards");
+            return qsTr("%n yards", "", (Math.round(yards / 100) * 100));
         }
         var miles = distance / 1609.344;
         if (miles < 2){
-            return (Math.round(miles *10) / 10) + " " + qsTr("miles");
+            miles = Math.round(miles *10) / 10;
+            if (miles %1 == 0) {
+                // use plurals just when it is not fraction
+                return qsTr("%n miles", "", miles);
+            }
+            return qsTr("%1 miles").arg(miles);
         }
-        return Math.round(miles) + " " + qsTr("miles");
+        return qsTr("%n miles", "", Math.round(miles));
     }else{
         if (distance < 150){
-            return Math.round(distance/10)*10 + " "+ qsTr("meters");
+            return qsTr("%n meters", "", Math.round(distance/10)*10);
         }
         if (distance < 2000){
-            return Math.round(distance/100)*100 + " "+ qsTr("meters");
+            return qsTr("%n meters", "", Math.round(distance/100)*100);
         }
-        return Math.round(distance/1000) + " "+ qsTr("km");
+        return qsTr("%n km", "", Math.round(distance/1000));
+    }
+}
+
+/**
+ * elevation is always displayed with base units (m / ft), not km or miles
+ */
+function elevation(distance){
+    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
+        var feet = distance * 3.2808;
+        return qsTr("%n feet", "", Math.round(feet));
+    }else{
+        return qsTr("%n meters", "", Math.round(distance));
+    }
+}
+
+/**
+ * elevation is always displayed with base units (m / ft), not km or miles
+ */
+function elevationShort(distance){
+    if (typeof distanceUnits != "undefined" && distanceUnits == "imperial"){
+        var feet = distance * 3.2808;
+        return qsTr("%n ft", "",  Math.round(feet));
+    }else{
+        return qsTr("%n m", "", Math.round(distance));
     }
 }
 
 
 function humanSmallDistance(meters){
     return distanceUnits == "imperial" ?
-        qsTr("%1 ft").arg(Math.round(meters * 3.2808)) :
-        qsTr("%1 m").arg(Math.round(meters));
+        qsTr("%n ft", "", Math.round(meters * 3.2808)) :
+        qsTr("%n m", "", Math.round(meters));
 }
 
 function humanSpeed(kmph){

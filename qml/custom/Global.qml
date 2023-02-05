@@ -42,12 +42,14 @@ Item {
         id: settings
         onUnitsChanged: {
             Utils.distanceUnits = settings.units;
+            console.log("Utils.distanceUnits: " + Utils.distanceUnits);
         }
         Component.onCompleted: {
             Utils.distanceUnits = settings.units;
             Utils.gpsFormat = AppSettings.gpsFormat;
             AppSettings.onGpsFormatChanged.connect(function(){
                 Utils.gpsFormat = AppSettings.gpsFormat;
+                console.log("Utils.gpsFormat: " + Utils.gpsFormat);
             });
         }
     }
