@@ -1606,6 +1606,19 @@ Page {
 
                     font.pointSize: Theme.fontSizeExtraSmall
                 }
+                MouseArea {
+                    id: elevationIndicatorMouseArea
+                    anchors.fill: parent
+                    onClicked: {
+                        var searchPage=pageStack.push(Qt.resolvedUrl("Search.qml"),
+                                                      {
+                                                          searchCenterLat: Global.positionSource.lat,
+                                                          searchCenterLon: Global.positionSource.lon,
+                                                          searchFieldText: "poi:10000:natural_peak",
+                                                          acceptDestination: mapPage
+                                                      });
+                    }
+                }
             }
 
             Rectangle {
