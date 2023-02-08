@@ -582,3 +582,6 @@
 - improve loading time of collections (added database indexes)
 - fix decoding of %xx escaping in geo: uri
 - new icon ;-)
+
+* 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.29
+- update translations (Estonian)
