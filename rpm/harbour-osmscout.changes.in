@@ -585,3 +585,5 @@
 
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.29
 - update translations (Estonian)
+- parse location coordinates format used on booking.com in search
+- optimize memory usage during search
