@@ -587,3 +587,4 @@
 - update translations (Estonian)
 - parse location coordinates format used on booking.com in search
 - optimize memory usage during search
+- remove Sailjail data migration code

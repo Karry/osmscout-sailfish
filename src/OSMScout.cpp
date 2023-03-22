@@ -25,7 +25,6 @@
 #include "IconProvider.h" // IconProvider
 #include "Arguments.h"
 #include "MemoryManager.h"
-#include "Migration.h"
 #include "LocFile.h"
 
 // collections
@@ -198,19 +197,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   QString dataDir = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
   
   QStringList databaseLookupDirectories;
-
-  { // TODO: remove this migration when Sailjail will be really enabled (old paths will be unavailable)
-    Migration migration("", "harbour-osmscout");
-    // migrate to new path used with Sailjail:
-    migration.migrateConfig(); // ~/.config/harbour-osmscout/harbour-osmscout.conf -> ~/.config/cz.karry.osmscout/OSMScout/OSMScout.conf
-    migration.migrateLocal(); // ~/.local/share/harbour-osmscout/harbour-osmscout -> ~/.local/share/cz.karry.osmscout/OSMScout
-    migration.wipeOldCache(); // wipe ~/.cache/harbour-osmscout/harbour-osmscout/
-    // ~/Maps -> ~/Downloads/Maps
-    if (!migration.migrate(homeDir + QDir::separator() + "Maps", downloadDir + QDir::separator() + "Maps")) {
-      // possibly ~/Documents/Maps -> ~/Downloads/Maps
-      migration.migrate(docsDir + QDir::separator() + "Maps", downloadDir + QDir::separator() + "Maps");
-    }
-  }
 
   // lookup Maps in "Downloads" directory
   databaseLookupDirectories << downloadDir + QDir::separator() + "Maps";
