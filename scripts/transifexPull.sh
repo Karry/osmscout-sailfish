@@ -1,4 +1,4 @@
 #!/bin/bash
 set -xe
-tx -d pull -a "$@"
+tx pull -a "$@"
 
