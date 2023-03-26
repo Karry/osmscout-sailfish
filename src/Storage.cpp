@@ -62,11 +62,11 @@ void MaxSpeedBuffer::flush()
 
 void MaxSpeedBuffer::insert(const gpx::TrackPoint &p)
 {
-  if (!p.time){
+  if (!p.timestamp){
     return;
   }
   if (lastPoint){
-    Timestamp::duration timeDiff = *(p.time) - *(lastPoint->time);
+    Timestamp::duration timeDiff = *(p.timestamp) - *(lastPoint->timestamp);
     if (timeDiff.count() < 0){
       qWarning() << "Traveling in time is not supported";
       return;
@@ -131,9 +131,9 @@ std::optional<osmscout::Distance> ElevationFilter::update(const osmscout::gpx::T
   if (lastPoint) {
     Distance distanceDiff = GetEllipsoidalDistance(lastPoint->coord, p.coord);
     bool flushBuffer = false;
-    if (p.time && lastPoint->time) {
+    if (p.timestamp && lastPoint->timestamp) {
       using SecondDuration = std::chrono::duration<double, std::ratio<1>>;
-      double timeDiff = duration_cast<SecondDuration>(*(p.time) - *(lastPoint->time)).count();
+      double timeDiff = duration_cast<SecondDuration>(*(p.timestamp) - *(lastPoint->timestamp)).count();
       if (timeDiff > 0) {
         Distance eleDiff = Meters(*(p.elevation) - *(lastPoint->elevation));
         double speed = std::abs(eleDiff.AsMeter()) / timeDiff; // m/s
@@ -790,7 +790,7 @@ Waypoint Storage::makeWaypoint(QSqlQuery &sql) const
 
   QVariant timestampVar = sql.value("timestamp");
   if (!timestampVar.isNull()) {
-    wpt.time = dateTimeToTimestamp(varToDateTime(timestampVar));
+    wpt.timestamp = dateTimeToTimestamp(varToDateTime(timestampVar));
   }
   wpt.elevation = varToDoubleOpt(sql.value("elevation"));
 
@@ -916,7 +916,7 @@ void Storage::loadTrackPoints(qint64 segmentId, gpx::TrackSegment &segment)
     ));
     gpx::TrackPoint &point = segment.points.back();
 
-    point.time = varLongToOptTimestamp(sql.value(iTimestamp));
+    point.timestamp = varLongToOptTimestamp(sql.value(iTimestamp));
     point.elevation = varToDoubleOpt(sql.value(iElevation));
 
     // see TrackPoint notes
@@ -1186,7 +1186,7 @@ bool Storage::importWaypoints(const gpx::GpxFile &gpxFile, qint64 collectionId)
       wptName = tr("waypoint %1").arg(wptNum);
 
     sqlWpt.bindValue(":collection_id", collectionId);
-    sqlWpt.bindValue(":timestamp", dateTimeToSQL(timestampToDateTime(wpt.time)));
+    sqlWpt.bindValue(":timestamp", dateTimeToSQL(timestampToDateTime(wpt.timestamp)));
     sqlWpt.bindValue(":modification_time", dateTimeToSQL(QDateTime::currentDateTime()));
     sqlWpt.bindValue(":latitude", wpt.coord.GetLat());
     sqlWpt.bindValue(":longitude", wpt.coord.GetLon());
@@ -1268,8 +1268,8 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
   rawCount++;
 
   // time computation
-  if (p.time.has_value()){
-    to=p.time;
+  if (p.timestamp.has_value()){
+    to=p.timestamp;
     if (!from.has_value()){
       from=to;
     }
@@ -1291,15 +1291,15 @@ void TrackStatisticsAccumulator::update(const osmscout::gpx::TrackPoint &p)
   lastCoord = p.coord;
 
   // max speed
-  if (filter && p.time) {
+  if (filter && p.timestamp) {
     if (previousTime) {
       maxSpeedBuf.insert(p);
-      auto diff = *(p.time) - *previousTime;
+      auto diff = *(p.timestamp) - *previousTime;
       if (diff < minutes(5)) {
         movingDuration += diff;
       }
     }
-    previousTime=p.time;
+    previousTime=p.timestamp;
   }
 
   // elevation
@@ -1543,7 +1543,7 @@ bool Storage::importTrackPoints(const std::vector<gpx::TrackPoint> &points, qint
     pointNum ++;
 
     sql.bindValue(":segment_id", segmentId);
-    sql.bindValue(":timestamp", dateTimeToSQL(timestampToDateTime(point.time)));
+    sql.bindValue(":timestamp", dateTimeToSQL(timestampToDateTime(point.timestamp)));
     sql.bindValue(":latitude", point.coord.GetLat());
     sql.bindValue(":longitude", point.coord.GetLon());
     sql.bindValue(":elevation", point.elevation.has_value() ? *point.elevation : QVariant());

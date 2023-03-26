@@ -230,8 +230,8 @@ void Tracker::locationChanged(const QDateTime &timestamp,
 
   using namespace osmscout;
   gpx::TrackPoint point(GeoCoord(lat, lon));
-  point.time=converters::dateTimeToTimestampOpt(timestamp); // use time from gps
-  assert(point.time.has_value());
+  point.timestamp=converters::dateTimeToTimestampOpt(timestamp); // use time from gps
+  assert(point.timestamp.has_value());
   if (elevationValid) {
     point.elevation=elevation;
   }
@@ -247,9 +247,9 @@ void Tracker::locationChanged(const QDateTime &timestamp,
   Timestamp::duration diffFromFirst;
   Distance distanceFromLast;
   if (!batch->empty()){
-    assert(batch->back().time.has_value());
-    diffFromLast = *(point.time) - *(batch->back().time);
-    diffFromFirst = *(point.time) - *(batch->front().time);
+    assert(batch->back().timestamp.has_value());
+    diffFromLast = *(point.timestamp) - *(batch->back().timestamp);
+    diffFromFirst = *(point.timestamp) - *(batch->front().timestamp);
     distanceFromLast = GetEllipsoidalDistance(point.coord, batch->back().coord);
     if (diffFromLast < Timestamp::duration::zero()){
       qWarning() << "Clock move to the past by " <<
@@ -259,7 +259,7 @@ void Tracker::locationChanged(const QDateTime &timestamp,
   } else {
     // track resumed
     if (accumulator.getTo()){
-      diffFromLast = *(point.time) - *(accumulator.getTo());
+      diffFromLast = *(point.timestamp) - *(accumulator.getTo());
       distanceFromLast = Kilometers(42); // always start with the new segment on track resume (and track is not "empty")
     }else {
       diffFromLast = Timestamp::duration::zero();

@@ -193,7 +193,7 @@ void CollectionModel::sort(std::vector<Item> &items) const
       return std::get<Track>(item).creationTime;
     } else {
       assert(std::holds_alternative<Waypoint>(item));
-      return timestampToDateTime(std::get<Waypoint>(item).data.time);
+      return timestampToDateTime(std::get<Waypoint>(item).data.timestamp);
     }
   };
 
@@ -342,7 +342,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case LongitudeRole: return waypoint.data.coord.GetLon();
       case ElevationRole: return waypoint.data.elevation.has_value() ? *(waypoint.data.elevation) : QVariant();
 
-      case TimeRole: return timestampToDateTime(waypoint.data.time);
+      case TimeRole: return timestampToDateTime(waypoint.data.timestamp);
       case LastModificationRole: return waypoint.lastModification;
       case VisibleRole: return waypoint.visible;
       case ColorRole: return waypointColor(waypoint.data.symbol);
