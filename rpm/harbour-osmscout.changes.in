@@ -589,3 +589,4 @@
 - optimize memory usage during search
 - remove Sailjail data migration code
 - fix rare crash during rendering - it happened sometimes with outdoor map style during navigation
+- fix infinite loop in router when entering mini roundabout from oneway
