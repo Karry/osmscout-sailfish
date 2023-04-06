@@ -595,7 +595,11 @@ Page {
                                         latitude: selectedLocation.lat,
                                         longitude: selectedLocation.lon,
                                         acceptDestination: searchPage,
-                                        name: model.label,
+                                        name: (model.type==="coordinate") ?
+                                                  Utils.formatCoord(lat, lon, AppSettings.gpsFormat) :
+                                                  (settings.showAltLanguage && model.altLangName !== "" ?
+                                                       (model.altLangName + (model.label!=="" ? " (" + model.label +")" : "")) :
+                                                       model.label),
                                         description: entryRegion.text
                                       });
                     }
