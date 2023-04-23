@@ -334,6 +334,7 @@ set(QML_FILES
     qml/custom/MapDialog.qml
     qml/custom/ScrollIndicator.qml
     qml/custom/MapRenderingIndicator.qml
+    qml/custom/OpeningHoursRow.qml
     qml/custom/Link.qml
     qml/custom/OSMCopyright.qml
     qml/custom/POIIcon.qml
@@ -387,6 +388,7 @@ set(QML_FILES
     qml/pages/CollectionOrdering.qml
     qml/pages/CollectionListOrdering.qml
     qml/pages/NewWaypoint.qml
+    qml/pages/OpeningHours.qml
     qml/pages/CollectionExport.qml
     qml/pages/Settings.qml
     qml/pages/TrackColor.qml
@@ -444,6 +446,7 @@ set(TRANSLATION_SOURCE_FILES
         ${SOURCE_FILES}
         ${QML_FILES}
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/RouteDescriptionBuilder.cpp
+        dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/OpeningHoursModel.cpp
         )
 
 # See http://doc.qt.io/qt-5/cmake-manual.html

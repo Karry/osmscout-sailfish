@@ -301,8 +301,20 @@ Page {
                             id: websiteRow
                             website: model.website
                         }
-
-
+                        OpeningHoursRow {
+                            id: openingHoursRow
+                            openingHours: model.openingHours
+                            MouseArea {
+                                onClicked: {
+                                    pageStack.push(Qt.resolvedUrl("OpeningHours.qml"), {
+                                        "name": entryPoi.text,
+                                        "type": model.type,
+                                        "openingHours": model.openingHours
+                                    });
+                                }
+                                anchors.fill: parent
+                            }
+                        }
                     }
                     }
                 }

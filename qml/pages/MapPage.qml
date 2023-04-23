@@ -642,9 +642,10 @@ Page {
             }
 
             onIconTapped: {
-                //(QPoint screenCoord, double lat, double lon, QString databasePath,
-                //            QString objectType, quint64 objectId, int poiId, QString type,
-                //            QString name, QString altName, QString ref, QString operatorName, QString phone, QString website);
+                // void iconTapped(QPoint screenCoord, double lat, double lon, QString databasePath,
+                //                 QString objectType, quint64 objectId, int poiId, QString type,
+                //                 QString name, QString altName, QString ref, QString operatorName, QString phone, QString website,
+                //                 QString openingHours);
                 poiBox.objectType = objectType;
                 poiBox.objectId = objectId;
                 poiBox.poiId = poiId;
@@ -655,6 +656,7 @@ Page {
                 poiBox.operatorName = operatorName;
                 poiBox.phone = phone;
                 poiBox.website = website;
+                poiBox.openingHours = openingHours;
                 poiBox.lat = lat;
                 poiBox.lon = lon;
                 poiBox.show();
@@ -954,6 +956,7 @@ Page {
             property string operatorName: ""
             property string phone: ""
             property string website: ""
+            property string openingHours: ""
 
             function hide() {
                 state = "HIDDEN";
@@ -1059,6 +1062,7 @@ Page {
                             color: Theme.secondaryColor
                         }
                         Label {
+                            id: poiNameLabel
                             width: poiBox.width - poiIcon.width - (2*Theme.paddingSmall)
                             property string nameFormated: settings.showAltLanguage && poiBox.altName != "" ?
                                                               (poiBox.altName + (poiBox.name != ""? " (" +poiBox.name+ ")" : "")) :
@@ -1075,6 +1079,21 @@ Page {
                             id: websiteRow
                             website: poiBox.website
                             visible: poiBox.website!="" && poiBox.state == "INFORMATIVE"
+                        }
+                        OpeningHoursRow {
+                            id: openingHoursRow
+                            openingHours: poiBox.openingHours
+                            visible: poiBox.openingHours!="" && poiBox.state == "INFORMATIVE"
+                            MouseArea {
+                                onClicked: {
+                                    pageStack.push(Qt.resolvedUrl("OpeningHours.qml"), {
+                                        "name": poiNameLabel.text,
+                                        "type": poiBox.type,
+                                        "openingHours": poiBox.openingHours
+                                    });
+                                }
+                                anchors.fill: parent
+                            }
                         }
                         Row{
                             id : placeTools
@@ -1515,7 +1534,7 @@ Page {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    width: height                    
+                    width: height
                     fillMode: Image.PreserveAspectFit
                     horizontalAlignment: Image.AlignHCenter
                     verticalAlignment: Image.AlignLeft

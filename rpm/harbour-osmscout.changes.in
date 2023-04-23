@@ -591,3 +591,4 @@
 - fix rare crash during rendering - it happened sometimes with outdoor map style during navigation
 - fix infinite loop in router when entering mini roundabout from oneway
 - fix routing via junctions with turn restrictions
+- support for simple POI opening hours
