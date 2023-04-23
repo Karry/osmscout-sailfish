@@ -115,7 +115,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 textFormat: Text.PlainText
                 wrapMode: Text.Wrap
-                text: model.timeIntervals
+                text: model.timeIntervals.join(", ")
             }
         }
     }
