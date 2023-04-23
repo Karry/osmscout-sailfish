@@ -79,7 +79,21 @@ Page {
                     font.pixelSize: Theme.fontSizeExtraLarge
                 }
             }
-
+            Text {
+                font.pixelSize: Theme.fontSizeSmall
+                wrapMode: Text.Wrap
+                text: objectTypeModel.openingHours
+                visible: objectTypeModel.rowCount()==0 // parsing failed
+                color: Theme.secondaryHighlightColor
+                textFormat: Text.PlainText
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    topMargin: Theme.paddingSmall
+                    leftMargin: Theme.paddingSmall
+                    rightMargin: Theme.paddingSmall
+                }
+            }
         }
 
         delegate: BackgroundItem {
