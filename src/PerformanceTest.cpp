@@ -73,6 +73,8 @@
 #include <osmscout/util/StopClock.h>
 #include <osmscout/util/Tiling.h>
 
+#include <osmscout/projection/TileProjection.h>
+
 /*
   Example for the nordrhein-westfalen.osm (to be executed in the Demos top
   level directory), drawing the "Ruhrgebiet":
@@ -699,7 +701,7 @@ int main(int argc, char* argv[])
                      args.TileWidth(),
                      args.TileHeight());
 
-      projection.GetDimensions(boundingBox);
+      boundingBox=projection.GetDimensions();
       projection.SetLinearInterpolationUsage(level.Get() >= 10);
 
       for (size_t i=0; i<args.loadRepeat; i++) {
