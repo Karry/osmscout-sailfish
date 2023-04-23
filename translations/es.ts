@@ -991,16 +991,22 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Public holiday</source>
-        <extracomment>long variant
-----------
-short variant</extracomment>
+        <extracomment>long variant</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>School holiday</source>
-        <extracomment>long variant
-----------
-short variant</extracomment>
+        <extracomment>long variant</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
