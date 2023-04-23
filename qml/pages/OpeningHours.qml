@@ -82,8 +82,10 @@ Page {
 
         }
 
-        delegate: ListItem {
+        delegate: BackgroundItem {
             id: item
+
+            highlighted: isToday
 
             Text {
                 id: labelText
