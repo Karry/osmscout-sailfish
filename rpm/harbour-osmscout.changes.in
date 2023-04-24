@@ -584,7 +584,7 @@
 - new icon ;-)
 
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.29
-- update translations (Czech, Estonian)
+- update translations (Czech, Estonian, Swedish)
 - parse location coordinates format used on booking.com in search
 - optimize memory usage during search
 - remove Sailjail data migration code
