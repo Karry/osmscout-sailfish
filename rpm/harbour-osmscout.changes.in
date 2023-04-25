@@ -583,7 +583,7 @@
 - fix decoding of %xx escaping in geo: uri
 - new icon ;-)
 
-* 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.29
+* 2023-04-25 Lukáš Karas <lukas.karas@centrum.cz> 2.29
 - update translations (Czech, Estonian, Swedish)
 - parse location coordinates format used on booking.com in search
 - optimize memory usage during search
