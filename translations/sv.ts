@@ -982,6 +982,41 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>OpeningHours</name>
+    <message>
+        <source>Opening hours</source>
+        <translation>Öppettider</translation>
+    </message>
+</context>
+<context>
+    <name>OpeningHoursModel</name>
+    <message>
+        <source>closed</source>
+        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
+        <translation>stängd</translation>
+    </message>
+    <message>
+        <source>Public holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Helgdag</translation>
+    </message>
+    <message>
+        <source>School holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Skollov</translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation>Hd</translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
+        <translation>Sl</translation>
+    </message>
+</context>
+<context>
     <name>PlaceDetail</name>
     <message>
         <source>You are here</source>

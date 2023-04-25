@@ -582,3 +582,13 @@
 - improve loading time of collections (added database indexes)
 - fix decoding of %xx escaping in geo: uri
 - new icon ;-)
+
+* 2023-04-25 Lukáš Karas <lukas.karas@centrum.cz> 2.29
+- update translations (Czech, Estonian, Swedish)
+- parse location coordinates format used on booking.com in search
+- optimize memory usage during search
+- remove Sailjail data migration code
+- fix rare crash during rendering - it happened sometimes with outdoor map style during navigation
+- fix infinite loop in router when entering mini roundabout from oneway
+- fix routing via junctions with turn restrictions
+- support for simple POI opening hours

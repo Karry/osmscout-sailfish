@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.28.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.29.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -315,7 +315,6 @@ set(HEADER_FILES
     src/IconProvider.h
     src/LocFile.h
     src/MemoryManager.h
-    src/Migration.h
     src/NearWaypointModel.h
     src/Tracker.h
     src/SearchHistoryModel.h
@@ -335,6 +334,7 @@ set(QML_FILES
     qml/custom/MapDialog.qml
     qml/custom/ScrollIndicator.qml
     qml/custom/MapRenderingIndicator.qml
+    qml/custom/OpeningHoursRow.qml
     qml/custom/Link.qml
     qml/custom/OSMCopyright.qml
     qml/custom/POIIcon.qml
@@ -388,6 +388,7 @@ set(QML_FILES
     qml/pages/CollectionOrdering.qml
     qml/pages/CollectionListOrdering.qml
     qml/pages/NewWaypoint.qml
+    qml/pages/OpeningHours.qml
     qml/pages/CollectionExport.qml
     qml/pages/Settings.qml
     qml/pages/TrackColor.qml
@@ -403,7 +404,6 @@ set(SOURCE_FILES
     src/AppSettings.cpp
     src/LocFile.cpp
     src/MemoryManager.cpp
-    src/Migration.cpp
     src/OSMScout.cpp
     src/Storage.cpp
     src/CollectionModel.cpp
@@ -446,6 +446,7 @@ set(TRANSLATION_SOURCE_FILES
         ${SOURCE_FILES}
         ${QML_FILES}
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/RouteDescriptionBuilder.cpp
+        dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/OpeningHoursModel.cpp
         )
 
 # See http://doc.qt.io/qt-5/cmake-manual.html

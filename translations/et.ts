@@ -582,7 +582,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Kogumiku importimiseks või uue loomiseks viipa ülamenüüst</translation>
     </message>
 </context>
 <context>
@@ -933,7 +933,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Scroll down for more entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Täiendavate kirjete nägemiseks viipa allapoole</translation>
     </message>
 </context>
 <context>
@@ -979,6 +979,41 @@ collection pull down menu</extracomment>
     <message>
         <source>New waypoint</source>
         <translation>Uus teekonnapunkt</translation>
+    </message>
+</context>
+<context>
+    <name>OpeningHours</name>
+    <message>
+        <source>Opening hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OpeningHoursModel</name>
+    <message>
+        <source>closed</source>
+        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>School holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1767,7 +1802,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
+        <translation>Võid uuesti kaardivaate avada ning raja salvestamine jätkub taustal</translation>
     </message>
 </context>
 <context>
@@ -1838,78 +1873,78 @@ collection pull down menu</extracomment>
     </message>
     <message numerus="yes">
         <source>%n miles</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n miil</numerusform>
+            <numerusform>%n miili</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n meters</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>% meeter</numerusform>
+            <numerusform>%n meetrit</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n km</source>
         <extracomment>N kilometers</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n ft</source>
         <extracomment>N feet</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n mi</source>
         <extracomment>N miles</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n m</source>
         <extracomment>N meters</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n feet</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n jalg</numerusform>
+            <numerusform>%n jalga</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n yards</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n jard</numerusform>
+            <numerusform>%n jardi</numerusform>
         </translation>
     </message>
     <message>
         <source>%1 miles</source>
         <extracomment>fraction of miles, %n cannot be used</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 miili</translation>
     </message>
     <message>
         <source>%1 km</source>
         <extracomment>fraction of kilometers, %n cannot be used</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 km</translation>
     </message>
     <message>
         <source>%1 mi</source>
         <extracomment>fraction of miles, %n cannot be used</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 mi</translation>
     </message>
 </context>
 <context>

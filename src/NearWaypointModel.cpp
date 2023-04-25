@@ -123,7 +123,7 @@ QObject* NearWaypointModel::get(int row) const
 
   const auto& [distance, waypoint]=items.at(row);
 
-  // QML will take ownerhip
+  // QML will take ownership
   return new osmscout::LocationEntry(
     osmscout::LocationEntry::typeObject,
     QString::fromStdString(waypoint.data.name ? waypoint.data.name.value() : waypoint.data.coord.GetDisplayText()),

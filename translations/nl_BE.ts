@@ -975,6 +975,41 @@
     </message>
 </context>
 <context>
+    <name>OpeningHours</name>
+    <message>
+        <source>Opening hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OpeningHoursModel</name>
+    <message>
+        <source>closed</source>
+        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>School holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlaceDetail</name>
     <message>
         <source>You are here</source>
