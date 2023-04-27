@@ -592,3 +592,6 @@
 - fix infinite loop in router when entering mini roundabout from oneway
 - fix routing via junctions with turn restrictions
 - support for simple POI opening hours
+
+* 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.30
+
