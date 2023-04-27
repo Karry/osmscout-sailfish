@@ -979,7 +979,7 @@ collection pull down menu</extracomment>
     <name>OpeningHours</name>
     <message>
         <source>Opening hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnungszeiten</translation>
     </message>
 </context>
 <context>
@@ -987,27 +987,27 @@ collection pull down menu</extracomment>
     <message>
         <source>closed</source>
         <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>geschlossen</translation>
     </message>
     <message>
         <source>Public holiday</source>
         <extracomment>long variant</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>gesetzlicher Feiertag</translation>
     </message>
     <message>
         <source>School holiday</source>
         <extracomment>long variant</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Schulferien</translation>
     </message>
     <message>
         <source>PH</source>
         <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>GF</translation>
     </message>
     <message>
         <source>SH</source>
         <extracomment>short variant of &quot;School holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>SF</translation>
     </message>
 </context>
 <context>
