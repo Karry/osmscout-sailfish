@@ -111,6 +111,7 @@ Image{
                 'historic': 'square-stroked',
 
                 'shop': 'shop',
+                'shop_building': 'shop',
                 'christian_church_building':'religious-christian',
                 'christian_church': 'religious-christian',
                 'jewish_synagogue_building': 'religious-jewish',
