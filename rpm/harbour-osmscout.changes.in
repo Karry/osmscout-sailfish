@@ -596,3 +596,4 @@
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.30
 - update translations (German)
 - fix search of generic phrases, like "Billa" in Germany - up to 2k entries is loaded from database, search model expose 100 nearest
+- show opening hours in search result detail
