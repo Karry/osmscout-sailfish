@@ -597,3 +597,5 @@
 - update translations (German)
 - fix search of generic phrases, like "Billa" in Germany - up to 2k entries is loaded from database, search model expose 100 nearest
 - show opening hours in search result detail
+- better error handling in opening hours parsing
+- fix rendering when map is rotated (during navigation), 2.29 regression
