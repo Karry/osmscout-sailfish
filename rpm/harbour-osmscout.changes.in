@@ -600,3 +600,4 @@
 - better error handling in opening hours parsing
 - fix rendering when map is rotated (during navigation), 2.29 regression
 - briefer navigation voice instruction just before turn
+- fix collection edit dialog
