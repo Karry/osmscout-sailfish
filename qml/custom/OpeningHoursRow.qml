@@ -37,12 +37,12 @@ Row {
 
     width: parent.width
     height: openingHoursIcon.height
+    visible: openingHours!=""
 
     IconButton {
         id: openingHoursIcon
 
         icon.source: "image://theme/icon-m-clock"
-        visible: openingHours!=""
     }
 
     Label {

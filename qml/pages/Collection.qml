@@ -567,7 +567,7 @@ Page {
                 collectionModel.editTrack(itemId, name, description, trackType);
             } else { // collection
                 console.log("Edit collection " + itemId + ": " + name + " / " + description);
-                collectionListModel.editCollection(itemId, collectionModel.collectionVisible, name, description, type);
+                collectionListModel.editCollection(itemId, collectionModel.collectionVisible, name, description);
             }
             parent.focus = true;
         }

@@ -696,8 +696,6 @@ Page {
         lat: searchCenterLat
         lon: searchCenterLon
 
-        resultLimit: 100
-
         // compute rank for location, it should be in range 0~1
         function locationRank(loc){
             if (loc.type=="coordinate"){
@@ -883,6 +881,7 @@ Page {
                     }
                     Column{
                         Label {
+                            id: entryLabel
                             font.pixelSize: Theme.fontSizeExtraLarge
                             wrapMode: Text.Wrap
                             color: Theme.highlightColor
@@ -937,6 +936,20 @@ Page {
                         WebsiteRow {
                             id: websiteRow
                             website: model.website
+                        }
+                        OpeningHoursRow {
+                            id: openingHoursRow
+                            openingHours: model.openingHours
+                            MouseArea {
+                                onClicked: {
+                                    pageStack.push(Qt.resolvedUrl("OpeningHours.qml"), {
+                                        "name": entryLabel.text,
+                                        "type": model.type,
+                                        "openingHours": model.openingHours
+                                    });
+                                }
+                                anchors.fill: parent
+                            }
                         }
                     }
                 }
