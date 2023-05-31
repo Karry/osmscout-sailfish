@@ -576,7 +576,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeciągnij w dół, aby zaimportować kolekcję lub utworzyć nową</translation>
     </message>
 </context>
 <context>
@@ -927,7 +927,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Scroll down for more entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Przewiń w dół po więcej pozycji</translation>
     </message>
 </context>
 <context>
@@ -979,7 +979,7 @@ collection pull down menu</extracomment>
     <name>OpeningHours</name>
     <message>
         <source>Opening hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Godziny otwarcia</translation>
     </message>
 </context>
 <context>
@@ -987,17 +987,17 @@ collection pull down menu</extracomment>
     <message>
         <source>closed</source>
         <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>zamknięte</translation>
     </message>
     <message>
         <source>Public holiday</source>
         <extracomment>long variant</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Wakacje</translation>
     </message>
     <message>
         <source>School holiday</source>
         <extracomment>long variant</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Szkolne wakacje</translation>
     </message>
     <message>
         <source>PH</source>
@@ -1375,12 +1375,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Preferuj nazwy angielskie</translation>
+        <translation>Preferuj nazwy angielskie</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Na mapie, w wyszukiwaniu i informacjach o miejscu</translation>
     </message>
 </context>
 <context>
@@ -1797,7 +1797,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
+        <translation>Możesz wrócić do mapy, śledzenie będzie kontunuowane w tle</translation>
     </message>
 </context>
 <context>
@@ -1942,12 +1942,12 @@ collection pull down menu</extracomment>
     <message>
         <source>%1 km</source>
         <extracomment>fraction of kilometers, %n cannot be used</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 km</translation>
     </message>
     <message>
         <source>%1 mi</source>
         <extracomment>fraction of miles, %n cannot be used</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 mi</translation>
     </message>
 </context>
 <context>
