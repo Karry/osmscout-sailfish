@@ -19,7 +19,7 @@
 
 #include "LocFile.h"
 
-#include <osmscout/util/Breaker.h>
+#include <osmscout/async/Breaker.h>
 #include <osmscoutgpx/Utils.h>
 
 #include <QTemporaryFile>

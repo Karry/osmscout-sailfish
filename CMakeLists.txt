@@ -38,8 +38,8 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Version.h.cmake"
 
 # ==================================================================================================
 
-set(CMAKE_MIN_VERSION    "3.9.2") # CMake available on Travis CI is 3.9.2
-set(QT_MIN_VERSION       "5.6.0") # QList::constBegin was introduced in Qt 5.6
+set(CMAKE_MIN_VERSION    "3.19.3") # Sailfish SDK has CMake 3.19.3
+set(QT_MIN_VERSION       "5.6.0") # Sailfish OS is build on Qt/5.6.3
 option(OSMSCOUT_ENABLE_SSE "Enable SSE support (not working on all platforms!)" ON)
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
@@ -286,6 +286,7 @@ add_subdirectory(dependencies/libosmscout/libosmscout)
 add_subdirectory(dependencies/libosmscout/libosmscout-map)
 add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
 add_subdirectory(dependencies/libosmscout/libosmscout-gpx)
+add_subdirectory(dependencies/libosmscout/libosmscout-client)
 add_subdirectory(dependencies/libosmscout/libosmscout-client-qt)
 
 set_property(TARGET OSMScout         PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
