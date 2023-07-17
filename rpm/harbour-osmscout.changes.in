@@ -604,3 +604,4 @@
 
 * 2023-xx-x Lukáš Karas <lukas.karas@centrum.cz> 2.31
 - update translations (Estonian, Polish)
+- fix nondeterministic elevation feature values
