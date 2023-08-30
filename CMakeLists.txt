@@ -38,7 +38,7 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/CMakeMod/Version.h.cmake"
 
 # ==================================================================================================
 
-set(CMAKE_MIN_VERSION    "3.19.3") # Sailfish SDK has CMake 3.19.3
+set(CMAKE_MIN_VERSION    "3.11.4") # Sailfish SDK has CMake 3.19.3 (SFOS 3.3 has CMake 3.11.4)
 set(QT_MIN_VERSION       "5.6.0") # Sailfish OS is build on Qt/5.6.3
 option(OSMSCOUT_ENABLE_SSE "Enable SSE support (not working on all platforms!)" ON)
 
