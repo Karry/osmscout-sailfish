@@ -19,7 +19,10 @@
 
 #pragma once
 
-#include <osmscout/util/CmdLineParsing.h>
+#include <osmscout/cli/CmdLineParsing.h>
+
+#include <QGuiApplication>
+
 #include <iostream>
 
 struct Arguments {

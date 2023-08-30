@@ -22,6 +22,8 @@
 #include <osmscoutclientqt/OSMScoutQt.h>
 
 #include <QDebug>
+#include <QStandardPaths>
+#include <QCoreApplication>
 
 using namespace osmscout;
 

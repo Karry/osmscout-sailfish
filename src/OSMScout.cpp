@@ -18,7 +18,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#include <osmscout/util/Logger.h>
+#include <osmscout/log/Logger.h>
 #include <osmscoutclientqt/OSMScoutQt.h>
 
 #include "AppSettings.h" // Application settings
@@ -53,7 +53,7 @@
 #include <QQuickView>
 #include <QStandardPaths>
 #include <QQmlContext>
-#include <QFileInfo>
+#include <QTranslator>
 #include <QtCore/QtGlobal>
 
 #ifdef QT_QML_DEBUG
@@ -64,6 +64,7 @@
 
 // std
 #include <iostream>
+#include <sstream>
 
 #ifndef OSMSCOUT_SAILFISH_VERSION_STRING
 static_assert(false, "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by build system");

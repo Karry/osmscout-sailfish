@@ -601,3 +601,7 @@
 - fix rendering when map is rotated (during navigation), 2.29 regression
 - briefer navigation voice instruction just before turn
 - fix collection edit dialog
+
+* 2023-07-18 Lukáš Karas <lukas.karas@centrum.cz> 2.31
+- update translations (Estonian, Polish)
+- fix nondeterministic elevation feature values

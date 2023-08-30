@@ -134,6 +134,7 @@ Image{
                 'place_bigcity': 'city',
                 'highway_residential': 'highway_residential',
                 'highway_service': 'highway_residential',
+                'highway_living_street': 'highway_residential',
                 'highway_tertiary': 'highway_tertiary',
                 'highway_unclassified': 'highway_tertiary',
                 'highway_secondary': 'highway_tertiary',

@@ -29,7 +29,7 @@
 /* Define to 1 if you have the `mallinfo' function. */
 #define HAVE_MALLINFO 1
 
-#include <osmscout/Database.h>
+#include <osmscout/db/Database.h>
 #include <osmscoutmap/MapService.h>
 
 #if defined(HAVE_LIB_OSMSCOUTMAPCAIRO)
@@ -69,7 +69,7 @@
 
 #include <osmscout/system/Math.h>
 
-#include <osmscout/util/CmdLineParsing.h>
+#include <osmscout/cli/CmdLineParsing.h>
 #include <osmscout/util/StopClock.h>
 #include <osmscout/util/Tiling.h>
 
