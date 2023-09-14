@@ -1636,6 +1636,7 @@ Page {
                                                           searchFieldText: "poi:10000:natural_peak",
                                                           acceptDestination: mapPage
                                                       });
+                        searchPage.selectLocation.connect(selectLocation);
                     }
                 }
             }
