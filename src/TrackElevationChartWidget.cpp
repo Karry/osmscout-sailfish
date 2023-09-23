@@ -19,6 +19,8 @@
 
 #include "TrackElevationChartWidget.h"
 
+#include <QElapsedTimer>
+
 TrackElevationChartWidget::TrackElevationChartWidget(QQuickItem* parent)
   :osmscout::ElevationChartWidget(parent)
 {
