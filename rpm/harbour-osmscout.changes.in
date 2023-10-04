@@ -607,3 +607,4 @@
 - fix nondeterministic elevation feature values
 
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.32
+- replace online wmflabs "Hike and Bike" map with "Topo" map from Tracestrack
