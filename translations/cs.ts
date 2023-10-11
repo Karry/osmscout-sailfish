@@ -773,6 +773,10 @@ collection pull down menu</extracomment>
         <source>Pick a place</source>
         <translation>Vybrat na mapě</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <translation>Uložené místo</translation>
+    </message>
 </context>
 <context>
     <name>MapDetail</name>
@@ -1968,6 +1972,17 @@ collection pull down menu</extracomment>
     <message>
         <source>Available voices</source>
         <translation>Dostupné hlasy</translation>
+    </message>
+</context>
+<context>
+    <name>WaypointSelector</name>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">Sbírky</translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

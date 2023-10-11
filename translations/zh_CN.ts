@@ -773,6 +773,10 @@ collection pull down menu</extracomment>
         <source>Pick a place</source>
         <translation>选取一个地点</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <translation>路标</translation>
+    </message>
 </context>
 <context>
     <name>MapDetail</name>
@@ -1950,6 +1954,17 @@ collection pull down menu</extracomment>
     <message>
         <source>Available voices</source>
         <translation>可用语音</translation>
+    </message>
+</context>
+<context>
+    <name>WaypointSelector</name>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">收藏</translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished">正在搜藏中</translation>
     </message>
 </context>
 <context>

@@ -773,6 +773,10 @@ collection pull down menu</extracomment>
         <source>Pick a place</source>
         <translation>Выберите место</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MapDetail</name>
@@ -1968,6 +1972,17 @@ collection pull down menu</extracomment>
     <message>
         <source>Available voices</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WaypointSelector</name>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished">Загрузка коллекции</translation>
     </message>
 </context>
 <context>

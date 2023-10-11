@@ -44,6 +44,7 @@ ComboBox {
     property string currentLocationStr: qsTr("Current location")
     property string searchStr: qsTr("Search")
     property string pickStr: qsTr("Pick a place")
+    property string waypointStr: qsTr("Waypoint")
 
     signal selectLocation(LocationEntry loc)
     signal pickPlace(double lat, double lon)
@@ -93,6 +94,16 @@ ComboBox {
             value=selectLocationStr;
             useCurrentLocation=false;
         }
+        if (activeIndex==3){
+            location=null; // in case of search cancel
+            var wpSelectPage=pageStack.push(Qt.resolvedUrl("../pages/WaypointSelector.qml"),
+                                          {
+                                              acceptDestination: pageStack.currentPage,
+                                          });
+            wpSelectPage.selectWaypoint.connect(selectLocation);
+            value=selectLocationStr;
+            useCurrentLocation=false;
+        }
     }
 
     value: selectLocationStr
@@ -100,6 +111,7 @@ ComboBox {
         MenuItem { text: currentLocationStr }
         MenuItem { text: searchStr }
         MenuItem { text: pickStr }
+        MenuItem { text: waypointStr }
     }
 
     Connections {

@@ -397,6 +397,7 @@ set(QML_FILES
     qml/pages/TrackEdit.qml
     qml/pages/TrackFilter.qml
     qml/pages/VoiceSelector.qml
+    qml/pages/WaypointSelector.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml)

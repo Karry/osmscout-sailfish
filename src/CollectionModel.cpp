@@ -20,6 +20,8 @@
 #include "CollectionModel.h"
 #include "QVariantConverters.h"
 
+#include <osmscoutclientqt/LocationEntry.h>
+
 #include <QDebug>
 #include <QtCore/QStandardPaths>
 #include <QStorageInfo>
@@ -237,14 +239,18 @@ void CollectionModel::onCollectionDetailsLoaded(Collection collection, bool ok)
   this->collection = collection;
 
   std::vector<Item> newItems;
-  if (collection.waypoints){
-    for (const auto &wpt : *collection.waypoints){
-      newItems.push_back(wpt);
+  if (showWaypoints) {
+    if (collection.waypoints) {
+      for (const auto &wpt: *collection.waypoints) {
+        newItems.push_back(wpt);
+      }
     }
   }
-  if (collection.tracks){
-    for (const auto &trk : *collection.tracks){
-      newItems.push_back(trk);
+  if (showTracks) {
+    if (collection.tracks) {
+      for (const auto &trk: *collection.tracks) {
+        newItems.push_back(trk);
+      }
     }
   }
 
@@ -347,6 +353,16 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case VisibleRole: return waypoint.visible;
       case ColorRole: return waypointColor(waypoint.data.symbol);
       case WaypointTypeRole: return waypointType(waypoint.data.symbol);
+      case LocationObjectRole:
+        // QML will take ownership
+        return QVariant::fromValue(new osmscout::LocationEntry(osmscout::LocationEntry::typeObject,
+                                                               QString::fromStdString(waypoint.data.name.value_or(""s)),
+                                                               "",
+                                                               waypointType(waypoint.data.symbol),
+                                                               QList<osmscout::AdminRegionInfoRef>(),
+                                                               "",
+                                                               waypoint.data.coord,
+                                                               osmscout::GeoBox::BoxByCenterAndRadius(waypoint.data.coord, osmscout::Meters(waypoint.data.hdop.value_or(1)))));
       default: return QVariant();
     }
   } else {
@@ -392,6 +408,7 @@ QHash<int, QByteArray> CollectionModel::roleNames() const
   roles[LongitudeRole] = "longitude";
   roles[ElevationRole] = "elevation";
   roles[WaypointTypeRole] = "waypointType";
+  roles[LocationObjectRole] = "locationObject";
 
   // track
   roles[DistanceRole] = "distance";
@@ -686,4 +703,14 @@ void CollectionModel::setTrackVisibility(QString idStr, bool visible)
   }
   emit loadingChanged();
   emit trackVisibilityRequest(trackId, visible);
+}
+
+void CollectionModel::setShowTracks(bool b)
+{
+  showTracks=b;
+}
+
+void CollectionModel::setShowWaypoints(bool b)
+{
+  showWaypoints=b;
 }

@@ -773,6 +773,10 @@ collection pull down menu</extracomment>
         <source>Pick a place</source>
         <translation>Einen Ort auswählen</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <translation>Wegpunkt</translation>
+    </message>
 </context>
 <context>
     <name>MapDetail</name>
@@ -1959,6 +1963,17 @@ collection pull down menu</extracomment>
     <message>
         <source>Available voices</source>
         <translation>Verfügbare Stimmen</translation>
+    </message>
+</context>
+<context>
+    <name>WaypointSelector</name>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">Sammlungen</translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation type="unfinished">Lade Sammlung</translation>
     </message>
 </context>
 <context>
