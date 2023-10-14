@@ -1982,7 +1982,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Загрузка коллекции</translation>
+        <translation>Загрузка коллекции</translation>
     </message>
 </context>
 <context>

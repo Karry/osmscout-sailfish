@@ -1969,11 +1969,11 @@ collection pull down menu</extracomment>
     <name>WaypointSelector</name>
     <message>
         <source>Collections</source>
-        <translation type="unfinished">Kogumikud</translation>
+        <translation>Kogumikud</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Laadin kogumikku</translation>
+        <translation>Laadin kogumikku</translation>
     </message>
 </context>
 <context>

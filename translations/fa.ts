@@ -1964,7 +1964,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">بارگیری مجموعه</translation>
+        <translation>بارگیری مجموعه</translation>
     </message>
 </context>
 <context>

@@ -1960,11 +1960,11 @@ collection pull down menu</extracomment>
     <name>WaypointSelector</name>
     <message>
         <source>Collections</source>
-        <translation type="unfinished">Gyűjtemények</translation>
+        <translation>Gyűjtemények</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Gyűjtemény betöltése</translation>
+        <translation>Gyűjtemény betöltése</translation>
     </message>
 </context>
 <context>

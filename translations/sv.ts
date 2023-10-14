@@ -1969,11 +1969,11 @@ collection pull down menu</extracomment>
     <name>WaypointSelector</name>
     <message>
         <source>Collections</source>
-        <translation type="unfinished">Samlingar</translation>
+        <translation>Samlingar</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Läser in samling</translation>
     </message>
 </context>
 <context>

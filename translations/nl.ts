@@ -1969,11 +1969,11 @@ collection pull down menu</extracomment>
     <name>WaypointSelector</name>
     <message>
         <source>Collections</source>
-        <translation type="unfinished">Verzamelingen</translation>
+        <translation>Verzamelingen</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Verzameling wordt geladen</translation>
+        <translation>Verzameling wordt geladen</translation>
     </message>
 </context>
 <context>

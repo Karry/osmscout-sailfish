@@ -1978,11 +1978,11 @@ collection pull down menu</extracomment>
     <name>WaypointSelector</name>
     <message>
         <source>Collections</source>
-        <translation type="unfinished">Sbírky</translation>
+        <translation>Sbírky</translation>
     </message>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávám sbírku</translation>
     </message>
 </context>
 <context>
