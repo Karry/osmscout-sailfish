@@ -610,3 +610,5 @@
 - replace online wmflabs "Hike and Bike" map with "Topo" map from Tracestrack
 - fix crash during map rendering of zero-size area (happening with Bern in Switzerland)
 - allow to select stored waypoint as navigation start or destination
+
+* 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.33
