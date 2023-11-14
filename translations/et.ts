@@ -987,34 +987,6 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
-    <name>OpeningHoursModel</name>
-    <message>
-        <source>closed</source>
-        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
-        <translation>suletud</translation>
-    </message>
-    <message>
-        <source>Public holiday</source>
-        <extracomment>long variant</extracomment>
-        <translation>Riigipühad</translation>
-    </message>
-    <message>
-        <source>School holiday</source>
-        <extracomment>long variant</extracomment>
-        <translation>Koolivaheajad</translation>
-    </message>
-    <message>
-        <source>PH</source>
-        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
-        <translation>RP</translation>
-    </message>
-    <message>
-        <source>SH</source>
-        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
-        <translation>KV</translation>
-    </message>
-</context>
-<context>
     <name>PlaceDetail</name>
     <message>
         <source>You are here</source>
@@ -2351,6 +2323,34 @@ collection pull down menu</extracomment>
     <message>
         <source>worship_building</source>
         <translation>Palvela</translation>
+    </message>
+</context>
+<context>
+    <name>osmscout::OpeningHoursModel</name>
+    <message>
+        <source>closed</source>
+        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
+        <translation>suletud</translation>
+    </message>
+    <message>
+        <source>Public holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Riigipühad</translation>
+    </message>
+    <message>
+        <source>School holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Koolivaheajad</translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation>RP</translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
+        <translation>KV</translation>
     </message>
 </context>
 <context>
