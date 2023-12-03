@@ -612,5 +612,5 @@
 - allow to select stored waypoint as navigation start or destination
 
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.33
-- delete partially downloaded database before new download - it avoids "Directory already exists"
+- delete partially downloaded database before new download - it avoids "Directory already exists" error
 - fix translations related to opening hours

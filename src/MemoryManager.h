@@ -34,9 +34,6 @@ public slots:
   void memoryLevelChanged(const QString &arg);
   void onTimeout();
 
-signals:
-  void flushCachesRequest(qint64 idleMs);
-
 public:
   MemoryManager();
   virtual ~MemoryManager() = default;
@@ -45,4 +42,5 @@ private:
   QTimer timer;
   std::chrono::milliseconds cacheValidity=std::chrono::minutes(10);
   bool trimAlloc{false};
+  osmscout::Signal<std::chrono::milliseconds> flushCachesRequest;
 };

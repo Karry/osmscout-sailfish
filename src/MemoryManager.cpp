@@ -62,16 +62,14 @@ MemoryManager::MemoryManager()
 
   auto dbThread=OSMScoutQt::GetInstance().GetDBThread();
   assert(dbThread);
-  connect(this, &MemoryManager::flushCachesRequest,
-          dbThread.get(), &DBThread::FlushCaches,
-          Qt::QueuedConnection);
+  flushCachesRequest.Connect(dbThread->flushCaches);
 }
 
 void MemoryManager::onTimeout()
 {
   using namespace std::chrono;
   malloc_stats();
-  emit flushCachesRequest(duration_cast<milliseconds>(cacheValidity).count());
+  flushCachesRequest.Emit(duration_cast<milliseconds>(cacheValidity));
   if (trimAlloc){
     if (malloc_trim(0) == 0){
       // The malloc_trim() function returns 1 if memory was actually released
