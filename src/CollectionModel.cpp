@@ -355,7 +355,7 @@ QVariant CollectionModel::data(const QModelIndex &index, int role) const
       case WaypointTypeRole: return waypointType(waypoint.data.symbol);
       case LocationObjectRole:
         // QML will take ownership
-        return QVariant::fromValue(new osmscout::LocationEntry(osmscout::LocationEntry::typeObject,
+        return QVariant::fromValue(new osmscout::LocationEntry(osmscout::LocationInfo::Type::typeObject,
                                                                QString::fromStdString(waypoint.data.name.value_or(""s)),
                                                                "",
                                                                waypointType(waypoint.data.symbol),

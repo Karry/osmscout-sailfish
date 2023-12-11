@@ -614,3 +614,4 @@
 * 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.33
 - delete partially downloaded database before new download - it avoids "Directory already exists" error
 - fix translations related to opening hours
+- improve search for villages without named street, simple "Village <house number>" phrase is working now

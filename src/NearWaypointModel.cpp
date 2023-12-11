@@ -20,8 +20,8 @@
 #include "NearWaypointModel.h"
 
 #include <osmscout/util/Geometry.h>
+#include <osmscoutclient/AdminRegionInfo.h>
 #include <osmscoutclientqt/LocationEntry.h>
-#include <osmscoutclientqt/AdminRegionInfo.h>
 
 NearWaypointModel::NearWaypointModel()
 {
@@ -125,7 +125,7 @@ QObject* NearWaypointModel::get(int row) const
 
   // QML will take ownership
   return new osmscout::LocationEntry(
-    osmscout::LocationEntry::typeObject,
+    osmscout::LocationInfo::Type::typeObject,
     QString::fromStdString(waypoint.data.name ? waypoint.data.name.value() : waypoint.data.coord.GetDisplayText()),
     "",
     "",
