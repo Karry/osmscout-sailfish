@@ -579,9 +579,12 @@ set(SOURCE_FILES
 add_executable(PerformanceTest ${SOURCE_FILES})
 set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 17)
 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/PerformanceTestConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/include/PerformanceTest/config.h)
+
 target_include_directories(PerformanceTest PRIVATE 
         ${OSMSCOUT_INCLUDE_DIRS}
         ${LIBSAILFISHAPP_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_BINARY_DIR}/include/PerformanceTest/
 )
 
 target_link_libraries(PerformanceTest
