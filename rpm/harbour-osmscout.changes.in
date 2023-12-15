@@ -611,7 +611,7 @@
 - fix crash during map rendering of zero-size area (happening with Bern in Switzerland)
 - allow to select stored waypoint as navigation start or destination
 
-* 2023-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.33
+* 2023-12-15 Lukáš Karas <lukas.karas@centrum.cz> 2.33
 - delete partially downloaded database before new download - it avoids "Directory already exists" error
 - fix translations related to opening hours
 - improve search for villages without named street, simple "Village <house number>" phrase is working now
