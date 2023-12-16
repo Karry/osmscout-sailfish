@@ -218,7 +218,7 @@ QObject *CollectionTrackModel::getBBox() const
   }
 
   // QML will take ownership
-  return new LocationEntry(LocationEntry::Type::typeNone,
+  return new LocationEntry(LocationInfo::Type::typeNone,
                            "bbox",
                            "",
                            "bbox",

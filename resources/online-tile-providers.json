@@ -7,15 +7,15 @@
     ],
     "maximumZoomLevel": 19, 
     "copyright": "© OpenStreetMap contributors"
-  }, 
+  },
   {
-    "id": "hikebikemap",
-    "name": "Hike & Bike Map",
+    "id": "tracestrack-topo",
+    "name": "Tracestrack Topo",
     "servers": [
-      "https://tiles.wmflabs.org/hikebike/%1/%2/%3.png"
+      "https://tile.tracestrack.com/topo__/%1/%2/%3.png?key=ca838ccae75253c5f95dfbdfad7c17b1"
     ],
     "maximumZoomLevel": 19,
-    "copyright": "© Leaflet, OSM, NASA"
+    "copyright": "© Tracestrack, OSM, NASA"
   },
   {
     "id": "watercolor",

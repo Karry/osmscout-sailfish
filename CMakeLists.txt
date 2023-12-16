@@ -6,7 +6,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.31.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.33.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -397,6 +397,7 @@ set(QML_FILES
     qml/pages/TrackEdit.qml
     qml/pages/TrackFilter.qml
     qml/pages/VoiceSelector.qml
+    qml/pages/WaypointSelector.qml
     qml/main.qml
     qml/l10n.qml
     qml/desktop.qml)
@@ -578,9 +579,12 @@ set(SOURCE_FILES
 add_executable(PerformanceTest ${SOURCE_FILES})
 set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 17)
 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/PerformanceTestConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/include/PerformanceTest/config.h)
+
 target_include_directories(PerformanceTest PRIVATE 
         ${OSMSCOUT_INCLUDE_DIRS}
         ${LIBSAILFISHAPP_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_BINARY_DIR}/include/PerformanceTest/
 )
 
 target_link_libraries(PerformanceTest

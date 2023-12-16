@@ -37,6 +37,11 @@ class CollectionModel : public QAbstractListModel {
   Q_PROPERTY(QString name READ getCollectionName NOTIFY loadingChanged)
   Q_PROPERTY(QString filesystemName READ getCollectionFilesystemName NOTIFY loadingChanged)
   Q_PROPERTY(QString description READ getCollectionDescription NOTIFY loadingChanged)
+
+  // visibility
+  Q_PROPERTY(bool showTracks READ getShowTracks WRITE setShowTracks)
+  Q_PROPERTY(bool showWaypoints READ getShowWaypoints WRITE setShowWaypoints)
+
   // ordering
   Q_PROPERTY(bool waypointFirst READ getWaypointFirst WRITE setWaypointFirst NOTIFY orderingChanged)
   Q_PROPERTY(Ordering ordering  READ getOrdering      WRITE setOrdering      NOTIFY orderingChanged)
@@ -78,6 +83,8 @@ public slots:
   void moveTrack(QString trackId, QString collectionId);
   void setWaypointVisibility(QString id, bool visible);
   void setTrackVisibility(QString id, bool visible);
+  void setShowTracks(bool b);
+  void setShowWaypoints(bool b);
 
 public:
   CollectionModel();
@@ -109,10 +116,11 @@ public:
     LongitudeRole = Qt::UserRole+11,
     ElevationRole = Qt::UserRole+12,
     WaypointTypeRole = Qt::UserRole+13,
+    LocationObjectRole = Qt::UserRole+14,
 
     // type == track
-    DistanceRole = Qt::UserRole+14,
-    TrackTypeRole = Qt::UserRole+15,
+    DistanceRole = Qt::UserRole+15,
+    TrackTypeRole = Qt::UserRole+16,
   };
   Q_ENUM(Roles)
 
@@ -155,9 +163,19 @@ public:
   static QString waypointType(const std::optional<std::string> &symbol, const QString &defaultType = "_waypoint");
   static QString waypointColor(const std::optional<std::string> &symbol, const QString &defaultColor = "");
 
+  bool getShowTracks() const
+  {
+    return showTracks;
+  }
+
+  bool getShowWaypoints() const
+  {
+    return showWaypoints;
+  }
+
 private:
   /**
-   * Updates model entries without reseting whole model.
+   * Updates model entries without resetting whole model.
    * Both vectors have to use the same sorting.
    */
   void handleChanges(std::vector<Item> &current, const std::vector<Item> &newItems);
@@ -170,6 +188,9 @@ private:
 
   bool collectionLoaded{false};
   bool collectionExporting{false};
+
+  bool showTracks{true};
+  bool showWaypoints{true};
 
   bool waypointFirst{true};
   Ordering ordering{DateAscent};

@@ -779,6 +779,10 @@ collection pull down menu</extracomment>
         <source>Pick a place</source>
         <translation>Wybierz miejsce</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <translation>Punkt trasy</translation>
+    </message>
 </context>
 <context>
     <name>MapDetail</name>
@@ -986,34 +990,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Opening hours</source>
         <translation>Godziny otwarcia</translation>
-    </message>
-</context>
-<context>
-    <name>OpeningHoursModel</name>
-    <message>
-        <source>closed</source>
-        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
-        <translation>zamknięte</translation>
-    </message>
-    <message>
-        <source>Public holiday</source>
-        <extracomment>long variant</extracomment>
-        <translation>Wakacje</translation>
-    </message>
-    <message>
-        <source>School holiday</source>
-        <extracomment>long variant</extracomment>
-        <translation>Szkolne wakacje</translation>
-    </message>
-    <message>
-        <source>PH</source>
-        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SH</source>
-        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1977,6 +1953,17 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>WaypointSelector</name>
+    <message>
+        <source>Collections</source>
+        <translation>Kolekcje</translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation>Ładowanie kolekcji</translation>
+    </message>
+</context>
+<context>
     <name>databaseType</name>
     <message>
         <source>node</source>
@@ -2350,6 +2337,34 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>worship_building</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>osmscout::OpeningHoursModel</name>
+    <message>
+        <source>closed</source>
+        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
+        <translation>zamknięte</translation>
+    </message>
+    <message>
+        <source>Public holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Wakacje</translation>
+    </message>
+    <message>
+        <source>School holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Szkolne wakacje</translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

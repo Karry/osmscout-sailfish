@@ -1427,7 +1427,7 @@ STYLE
 
  [MAG veryClose-] {
    [TYPE highway_tertiary,
-     highway_tertiary_link,
+         highway_tertiary_link,
          highway_unclassified,
          highway_road,
          highway_residential,
@@ -1696,6 +1696,7 @@ STYLE
          tourism_information_building,
          tourism_motel_building,
          tourism_museum_building,
+         tourism_building,
          historic_castle_building,
          historic_monument_building,
          historic_memorial_building,

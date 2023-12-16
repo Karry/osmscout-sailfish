@@ -20,7 +20,7 @@ Name:       harbour-osmscout-jolla1
 # << macros
 
 Summary:    OSMScout for Sailfish with compatibility patches for Jolla 1
-Version:    2.31
+Version:    2.33
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2

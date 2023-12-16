@@ -779,6 +779,10 @@ collection pull down menu</extracomment>
         <source>Pick a place</source>
         <translation>Välj en plats</translation>
     </message>
+    <message>
+        <source>Waypoint</source>
+        <translation>Vägpunkt</translation>
+    </message>
 </context>
 <context>
     <name>MapDetail</name>
@@ -986,34 +990,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Opening hours</source>
         <translation>Öppettider</translation>
-    </message>
-</context>
-<context>
-    <name>OpeningHoursModel</name>
-    <message>
-        <source>closed</source>
-        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
-        <translation>stängd</translation>
-    </message>
-    <message>
-        <source>Public holiday</source>
-        <extracomment>long variant</extracomment>
-        <translation>Helgdag</translation>
-    </message>
-    <message>
-        <source>School holiday</source>
-        <extracomment>long variant</extracomment>
-        <translation>Skollov</translation>
-    </message>
-    <message>
-        <source>PH</source>
-        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
-        <translation>Hd</translation>
-    </message>
-    <message>
-        <source>SH</source>
-        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
-        <translation>Sl</translation>
     </message>
 </context>
 <context>
@@ -1968,6 +1944,17 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>WaypointSelector</name>
+    <message>
+        <source>Collections</source>
+        <translation>Samlingar</translation>
+    </message>
+    <message>
+        <source>Loading collection</source>
+        <translation>Läser in samling</translation>
+    </message>
+</context>
+<context>
     <name>databaseType</name>
     <message>
         <source>node</source>
@@ -2342,6 +2329,34 @@ collection pull down menu</extracomment>
     <message>
         <source>worship_building</source>
         <translation>Andakt</translation>
+    </message>
+</context>
+<context>
+    <name>osmscout::OpeningHoursModel</name>
+    <message>
+        <source>closed</source>
+        <extracomment>example: restaurant is &quot;closed&quot; at Monday</extracomment>
+        <translation>stängd</translation>
+    </message>
+    <message>
+        <source>Public holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Helgdag</translation>
+    </message>
+    <message>
+        <source>School holiday</source>
+        <extracomment>long variant</extracomment>
+        <translation>Skollov</translation>
+    </message>
+    <message>
+        <source>PH</source>
+        <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
+        <translation>Hd</translation>
+    </message>
+    <message>
+        <source>SH</source>
+        <extracomment>short variant of &quot;School holiday&quot;</extracomment>
+        <translation>Sl</translation>
     </message>
 </context>
 <context>
