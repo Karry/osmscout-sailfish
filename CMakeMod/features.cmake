@@ -101,14 +101,37 @@ check_function_exists(mallinfo2 HAVE_MALLINFO2)
 
 find_package(LibXml2)
 
-find_package(ICONV QUIET)
-if(ICONV_FOUND)
-    set(HAVE_ICONV TRUE)
-    if(${ICONV_SECOND_ARGUMENT_IS_CONST})
-        set(ICONV_CONST "const")
-    endif()
+if(NOT TARGET LibXml2::LibXml2)
+  # libxml2 v2.9.8 doesn't define cmake target
+  add_library(LibXml2::LibXml2 SHARED IMPORTED)
+  set_target_properties(LibXml2::LibXml2 PROPERTIES
+          IMPORTED_LOCATION ${LIBXML2_LIBRARY}
+          INTERFACE_INCLUDE_DIRECTORIES ${LIBXML2_INCLUDE_DIR}
+  )
+endif()
+
+find_package(Iconv QUIET)
+if(TARGET Iconv::Iconv)
+  set(HAVE_ICONV TRUE)
+
+  cmake_push_check_state(RESET)
+  set(CMAKE_REQUIRED_INCLUDES ${ICONV_INCLUDE_DIR})
+  set(CMAKE_REQUIRED_LIBRARIES ${ICONV_LIBRARIES})
+  if(MSVC)
+    set(CMAKE_REQUIRED_FLAGS /we4028 /fp:fast /wd4251 /Oi)
+  endif()
+  check_prototype_definition("iconv"
+          "size_t iconv(iconv_t cd, const char **inbuf, size_t *inbytesleft, char **outbuf, size_t *outbytesleft)"
+          "-1"
+          "iconv.h"
+          ICONV_SECOND_ARGUMENT_IS_CONST)
+  cmake_pop_check_state()
+
+  if(${ICONV_SECOND_ARGUMENT_IS_CONST})
+    set(ICONV_CONST "const")
+  endif()
 else()
-    message(WARNING "No iconv support")
+  message(WARNING "No iconv support")
 endif()
 
 # prepare cmake variables for configuration files
