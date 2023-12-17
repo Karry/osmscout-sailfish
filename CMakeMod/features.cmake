@@ -101,6 +101,15 @@ check_function_exists(mallinfo2 HAVE_MALLINFO2)
 
 find_package(LibXml2)
 
+if(NOT TARGET LibXml2::LibXml2)
+  # libxml2 v2.9.8 doesn't define cmake target
+  add_library(LibXml2::LibXml2 SHARED IMPORTED)
+  set_target_properties(LibXml2::LibXml2 PROPERTIES
+          IMPORTED_LOCATION ${LIBXML2_LIBRARY}
+          INTERFACE_INCLUDE_DIRECTORIES ${LIBXML2_INCLUDE_DIR}
+  )
+endif()
+
 find_package(Iconv QUIET)
 if(TARGET Iconv::Iconv)
   set(HAVE_ICONV TRUE)
