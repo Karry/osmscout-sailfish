@@ -118,6 +118,34 @@ set(OSMSCOUT_HAVE_INT8_T ${HAVE_INT8_T})
 set(OSMSCOUT_HAVE_SSE2 ${HAVE_SSE2})
 set(OSMSCOUT_GPX_HAVE_LIB_XML ${LIBXML2_FOUND})
 
+find_package(Threads)
+if(THREADS_HAVE_PTHREAD_ARG)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${THREADS_PTHREAD_ARG}")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${THREADS_PTHREAD_ARG}")
+endif()
+
+if (CMAKE_USE_PTHREADS_INIT)
+  set(OSMSCOUT_PTHREAD TRUE)
+endif()
+
+try_compile(PTHREAD_NAME_OK "${PROJECT_BINARY_DIR}"
+        "${PROJECT_SOURCE_DIR}/dependencies/libosmscout/cmake/TestPThreadName.cpp"
+        LINK_LIBRARIES pthread
+        OUTPUT_VARIABLE PTHREAD_NAME_OUT)
+if(PTHREAD_NAME_OK)
+  set(OSMSCOUT_PTHREAD_NAME TRUE)
+else()
+  message(STATUS "TestPThreadName.cpp cannot be compiled: ${PTHREAD_NAME_OUT}")
+endif()
+
+find_package(TBB QUIET)
+if (TBB_FOUND)
+  try_compile(TBB_HAS_SCHEDULER_INIT "${PROJECT_BINARY_DIR}"
+          "${PROJECT_SOURCE_DIR}/dependencies/libosmscout/cmake/TestTBBSchedulerInit.cpp"
+          LINK_LIBRARIES TBB::tbb)
+endif()
+set(HAVE_STD_EXECUTION ${TBB_FOUND})
+
 function(create_private_config output name)
   string(REPLACE "-" "_" OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME ${name})
   string(TOUPPER ${OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME} OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME)

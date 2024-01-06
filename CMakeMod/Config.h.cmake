@@ -201,6 +201,16 @@
 #cmakedefine HAVE_VISIBILITY 1
 #endif
 
+/* Define to 1 or 0, depending whether the compiler supports parallel execution algorithms. */
+#ifndef HAVE_STD_EXECUTION
+#cmakedefine HAVE_STD_EXECUTION 1
+#endif
+
+/* Define to 1 or 0, depending whether the tbb::task_scheduler_init exists. */
+#ifndef TBB_HAS_SCHEDULER_INIT
+#cmakedefine TBB_HAS_SCHEDULER_INIT 1
+#endif
+
 /* int16_t is available */
 #ifndef OSMSCOUT_HAVE_INT16_T
 #cmakedefine OSMSCOUT_HAVE_INT16_T 1
@@ -371,14 +381,14 @@
 #cmakedefine OSMSCOUT_MAP_SVG_HAVE_LIB_PANGO 1
 #endif
 
-/* gl/glut */
-#ifndef OSMSCOUT_MAP_OPENGL_HAVE_GL_GLUT_H
-#cmakedefine OSMSCOUT_MAP_OPENGL_HAVE_GL_GLUT_H 1
+#ifndef OSMSCOUT_PTHREAD
+/* Threads are pthreads */
+#cmakedefine OSMSCOUT_PTHREAD
 #endif
 
-/* glut/glut */
-#ifndef OSMSCOUT_MAP_OPENGL_HAVE_GLUT_GLUT_H
-#cmakedefine OSMSCOUT_MAP_OPENGL_HAVE_GLUT_GLUT_H 1
+#ifndef OSMSCOUT_PTHREAD_NAME
+/* Threads are pthreads and non-posix setname is available */
+#cmakedefine OSMSCOUT_PTHREAD_NAME
 #endif
 
 #endif // @OSMSCOUT_PRIVATE_CONFIG_HEADER_NAME@_PRIVATE_CONFIG_H
