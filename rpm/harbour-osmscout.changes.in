@@ -617,4 +617,5 @@
 - improve search for villages without named street, simple "Village <house number>" phrase is working now
 
 * 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.34
-- fix map size formatting with some locales
+- fix map byte size formatting with some locales
+- improve night/day mode switching during navigation
