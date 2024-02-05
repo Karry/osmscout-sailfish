@@ -1781,6 +1781,7 @@ Page {
                     var key = styleFlagsModel.data(index, StyleFlagsModel.KeyRole);
                     if (key === "daylight") {
                         nightModeBtn.daylight = styleFlagsModel.data(index, StyleFlagsModel.ValueRole);
+                        nightModeProgressIndicator.running = styleFlagsModel.data(index, StyleFlagsModel.InProgressRole);
                         // console.log("update daylight to " + nightModeBtn.daylight);
                         return;
                     }
@@ -1815,6 +1816,12 @@ Page {
                     //AppSettings.showCollections = !AppSettings.showCollections
                     styleFlagsModel.setFlag("daylight", !nightModeBtn.daylight);
                 }
+            }
+            BusyIndicator{
+                id: nightModeProgressIndicator
+                running: false
+                size: BusyIndicatorSize.Medium
+                anchors.centerIn: parent
             }
         }
     }
