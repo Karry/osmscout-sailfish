@@ -1680,10 +1680,6 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Current speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 mi/h</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1776,6 +1772,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Descent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <extracomment>Current speed reported by gps</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

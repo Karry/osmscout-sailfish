@@ -265,7 +265,8 @@ Page {
             DetailItem {
                 id: currentSpeed
                 visible: Global.positionSource.lastUpdate.getTime() > 0
-                label: qsTr("Current speed")
+                //: Current speed reported by gps
+                label: qsTr("Speed")
                 value: (Global.positionSource.speedValid && ((Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastSpeedUpdate.getTime()) < 10000)) ?
                            (Utils.distanceUnits == "imperial" ?
                                (qsTr("%1 mi/h")

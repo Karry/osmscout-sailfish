@@ -1679,10 +1679,6 @@ collection pull down menu</extracomment>
         <translation>最近更新</translation>
     </message>
     <message>
-        <source>Current speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 mi/h</source>
         <translation>%1 米/小时</translation>
     </message>
@@ -1776,6 +1772,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Descent</source>
         <translation>下坡</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <extracomment>Current speed reported by gps</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

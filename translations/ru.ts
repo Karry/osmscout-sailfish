@@ -1681,10 +1681,6 @@ collection pull down menu</extracomment>
         <translation>Последнее обновление координат</translation>
     </message>
     <message>
-        <source>Current speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 mi/h</source>
         <translation>%1 миль/ч</translation>
     </message>
@@ -1778,6 +1774,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Descent</source>
         <translation>Спуск</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <extracomment>Current speed reported by gps</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
