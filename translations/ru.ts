@@ -1630,12 +1630,91 @@ collection pull down menu</extracomment>
 <context>
     <name>Tracker</name>
     <message>
+        <source>Edit track</source>
+        <translation type="unfinished">Редактировать путь</translation>
+    </message>
+    <message>
         <source>New track</source>
         <translation>Новый путь</translation>
     </message>
     <message>
+        <source>You can return to the map, tracking will continue on background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop tracking</source>
         <translation>Прекратить запись пути</translation>
+    </message>
+    <message>
+        <source>Stopping tracker</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation>Прекратить запись</translation>
+    </message>
+    <message numerus="yes">
+        <source>There was %n error(s) during tracking. Recent: %2</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current data</source>
+        <translation>Текущие данные</translation>
+    </message>
+    <message>
+        <source>Last update</source>
+        <extracomment>Last GPS update time</extracomment>
+        <translation>Последнее обновление координат</translation>
+    </message>
+    <message>
+        <source>Current speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 миль/ч</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 км/ч</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Точность по горизонтали</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Высота</translation>
+    </message>
+    <message>
+        <source>%1 ft a.s.l.</source>
+        <translation>%1 футов над уровнем моря</translation>
+    </message>
+    <message>
+        <source>%1 m a.s.l.</source>
+        <translation>%1 м над уровнем моря</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Точность по вертикали</translation>
+    </message>
+    <message>
+        <source>Statistics</source>
+        <translation>Статистика</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -1681,14 +1760,6 @@ collection pull down menu</extracomment>
         <translation>Средняя скорость</translation>
     </message>
     <message>
-        <source>%1 mi/h</source>
-        <translation>%1 миль/ч</translation>
-    </message>
-    <message>
-        <source>%1 km/h</source>
-        <translation>%1 км/ч</translation>
-    </message>
-    <message>
         <source>Elevation min/max</source>
         <translation>Высота мин./макс.</translation>
     </message>
@@ -1707,73 +1778,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Descent</source>
         <translation>Спуск</translation>
-    </message>
-    <message>
-        <source>Stopping tracker</source>
-        <extracomment>remorse dialog</extracomment>
-        <translation>Прекратить запись</translation>
-    </message>
-    <message>
-        <source>Current data</source>
-        <translation>Текущие данные</translation>
-    </message>
-    <message>
-        <source>Last update</source>
-        <extracomment>Last GPS update time</extracomment>
-        <translation>Последнее обновление координат</translation>
-    </message>
-    <message>
-        <source>Horizontal accuracy</source>
-        <translation>Точность по горизонтали</translation>
-    </message>
-    <message>
-        <source>Altitude</source>
-        <translation>Высота</translation>
-    </message>
-    <message>
-        <source>%1 ft a.s.l.</source>
-        <translation>%1 футов над уровнем моря</translation>
-    </message>
-    <message>
-        <source>%1 m a.s.l.</source>
-        <translation>%1 м над уровнем моря</translation>
-    </message>
-    <message>
-        <source>Vertical accuracy</source>
-        <translation>Точность по вертикали</translation>
-    </message>
-    <message>
-        <source>Statistics</source>
-        <translation>Статистика</translation>
-    </message>
-    <message numerus="yes">
-        <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Edit track</source>
-        <translation type="unfinished">Редактировать путь</translation>
-    </message>
-    <message>
-        <source>Rename track</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

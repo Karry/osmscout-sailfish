@@ -1630,12 +1630,89 @@ collection pull down menu</extracomment>
 <context>
     <name>Tracker</name>
     <message>
+        <source>Edit track</source>
+        <translation type="unfinished">编辑路线</translation>
+    </message>
+    <message>
         <source>New track</source>
         <translation>新追踪</translation>
     </message>
     <message>
+        <source>You can return to the map, tracking will continue on background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop tracking</source>
         <translation>停止追踪</translation>
+    </message>
+    <message>
+        <source>Stopping tracker</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation>停止追踪系统</translation>
+    </message>
+    <message numerus="yes">
+        <source>There was %n error(s) during tracking. Recent: %2</source>
+        <translation>
+            <numerusform>追踪时产生 %n 个错误，最近: %2</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current data</source>
+        <translation>当前数据</translation>
+    </message>
+    <message>
+        <source>Last update</source>
+        <extracomment>Last GPS update time</extracomment>
+        <translation>最近更新</translation>
+    </message>
+    <message>
+        <source>Current speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 米/小时</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/h</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>水平经度</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>海拔</translation>
+    </message>
+    <message>
+        <source>%1 ft a.s.l.</source>
+        <translation>%1 ft a.s.l.</translation>
+    </message>
+    <message>
+        <source>%1 m a.s.l.</source>
+        <translation>%1 m a.s.l.</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>垂直经度</translation>
+    </message>
+    <message>
+        <source>Statistics</source>
+        <translation>统计数据</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -1681,14 +1758,6 @@ collection pull down menu</extracomment>
         <translation>运动速度 ⌀</translation>
     </message>
     <message>
-        <source>%1 mi/h</source>
-        <translation>%1 米/小时</translation>
-    </message>
-    <message>
-        <source>%1 km/h</source>
-        <translation>%1 km/h</translation>
-    </message>
-    <message>
         <source>Elevation min/max</source>
         <translation>海拔最大值/最小值</translation>
     </message>
@@ -1707,71 +1776,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Descent</source>
         <translation>下坡</translation>
-    </message>
-    <message>
-        <source>Stopping tracker</source>
-        <extracomment>remorse dialog</extracomment>
-        <translation>停止追踪系统</translation>
-    </message>
-    <message>
-        <source>Current data</source>
-        <translation>当前数据</translation>
-    </message>
-    <message>
-        <source>Last update</source>
-        <extracomment>Last GPS update time</extracomment>
-        <translation>最近更新</translation>
-    </message>
-    <message>
-        <source>Horizontal accuracy</source>
-        <translation>水平经度</translation>
-    </message>
-    <message>
-        <source>Altitude</source>
-        <translation>海拔</translation>
-    </message>
-    <message>
-        <source>%1 ft a.s.l.</source>
-        <translation>%1 ft a.s.l.</translation>
-    </message>
-    <message>
-        <source>%1 m a.s.l.</source>
-        <translation>%1 m a.s.l.</translation>
-    </message>
-    <message>
-        <source>Vertical accuracy</source>
-        <translation>垂直经度</translation>
-    </message>
-    <message>
-        <source>Statistics</source>
-        <translation>统计数据</translation>
-    </message>
-    <message numerus="yes">
-        <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation>
-            <numerusform>追踪时产生 %n 个错误，最近: %2</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Edit track</source>
-        <translation type="unfinished">编辑路线</translation>
-    </message>
-    <message>
-        <source>Rename track</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1630,12 +1630,90 @@ collection pull down menu</extracomment>
 <context>
     <name>Tracker</name>
     <message>
+        <source>Edit track</source>
+        <translation>Muuda rada</translation>
+    </message>
+    <message>
         <source>New track</source>
         <translation>Uus rada</translation>
     </message>
     <message>
+        <source>You can return to the map, tracking will continue on background</source>
+        <translation>Võid uuesti kaardivaate avada ning raja salvestamine jätkub taustal</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>Muuda värvi</translation>
+    </message>
+    <message>
+        <source>Rename track</source>
+        <translation>Muuda raja nime</translation>
+    </message>
+    <message>
         <source>Stop tracking</source>
         <translation>Peata raja salvestamine</translation>
+    </message>
+    <message>
+        <source>Stopping tracker</source>
+        <extracomment>remorse dialog</extracomment>
+        <translation>Peatame raja salvestamist</translation>
+    </message>
+    <message numerus="yes">
+        <source>There was %n error(s) during tracking. Recent: %2</source>
+        <translation>
+            <numerusform>Raja salvestamisel tekkis %n viga, neist viimane on %2</numerusform>
+            <numerusform>Raja salvestamisel tekkis %n viga, neist viimane on %2</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <extracomment>track type</extracomment>
+        <translation>Tüüp</translation>
+    </message>
+    <message>
+        <source>Current data</source>
+        <translation>Praegused andmed</translation>
+    </message>
+    <message>
+        <source>Last update</source>
+        <extracomment>Last GPS update time</extracomment>
+        <translation>Viimane uuendus</translation>
+    </message>
+    <message>
+        <source>Current speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 mi/h</source>
+        <translation>%1 mi/h</translation>
+    </message>
+    <message>
+        <source>%1 km/h</source>
+        <translation>%1 km/h</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horisontaalne täpsus</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Kõrgus merepinnast</translation>
+    </message>
+    <message>
+        <source>%1 ft a.s.l.</source>
+        <translation>%1 ft ümp</translation>
+    </message>
+    <message>
+        <source>%1 m a.s.l.</source>
+        <translation>%1 m ümp</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikaalne täpsus</translation>
+    </message>
+    <message>
+        <source>Statistics</source>
+        <translation>Statistika</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -1681,14 +1759,6 @@ collection pull down menu</extracomment>
         <translation>Liikumiskiirus ⌀</translation>
     </message>
     <message>
-        <source>%1 mi/h</source>
-        <translation>%1 mi/h</translation>
-    </message>
-    <message>
-        <source>%1 km/h</source>
-        <translation>%1 km/h</translation>
-    </message>
-    <message>
         <source>Elevation min/max</source>
         <translation>Suurim/väikseim kõrgus</translation>
     </message>
@@ -1707,72 +1777,6 @@ collection pull down menu</extracomment>
     <message>
         <source>Descent</source>
         <translation>Laskumine</translation>
-    </message>
-    <message>
-        <source>Stopping tracker</source>
-        <extracomment>remorse dialog</extracomment>
-        <translation>Peatame raja salvestamist</translation>
-    </message>
-    <message>
-        <source>Current data</source>
-        <translation>Praegused andmed</translation>
-    </message>
-    <message>
-        <source>Last update</source>
-        <extracomment>Last GPS update time</extracomment>
-        <translation>Viimane uuendus</translation>
-    </message>
-    <message>
-        <source>Horizontal accuracy</source>
-        <translation>Horisontaalne täpsus</translation>
-    </message>
-    <message>
-        <source>Altitude</source>
-        <translation>Kõrgus merepinnast</translation>
-    </message>
-    <message>
-        <source>%1 ft a.s.l.</source>
-        <translation>%1 ft ümp</translation>
-    </message>
-    <message>
-        <source>%1 m a.s.l.</source>
-        <translation>%1 m ümp</translation>
-    </message>
-    <message>
-        <source>Vertical accuracy</source>
-        <translation>Vertikaalne täpsus</translation>
-    </message>
-    <message>
-        <source>Statistics</source>
-        <translation>Statistika</translation>
-    </message>
-    <message numerus="yes">
-        <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation>
-            <numerusform>Raja salvestamisel tekkis %n viga, neist viimane on %2</numerusform>
-            <numerusform>Raja salvestamisel tekkis %n viga, neist viimane on %2</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Edit track</source>
-        <translation>Muuda rada</translation>
-    </message>
-    <message>
-        <source>Rename track</source>
-        <translation>Muuda raja nime</translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation>Muuda värvi</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <extracomment>track type</extracomment>
-        <translation>Tüüp</translation>
-    </message>
-    <message>
-        <source>You can return to the map, tracking will continue on background</source>
-        <translation>Võid uuesti kaardivaate avada ning raja salvestamine jätkub taustal</translation>
     </message>
 </context>
 <context>

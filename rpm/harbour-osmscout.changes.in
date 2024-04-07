@@ -619,3 +619,4 @@
 * 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.34
 - fix map byte size formatting with some locales
 - improve night/day mode switching during navigation
+- show current speed (reported by gps) on tracker page

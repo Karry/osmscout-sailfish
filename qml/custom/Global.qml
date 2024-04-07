@@ -201,6 +201,10 @@ Item {
         property bool altitudeValid: false
         property date lastAltitudeUpdate: new Date(0)
 
+        property double speed: -1
+        property bool speedValid: false
+        property date lastSpeedUpdate: new Date(0)
+
         property double verticalAccuracy: 0
         property bool verticalAccuracyValid: false
 
@@ -270,6 +274,11 @@ Item {
                 lastAltitudeUpdate = lastUpdate;
                 verticalAccuracy = position.verticalAccuracy;
                 verticalAccuracyValid = position.verticalAccuracyValid;
+            }
+            if (position.speedValid){
+                speed = position.speed;
+                speedValid = true;
+                lastSpeedUpdate = lastUpdate;
             }
 
             updateInternal();

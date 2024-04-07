@@ -250,7 +250,10 @@ Page {
                 value: qsTranslate("trackType", Global.tracker.type)
             }
 
-            SectionHeader{ text: qsTr("Current data") }
+            SectionHeader{
+                text: qsTr("Current data")
+                visible: Global.positionSource.lastUpdate.getTime() > 0
+            }
 
             DetailItem {
                 id: lastUpdateTime
@@ -258,6 +261,18 @@ Page {
                 //: Last GPS update time
                 label: qsTr("Last update")
                 value: Qt.formatTime(Global.positionSource.lastUpdate, Qt.DefaultLocaleLongDate)
+            }
+            DetailItem {
+                id: currentSpeed
+                visible: Global.positionSource.lastUpdate.getTime() > 0
+                label: qsTr("Current speed")
+                value: (Global.positionSource.speedValid && ((Global.positionSource.lastUpdate.getTime() - Global.positionSource.lastSpeedUpdate.getTime()) < 10000)) ?
+                           (Utils.distanceUnits == "imperial" ?
+                               (qsTr("%1 mi/h")
+                                   .arg(content.round10((Global.positionSource.speed*3.6 * 1000) / 1609.344))) :
+                               (qsTr("%1 km/h")
+                                   .arg(content.round10(Global.positionSource.speed*3.6)))
+                            ) : "-"
             }
             DetailItem {
                 id: lastHorizontalAccuracy
