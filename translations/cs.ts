@@ -1778,7 +1778,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Speed</source>
         <extracomment>Current speed reported by gps</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rychlost</translation>
     </message>
 </context>
 <context>
