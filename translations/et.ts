@@ -1777,7 +1777,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Speed</source>
         <extracomment>Current speed reported by gps</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kiirus</translation>
     </message>
 </context>
 <context>
