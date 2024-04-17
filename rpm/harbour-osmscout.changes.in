@@ -621,3 +621,4 @@
 - improve night/day mode switching during navigation
 - show current speed (reported by gps) on tracker page
 - update translations (Czech, Estonian, Swedish)
+- fix crash when database is removed during navigation
