@@ -21,6 +21,8 @@
 
 #include <osmscoutclientqt/OSMScoutQt.h>
 
+#include <QQmlEngine>
+
 /**
  * This class listen for events about memory state from MCE daemon
  * (Mode Control Entity, https://sailfishos.org/wiki/Mce)
@@ -35,12 +37,14 @@ public slots:
   void onTimeout();
 
 public:
-  MemoryManager();
-  virtual ~MemoryManager() = default;
+  explicit MemoryManager(QQmlEngine* engine);
+  ~MemoryManager() override = default;
 
 private:
+  QQmlEngine* qmlEngine;
   QTimer timer;
   std::chrono::milliseconds cacheValidity=std::chrono::minutes(10);
   bool trimAlloc{false};
+  bool callGc{false};
   osmscout::Signal<std::chrono::milliseconds> flushCachesRequest;
 };

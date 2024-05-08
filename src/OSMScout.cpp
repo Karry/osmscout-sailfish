@@ -275,13 +275,13 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
   }
 
   Storage::initInstance(dataDir);
-  MemoryManager memoryManager; // lives in UI thread
 
   int result;
   if (!args.desktop) {
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("OSMScoutVersionString", OSMSCOUT_SAILFISH_VERSION_STRING);
     view->rootContext()->setContextProperty("PositionSimulationTrack", args.positionSimulatorFile);
+    MemoryManager memoryManager(view->engine()); // lives in UI thread
     view->engine()->addImageProvider(QLatin1String("harbour-osmscout"), new IconProvider());
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->showFullScreen();

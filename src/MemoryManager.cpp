@@ -28,8 +28,10 @@
 
 using namespace osmscout;
 
-MemoryManager::MemoryManager()
+MemoryManager::MemoryManager(QQmlEngine* engine)
+  : qmlEngine(engine)
 {
+  assert(qmlEngine!=nullptr);
   memoryLevelChanged("normal");
 
   QDBusConnection systemBus = QDBusConnection::systemBus();
@@ -70,6 +72,9 @@ void MemoryManager::onTimeout()
   using namespace std::chrono;
   malloc_stats();
   flushCachesRequest.Emit(duration_cast<milliseconds>(cacheValidity));
+  if (callGc) {
+    qmlEngine->collectGarbage();
+  }
   if (trimAlloc){
     if (malloc_trim(0) == 0){
       // The malloc_trim() function returns 1 if memory was actually released
@@ -88,15 +93,18 @@ void MemoryManager::memoryLevelChanged(const QString &level)
   qDebug() << "Memory level:" << level;
   if (level == "critical") {
     cacheValidity=seconds(20);
+    callGc=true;
     trimAlloc=true;
     timer.start(duration_cast<milliseconds>(cacheValidity).count());
     onTimeout();
   } else if (level == "warning") {
     cacheValidity=minutes(1);
+    callGc=false;
     trimAlloc=false;
     timer.start(duration_cast<milliseconds>(cacheValidity).count());
     onTimeout();
   } else if (level == "normal") {
+    callGc=false;
     trimAlloc=false;
     timer.stop();
   } else {
