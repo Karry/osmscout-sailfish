@@ -622,3 +622,6 @@
 - show current speed (reported by gps) on tracker page
 - update translations (Czech, Estonian, Swedish)
 - fix crash when database is removed during navigation
+
+* 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.35
+- take initial vehicle bearing into account during (re)routing
