@@ -78,7 +78,16 @@ Item {
         }
         onRerouteRequest: {
             if (routingModel.ready){
-                reroute();
+                if (!navigationModel.destinationSet){
+                    return;
+                }
+
+                var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
+                console.log("Navigation rerouting \"" + Utils.locationStr(startLoc) + "\"" +
+                            " -> \"" + Utils.locationStr(navigationModel.destination) + "\"" +
+                            " by " + navigationModel.vehicle + ", profile: " + navigationModel.profile);
+                routingModel.rerouteRequested = true;
+                routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.profile, bearingAngle);
             }
         }
         onTargetReached: {
@@ -100,19 +109,6 @@ Item {
             routingModel.rerouteRequested = false;
 
             console.log("Setup navigation. Profile: " + navigationModel.profile + ", vehicle: " + navigationModel.vehicle)
-        }
-
-        function reroute(){
-            if (!navigationModel.destinationSet){
-                return;
-            }
-
-            var startLoc = routingModel.locationEntryFromPosition(positionSource.lat, positionSource.lon);
-            console.log("Navigation rerouting \"" + Utils.locationStr(startLoc) + "\"" +
-                        " -> \"" + Utils.locationStr(navigationModel.destination) + "\"" +
-                        " by " + navigationModel.vehicle + ", profile: " + navigationModel.profile);
-            routingModel.rerouteRequested = true;
-            routingModel.setStartAndTarget(startLoc, navigationModel.destination, navigationModel.profile);
         }
 
         function stop(){
