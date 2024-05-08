@@ -59,6 +59,7 @@ Page {
     }
     onShowRoute: {
         map.addOverlayObject(routeId, route);
+        map.showLocation(route.boundingBox);
         drawer.open = false;
     }
 
