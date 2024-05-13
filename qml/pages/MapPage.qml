@@ -875,7 +875,7 @@ Page {
                     bottomMargin: active ? Theme.paddingMedium : 0
                 }
                 width: Theme.iconSizeLarge
-                property bool active: Global.navigationModel.destinationSet && AppSettings.showMapOrientation
+                property bool active: (Global.navigationModel.destinationSet || map.angle !== 0) && AppSettings.showMapOrientation
                 visible: active
                 height: active ? width : 0
 
