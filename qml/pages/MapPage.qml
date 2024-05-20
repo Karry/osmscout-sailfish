@@ -596,7 +596,9 @@ Page {
             showCurrentPosition: true
             interactiveIcons: true
             vehiclePosition: Global.navigationModel.vehiclePosition
-            followVehicle: Global.navigationModel.destinationSet
+            // for some reason, Qt (5.6) renderering crash when we are contantly refreshing view
+            // of the map that is not on active page (itinerary is shown for example)
+            followVehicle: mapPage.status == PageStatus.Active && Global.navigationModel.destinationSet
             renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
             vehicleAutoRotateMap: AppSettings.vehicleAutoRotateMap
 

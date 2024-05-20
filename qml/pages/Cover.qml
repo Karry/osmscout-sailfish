@@ -196,7 +196,7 @@ CoverBackground {
             enabled: AppSettings.showCollections
         }
 
-        followVehicle: Global.navigationModel.destinationSet
+        followVehicle: cover.status == PageStatus.Active && Global.navigationModel.destinationSet
         renderingType: Global.navigationModel.destinationSet ? "plane" : "tiled"
 
         Connections {
