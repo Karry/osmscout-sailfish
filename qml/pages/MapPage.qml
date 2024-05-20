@@ -240,16 +240,19 @@ Page {
                    }
                }
            }
-
-           var coords = arr[0].split(';')[0].split(',');
-           if (coords.length < 2) {
-               console.log("cannot parse url: " + url);
-               networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
-               networkErrorNotification.publish();
-               return;
+           var lat = 0;
+           var lon = 0;
+           if (arr[0] != "") {
+               var coords = arr[0].split(';')[0].split(',');
+               if (coords.length < 2) {
+                   console.log("cannot parse url: " + url);
+                   networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
+                   networkErrorNotification.publish();
+                   return;
+               }
+               lat = Number(coords[0]);
+               lon = Number(coords[1]);
            }
-           var lat = Number(coords[0]);
-           var lon = Number(coords[1]);
            if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180){
                console.log("cannot parse url: " + url);
                networkErrorNotification.previewBody = qsTr("Cannot parse url %1").arg(url);
