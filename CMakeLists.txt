@@ -4,6 +4,7 @@
 # Structure of OSMScout-Sailfish cmake scripts was inspired by DigiKam project
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
+cmake_minimum_required(VERSION 3.16)
 
 cmake_policy(SET CMP0048 NEW)
 project(osmscout-sailfish VERSION 2.35.0 LANGUAGES C CXX)
@@ -30,6 +31,7 @@ if(NOT GIT_RETURN_CODE EQUAL "0")
     message(WARNING "git command failed")
     set(LIBOSMSCOUT_GIT_HASH "?")
 endif()
+set(OSMSCOUT_LIBRARY_VERSION ${LIBOSMSCOUT_GIT_HASH})
 
 message(STATUS "libosmscout Git hash: ${LIBOSMSCOUT_GIT_HASH}")
 

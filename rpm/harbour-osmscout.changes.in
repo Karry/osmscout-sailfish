@@ -628,3 +628,4 @@
 - fix (workaround) crash when some page is shown during navigation (itinerary is for example)
 - fix parsing of geo: urls from Calendar application
 - build using C++20 standard
+- increase database format: added car charging station features like brand, max. stay and fee
