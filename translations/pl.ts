@@ -1054,6 +1054,302 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>RouteDescriptionBuilder</name>
+    <message>
+        <source>Turn sharp left</source>
+        <translation>Skręć ostro w lewo</translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation>Skręć w lewo</translation>
+    </message>
+    <message>
+        <source>Turn slightly left</source>
+        <translation>Skręć lekko w lewo</translation>
+    </message>
+    <message>
+        <source>Straight on</source>
+        <translation>Jedź prosto</translation>
+    </message>
+    <message>
+        <source>Turn slightly right</source>
+        <translation>Skręć lekko w prawo</translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation>Skręć w prawo</translation>
+    </message>
+    <message>
+        <source>Turn sharp right</source>
+        <translation>Skręć ostro w prawo</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Skręć</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć&lt;/strong&gt; na %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w lewo&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;jedź prosto&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w prawo&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w prawo&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt; w %2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w lewo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w lewo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;jedź prosto&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w prawo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w prawo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>unnamed road</source>
+        <extracomment>unknown road name</extracomment>
+        <translation>droga bez nazwy</translation>
+    </message>
+    <message>
+        <source>(%1)</source>
+        <extracomment>road just with ref number</extracomment>
+        <translation>(%1)</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot;</source>
+        <extracomment>road just with name, without ref</extracomment>
+        <translation>&quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; (%2)</source>
+        <extracomment>road with name (%1) and ref (%2)</extracomment>
+        <translation>&quot;%1&quot; (%2)</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Punk początkowy&lt;/strong&gt; w %1</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Punkt początkowy</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Jedź&lt;/strong&gt; dalej %1</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Kontynuuj</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;Punkt początkowy&lt;/strong&gt;  %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Punkt początkowy&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;Cel osiągnięty&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Cel osiągnięty&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Target reached</source>
+        <translation>Cel osiągnięty</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;wjedź na rondo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Wjedź na rondo&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>Wjedź na rondo</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
+        <translation>&lt;strong&gt;Opuść rondo&lt;/strong&gt; na %1. wyjazd na ulicę %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
+        <translation>&lt;strong&gt;Opuść rondo&lt;/strong&gt; na %1. wyjazd</translation>
+    </message>
+    <message>
+        <source>Enter motorway</source>
+        <translation>Wjedź na autostradę</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;wjedź na autostradę&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Wjedź na autostradę&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>Na skrzyżowaniu %1&lt;strong&gt;wjedź na autostradę&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Wjedź na autostradę&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Change motorway</source>
+        <translation>Zmień autostradę</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Zmień autostradę&lt;/strong&gt; z %1 na %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Zmień autostradę&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Leave motorway</source>
+        <translation>Opuść autostradę</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
+        <translation>&lt;strong&gt;Opuść autostradę&lt;/strong&gt; %1 na %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;Opuść autostradę&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;Opuść autostradę&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Way changes name</source>
+        <translation>Droga zmienia nazwę</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;Droga zmienia nazwę&lt;/strong&gt; z %1 na %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation>&lt;strong&gt;Droga zmienia nazwę&lt;/strong&gt; na %1</translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation>Wybierz pierwszy zjazd</translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation>Wybierz drugi zjazd</translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation>Wybierz trzeci zjazd</translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
+        <translation>Wybierz zjazd numer %1</translation>
+    </message>
+    <message>
+        <source>On unnamed exit</source>
+        <extracomment>unnamed motorway exit</extracomment>
+        <translation>Na nienazwanym zjeździe</translation>
+    </message>
+    <message>
+        <source>On exit %1</source>
+        <extracomment>motorway exit just with ref</extracomment>
+        <translation>Na zjeździe %1</translation>
+    </message>
+    <message>
+        <source>On exit &quot;%1&quot;</source>
+        <extracomment>motorway exit with name, without ref</extracomment>
+        <translation>Na zjeździe &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>On exit %1 &quot;%2&quot;</source>
+        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
+        <translation>Na zjeździe %1 &quot;%2&quot;</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;Zmień autostradę&lt;/strong&gt; z %2 na %3</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;Zmień autostradę&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;Opuść autostradę&lt;/strong&gt; %2 na %3</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;Opusć autostradę&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation>%1 &lt;strong&gt;Opuść autostradę&lt;/strong&gt;</translation>
+    </message>
+</context>
+<context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
@@ -2365,302 +2661,6 @@ collection pull down menu</extracomment>
         <source>SH</source>
         <extracomment>short variant of &quot;School holiday&quot;</extracomment>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>osmscout::RouteDescriptionBuilder</name>
-    <message>
-        <source>Turn sharp left</source>
-        <translation>Skręć ostro w lewo</translation>
-    </message>
-    <message>
-        <source>Turn left</source>
-        <translation>Skręć w lewo</translation>
-    </message>
-    <message>
-        <source>Turn slightly left</source>
-        <translation>Skręć lekko w lewo</translation>
-    </message>
-    <message>
-        <source>Straight on</source>
-        <translation>Jedź prosto</translation>
-    </message>
-    <message>
-        <source>Turn slightly right</source>
-        <translation>Skręć lekko w prawo</translation>
-    </message>
-    <message>
-        <source>Turn right</source>
-        <translation>Skręć w prawo</translation>
-    </message>
-    <message>
-        <source>Turn sharp right</source>
-        <translation>Skręć ostro w prawo</translation>
-    </message>
-    <message>
-        <source>Turn</source>
-        <translation>Skręć</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć&lt;/strong&gt; na %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w lewo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;jedź prosto&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w prawo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w prawo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w lewo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w lewo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;jedź prosto&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć lekko w prawo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć w prawo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>unnamed road</source>
-        <extracomment>unknown road name</extracomment>
-        <translation>droga bez nazwy</translation>
-    </message>
-    <message>
-        <source>(%1)</source>
-        <extracomment>road just with ref number</extracomment>
-        <translation>(%1)</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot;</source>
-        <extracomment>road just with name, without ref</extracomment>
-        <translation>&quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot; (%2)</source>
-        <extracomment>road with name (%1) and ref (%2)</extracomment>
-        <translation>&quot;%1&quot; (%2)</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Punk początkowy&lt;/strong&gt; w %1</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Punkt początkowy</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Jedź&lt;/strong&gt; dalej %1</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation>Kontynuuj</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;Punkt początkowy&lt;/strong&gt;  %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Punkt początkowy&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;Cel osiągnięty&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Cel osiągnięty&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Target reached</source>
-        <translation>Cel osiągnięty</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;wjedź na rondo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Wjedź na rondo&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>Wjedź na rondo</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Opuść rondo&lt;/strong&gt; na %1. wyjazd na ulicę %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Opuść rondo&lt;/strong&gt; na %1. wyjazd</translation>
-    </message>
-    <message>
-        <source>Enter motorway</source>
-        <translation>Wjedź na autostradę</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;wjedź na autostradę&lt;/strong&gt; %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Wjedź na autostradę&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>Na skrzyżowaniu %1&lt;strong&gt;wjedź na autostradę&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Wjedź na autostradę&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Change motorway</source>
-        <translation>Zmień autostradę</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Zmień autostradę&lt;/strong&gt; z %1 na %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Zmień autostradę&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Leave motorway</source>
-        <translation>Opuść autostradę</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Opuść autostradę&lt;/strong&gt; %1 na %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Opuść autostradę&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Opuść autostradę&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Way changes name</source>
-        <translation>Droga zmienia nazwę</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Droga zmienia nazwę&lt;/strong&gt; z %1 na %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Droga zmienia nazwę&lt;/strong&gt; na %1</translation>
-    </message>
-    <message>
-        <source>Take the first exit</source>
-        <translation>Wybierz pierwszy zjazd</translation>
-    </message>
-    <message>
-        <source>Take the second exit</source>
-        <translation>Wybierz drugi zjazd</translation>
-    </message>
-    <message>
-        <source>Take the third exit</source>
-        <translation>Wybierz trzeci zjazd</translation>
-    </message>
-    <message>
-        <source>Take the %1th exit</source>
-        <translation>Wybierz zjazd numer %1</translation>
-    </message>
-    <message>
-        <source>On unnamed exit</source>
-        <extracomment>unnamed motorway exit</extracomment>
-        <translation>Na nienazwanym zjeździe</translation>
-    </message>
-    <message>
-        <source>On exit %1</source>
-        <extracomment>motorway exit just with ref</extracomment>
-        <translation>Na zjeździe %1</translation>
-    </message>
-    <message>
-        <source>On exit &quot;%1&quot;</source>
-        <extracomment>motorway exit with name, without ref</extracomment>
-        <translation>Na zjeździe &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>On exit %1 &quot;%2&quot;</source>
-        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
-        <translation>Na zjeździe %1 &quot;%2&quot;</translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Zmień autostradę&lt;/strong&gt; z %2 na %3</translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Zmień autostradę&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Opuść autostradę&lt;/strong&gt; %2 na %3</translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Opusć autostradę&lt;/strong&gt; %2</translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Opuść autostradę&lt;/strong&gt;</translation>
     </message>
 </context>
 <context>

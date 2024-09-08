@@ -1054,6 +1054,302 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>RouteDescriptionBuilder</name>
+    <message>
+        <source>Turn sharp left</source>
+        <translation>向左急转弯</translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation>左转</translation>
+    </message>
+    <message>
+        <source>Turn slightly left</source>
+        <translation>稍微向左转</translation>
+    </message>
+    <message>
+        <source>Straight on</source>
+        <translation>直行</translation>
+    </message>
+    <message>
+        <source>Turn slightly right</source>
+        <translation>稍微向右转</translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation>向右转</translation>
+    </message>
+    <message>
+        <source>Turn sharp right</source>
+        <translation>向右急转弯</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>转</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
+        <translation>在十字路口&lt;strong&gt;% 1 &lt;/strong&gt;转到% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
+        <translation>在十字路口% 1 &lt;strong&gt;急转到&lt;/strong&gt;% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
+        <translation>在十字路口% 1 &lt;strong&gt;左转&lt;/strong&gt;进入% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
+        <translation>在十字路口&lt;strong&gt;% 1 稍微左转&lt;/strong&gt;至% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
+        <translation>在十字路口%1&lt;strong&gt;直行&lt;/strong&gt;至% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
+        <translation>在十字路口% 1 &lt;strong&gt;稍微右转&lt;/strong&gt;至% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
+        <translation>在十字路口% 1 &lt;strong&gt;右转进入&lt;/strong&gt;% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
+        <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;至% 2</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;转&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
+        <translation>在十字路口% 1&lt;strong&gt; 向左急转弯&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;左转&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;稍微左转&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;直行&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;稍微右转&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;向右转&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>unnamed road</source>
+        <extracomment>unknown road name</extracomment>
+        <translation>无名道路</translation>
+    </message>
+    <message>
+        <source>(%1)</source>
+        <extracomment>road just with ref number</extracomment>
+        <translation>(%1)</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot;</source>
+        <extracomment>road just with name, without ref</extracomment>
+        <translation>&quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>&quot;%1&quot; (%2)</source>
+        <extracomment>road with name (%1) and ref (%2)</extracomment>
+        <translation>&quot;%1&quot; (%2)</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;开始&lt;/strong&gt; 在 %1</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>开始</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;继续&lt;/strong&gt; 沿着%1</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>继续</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
+        <translation>&lt;strong&gt;开始&lt;/strong&gt; along沿着%1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;开始&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
+        <translation>&lt;strong&gt;已抵达目的地&lt;/strong&gt;在%1</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;已抵达目的地&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Target reached</source>
+        <translation>已抵达目的地</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>在十字路口% 1 &lt;strong&gt;进入转盘&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;进入转盘&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Enter roundabout</source>
+        <translation>进入转盘</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
+        <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在 %1. 拐入街道 %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
+        <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在%1. 离开</translation>
+    </message>
+    <message>
+        <source>Enter motorway</source>
+        <translation>进入高速公路</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
+        <translation>在十字路口 %1&lt;strong&gt;进入高速公路&lt;/strong&gt; %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;进入高速公路&lt;/strong&gt; %1</translation>
+    </message>
+    <message>
+        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>在十字路口%1&lt;strong&gt;进入高速公路&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;进入高速公路&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Change motorway</source>
+        <translation>更换高速公路</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;更换高速公路&lt;/strong&gt; 从%1 变到 %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;更换高速公路&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Leave motorway</source>
+        <translation>驶离高速公路</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
+        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt; %1 到 %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
+        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt; %1 </translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt;</translation>
+    </message>
+    <message>
+        <source>Way changes name</source>
+        <translation>道路更改名称</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
+        <translation>&lt;strong&gt;道路更换名称&lt;/strong&gt; 从%1 到 %2</translation>
+    </message>
+    <message>
+        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
+        <translation>&lt;strong&gt;道路更换名称&lt;/strong&gt;  到 %2</translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation>选择第一个通道</translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation>选择第二个通道</translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation>选择第三个通道</translation>
+    </message>
+    <message>
+        <source>Take the %1th exit</source>
+        <translation>选择第 %1th 个通道</translation>
+    </message>
+    <message>
+        <source>On unnamed exit</source>
+        <extracomment>unnamed motorway exit</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit %1</source>
+        <extracomment>motorway exit just with ref</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit &quot;%1&quot;</source>
+        <extracomment>motorway exit with name, without ref</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On exit %1 &quot;%2&quot;</source>
+        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
+        <extracomment>%1 is motorway exit description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
@@ -2346,302 +2642,6 @@ collection pull down menu</extracomment>
     <message>
         <source>SH</source>
         <extracomment>short variant of &quot;School holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>osmscout::RouteDescriptionBuilder</name>
-    <message>
-        <source>Turn sharp left</source>
-        <translation>向左急转弯</translation>
-    </message>
-    <message>
-        <source>Turn left</source>
-        <translation>左转</translation>
-    </message>
-    <message>
-        <source>Turn slightly left</source>
-        <translation>稍微向左转</translation>
-    </message>
-    <message>
-        <source>Straight on</source>
-        <translation>直行</translation>
-    </message>
-    <message>
-        <source>Turn slightly right</source>
-        <translation>稍微向右转</translation>
-    </message>
-    <message>
-        <source>Turn right</source>
-        <translation>向右转</translation>
-    </message>
-    <message>
-        <source>Turn sharp right</source>
-        <translation>向右急转弯</translation>
-    </message>
-    <message>
-        <source>Turn</source>
-        <translation>转</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>在十字路口&lt;strong&gt;% 1 &lt;/strong&gt;转到% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>在十字路口% 1 &lt;strong&gt;急转到&lt;/strong&gt;% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>在十字路口% 1 &lt;strong&gt;左转&lt;/strong&gt;进入% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>在十字路口&lt;strong&gt;% 1 稍微左转&lt;/strong&gt;至% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>在十字路口%1&lt;strong&gt;直行&lt;/strong&gt;至% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>在十字路口% 1 &lt;strong&gt;稍微右转&lt;/strong&gt;至% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>在十字路口% 1 &lt;strong&gt;右转进入&lt;/strong&gt;% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;至% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;转&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>在十字路口% 1&lt;strong&gt; 向左急转弯&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;左转&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;稍微左转&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;直行&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;稍微右转&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;向右转&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>unnamed road</source>
-        <extracomment>unknown road name</extracomment>
-        <translation>无名道路</translation>
-    </message>
-    <message>
-        <source>(%1)</source>
-        <extracomment>road just with ref number</extracomment>
-        <translation>(%1)</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot;</source>
-        <extracomment>road just with name, without ref</extracomment>
-        <translation>&quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>&quot;%1&quot; (%2)</source>
-        <extracomment>road with name (%1) and ref (%2)</extracomment>
-        <translation>&quot;%1&quot; (%2)</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;开始&lt;/strong&gt; 在 %1</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>开始</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Continue&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;继续&lt;/strong&gt; 沿着%1</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation>继续</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt; along %1</source>
-        <translation>&lt;strong&gt;开始&lt;/strong&gt; along沿着%1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Start&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;开始&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt; at %1</source>
-        <translation>&lt;strong&gt;已抵达目的地&lt;/strong&gt;在%1</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Target reached&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;已抵达目的地&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Target reached</source>
-        <translation>已抵达目的地</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>在十字路口% 1 &lt;strong&gt;进入转盘&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;进入转盘&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Enter roundabout</source>
-        <translation>进入转盘</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在 %1. 拐入街道 %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;离开转盘&lt;/strong&gt;在%1. 离开</translation>
-    </message>
-    <message>
-        <source>Enter motorway</source>
-        <translation>进入高速公路</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>在十字路口 %1&lt;strong&gt;进入高速公路&lt;/strong&gt; %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;进入高速公路&lt;/strong&gt; %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>在十字路口%1&lt;strong&gt;进入高速公路&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;进入高速公路&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Change motorway</source>
-        <translation>更换高速公路</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;更换高速公路&lt;/strong&gt; 从%1 变到 %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;更换高速公路&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Leave motorway</source>
-        <translation>驶离高速公路</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt; %1 到 %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt; %1 </translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;驶离高速公路&lt;/strong&gt;</translation>
-    </message>
-    <message>
-        <source>Way changes name</source>
-        <translation>道路更改名称</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;道路更换名称&lt;/strong&gt; 从%1 到 %2</translation>
-    </message>
-    <message>
-        <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;道路更换名称&lt;/strong&gt;  到 %2</translation>
-    </message>
-    <message>
-        <source>Take the first exit</source>
-        <translation>选择第一个通道</translation>
-    </message>
-    <message>
-        <source>Take the second exit</source>
-        <translation>选择第二个通道</translation>
-    </message>
-    <message>
-        <source>Take the third exit</source>
-        <translation>选择第三个通道</translation>
-    </message>
-    <message>
-        <source>Take the %1th exit</source>
-        <translation>选择第 %1th 个通道</translation>
-    </message>
-    <message>
-        <source>On unnamed exit</source>
-        <extracomment>unnamed motorway exit</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On exit %1</source>
-        <extracomment>motorway exit just with ref</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On exit &quot;%1&quot;</source>
-        <extracomment>motorway exit with name, without ref</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>On exit %1 &quot;%2&quot;</source>
-        <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
-        <extracomment>%1 is motorway exit description</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <extracomment>%1 is motorway exit description</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
