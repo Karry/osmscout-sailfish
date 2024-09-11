@@ -1057,7 +1057,7 @@ collection pull down menu</extracomment>
     <name>RouteDescriptionBuilder</name>
     <message>
         <source>Turn sharp left</source>
-        <translation>Sväng skarp vänster</translation>
+        <translation>Sväng skarpt vänster</translation>
     </message>
     <message>
         <source>Turn left</source>
@@ -1306,7 +1306,7 @@ collection pull down menu</extracomment>
     <message>
         <source>On unnamed exit</source>
         <extracomment>unnamed motorway exit</extracomment>
-        <translation>Namnlös avfart</translation>
+        <translation>På namnlös avfart</translation>
     </message>
     <message>
         <source>On exit %1</source>
@@ -1321,32 +1321,32 @@ collection pull down menu</extracomment>
     <message>
         <source>On exit %1 &quot;%2&quot;</source>
         <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
-        <translation>På avfart %1  &quot;%2&quot;</translation>
+        <translation>På avfart %1 &quot;%2&quot;</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Byt motorväg&lt;/strong&gt; från %2 till %3</translation>
+        <translation>%1 &lt;strong&gt;Byt motorväg&lt;/strong&gt; från %2 till %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Byt motorväg&lt;/strong&gt;</translation>
+        <translation>%1 &lt;strong&gt;Byt motorväg&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Kör av motorväg&lt;/strong&gt; %2 in på %3</translation>
+        <translation>%1 &lt;strong&gt;Lämna motorväg&lt;/strong&gt; %2 till %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Kör av motorväg&lt;/strong&gt; %2</translation>
+        <translation>%1 &lt;strong&gt;Lämna motorväg&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Kör av motorväg&lt;/strong&gt;</translation>
+        <translation>%1 &lt;strong&gt;Lämna motorväg&lt;/strong&gt;</translation>
     </message>
 </context>
 <context>

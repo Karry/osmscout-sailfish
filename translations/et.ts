@@ -1277,15 +1277,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Way changes name</source>
-        <translation>Tee muudab nime</translation>
+        <translation>Tee nimi muutub</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - %1 asemel %2</translation>
+        <translation>&lt;strong&gt;Tee nimi muutub&lt;/strong&gt; - %1 asemel %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Way changes name&lt;/strong&gt; to %1</source>
-        <translation>&lt;strong&gt;Tee muudab nime&lt;/strong&gt; - uus nimi on %1</translation>
+        <translation>&lt;strong&gt;Tee nimi muutub&lt;/strong&gt; - uus nimi on %1</translation>
     </message>
     <message>
         <source>Take the first exit</source>
