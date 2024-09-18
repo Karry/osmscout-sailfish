@@ -623,7 +623,7 @@
 - update translations (Czech, Estonian, Swedish)
 - fix crash when database is removed during navigation
 
-* 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.35
+* 2024-09-19 Lukáš Karas <lukas.karas@centrum.cz> 2.35
 - take initial vehicle bearing into account during (re)routing
 - fix (workaround) crash when some page is shown during navigation (itinerary is for example)
 - fix parsing of geo: urls from Calendar application
