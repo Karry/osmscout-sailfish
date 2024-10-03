@@ -20,7 +20,7 @@ Name:       harbour-osmscout
 # << macros
 
 Summary:    OSMScout for Sailfish
-Version:    2.35
+Version:    2.36
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
