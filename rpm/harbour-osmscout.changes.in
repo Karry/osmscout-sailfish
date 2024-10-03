@@ -631,3 +631,6 @@
 - increase database format: added car charging station features like brand, max. stay and fee
 - rewrite highway lane suggestions in routing
 - update translations (Estonian, Swedish)
+
+* 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.36
+- improve route lanes suggestions
