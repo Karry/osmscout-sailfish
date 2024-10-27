@@ -634,3 +634,4 @@
 
 * 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.36
 - improve route lanes suggestions
+- hide lane suggestions when navigation ends

@@ -611,7 +611,7 @@ target_link_libraries(SearchPerfTest OSMScout)
 # ==================================================================================================
 # MultiDBRouting
 
-add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRouting.cpp)
+add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRoutingTest.cpp)
 set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 17)
 target_link_libraries(MultiDBRouting OSMScout)
 
@@ -644,7 +644,7 @@ target_link_libraries(MediaPlayer
 # ==================================================================================================
 # OSTAndOSSCheck
 
-add_executable(OSTAndOSSCheck ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/OSTAndOSSCheck.cpp)
+add_executable(OSTAndOSSCheck ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/OSTAndOSSTest.cpp)
 set_property(TARGET OSTAndOSSCheck PROPERTY CXX_STANDARD 17)
 target_link_libraries(OSTAndOSSCheck OSMScout OSMScoutMap)
 
