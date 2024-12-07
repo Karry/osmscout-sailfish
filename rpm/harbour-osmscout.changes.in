@@ -637,3 +637,6 @@
 - hide lane suggestions when navigation ends
 - better support for HiDPI displays
 - optimize rendering: upload tile to GPU without additional conversion
+- improve memory management, reduce kills by low-memory-killer:
+  -- watch system memory and reduce cache TTL when there is not enough free/reclaimable memory.
+     Not use MCE memory level API anymore.

@@ -23,17 +23,72 @@
 
 #include <QQmlEngine>
 
+#include <memory>
+
+enum class MemoryLevel
+{
+  Normal,
+  Warning,
+  Critical
+};
+
+class MemoryWatcher: public QObject {
+  Q_OBJECT
+
+signals:
+  void memoryLevelChanged(const MemoryLevel &level);
+};
+
 /**
- * This class listen for events about memory state from MCE daemon
- * (Mode Control Entity, https://sailfishos.org/wiki/Mce)
- * and tries to release some cahe when system memory level
+ * This watcher implementation listen for events about memory state from MCE daemon
+ * (Mode Control Entity, https://sailfishos.org/wiki/Mce).
+ */
+
+class MCIMemoryWatcher: public MemoryWatcher {
+  Q_OBJECT
+
+public slots:
+  void mciMemoryLevelChanged(const QString &level);
+
+public:
+  MCIMemoryWatcher();
+  ~MCIMemoryWatcher() override = default;
+};
+
+struct FreeSpaceLevel
+{
+  double warning{0};
+  double critical{0};
+};
+
+class ProcMemoryWatcher: public MemoryWatcher {
+  Q_OBJECT
+
+public slots:
+  void onTimeout();
+
+public:
+  explicit ProcMemoryWatcher(const QSettings &setting);
+  ~ProcMemoryWatcher() override = default;
+
+private:
+  // map of process oom score adjustment to free space levels
+  std::map<int, FreeSpaceLevel> levelMap;
+  QTimer timer;
+  MemoryLevel level{MemoryLevel::Normal};
+};
+
+
+/**
+ * This class listen for events about memory state pressure
+ * and tries to release some cache when system memory level
  * is "warning" or "critical" (third state is "normal").
  */
 class MemoryManager: public QObject {
   Q_OBJECT
 
 public slots:
-  void memoryLevelChanged(const QString &arg);
+  void memoryLevelChanged(const MemoryLevel &level);
   void onTimeout();
 
 public:
@@ -41,6 +96,7 @@ public:
   ~MemoryManager() override = default;
 
 private:
+  std::unique_ptr<MemoryWatcher> watcher;
   QQmlEngine* qmlEngine;
   QTimer timer;
   std::chrono::milliseconds cacheValidity=std::chrono::minutes(10);
