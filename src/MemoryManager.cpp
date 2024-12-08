@@ -221,7 +221,7 @@ ProcMemoryWatcher::ProcMemoryWatcher(const QSettings &setting)
   if (!levelMap.empty()) {
     timer.setSingleShot(false);
     connect(&timer, &QTimer::timeout, this, &ProcMemoryWatcher::onTimeout);
-    timer.start(4000);
+    timer.start(2000);
   }
 }
 
@@ -256,9 +256,9 @@ void ProcMemoryWatcher::onTimeout()
   if (currentLevel != level) {
     level = currentLevel;
     if (level==MemoryLevel::Normal) {
-      timer.setInterval(4000);
-    } else if (level==MemoryLevel::Warning) {
       timer.setInterval(2000);
+    } else if (level==MemoryLevel::Warning) {
+      timer.setInterval(1000);
     } else {
       assert(level==MemoryLevel::Critical);
       timer.setInterval(1000);
