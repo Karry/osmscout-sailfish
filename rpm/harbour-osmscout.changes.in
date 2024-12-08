@@ -640,3 +640,5 @@
 - improve memory management, reduce kills by low-memory-killer:
   -- watch system memory and reduce cache TTL when there is not enough free/reclaimable memory.
      Not use MCE memory level API anymore.
+  -- flush also cache of rendered and online map tiles, not just data cache,
+     when memory in under pressure
