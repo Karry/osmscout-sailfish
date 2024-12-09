@@ -632,7 +632,7 @@
 - rewrite highway lane suggestions in routing
 - update translations (Estonian, Swedish)
 
-* 2024-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.36
+* 2024-12-10 Lukáš Karas <lukas.karas@centrum.cz> 2.36
 - improve route lanes suggestions
 - hide lane suggestions when navigation ends
 - better support for HiDPI displays
