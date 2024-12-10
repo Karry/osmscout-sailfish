@@ -122,6 +122,25 @@ namespace {
     return available;
   }
 
+  uint64_t totalMemory()
+  {
+    QFile inputFile("/proc/meminfo");
+    if (!inputFile.open(QIODevice::ReadOnly)) {
+      qWarning() << "Can't open /proc/meminfo";
+      return 0;
+    }
+
+    QTextStream in(&inputFile);
+
+    for (QString line = in.readLine(); !line.isEmpty(); line = in.readLine()) {
+      if (line.startsWith("MemTotal:")) {
+        return parseLine(line);
+      }
+    }
+
+    return 0;
+  }
+
   QString readLine(const QString &file)
   {
     QFile inputFile(file);
@@ -195,27 +214,52 @@ namespace {
 
 ProcMemoryWatcher::ProcMemoryWatcher(const QSettings &setting)
 {
-  // default values for critical are 110% of low-memory-killer's minfree from Xperia 10.II
-  // and 120% for warning level (in MiB)
-  QStringList adj = setting.value("MemoryManager/adj", "0,58,147,529,1000").toString().split(',');
-  QStringList warningLevels = setting.value("MemoryManager/warning", "549,657,765,873,1202").toString().split(',');
-  QStringList criticalLevels = setting.value("MemoryManager/critical", "503,602,701,800,1102").toString().split(',');
-
-  if (adj.size() != warningLevels.size() || adj.size() != criticalLevels.size() || adj.empty() || warningLevels.empty()) {
-    qWarning() << "memory watcher configuration is weird:" << adj << warningLevels;
-  }
-  for (int i = 0; i < std::min(std::min(adj.size(), warningLevels.size()), criticalLevels.size()); ++i) {
-    int adjVal = adj[i].toInt();
-    FreeSpaceLevel levels{
-      double(warningLevels[i].toLongLong() * MiB),
-      double(criticalLevels[i].toLongLong() * MiB)
+  QVariant adjConf = setting.value("MemoryManager/adj");
+  QVariant warningLevelsConf = setting.value("MemoryManager/warning");
+  QVariant criticalLevelsConf = setting.value("MemoryManager/critical");
+  if (adjConf.isNull() || warningLevelsConf.isNull() || criticalLevelsConf.isNull()) {
+    // default values for critical are 110% of low-memory-killer's minfree from Xperia 10.II
+    // and 120% for warning level (in MiB).
+    // We have to use percentage values, so we take 10.II as reference and adjust it by total memory.
+    double total = totalMemory();
+    if (total==0) {
+      qWarning() << "Failed to get total amount of memory";
+      return;
+    }
+    auto AddLevel = [this, &total](int adj, double referenceWarningLevel, double referenceCriticalLevel) {
+      double referenceTotal = 3558.0; // total memory on Xperia 10.II
+      levelMap[adj] = FreeSpaceLevel{total * (referenceWarningLevel / referenceTotal), total * (referenceCriticalLevel / referenceTotal)};
     };
+    AddLevel(0,     549,  503);
+    AddLevel(58,    657,  602);
+    AddLevel(147,   765,  701);
+    AddLevel(529,   873,  800);
+    AddLevel(1000, 1202, 1102);
+  } else {
 
-    qDebug() << "ProcMemoryWatcher configuration" << adjVal
-             << "warning:" << QString::fromStdString(ByteSizeToString(levels.warning))
-             << "critical:" << QString::fromStdString(ByteSizeToString(levels.critical));
+    QStringList adj = adjConf.toString().split(',');
+    QStringList warningLevels = warningLevelsConf.toString().split(',');
+    QStringList criticalLevels = criticalLevelsConf.toString().split(',');
 
-    levelMap[adjVal] = levels;
+    if (adj.size() != warningLevels.size() || adj.size() != criticalLevels.size() || adj.empty() ||
+        warningLevels.empty()) {
+      qWarning() << "memory watcher configuration is weird:" << adj << warningLevels;
+    }
+    for (int i = 0; i < std::min(std::min(adj.size(), warningLevels.size()), criticalLevels.size()); ++i) {
+      int adjVal = adj[i].toInt();
+      FreeSpaceLevel levels{
+        double(warningLevels[i].toLongLong() * MiB),
+        double(criticalLevels[i].toLongLong() * MiB)
+      };
+
+      levelMap[adjVal] = levels;
+    }
+  }
+
+  for (auto const &pair: levelMap) {
+    qDebug() << "ProcMemoryWatcher configuration" << pair.first
+             << "warning:" << QString::fromStdString(ByteSizeToString(pair.second.warning))
+             << "critical:" << QString::fromStdString(ByteSizeToString(pair.second.critical));
   }
 
   if (!levelMap.empty()) {
