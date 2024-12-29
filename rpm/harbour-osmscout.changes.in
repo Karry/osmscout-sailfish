@@ -642,3 +642,5 @@
      Not use MCE memory level API anymore.
   -- flush also cache of rendered and online map tiles, not just data cache,
      when memory in under pressure
+
+* 2025-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.37
