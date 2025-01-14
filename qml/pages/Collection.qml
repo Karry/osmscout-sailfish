@@ -357,6 +357,7 @@ Page {
                         }
                         console.log("Track " + id + " exported to " + filePath);
 
+                        collectionModel.trackExported.disconnect(exported);
                         shareAction.mimeType = "text/xml"
                         // TODO: who will delete temporary file?
                         shareAction.resources = [filePath]
@@ -497,6 +498,7 @@ Page {
                         return;
                     }
 
+                    collectionModel.exported.disconnect(exported);
                     collectionShareAction.mimeType = "text/xml"
                     // TODO: who will delete temporary file?
                     collectionShareAction.resources = [filePath]
