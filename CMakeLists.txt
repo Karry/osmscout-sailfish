@@ -432,6 +432,7 @@ set(TRANSLATION_TS_FILES
         translations/es.ts
         translations/et.ts
         translations/fa.ts
+        translations/fi_FI.ts
         translations/fr.ts
         translations/hu.ts
         translations/it.ts
