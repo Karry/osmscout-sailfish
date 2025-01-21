@@ -87,6 +87,10 @@
         <source>Estonian: Priit Jõerüüt</source>
         <translation>Estnisch: Priit Jõerüüt</translation>
     </message>
+    <message>
+        <source>Finnish: Ari J.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Collection</name>

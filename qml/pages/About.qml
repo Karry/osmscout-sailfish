@@ -159,7 +159,7 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                 }
                 Label{
-                    text: qsTr("Finnish: Soittelija")
+                    text: qsTr("Finnish: Ari J.")
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeSmall
                 }
