@@ -2764,6 +2764,10 @@ collection pull down menu</extracomment>
         <source>Ukrainian</source>
         <translation>Ukrainisch</translation>
     </message>
+    <message>
+        <source>Finnish</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>routerVehicle</name>

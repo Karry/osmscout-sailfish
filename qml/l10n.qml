@@ -24,6 +24,7 @@ Item{
         QT_TRANSLATE_NOOP("resource", "Croatian"),
         QT_TRANSLATE_NOOP("resource", "Czech"),
         QT_TRANSLATE_NOOP("resource", "Dutch"),
+        QT_TRANSLATE_NOOP("resource", "Finnish"),
         QT_TRANSLATE_NOOP("resource", "French"),
         QT_TRANSLATE_NOOP("resource", "German"),
         QT_TRANSLATE_NOOP("resource", "Greek"),
