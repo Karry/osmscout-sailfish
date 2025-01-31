@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation type="unfinished"></translation>
+        <translation>Finština: Ari J.</translation>
     </message>
 </context>
 <context>
@@ -2775,7 +2775,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Finština</translation>
     </message>
 </context>
 <context>

@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation type="unfinished"></translation>
+        <translation>soome keel: Ari J.</translation>
     </message>
 </context>
 <context>
