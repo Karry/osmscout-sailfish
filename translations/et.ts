@@ -2766,7 +2766,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>soome</translation>
     </message>
 </context>
 <context>
