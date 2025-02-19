@@ -647,3 +647,4 @@
 - add Finnish translation. Welcome Ari J. "Soittelija" on board!
 - update translations (Czech, Estonian, Swedish)
 - navigation: fix some cases of wrong suggested lane
+- navigation: show suggested turn, not just suggested lane

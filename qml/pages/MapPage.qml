@@ -1476,6 +1476,7 @@ Page {
             id: laneTurnsComponent
 
             laneTurns: Global.navigationModel.laneTurns
+            laneTurn: Global.navigationModel.laneTurn
             visible: Global.navigationModel.laneSuggested
             suggestedLaneFrom: Global.navigationModel.suggestedLaneFrom
             suggestedLaneTo: Global.navigationModel.suggestedLaneTo
