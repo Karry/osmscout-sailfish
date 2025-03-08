@@ -683,6 +683,8 @@ Page {
         // and somethig for fun
         ListElement { label: QT_TR_NOOP("Via ferrata route"); iconType: "natural_peak";   distance: 20000;
             types: "highway_via_ferrata_easy highway_via_ferrata_moderate highway_via_ferrata_difficult highway_via_ferrata_extreme"; }
+
+        ListElement { label: QT_TR_NOOP("Playground");    iconType: "leisure_playground"; distance: 2000; types: "leisure_playground"; }
     }
 
     NearPOIModel {

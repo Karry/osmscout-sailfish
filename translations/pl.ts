@@ -1237,6 +1237,10 @@ collection pull down menu</extracomment>
         <source>ATM, Bank</source>
         <translation>Bankomat, Bank</translation>
     </message>
+    <message>
+        <source>Playground</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>
