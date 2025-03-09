@@ -140,7 +140,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirrä &quot;%1&quot; paikkaan:</translation>
     </message>
     <message>
         <source>Route to</source>
@@ -396,11 +396,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 ft merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>Ascent</source>
@@ -412,7 +412,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuntematon tiedostotyyppi</translation>
     </message>
     <message>
         <source>Track count</source>
@@ -469,7 +469,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>Time</source>
@@ -478,11 +478,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Matkan kesto</translation>
+        <translation>Matkan kesto</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Vauhti ⌀</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
@@ -494,12 +494,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 ft merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished">Miten kuljet?</translation>
+        <translation>Tyyppi</translation>
     </message>
 </context>
 <context>
@@ -510,12 +510,12 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkeus meren pinnasta</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 m merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>Created</source>
@@ -580,7 +580,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Vedä alas tuodaksesi kokoelman tai luodaksesi uuden kokoelman</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei yhteydettömän tilan tietokantaa</translation>
     </message>
 </context>
 <context>
@@ -744,15 +744,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Hill Shades</source>
-        <translation type="unfinished"></translation>
+        <translation>Kukkuloiden sävyt</translation>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Kukkuloiden sävyjen intensiteetti</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Perustuu viewfinderpanoramas.org -sivuston keräämiin SRTM-, ASTER GDEM- ja muihin ilmaisiin tietolähteisiin</translation>
     </message>
     <message>
         <source>Prefer English names</source>
@@ -794,11 +794,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Hakemisto</translation>
+        <translation>Hakemisto</translation>
     </message>
     <message>
         <source>Data Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Datan versio</translation>
     </message>
     <message>
         <source>Update</source>
@@ -806,7 +806,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Up-to-date</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajan tasalla</translation>
     </message>
     <message>
         <source>Downloaded version</source>
@@ -818,7 +818,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Data version</source>
-        <translation type="unfinished"></translation>
+        <translation>Datan versio</translation>
     </message>
     <message>
         <source>Available version</source>
@@ -834,11 +834,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Osoite %1 ei ole tuettu</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Osoitetta %1 ei voitu jäsentää</translation>
     </message>
     <message>
         <source>Tracker error</source>
@@ -896,11 +896,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yhteydettömän tilan karttatietokantaa tarvitaan hakujen toimivuutta varten.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yhteydettömän tilan karttatietokantaa tarvitaan navigointien toimivuutta varten.</translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -917,7 +917,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished">Määränpäät: %1</translation>
+        <translation>Määränpäät: %1</translation>
     </message>
     <message>
         <source>Stop navigation</source>
@@ -935,7 +935,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Scroll down for more entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Vieritä alas nähdäksesi lisää merkintöjä</translation>
     </message>
 </context>
 <context>
@@ -947,11 +947,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Itinerary</source>
         <extracomment>header of section with navigation instructions</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Reittisuunnitelma</translation>
     </message>
     <message>
         <source>Arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>Saapuminen</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -961,19 +961,19 @@ collection pull down menu</extracomment>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation type="unfinished">Vaihda ajoneuvoa</translation>
+        <translation>Vaihda kulkumuotoa</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkeusprofiili</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Nouseva</translation>
+        <translation>Nouseva</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Laskeva</translation>
+        <translation>Laskeva</translation>
     </message>
 </context>
 <context>
@@ -998,23 +998,23 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 %2 from you</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2 kohdasta, jossa olet</translation>
     </message>
     <message>
         <source>%1 %2 from</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2 paikasta</translation>
     </message>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Jaa paikan linkki</translation>
+        <translation>Jaa linkki tästä paikasta</translation>
     </message>
 </context>
 <context>
     <name>RouteDescription</name>
     <message>
         <source>Preparing</source>
-        <translation type="unfinished"></translation>
+        <translation>Valmistellaan</translation>
     </message>
     <message>
         <source>Calculating the route</source>
@@ -1034,11 +1034,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Etäisyys</translation>
+        <translation>Etäisyys</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Kesto</translation>
     </message>
     <message>
         <source>Route steps</source>
@@ -1046,22 +1046,22 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkeusprofiili</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Nouseva</translation>
+        <translation>Nouseva</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Laskeva</translation>
+        <translation>Laskeva</translation>
     </message>
 </context>
 <context>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei tarpeeksi tietoa korkeuden kartoittamista varten</translation>
     </message>
 </context>
 <context>
@@ -1182,7 +1182,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Route to</source>
-        <translation type="unfinished">Reitti kohteeseen:</translation>
+        <translation>Reitti kohteeseen:</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -1382,7 +1382,7 @@ collection pull down menu</extracomment>
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijälkien lataaminen kokoelman tunnistetta %1 varten epäonnistui.</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
@@ -1390,19 +1390,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Kokoelman tunnisteiden %1 lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Kokoelman tunnistetta %1 ei ole olemassa</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Solmukohtien lataaminen tunnisteen osaa %1 varten epäonnistui: %2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Osien lataaminen reittijäljen tunnistetta %1 varten epäonnistui: %2</translation>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
@@ -1426,7 +1426,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Transaction commit failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirto epäonnistui: %1</translation>
     </message>
     <message>
         <source>track %1</source>
@@ -1434,23 +1434,23 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijälkien tuominen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Osien tuominen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittipisteiden tuominen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuotu paikasta: %1</translation>
     </message>
     <message>
         <source>Invalid collection id: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kelvoton kokoelman tunniste: %1</translation>
     </message>
     <message>
         <source>Deleting waypoint failed: %1</source>
@@ -1462,7 +1462,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen poistaminen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
@@ -1470,15 +1470,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen muokkaaminen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen tunnisteen %1 lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen tunnistetta %1 ei ole olemassa</translation>
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
@@ -1494,31 +1494,31 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen tunnistetta %1 ei löytynyt</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen tunnisteen %1 siirtäminen epäonnistui</translation>
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen luominen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation type="unfinished"></translation>
+        <translation>Viimeksi avattuna olleen reittijäljen lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Osan luominen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation type="unfinished"></translation>
+        <translation>Solmukohtien liittäminen reittijälkeen epäonnistui</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen sulkeminen epäonnistui: %1</translation>
     </message>
     <message>
         <source>%1, part 2</source>
@@ -1527,7 +1527,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Updating visibility of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijälkien näkyvyyden päivitys epäonnistui: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoints failed: %1</source>
@@ -1543,11 +1543,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Updating visibility of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen näkyvyyden päivitys epäonnistui: %1</translation>
     </message>
     <message>
         <source>Track select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Reittijäljen valinta epäonnistui: %1</translation>
     </message>
 </context>
 <context>
@@ -1580,11 +1580,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Crop position</source>
-        <translation type="unfinished"></translation>
+        <translation>Rajaa sijaintia</translation>
     </message>
     <message>
         <source>Split position</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilko sijaintia</translation>
     </message>
     <message>
         <source>%1 / %2</source>
@@ -1595,12 +1595,12 @@ collection pull down menu</extracomment>
     <name>TrackFilter</name>
     <message>
         <source>Drop nodes</source>
-        <translation type="unfinished"></translation>
+        <translation>Karsi solmukohdat</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
         <extracomment>track edit</extracomment>
-        <translation type="unfinished">Karsi epätarkat solmukohdat</translation>
+        <translation>Karsi epätarkat solmukohdat</translation>
     </message>
     <message>
         <source>&gt; 100 m</source>
@@ -1647,7 +1647,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
-        <translation type="unfinished"></translation>
+        <translation>Voit palata takaisin kartalle. Reitin jäljittäminen jatkuu taustalla.</translation>
     </message>
     <message>
         <source>Change color</source>
@@ -1668,19 +1668,19 @@ collection pull down menu</extracomment>
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Reitin jäljittämisen aikana ilmeni %n virhe/virheitä. Äskeinen: %2</numerusform>
+            <numerusform>Reitin jäljittämisen aikana ilmeni %n virhe/virheitä. Äskeinen: %2</numerusform>
         </translation>
     </message>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished">Miten kuljet?</translation>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <source>Current data</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedot tällä hetkellä</translation>
     </message>
     <message>
         <source>Last update</source>
@@ -1689,53 +1689,53 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarkkuus vaakatasolla</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkeus</translation>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ft merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 m merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarkkuus pystysuunnalla</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished">Tilastot</translation>
+        <translation>Tilastot</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Etäisyys</translation>
+        <translation>Etäisyys</translation>
     </message>
     <message>
         <source>Raw distance</source>
-        <translation type="unfinished">Etäisyys suunnilleen</translation>
+        <translation>Etäisyys suunnilleen</translation>
     </message>
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation type="unfinished">Mistä?</translation>
+        <translation>Paikasta:</translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation type="unfinished">Mihin?</translation>
+        <translation>Paikkaan:</translation>
     </message>
     <message>
         <source>Time</source>
@@ -1744,43 +1744,43 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Matkan kesto</translation>
+        <translation>Matkan kesto</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
-        <translation type="unfinished">Nopeus ⌀/max</translation>
+        <translation>Nopeus ⌀/max</translation>
     </message>
     <message>
         <source>%1 / %2 mi/h</source>
-        <translation type="unfinished">%1 / %2 mi/h</translation>
+        <translation>%1 / %2 mi/h</translation>
     </message>
     <message>
         <source>%1 / %2 km/h</source>
-        <translation type="unfinished">%1 / %2 km/h</translation>
+        <translation>%1 / %2 km/h</translation>
     </message>
     <message>
         <source>Moving Speed ⌀</source>
-        <translation type="unfinished"></translation>
+        <translation>Vauhti ⌀</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Korkeus merenpinnasta min/max</translation>
+        <translation>Korkeus merenpinnasta min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 ft merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 m merenpinnan yläpuolella</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished">Nouseva</translation>
+        <translation>Nouseva</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Laskeva</translation>
+        <translation>Laskeva</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -1856,62 +1856,62 @@ collection pull down menu</extracomment>
     </message>
     <message numerus="yes">
         <source>%n miles</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n mailia</numerusform>
+            <numerusform>%n mailia</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n meters</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>% metriä</numerusform>
+            <numerusform>%n metriä</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n km</source>
         <extracomment>N kilometers</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n km</numerusform>
+            <numerusform>%n km</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n ft</source>
         <extracomment>N feet</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n ft</numerusform>
+            <numerusform>%n ft</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n mi</source>
         <extracomment>N miles</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n mi</numerusform>
+            <numerusform>%n mi</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n m</source>
         <extracomment>N meters</extracomment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n m</numerusform>
+            <numerusform>%n m</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n feet</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n jalkaa</numerusform>
+            <numerusform>%n jalkaa</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n yards</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n jaardia</numerusform>
+            <numerusform>%n jaardia</numerusform>
         </translation>
     </message>
     <message>
@@ -1939,11 +1939,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ääniopastukset ovat luotu osana &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projektia. Lisensoitu &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; ehdoin.</translation>
     </message>
     <message>
         <source>Author: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekijä: %1</translation>
     </message>
     <message>
         <source>Available voices</source>
@@ -1965,46 +1965,46 @@ collection pull down menu</extracomment>
     <name>databaseType</name>
     <message>
         <source>node</source>
-        <translation type="unfinished"></translation>
+        <translation>solmu</translation>
     </message>
     <message>
         <source>way</source>
-        <translation type="unfinished"></translation>
+        <translation>tie</translation>
     </message>
     <message>
         <source>area</source>
-        <translation type="unfinished"></translation>
+        <translation>alue</translation>
     </message>
 </context>
 <context>
     <name>message</name>
     <message>
         <source>Directory already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakemisto on jo olemassa</translation>
     </message>
     <message>
         <source>Can&apos;t create directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakemistoa ei voitu luoda</translation>
     </message>
     <message>
         <source>Network access is disabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verkkoyhteys on poistettu käytöstä</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Yhteys evätty</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Suoritinkannan toiminnan aikakatkaisu</translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verkkoistuntovirhe.</translation>
     </message>
     <message>
         <source>Not enough space</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallennustilaa ei ole riittävästi</translation>
     </message>
 </context>
 <context>
@@ -2015,7 +2015,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_atm</source>
-        <translation type="unfinished"></translation>
+        <translation>Pankkiautomaatti</translation>
     </message>
     <message>
         <source>amenity_bar</source>
@@ -2031,7 +2031,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_drinking_water</source>
-        <translation type="unfinished"></translation>
+        <translation>Juomakelpoinen lähde</translation>
     </message>
     <message>
         <source>amenity_fast_food</source>
@@ -2099,7 +2099,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>_highlighted</source>
-        <translation type="unfinished"></translation>
+        <translation>Merkittävä kohde</translation>
     </message>
     <message>
         <source>highway_bus_stop</source>
@@ -2107,11 +2107,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>highway_mini_roundabout</source>
-        <translation type="unfinished"></translation>
+        <translation>Pieni liikenneympyrä</translation>
     </message>
     <message>
         <source>highway_street_lamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Katuvalo</translation>
     </message>
     <message>
         <source>historic_castle</source>
@@ -2123,27 +2123,27 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>historic_memorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Muistomerkki</translation>
     </message>
     <message>
         <source>historic_memorial_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Muistomerkki</translation>
     </message>
     <message>
         <source>historic_monument</source>
-        <translation type="unfinished"></translation>
+        <translation>Monumentti</translation>
     </message>
     <message>
         <source>historic_monument_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Monumentti</translation>
     </message>
     <message>
         <source>leisure_playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Leikkikenttä/-puisto</translation>
     </message>
     <message>
         <source>natural_peak</source>
-        <translation type="unfinished"></translation>
+        <translation>Huippu</translation>
     </message>
     <message>
         <source>natural_spring</source>
@@ -2163,7 +2163,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>railway_tram_stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Raitiovaunupysäkki</translation>
     </message>
     <message>
         <source>speed_camera</source>
@@ -2171,7 +2171,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>tourism_artwork</source>
-        <translation type="unfinished"></translation>
+        <translation>Taideteos</translation>
     </message>
     <message>
         <source>tourism_hostel</source>
@@ -2211,7 +2211,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>waterway_weir</source>
-        <translation type="unfinished"></translation>
+        <translation>Pato</translation>
     </message>
     <message>
         <source>waypoint</source>
@@ -2219,7 +2219,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity</source>
-        <translation type="unfinished"></translation>
+        <translation>Palvelut</translation>
     </message>
     <message>
         <source>amenity_hospital</source>
@@ -2235,67 +2235,67 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>natural_cave_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Luolan sisäänkäynti</translation>
     </message>
     <message>
         <source>railway_subway_entrance</source>
-        <translation type="unfinished"></translation>
+        <translation>Metron sisäänkäynti</translation>
     </message>
     <message>
         <source>tourism_alpine_hut</source>
-        <translation type="unfinished"></translation>
+        <translation>Alppimökki</translation>
     </message>
     <message>
         <source>tourism_alpine_hut_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Alppimökki</translation>
     </message>
     <message>
         <source>tourism_camp_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Leirintäalue</translation>
     </message>
     <message>
         <source>tourism_caravan_site</source>
-        <translation type="unfinished"></translation>
+        <translation>Matkailuautoalue</translation>
     </message>
     <message>
         <source>tourism_guest_house</source>
-        <translation type="unfinished"></translation>
+        <translation>Vierastalo</translation>
     </message>
     <message>
         <source>tourism_guest_house_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Vierastalo</translation>
     </message>
     <message>
         <source>tourism_chalet</source>
-        <translation type="unfinished"></translation>
+        <translation>Alppimaja</translation>
     </message>
     <message>
         <source>tourism_chalet_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Alppimaja</translation>
     </message>
     <message>
         <source>tourism_information</source>
-        <translation type="unfinished"></translation>
+        <translation>Matkailuneuvonta</translation>
     </message>
     <message>
         <source>tourism_information_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Matkailuneuvonta</translation>
     </message>
     <message>
         <source>tourism_information_guidepost</source>
-        <translation type="unfinished"></translation>
+        <translation>Matkailuopas</translation>
     </message>
     <message>
         <source>tourism_viewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Näköalapaikka</translation>
     </message>
     <message>
         <source>amenity_bench</source>
-        <translation type="unfinished"></translation>
+        <translation>Penkki</translation>
     </message>
     <message>
         <source>amenity_shelter</source>
-        <translation type="unfinished"></translation>
+        <translation>Katos</translation>
     </message>
     <message>
         <source>amenity_waste_basket</source>
@@ -2303,7 +2303,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>amenity_waste_disposal</source>
-        <translation type="unfinished"></translation>
+        <translation>Jätehuolto</translation>
     </message>
     <message>
         <source>christian_cathedral_building</source>
@@ -2311,11 +2311,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>christian_chapel_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Kappeli</translation>
     </message>
     <message>
         <source>christian_worship</source>
-        <translation type="unfinished"></translation>
+        <translation>Palvontapaikka</translation>
     </message>
     <message>
         <source>jewish_synagogue_building</source>
@@ -2323,11 +2323,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>muslim_mosque_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Moskeija</translation>
     </message>
     <message>
         <source>shrine_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Pyhäkkö</translation>
     </message>
     <message>
         <source>temple_building</source>
@@ -2335,7 +2335,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>worship_building</source>
-        <translation type="unfinished"></translation>
+        <translation>Palvontapaikka</translation>
     </message>
 </context>
 <context>
@@ -2348,22 +2348,22 @@ collection pull down menu</extracomment>
     <message>
         <source>Public holiday</source>
         <extracomment>long variant</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Yleinen loma-aika</translation>
     </message>
     <message>
         <source>School holiday</source>
         <extracomment>long variant</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Koulujen loma-aika</translation>
     </message>
     <message>
         <source>PH</source>
         <extracomment>short variant of &quot;Public holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>YL</translation>
     </message>
     <message>
         <source>SH</source>
         <extracomment>short variant of &quot;School holiday&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>KL</translation>
     </message>
 </context>
 <context>
@@ -2602,39 +2602,39 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistu ensimmäisestä liittymästä</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistu toisesta liittymästä</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistu kolmannesta liittymästä</translation>
     </message>
     <message>
         <source>Take the %1th exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistu %1:sta/stä liittymästä</translation>
     </message>
     <message>
         <source>On unnamed exit</source>
         <extracomment>unnamed motorway exit</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nimeämättömällä liittymällä</translation>
     </message>
     <message>
         <source>On exit %1</source>
         <extracomment>motorway exit just with ref</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Liittymällä %1</translation>
     </message>
     <message>
         <source>On exit &quot;%1&quot;</source>
         <extracomment>motorway exit with name, without ref</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Liittymällä &quot;%1&quot;</translation>
     </message>
     <message>
         <source>On exit %1 &quot;%2&quot;</source>
         <extracomment>motorway exit with ref (%1) and name (%2)</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Liittymällä %1 &quot;%2&quot;</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
@@ -2670,259 +2670,259 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Hike &amp; Bike Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaellus- ja pyöräilykartta</translation>
     </message>
     <message>
         <source>OSM Mapnik</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM Mapnik</translation>
     </message>
     <message>
         <source>© Stamen Design, OSM</source>
-        <translation type="unfinished"></translation>
+        <translation>© Stamen Design, OSM</translation>
     </message>
     <message>
         <source>© Leaflet, OSM, NASA</source>
-        <translation type="unfinished"></translation>
+        <translation>© Leaflet, OSM, NASA</translation>
     </message>
     <message>
         <source>Terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Maasto</translation>
     </message>
     <message>
         <source>Toner</source>
-        <translation type="unfinished"></translation>
+        <translation>Muste</translation>
     </message>
     <message>
         <source>Watercolor</source>
-        <translation type="unfinished"></translation>
+        <translation>Vesiväri</translation>
     </message>
     <message>
         <source>American English</source>
-        <translation type="unfinished"></translation>
+        <translation>Amerikan englanti</translation>
     </message>
     <message>
         <source>British English</source>
-        <translation type="unfinished"></translation>
+        <translation>brittiläinen englanti</translation>
     </message>
     <message>
         <source>Chinese Simplified</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiina (yksinkertaistettu)</translation>
     </message>
     <message>
         <source>Croatian</source>
-        <translation type="unfinished"></translation>
+        <translation>kroatia</translation>
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>tsekki</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>hollanti</translation>
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>ranska</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>saksa</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>kreikka</translation>
     </message>
     <message>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>hindi</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>italia</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>puola</translation>
     </message>
     <message>
         <source>Punjabi</source>
-        <translation type="unfinished"></translation>
+        <translation>punjabi</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>romania</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>venäjä</translation>
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>espanja</translation>
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>turkki</translation>
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>ukraina</translation>
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>suomi</translation>
     </message>
 </context>
 <context>
     <name>routerVehicle</name>
     <message>
         <source>car</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>bicycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Polkupyörä</translation>
     </message>
     <message>
         <source>foot</source>
-        <translation type="unfinished"></translation>
+        <translation>Kavely</translation>
     </message>
 </context>
 <context>
     <name>styleflag</name>
     <message>
         <source>daylight</source>
-        <translation type="unfinished"></translation>
+        <translation>Päivänvalo</translation>
     </message>
     <message>
         <source>waterway</source>
-        <translation type="unfinished"></translation>
+        <translation>Vesitie</translation>
     </message>
     <message>
         <source>wood</source>
-        <translation type="unfinished"></translation>
+        <translation>Metsä</translation>
     </message>
     <message>
         <source>natural</source>
-        <translation type="unfinished"></translation>
+        <translation>Luonnollinen</translation>
     </message>
     <message>
         <source>railway</source>
-        <translation type="unfinished"></translation>
+        <translation>Rautatie</translation>
     </message>
     <message>
         <source>leisure</source>
-        <translation type="unfinished"></translation>
+        <translation>Vapaa-aika</translation>
     </message>
     <message>
         <source>building</source>
-        <translation type="unfinished">Rakennus</translation>
+        <translation>Rakennus</translation>
     </message>
     <message>
         <source>minorBuilding</source>
-        <translation type="unfinished"></translation>
+        <translation>Pieni rakennus</translation>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkeuskäyrä korkeudelle merenpinnasta</translation>
     </message>
     <message>
         <source>skiingDownhill</source>
-        <translation type="unfinished"></translation>
+        <translation>Laskettelu</translation>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation type="unfinished"></translation>
+        <translation>Pohjoismainen hiihtäminen</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Pyöräilyreitit</translation>
     </message>
     <message>
         <source>hikingRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaellusreitit</translation>
     </message>
     <message>
         <source>mtbRoutes</source>
-        <translation type="unfinished"></translation>
+        <translation>Maastopyöräilyreitit</translation>
     </message>
 </context>
 <context>
     <name>stylesheet</name>
     <message>
         <source>boundaries</source>
-        <translation type="unfinished"></translation>
+        <translation>Rajat (virheenkorjausta varten)</translation>
     </message>
     <message>
         <source>standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Taso</translation>
     </message>
     <message>
         <source>winter-sports</source>
-        <translation type="unfinished"></translation>
+        <translation>Talviurheilulajit</translation>
     </message>
     <message>
         <source>public-transport</source>
-        <translation type="unfinished"></translation>
+        <translation>Julkinen liikenne</translation>
     </message>
     <message>
         <source>outdoor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulkoilu</translation>
     </message>
     <message>
         <source>cycle</source>
-        <translation type="unfinished"></translation>
+        <translation>Pyöräily</translation>
     </message>
 </context>
 <context>
     <name>trackType</name>
     <message>
         <source>Walk</source>
-        <translation type="unfinished"></translation>
+        <translation>Kävely</translation>
     </message>
     <message>
         <source>Hike</source>
-        <translation type="unfinished"></translation>
+        <translation>Patikointi</translation>
     </message>
     <message>
         <source>Run</source>
-        <translation type="unfinished"></translation>
+        <translation>Juoksu</translation>
     </message>
     <message>
         <source>Road bike</source>
-        <translation type="unfinished">Maantiepyörällä</translation>
+        <translation>Maantiepyöräily</translation>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation type="unfinished">Maastopyörällä</translation>
+        <translation>Maastopyöräily</translation>
     </message>
     <message>
         <source>Car</source>
-        <translation type="unfinished">Autolla</translation>
+        <translation>Autoilu</translation>
     </message>
     <message>
         <source>Walking the dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Koiran ulkoiluttaminen</translation>
     </message>
     <message>
         <source>Swimming</source>
-        <translation type="unfinished"></translation>
+        <translation>Uiminen</translation>
     </message>
     <message>
         <source>Inline skating</source>
-        <translation type="unfinished"></translation>
+        <translation>Rullaluistelu</translation>
     </message>
     <message>
         <source>Horseback riding</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratsastus</translation>
     </message>
     <message>
         <source>Skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiihtäminen</translation>
     </message>
     <message>
         <source>Nordic skiing</source>
-        <translation type="unfinished"></translation>
+        <translation>Pohjoismainen hiihtäminen</translation>
     </message>
 </context>
 </TS>

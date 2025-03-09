@@ -1239,7 +1239,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Hřiště</translation>
     </message>
 </context>
 <context>
