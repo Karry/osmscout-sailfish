@@ -15,7 +15,7 @@ export TYPE="$1" # emulator
 ##################################################################
 ## configure SDK
 PATH=$PATH:~/SailfishOS/bin/
-export OS_VERSION=${OS_VERSION:-4.6.0.13}
+export OS_VERSION=${OS_VERSION:-5.0.0.62}
 
 # device may be configured in SailfishOS SDK
 if [ $# -ge 2 ] ; then
