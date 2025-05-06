@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation type="unfinished"></translation>
+        <translation>Finnisch: Ari J.</translation>
     </message>
 </context>
 <context>
@@ -1239,7 +1239,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Spielplatz</translation>
     </message>
 </context>
 <context>
@@ -1785,7 +1785,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Speed</source>
         <extracomment>Current speed reported by gps</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit</translation>
     </message>
 </context>
 <context>
@@ -2770,7 +2770,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Finnisch</translation>
     </message>
 </context>
 <context>

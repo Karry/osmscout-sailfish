@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Offline map import tutorial</source>
-        <translation>Ilman yhteyttä toimivan kartan tuomisen opas</translation>
+        <translation>Opas ladatun kartan tuomisesta</translation>
     </message>
     <message>
         <source>Translators</source>
@@ -123,20 +123,20 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation>Muokkaa etappia</translation>
+        <translation>Muokkaa tiepistettä</translation>
     </message>
     <message>
         <source>Edit track</source>
-        <translation>Muokkaa seurantaa</translation>
+        <translation>Muokkaa reittijälkeä</translation>
     </message>
     <message>
         <source>Move to</source>
         <extracomment>track/waypoint context menu</extracomment>
-        <translation>Mene kohteeseen:</translation>
+        <translation>Siirrä kohteeseen:</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>Mene</translation>
+        <translation>Siirrä</translation>
     </message>
     <message>
         <source>Move &quot;%1&quot; to</source>
@@ -178,7 +178,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
-        <translation>Muokkaa seurantaa &quot;%1&quot;</translation>
+        <translation>Muokkaa reittijälkeä &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
@@ -261,7 +261,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Include waypoints</source>
         <extracomment>switch for exporting waypoints to gpx</extracomment>
-        <translation>Sisällytä etapit</translation>
+        <translation>Sisällytä tiepisteet</translation>
     </message>
     <message>
         <source>Drop inaccurate nodes</source>
@@ -293,7 +293,7 @@ collection pull down menu</extracomment>
     <name>CollectionListOrdering</name>
     <message>
         <source>Collection ordering</source>
-        <translation>Kokoelman järjestäminen</translation>
+        <translation>Järjestäminen</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -344,7 +344,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation>Etapit ensin</translation>
+        <translation>Tiepisteet ensin</translation>
     </message>
     <message>
         <source>Date, ascent</source>
@@ -367,7 +367,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Longest track</source>
-        <translation>Pisin reitti</translation>
+        <translation>Pisin reittijälki</translation>
     </message>
     <message>
         <source>Time</source>
@@ -396,19 +396,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation>%1 / %2 ft merenpinnan yläpuolella</translation>
+        <translation>%1 / %2 ft mpy</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation>%1 / %2 m merenpinnan yläpuolella</translation>
+        <translation>%1 / %2 m mpy</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Nouseva</translation>
+        <translation>Nousua</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation>Laskeva</translation>
+        <translation>Laskua</translation>
     </message>
     <message>
         <source>Unknown type</source>
@@ -416,7 +416,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Track count</source>
-        <translation>Reittien määrä</translation>
+        <translation>Reittijälkien määrä</translation>
     </message>
 </context>
 <context>
@@ -435,11 +435,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Nouseva</translation>
+        <translation>Nousua</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation>Laskeva</translation>
+        <translation>Laskua</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
@@ -456,12 +456,12 @@ collection pull down menu</extracomment>
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation>Mistä?</translation>
+        <translation>Alkoi</translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation>Mihin?</translation>
+        <translation>Päättyi</translation>
     </message>
     <message>
         <source>Speed ⌀/max</source>
@@ -469,7 +469,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation>%1 / %2 m merenpinnan yläpuolella</translation>
+        <translation>%1 / %2 m mpy</translation>
     </message>
     <message>
         <source>Time</source>
@@ -494,7 +494,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation>%1 / %2 ft merenpinnan yläpuolella</translation>
+        <translation>%1 / %2 ft mpy</translation>
     </message>
     <message>
         <source>Type</source>
@@ -515,7 +515,7 @@ collection pull down menu</extracomment>
     <message>
         <source>%1 m a.s.l.</source>
         <extracomment>elevation - meters above sea level</extracomment>
-        <translation>%1 m merenpinnan yläpuolella</translation>
+        <translation>%1 m mpy</translation>
     </message>
     <message>
         <source>Created</source>
@@ -591,7 +591,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>meters</source>
-        <translation>metrit</translation>
+        <translation>metriä</translation>
     </message>
     <message>
         <source>km</source>
@@ -672,15 +672,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Map magnification</source>
-        <translation>Kartan suurennus</translation>
+        <translation>Kartan suurentaminen</translation>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>Yhteydessä olevat kartat</translation>
+        <translation>Verkkoyhteys</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Ota yhteydessä olevat kartat käyttöön</translation>
+        <translation>Pidä kartta verkkoyhteydessä</translation>
     </message>
     <message>
         <source>Style</source>
@@ -688,15 +688,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Yhteydettömän tilan kartat</translation>
+        <translation>Ladatut kartat</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Ota ilman yhteyttä olevat kartat käyttöön</translation>
+        <translation>Ota ladattu kartta käyttöön</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Meren näyttäminen</translation>
+        <translation>Näytä meri</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -830,7 +830,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Tapahtui virhe karttaa ladattaessa</translation>
+        <translation>Kartan lataamisessa tapahtui virhe</translation>
     </message>
     <message>
         <source>Unsupported url %1</source>
@@ -843,11 +843,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Virhe seurannassa</translation>
+        <translation>Reitin jäljittämisessä tapahtui virhe</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation>Palataanko seurantaan?</translation>
+        <translation>Palataanko reitin jäljittämiseen?</translation>
     </message>
     <message>
         <source>Search</source>
@@ -877,7 +877,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Offline maps</source>
         <extracomment>menu item for offline map downloader</extracomment>
-        <translation>Yhteydettömän tilan kartat</translation>
+        <translation>Ladatut kartat</translation>
     </message>
     <message>
         <source>Map</source>
@@ -896,11 +896,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation>Yhteydettömän tilan karttatietokantaa tarvitaan hakujen toimivuutta varten.</translation>
+        <translation>Ladattujen karttojen karttatietokantaa tarvitaan hakujen toimivuutta varten.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation>Yhteydettömän tilan karttatietokantaa tarvitaan navigointien toimivuutta varten.</translation>
+        <translation>Ladattujen karttojen karttatietokantaa tarvitaan navigointien toimivuutta varten.</translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -913,7 +913,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>ETA %1</source>
-        <translation>Aika-arvio %1</translation>
+        <translation>Perillä %1</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
@@ -926,7 +926,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Change vehicle</source>
         <extracomment>menu item: open routing page with current navigation destination</extracomment>
-        <translation>Vaihda ajoneuvoa</translation>
+        <translation>Vaihda kulkumuotoa</translation>
     </message>
     <message>
         <source>Deleting</source>
@@ -969,11 +969,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Nouseva</translation>
+        <translation>Nousua</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation>Laskeva</translation>
+        <translation>Laskua</translation>
     </message>
 </context>
 <context>
@@ -987,7 +987,7 @@ collection pull down menu</extracomment>
     <name>OpeningHours</name>
     <message>
         <source>Opening hours</source>
-        <translation>Avoinna</translation>
+        <translation>Aukioloajat</translation>
     </message>
 </context>
 <context>
@@ -1002,7 +1002,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 %2 from</source>
-        <translation>%1 %2 paikasta</translation>
+        <translation>%1 %2 kohdasta</translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -1050,11 +1050,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Nouseva</translation>
+        <translation>Nousua</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation>Laskeva</translation>
+        <translation>Laskua</translation>
     </message>
 </context>
 <context>
@@ -1162,11 +1162,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Public transport stop</source>
-        <translation>Julkisen liikenteen pysäkit</translation>
+        <translation>Julkisen liikenteen pysäkki</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation>Huoltoasemat</translation>
+        <translation>Huoltoasema</translation>
     </message>
     <message>
         <source>Accomodation</source>
@@ -1174,11 +1174,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Camp</source>
-        <translation>Leirintäpaikat</translation>
+        <translation>Leirintäpaikka</translation>
     </message>
     <message>
         <source>Via ferrata route</source>
-        <translation>Via ferrata -reitit</translation>
+        <translation>Via ferrata -reitti</translation>
     </message>
     <message>
         <source>Route to</source>
@@ -1191,24 +1191,24 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pub</source>
-        <translation>Pubit</translation>
+        <translation>Pubi</translation>
     </message>
     <message>
         <source>Bar</source>
-        <translation>Baarit</translation>
+        <translation>Baari</translation>
     </message>
     <message>
         <source>Pharmacy</source>
-        <translation>Apteekit</translation>
+        <translation>Apteekki</translation>
     </message>
     <message>
         <source>Spring</source>
         <extracomment>start of stream/river, drining water sometimes</extracomment>
-        <translation>Lähteet</translation>
+        <translation>Lähde</translation>
     </message>
     <message>
         <source>Castle, Manor</source>
-        <translation>Linnat, kartanot</translation>
+        <translation>Linna, kartano</translation>
     </message>
     <message>
         <source>Search history</source>
@@ -1226,7 +1226,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Charging station</source>
-        <translation>Sähköautojen latauspaikat</translation>
+        <translation>Sähköauton latauspiste</translation>
     </message>
     <message>
         <source>Waypoint</source>
@@ -1239,7 +1239,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Leikkikenttä/-puisto</translation>
     </message>
 </context>
 <context>
@@ -1262,7 +1262,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>koordinaatit</translation>
+        <translation>Koordinaatit</translation>
     </message>
     <message>
         <source>Navigation</source>
@@ -1283,7 +1283,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Seurannan etäisyys</translation>
+        <translation>Jäljityksen tarkkuus</translation>
     </message>
     <message>
         <source>Info panel</source>
@@ -1335,7 +1335,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Pikanäppäimet tallennettujen seurantareittien ja kokoelmiin tallennettujen tiepisteiden piilottamista/näyttämistä varten</translation>
+        <translation>Pikanäppäimet tallennettujen reittijälkien ja kokoelmiin tallennettujen tiepisteiden piilottamista/näyttämistä varten</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1418,7 +1418,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>waypoint %1</source>
-        <translation>Tiepiste %1</translation>
+        <translation>tiepiste %1</translation>
     </message>
     <message>
         <source>Import of waypoints failed: %1</source>
@@ -1430,7 +1430,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>track %1</source>
-        <translation>Seurantareitti %1</translation>
+        <translation>reittijälki %1</translation>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
@@ -1632,18 +1632,18 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation>Miten kuljet?</translation>
+        <translation>Kulkumuoto</translation>
     </message>
 </context>
 <context>
     <name>Tracker</name>
     <message>
         <source>Edit track</source>
-        <translation>Muokkaa seurantaa</translation>
+        <translation>Muokkaa reittijälkeä</translation>
     </message>
     <message>
         <source>New track</source>
-        <translation>Uusi seuranta</translation>
+        <translation>Jäljitä uusi reitti</translation>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
@@ -1655,16 +1655,16 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Rename track</source>
-        <translation>Nimeä tämä seuranta uudelleen</translation>
+        <translation>Nimeä reittijälki uudelleen</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Pysäytä seuranta</translation>
+        <translation>Pysäytä reitin jäljittäminen</translation>
     </message>
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>Jäljitin pysäytetään</translation>
+        <translation>Reitin jäljittäminen pysäytetään</translation>
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
@@ -1676,7 +1676,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation>Tyyppi</translation>
+        <translation>Kulkumuoto</translation>
     </message>
     <message>
         <source>Current data</source>
@@ -1705,11 +1705,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 ft a.s.l.</source>
-        <translation>%1 ft merenpinnan yläpuolella</translation>
+        <translation>%1 ft mpy</translation>
     </message>
     <message>
         <source>%1 m a.s.l.</source>
-        <translation>%1 m merenpinnan yläpuolella</translation>
+        <translation>%1 m mpy</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
@@ -1730,12 +1730,12 @@ collection pull down menu</extracomment>
     <message>
         <source>From</source>
         <extracomment>From date time</extracomment>
-        <translation>Paikasta:</translation>
+        <translation>Alkoi</translation>
     </message>
     <message>
         <source>To</source>
         <extracomment>To date time</extracomment>
-        <translation>Paikkaan:</translation>
+        <translation>Päättyi</translation>
     </message>
     <message>
         <source>Time</source>
@@ -1768,19 +1768,19 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation>%1 / %2 ft merenpinnan yläpuolella</translation>
+        <translation>%1 / %2 ft mpy</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation>%1 / %2 m merenpinnan yläpuolella</translation>
+        <translation>%1 / %2 m mpy</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation>Nouseva</translation>
+        <translation>Nousua</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation>Laskeva</translation>
+        <translation>Laskua</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -2698,7 +2698,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>American English</source>
-        <translation>Amerikan englanti</translation>
+        <translation>amerikan englanti</translation>
     </message>
     <message>
         <source>British English</source>
@@ -2706,7 +2706,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Chinese Simplified</source>
-        <translation>Kiina (yksinkertaistettu)</translation>
+        <translation>kiina (yksinkertaistettu)</translation>
     </message>
     <message>
         <source>Croatian</source>
@@ -2824,7 +2824,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>elevationContours</source>
-        <translation>Korkeuskäyrä korkeudelle merenpinnasta</translation>
+        <translation>Korkeuskäyrä merenpinnan yläpuolella oleville korkeuseroille</translation>
     </message>
     <message>
         <source>skiingDownhill</source>
@@ -2832,7 +2832,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>skiingNordic</source>
-        <translation>Pohjoismainen hiihtäminen</translation>
+        <translation>Maastohiihto</translation>
     </message>
     <message>
         <source>cycloRoutes</source>
@@ -2922,7 +2922,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Nordic skiing</source>
-        <translation>Pohjoismainen hiihtäminen</translation>
+        <translation>Maastohiihto</translation>
     </message>
 </context>
 </TS>
