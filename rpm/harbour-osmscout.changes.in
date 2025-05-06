@@ -648,3 +648,5 @@
 - update translations (Czech, Estonian, Swedish)
 - navigation: fix some cases of wrong suggested lane
 - navigation: show suggested turn, not just suggested lane
+
+* 2025-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.38
