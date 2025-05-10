@@ -25,27 +25,27 @@
     </message>
     <message>
         <source>Czech: Lukáš Karas</source>
-        <translation>Tsekki: Lukáš Karas</translation>
+        <translation>tsekki: Lukáš Karas</translation>
     </message>
     <message>
         <source>Hungarian: Márton Miklós, Szabó G.</source>
-        <translation>Unkari: Márton Miklós, Szabó G.</translation>
+        <translation>unkari: Márton Miklós, Szabó G.</translation>
     </message>
     <message>
         <source>Polish: Atlochowski</source>
-        <translation>Puola: Atlochowski</translation>
+        <translation>puola: Atlochowski</translation>
     </message>
     <message>
         <source>Swedish: Åke Engelbrektson</source>
-        <translation>Ruotsi: Åke Engelbrektson</translation>
+        <translation>ruotsi: Åke Engelbrektson</translation>
     </message>
     <message>
         <source>Norwegian Bokmål: Håvard Moen</source>
-        <translation>Kirjanorja: Håvard Moen</translation>
+        <translation>kirjanorja: Håvard Moen</translation>
     </message>
     <message>
         <source>Spanish: Carlos Gonzalez</source>
-        <translation>Espanja: Carlos Gonzalez</translation>
+        <translation>espanja: Carlos Gonzalez</translation>
     </message>
     <message>
         <source>Privacy notes</source>
@@ -53,43 +53,43 @@
     </message>
     <message>
         <source>Dutch: Nathan Follens</source>
-        <translation>Hollanti: Nathan Follens</translation>
+        <translation>hollanti: Nathan Follens</translation>
     </message>
     <message>
         <source>Russian: Вячеслав Диконов</source>
-        <translation>Venäjä: Vjatšeslav Dikonov</translation>
+        <translation>venäjä: Vjatšeslav Dikonov</translation>
     </message>
     <message>
         <source>German: Pawel Spoon, Uli M.</source>
-        <translation>Saksa: Pawel Spoon, Uli M.</translation>
+        <translation>saksa: Pawel Spoon, Uli M.</translation>
     </message>
     <message>
         <source>Chinese: Rui Kon</source>
-        <translation>Kiina: Rui Kon</translation>
+        <translation>kiina: Rui Kon</translation>
     </message>
     <message>
         <source>Portuguese (Brazil): Leonardo Moura</source>
-        <translation>Portugali (Brasilia): Leonardo Moura</translation>
+        <translation>portugali (Brasilia): Leonardo Moura</translation>
     </message>
     <message>
         <source>Persian: Abtin mo</source>
-        <translation>Persia: Abtin mo</translation>
+        <translation>persia: Abtin mo</translation>
     </message>
     <message>
         <source>Italian: Armin Maier</source>
-        <translation>Italia: Armin Maier</translation>
+        <translation>italia: Armin Maier</translation>
     </message>
     <message>
         <source>French: Pierre-Henri Horrein, Jordi</source>
-        <translation>Ranska: Pierre-Henri Horrein, Jordi</translation>
+        <translation>ranska: Pierre-Henri Horrein, Jordi</translation>
     </message>
     <message>
         <source>Estonian: Priit Jõerüüt</source>
-        <translation>Viro: Priit Jõerüüt</translation>
+        <translation>viro: Priit Jõerüüt</translation>
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation>Suomi (käännöstyö kesken, varaudu käännösvirheisiin): Ari</translation>
+        <translation>suomi (käännöstyö kesken): Ari</translation>
     </message>
 </context>
 <context>
@@ -145,7 +145,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Route to</source>
         <extracomment>waypoint context menu</extracomment>
-        <translation>Reitti kohteeseen:</translation>
+        <translation>Hae reittiä</translation>
     </message>
     <message>
         <source>Edit collection</source>
@@ -1182,7 +1182,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Route to</source>
-        <translation>Reitti kohteeseen:</translation>
+        <translation>Hae reittiä</translation>
     </message>
     <message>
         <source>Add as waypoint</source>
@@ -1340,7 +1340,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Collection visibility</source>
         <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
-        <translation>Kokoelman näkyvyys</translation>
+        <translation>Kokoelmien näyttäminen</translation>
     </message>
     <message>
         <source>Rotate map</source>
