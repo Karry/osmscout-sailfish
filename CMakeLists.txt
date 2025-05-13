@@ -7,7 +7,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.38.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 2.39.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
