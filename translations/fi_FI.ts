@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>GitHub page</source>
-        <translation>GitHub:n sivusto</translation>
+        <translation>GitHub-sivusto</translation>
     </message>
     <message>
         <source>OSMScout library GitHub page</source>
-        <translation>OSMScout-kirjaston GitHub:n sivusto</translation>
+        <translation>OSMScout-kirjaston GitHub-sivusto</translation>
     </message>
     <message>
         <source>Offline map import tutorial</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation>suomi (käännöstyö kesken): Ari</translation>
+        <translation>suomi: Ari</translation>
     </message>
 </context>
 <context>
@@ -174,7 +174,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Split</source>
         <extracomment>track edit menu</extracomment>
-        <translation>Jaa</translation>
+        <translation>Pilko</translation>
     </message>
     <message>
         <source>Edit track &quot;%1&quot;</source>
@@ -331,7 +331,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Collection entries ordering</source>
-        <translation>Kokoelmamerkintöjen järjestäminen</translation>
+        <translation>Kokoelmamerkintöjen järjestys</translation>
     </message>
     <message>
         <source>Date, descent</source>
@@ -363,11 +363,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Distance</source>
-        <translation>Etäisyys</translation>
+        <translation>Matka</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation>Pisin reittijälki</translation>
+        <translation>Pisin reitti</translation>
     </message>
     <message>
         <source>Time</source>
@@ -416,7 +416,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Track count</source>
-        <translation>Reittijälkien määrä</translation>
+        <translation>Reittien määrä</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Distance</source>
-        <translation>Etäisyys</translation>
+        <translation>Matka</translation>
     </message>
     <message>
         <source>Raw distance</source>
@@ -602,7 +602,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation>Ei yhteydettömän tilan tietokantaa</translation>
+        <translation>Ei ladattujen karttojen tietokantaa!</translation>
     </message>
 </context>
 <context>
@@ -752,7 +752,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation>Perustuu viewfinderpanoramas.org -sivuston keräämiin SRTM-, ASTER GDEM- ja muihin ilmaisiin tietolähteisiin</translation>
+        <translation>Perustuu viewfinderpanoramas.org -sivuston keräämiin SRTM:n, ASTER GDEM:n ja muihin ilmaisiin tietolähteisiin.</translation>
     </message>
     <message>
         <source>Prefer English names</source>
@@ -775,7 +775,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Pick a place</source>
-        <translation>Valitse paikka</translation>
+        <translation>Valitse kohta kartasta</translation>
     </message>
     <message>
         <source>Waypoint</source>
@@ -843,11 +843,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Reitin jäljittämisessä tapahtui virhe</translation>
+        <translation>Seurannassa tapahtui virhe</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
-        <translation>Palataanko reitin jäljittämiseen?</translation>
+        <translation>Palataanko seurantaan?</translation>
     </message>
     <message>
         <source>Search</source>
@@ -872,7 +872,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Tracker</source>
         <extracomment>menu item for GPS tracker</extracomment>
-        <translation>Jäljitin</translation>
+        <translation>Seuranta</translation>
     </message>
     <message>
         <source>Offline maps</source>
@@ -896,16 +896,16 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation>Ladattujen karttojen karttatietokantaa tarvitaan hakujen toimivuutta varten.</translation>
+        <translation>Ladattujen karttojen tietokantaa tarvitaan hakujen toimivuutta varten.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation>Ladattujen karttojen karttatietokantaa tarvitaan navigointien toimivuutta varten.</translation>
+        <translation>Ladattujen karttojen tietokantaa tarvitaan navigointien toimivuutta varten.</translation>
     </message>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation>Jaa paikan linkki</translation>
+        <translation>Jaa linkki paikasta</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
@@ -1034,11 +1034,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Distance</source>
-        <translation>Etäisyys</translation>
+        <translation>Matkan pituus:</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation>Kesto</translation>
+        <translation>Matkan arvioitu kesto:</translation>
     </message>
     <message>
         <source>Route steps</source>
@@ -1082,7 +1082,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>By</source>
-        <translation>Miten kuljet?</translation>
+        <translation>Kulkumuoto</translation>
     </message>
     <message>
         <source>Route!</source>
@@ -1123,7 +1123,7 @@ collection pull down menu</extracomment>
     <name>RoutingStep</name>
     <message>
         <source>Distance</source>
-        <translation>Etäisyys</translation>
+        <translation>Matkaosuuden pituus:</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
@@ -1283,7 +1283,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Tracker distance</source>
         <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Jäljityksen tarkkuus</translation>
+        <translation>Seurannan tarkkuus</translation>
     </message>
     <message>
         <source>Info panel</source>
@@ -1502,7 +1502,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Creation of track failed: %1</source>
-        <translation>Reittijäljen luominen epäonnistui: %1</translation>
+        <translation>Seurannan luominen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Loading last open track fails</source>
@@ -1561,14 +1561,14 @@ collection pull down menu</extracomment>
     <name>TrackColor</name>
     <message>
         <source>Set color</source>
-        <translation>Aseta väri</translation>
+        <translation>Valitse väri</translation>
     </message>
 </context>
 <context>
     <name>TrackEdit</name>
     <message>
         <source>Split</source>
-        <translation>Jaa</translation>
+        <translation>Pilko</translation>
     </message>
     <message>
         <source>Crop start</source>
@@ -1580,11 +1580,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Crop position</source>
-        <translation>Rajaa sijaintia</translation>
+        <translation>Kohta, josta rajataan</translation>
     </message>
     <message>
         <source>Split position</source>
-        <translation>Pilko sijaintia</translation>
+        <translation>Kohta, josta pilkotaan</translation>
     </message>
     <message>
         <source>%1 / %2</source>
@@ -1643,11 +1643,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>New track</source>
-        <translation>Jäljitä uusi reitti</translation>
+        <translation>Aloita uusi seuranta</translation>
     </message>
     <message>
         <source>You can return to the map, tracking will continue on background</source>
-        <translation>Voit palata takaisin kartalle. Reitin jäljittäminen jatkuu taustalla.</translation>
+        <translation>Voit palata takaisin kartalle. Seuranta jatkuu taustalla.</translation>
     </message>
     <message>
         <source>Change color</source>
@@ -1659,18 +1659,18 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Pysäytä reitin jäljittäminen</translation>
+        <translation>Pysäytä seuranta</translation>
     </message>
     <message>
         <source>Stopping tracker</source>
         <extracomment>remorse dialog</extracomment>
-        <translation>Reitin jäljittäminen pysäytetään</translation>
+        <translation>Seuranta pysäytetään</translation>
     </message>
     <message numerus="yes">
         <source>There was %n error(s) during tracking. Recent: %2</source>
         <translation>
             <numerusform>Reitin jäljittämisen aikana ilmeni %n virhe/virheitä. Äskeinen: %2</numerusform>
-            <numerusform>Reitin jäljittämisen aikana ilmeni %n virhe/virheitä. Äskeinen: %2</numerusform>
+            <numerusform>Seurannan aikana ilmeni %n virhe/virheitä. Äskeinen: %2</numerusform>
         </translation>
     </message>
     <message>
