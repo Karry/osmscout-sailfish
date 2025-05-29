@@ -315,7 +315,7 @@ Page {
                                 anchors.fill: parent
                             }
                         }
-                    }
+                      }
                     }
                 }
                 footer: Rectangle {

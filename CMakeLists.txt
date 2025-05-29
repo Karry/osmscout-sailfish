@@ -352,6 +352,7 @@ set(QML_FILES
     qml/custom/CollectionEditDialog.qml
     qml/custom/CollectionSelector.qml
     qml/custom/Global.qml
+    qml/custom/GpsFixWarning.qml
     qml/custom/Utils.js
     qml/custom/SpeedIndicator.qml
     qml/custom/WebsiteRow.qml

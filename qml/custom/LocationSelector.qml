@@ -66,7 +66,11 @@ ComboBox {
         console.log("Activated, index: "+activeIndex);
         if (activeIndex==0){
             value=currentLocationStr;
-            location=routingModel.locationEntryFromPosition(Global.positionSource.lat, Global.positionSource.lon);
+            if (Global.positionSource.positionValid) {
+                location=routingModel.locationEntryFromPosition(Global.positionSource.lat, Global.positionSource.lon);
+            } else {
+                location=null;
+            }
             useCurrentLocation=true;
             console.log("Use current position: " + Global.positionSource.lat + " " + Global.positionSource.lon);
         }

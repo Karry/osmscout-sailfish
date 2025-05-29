@@ -61,7 +61,7 @@ Dialog {
         }
     }
 
-    canAccept: (fromSelector.location !== null) && (toSelector.location!== null)
+    canAccept: (fromSelector.location !== null) && (toSelector.location !== null)
     acceptDestination: Qt.resolvedUrl("RouteDescription.qml")
     acceptDestinationAction: PageStackAction.Push
     acceptDestinationProperties: {
@@ -123,6 +123,10 @@ Dialog {
                 label: qsTr("From")
                 initWithCurrentLocation: true
             }
+            GpsFixWarning {
+                visible: fromSelector.useCurrentLocation && fromSelector.location == null
+                x: Theme.horizontalPageMargin
+            }
             LocationSelector {
                 id: toSelector
                 width: parent.width
@@ -139,6 +143,10 @@ Dialog {
                         }
                     }
                 }
+            }
+            GpsFixWarning {
+                visible: toSelector.useCurrentLocation && toSelector.location == null
+                x: Theme.horizontalPageMargin
             }
 
             ComboBox {
