@@ -472,7 +472,7 @@ qt5_create_translation(TRANSLATION_QM_FILES
 add_custom_target(translations ALL DEPENDS ${TRANSLATION_QM_FILES})
 
 add_executable(harbour-osmscout ${SOURCE_FILES} ${HEADER_FILES} ${QML_FILES})
-set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 17)
+set_property(TARGET harbour-osmscout PROPERTY CXX_STANDARD 20)
 set_property(TARGET harbour-osmscout PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
 add_dependencies(harbour-osmscout translations)
 
@@ -582,7 +582,7 @@ set(SOURCE_FILES
 )
 
 add_executable(PerformanceTest ${SOURCE_FILES})
-set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 17)
+set_property(TARGET PerformanceTest PROPERTY CXX_STANDARD 20)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/PerformanceTestConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/include/PerformanceTest/config.h)
 
@@ -608,28 +608,28 @@ target_link_libraries(PerformanceTest
 # SearchPerfTest binary
 
 add_executable(SearchPerfTest ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/LocationLookup.cpp)
-set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 17)
+set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 20)
 target_link_libraries(SearchPerfTest OSMScout)
 
 # ==================================================================================================
 # MultiDBRouting
 
 add_executable(MultiDBRouting ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/MultiDBRoutingTest.cpp)
-set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 17)
+set_property(TARGET MultiDBRouting PROPERTY CXX_STANDARD 20)
 target_link_libraries(MultiDBRouting OSMScout)
 
 # ==================================================================================================
 # Routing
 
 add_executable(Routing ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/Routing.cpp)
-set_property(TARGET Routing PROPERTY CXX_STANDARD 17)
+set_property(TARGET Routing PROPERTY CXX_STANDARD 20)
 target_link_libraries(Routing OSMScout)
 
 # ==================================================================================================
 # MediaPlayer
 
 add_executable(MediaPlayer src/MediaPlayer.cpp)
-set_property(TARGET MediaPlayer PROPERTY CXX_STANDARD 17)
+set_property(TARGET MediaPlayer PROPERTY CXX_STANDARD 20)
 target_include_directories(MediaPlayer PRIVATE
         src
         ${OSMSCOUT_INCLUDE_DIRS}
@@ -648,7 +648,7 @@ target_link_libraries(MediaPlayer
 # OSTAndOSSCheck
 
 add_executable(OSTAndOSSCheck ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/OSTAndOSSTest.cpp)
-set_property(TARGET OSTAndOSSCheck PROPERTY CXX_STANDARD 17)
+set_property(TARGET OSTAndOSSCheck PROPERTY CXX_STANDARD 20)
 target_link_libraries(OSTAndOSSCheck OSMScout OSMScoutMap)
 
 enable_testing()
