@@ -1871,7 +1871,7 @@ collection pull down menu</extracomment>
     <message numerus="yes">
         <source>%n meters</source>
         <translation>
-            <numerusform>% meeter</numerusform>
+            <numerusform>%n meeter</numerusform>
             <numerusform>%n meetrit</numerusform>
         </translation>
     </message>
