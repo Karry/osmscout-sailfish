@@ -2646,7 +2646,7 @@ collection pull down menu</extracomment>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>1% &lt;strong&gt;Vaihda valtatiestä&lt;/strong&gt; %2 tielle %3</translation>
+        <translation>%1 &lt;strong&gt;Vaihda valtatiestä&lt;/strong&gt; %2 tielle %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
