@@ -227,14 +227,15 @@ set(MARISA_INCLUDE_DIRS
     ${MARISA_ROOT}/include)
 
 set(MARISA_SRC
-    ${MARISA_ROOT}/lib/marisa/grimoire/io/reader.cc
+    ${MARISA_ROOT}/lib/marisa/agent.cc
+    ${MARISA_ROOT}/lib/marisa/exception.cc
     ${MARISA_ROOT}/lib/marisa/grimoire/io/mapper.cc
+    ${MARISA_ROOT}/lib/marisa/grimoire/io/reader.cc
     ${MARISA_ROOT}/lib/marisa/grimoire/io/writer.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/trie/tail.cc
     ${MARISA_ROOT}/lib/marisa/grimoire/trie/louds-trie.cc
+    ${MARISA_ROOT}/lib/marisa/grimoire/trie/tail.cc
     ${MARISA_ROOT}/lib/marisa/grimoire/vector/bit-vector.cc
     ${MARISA_ROOT}/lib/marisa/trie.cc
-    ${MARISA_ROOT}/lib/marisa/agent.cc
     ${MARISA_ROOT}/lib/marisa/keyset.cc
 )
 
@@ -243,7 +244,7 @@ include_directories(
 )
 
 add_library(marisa ${MARISA_SRC})
-set_property(TARGET marisa PROPERTY CXX_STANDARD 17)
+set_property(TARGET marisa PROPERTY CXX_STANDARD 20)
 
 install(TARGETS marisa
         RUNTIME DESTINATION bin
