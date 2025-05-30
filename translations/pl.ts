@@ -665,6 +665,13 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>GpsFixWarning</name>
+    <message>
+        <source>Waiting for GPS fix</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
