@@ -655,3 +655,4 @@
 * 2025-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.39
 - update translations (Czech, Estonian, Finnish)
 - improve navigation page UX when GPS fix is not ready yet
+- navigation: improve lane suggestions
