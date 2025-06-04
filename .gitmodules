@@ -1,6 +1,6 @@
 [submodule "dependencies/marisa-trie"]
 	path = dependencies/marisa-trie
-	url = https://github.com/s-yata/marisa-trie
+	url = https://github.com/Karry/marisa-trie.git
 [submodule "dependencies/libosmscout"]
 	path = dependencies/libosmscout
 	url = https://github.com/Karry/libosmscout.git
