@@ -2405,11 +2405,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Turn</source>
-        <translation>Tourner</translation>
+        <translation type="vanished">Tourner</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>Au croisement %1&lt;strong&gt;Tourner&lt;/strong&gt; vers %2</translation>
+        <translation type="vanished">Au croisement %1&lt;strong&gt;Tourner&lt;/strong&gt; vers %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
@@ -2441,7 +2441,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>Au croisement %1&lt;strong&gt;Tourner&lt;/strong&gt;</translation>
+        <translation type="vanished">Au croisement %1&lt;strong&gt;Tourner&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

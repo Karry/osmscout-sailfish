@@ -2414,11 +2414,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Turn</source>
-        <translation>Поворот</translation>
+        <translation type="vanished">Поворот</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt; на %2</translation>
+        <translation type="vanished">На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt; на %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
@@ -2450,7 +2450,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt;</translation>
+        <translation type="vanished">На перекрестке %1. &lt;strong&gt;Поверните&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

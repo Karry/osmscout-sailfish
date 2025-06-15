@@ -2405,11 +2405,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Turn</source>
-        <translation>Wenden</translation>
+        <translation type="vanished">Wenden</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie ab&lt;/strong&gt; auf %2</translation>
+        <translation type="vanished">An der Kreuzung %1&lt;strong&gt;Biegen Sie ab&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
@@ -2441,7 +2441,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Wenden Sie&lt;/strong&gt;</translation>
+        <translation type="vanished">An der Kreuzung %1&lt;strong&gt;Wenden Sie&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

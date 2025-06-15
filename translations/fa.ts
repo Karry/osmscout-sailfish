@@ -2395,14 +2395,6 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2428,10 +2420,6 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
