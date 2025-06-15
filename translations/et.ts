@@ -2404,14 +2404,6 @@ collection pull down menu</extracomment>
         <translation>Pööra järsult paremale</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">Pööra</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="vanished">%1 ristteel &lt;strong&gt;pööra&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation>%1 ristteel &lt;strong&gt;pööra järsult vasakule&lt;/strong&gt; %2 suunas</translation>
     </message>
@@ -2438,10 +2430,6 @@ collection pull down menu</extracomment>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
         <translation>%1 ristteel &lt;strong&gt;pööra järsult paremale&lt;/strong&gt; %2 suunas</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="vanished">%1 ristteel &lt;strong&gt;pööra&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

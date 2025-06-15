@@ -2413,14 +2413,6 @@ collection pull down menu</extracomment>
         <translation>Zahněte ostře vpravo</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">Zahněte</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="vanished">Na křižovatce %1&lt;strong&gt;Zahněte&lt;/strong&gt; na %2</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation>Na křižovatce %1&lt;strong&gt;Zahněte ostře vlevo&lt;/strong&gt; na %2</translation>
     </message>
@@ -2447,10 +2439,6 @@ collection pull down menu</extracomment>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
         <translation>Na křižovatce %1&lt;strong&gt;Zahněte ostře vpravo&lt;/strong&gt; na %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="vanished">Na křižovatce %1&lt;strong&gt;Zahněte&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

@@ -2413,14 +2413,6 @@ collection pull down menu</extracomment>
         <translation>Skręć ostro w prawo</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">Skręć</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="vanished">Na skrzyżowaniu %1&lt;strong&gt;skręć&lt;/strong&gt; na %2</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w lewo&lt;/strong&gt; w %2</translation>
     </message>
@@ -2447,10 +2439,6 @@ collection pull down menu</extracomment>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
         <translation>Na skrzyżowaniu %1&lt;strong&gt;skręć ostro w prawo&lt;/strong&gt; w %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="vanished">Na skrzyżowaniu %1&lt;strong&gt;skręć&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

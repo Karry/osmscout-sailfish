@@ -2395,10 +2395,6 @@ collection pull down menu</extracomment>
         <translation>Fordulj élesen jobbra</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">Fordulj</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation type="unfinished"></translation>
     </message>

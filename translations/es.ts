@@ -2404,14 +2404,6 @@ collection pull down menu</extracomment>
         <translation>Girar brusco a la derecha</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">Girar</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="vanished">Al llegar %1&lt;strong&gt;Girar&lt;/strong&gt; en %2</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation>Al llegar %1&lt;strong&gt;Girar brusco a la izquierda&lt;/strong&gt; en %2</translation>
     </message>
@@ -2438,10 +2430,6 @@ collection pull down menu</extracomment>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
         <translation>Al llegar %1&lt;strong&gt;Girar brusco a la derecha&lt;/strong&gt; en %2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="vanished">Al llegar %1&lt;strong&gt;Girar&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

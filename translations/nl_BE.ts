@@ -2404,14 +2404,6 @@ collection pull down menu</extracomment>
         <translation>Sla scherp rechtsaf</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">Slaat af</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="vanished">&lt;strong&gt;Slaat af&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation>&lt;strong&gt;Sla scherp linksaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
     </message>
@@ -2438,10 +2430,6 @@ collection pull down menu</extracomment>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
         <translation>&lt;strong&gt;Sla scherp rechtsaf&lt;/strong&gt; naar %2 bij kruispunt %1</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="vanished">&lt;strong&gt;Slaat af&lt;/strong&gt; bij kruispunt %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>

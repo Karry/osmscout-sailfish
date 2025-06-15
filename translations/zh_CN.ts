@@ -2395,14 +2395,6 @@ collection pull down menu</extracomment>
         <translation>向右急转弯</translation>
     </message>
     <message>
-        <source>Turn</source>
-        <translation type="vanished">转</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt; into %2</source>
-        <translation type="vanished">在十字路口&lt;strong&gt;% 1 &lt;/strong&gt;转到% 2</translation>
-    </message>
-    <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
         <translation>在十字路口% 1 &lt;strong&gt;急转到&lt;/strong&gt;% 2</translation>
     </message>
@@ -2429,10 +2421,6 @@ collection pull down menu</extracomment>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
         <translation>在十字路口% 1 &lt;strong&gt;向右急转&lt;/strong&gt;至% 2</translation>
-    </message>
-    <message>
-        <source>At crossing %1&lt;strong&gt;Turn&lt;/strong&gt;</source>
-        <translation type="vanished">在十字路口% 1 &lt;strong&gt;转&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
