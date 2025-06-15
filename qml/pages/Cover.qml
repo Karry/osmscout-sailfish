@@ -203,7 +203,7 @@ CoverBackground {
             target: Global.navigationModel
             onDestinationSetChanged: {
                 if (!Global.navigationModel.destinationSet){
-                    console.log("Rotate back to 0");
+                    console.log("Rotate cover back to 0");
                     map.rotateTo(0);
                     bindToCurrentPositionTimer.interval = 1200; // rotate animation duration
                     bindToCurrentPositionTimer.restart();

@@ -635,7 +635,7 @@ Page {
                 target: Global.navigationModel
                 onDestinationSetChanged: {
                     if (!Global.navigationModel.destinationSet){
-                        console.log("Rotate back to 0");
+                        console.log("Rotate main map back to 0");
                         map.rotateTo(0);
                     }
                 }
