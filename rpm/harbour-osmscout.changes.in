@@ -652,7 +652,7 @@
 * 2025-05-12 Lukáš Karas <lukas.karas@centrum.cz> 2.38
 - update translations (German, Finnish)
 
-* 2025-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.39
+* 2025-06-15 Lukáš Karas <lukas.karas@centrum.cz> 2.39
 - update translations (Czech, Estonian, Finnish, Swedish)
 - improve navigation page UX when GPS fix is not ready yet
 - navigation: improve lane suggestions and turn instructions
