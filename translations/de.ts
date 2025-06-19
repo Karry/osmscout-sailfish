@@ -668,7 +668,7 @@ collection pull down menu</extracomment>
     <name>GpsFixWarning</name>
     <message>
         <source>Waiting for GPS fix</source>
-        <translation type="unfinished"></translation>
+        <translation>Warte auf GPS-Fix</translation>
     </message>
 </context>
 <context>
