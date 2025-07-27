@@ -1640,7 +1640,7 @@ Page {
                                                       {
                                                           searchCenterLat: Global.positionSource.lat,
                                                           searchCenterLon: Global.positionSource.lon,
-                                                          searchFieldText: "poi:10000:natural_peak",
+                                                          searchFieldText: "poi:10000:natural_peak natural_volcano",
                                                           acceptDestination: mapPage
                                                       });
                         searchPage.selectLocation.connect(selectLocation);
