@@ -46,6 +46,7 @@ CONST
   COLOR onewayArrowColor           = #00000028;
   COLOR waterLabelColor            =darken(@waterColor, 0.5);
   COLOR peakSymbolColor            = #9c5e29;
+  COLOR volcanoSymbolColor         = #dd2427;
   COLOR hospitalSymbolColor        = #da0092;
   COLOR pharmacySymbolColor        = #da0092;
   COLOR postSymbolColor            = #e8f000;
