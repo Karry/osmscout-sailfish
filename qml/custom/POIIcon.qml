@@ -145,6 +145,7 @@ Image{
                 'landuse_industrial': 'industry',
 
                 'natural_peak':'mountain',
+                'natural_volcano':'volcano',
                 'waterway_stream': 'waterway_stream',
                 'waterway_river': 'waterway_river',
                 'waterway_canal': 'waterway_river',
