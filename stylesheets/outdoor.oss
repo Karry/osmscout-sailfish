@@ -1803,7 +1803,11 @@ STYLE
 
    [TYPE amenity_taxi] AREA { color: #d2d2d2; }
    [TYPE amenity_building,
-         office_building] {
+         office_building,
+         amenity_bank_building,
+         amenity_kindergarten_building,
+         amenity_library_building,
+         amenity_school_building] {
       AREA { color: @buildingColor; }
       AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
