@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation> OSMScout es un programa libre desarrollado por voluntarios, lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o desarrolando nuevas características desde la fuente, toda ayuda es bienvenida.</translation>
+        <translation>OSMScout es Programa Libre desarrollado por voluntarios, puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o desarrollando nuevas características desde la fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation type="unfinished"></translation>
+        <translation>Finlandés: Ari J.</translation>
     </message>
 </context>
 <context>
@@ -200,7 +200,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Estadísticas</translation>
+        <translation>Estadísticas</translation>
     </message>
 </context>
 <context>
@@ -344,7 +344,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation>Primero los punto definido</translation>
+        <translation>Primer punto definido</translation>
     </message>
     <message>
         <source>Date, ascent</source>
@@ -359,64 +359,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Cargando colección</translation>
+        <translation>Cargando colección</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distancia</translation>
+        <translation>Distancia</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Pista más larga</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Tiempo</translation>
+        <translation>Tiempo</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiempo en movimiento</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidad máxima</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished">Elevación min/max</translation>
+        <translation>Elevación min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 pi a.s.l.</translation>
+        <translation>%1 / %2 pi a.s.l.</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m a.s.l.</translation>
+        <translation>%1 / %2 m a.s.l.</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascenso</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished"></translation>
+        <translation>Descenso</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo desconocido</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Recuento de pistas</translation>
     </message>
 </context>
 <context>
@@ -499,7 +499,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tipo</translation>
     </message>
 </context>
 <context>
@@ -572,15 +572,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show all on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar todo en mapa</translation>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">No mostrar en mapa</translation>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Halar la polea para importar colección o crear una vacía</translation>
     </message>
 </context>
 <context>
@@ -668,7 +668,7 @@ collection pull down menu</extracomment>
     <name>GpsFixWarning</name>
     <message>
         <source>Waiting for GPS fix</source>
-        <translation type="unfinished"></translation>
+        <translation>Esperando corrección de GPS</translation>
     </message>
 </context>
 <context>
@@ -683,11 +683,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Online Maps</source>
-        <translation>Mapas con conexión</translation>
+        <translation>Mapas enlínea</translation>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Mapas en línea</translation>
+        <translation>Habilitar Mapas enlínea</translation>
     </message>
     <message>
         <source>Style</source>
@@ -695,15 +695,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Mapas sin conexión</translation>
+        <translation>Mapas sinlínea</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Mapas sin línea</translation>
+        <translation>Deshabilitar mapas sinlínea</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Renderizar el mar</translation>
+        <translation>Renderizar océano</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -747,7 +747,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation>Superponer el mapa</translation>
+        <translation>Superponer mapa</translation>
     </message>
     <message>
         <source>Hill Shades</source>
@@ -755,15 +755,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation>Intensidad de sombreado</translation>
+        <translation>Intensidad sombreado</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation>Basado en SRTM, ASTER GDEM y otras fuentes de datos libres y recopiladas por viewfinderpanoramas.org</translation>
+        <translation>Basado en SRTM, ASTER GDEM y de fuentes de datos libres recopiladas por viewfinderpanoramas.org</translation>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation>Preferir nombres en Inglés</translation>
+        <translation>Preferir nombres Inglés</translation>
     </message>
 </context>
 <context>
@@ -825,7 +825,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Data version</source>
-        <translation>Versión de datos</translation>
+        <translation>Versión datos</translation>
     </message>
     <message>
         <source>Available version</source>
@@ -837,20 +837,20 @@ collection pull down menu</extracomment>
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Error al bajar el mapa</translation>
+        <translation>Error al bajar mapa</translation>
     </message>
     <message>
         <source>Unsupported url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>URL no soportada %1</translation>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al analizar URL %1</translation>
     </message>
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Error del rastreador</translation>
+        <translation>Error de rastreador</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
@@ -903,20 +903,20 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de búsqueda.</translation>
+        <translation>Se requiere base de datos de mapas sinlinea para funcionalidad de búsqueda.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de navegación.</translation>
+        <translation>Se requiere base de datos de mapas sinlinea para funcionalidad de navegación.</translation>
     </message>
     <message>
         <source>Share place link</source>
         <extracomment>Page header for share method selection</extracomment>
-        <translation type="unfinished">Compartir enlace de lugar</translation>
+        <translation>Compartir enlace de lugar</translation>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished">Editar punto definido</translation>
+        <translation>Editar punto definido</translation>
     </message>
     <message>
         <source>ETA %1</source>
@@ -928,7 +928,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation>Parar navegación</translation>
+        <translation>Detener navegación</translation>
     </message>
     <message>
         <source>Change vehicle</source>
@@ -938,11 +938,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Borrando</translation>
+        <translation>Borrando</translation>
     </message>
     <message>
         <source>Scroll down for more entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Desplazarse hacia abajo para ver entradas</translation>
     </message>
 </context>
 <context>
@@ -994,7 +994,7 @@ collection pull down menu</extracomment>
     <name>OpeningHours</name>
     <message>
         <source>Opening hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Horas de apertura</translation>
     </message>
 </context>
 <context>
@@ -1068,7 +1068,7 @@ collection pull down menu</extracomment>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation>No hay datos suficientes para el gráfico de elevación</translation>
+        <translation>No hay datos suficientes para gráfico de elevación</translation>
     </message>
 </context>
 <context>
@@ -1113,7 +1113,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation>A bicicleta de montaña</translation>
+        <translation>Bicicleta de montaña</translation>
     </message>
     <message>
         <source>Allow footways</source>
@@ -1130,7 +1130,7 @@ collection pull down menu</extracomment>
     <name>RoutingStep</name>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distancia</translation>
+        <translation>Distancia</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
@@ -1246,7 +1246,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Patio de juegos</translation>
     </message>
 </context>
 <context>
@@ -1338,40 +1338,40 @@ collection pull down menu</extracomment>
     <message>
         <source>Keep display on</source>
         <extracomment>switch for keep display on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mantener monitor encendido</translation>
     </message>
     <message>
         <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambio rápido para ocultar o mostrar pistas y puntos de referencia de colecciones</translation>
     </message>
     <message>
         <source>Collection visibility</source>
         <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes de botón de monitor principal para mostrar/ocultar entradas de colección</translation>
     </message>
     <message>
         <source>Rotate map</source>
         <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rotar mapa</translation>
     </message>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Modo  autonoche</translation>
     </message>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Modo noche</translation>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Preferir nombres en Inglés</translation>
+        <translation>Preferir nombres Inglés</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>En mapa, buscar y ubicar info</translation>
     </message>
 </context>
 <context>
@@ -1389,23 +1389,23 @@ collection pull down menu</extracomment>
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation>Error al cargar los rastros de id %1 de colección</translation>
+        <translation>Error al cargar rastros de id %1 de colección</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>Error al cargar los puntos definidos para el id %1 de colección</translation>
+        <translation>Error al cargar puntos definidos para el id %1 de colección</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation>Error al cargar el id %1 de colección</translation>
+        <translation>Error al cargar id %1 de colección</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation>El id de colección %1 no existe</translation>
+        <translation>El id colección %1 no existe</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation>Error al cargar nodos para el id %1 de segmento: %2</translation>
+        <translation>Error al cargar nodos para id %1 de segmento: %2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
@@ -1413,15 +1413,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation>Error al crear una colección: %1</translation>
+        <translation>Error al crear  colección: %1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation>Error al actualizar la colección: %1</translation>
+        <translation>Error al actualizar colección: %1</translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation>Error al eliminar la colección: %1</translation>
+        <translation>Error al eliminar colección: %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
@@ -1441,15 +1441,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation>Error en la importación de rastro: %1</translation>
+        <translation>Error de importación de rastro: %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation>Error en la importación de segmentos: %1</translation>
+        <translation>Error de importación de segmentos: %1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation>Error en la importación de puntos de rastro: %1</translation>
+        <translation>Error de importación puntos de rastro: %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
@@ -1465,47 +1465,47 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>Error al crear un punto definido: %1</translation>
+        <translation>Error al crear punto definido: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation>Error al borrar un rastro: %1</translation>
+        <translation>Error al borrar rastro: %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation>Error al editar un punto definido: %1</translation>
+        <translation>Error al editar punto definido: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation>Error al editar un rastro: %1</translation>
+        <translation>Error al editar rastro: %1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation>Error al cargar el id %1 de rastro</translation>
+        <translation>Error al cargar id %1 de rastro</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation>El id de rastro %1 no existe</translation>
+        <translation>El id rastro %1 no existe</translation>
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation>Falla al cargar el Id  %1 de los puntos definidos</translation>
+        <translation>Falla al cargar Id  %1 de puntos definidos</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation>El id del punto definido %1 no se encontró</translation>
+        <translation>El id punto definido %1 no se encontró</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation>Falla %1 al mover el id de los puntos definidos</translation>
+        <translation>Falla %1 al mover id de puntos definidos</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation>No se encontró %1 el id de pista</translation>
+        <translation>No se encontró %1 id de pista</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation>Falla %1 al mover Id de pista</translation>
+        <translation>Falla %1 al mover id de pista</translation>
     </message>
     <message>
         <source>Creation of track failed: %1</source>
@@ -1513,15 +1513,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation>Falló al cargar el último rastro abierto</translation>
+        <translation>Falló al cargar último rastro abierto</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation>Falló la creación del segmento: %1</translation>
+        <translation>Falló la creación de segmento: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation>Falló al agregar nodos para rastrear</translation>
+        <translation>Falló al agregar nodos de rastrear</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
@@ -1534,34 +1534,34 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Updating visibility of tracks failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al actualizar visibilidad de pistas: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoints failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al actualizar visibilidad de puntos definidos: %1</translation>
     </message>
     <message>
         <source>Updating visibility of waypoint failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al actualizar visibilidad de punto definido: %1</translation>
     </message>
     <message>
         <source>Waypoint select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al seleccionar punto definido: %1</translation>
     </message>
     <message>
         <source>Updating visibility of track failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al actualizar visibilidad de pista: %1</translation>
     </message>
     <message>
         <source>Track select failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al seleccionar pista:</translation>
     </message>
 </context>
 <context>
     <name>SymbolSelector</name>
     <message>
         <source>Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Símbolo</translation>
     </message>
 </context>
 <context>
