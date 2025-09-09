@@ -364,6 +364,7 @@ Page {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: qsTranslate("message", availableMapsModel.fetchError)
                     font.pixelSize: Theme.fontSizeMedium
+                    wrapMode: Text.WordWrap
                 }
                 Button {
                     anchors.horizontalCenter: parent.horizontalCenter
