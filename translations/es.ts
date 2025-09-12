@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>OSM Scout for Sailfish OS is developed as open-source by volunteers in their free time. You can help to improve this application by reporting bugs, creating translations or developing new features. Any help is welcome.</source>
-        <translation>OSMScout es Programa Libre desarrollado por voluntarios, puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o desarrollando nuevas características desde la fuente, toda ayuda es bienvenida.</translation>
+        <translation>OSMScout es un programa libre desarrollado por voluntarios, lo cual puedes ayudar a mejorar esta aplicación reportando bichos, creando traducciones o desarrolando nuevas características desde la fuente, toda ayuda es bienvenida.</translation>
     </message>
     <message>
         <source>GitHub page</source>
@@ -344,7 +344,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Waypoints first</source>
         <extracomment>switch for diplaying waypoints before tracks in collection</extracomment>
-        <translation>Primer punto definido</translation>
+        <translation>Primero los punto definido</translation>
     </message>
     <message>
         <source>Date, ascent</source>
@@ -687,7 +687,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Enable online maps</source>
-        <translation>Habilitar Mapas enlínea</translation>
+        <translation>Mapas en línea</translation>
     </message>
     <message>
         <source>Style</source>
@@ -695,15 +695,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline Maps</source>
-        <translation>Mapas sinlínea</translation>
+        <translation>Mapas sin conexión</translation>
     </message>
     <message>
         <source>Enable offline map</source>
-        <translation>Deshabilitar mapas sinlínea</translation>
+        <translation>Mapas sin línea</translation>
     </message>
     <message>
         <source>Sea rendering</source>
-        <translation>Renderizar océano</translation>
+        <translation>Renderizar el mar</translation>
     </message>
     <message>
         <source>Style flags</source>
@@ -747,7 +747,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Map Overlay</source>
-        <translation>Superponer mapa</translation>
+        <translation>Superponer el mapa</translation>
     </message>
     <message>
         <source>Hill Shades</source>
@@ -755,15 +755,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Hill shades intensity</source>
-        <translation>Intensidad sombreado</translation>
+        <translation>Intensidad de sombreado</translation>
     </message>
     <message>
         <source>Based on SRTM, ASTER GDEM and other free data sources collected by viewfinderpanoramas.org</source>
-        <translation>Basado en SRTM, ASTER GDEM y de fuentes de datos libres recopiladas por viewfinderpanoramas.org</translation>
+        <translation>Basado en SRTM, ASTER GDEM y otras fuentes de datos libres y recopiladas por viewfinderpanoramas.org</translation>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation>Preferir nombres Inglés</translation>
+        <translation>Preferir nombres en Inglés</translation>
     </message>
 </context>
 <context>
@@ -825,7 +825,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Data version</source>
-        <translation>Versión datos</translation>
+        <translation>Versión de datos</translation>
     </message>
     <message>
         <source>Available version</source>
@@ -837,7 +837,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Map download error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Error al bajar mapa</translation>
+        <translation>Error al bajar el mapa</translation>
     </message>
     <message>
         <source>Unsupported url %1</source>
@@ -850,7 +850,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Tracker error</source>
         <extracomment>notification summary</extracomment>
-        <translation>Error de rastreador</translation>
+        <translation>Error del rastreador</translation>
     </message>
     <message>
         <source>Resume tracking?</source>
@@ -903,11 +903,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation>Se requiere base de datos de mapas sinlinea para funcionalidad de búsqueda.</translation>
+        <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de búsqueda.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation>Se requiere base de datos de mapas sinlinea para funcionalidad de navegación.</translation>
+        <translation>Se requiere una base de datos de mapas sin linea para la funcionalidad de navegación.</translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -928,7 +928,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Stop navigation</source>
-        <translation>Detener navegación</translation>
+        <translation>Parar navegación</translation>
     </message>
     <message>
         <source>Change vehicle</source>
@@ -1068,7 +1068,7 @@ collection pull down menu</extracomment>
     <name>RouteElevationChart</name>
     <message>
         <source>No enough data for elevation chart</source>
-        <translation>No hay datos suficientes para gráfico de elevación</translation>
+        <translation>No hay datos suficientes para el gráfico de elevación</translation>
     </message>
 </context>
 <context>
@@ -1113,7 +1113,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Mountain bike</source>
-        <translation>Bicicleta de montaña</translation>
+        <translation>A bicicleta de montaña</translation>
     </message>
     <message>
         <source>Allow footways</source>
@@ -1389,23 +1389,23 @@ collection pull down menu</extracomment>
     <name>Storage</name>
     <message>
         <source>Loading tracks for collection id %1 fails</source>
-        <translation>Error al cargar rastros de id %1 de colección</translation>
+        <translation>Error al cargar los rastros de id %1 de colección</translation>
     </message>
     <message>
         <source>Loading waypoints for collection id %1 fails</source>
-        <translation>Error al cargar puntos definidos para el id %1 de colección</translation>
+        <translation>Error al cargar los puntos definidos para el id %1 de colección</translation>
     </message>
     <message>
         <source>Loading collection id %1 fails</source>
-        <translation>Error al cargar id %1 de colección</translation>
+        <translation>Error al cargar el id %1 de colección</translation>
     </message>
     <message>
         <source>Collection id %1 don&apos;t exists</source>
-        <translation>El id colección %1 no existe</translation>
+        <translation>El id de colección %1 no existe</translation>
     </message>
     <message>
         <source>Loading nodes for segment id %1 failed: %2</source>
-        <translation>Error al cargar nodos para id %1 de segmento: %2</translation>
+        <translation>Error al cargar nodos para el id %1 de segmento: %2</translation>
     </message>
     <message>
         <source>Loading segments for track id %1 failed: %2</source>
@@ -1413,15 +1413,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Creating collection failed: %1</source>
-        <translation>Error al crear  colección: %1</translation>
+        <translation>Error al crear una colección: %1</translation>
     </message>
     <message>
         <source>Updating collection failed: %1</source>
-        <translation>Error al actualizar colección: %1</translation>
+        <translation>Error al actualizar la colección: %1</translation>
     </message>
     <message>
         <source>Deleting collection failed: %1</source>
-        <translation>Error al eliminar colección: %1</translation>
+        <translation>Error al eliminar la colección: %1</translation>
     </message>
     <message>
         <source>waypoint %1</source>
@@ -1441,15 +1441,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Import of tracks failed: %1</source>
-        <translation>Error de importación de rastro: %1</translation>
+        <translation>Error en la importación de rastro: %1</translation>
     </message>
     <message>
         <source>Import of segments failed: %1</source>
-        <translation>Error de importación de segmentos: %1</translation>
+        <translation>Error en la importación de segmentos: %1</translation>
     </message>
     <message>
         <source>Import of track points failed: %1</source>
-        <translation>Error de importación puntos de rastro: %1</translation>
+        <translation>Error en la importación de puntos de rastro: %1</translation>
     </message>
     <message>
         <source>Imported from %1</source>
@@ -1465,47 +1465,47 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Creation of waypoint failed: %1</source>
-        <translation>Error al crear punto definido: %1</translation>
+        <translation>Error al crear un punto definido: %1</translation>
     </message>
     <message>
         <source>Deleting track failed: %1</source>
-        <translation>Error al borrar rastro: %1</translation>
+        <translation>Error al borrar un rastro: %1</translation>
     </message>
     <message>
         <source>Edit waypoint failed: %1</source>
-        <translation>Error al editar punto definido: %1</translation>
+        <translation>Error al editar un punto definido: %1</translation>
     </message>
     <message>
         <source>Edit track failed: %1</source>
-        <translation>Error al editar rastro: %1</translation>
+        <translation>Error al editar un rastro: %1</translation>
     </message>
     <message>
         <source>Loading track id %1 fails</source>
-        <translation>Error al cargar id %1 de rastro</translation>
+        <translation>Error al cargar el id %1 de rastro</translation>
     </message>
     <message>
         <source>Track id %1 don&apos;t exists</source>
-        <translation>El id rastro %1 no existe</translation>
+        <translation>El id de rastro %1 no existe</translation>
     </message>
     <message>
         <source>Loading waypoint id %1 fails</source>
-        <translation>Falla al cargar Id  %1 de puntos definidos</translation>
+        <translation>Falla al cargar el Id  %1 de los puntos definidos</translation>
     </message>
     <message>
         <source>Waypoint id %1 not found</source>
-        <translation>El id punto definido %1 no se encontró</translation>
+        <translation>El id del punto definido %1 no se encontró</translation>
     </message>
     <message>
         <source>Move waypoint id %1 fails</source>
-        <translation>Falla %1 al mover id de puntos definidos</translation>
+        <translation>Falla %1 al mover el id de los puntos definidos</translation>
     </message>
     <message>
         <source>Track id %1 not found</source>
-        <translation>No se encontró %1 id de pista</translation>
+        <translation>No se encontró %1 el id de pista</translation>
     </message>
     <message>
         <source>Move track id %1 fails</source>
-        <translation>Falla %1 al mover id de pista</translation>
+        <translation>Falla %1 al mover Id de pista</translation>
     </message>
     <message>
         <source>Creation of track failed: %1</source>
@@ -1513,15 +1513,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Loading last open track fails</source>
-        <translation>Falló al cargar último rastro abierto</translation>
+        <translation>Falló al cargar el último rastro abierto</translation>
     </message>
     <message>
         <source>Segment creation failed: %1</source>
-        <translation>Falló la creación de segmento: %1</translation>
+        <translation>Falló la creación del segmento: %1</translation>
     </message>
     <message>
         <source>Failed to append nodes to track</source>
-        <translation>Falló al agregar nodos de rastrear</translation>
+        <translation>Falló al agregar nodos para rastrear</translation>
     </message>
     <message>
         <source>Closing track failed: %1</source>
