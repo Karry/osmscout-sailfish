@@ -658,4 +658,5 @@
 - navigation: improve lane suggestions and turn instructions
 
 * 2025-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.40
-- update translations (German)
+- update translations (German, Spanish)
+- minor map stylesheet improvements (added volcanos, some building types on outdoor map)
