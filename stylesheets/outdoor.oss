@@ -1433,6 +1433,7 @@ STYLE
 
    [TYPE leisure_building,
          sport_building,
+         shop_building,
          shop] AREA.TEXT { label: IName; color: @labelColor; }
 
    //[TYPE highway_traffic_signals_name] NODE.TEXT { label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; color: #880000;}
@@ -1676,7 +1677,7 @@ STYLE
  }
 
  [MAG detail-] {
-   [TYPE shop] {
+   [TYPE shop, shop_building] {
      AREA { color: #bca284; }
      AREA.BORDER { color: #887b7b; width: 0.1mm; }
    }
