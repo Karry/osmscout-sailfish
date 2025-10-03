@@ -63,7 +63,7 @@ ComboBox {
     }
 
     function activated(activeIndex){
-        console.log("Activated, index: "+activeIndex);
+        console.log("Activated \"" + selector.label + "\", index: "+activeIndex);
         if (activeIndex==0){
             value=currentLocationStr;
             if (Global.positionSource.positionValid) {
@@ -146,12 +146,11 @@ ComboBox {
         currentIndex = -1;
         console.log("onCompleted, initialised: "+initialized+", index: "+currentIndex);
         if (initWithCurrentLocation){
-            if (Global.positionSource.positionValid){
-                currentIndex=0;
-                activated(0);
-            }else{
+            if (!Global.positionSource.positionValid){
                 console.log("Position is not valid yet")
             }
+            currentIndex=0;
+            activated(0);
         }
 
         Global.positionSource.updateRequest();
