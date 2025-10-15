@@ -1496,7 +1496,7 @@ Page {
         SpeedIndicator {
             id: speedIndicator
             currentSpeed: Global.navigationModel.currentSpeed
-            maximumSpeed: Global.navigationModel.maxAllowedSpeed
+            maximumSpeed: Global.navigationModel.vehicle == "foot" ? -1 : Global.navigationModel.maxAllowedSpeed
             visible: Global.navigationModel.destinationSet
             z: 1
 
