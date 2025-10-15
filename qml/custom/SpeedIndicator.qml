@@ -79,11 +79,11 @@ Item{
     Rectangle {
         id: maxSpeedBackground
         color: "#c00000"
-        anchors.horizontalCenter: currentSpeedBackground.visible ? parent.right : parent.horizontalCenter
-        anchors.verticalCenter: currentSpeedBackground.visible ? parent.bottom : parent.verticalCenter
+        x: currentSpeedBackground.visible ? parent.width*0.8 : 0
+        y: currentSpeedBackground.visible ? parent.width*0.4 : 0
 
-        width: parent.dimension * (!maxSpeedBackground.visible ? 0 : currentSpeedBackground.visible ? 0.5 : 1.0)
-        height: parent.dimension * (!maxSpeedBackground.visible ? 0 : currentSpeedBackground.visible ? 0.5 : 1.0)
+        width: parent.dimension * (!maxSpeedBackground.visible ? 0 : currentSpeedBackground.visible ? 0.8 : 1.0)
+        height: parent.dimension * (!maxSpeedBackground.visible ? 0 : currentSpeedBackground.visible ? 0.8 : 1.0)
 
         Behavior on x { PropertyAnimation {} }
         Behavior on y { PropertyAnimation {} }
