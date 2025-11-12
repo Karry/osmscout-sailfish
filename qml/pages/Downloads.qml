@@ -354,17 +354,19 @@ Page {
 
             Column{
                 visible: availableMapsModel.fetchError != ""
-                anchors.horizontalCenter: parent.horizontalCenter
-                //anchors.verticalCenter: parent.verticalCenter
-                anchors.margins: Theme.horizontalPageMargin
+                anchors{
+                    left: parent.left
+                    right: parent.right
+                    margins: Theme.horizontalPageMargin
+                }
                 spacing: Theme.paddingLarge
-                width: parent.width
 
                 Label {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: qsTranslate("message", availableMapsModel.fetchError)
                     font.pixelSize: Theme.fontSizeMedium
                     wrapMode: Text.WordWrap
+                    width: parent.width
                 }
                 Button {
                     anchors.horizontalCenter: parent.horizontalCenter
