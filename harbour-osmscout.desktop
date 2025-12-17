@@ -12,6 +12,11 @@ Type=Application
 # /usr/bin/invoker --type=generic /usr/bin/harbour-osmscout 
 X-Nemo-Application-Type=silica-qt5
 
+MimeType=x-scheme-handler/geo;
+X-Maemo-Service=cz.karry.osmscout.OSMScout
+X-Maemo-Object-Path=/cz/karry/osmscout/OSMScout
+X-Maemo-Method=cz.karry.osmscout.OSMScout.openUrl
+
 Icon=harbour-osmscout
 Exec=harbour-osmscout
 
@@ -30,3 +35,4 @@ BackupPathList=.local/share/cz.karry.osmscout/OSMScout/:.config/cz.karry.osmscou
 Permissions=Internet;Audio;Location;RemovableMedia;Documents;Downloads
 OrganizationName=cz.karry.osmscout
 ApplicationName=OSMScout
+ExecDBus=harbour-osmscout

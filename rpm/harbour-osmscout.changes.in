@@ -662,3 +662,7 @@
 - minor map stylesheet improvements (added volcanos, some building types on outdoor map)
 - improve location selector on routing page, it now always select current location as routing start, even when there is no gpx fix yet
 - increase size of max-allowed-speed indicator
+
+* 2025-12-17 Lukáš Karas <lukas.karas@centrum.cz> 2.41
+- wrap long error messages in map downloader
+- support for opening "geo" links in the main package, no need to install separate harbour-osmscout-open-url package anymore

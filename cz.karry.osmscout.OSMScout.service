@@ -1,4 +1,0 @@
-[D-BUS Service]
-Name=cz.karry.osmscout.OSMScout
-Exec=/usr/bin/sailjail -- /usr/bin/harbour-osmscout
-Path=/cz/karry/osmscout/OSMScout
