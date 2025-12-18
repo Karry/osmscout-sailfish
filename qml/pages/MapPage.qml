@@ -224,6 +224,10 @@ Page {
 
            var urlStr = url + "";
            console.log("open url: " + url);
+           if (urlStr == "") {
+               console.log("ignoring empty url!");
+               return;
+           }
            if (!Utils.startsWith(urlStr, "geo:")) {
                console.log("unsupported url: " + url);
                networkErrorNotification.previewBody = qsTr("Unsupported url %1").arg(url);
