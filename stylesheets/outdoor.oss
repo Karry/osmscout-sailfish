@@ -1711,6 +1711,8 @@ STYLE
          tourism_motel_building,
          tourism_museum_building,
          tourism_building,
+         tourism_attraction_building,
+         historic_building,
          historic_castle_building,
          historic_monument_building,
          historic_memorial_building,
