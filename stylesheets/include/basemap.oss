@@ -1,0 +1,84 @@
+OSS
+// Border of countries on low-zoom levels (up to stateOver)
+// other basemap elements are defined in places.oss
+
+/*
+    static MagnificationLevel magWorld;     //  0
+    static MagnificationLevel magContinent; //  4
+    static MagnificationLevel magState;     //  5
+    static MagnificationLevel magStateOver; //  6
+    static MagnificationLevel magCounty;    //  7
+    static MagnificationLevel magRegion;    //  8
+    static MagnificationLevel magProximity; //  9
+    static MagnificationLevel magCityOver;  // 10
+    static MagnificationLevel magCity;      // 11
+    static MagnificationLevel magSuburb;    // 12
+    static MagnificationLevel magDetail;    // 13
+    static MagnificationLevel magClose;     // 14
+    static MagnificationLevel magCloser;    // 15
+    static MagnificationLevel magVeryClose; // 16
+    static MagnificationLevel magBlock;     // 18
+    static MagnificationLevel magStreet;    // 19
+    static MagnificationLevel magHouse;     // 20
+*/
+
+CONST
+
+  IF daylight {
+    COLOR placeLabelColor           = #000000;
+    COLOR placeEmphasizeColor       = #cccccc;
+    COLOR oceanLabelColor           = #000040;
+    COLOR seaLabelColor             = #6060b0;
+  }
+  ELSE {
+    COLOR placeLabelColor           = #a0a0a0;
+    COLOR placeEmphasizeColor       = #909090;
+    COLOR oceanLabelColor           = #000020;
+    COLOR seaLabelColor             = #000020;
+  }
+
+STYLE
+  [TYPE basemap_boundary_country] {
+    [MAG 2-3] {
+        WAY {color: alpha(@countryBorderColor, 0.1); displayWidth: 0.1mm;}
+        AREA.BORDER { color: alpha(@countryBorderColor, 0.1); width: 0.1mm;}
+    }
+    [MAG continent-stateOver] {
+        WAY {color: alpha(@countryBorderColor, 0.3); displayWidth: 0.1mm;}
+        AREA.BORDER { color: alpha(@countryBorderColor, 0.3); width: 0.1mm;}
+    }
+  }
+
+  // Other places
+  [TYPE place_continent]       NODE.TEXT {label: IName; priority: @labelPrioContinent; size: 0; }
+  [TYPE place_ocean]           NODE.TEXT {label: IName; priority: @labelPrioOcean; size: 0; }
+  [TYPE place_sea]             NODE.TEXT {label: IName; priority: @labelPrioSea; size: 0; }
+  [TYPE place_sea]             AREA.TEXT {label: IName; priority: @labelPrioSea; size: 0; }
+
+  [TYPE place_continent] {
+    [MAG world-continent] NODE.TEXT {size: 0.8; style: emphasize; emphasizeColor: @placeEmphasizeColor; color: alpha(@placeLabelColor, 0.5); }
+    [MAG 2-continent] NODE.TEXT {size: 2.0; color: alpha(@placeLabelColor, 0.37); }
+    [MAG 3-continent] NODE.TEXT {size: 4.0; }
+    [MAG continent-continent] NODE.TEXT {size: 6.0; color: alpha(@placeLabelColor, 0.1); }
+  }
+
+  [TYPE place_ocean] {
+    [MAG world-continent] NODE.TEXT { size: 0.6; color: alpha(@oceanLabelColor, 0.5); }
+    [MAG 2-continent] NODE.TEXT {size: 1.8; color: alpha(@oceanLabelColor, 0.35); }
+    [MAG 3-continent] NODE.TEXT {size: 4.0; color: alpha(@oceanLabelColor, 0.20); }
+  }
+
+  [TYPE place_sea] {
+    [MAG continent-stateOver] {
+        NODE.TEXT { size: 2.0; color: alpha(@seaLabelColor, 0.7); }
+        AREA.TEXT { size: 2.0; color: alpha(@seaLabelColor, 0.7); autoSize: true; }
+        // area text is not rendered when there is no fill or border...
+        AREA.BORDER { color: alpha(@seaLabelColor, 0.2); width: 0.1mm; dash: 1,10; }
+    }
+  }
+
+  [MAG continent-stateOver] {
+    [TYPE place_country] NODE.TEXT {size: 2.2; style: emphasize; emphasizeColor: @placeEmphasizeColor; color: @placeLabelColor; }
+  }
+
+END

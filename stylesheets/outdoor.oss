@@ -35,8 +35,10 @@ CONST
   UINT labelPrioWaypoint            = 0;
   UINT labelPrioContinent           = 1;
   UINT labelPrioIsland              = 1;
+  UINT labelPrioOcean               = 2;
   UINT labelPrioCountry             = 2;
   UINT labelPrioState               = 3;
+  UINT labelPrioSea                 = 4;
   UINT labelPrioRegion              = 4;
   UINT labelPrioCounty              = 5;
   UINT labelPrioMillionCity         = 6;
@@ -333,6 +335,11 @@ CONST
   COLOR waypointGreenColor         = #00b200;
   COLOR waypointBlueColor          = #203bb3;
   COLOR waypointYellowColor        = #dfed00;
+
+SYMBOL place_city
+  CIRCLE 0,0 0.8 {
+    AREA.BORDER {color: #888888; width: 0.5mm; }
+  }
 
 SYMBOL debug_oneway_arrow
   POLYGON 0,1.2 2.4,0 0,-1.2 0,-0.4 -1.5,-0.4 -1.5,0.4 0,0.4 {
@@ -639,6 +646,7 @@ MODULE "include/land_sea"
 MODULE "include/route"
 MODULE "include/track"
 MODULE "include/waypoint"
+MODULE "include/basemap"
 
 STYLE
 
@@ -2145,8 +2153,15 @@ STYLE
    [TYPE place_county] NODE.TEXT {label: IName; color: @labelColor; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: 5;}
  }
 
+ [MAG stateOver-region] {
+   [TYPE place_millioncity] {
+    NODE.ICON { symbol: place_city; priority: @labelPrioMillionCity; }
+   }
+ }
  [MAG stateOver-city] {
-   [TYPE place_millioncity] NODE.TEXT {label: IName; color: @labelColor; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: 6;}
+   [TYPE place_millioncity] {
+    NODE.TEXT {label: IName; color: @labelColor; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: 6; }
+   }
  }
 
  [MAG stateOver-city] {

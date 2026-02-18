@@ -1,5 +1,9 @@
 OSS
 
+
+FLAG
+  daylight          = true;
+
 ORDER WAYS
   GROUP _route, _track
   GROUP railway_rail, railway_tram, railway_light_rail, 
@@ -27,6 +31,10 @@ CONST
 
   // Label priorities
   UINT labelPrioWaypoint            = 0;
+  UINT labelPrioContinent           = 1;
+  UINT labelPrioOcean               = 2;
+  UINT labelPrioCountry             = 2;
+  UINT labelPrioSea                 = 4;
 
   // Borders
   COLOR countryBorderColor         = #ff0000;
@@ -52,11 +60,6 @@ CONST
   COLOR postSymbolColor            = #e8f000;
   COLOR red                        = #ff0000;
   COLOR cliffColor                 = #440000;
-
-SYMBOL place_city
-  CIRCLE 0,0 2.5 {
-    AREA {color: #ff000050; }
-  }
 
 SYMBOL place_town
   CIRCLE 0,0 1.32 {
@@ -84,6 +87,7 @@ MODULE "include/land_sea"
 MODULE "include/route"
 MODULE "include/track"
 MODULE "include/waypoint"
+MODULE "include/basemap"
 
 STYLE
 

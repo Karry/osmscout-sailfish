@@ -83,8 +83,10 @@ CONST
   UINT labelPrioWaypoint            = 0;
   UINT labelPrioContinent           = 1;
   UINT labelPrioIsland              = 1;
+  UINT labelPrioOcean               = 2;
   UINT labelPrioCountry             = 2;
   UINT labelPrioState               = 3;
+  UINT labelPrioSea                 = 4;
   UINT labelPrioRegion              = 4;
   UINT labelPrioCounty              = 5;
   UINT labelPrioMillionCity         = 6;
@@ -435,6 +437,7 @@ MODULE "include/route"
 MODULE "include/track"
 MODULE "include/waypoint"
 MODULE "include/man_made"
+MODULE "include/basemap"
 
 STYLE
   // -------------------------------------------------------
@@ -1821,8 +1824,15 @@ STYLE
    [TYPE place_county] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; priority: @labelPrioCounty; color: @labelColor; }
  }
 
+ [MAG stateOver-region] {
+   [TYPE place_millioncity] {
+    NODE.ICON { symbol: place_city; priority: @labelPrioMillionCity; }
+   }
+ }
  [MAG stateOver-city] {
-   [TYPE place_millioncity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: @labelPrioMillionCity; color: @labelColor; }
+   [TYPE place_millioncity] {
+    NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: @labelPrioMillionCity; color: @labelColor; }
+   }
    [TYPE place_bigcity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: @labelPrioBigCity; color: @labelColor; }
  }
 
