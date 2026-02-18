@@ -19,40 +19,40 @@
 
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include <limits>
 #include <tuple>
 
-#include "config.h"
-#define HAVE_LIB_OSMSCOUTMAPQT
-//#define HAVE_LIB_OSMSCOUTMAPCAIRO
+#include <config.h>
 
 #include <osmscout/db/Database.h>
+
+#include <osmscout/projection/TileProjection.h>
+
 #include <osmscoutmap/MapService.h>
 
 #if defined(HAVE_LIB_OSMSCOUTMAPCAIRO)
-#include <osmscout/MapPainterCairo.h>
+#include <osmscoutmapcairo/MapPainterCairo.h>
 #endif
 #if defined(HAVE_LIB_OSMSCOUTMAPQT)
-
-//#include <QApplication>
-//#include <QDesktopWidget>
-#include <QGuiApplication>
-#include <sailfishapp/sailfishapp.h>
-
-
+#include <QApplication>
 #include <QPixmap>
 #include <QScreen>
 #include <osmscoutmapqt/MapPainterQt.h>
 #endif
 #if defined(HAVE_LIB_OSMSCOUTMAPAGG)
-#include <osmscout/MapPainterAgg.h>
+#include <osmscoutmapagg/MapPainterAgg.h>
 #endif
 #if defined(HAVE_LIB_OSMSCOUTMAPOPENGL)
-#include <osmscout/MapPainterOpenGL.h>
+#include <osmscoutmapopengl/MapPainterOpenGL.h>
 #include <GLFW/glfw3.h>
 #endif
 
-#if defined(HAVE_LIB_GPERFTOOLS)
+#if defined(HAVE_LIB_OSMSCOUTMAPGDI)
+#include <osmscoutmapgdi/MapPainterGDI.h>
+#endif
+
+#if defined(PERF_TEST_GPERFTOOLS_USAGE)
 #include <gperftools/tcmalloc.h>
 #include <gperftools/heap-profiler.h>
 #include <malloc.h> // mallinfo
@@ -70,8 +70,6 @@
 #include <osmscout/util/StopClock.h>
 #include <osmscout/util/Tiling.h>
 
-#include <osmscout/projection/TileProjection.h>
-
 /*
   Example for the nordrhein-westfalen.osm (to be executed in the Demos top
   level directory), drawing the "Ruhrgebiet":
@@ -85,7 +83,6 @@
 struct Arguments {
   bool help{false};
   bool debug{false};
-  bool debugPerformance{false};
   std::string databaseDirectory{"."};
   std::string style{"stylesheets/standard.oss"};
   osmscout::GeoCoord coordTopLeft;
@@ -94,6 +91,7 @@ struct Arguments {
   osmscout::MagnificationLevel endZoom{20};
   std::tuple<size_t, size_t> tileDimension{std::make_tuple(256, 256)};
   std::string driver{"none"};
+  // TODO: Use some way to find a valid font on the system (Agg display a ton of messages otherwise)
   std::string font{"/usr/share/fonts/TTF/DejaVuSans.ttf"};
   std::list<std::string> icons;
   double dpi{96};
@@ -138,61 +136,108 @@ struct Arguments {
   }
 };
 
+class Stats
+{
+private:
+  double   minTime;
+  double   maxTime;
+  double   totalTime=0.0;
+  uint32_t count=0;
+
+public:
+  Stats()
+  : minTime(std::numeric_limits<double>::max()),
+    maxTime(std::numeric_limits<double>::min())
+  {
+  }
+
+  void AddEvent(double time)
+  {
+    minTime=std::min(minTime,time);
+    maxTime=std::max(maxTime,time);
+    totalTime+=time;
+    count++;
+  }
+
+  bool HasValue() const
+  {
+    return count>0;
+  }
+
+  double GetMinTime() const
+  {
+    return minTime;
+  }
+
+  double GetMaxTime() const
+  {
+    return maxTime;
+  }
+
+  double GetTotalTime() const
+  {
+    return totalTime;
+  }
+
+  double GetAverageTime() const
+  {
+    if (HasValue()) {
+      return totalTime/(1.0*count);
+    }
+
+    return NAN;
+  }
+};
+
 struct LevelStats
 {
-  size_t level;
+  size_t             level;
 
-  double dbMinTime{std::numeric_limits<double>::max()};
-  double dbMaxTime{0.0};
-  double dbTotalTime{0.0};
+  Stats              dbStats;
+  Stats              drawStats;
 
-  double drawMinTime{std::numeric_limits<double>::max()};
-  double drawMaxTime{0.0};
-  double drawTotalTime{0.0};
+  std::vector<Stats> drawLevelStats;
 
-  double allocMax{0.0};
-  double allocSum{0.0};
+  double             allocMax=0.0;
+  double             allocSum=0.0;
 
-  size_t nodeCount{0};
-  size_t wayCount{0};
-  size_t areaCount{0};
-  size_t routeCount{0};
+  size_t             nodeCount=0;
+  size_t             wayCount=0;
+  size_t             areaCount=0;
 
-  size_t tileCount{0};
+  size_t             tileCount=0;
 
   explicit LevelStats(size_t level)
-    : level(level)
+  : level(level)
   {
-    // no code
+    drawLevelStats.resize(osmscout::RenderSteps::LastStep-osmscout::RenderSteps::FirstStep+1);
   }
 };
 
 std::string formatAlloc(double size)
 {
-  std::string units = " bytes";
-  if (size > 1024){
-    units = " KiB";
-    size = size / 1024;
-  }
-  if (size > 1024){
-    units = " MiB";
-    size = size / 1024;
-  }
-  std::ostringstream buff;
-  buff << std::setprecision(6) << size << units;
-  return buff.str();
+    std::string units = " bytes";
+    if (size > 1024){
+        units = " KiB";
+        size = size / 1024;
+    }
+    if (size > 1024){
+        units = " MiB";
+        size = size / 1024;
+    }
+    std::ostringstream buff;
+    buff << std::setprecision(6) << size << units;
+    return buff.str();
 }
 
 class PerformanceTestBackend {
 public:
   virtual ~PerformanceTestBackend() = default;
 
-  virtual void DrawMap(const osmscout::TileProjection &/*projection*/,
-                       const osmscout::MapParameter &/*drawParameter*/,
-                       const osmscout::MapData &/*data*/)
-  {
-    // none
-  }
+  virtual void DrawMap(const osmscout::TileProjection &projection,
+                       const osmscout::MapParameter &drawParameter,
+                       const osmscout::MapData &data,
+                       osmscout::RenderSteps step) = 0;
 };
 
 #if defined(HAVE_LIB_OSMSCOUTMAPCAIRO)
@@ -200,12 +245,14 @@ class PerformanceTestBackendCairo: public PerformanceTestBackend {
 private:
   cairo_surface_t *cairoSurface = nullptr;
   cairo_t *cairo = nullptr;
-  osmscout::MapPainterCairo *cairoMapPainter{nullptr};
+  std::shared_ptr<osmscout::MapPainterCairo> cairoMapPainter;
 
 public:
-  PerformanceTestBackendCairo(size_t tileWidth, size_t tileHeight, osmscout::StyleConfigRef styleConfig)
+  PerformanceTestBackendCairo(size_t tileWidth, size_t tileHeight)
   {
-    cairoSurface=cairo_image_surface_create(CAIRO_FORMAT_RGB24,tileWidth,tileHeight);
+    cairoSurface=cairo_image_surface_create(CAIRO_FORMAT_RGB24,
+                                            int(tileWidth),
+                                            int(tileHeight));
     if (cairoSurface==nullptr) {
       throw std::runtime_error("Cannot create cairo image cairoSurface");
     }
@@ -215,23 +262,28 @@ public:
       cairo_surface_destroy(cairoSurface);
       throw std::runtime_error("Cannot create cairo_t for image cairoSurface");
     }
-    cairoMapPainter = new osmscout::MapPainterCairo(styleConfig);
+    cairoMapPainter = std::make_shared<osmscout::MapPainterCairo>();
   }
 
-  virtual ~PerformanceTestBackendCairo()
+  ~PerformanceTestBackendCairo() override
   {
     cairo_destroy(cairo);
     cairo_surface_destroy(cairoSurface);
   }
 
-  virtual void DrawMap(const osmscout::TileProjection &projection,
-                       const osmscout::MapParameter &drawParameter,
-                       const osmscout::MapData &data)
+  void DrawMap(const osmscout::TileProjection &projection,
+               const osmscout::MapParameter &drawParameter,
+               const osmscout::MapData &data,
+               osmscout::RenderSteps step) override
   {
+    std::vector<osmscout::MapData> dataList;
+    dataList.emplace_back(data);
     cairoMapPainter->DrawMap(projection,
                             drawParameter,
-                            data,
-                            cairo);
+                            dataList,
+                            cairo,
+                            step,
+                            step);
   }
 };
 #endif
@@ -239,32 +291,31 @@ public:
 #if defined(HAVE_LIB_OSMSCOUTMAPQT)
 class PerformanceTestBackendQt: public PerformanceTestBackend {
 private:
-  //QApplication application;
+  QApplication application;
   QPixmap qtPixmap;
   QPainter qtPainter;
   osmscout::MapPainterQt qtMapPainter;
 public:
-  PerformanceTestBackendQt(int /*argc*/,
-                           char** /*argv[]*/,
-                           int tileWidth,
-                           int tileHeight,
-                           osmscout::StyleConfigRef styleConfig):
-    //application(argc, argv, true),
+  PerformanceTestBackendQt(int argc, char* argv[], int tileWidth, int tileHeight):
+    application(argc, argv, true),
     qtPixmap{tileWidth,tileHeight},
-    qtPainter{&qtPixmap},
-    qtMapPainter{styleConfig}
+    qtPainter{&qtPixmap}
   {
   }
 
-  virtual ~PerformanceTestBackendQt() = default;
-
-  virtual void DrawMap(const osmscout::TileProjection &projection,
+  void DrawMap(const osmscout::TileProjection &projection,
                        const osmscout::MapParameter &drawParameter,
-                       const osmscout::MapData &data) {
+                       const osmscout::MapData &data,
+                       osmscout::RenderSteps step) override
+  {
+    std::vector<osmscout::MapData> dataList;
+    dataList.emplace_back(data);
     qtMapPainter.DrawMap(projection,
                          drawParameter,
-                         data,
-                         &qtPainter);
+                         dataList,
+                         &qtPainter,
+                         step,
+                         step);
   }
 };
 #endif
@@ -277,27 +328,33 @@ private:
   osmscout::MapPainterAgg::AggPixelFormat* pf=nullptr;
   osmscout::MapPainterAgg aggMapPainter;
 public:
-  PerformanceTestBackendAGG(size_t tileWidth, size_t tileHeight, osmscout::StyleConfigRef styleConfig):
+  PerformanceTestBackendAGG(size_t tileWidth, size_t tileHeight):
     buffer{new unsigned char[tileWidth * tileHeight * 3]},
     rbuf{new agg::rendering_buffer(buffer, tileWidth, tileHeight, tileWidth * 3)},
-    pf{new osmscout::MapPainterAgg::AggPixelFormat(*rbuf)},
-    aggMapPainter{styleConfig}
+    pf{new osmscout::MapPainterAgg::AggPixelFormat(*rbuf)}
   {
   }
 
-  virtual ~PerformanceTestBackendAGG()
+  ~PerformanceTestBackendAGG()
   {
     delete pf;
     delete rbuf;
+    delete[] buffer;
   }
 
-  virtual void DrawMap(const osmscout::TileProjection &projection,
-                       const osmscout::MapParameter &drawParameter,
-                       const osmscout::MapData &data) {
+  void DrawMap(const osmscout::TileProjection &projection,
+               const osmscout::MapParameter &drawParameter,
+               const osmscout::MapData &data,
+               osmscout::RenderSteps step) override
+  {
+    std::vector<osmscout::MapData> dataList;
+    dataList.emplace_back(data);
     aggMapPainter.DrawMap(projection,
                           drawParameter,
-                          data,
-                          pf);
+                          dataList,
+                          pf,
+                          step,
+                          step);
   }
 };
 #endif
@@ -305,25 +362,31 @@ public:
 #if defined(HAVE_LIB_OSMSCOUTMAPOPENGL)
 class PerformanceTestBackendOGL: public PerformanceTestBackend {
 private:
+  GLFWwindow* offscreen_context{nullptr};
   osmscout::MapPainterOpenGL* openglMapPainter{nullptr};
   osmscout::StyleConfigRef styleConfig;
 public:
-  PerformanceTestBackendOGL(size_t tileWidth, size_t tileHeight, size_t dpi, osmscout::StyleConfigRef styleConfig):
+  PerformanceTestBackendOGL(size_t tileWidth,
+                            size_t tileHeight,
+                            size_t dpi,
+                            const osmscout::StyleConfigRef& styleConfig,
+                            const osmscout::MapParameter &drawParameter):
     styleConfig{styleConfig}
   {
     // Create the offscreen renderer
     glfwSetErrorCallback([](int, const char *err_str) {
       std::cerr << "GLFW Error: " << err_str << std::endl;
     });
-    if (!glfwInit())
-      throw std::runtime_error("Can't initilise GLFW library");
+    if (!glfwInit()) {
+      throw std::runtime_error("Can't initialise GLFW library");
+    }
     glfwWindowHint(GLFW_SAMPLES, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_VISIBLE, false);
-    GLFWwindow* offscreen_context;
+
     offscreen_context=glfwCreateWindow(tileWidth,
                                        tileHeight,
                                        "",
@@ -338,22 +401,98 @@ public:
     openglMapPainter=new osmscout::MapPainterOpenGL(tileWidth,
                                                     tileHeight,
                                                     dpi,
-                                                    tileWidth,
-                                                    tileHeight,
-                                                    "/usr/share/fonts/TTF/DejaVuSans.ttf");
+                                                    drawParameter.GetFontName(),
+                                                    SHADER_INSTALL_DIR,
+                                                    drawParameter);
+
+    if (!openglMapPainter->IsInitialized()) {
+      delete openglMapPainter;
+      glfwDestroyWindow(offscreen_context);
+      glfwTerminate();
+      throw std::runtime_error("Can't initialise OpenGL painter");
+    }
   }
 
-  virtual ~PerformanceTestBackendOGL()
+  ~PerformanceTestBackendOGL()
   {
-    //leaks openglMapPainter;
+    delete openglMapPainter;
+    glfwDestroyWindow(offscreen_context);
+    glfwTerminate();
   }
 
-  virtual void DrawMap(const osmscout::TileProjection &projection,
-                       const osmscout::MapParameter &drawParameter,
-                       const osmscout::MapData &data) {
-    openglMapPainter->ProcessData(data, drawParameter, projection, styleConfig);
-    openglMapPainter->SwapData();
-    openglMapPainter->DrawMap();
+  void DrawMap(const osmscout::TileProjection &projection,
+               const osmscout::MapParameter &/*drawParameter*/,
+               const osmscout::MapData &data,
+               osmscout::RenderSteps step) override
+  {
+    if (step==osmscout::RenderSteps::Initialize) {
+      openglMapPainter->SetCenter(projection.GetCenter());
+      openglMapPainter->SetMagnification(projection.GetMagnification());
+
+      openglMapPainter->ProcessData(data, projection, styleConfig);
+      openglMapPainter->SwapData();
+      openglMapPainter->DrawMap(step,
+                                step);
+    }
+  }
+};
+#endif
+
+#if defined(HAVE_LIB_OSMSCOUTMAPGDI)
+class PerformanceTestBackendGDI: public PerformanceTestBackend {
+private:
+  HDC                      hdc;
+  HBITMAP                  bitmap;
+  RECT                     paintRect;
+  std::shared_ptr<osmscout::MapPainterGDI> gdiMapPainter;
+
+public:
+  PerformanceTestBackendGDI(size_t tileWidth,
+                            size_t tileHeight)
+  {
+    // Create the offscreen renderer
+    hdc=CreateCompatibleDC(nullptr);
+
+    bitmap=CreateCompatibleBitmap(nullptr,
+                                  (int)tileWidth,
+                                  (int)tileHeight);
+/*
+    bitmap=CreateBitmap((int)tileWidth,
+                        (int)tileHeight,
+                        1,
+                        32,
+                        nullptr);*/
+
+    SelectObject(hdc,bitmap);
+
+    paintRect.left=0;
+    paintRect.top=0;
+    paintRect.right=LONG(tileWidth);
+    paintRect.bottom=LONG(tileHeight);
+
+    // This driver need a valid existing context
+    gdiMapPainter=std::make_shared<osmscout::MapPainterGDI>();
+  }
+
+  ~PerformanceTestBackendGDI() override
+  {
+    DeleteObject(hdc);
+    DeleteObject(bitmap);
+  }
+
+  void DrawMap(const osmscout::TileProjection &projection,
+               const osmscout::MapParameter &drawParameter,
+               const osmscout::MapData &data,
+               osmscout::RenderSteps step) override
+  {
+    std::vector<osmscout::MapData> dataList;
+    dataList.emplace_back(data);
+    gdiMapPainter->DrawMap(projection,
+                           drawParameter,
+                           dataList,
+                           hdc,
+                           step,
+                           step);
   }
 };
 #endif
@@ -362,31 +501,51 @@ class PerformanceTestBackendNoOp: public PerformanceTestBackend {
 private:
   osmscout::MapPainterNoOp noOpMapPainter;
 public:
-  PerformanceTestBackendNoOp(osmscout::StyleConfigRef styleConfig):
-    noOpMapPainter(styleConfig)
+  explicit PerformanceTestBackendNoOp()
   {}
 
-  virtual ~PerformanceTestBackendNoOp() = default;
-
-  virtual void DrawMap(const osmscout::TileProjection &projection,
-                       const osmscout::MapParameter &drawParameter,
-                       const osmscout::MapData &data) {
+  void DrawMap(const osmscout::TileProjection &projection,
+               const osmscout::MapParameter &drawParameter,
+               const osmscout::MapData &data,
+               osmscout::RenderSteps step) override
+  {
+    std::vector<osmscout::MapData> dataList;
+    dataList.emplace_back(data);
     noOpMapPainter.DrawMap(projection,
                            drawParameter,
-                           data);
+                           dataList,
+                           step,
+                           step);
   }
 };
 
-using PerformanceTestBackendPtr = std::shared_ptr<PerformanceTestBackend>;
+class PerformanceTestBackendNone: public PerformanceTestBackend {
+public:
+  explicit PerformanceTestBackendNone() = default;
 
-PerformanceTestBackendPtr PrepareBackend(int argc, char* argv[], const Arguments &args, osmscout::StyleConfigRef styleConfig)
+  void DrawMap(const osmscout::TileProjection &/*projection*/,
+               const osmscout::MapParameter &/*drawParameter*/,
+               const osmscout::MapData &/*data*/,
+               osmscout::RenderSteps /*step*/) override
+  {
+    // no code
+  }
+};
+
+using PerformanceTestBackendRef = std::shared_ptr<PerformanceTestBackend>;
+
+PerformanceTestBackendRef PrepareBackend([[maybe_unused]] int argc,
+                                         [[maybe_unused]] char* argv[],
+                                         const Arguments &args,
+                                         [[maybe_unused]] const osmscout::StyleConfigRef& styleConfig,
+                                         [[maybe_unused]] const osmscout::MapParameter &drawParameter)
 {
   if (args.driver=="cairo") {
     std::cout << "Using driver 'cairo'..." << std::endl;
 #if defined(HAVE_LIB_OSMSCOUTMAPCAIRO)
     try{
-      return std::make_shared<PerformanceTestBackendCairo>(args.TileWidth(),args.TileHeight(),styleConfig);
-    } catch (std::runtime_error &e){
+      return std::make_shared<PerformanceTestBackendCairo>(args.TileWidth(),args.TileHeight());
+    } catch (const std::runtime_error &e){
       std::cerr << e.what() << std::endl;
       return nullptr;
     }
@@ -398,9 +557,7 @@ PerformanceTestBackendPtr PrepareBackend(int argc, char* argv[], const Arguments
   else if (args.driver=="Qt") {
     std::cout << "Using driver 'Qt'..." << std::endl;
 #if defined(HAVE_LIB_OSMSCOUTMAPQT)
-    SailfishApp::application(argc, argv);
-    std::cout << "QGuiApplication created..." << std::endl;
-    return std::make_shared<PerformanceTestBackendQt>(argc, argv, args.TileWidth(), args.TileHeight(), styleConfig);
+    return std::make_shared<PerformanceTestBackendQt>(argc, argv, args.TileWidth(), args.TileHeight());
 #else
     std::cerr << "Driver 'Qt' is not enabled" << std::endl;
     return nullptr;
@@ -408,7 +565,7 @@ PerformanceTestBackendPtr PrepareBackend(int argc, char* argv[], const Arguments
   } else if (args.driver == "agg") {
     std::cout << "Using driver 'Agg'..." << std::endl;
 #if defined(HAVE_LIB_OSMSCOUTMAPAGG)
-    return std::make_shared<PerformanceTestBackendAGG>(args.TileWidth(), args.TileHeight(), styleConfig);
+    return std::make_shared<PerformanceTestBackendAGG>(args.TileWidth(), args.TileHeight());
 #else
     std::cerr << "Driver 'Agg' is not enabled" << std::endl;
     return nullptr;
@@ -417,8 +574,8 @@ PerformanceTestBackendPtr PrepareBackend(int argc, char* argv[], const Arguments
     std::cout << "Using driver 'OpenGL'..." << std::endl;
 #if defined(HAVE_LIB_OSMSCOUTMAPOPENGL)
     try{
-      return std::make_shared<PerformanceTestBackendOGL>(args.TileWidth(), args.TileHeight(), args.dpi, styleConfig);
-    } catch (std::runtime_error &e){
+      return std::make_shared<PerformanceTestBackendOGL>(args.TileWidth(), args.TileHeight(), args.dpi, styleConfig, drawParameter);
+    } catch (const std::runtime_error &e){
       std::cerr << e.what() << std::endl;
       return nullptr;
     }
@@ -426,14 +583,29 @@ PerformanceTestBackendPtr PrepareBackend(int argc, char* argv[], const Arguments
     std::cerr << "Driver 'OpenGL' is not enabled" << std::endl;
     return nullptr;
 #endif
-  }
+  } else if (args.driver == "gdi") {
+    std::cout << "Using driver 'GDI'..." << std::endl;
+#if defined(HAVE_LIB_OSMSCOUTMAPGDI)
+    try {
+      return std::make_shared<PerformanceTestBackendGDI>(args.TileWidth(),
+                                                         args.TileHeight());
+    }
+    catch (std::runtime_error &e) {
+      std::cerr << e.what() << std::endl;
+      return nullptr;
+    }
+#else
+    std::cerr << "Driver 'gdi' is not enabled" << std::endl;
+    return nullptr;
+#endif
+}
   else if (args.driver=="noop") {
     std::cout << "Using driver 'noop'..." << std::endl;
-    return std::make_shared<PerformanceTestBackendNoOp>(styleConfig);
+    return std::make_shared<PerformanceTestBackendNoOp>();
   }
   else if (args.driver=="none") {
     std::cout << "Using driver 'none'..." << std::endl;
-    return std::make_shared<PerformanceTestBackend>();
+    return std::make_shared<PerformanceTestBackendNone>();
   }
   else {
     std::cerr << "Unsupported driver '" << args.driver << "'" << std::endl;
@@ -459,12 +631,6 @@ int main(int argc, char* argv[])
                       }),
                       "debug",
                       "Enable debug output",
-                      false);
-  argParser.AddOption(osmscout::CmdLineFlag([&args](const bool& value) {
-                        args.debugPerformance=value;
-                      }),
-                      "debug-performance",
-                      "Enable debug output about painter performance",
                       false);
   argParser.AddOption(osmscout::CmdLineUIntOption([&args](const unsigned int& value) {
                         args.startZoom=osmscout::MagnificationLevel(value);
@@ -494,7 +660,7 @@ int main(int argc, char* argv[])
                         args.driver = value;
                       }),
                       "driver",
-                      "Rendering driver (cairo|Qt|ag|opengl|noop|none), default: " + args.driver,
+                      "Rendering driver (cairo|Qt|agg|opengl|dgi|noop|none), default: " + args.driver,
                       false);
   argParser.AddOption(osmscout::CmdLineDoubleOption([&args](const double& value) {
                         if (value > 0) {
@@ -550,17 +716,11 @@ int main(int argc, char* argv[])
                       "cache-areas",
                       "Cache size for areas, default: " + std::to_string(databaseParameter.GetAreaDataCacheSize()),
                       false);
-  argParser.AddOption(osmscout::CmdLineUIntOption([&databaseParameter](const unsigned int& value) {
-                        databaseParameter.SetRouteDataCacheSize(value);
-                      }),
-                      "cache-routes",
-                      "Cache size for routes, default: " + std::to_string(databaseParameter.GetRouteDataCacheSize()),
-                      false);
   argParser.AddOption(osmscout::CmdLineStringOption([&args](const std::string& value) {
                         args.icons.push_back(value);
                       }),
                       "icons",
-                      "Directory with icons",
+                      "Directory with (SVG) icons",
                       false);
   argParser.AddOption(osmscout::CmdLineStringOption([&args](const std::string& value) {
                         args.font=value;
@@ -569,7 +729,7 @@ int main(int argc, char* argv[])
                       "Used font, default: " + args.font,
                       false);
 
-#if defined(HAVE_LIB_GPERFTOOLS)
+#if defined(PERF_TEST_GPERFTOOLS_USAGE)
   argParser.AddOption(osmscout::CmdLineStringOption([&args](const std::string& value) {
                         args.heapProfilePrefix = value;
                         args.heapProfile = !args.heapProfilePrefix.empty();
@@ -606,18 +766,20 @@ int main(int argc, char* argv[])
     std::cout << argParser.GetHelp() << std::endl;
     return 1;
   }
-  else if (args.help) {
+
+  if (args.help) {
     std::cout << argParser.GetHelp() << std::endl;
     return 0;
   }
 
   osmscout::log.Debug(args.debug);
+  //databaseParameter.SetDebugPerformance(true);
 
   osmscout::DatabaseRef       database=std::make_shared<osmscout::Database>(databaseParameter);
   osmscout::MapServiceRef     mapService=std::make_shared<osmscout::MapService>(database);
 
   if (!database->Open(args.databaseDirectory)) {
-    std::cerr << "Cannot open database" << std::endl;
+    std::cerr << "Cannot open db" << std::endl;
     return 1;
   }
 
@@ -627,17 +789,6 @@ int main(int argc, char* argv[])
     std::cerr << "Cannot open style" << std::endl;
     return 1;
   }
-
-  PerformanceTestBackendPtr backendPtr = PrepareBackend(argc, argv, args, styleConfig);
-  if (!backendPtr){
-    return 1;
-  }
-
-#if defined(HAVE_LIB_GPERFTOOLS)
-  if (args.heapProfile){
-    HeapProfilerStart(args.heapProfilePrefix.c_str());
-  }
-#endif
 
   osmscout::TileProjection      projection;
   osmscout::MapParameter        drawParameter;
@@ -649,8 +800,19 @@ int main(int argc, char* argv[])
   drawParameter.SetPatternPaths(args.icons); // for simplicity use same directories for lookup
   drawParameter.SetIconMode(osmscout::MapParameter::IconMode::Scalable);
   drawParameter.SetPatternMode(osmscout::MapParameter::PatternMode::Scalable);
+
+  PerformanceTestBackendRef backend = PrepareBackend(argc, argv, args, styleConfig, drawParameter);
+  if (!backend) {
+    return 1;
+  }
+
+#if defined(PERF_TEST_GPERFTOOLS_USAGE)
+  if (args.heapProfile){
+    HeapProfilerStart(args.heapProfilePrefix.c_str());
+  }
+#endif
+
   searchParameter.SetUseMultithreading(true);
-  drawParameter.SetDebugPerformance(args.debugPerformance);
 
   for (osmscout::MagnificationLevel level=osmscout::MagnificationLevel(std::min(args.startZoom,args.endZoom));
        level<=osmscout::MagnificationLevel(std::max(args.startZoom,args.endZoom));
@@ -677,16 +839,16 @@ int main(int argc, char* argv[])
 
     for (const auto& tile : tileArea) {
       osmscout::MapData       data;
+      data.styleConfig=styleConfig;
       osmscout::OSMTileIdBox  tileBox(osmscout::OSMTileId(tile.GetX()-1,tile.GetY()-1),
                                       osmscout::OSMTileId(tile.GetX()+1,tile.GetY()+1));
-      osmscout::GeoBox        boundingBox;
 
       if ((current % delta)==0) {
         std::cout << current*100/tileCount << "% " << current;
 
         if (stats.tileCount>0) {
-          std::cout << " " << stats.dbTotalTime/stats.tileCount;
-          std::cout << " " << stats.drawTotalTime/stats.tileCount;
+          std::cout << " " << std::fixed << std::setprecision(2) << stats.dbStats.GetAverageTime();
+          std::cout << " " << std::fixed << std::setprecision(2) << stats.drawStats.GetAverageTime();
         }
 
         std::cout << std::endl;
@@ -698,14 +860,12 @@ int main(int argc, char* argv[])
                      args.TileWidth(),
                      args.TileHeight());
 
-      boundingBox=projection.GetDimensions();
       projection.SetLinearInterpolationUsage(level.Get() >= 10);
 
       for (size_t i=0; i<args.loadRepeat; i++) {
         data.nodes.clear();
         data.ways.clear();
         data.areas.clear();
-        data.routes.clear();
 
         osmscout::StopClock dbTimer;
 
@@ -721,7 +881,7 @@ int main(int argc, char* argv[])
         mapService->LoadMissingTileData(searchParameter, *styleConfig, tiles);
         mapService->AddTileDataToMapData(tiles, data);
 
-#if defined(HAVE_LIB_GPERFTOOLS)
+#if defined(PERF_TEST_GPERFTOOLS_USAGE)
         if (args.heapProfile) {
           std::ostringstream buff;
           buff << "load-" << level << "-" << tile.GetX() << "-" << tile.GetY();
@@ -731,13 +891,9 @@ int main(int argc, char* argv[])
 #else
 #if defined(HAVE_MALLINFO2)
         struct mallinfo2 alloc_info = mallinfo2();
-#else
-#if defined(HAVE_MALLINFO)
-        struct mallinfo alloc_info = mallinfo();
 #endif
 #endif
-#endif
-#if defined(HAVE_MALLINFO) || defined(HAVE_MALLINFO2) || defined(HAVE_LIB_GPERFTOOLS)
+#if defined(HAVE_MALLINFO2) || defined(PERF_TEST_GPERFTOOLS_USAGE)
         std::cout << "memory usage: " << formatAlloc(alloc_info.uordblks) << std::endl;
         stats.allocMax = std::max(stats.allocMax, (double) alloc_info.uordblks);
         stats.allocSum = stats.allocSum + (double) alloc_info.uordblks;
@@ -747,31 +903,27 @@ int main(int argc, char* argv[])
         mapService->SetCacheSize(25);
         dbTimer.Stop();
 
-        double dbTime = dbTimer.GetMilliseconds();
-
-        stats.dbMinTime = std::min(stats.dbMinTime, dbTime);
-        stats.dbMaxTime = std::max(stats.dbMaxTime, dbTime);
-        stats.dbTotalTime += dbTime;
+        stats.dbStats.AddEvent(dbTimer.GetMilliseconds());
 
         if (args.flushCache) {
           tiles.clear(); // following flush method removes only tiles with use_count() == 1
           mapService->FlushTileCache();
 
-          // simplest way howto flush database caches is close it and open again
+          // simplest way howto flush db caches is close it and open again
           database->Close();
           if (!database->Open(args.databaseDirectory)) {
-            std::cerr << "Cannot open database" << std::endl;
+            std::cerr << "Cannot open db" << std::endl;
             return 1;
           }
         }
         if (args.flushDiskCache) {
           // Linux specific
           if (osmscout::ExistsInFilesystem("/proc/sys/vm/drop_caches")){
-            osmscout::FileWriter f;
+            osmscout::FileWriter writer;
             try {
-              f.Open("/proc/sys/vm/drop_caches");
-              f.Write(std::string("3"));
-              f.Close();
+              writer.Open("/proc/sys/vm/drop_caches");
+              writer.Write(std::string("3"));
+              writer.Close();
             }catch(const osmscout::IOException &e){
               std::cerr << "Can't flush disk cache: " << e.what() << std::endl;
             }
@@ -784,19 +936,26 @@ int main(int argc, char* argv[])
       stats.nodeCount+=data.nodes.size();
       stats.wayCount+=data.ways.size();
       stats.areaCount+=data.areas.size();
-      stats.routeCount+=data.routes.size();
 
       stats.tileCount++;
-      for (size_t i=0; i<args.drawRepeat; i++) {
+      for (size_t repetition=1; repetition <= args.drawRepeat; repetition++) {
         osmscout::StopClock drawTimer;
-        backendPtr->DrawMap(projection, drawParameter, data);
+
+        for (size_t step=osmscout::RenderSteps::FirstStep; step<=osmscout::RenderSteps::LastStep; ++step) {
+          osmscout::StopClock stepTimer;
+
+          backend->DrawMap(projection,
+                           drawParameter,
+                           data,
+                           (osmscout::RenderSteps)step);
+
+          stepTimer.Stop();
+
+          stats.drawLevelStats[step].AddEvent(stepTimer.GetMilliseconds());
+        }
         drawTimer.Stop();
 
-        double drawTime = drawTimer.GetMilliseconds();
-
-        stats.drawMinTime = std::min(stats.drawMinTime, drawTime);
-        stats.drawMaxTime = std::max(stats.drawMaxTime, drawTime);
-        stats.drawTotalTime += drawTime;
+        stats.drawStats.AddEvent(drawTimer.GetMilliseconds());
       }
 
       current++;
@@ -805,7 +964,7 @@ int main(int argc, char* argv[])
     statistics.push_back(stats);
   }
 
-#if defined(HAVE_LIB_GPERFTOOLS)
+#if defined(PERF_TEST_GPERFTOOLS_USAGE)
   if (args.heapProfile){
     HeapProfilerStop();
   }
@@ -817,7 +976,7 @@ int main(int argc, char* argv[])
     std::cout << "Level: " << stats.level << std::endl;
     std::cout << "Tiles: " << stats.tileCount << " (load " << args.loadRepeat << "x, drawn " << args.drawRepeat << "x)" << std::endl;
 
-#if defined(HAVE_MALLINFO) || defined(HAVE_MALLINFO2) || defined(HAVE_LIB_GPERFTOOLS)
+#if defined(HAVE_MALLINFO2) || defined(PERF_TEST_GPERFTOOLS_USAGE)
     std::cout << " Used memory: ";
     std::cout << "max: " << formatAlloc(stats.allocMax) << " ";
     std::cout << "avg: " << formatAlloc(stats.allocSum / (stats.tileCount * args.loadRepeat)) << std::endl;
@@ -826,33 +985,34 @@ int main(int argc, char* argv[])
     std::cout << " Tot. data  : ";
     std::cout << "nodes: " << stats.nodeCount << " ";
     std::cout << "way: " << stats.wayCount << " ";
-    std::cout << "areas: " << stats.areaCount << " ";
-    std::cout << "routes: " << stats.routeCount << std::endl;
+    std::cout << "areas: " << stats.areaCount << std::endl;
 
-    if (stats.tileCount>1) {
+    if (stats.tileCount>0) {
       std::cout << " Avg. data  : ";
       std::cout << "nodes: " << stats.nodeCount/stats.tileCount << " ";
       std::cout << "way: " << stats.wayCount/stats.tileCount << " ";
-      std::cout << "areas: " << stats.areaCount/stats.tileCount << " ";
-      std::cout << "routes: " << stats.routeCount/stats.tileCount << std::endl;
+      std::cout << "areas: " << stats.areaCount/stats.tileCount << std::endl;
     }
 
-    std::cout << " DB [ms]    : ";
-    std::cout << "total: " << stats.dbTotalTime << " ";
-    std::cout << "min: " << stats.dbMinTime << " ";
-    if (stats.tileCount>0) {
-      std::cout << "avg: " << stats.dbTotalTime/(stats.tileCount * args.loadRepeat) << " ";
-    }
-    std::cout << "max: " << stats.dbMaxTime << " " << std::endl;
+    std::cout << " DB         : ";
+    std::cout << "total: " << std::fixed << std::setprecision(2) << stats.dbStats.GetTotalTime() << " ";
+    std::cout << "min: " << std::fixed << std::setprecision(2) << stats.dbStats.GetMinTime() << " ";
+    std::cout << "avg: " << std::fixed << std::setprecision(2) << stats.dbStats.GetAverageTime() << " ";
+    std::cout << "max: " << std::fixed << std::setprecision(2) << stats.dbStats.GetMaxTime() << " " << std::endl;
 
-    if (args.drawRepeat > 0) {
-      std::cout << " Map [ms]   : ";
-      std::cout << "total: " << stats.drawTotalTime << " ";
-      std::cout << "min: " << stats.drawMinTime << " ";
-      if (stats.tileCount > 0) {
-        std::cout << "avg: " << stats.drawTotalTime / (stats.tileCount * args.drawRepeat) << " ";
-      }
-      std::cout << "max: " << stats.drawMaxTime << std::endl;
+    std::cout << " Map        : ";
+    std::cout << "total: " << std::fixed << std::setprecision(2) << stats.drawStats.GetTotalTime() << " ";
+    std::cout << "min: " << std::fixed << std::setprecision(2) << stats.drawStats.GetMinTime() << " ";
+    std::cout << "avg: " << std::fixed << std::setprecision(2) << stats.drawStats.GetAverageTime() << " ";
+    std::cout << "max: " << std::fixed << std::setprecision(2) << stats.drawStats.GetMaxTime() << std::endl;
+
+    for (size_t step=osmscout::RenderSteps::FirstStep; step<=osmscout::RenderSteps::LastStep; ++step) {
+      std::cout << "               #" << step << " ";
+      std::cout << std::fixed << std::setprecision(0) << 100.0*stats.drawLevelStats[step].GetTotalTime()/stats.drawStats.GetTotalTime() << "% ";
+      std::cout << "total: " << std::fixed << std::setprecision(2) << stats.drawLevelStats[step].GetTotalTime() << " ";
+      std::cout << "min: " << std::fixed << std::setprecision(2) << stats.drawLevelStats[step].GetMinTime() << " ";
+      std::cout << "avg: " << std::fixed << std::setprecision(2) << stats.drawLevelStats[step].GetAverageTime() << " ";
+      std::cout << "max: " << std::fixed << std::setprecision(2) << stats.drawLevelStats[step].GetMaxTime() << std::endl;
     }
   }
 
