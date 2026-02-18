@@ -431,7 +431,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Raw distance</source>
-        <translation>Etäisyys suunnilleen</translation>
+        <translation>Raakaetäisyys</translation>
     </message>
     <message>
         <source>Ascent</source>
@@ -668,7 +668,7 @@ collection pull down menu</extracomment>
     <name>GpsFixWarning</name>
     <message>
         <source>Waiting for GPS fix</source>
-        <translation type="unfinished"></translation>
+        <translation>Odotetaan GPS-signaalin korjaantumista</translation>
     </message>
 </context>
 <context>
@@ -1732,7 +1732,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Raw distance</source>
-        <translation>Etäisyys suunnilleen</translation>
+        <translation>Raakaetäisyys</translation>
     </message>
     <message>
         <source>From</source>

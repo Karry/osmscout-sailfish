@@ -671,3 +671,4 @@
 - add tourism_attraction_building and historic_building to outdoor map style
 - fix rendering on database boundaries, when objects from multiple databases may overlap
 - make world base map more rich - show country borders, names of the big cities, oceans, seas...
+- update translations (Finnish)
