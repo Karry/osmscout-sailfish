@@ -34,12 +34,26 @@ Rectangle{
         property string copyrightText: ""
         property double defaultOpacity: 1
 
-        function update(){
-            osmCopyright.opacity = (onlineTiles && copyrightText != "") ? defaultOpacity: 0;
+        function update() {
+            // map may be combined from various data sources (OSM, global/national DEM...),
+            // and there is also copyright holder for map design.
+            // it is hard to display all required phrases on mobile screen
+            // TODO: make element interactive, so user can click it and see all required copyright holders
+            copyrightText = "";
+            if (settings.onlineTiles) {
+                copyrightText = qsTranslate("resource", settings.onlineProviderCopyright());
+            }
+            if (copyrightText === "" && settings.offlineMap) {
+                // when online tiles are disabled, but the offline map is used,
+                // we should show generic OSM copyright, as the offline map is based on OSM data
+                copyrightText = qsTranslate("resource", "© OpenStreetMap contributors");
+            }
+            osmCopyright.opacity = (copyrightText !== "") ? defaultOpacity : 0;
         }
-
+        onOfflineMapChanged: {
+            update();
+        }
         onOnlineTileProviderIdChanged: {
-            copyrightText = qsTranslate("resource", settings.onlineProviderCopyright());
             update();
         }
         onOnlineTilesChanged: {
@@ -47,7 +61,6 @@ Rectangle{
         }
         Component.onCompleted: {
             defaultOpacity = osmCopyright.opacity
-            copyrightText = qsTranslate("resource", settings.onlineProviderCopyright());
             update();
         }
     }
