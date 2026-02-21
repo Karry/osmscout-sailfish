@@ -92,7 +92,7 @@ CONST
     COLOR waterLabelColor       = darken(@waterColor, 0.5);
   } ELSE {
     COLOR waterColor            = #000080;
-    COLOR landColor             = #000000;
+    COLOR landColor             = #101010;
     COLOR unknownColor          = @landColor;
     COLOR seaColor              = #000060;
 
@@ -251,7 +251,7 @@ CONST
     COLOR roadBColor            = #444444;
     COLOR thinRoadColor         = #3d3d3d;
     COLOR areaRoadColor         = #3d3d3d;
-    COLOR livingStreetColor     = #ededed;
+    COLOR livingStreetColor     = #5e5e5e;
 
     COLOR areaServiceColor      = #624a4a;
 
@@ -276,14 +276,78 @@ CONST
     COLOR cyclewayColor         = #ec47c7;
   }
 
-  // Amenity
-  COLOR postColor             = #ffcc00;
-  COLOR buildingColor         = #bcbcbc;
-  COLOR amenityLabelColor     = #1f1e1b;
+  IF daylight {
+    // Amenity, buildings...
+    COLOR postColor                 = #ffcc00;
+    COLOR buildingColor             = #bcbcbc;
+    COLOR buildingBorderColor       = #887b7b;
+    COLOR amenityLabelColor         = #1f1e1b;
+    COLOR amenityBuildingBorderColor = #887b7b;
+  
+    COLOR leisureBuildingColor      = #ceeca8;
+    COLOR leisureBuildingBorderColor = #887b7b;
+    COLOR sportsCentreColor         = #bde3cb;
+    COLOR swimmingPoolColor         = #74daff;
+    COLOR playgroundColor           = #ccffff;
+    
+    COLOR fuelBuildingColor         = #bcbcbc;
+    COLOR fuelBuildingBorderColor   = #887b7b;
+    
+    COLOR hospitalBuildingColor     = #b89c9c;
+    COLOR hospitalBuildingBorderColor = #887b7b;
+    
+    COLOR parkingBuildingColor      = #c4c393;
+    COLOR parkingBuildingBorderColor = #887b7b;
 
-  // Man made
-  COLOR historicCityWallsColor= #994444;
-  COLOR wallColor             = #994444;
+    COLOR parkingColor              = #f6eeb6;
+    COLOR parkingBorderColor        = #887b7b;
+    
+    COLOR postBuildingBorderColor   = #887b7b;
+    
+    // Man made
+    COLOR historicCityWallsColor    = #994444;
+    COLOR wallColor                 = #994444;
+    COLOR fenceColor                = #aaaaaa;
+    COLOR gardenColor               = #ceeca8;
+    COLOR pitchColor                = #90d3b9;
+    COLOR pitchBorderColor          = #b0b0b0;
+  } ELSE {
+    // Amenity, buildings...
+    COLOR postColor                 = #5e4b00;
+    COLOR buildingColor             = #4b3333;
+    COLOR buildingBorderColor       = #644444;
+    COLOR amenityLabelColor         = #4b3d3d;
+    COLOR amenityBuildingBorderColor = #564e4e;
+  
+    COLOR leisureBuildingColor      = #54483a;
+    COLOR leisureBuildingBorderColor = #6d5d4b;
+    COLOR sportsCentreColor         = #343f38;
+    COLOR swimmingPoolColor         = #23424c;
+    COLOR playgroundColor           = #394747;
+    
+    COLOR fuelBuildingColor         = #4f4f4f;
+    COLOR fuelBuildingBorderColor   = #626262;
+    
+    COLOR hospitalBuildingColor     = #875d5d;
+    COLOR hospitalBuildingBorderColor = #8b3636;
+    
+    COLOR parkingBuildingColor      = #4b4a38;
+    COLOR parkingBuildingBorderColor = #6d6c52;
+
+    COLOR parkingColor              = #323025;
+    COLOR parkingBorderColor        = #564e4e;
+    
+    COLOR postBuildingBorderColor   = #4f4f1c;
+    
+    // Man made
+    COLOR historicCityWallsColor    = #6a2f2f;
+    COLOR wallColor                 = #6a2f2f;
+    COLOR fenceColor                = #404040;
+    COLOR gardenColor               = #21261b;
+    COLOR pitchColor                = #3c584d;
+    COLOR pitchBorderColor          = #6d6d6d;
+  }
+
 
   IF daylight {
     COLOR golfCourseColor     = #c7f1a3;
@@ -1384,7 +1448,7 @@ STYLE
    [TYPE natural_tree] NODE.ICON { symbol: natural_tree; overlay: true; }
  }
 
- [MAG 17-] {
+ [MAG 16-] {
    [TYPE highway_bus_stop] {
      NODE.ICON { symbol: highway_bus_stop; name: bus_stop;}
      NODE.TEXT { color: @busSymbolColor; label: IName; }
@@ -1611,8 +1675,8 @@ STYLE
    [TYPE leisure_track] AREA { color: #7fdac2; }
    [TYPE leisure_pitch,
          leisure_fitness_station] {
-     AREA { color: #90d3b9; }
-     AREA.BORDER { color: #b0b0b0; width: 0.1mm; }
+     AREA { color: @pitchColor; }
+     AREA.BORDER { color: @pitchBorderColor; width: 0.1mm; }
    }
    [TYPE leisure_water_park] {
      AREA { color: #f1eee8; }
@@ -1686,8 +1750,13 @@ STYLE
 
  [MAG detail-] {
    [TYPE shop, shop_building] {
-     AREA { color: #bca284; }
-     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     IF daylight {
+       AREA { color: #bca284; }
+       AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     } ELSE {
+       AREA { color: #312a22; }
+       AREA.BORDER { color: #443e3e; width: 0.1mm; }
+     }
    }
  }
 
@@ -1772,43 +1841,43 @@ STYLE
    }
  }
 
- [MAG 17-] {
+ [MAG 16-] {
    [TYPE leisure_building] {
-     AREA { color: #b89c9c; }
-     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     AREA { color: @leisureBuildingColor; }
+     AREA.BORDER { color: @leisureBuildingBorderColor; width: 0.1mm; }
    }
-   [TYPE leisure_sports_centre] AREA { color: #bde3cb; }
+   [TYPE leisure_sports_centre] AREA { color: @sportsCentreColor; }
    [TYPE leisure_swimming_pool] {
-     AREA { color: #74daff;}
+     AREA { color: @swimmingPoolColor;}
    }
-   [TYPE leisure_playground] AREA { color: #ccffff; }
-   [TYPE leisure_garden] AREA { color: #ceeca8; }
+   [TYPE leisure_playground] AREA { color: @playgroundColor; }
+   [TYPE leisure_garden] AREA { color: @gardenColor; }
    [TYPE building] {
      AREA { color: @buildingColor; }
-     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     AREA.BORDER { color: @buildingBorderColor; width: 0.1mm; }
      AREA.TEXT { label: IName; color: @labelColor; }
    }
    [TYPE amenity_fuel_building] {
-     AREA  { color: #bcbcbc; }
-     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     AREA  { color: @fuelBuildingColor; }
+     AREA.BORDER { color: @fuelBuildingBorderColor; width: 0.1mm; }
      AREA.ICON {name: fuel; }
      AREA.TEXT {label: IName; color: @fuelSymbolColor;}
   }
 
    [TYPE amenity_hospital_building] {
-     AREA { color: #b89c9c; }
-     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     AREA { color: @hospitalBuildingColor; }
+     AREA.BORDER { color: @hospitalBuildingBorderColor; width: 0.1mm; }
    }
 
    [TYPE amenity_parking_building] {
-     AREA { color: #c4c393; }
-     AREA.BORDER { color: #887b7b; width: 0.1mm; }
+     AREA { color: @parkingBuildingColor; }
+     AREA.BORDER { color: @parkingBuildingBorderColor; width: 0.1mm; }
      AREA.ICON { name: parking;}
    }
 
    [TYPE amenity_post_office_building] {
       AREA { color: @postColor; }
-      AREA.BORDER { color: #887b7b; width: 0.1mm; }
+      AREA.BORDER { color: @postBuildingBorderColor; width: 0.1mm; }
    }
    [TYPE amenity_post_office] AREA { color: #f0f0d8; }
 
@@ -1820,7 +1889,7 @@ STYLE
          amenity_library_building,
          amenity_school_building] {
       AREA { color: @buildingColor; }
-      AREA.BORDER { color: #887b7b; width: 0.1mm; }
+      AREA.BORDER { color: @amenityBuildingBorderColor; width: 0.1mm; }
    }
    [TYPE amenity] AREA { color: @buildingColor; }
    [TYPE power_generator] AREA { color: #bca9a9; }
@@ -1982,10 +2051,10 @@ STYLE
    }
  }
 
- [MAG 17-] {
+ [MAG 16-] {
    [TYPE amenity_parking] {
-     AREA { color: #f6eeb6; }
-     AREA.BORDER { color: #887b7b;width: 0.1mm; }
+     AREA { color: @parkingColor; }
+     AREA.BORDER { color: @parkingBorderColor; width: 0.1mm; }
      AREA.ICON { name: parking;}
      NODE.ICON { symbol: amenity_parking; name: parking; }
    }
@@ -1999,8 +2068,8 @@ STYLE
    [TYPE amenity] NODE.ICON { symbol: amenity; }
 
    [TYPE barrier_fence] {
-      WAY {color: #aaaaaa; displayWidth: 0.1mm;}
-      AREA.BORDER {color: #aaaaaa; width: 0.1mm;}
+      WAY {color: @fenceColor; displayWidth: 0.1mm;}
+      AREA.BORDER {color: @fenceColor; width: 0.1mm;}
    }
 
    [TYPE building_garage] AREA { color: #bcbcbc; }
