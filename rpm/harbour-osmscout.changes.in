@@ -667,7 +667,7 @@
 - wrap long error messages in map downloader
 - support for opening "geo" links in the main package, no need to install separate harbour-osmscout-open-url package anymore
 
-* 202X-XX-XX Lukáš Karas <lukas.karas@centrum.cz> 2.42
+* 2026-02-22 Lukáš Karas <lukas.karas@centrum.cz> 2.42
 - add tourism_attraction_building and historic_building to outdoor map style
 - fix rendering on database boundaries, when objects from multiple databases may overlap
 - make world base map more rich - show country borders, names of the big cities, oceans, seas...
