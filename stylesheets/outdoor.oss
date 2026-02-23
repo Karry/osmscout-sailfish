@@ -2231,7 +2231,7 @@ STYLE
    [TYPE place_county] NODE.TEXT {label: IName; color: @labelColor; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: 5;}
  }
 
- [MAG stateOver-region] {
+ [MAG state-region] {
    [TYPE place_capitalcity] {
     NODE.ICON { symbol: place_capital_city; priority: @labelPrioMillionCity; }
    }
@@ -2239,7 +2239,7 @@ STYLE
     NODE.ICON { symbol: place_city; priority: @labelPrioMillionCity; }
    }
  }
- [MAG stateOver-city] {
+ [MAG state-city] {
    [TYPE place_capitalcity] {
     NODE.TEXT {label: IName; color: @labelColor; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: 6; }
    }

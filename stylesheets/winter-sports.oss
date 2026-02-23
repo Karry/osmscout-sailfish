@@ -1226,7 +1226,7 @@ STYLE
    [TYPE place_county] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; priority: @labelPrioCounty; color: @labelColor; }
  }
 
- [MAG stateOver-region] {
+ [MAG state-region] {
    [TYPE place_millioncity] {
     NODE.ICON { symbol: place_city; priority: @labelPrioMillionCity; }
    }
@@ -1234,11 +1234,11 @@ STYLE
      NODE.ICON { symbol: place_capital_city; priority: @labelPrioCapitalCity; }
    }
  }
- [MAG stateOver-city] {
-   [TYPE place_millioncity] {
-    NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: @labelPrioMillionCity; color: @labelColor; }
-   }
+ [MAG state-city] {
+   [TYPE place_millioncity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: @labelPrioMillionCity; color: @labelColor; }
    [TYPE place_capitalcity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @placeEmphasizeColor; color: @labelColor; size: 1.5; }
+ }
+ [MAG stateOver-city] {
    [TYPE place_halfmillioncity, place_bigcity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: @labelPrioBigCity; color: @labelColor; }
  }
 
