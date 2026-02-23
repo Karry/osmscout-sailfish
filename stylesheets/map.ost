@@ -1430,6 +1430,15 @@ TYPES
       ADDRESS POI
       GROUP religious, routingPOI
 
+  // old type name - for green tests
+  TYPE christian_church
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="church")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
   TYPE christian_cathedral_building
     = AREA ("amenity"=="place_of_worship" AND
             "religion"=="christian" AND
