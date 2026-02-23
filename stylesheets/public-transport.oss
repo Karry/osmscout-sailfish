@@ -259,11 +259,15 @@ STYLE
   // Places
   //
 
-  [TYPE place_millioncity] {
-    [MAG state-region] NODE.ICON {symbol: place_city;}
+  [TYPE place_capitalcity] {
+    [MAG state-region] NODE.ICON {symbol: place_capital_city;}
     [MAG state-proximity] NODE.TEXT {label: Name.name; style: emphasize; color: #000000; size: 1.7; scaleMag: county; priority: 2;}
   }
-  [TYPE place_bigcity] {
+  [TYPE place_millioncity] {
+    [MAG state-region] NODE.ICON {symbol: place_city;}
+    [MAG state-proximity] NODE.TEXT {label: Name.name; style: emphasize; color: #000000; size: 1.7; scaleMag: county; priority: 3;}
+  }
+  [TYPE place_halfmillioncity, place_bigcity] {
     [MAG county-region] NODE.ICON {symbol: place_city; }
     [MAG county-city] NODE.TEXT {label: Name.name; style: emphasize; color: #000000; size: 1.5; scaleMag: region; priority: 3;}
   }

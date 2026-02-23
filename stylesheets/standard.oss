@@ -89,11 +89,12 @@ CONST
   UINT labelPrioSea                 = 4;
   UINT labelPrioRegion              = 4;
   UINT labelPrioCounty              = 5;
-  UINT labelPrioMillionCity         = 6;
-  UINT labelPrioBigCity             = 7;
-  UINT labelPrioCity                = 8;
+  UINT labelPrioCapitalCity         = 6;
+  UINT labelPrioMillionCity         = 7;
+  UINT labelPrioBigCity             = 8;
+  UINT labelPrioCity                = 9;
 
-  UINT labelShieldMotorway          = 9;
+  UINT labelShieldMotorway          = 10;
   UINT labelShieldTrunk             = 11;
   UINT labelShieldPrimary           = 11;
 
@@ -1828,17 +1829,23 @@ STYLE
    [TYPE place_millioncity] {
     NODE.ICON { symbol: place_city; priority: @labelPrioMillionCity; }
    }
+   [TYPE place_capitalcity] {
+    NODE.ICON { symbol: place_capital_city; priority: @labelPrioCapitalCity; }
+   }
  }
  [MAG stateOver-city] {
    [TYPE place_millioncity] {
     NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: @labelPrioMillionCity; color: @labelColor; }
    }
-   [TYPE place_bigcity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: @labelPrioBigCity; color: @labelColor; }
+   [TYPE place_capitalcity] {
+    NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.5; priority: @labelPrioCapitalCity; color: @labelColor; }
+   }
+   [TYPE place_halfmillioncity, place_bigcity] NODE.TEXT {label: IName; style: emphasize; emphasizeColor: @emphasizeColor; size: 1.4; priority: @labelPrioBigCity; color: @labelColor; }
  }
 
  [MAG proximity-city] {
    [TYPE place_millioncity] NODE.TEXT {size: 1.0; scaleMag: county; color: @labelColor; }
-   [TYPE place_bigcity] NODE.TEXT {size: 1.0; scaleMag: county; color: @labelColor; }
+   [TYPE place_halfmillioncity, place_bigcity] NODE.TEXT {size: 1.0; scaleMag: county; color: @labelColor; }
    [TYPE place_city] NODE.TEXT {scaleMag: region; color: @labelColor; }
  }
  [MAG proximity-suburb] {
