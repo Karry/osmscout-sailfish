@@ -673,3 +673,6 @@
 - make world base map more rich - show country borders, names of the big cities, oceans, seas...
 - improve night color of outdoor map style
 - update translations (Finnish)
+
+* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.43
+- fix regression: render overlay objects even when offline map is disabled
