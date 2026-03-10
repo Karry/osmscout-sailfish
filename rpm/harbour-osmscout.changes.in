@@ -678,3 +678,4 @@
 - fix regression: render overlay objects even when offline map is disabled
 - search in basemap, it allow to search country names or capital cities even in case that specific map is not downloaded
 - fix daylight switch, when some area patterns do not update its colors
+- fix: loading missing route data on stylesheet change
