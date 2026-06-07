@@ -136,6 +136,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON) # build should fail when compiler don't supp
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
+add_definitions(-DQT_FEATURE_future=0) # futures from Qt 5.6 cannot be build with C++20
+
 add_definitions( -Wall -Wextra -pedantic -Wno-unused-function )
 add_definitions( -fno-omit-frame-pointer -fstack-protector-all -fPIC )
 
