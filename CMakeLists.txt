@@ -193,7 +193,7 @@ message(STATUS " DEBUG_GROUNDTILES ....................... ${DEBUG_GROUNDTILES}"
 message(STATUS " QT_QML_DEBUG ............................ ${QT_QML_DEBUG}")
 
 message(STATUS "")
-message(STATUS "Requiered dependencies:")
+message(STATUS "Required dependencies:")
 
 PRINT_LIBRARY_STATUS("Qt5"                    "http://www.qtsoftware.com"                       "(version >= ${QT_MIN_VERSION})"     Qt5_FOUND)
 #PRINT_LIBRARY_STATUS("libprotobuf"            "https://github.com/google/protobuf"             ""      PROTOBUF_FOUND)
