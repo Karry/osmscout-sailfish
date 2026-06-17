@@ -60,28 +60,6 @@ include(CheckCXXCompilerFlag)
 include(features)
 
 # ==================================================================================================
-# Find dependencies
-
-find_package( Qt5 ${QT_MIN_VERSION}
-              REQUIRED NO_MODULE COMPONENTS
-              Core
-              DBus
-              Gui
-              LinguistTools
-              Multimedia
-              Network
-              Positioning
-              Qml
-              Quick
-              Sql
-              Svg
-              Xml
-)
-find_package(Qt5LinguistTools)
-find_package(OpenMP REQUIRED)
-find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp
-
-# ==================================================================================================
 
 option(DEBUG_LABEL_LAYOUTER "Print extra debug messages during label layouting" OFF)
 if (LABEL_LAYOUTER_DEBUG)
@@ -147,6 +125,35 @@ string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_
 string( REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 string( REPLACE "-DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
+# CMake doesn't add "-pie" by default for executables (CMake issue #14983)
+# it is necessary for accelerated start by mapplauncherd,
+# see https://git.sailfishos.org/mer-core/mapplauncherd for details
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
+
+set(HARBOUR_APP_NAME harbour-osmscout)
+
+# ==================================================================================================
+# Find dependencies
+
+find_package( Qt5 ${QT_MIN_VERSION}
+        REQUIRED NO_MODULE COMPONENTS
+        Core
+        DBus
+        Gui
+        LinguistTools
+        Multimedia
+        Network
+        Positioning
+        Qml
+        Quick
+        Sql
+        Svg
+        Xml
+)
+find_package(Qt5LinguistTools)
+find_package(OpenMP REQUIRED)
+find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp
+
 # add function name to Qt log messages (even in release build)
 add_definitions( -DQT_MESSAGELOGCONTEXT )
 
@@ -159,12 +166,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 set(OSMSCOUT_HAVE_OPENMP ${OPENMP_FOUND})
 
-# CMake doesn't add "-pie" by default for executables (CMake issue #14983)
-# it is necessary for accelerated start by mapplauncherd,
-# see https://git.sailfishos.org/mer-core/mapplauncherd for details
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
-
-set(HARBOUR_APP_NAME harbour-osmscout)
+add_subdirectory(dependencies)
 
 # ==================================================================================================
 # Print build configuration
@@ -214,91 +216,6 @@ endif()
 
 message(STATUS "----------------------------------------------------------------------------------")
 message(STATUS "")
-
-# ==================================================================================================
-# libmarisa
-
-# libmarisa don't have cmake based build, but it is relatively small,
-# so we define library target here
-
-set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie)
-set(MARISA_INCLUDE_DIRS
-    ${MARISA_ROOT}/lib
-    ${MARISA_ROOT}/include)
-
-set(MARISA_SRC
-    ${MARISA_ROOT}/lib/marisa/agent.cc
-    ${MARISA_ROOT}/lib/marisa/exception.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/io/mapper.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/io/reader.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/io/writer.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/trie/louds-trie.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/trie/tail.cc
-    ${MARISA_ROOT}/lib/marisa/grimoire/vector/bit-vector.cc
-    ${MARISA_ROOT}/lib/marisa/trie.cc
-    ${MARISA_ROOT}/lib/marisa/keyset.cc
-)
-
-include_directories(
-  ${MARISA_INCLUDE_DIRS}
-)
-
-add_library(marisa ${MARISA_SRC})
-set_property(TARGET marisa PROPERTY CXX_STANDARD 20)
-
-install(TARGETS marisa
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib)
-
-# skip marisa autodetection and setup these properties explicitly
-
-# This one is used by `create_private_config` function (features.cmake)
-# for generating private Config.h from template Config.h.cmake
-set(OSMSCOUT_HAVE_LIB_MARISA TRUE)
-
-# This one is used by other CMakeLists.txt files for add Marisa-specific classes
-set(MARISA_FOUND TRUE)
-
-# used by linker
-set(MARISA_LIBRARIES marisa)
-
-# ==================================================================================================
-# OSM Scout library
-
-set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
-set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
-set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR}/dependencies/libosmscout)
-
-set(OSMSCOUT_INCLUDE_DIRS
-  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
-  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
-  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
-
-  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-gpx/include
-  ${OSMSCOUT_BASE_DIR_BUILD}/libosmscout-gpx/include
-
-  ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
-)
-
-# we are including libosmscout subdirectories directly, we are responsible
-# to setup all variables correctly
-include(dependencies/libosmscout/cmake/ProjectConfig.cmake)
-
-add_subdirectory(dependencies/libosmscout/libosmscout)
-add_subdirectory(dependencies/libosmscout/libosmscout-map)
-add_subdirectory(dependencies/libosmscout/libosmscout-map-qt)
-add_subdirectory(dependencies/libosmscout/libosmscout-gpx)
-add_subdirectory(dependencies/libosmscout/libosmscout-client)
-add_subdirectory(dependencies/libosmscout/libosmscout-client-qt)
-
-set_property(TARGET OSMScout         PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutMap      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutMapQt    PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutGPX      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutClientQt PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-
-target_compile_definitions(OSMScoutClientQt PRIVATE LIBOSMSCOUT_VERSION_STRING="${LIBOSMSCOUT_GIT_HASH}")
 
 # ==================================================================================================
 # harbour-osmscout
