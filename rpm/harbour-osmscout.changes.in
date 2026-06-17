@@ -679,3 +679,6 @@
 - search in basemap, it allow to search country names or capital cities even in case that specific map is not downloaded
 - fix daylight switch, when some area patterns do not update its colors
 - fix: loading missing route data on stylesheet change
+
+* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.44
+- improve suggested lanes during navigation
