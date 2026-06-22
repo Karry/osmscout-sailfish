@@ -21,7 +21,9 @@
 
 #include <osmscoutclientqt/OSMScoutQt.h>
 
+#include <QTimer>
 #include <QQmlEngine>
+#include <QSettings>
 
 #include <memory>
 

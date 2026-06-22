@@ -23,7 +23,9 @@
 #include <osmscoutclientqt/OSMScoutQt.h>
 
 #include <QDebug>
-#include <QtDBus/QtDBus>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusReply>
 
 #include <malloc.h>
 

@@ -22,6 +22,7 @@
 #include <osmscoutclientqt/OSMScoutQt.h>
 
 #include <QDebug>
+#include <QDir>
 #include <QStandardPaths>
 #include <QCoreApplication>
 
