@@ -1,4 +1,9 @@
-OSM Scout for Sailfish is licensed under GPLv2.
+OSM Scout for Sailfish is licensed under GPLv2-or-later (GPLv2+).
+
+Note: when built with the bundled Piper TTS stack, the application links
+espeak-ng and piper1-gpl, which are licensed under GPLv3. The resulting
+combined binary is therefore effectively distributed under GPLv3.
+(onnxruntime is MIT licensed.)
 
 OSM Scout library is licensed under LGPLv2.
 
