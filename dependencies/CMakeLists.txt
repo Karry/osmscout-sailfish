@@ -154,11 +154,22 @@ if (BUILD_PIPER_TTS)
   set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_INSTALL_DIR}/include)
   set(ONNXRUNTIME_SHARED_LIB  ${ONNXRUNTIME_INSTALL_DIR}/lib/libonnxruntime.so)
 
-  # onnxruntime translation units (onnx, protobuf, abseil) are memory hungry
-  # (>1.5 GB each). The RPM build already runs the top-level make with all cores,
-  # so we cap the parallelism of the onnxruntime sub-build to avoid exhausting RAM.
-  set(ONNXRUNTIME_BUILD_PARALLEL_LEVEL "2" CACHE STRING
-      "Maximum number of parallel compile jobs for the onnxruntime sub-build")
+  # onnxruntime translation units (onnx, protobuf, abseil and especially the CPU
+  # provider kernels such as element_wise_ops.cc) are extremely memory hungry:
+  # at -O3 a single file can need ~1.5-2.5 GB of RAM. Building more than one
+  # such file at a time exhausts memory ("virtual memory exhausted: Cannot allocate memory").
+  # Build the onnxruntime sub-tree strictly serially.
+  set(ONNXRUNTIME_BUILD_PARALLEL_LEVEL "1" CACHE STRING
+          "Maximum number of parallel compile jobs for the onnxruntime sub-build")
+
+  # Even a single onnxruntime file at -O3 can spike to >2.5 GB. Make GCC's
+  # garbage collector far more aggressive so it frees memory during compilation
+  # instead of growing the heap unbounded. This cuts peak memory dramatically
+  # (at a small build-time cost) and keeps even the heaviest kernels within the
+  # 3.5 GB / no-swap budget. These --param flags are honoured regardless of the
+  # -O level onnxruntime selects.
+  set(ONNXRUNTIME_LOW_MEM_CXX_FLAGS
+          "--param ggc-min-expand=10 --param ggc-min-heapsize=32768")
 
   ExternalProject_Add(onnxruntime_external
       SOURCE_DIR       ${ONNXRUNTIME_SOURCE}/cmake
@@ -168,8 +179,15 @@ if (BUILD_PIPER_TTS)
       INSTALL_DIR      ${ONNXRUNTIME_INSTALL_DIR}
       CMAKE_ARGS
           -DCMAKE_INSTALL_PREFIX=${ONNXRUNTIME_INSTALL_DIR}
-          -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+          # Always build onnxruntime in Release (no -g): it is a vendored
+          # dependency we do not debug, and the debug info on huge generated
+          # files such as onnx/version_converter/convert.cc triggers an
+          # assembler ".gcc_except_table" error / cc1plus crash on the aarch64
+          # toolchain. Release also reduces build time and memory usage.
+          -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
+          -DCMAKE_C_FLAGS=${ONNXRUNTIME_LOW_MEM_CXX_FLAGS}
+          -DCMAKE_CXX_FLAGS=${ONNXRUNTIME_LOW_MEM_CXX_FLAGS}
           -Donnxruntime_BUILD_SHARED_LIB:BOOL=ON
           -Donnxruntime_BUILD_UNIT_TESTS:BOOL=OFF
           -Donnxruntime_USE_FULL_PROTOBUF:BOOL=ON
