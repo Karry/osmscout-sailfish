@@ -15,7 +15,7 @@ Name:       harbour-osmscout
 
 # don't setup rpm requires
 # list here all the libraries your RPM installs
-%define __requires_exclude ^ld-linux|libmarisa|libosmscout.*$
+%define __requires_exclude ^ld-linux|libmarisa|libonnxruntime|libosmscout.*$
 
 # << macros
 
@@ -23,7 +23,7 @@ Summary:    OSMScout for Sailfish
 Version:    2.43
 Release:    1
 Group:      Qt/Qt
-License:    GPLv2
+License:    GPLv2+
 URL:        https://github.com/Karry/osmscout-sailfish
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  pkgconfig(libxml-2.0)
@@ -107,6 +107,17 @@ rm %{buildroot}%{_datadir}/%{name}/qml/desktop.qml
 
 # -- ship all shared unallowed libraries with the app
 mkdir -p %{buildroot}%{_datadir}/%{name}/lib
+
+# -- bundle the Piper TTS shared dependency (onnxruntime) and espeak-ng data
+if [ -f rpmbuilddir-%{_arch}/dependencies/onnxruntime/install/lib/libonnxruntime.so ] ; then
+  cp -a rpmbuilddir-%{_arch}/dependencies/onnxruntime/install/lib/libonnxruntime.so* \
+        %{buildroot}%{_datadir}/%{name}/lib/
+fi
+if [ -d rpmbuilddir-%{_arch}/dependencies/espeak-ng/install/share/espeak-ng-data ] ; then
+  mkdir -p %{buildroot}%{_datadir}/%{name}/espeak-ng-data
+  cp -a rpmbuilddir-%{_arch}/dependencies/espeak-ng/install/share/espeak-ng-data/. \
+        %{buildroot}%{_datadir}/%{name}/espeak-ng-data/
+fi
 
 # << install post
 

@@ -556,6 +556,19 @@ target_link_libraries(MediaPlayer
         )
 
 # ==================================================================================================
+# PiperTest
+
+if (PIPER_FOUND)
+    add_executable(PiperTest src/PiperTest.cpp)
+    set_property(TARGET PiperTest PROPERTY CXX_STANDARD 20)
+    target_include_directories(PiperTest PRIVATE
+            ${PIPER_INCLUDE_DIRS})
+
+    target_link_libraries(PiperTest
+            ${PIPER_LIBRARIES})
+endif()
+
+# ==================================================================================================
 # OSTAndOSSCheck
 
 add_executable(OSTAndOSSCheck ${OSMSCOUT_BASE_DIR_SOURCE}/Tests/src/OSTAndOSSTest.cpp)

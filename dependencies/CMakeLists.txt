@@ -85,3 +85,133 @@ target_compile_definitions(OSMScoutClientQt PRIVATE LIBOSMSCOUT_VERSION_STRING="
 
 set(OSMSCOUT_BASE_DIR_SOURCE ${OSMSCOUT_BASE_DIR_SOURCE} PARENT_SCOPE)
 set(OSMSCOUT_INCLUDE_DIRS ${OSMSCOUT_INCLUDE_DIRS} PARENT_SCOPE)
+
+# ==================================================================================================
+# Piper TTS stack (espeak-ng + onnxruntime + libpiper)
+#
+# These are third-party projects (not "buddy" projects like libosmscout / marisa),
+# so we build them as isolated ExternalProjects from their vendored submodules.
+#
+#  - espeak-ng   : built static, linked into libpiper
+#  - onnxruntime : built as a shared library and bundled into the app private lib dir
+#                  (Harbour allows bundling otherwise-disallowed .so files there).
+#                  Building it fully static would require resolving ~13 transitive
+#                  archives + a find_package() superbuild, which libpiper does not expect.
+#  - libpiper    : single translation unit (piper.cpp) exposing a C API, built static here
+
+include(ExternalProject)
+
+option(BUILD_PIPER_TTS "Build the vendored Piper TTS stack (espeak-ng, onnxruntime, libpiper)" ON)
+
+if (BUILD_PIPER_TTS)
+
+  set(PIPER_ROOT       ${CMAKE_HOME_DIRECTORY}/dependencies/piper1-gpl/libpiper)
+  set(ESPEAKNG_SOURCE  ${CMAKE_HOME_DIRECTORY}/dependencies/espeak-ng)
+  set(ONNXRUNTIME_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/onnxruntime)
+
+  # ------------------------------------------------------------------------------------------------
+  # espeak-ng (static)
+
+  set(ESPEAKNG_PREFIX       ${CMAKE_CURRENT_BINARY_DIR}/espeak-ng)
+  set(ESPEAKNG_BINARY_DIR   ${ESPEAKNG_PREFIX}/build)
+  set(ESPEAKNG_INSTALL_DIR  ${ESPEAKNG_PREFIX}/install)
+  set(ESPEAKNG_STATIC_LIB   ${ESPEAKNG_INSTALL_DIR}/lib/libespeak-ng.a)
+  set(UCD_STATIC_LIB        ${ESPEAKNG_BINARY_DIR}/src/ucd-tools/libucd.a)
+  set(ESPEAKNG_DATA_DIR     ${ESPEAKNG_INSTALL_DIR}/share/espeak-ng-data)
+
+  ExternalProject_Add(espeak_ng_external
+      SOURCE_DIR       ${ESPEAKNG_SOURCE}
+      DOWNLOAD_COMMAND ""
+      PREFIX           ${ESPEAKNG_PREFIX}
+      BINARY_DIR       ${ESPEAKNG_BINARY_DIR}
+      INSTALL_DIR      ${ESPEAKNG_INSTALL_DIR}
+      CMAKE_ARGS
+          -DCMAKE_INSTALL_PREFIX=${ESPEAKNG_INSTALL_DIR}
+          -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+          -DBUILD_SHARED_LIBS:BOOL=OFF
+          -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
+          -DUSE_ASYNC:BOOL=OFF
+          -DUSE_MBROLA:BOOL=OFF
+          -DUSE_LIBSONIC:BOOL=OFF
+          -DUSE_LIBPCAUDIO:BOOL=OFF
+          -DUSE_KLATT:BOOL=OFF
+          -DUSE_SPEECHPLAYER:BOOL=OFF
+          -DEXTRA_cmn:BOOL=ON
+          -DEXTRA_ru:BOOL=ON
+          "-DCMAKE_C_FLAGS=-D_FILE_OFFSET_BITS=64 -I${ESPEAKNG_SOURCE}/src/ucd-tools/src/include"
+          "-DCMAKE_CXX_FLAGS=-D_FILE_OFFSET_BITS=64 -I${ESPEAKNG_SOURCE}/src/ucd-tools/src/include"
+      BUILD_BYPRODUCTS
+          ${ESPEAKNG_STATIC_LIB}
+          ${UCD_STATIC_LIB}
+  )
+
+  # ------------------------------------------------------------------------------------------------
+  # onnxruntime (shared, bundled)
+
+  set(ONNXRUNTIME_PREFIX      ${CMAKE_CURRENT_BINARY_DIR}/onnxruntime)
+  set(ONNXRUNTIME_BINARY_DIR  ${ONNXRUNTIME_PREFIX}/build)
+  set(ONNXRUNTIME_INSTALL_DIR ${ONNXRUNTIME_PREFIX}/install)
+  set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_INSTALL_DIR}/include)
+  set(ONNXRUNTIME_SHARED_LIB  ${ONNXRUNTIME_INSTALL_DIR}/lib/libonnxruntime.so)
+
+  # onnxruntime translation units (onnx, protobuf, abseil) are memory hungry
+  # (>1.5 GB each). The RPM build already runs the top-level make with all cores,
+  # so we cap the parallelism of the onnxruntime sub-build to avoid exhausting RAM.
+  set(ONNXRUNTIME_BUILD_PARALLEL_LEVEL "2" CACHE STRING
+      "Maximum number of parallel compile jobs for the onnxruntime sub-build")
+
+  ExternalProject_Add(onnxruntime_external
+      SOURCE_DIR       ${ONNXRUNTIME_SOURCE}/cmake
+      DOWNLOAD_COMMAND ""
+      PREFIX           ${ONNXRUNTIME_PREFIX}
+      BINARY_DIR       ${ONNXRUNTIME_BINARY_DIR}
+      INSTALL_DIR      ${ONNXRUNTIME_INSTALL_DIR}
+      CMAKE_ARGS
+          -DCMAKE_INSTALL_PREFIX=${ONNXRUNTIME_INSTALL_DIR}
+          -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+          -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
+          -Donnxruntime_BUILD_SHARED_LIB:BOOL=ON
+          -Donnxruntime_BUILD_UNIT_TESTS:BOOL=OFF
+          -Donnxruntime_USE_FULL_PROTOBUF:BOOL=ON
+      BUILD_COMMAND
+          ${CMAKE_COMMAND} --build <BINARY_DIR> --config Release
+              --parallel ${ONNXRUNTIME_BUILD_PARALLEL_LEVEL}
+      BUILD_BYPRODUCTS
+          ${ONNXRUNTIME_SHARED_LIB}
+  )
+
+  # onnxruntime installs the C/C++ API headers in a few nested directories
+  set(ONNXRUNTIME_INCLUDE_DIRS
+      ${ONNXRUNTIME_INCLUDE_DIR}
+      ${ONNXRUNTIME_INCLUDE_DIR}/onnxruntime
+      ${ONNXRUNTIME_INCLUDE_DIR}/onnxruntime/core/session
+  )
+
+  # ------------------------------------------------------------------------------------------------
+  # libpiper (static) - single translation unit exposing the C API
+
+  add_library(piper STATIC ${PIPER_ROOT}/src/piper.cpp)
+  set_property(TARGET piper PROPERTY CXX_STANDARD 17)
+  add_dependencies(piper espeak_ng_external onnxruntime_external)
+
+  target_include_directories(piper PUBLIC
+      ${PIPER_ROOT}/include
+      ${ESPEAKNG_INSTALL_DIR}/include
+      ${ONNXRUNTIME_INCLUDE_DIRS}
+  )
+
+  target_link_libraries(piper PUBLIC
+      ${ESPEAKNG_STATIC_LIB}
+      ${UCD_STATIC_LIB}
+      ${ONNXRUNTIME_SHARED_LIB}
+  )
+
+  # exported for the application / test binaries and packaging
+  set(PIPER_FOUND TRUE PARENT_SCOPE)
+  set(PIPER_LIBRARIES piper PARENT_SCOPE)
+  set(PIPER_INCLUDE_DIRS ${PIPER_ROOT}/include PARENT_SCOPE)
+  set(PIPER_ONNXRUNTIME_SHARED_LIB ${ONNXRUNTIME_SHARED_LIB} PARENT_SCOPE)
+  set(PIPER_ESPEAKNG_DATA_DIR ${ESPEAKNG_DATA_DIR} PARENT_SCOPE)
+
+endif()
+
