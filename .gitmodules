@@ -7,3 +7,12 @@
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/Karry/osmscout-sailfish.wiki.git
+[submodule "dependencies/espeak-ng"]
+	path = dependencies/espeak-ng
+	url = https://github.com/espeak-ng/espeak-ng.git
+[submodule "dependencies/piper1-gpl"]
+	path = dependencies/piper1-gpl
+	url = https://github.com/OHF-Voice/piper1-gpl.git
+[submodule "dependencies/onnxruntime"]
+	path = dependencies/onnxruntime
+	url = https://github.com/microsoft/onnxruntime.git

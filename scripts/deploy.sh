@@ -86,6 +86,18 @@ sfdk engine exec sudo cp \
     /srv/mer/toolings/SailfishOS-${OS_VERSION}/usr/lib/libgomp.so.1.0.0 \
     /srv/mer/targets/SailfishOS-${OS_VERSION}-i486/usr/lib/libgomp.so.1
 
+# HACK: the aarch64 target ships libgomp.so.1 / libgomp.so.1.0.0 but not the
+# libgomp.so linker symlink, which is needed to link OpenMP (used by the app
+# and by the bundled onnxruntime build). Create it in both the regular and the
+# .default snapshot sysroots.
+for aarch64_target in \
+    /srv/mer/targets/SailfishOS-${OS_VERSION}-aarch64 \
+    /srv/mer/targets/SailfishOS-${OS_VERSION}-aarch64.default ; do
+  sfdk engine exec sudo sh -c \
+    "test -d ${aarch64_target}/usr/lib64 && \
+     ln -sf libgomp.so.1.0.0 ${aarch64_target}/usr/lib64/libgomp.so || true"
+done
+
 sfdk --quiet  build --enable-debug
 if [ $? -ne 0 ] ; then
   echo
