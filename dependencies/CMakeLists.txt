@@ -145,6 +145,27 @@ if (BUILD_PIPER_TTS)
           ${UCD_STATIC_LIB}
   )
 
+  # NOTE on how these libraries are consumed (applies to espeak-ng, ucd and
+  # onnxruntime below):
+  #
+  # We deliberately link them as -L<dir> -l<name> link *flags* rather than as
+  # absolute file paths or IMPORTED targets. With the Unix Makefiles generator,
+  # an absolute library path (or an IMPORTED target's IMPORTED_LOCATION) becomes
+  # a file-level prerequisite of every consuming target's link rule. The rule
+  # that actually *produces* these files (ExternalProject BUILD_BYPRODUCTS) only
+  # exists in this directory's makefiles, so a consumer in another directory
+  # (the top-level PiperTest) fails at build time with
+  #   "No rule to make target '.../libonnxruntime.so', needed by 'PiperTest'".
+  # Passing them as -l flags avoids the spurious prerequisite entirely; correct
+  # build ordering is enforced explicitly via add_dependencies() on the real
+  # (non-imported) consuming targets.
+  set(ESPEAKNG_LINK_DIRS
+      "${ESPEAKNG_INSTALL_DIR}/lib"
+      "${ESPEAKNG_BINARY_DIR}/src/ucd-tools")
+  set(ESPEAKNG_LINK_FLAGS
+      "-lespeak-ng"
+      "-lucd")
+
   # ------------------------------------------------------------------------------------------------
   # onnxruntime (shared, bundled)
 
@@ -179,6 +200,11 @@ if (BUILD_PIPER_TTS)
       INSTALL_DIR      ${ONNXRUNTIME_INSTALL_DIR}
       CMAKE_ARGS
           -DCMAKE_INSTALL_PREFIX=${ONNXRUNTIME_INSTALL_DIR}
+          # Force the install lib dir to "lib". onnxruntime uses GNUInstallDirs,
+          # which resolves to "lib64" on 64-bit targets (aarch64) but "lib" on
+          # 32-bit ones (armv7hl/i486). Pinning it keeps ONNXRUNTIME_SHARED_LIB,
+          # the -L link path and the RPM packaging path identical on every arch.
+          -DCMAKE_INSTALL_LIBDIR=lib
           # Always build onnxruntime in Release (no -g): it is a vendored
           # dependency we do not debug, and the debug info on huge generated
           # files such as onnx/version_converter/convert.cc triggers an
@@ -205,6 +231,12 @@ if (BUILD_PIPER_TTS)
       ${ONNXRUNTIME_INCLUDE_DIR}/onnxruntime/core/session
   )
 
+  # Consume libonnxruntime.so as -L/-l link flags (see the espeak-ng note above)
+  # so the raw .so path never becomes a Makefile prerequisite in PiperTest's
+  # top-level link rule.
+  set(ONNXRUNTIME_LINK_DIRS  "${ONNXRUNTIME_INSTALL_DIR}/lib")
+  set(ONNXRUNTIME_LINK_FLAGS "-lonnxruntime")
+
   # ------------------------------------------------------------------------------------------------
   # libpiper (static) - single translation unit exposing the C API
 
@@ -218,10 +250,14 @@ if (BUILD_PIPER_TTS)
       ${ONNXRUNTIME_INCLUDE_DIRS}
   )
 
+  target_link_directories(piper PUBLIC
+      ${ESPEAKNG_LINK_DIRS}
+      ${ONNXRUNTIME_LINK_DIRS}
+  )
+
   target_link_libraries(piper PUBLIC
-      ${ESPEAKNG_STATIC_LIB}
-      ${UCD_STATIC_LIB}
-      ${ONNXRUNTIME_SHARED_LIB}
+      ${ESPEAKNG_LINK_FLAGS}
+      ${ONNXRUNTIME_LINK_FLAGS}
   )
 
   # exported for the application / test binaries and packaging

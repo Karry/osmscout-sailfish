@@ -566,6 +566,11 @@ if (PIPER_FOUND)
 
     target_link_libraries(PiperTest
             ${PIPER_LIBRARIES})
+
+    # libpiper links libonnxruntime.so by absolute path, which Make only knows
+    # how to build through the onnxruntime_external ExternalProject. Depend on it
+    # explicitly so PiperTest waits for (and has a rule for) the shared library.
+    add_dependencies(PiperTest onnxruntime_external)
 endif()
 
 # ==================================================================================================
