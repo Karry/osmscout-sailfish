@@ -15,7 +15,7 @@ Name:       harbour-osmscout
 
 # don't setup rpm requires
 # list here all the libraries your RPM installs
-%define __requires_exclude ^ld-linux|libmarisa|libosmscout.*$
+%define __requires_exclude ^ld-linux|libmarisa|libonnxruntime|libosmscout.*$
 
 # << macros
 
@@ -23,7 +23,7 @@ Summary:    OSMScout for Sailfish
 Version:    2.43
 Release:    1
 Group:      Qt/Qt
-License:    GPLv2
+License:    GPLv2+
 URL:        https://github.com/Karry/osmscout-sailfish
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  pkgconfig(libxml-2.0)
@@ -107,6 +107,28 @@ rm %{buildroot}%{_datadir}/%{name}/qml/desktop.qml
 
 # -- ship all shared unallowed libraries with the app
 mkdir -p %{buildroot}%{_datadir}/%{name}/lib
+
+# -- bundle the Piper TTS shared dependency (onnxruntime) and espeak-ng data
+if [ -f rpmbuilddir-%{_arch}/dependencies/onnxruntime/install/lib/libonnxruntime.so ] ; then
+  cp -a rpmbuilddir-%{_arch}/dependencies/onnxruntime/install/lib/libonnxruntime.so* \
+        %{buildroot}%{_datadir}/%{name}/lib/
+  # onnxruntime is built in Release (no -g) but still ships a very large static
+  # symbol table (.symtab) from onnx/protobuf/abseil/MLAS, ~25 MiB unstripped.
+  # RPM's automatic strip skips it because it lives under %{_datadir} rather than
+  # a standard library dir, so strip it explicitly. Plain strip keeps the dynamic
+  # symbol table (.dynsym) required to load/resolve the library. Operate on the
+  # real ELF file only, not the SONAME/version symlinks.
+  for sofile in %{buildroot}%{_datadir}/%{name}/lib/libonnxruntime.so* ; do
+    if [ -f "$sofile" ] && [ ! -L "$sofile" ] ; then
+      strip "$sofile"
+    fi
+  done
+fi
+if [ -d rpmbuilddir-%{_arch}/dependencies/espeak-ng/install/share/espeak-ng-data ] ; then
+  mkdir -p %{buildroot}%{_datadir}/%{name}/espeak-ng-data
+  cp -a rpmbuilddir-%{_arch}/dependencies/espeak-ng/install/share/espeak-ng-data/. \
+        %{buildroot}%{_datadir}/%{name}/espeak-ng-data/
+fi
 
 # << install post
 
