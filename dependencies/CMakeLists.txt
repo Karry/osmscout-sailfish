@@ -192,13 +192,47 @@ if (BUILD_PIPER_TTS)
   set(ONNXRUNTIME_LOW_MEM_CXX_FLAGS
           "--param ggc-min-expand=10 --param ggc-min-heapsize=32768")
 
+  # onnxruntime's denormal.cc and the MLAS kernels use SSE intrinsics (_mm_setcsr,
+  # _mm_getcsr, _MM_SET_FLUSH_ZERO_MODE, ...) unconditionally on x86. We override
+  # CMAKE_C/CXX_FLAGS below, which drops the optflags the rest of the app inherits
+  # from the RPM build (-m32 -msse -msse2 -march=i686 -mfpmath=sse). The sb2
+  # default for the SFOS 32-bit x86 ("i486") target is -march=i486 with no SSE,
+  # so those always_inline intrinsics fail with "target specific option mismatch".
+  # The actual i486 devices/emulator are SSE2-capable, so re-add the same SSE2
+  # baseline here. 64-bit (aarch64) and arm targets are unaffected.
+  set(ONNXRUNTIME_ARCH_FLAGS "")
+  if (CMAKE_CXX_FLAGS MATCHES "-m32")
+      set(ONNXRUNTIME_ARCH_FLAGS " -msse -msse2 -mfpmath=sse -march=i686")
+  endif()
+  set(ONNXRUNTIME_SUBBUILD_CXX_FLAGS "${ONNXRUNTIME_LOW_MEM_CXX_FLAGS}${ONNXRUNTIME_ARCH_FLAGS}")
+
   ExternalProject_Add(onnxruntime_external
       SOURCE_DIR       ${ONNXRUNTIME_SOURCE}/cmake
       DOWNLOAD_COMMAND ""
       PREFIX           ${ONNXRUNTIME_PREFIX}
       BINARY_DIR       ${ONNXRUNTIME_BINARY_DIR}
       INSTALL_DIR      ${ONNXRUNTIME_INSTALL_DIR}
+      # MlasInitAMX() references SYS_arch_prctl / AMX, which are x86-64 only, but
+      # is compiled under MLAS_TARGET_AMD64_IX86 (also 32-bit x86), breaking the
+      # SFOS 32-bit "i486" build. It is only ever *called* under MLAS_TARGET_AMD64,
+      # so guard its syscall body to 64-bit. The sed is scoped to the function and
+      # is idempotent (the substituted line no longer matches on re-runs). The
+      # onnxruntime submodule is built in-source and shared across all arch build
+      # dirs, so this may run more than once.
+      PATCH_COMMAND    sed -i
+          "/^MlasInitAMX()/,/^}/ s/^#if defined(__linux__)$/#if defined(MLAS_TARGET_AMD64) \\&\\& defined(__linux__)/"
+          ${ONNXRUNTIME_SOURCE}/onnxruntime/core/mlas/lib/platform.cpp
       CMAKE_ARGS
+          # onnxruntime forces COMPILE_WARNING_AS_ERROR ON per target (i.e.
+          # -Werror), which an explicit target property makes impossible to
+          # override with a -D variable. Newer compilers emit false-positive
+          # warnings onnxruntime's own -Wno-* list does not cover: e.g. host
+          # GCC 15 raises a bogus -Wmaybe-uninitialized deep inside libstdc++'s
+          # <format>/unicode.h while building logging.cc. This CMake command-line
+          # option globally forces warning-as-error off, so a newer host/target
+          # compiler cannot break this vendored build. It does not affect our
+          # own code's warning handling.
+          --compile-no-warning-as-error
           -DCMAKE_INSTALL_PREFIX=${ONNXRUNTIME_INSTALL_DIR}
           # Force the install lib dir to "lib". onnxruntime uses GNUInstallDirs,
           # which resolves to "lib64" on 64-bit targets (aarch64) but "lib" on
@@ -212,8 +246,8 @@ if (BUILD_PIPER_TTS)
           # toolchain. Release also reduces build time and memory usage.
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
-          -DCMAKE_C_FLAGS=${ONNXRUNTIME_LOW_MEM_CXX_FLAGS}
-          -DCMAKE_CXX_FLAGS=${ONNXRUNTIME_LOW_MEM_CXX_FLAGS}
+          -DCMAKE_C_FLAGS=${ONNXRUNTIME_SUBBUILD_CXX_FLAGS}
+          -DCMAKE_CXX_FLAGS=${ONNXRUNTIME_SUBBUILD_CXX_FLAGS}
           -Donnxruntime_BUILD_SHARED_LIB:BOOL=ON
           -Donnxruntime_BUILD_UNIT_TESTS:BOOL=OFF
           -Donnxruntime_USE_FULL_PROTOBUF:BOOL=ON
