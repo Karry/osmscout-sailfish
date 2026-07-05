@@ -1965,6 +1965,11 @@ collection pull down menu</extracomment>
         <source>Available voices</source>
         <translation>Dostupné hlasy</translation>
     </message>
+    <message>
+        <source>Piper text-to-speech</source>
+        <extracomment>description of a Piper text-to-speech voice</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WaypointSelector</name>

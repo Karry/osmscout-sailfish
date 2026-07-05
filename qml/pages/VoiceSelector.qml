@@ -86,7 +86,13 @@ Page {
                     text: "%1 - %2".arg(qsTranslate("resource", lang))
                                    .arg(qsTranslate("resource", name))
 
-                    description: qsTr("Author: %1").arg(author)
+                    description: {
+                        if (type == "Piper"){
+                            //: description of a Piper text-to-speech voice
+                            return qsTr("Piper text-to-speech");
+                        }
+                        return qsTr("Author: %1").arg(author);
+                    }
 
                     property bool initialized: false
                     onCheckedChanged: {
