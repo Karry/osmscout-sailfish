@@ -38,13 +38,13 @@ install(TARGETS marisa
 
 # This one is used by `create_private_config` function (features.cmake)
 # for generating private Config.h from template Config.h.cmake
-set(OSMSCOUT_HAVE_LIB_MARISA TRUE PARENT_SCOPE)
+set(OSMSCOUT_HAVE_LIB_MARISA TRUE)
 
 # This one is used by other CMakeLists.txt files for add Marisa-specific classes
-set(MARISA_FOUND TRUE PARENT_SCOPE)
+set(MARISA_FOUND TRUE)
 
 # used by linker
-set(MARISA_LIBRARIES marisa PARENT_SCOPE)
+set(MARISA_LIBRARIES marisa)
 
 # ==================================================================================================
 # OSM Scout library

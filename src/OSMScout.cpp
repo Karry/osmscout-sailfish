@@ -19,6 +19,7 @@
 */
 
 #include <osmscout/log/Logger.h>
+#include <osmscout/lib/CoreFeatures.h>
 #include <osmscoutclientqt/OSMScoutQt.h>
 
 #include "AppSettings.h" // Application settings
@@ -72,6 +73,10 @@ static_assert(false, "OSMSCOUT_SAILFISH_VERSION_STRING should be defined by buil
 
 #ifndef LIBOSMSCOUT_GIT_HASH
 static_assert(false, "LIBOSMSCOUT_GIT_HASH should be defined by build system");
+#endif
+
+#ifndef OSMSCOUT_HAVE_LIB_MARISA
+static_assert(false, "libosmscout should be build with Marisa search");
 #endif
 
 using namespace osmscout;
