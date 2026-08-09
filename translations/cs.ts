@@ -2476,6 +2476,14 @@ collection pull down menu</extracomment>
         <source>worship_building</source>
         <translation>Modlitebna</translation>
     </message>
+    <message>
+        <source>place_capitalcity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>place_millioncity</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>osmscout::OpeningHoursModel</name>

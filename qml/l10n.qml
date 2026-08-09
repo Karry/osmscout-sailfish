@@ -161,7 +161,8 @@ Item{
         QT_TRANSLATE_NOOP("objectType", "waterway_waterfall"),
         QT_TRANSLATE_NOOP("objectType", "waterway_weir"),
         QT_TRANSLATE_NOOP("objectType", "waypoint"),
-        QT_TRANSLATE_NOOP("objectType", "worship_building")
-
+        QT_TRANSLATE_NOOP("objectType", "worship_building"),
+        QT_TRANSLATE_NOOP("objectType", "place_capitalcity"),
+        QT_TRANSLATE_NOOP("objectType", "place_millioncity")
         ]
 }

@@ -2467,6 +2467,14 @@ collection pull down menu</extracomment>
         <source>worship_building</source>
         <translation>Worship</translation>
     </message>
+    <message>
+        <source>place_capitalcity</source>
+        <translation>Capital city</translation>
+    </message>
+    <message>
+        <source>place_millioncity</source>
+        <translation>Million city</translation>
+    </message>
 </context>
 <context>
     <name>osmscout::OpeningHoursModel</name>
