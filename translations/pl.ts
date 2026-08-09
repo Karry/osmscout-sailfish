@@ -1565,6 +1565,124 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>TTSMessageGeneratorQt</name>
+    <message>
+        <source>GPS signal found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GPS signal lost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have reached your destination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn sharply left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn left</source>
+        <translation type="unfinished">Skręć w lewo</translation>
+    </message>
+    <message>
+        <source>Continue straight ahead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn right</source>
+        <translation type="unfinished">Skręć w prawo</translation>
+    </message>
+    <message>
+        <source>Turn sharply right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave the motorway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave the motorway on the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave the motorway on the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the first exit</source>
+        <translation type="unfinished">Wybierz pierwszy zjazd</translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the first exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the second exit</source>
+        <translation type="unfinished">Wybierz drugi zjazd</translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the second exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the third exit</source>
+        <translation type="unfinished">Wybierz trzeci zjazd</translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the third exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the fourth exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the fourth exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the fifth exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the fifth exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the sixth exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the sixth exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished">metrów</translation>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After %1 %2</source>
+        <extracomment>e.g. &quot;After 300 meters/yards&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <extracomment>combine distance and maneuver, e.g. &quot;After 300 meters, turn left&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1, then %2</source>
+        <extracomment>%1 is the following maneuver, e.g. &quot;Turn left, then turn right&quot;.</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TrackColor</name>
     <message>
         <source>Set color</source>

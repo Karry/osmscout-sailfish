@@ -20,6 +20,7 @@
 
 #include <osmscout/log/Logger.h>
 #include <osmscout/lib/CoreFeatures.h>
+#include <osmscoutclientqt/ClientQtFeatures.h>
 #include <osmscoutclientqt/OSMScoutQt.h>
 
 #include "AppSettings.h" // Application settings
@@ -77,6 +78,10 @@ static_assert(false, "LIBOSMSCOUT_GIT_HASH should be defined by build system");
 
 #ifndef OSMSCOUT_HAVE_LIB_MARISA
 static_assert(false, "libosmscout should be build with Marisa search");
+#endif
+
+#ifndef OSMSCOUT_HAVE_LIB_PIPER
+static_assert(false, "libosmscout should be build with Piper TTS");
 #endif
 
 using namespace osmscout;
@@ -272,6 +277,8 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     .WithStyleSheetDirectory(SailfishApp::pathTo("map-styles").toLocalFile())
     .WithTileCacheSizes(/* online */ args.desktop ?  60 : 50, /* offline */ args.desktop ? 200 : 60)
     .WithUserAgent("OSMScoutForSFOS", OSMSCOUT_SAILFISH_VERSION_STRING)
+    .WithNavigationTranslationDir(SailfishApp::pathTo("translations").toLocalFile())
+    .WithEspeakDataDir(SailfishApp::pathTo("espeak-ng-data").toLocalFile())
     .Init();
 
   if (!initSuccess) {

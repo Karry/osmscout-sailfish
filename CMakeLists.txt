@@ -7,7 +7,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 cmake_policy(SET CMP0048 NEW)
-project(osmscout-sailfish VERSION 2.43.0 LANGUAGES C CXX)
+project(osmscout-sailfish VERSION 3.0.0 LANGUAGES C CXX)
 
 # ==================================================================================================
 # Information to update before to release this package.
@@ -371,6 +371,7 @@ set(TRANSLATION_SOURCE_FILES
         ${QML_FILES}
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/RouteDescriptionBuilder.cpp
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/OpeningHoursModel.cpp
+        dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/TTSMessageGeneratorQt.cpp
         )
 
 # See http://doc.qt.io/qt-5/cmake-manual.html
@@ -562,10 +563,12 @@ if (PIPER_FOUND)
     add_executable(PiperTest src/PiperTest.cpp)
     set_property(TARGET PiperTest PROPERTY CXX_STANDARD 20)
     target_include_directories(PiperTest PRIVATE
-            ${PIPER_INCLUDE_DIRS})
+            ${PIPER_INCLUDE_DIRS},
+            ${OSMSCOUT_INCLUDE_DIRS})
 
     target_link_libraries(PiperTest
-            ${PIPER_LIBRARIES})
+            ${PIPER_LIBRARIES}
+            OSMScout)
 
     # libpiper links libonnxruntime.so by absolute path, which Make only knows
     # how to build through the onnxruntime_external ExternalProject. Depend on it

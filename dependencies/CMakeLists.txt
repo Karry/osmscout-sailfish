@@ -47,46 +47,6 @@ set(MARISA_FOUND TRUE)
 set(MARISA_LIBRARIES marisa)
 
 # ==================================================================================================
-# OSM Scout library
-
-set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
-set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
-set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR}/dependencies/libosmscout)
-
-set(OSMSCOUT_INCLUDE_DIRS
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
-
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-gpx/include
-        ${OSMSCOUT_BASE_DIR_BUILD}/libosmscout-gpx/include
-
-        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
-)
-
-# we are including libosmscout subdirectories directly, we are responsible
-# to setup all variables correctly
-include(libosmscout/cmake/ProjectConfig.cmake)
-
-add_subdirectory(libosmscout/libosmscout)
-add_subdirectory(libosmscout/libosmscout-map)
-add_subdirectory(libosmscout/libosmscout-map-qt)
-add_subdirectory(libosmscout/libosmscout-gpx)
-add_subdirectory(libosmscout/libosmscout-client)
-add_subdirectory(libosmscout/libosmscout-client-qt)
-
-set_property(TARGET OSMScout         PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutMap      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutMapQt    PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutGPX      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-set_property(TARGET OSMScoutClientQt PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
-
-target_compile_definitions(OSMScoutClientQt PRIVATE LIBOSMSCOUT_VERSION_STRING="${LIBOSMSCOUT_GIT_HASH}")
-
-set(OSMSCOUT_BASE_DIR_SOURCE ${OSMSCOUT_BASE_DIR_SOURCE} PARENT_SCOPE)
-set(OSMSCOUT_INCLUDE_DIRS ${OSMSCOUT_INCLUDE_DIRS} PARENT_SCOPE)
-
-# ==================================================================================================
 # Piper TTS stack (espeak-ng + onnxruntime + libpiper)
 #
 # These are third-party projects (not "buddy" projects like libosmscout / marisa),
@@ -274,32 +234,77 @@ if (BUILD_PIPER_TTS)
   # ------------------------------------------------------------------------------------------------
   # libpiper (static) - single translation unit exposing the C API
 
-  add_library(piper STATIC ${PIPER_ROOT}/src/piper.cpp)
-  set_property(TARGET piper PROPERTY CXX_STANDARD 17)
-  add_dependencies(piper espeak_ng_external onnxruntime_external)
+  add_library(Piper STATIC ${PIPER_ROOT}/src/piper.cpp)
+  # libosmscout consumes the namespaced target (Piper::Piper), see
+  # libosmscout-client-qt/CMakeLists.txt and cmake/features.cmake.
+  add_library(Piper::Piper ALIAS Piper)
+  set_property(TARGET Piper PROPERTY CXX_STANDARD 17)
+  add_dependencies(Piper espeak_ng_external onnxruntime_external)
 
-  target_include_directories(piper PUBLIC
+  target_include_directories(Piper PUBLIC
       ${PIPER_ROOT}/include
       ${ESPEAKNG_INSTALL_DIR}/include
       ${ONNXRUNTIME_INCLUDE_DIRS}
   )
 
-  target_link_directories(piper PUBLIC
+  target_link_directories(Piper PUBLIC
       ${ESPEAKNG_LINK_DIRS}
       ${ONNXRUNTIME_LINK_DIRS}
   )
 
-  target_link_libraries(piper PUBLIC
+  target_link_libraries(Piper PUBLIC
       ${ESPEAKNG_LINK_FLAGS}
       ${ONNXRUNTIME_LINK_FLAGS}
   )
 
   # exported for the application / test binaries and packaging
+  set(PIPER_FOUND TRUE)
   set(PIPER_FOUND TRUE PARENT_SCOPE)
-  set(PIPER_LIBRARIES piper PARENT_SCOPE)
+  set(PIPER_LIBRARIES Piper)
+  set(PIPER_LIBRARIES Piper PARENT_SCOPE)
   set(PIPER_INCLUDE_DIRS ${PIPER_ROOT}/include PARENT_SCOPE)
   set(PIPER_ONNXRUNTIME_SHARED_LIB ${ONNXRUNTIME_SHARED_LIB} PARENT_SCOPE)
   set(PIPER_ESPEAKNG_DATA_DIR ${ESPEAKNG_DATA_DIR} PARENT_SCOPE)
 
+  set(OSMSCOUT_HAVE_LIB_PIPER TRUE)
 endif()
 
+# ==================================================================================================
+# OSM Scout library
+
+set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR})
+set(OSMSCOUT_BASE_DIR_SOURCE ${CMAKE_HOME_DIRECTORY}/dependencies/libosmscout)
+set(OSMSCOUT_BASE_DIR_BUILD ${CMAKE_CURRENT_BINARY_DIR}/dependencies/libosmscout)
+
+set(OSMSCOUT_INCLUDE_DIRS
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout/include
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map/include
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-map-qt/include
+
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-gpx/include
+        ${OSMSCOUT_BASE_DIR_BUILD}/libosmscout-gpx/include
+
+        ${OSMSCOUT_BASE_DIR_SOURCE}/libosmscout-client-qt/include
+)
+
+# we are including libosmscout subdirectories directly, we are responsible
+# to setup all variables correctly
+include(libosmscout/cmake/ProjectConfig.cmake)
+
+add_subdirectory(libosmscout/libosmscout)
+add_subdirectory(libosmscout/libosmscout-map)
+add_subdirectory(libosmscout/libosmscout-map-qt)
+add_subdirectory(libosmscout/libosmscout-gpx)
+add_subdirectory(libosmscout/libosmscout-client)
+add_subdirectory(libosmscout/libosmscout-client-qt)
+
+set_property(TARGET OSMScout         PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutMap      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutMapQt    PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutGPX      PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+set_property(TARGET OSMScoutClientQt PROPERTY INTERPROCEDURAL_OPTIMIZATION ${OSMSCOUT_ENABLE_IPO})
+
+target_compile_definitions(OSMScoutClientQt PRIVATE LIBOSMSCOUT_VERSION_STRING="${LIBOSMSCOUT_GIT_HASH}")
+
+set(OSMSCOUT_BASE_DIR_SOURCE ${OSMSCOUT_BASE_DIR_SOURCE} PARENT_SCOPE)
+set(OSMSCOUT_INCLUDE_DIRS ${OSMSCOUT_INCLUDE_DIRS} PARENT_SCOPE)

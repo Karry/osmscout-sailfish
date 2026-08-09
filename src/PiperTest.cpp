@@ -26,6 +26,8 @@
 // The voice config is assumed to be <voice.onnx>.json (libpiper default when
 // the config path is NULL).
 
+#include <osmscout/io/File.h>
+
 #include <piper.h>
 
 #include <cstdint>
@@ -117,6 +119,14 @@ int main(int argc, char *argv[])
   std::cout << "espeak data: " << espeakData << std::endl;
   std::cout << "Output:      " << outputPath << std::endl;
   std::cout << "Text:        " << text << std::endl;
+
+  // Exit if espeak data /phontab do not exist, as libpiper do not use espeakINITIALIZE_DONT_EXIT option,
+  // Piper is aborting process when this is not found!
+  if (auto phontabFile = osmscout::AppendFileToDir(espeakData, "phontab");
+      osmscout::ExistsInFilesystem(phontabFile) == false) {
+    std::cerr << "espeak-ng data directory does not contain phontab file: " << phontabFile << std::endl;
+    return 1;
+  }
 
   piper_synthesizer *synth = piper_create(modelPath.c_str(),
                                           nullptr, // <model>.json

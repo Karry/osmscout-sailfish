@@ -680,5 +680,6 @@
 - fix daylight switch, when some area patterns do not update its colors
 - fix: loading missing route data on stylesheet change
 
-* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 2.44
+* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.0
+- integrate Piper text-to-speech library
 - improve suggested lanes during navigation
