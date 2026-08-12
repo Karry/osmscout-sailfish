@@ -576,7 +576,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished">No mostrar en mapa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
