@@ -8,6 +8,7 @@ set(MARISA_ROOT ${CMAKE_HOME_DIRECTORY}/dependencies/marisa-trie)
 set(MARISA_INCLUDE_DIRS
         ${MARISA_ROOT}/lib
         ${MARISA_ROOT}/include)
+set(MARISA_INCLUDE_DIRS ${MARISA_INCLUDE_DIRS} PARENT_SCOPE)
 
 set(MARISA_SRC
         ${MARISA_ROOT}/lib/marisa/agent.cc

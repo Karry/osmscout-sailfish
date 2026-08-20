@@ -225,15 +225,19 @@ Page {
                     enabled: voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.ValidRole)
 
                     onClicked: {
-                        var samples = [
-                                    ["After.ogg", "500.ogg", "Meters.ogg", "TurnRight.ogg"],
-                                    ["RbCross.ogg", "RbExit3.ogg", "Then.ogg", "MwEnter.ogg"],
-                                    ["After.ogg", "800.ogg", "Meters.ogg", "MwExitRight.ogg"],
-                                    ["BearLeft.ogg", "Then.ogg", "MwExitLeft.ogg"]
-                                ];
-                        var sample = samples[Math.floor(Math.random() * samples.length)];
                         var indexObj = voiceModel.index(voiceComboBox.currentIndex, 0);
-                        voiceModel.playSample(indexObj, sample);
+                        if (voiceModel.data(indexObj, InstalledVoicesModel.TypeRole) !== "VoiceOfMarble"){
+                            voiceModel.playTTSSample(indexObj);
+                        } else {
+                            var samples = [
+                                ["After.ogg", "500.ogg", "Meters.ogg", "TurnRight.ogg"],
+                                ["RbCross.ogg", "RbExit3.ogg", "Then.ogg", "MwEnter.ogg"],
+                                ["After.ogg", "800.ogg", "Meters.ogg", "MwExitRight.ogg"],
+                                ["BearLeft.ogg", "Then.ogg", "MwExitLeft.ogg"]
+                            ];
+                            var sample = samples[Math.floor(Math.random() * samples.length)];
+                            voiceModel.playSample(indexObj, sample);
+                        }
                     }
                 }
                 Button {

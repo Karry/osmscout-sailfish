@@ -522,6 +522,7 @@ target_link_libraries(PerformanceTest
 add_executable(SearchPerfTest ${OSMSCOUT_BASE_DIR_SOURCE}/Demos/src/LocationLookup.cpp)
 set_property(TARGET SearchPerfTest PROPERTY CXX_STANDARD 20)
 target_link_libraries(SearchPerfTest OSMScout)
+target_include_directories(SearchPerfTest PRIVATE ${MARISA_INCLUDE_DIRS})
 
 # ==================================================================================================
 # MultiDBRouting
