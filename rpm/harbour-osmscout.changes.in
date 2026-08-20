@@ -681,5 +681,9 @@
 - fix: loading missing route data on stylesheet change
 
 * 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.0
-- integrate Piper text-to-speech library
+- optional Piper text-to-speech voices for navigation instructions
+  Instructions are simple, template-based for now. But it will allow to use street names
+  or more complex instructions in the future releases.
 - improve suggested lanes during navigation
+  There is still place for improvements, but suggested lanes works better with tested junctions.
+  Plan is to use spoken instructions to navigate you to the best lanes on highways.
