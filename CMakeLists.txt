@@ -372,6 +372,7 @@ set(TRANSLATION_SOURCE_FILES
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/RouteDescriptionBuilder.cpp
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/OpeningHoursModel.cpp
         dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/TTSMessageGeneratorQt.cpp
+        dependencies/libosmscout/libosmscout-client-qt/src/osmscoutclientqt/InstalledVoicesModel.cpp
         )
 
 # See http://doc.qt.io/qt-5/cmake-manual.html

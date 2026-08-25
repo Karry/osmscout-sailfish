@@ -672,6 +672,29 @@ collection pull down menu</extracomment>
     </message>
 </context>
 <context>
+    <name>InstalledVoicesModel</name>
+    <message>
+        <source>Initializing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Synthesizing voice sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice synthesis failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice synthesis failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Layers</name>
     <message>
         <source>Map settings</source>
