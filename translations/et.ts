@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Koordinaadid</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation>Eelista ingliskeelseid nimesid</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>Kaardivaates, otsinguvormil ja asukoha teabe puhul</translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Teekond</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>Ei ole kasutusel</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>Kuula näidist</translation>
+        <source>Available voices</source>
+        <translation>Saadaval hääljuhised</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Salvestatud raja pikkus</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>Ära lülita ekraani välja</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Pööra kaarti</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automatne öörežiim</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Lisateave kaardivaates</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>Salvestatud raja pikkus</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>Kaardi suund</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>Uus asukoht</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Näita põhjasuunda, kui kaarti pööratakse navigeerimise ajal</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>Saadaval hääljuhised</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>Ära lülita ekraani välja</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Muuda teekonnapunktide ja radade nähtavust kogumikus</translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>Uus asukoht</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,14 +1384,8 @@ collection pull down menu</extracomment>
         <translation>Kogumiku nähtavus</translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation>Pööra kaarti</translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
-        <translation>Automatne öörežiim</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation>Muuda teekonnapunktide ja radade nähtavust kogumikus</translation>
     </message>
     <message>
         <source>Night mode</source>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation>Öörežiim</translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation>Eelista ingliskeelseid nimesid</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation>Kaardivaates, otsinguvormil ja asukoha teabe puhul</translation>
+        <source>Play sample</source>
+        <translation>Kuula näidist</translation>
     </message>
 </context>
 <context>
@@ -2084,10 +2084,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Lae uuesti</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Tekstid on loetud sisse osana &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projektist ning litsenseeritud &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; alusel.</translation>
     </message>
     <message>
         <source>Author: %1</source>

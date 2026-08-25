@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Współrzędne</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation>Preferuj nazwy angielskie</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>Na mapie, w wyszukiwaniu i informacjach o miejscu</translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Nawigacja</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>Bez głosu</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>Odtwórz próbkę</translation>
+        <source>Available voices</source>
+        <translation>Dostępne głosy</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Dystans</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>Nie wyłączaj wyświetlacza</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Obracanie mapy</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automatyczny tryb nocny</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Panel informacji</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>Dystans</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>Orientacja mapy</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>Nowe miejsce</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Pokaż północ, gdy mapa zostanie obrócona podczas nawigacji</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>Dostępne głosy</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>Nie wyłączaj wyświetlacza</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Szybkie przełączanie w celu ukrycia lub pokazania śladów i punktów trasy z kolekcji</translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>Nowe miejsce</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,14 +1384,8 @@ collection pull down menu</extracomment>
         <translation>Widoczność kolekcji</translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation>Obracanie mapy</translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
-        <translation>Automatyczny tryb nocny</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation>Szybkie przełączanie w celu ukrycia lub pokazania śladów i punktów trasy z kolekcji</translation>
     </message>
     <message>
         <source>Night mode</source>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation>Tryb nocny</translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation>Preferuj nazwy angielskie</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation>Na mapie, w wyszukiwaniu i informacjach o miejscu</translation>
+        <source>Play sample</source>
+        <translation>Odtwórz próbkę</translation>
     </message>
 </context>
 <context>
@@ -2093,10 +2093,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Odśwież</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Próbki głosu zostały utworzone jako część projektu &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Na licencji &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>

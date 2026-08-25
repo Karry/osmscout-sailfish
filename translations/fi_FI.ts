@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Koordinaatit</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation>Suosi englanninkielisiä nimiä</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>Valinta näkyy kartalla, haussa ja paikkatiedoissa</translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Navigointi</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>Ei ääniopasta</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>Käynnistä ääninäyte</translation>
+        <source>Available voices</source>
+        <translation>Saatavilla olevat äänioppaat</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Seurannan tarkkuus</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>Pidä näyttö päällä</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Käännä karttaa</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automattinen yönäkymä</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Tietopaneeli</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>Seurannan tarkkuus</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>Kartan suuntaus</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>Uusi paikka</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Osoita pohjoinen kartan kääntyessä navigoinnin aikana</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>Saatavilla olevat äänioppaat</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>Pidä näyttö päällä</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Pikanäppäimet tallennettujen reittijälkien ja kokoelmiin tallennettujen tiepisteiden piilottamista/näyttämistä varten</translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>Uusi paikka</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,14 +1384,8 @@ collection pull down menu</extracomment>
         <translation>Kokoelmien näyttäminen</translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation>Käännä karttaa</translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
-        <translation>Automattinen yönäkymä</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation>Pikanäppäimet tallennettujen reittijälkien ja kokoelmiin tallennettujen tiepisteiden piilottamista/näyttämistä varten</translation>
     </message>
     <message>
         <source>Night mode</source>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation>Yönäkymä</translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation>Suosi englanninkielisiä nimiä</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation>Valinta näkyy kartalla, haussa ja paikkatiedoissa</translation>
+        <source>Play sample</source>
+        <translation>Käynnistä ääninäyte</translation>
     </message>
 </context>
 <context>
@@ -2084,10 +2084,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Päivitä</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Ääniopastukset ovat luotu osana &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projektia. Lisensoitu &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; ehdoin.</translation>
     </message>
     <message>
         <source>Author: %1</source>

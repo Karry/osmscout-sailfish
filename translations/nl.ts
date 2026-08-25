@@ -1275,14 +1275,6 @@ collection pull down menu</extracomment>
 <context>
     <name>Settings</name>
     <message>
-        <source>Navigation</source>
-        <translation type="unfinished">Routering</translation>
-    </message>
-    <message>
-        <source>Prefer English names</source>
-        <translation type="unfinished">Engelse namen verkiezen</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1303,9 +1295,17 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished">Engelse namen verkiezen</translation>
+    </message>
+    <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished">Routering</translation>
     </message>
     <message>
         <source>Voice</source>

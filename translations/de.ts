@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Koordinaten</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation>Bevorzuge englische Namen</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>Auf der Karte, Suche und Ortsinformationen</translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Navigation</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>Stumm</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>Beispiel abspielen</translation>
+        <source>Available voices</source>
+        <translation>Verfügbare Stimmen</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Tracker-Entfernung</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>Bildschirm eingeschaltet lassen</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Drehe Karte</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automatischer Nacht-Modus</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Infoanzeige</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>Tracker-Entfernung</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>Kartenausrichtung</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>Neuer Ort</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Zeige Norden, wenn die Karte während der Navigation rotiert</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>Verfügbare Stimmen</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>Bildschirm eingeschaltet lassen</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Schnellschalter um Tracks und Wegpunkte aus Sammlungen zu verstecken/anzuzeigen</translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>Neuer Ort</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,14 +1384,8 @@ collection pull down menu</extracomment>
         <translation>Sammlungen Sichtbarkeit</translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation>Drehe Karte</translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
-        <translation>Automatischer Nacht-Modus</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation>Schnellschalter um Tracks und Wegpunkte aus Sammlungen zu verstecken/anzuzeigen</translation>
     </message>
     <message>
         <source>Night mode</source>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation>Nacht-Modus</translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation>Bevorzuge englische Namen</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation>Auf der Karte, Suche und Ortsinformationen</translation>
+        <source>Play sample</source>
+        <translation>Beispiel abspielen</translation>
     </message>
 </context>
 <context>
@@ -2084,10 +2084,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Neu laden</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Stimmbeispiele wurde als Teil des &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; Projekts erstellt. Lizenziert unter den Bedingungen der &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; Lizenz.</translation>
     </message>
     <message>
         <source>Author: %1</source>

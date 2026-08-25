@@ -675,23 +675,23 @@ collection pull down menu</extracomment>
     <name>InstalledVoicesModel</name>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished"></translation>
+        <translation>Inicializuji</translation>
     </message>
     <message>
         <source>Synthesizing voice sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Syntetizuji vzorek hlasu </translation>
     </message>
     <message>
         <source>Voice synthesis failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Syntéza hlasu selhala</translation>
     </message>
     <message>
         <source>Voice synthesis failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Syntéza hlasu selhala: %1</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Připraven</translation>
     </message>
 </context>
 <context>
@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Souřadnice</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation>Preferovat anglické názvy</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>Na mapě, hledání a informacích o místech</translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Navigace</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>Bez hlasu</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>Přehrát ukázku</translation>
+        <source>Available voices</source>
+        <translation>Dostupné hlasy</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Vzdálenost trasy</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>Nevypínat obrazovku</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Automaticky otáčet mapu</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automatický noční režim</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Informační panel</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>Vzdálenost trasy</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>Orientace mapy</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>Nové místo</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Ukazuje sever pokud je mapa otočena během navigace</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>Dostupné hlasy</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>Nevypínat obrazovku</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Rychlý přepínač pro zobrazení či schování tras a míst z kolekcí</translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>Nové místo</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,14 +1384,8 @@ collection pull down menu</extracomment>
         <translation>Viditelnost sbírek</translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation>Automaticky otáčet mapu</translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
-        <translation>Automatický noční režim</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation>Rychlý přepínač pro zobrazení či schování tras a míst z kolekcí</translation>
     </message>
     <message>
         <source>Night mode</source>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation>Noční režim</translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation>Preferovat anglické názvy</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation>Na mapě, hledání a informacích o místech</translation>
+        <source>Play sample</source>
+        <translation>Přehrát ukázku</translation>
     </message>
 </context>
 <context>
@@ -2095,10 +2095,6 @@ collection pull down menu</extracomment>
         <translation>Obnovit</translation>
     </message>
     <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Vzorky hlasů byly vytvořeny jako součást projektu&lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Jsou licencovány za podmínek &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
-    </message>
-    <message>
         <source>Author: %1</source>
         <translation>Autor: %1</translation>
     </message>
@@ -2113,7 +2109,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
-        <translation type="unfinished"></translation>
+        <translation>Samply Voice of Marble jsou vytvořeny v rámci &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projektu a jsou licencované za podmínek &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; licence.&lt;br /&gt;&lt;br /&gt;Hlasové modely Piper jsou vytvořeny v rámci projektu &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; a licencované za podmínek &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; licence (až na výjimky).</translation>
     </message>
 </context>
 <context>

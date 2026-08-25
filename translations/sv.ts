@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Koordinater</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation>Föredra Engelska namn</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation>På karta, sök- och platsinformation</translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Vägval</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>Ingen röst</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>Spela upp exempel</translation>
+        <source>Available voices</source>
+        <translation>Tillgängliga röster</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>Spårningsdistans</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>Behåll skärmen på</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation>Rotera kartan</translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation>Automatiskt nattläge</translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Infopanel</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>Spårningsdistans</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>Kartorientering</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>Ny plats</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>Visa norr, när kartan är roterad under navigering</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>Tillgängliga röster</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>Behåll skärmen på</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation>Snabb växling mellan att dölja eller visa spår och vägpunkter från samlingar</translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>Ny plats</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,14 +1384,8 @@ collection pull down menu</extracomment>
         <translation>Samlingars synlighet</translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation>Rotera kartan</translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
-        <translation>Automatiskt nattläge</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation>Snabb växling mellan att dölja eller visa spår och vägpunkter från samlingar</translation>
     </message>
     <message>
         <source>Night mode</source>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation>Nattläge</translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation>Föredra Engelska namn</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation>På karta, sök- och platsinformation</translation>
+        <source>Play sample</source>
+        <translation>Spela upp exempel</translation>
     </message>
 </context>
 <context>
@@ -2084,10 +2084,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Uppdatera</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Röstexemplen skapades som en del av projektet &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Licensierat under villkoren för &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>

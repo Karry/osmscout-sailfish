@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>坐标</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished">偏爱英语名称</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -1307,18 +1316,33 @@ collection pull down menu</extracomment>
         <translation>不播报语音</translation>
     </message>
     <message>
-        <source>Play sample</source>
-        <translation>播放示例</translation>
+        <source>Available voices</source>
+        <translation>可用语音</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation>追踪器距离</translation>
+        <source>Keep display on</source>
+        <extracomment>switch for keep display on during navigation</extracomment>
+        <translation>保持屏幕常亮</translation>
+    </message>
+    <message>
+        <source>Rotate map</source>
+        <extracomment>switch for rotate map on during navigation</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic night mode</source>
+        <extracomment>automatic night mode during navigation</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>信息板</translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation>追踪器距离</translation>
     </message>
     <message>
         <source>Current elevation</source>
@@ -1346,26 +1370,13 @@ collection pull down menu</extracomment>
         <translation>地图方向</translation>
     </message>
     <message>
-        <source>New place</source>
-        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
-        <translation>新位置</translation>
-    </message>
-    <message>
         <source>Show north when map is rotated during navigation</source>
         <translation>在导航过程中旋转地图时显示北方</translation>
     </message>
     <message>
-        <source>Available voices</source>
-        <translation>可用语音</translation>
-    </message>
-    <message>
-        <source>Keep display on</source>
-        <extracomment>switch for keep display on during navigation</extracomment>
-        <translation>保持屏幕常亮</translation>
-    </message>
-    <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
+        <source>New place</source>
+        <extracomment>Setting toggle for button on main screen for storing current position to collection</extracomment>
+        <translation>新位置</translation>
     </message>
     <message>
         <source>Collection visibility</source>
@@ -1373,13 +1384,7 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Rotate map</source>
-        <extracomment>switch for rotate map on during navigation</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatic night mode</source>
-        <extracomment>automatic night mode during navigation</extracomment>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1388,13 +1393,8 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation type="unfinished">偏爱英语名称</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
+        <source>Play sample</source>
+        <translation>播放示例</translation>
     </message>
 </context>
 <context>
@@ -2075,10 +2075,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>刷新</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">语音示例是&lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; 项目的一部分。使用&lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; 许可协议。</translation>
     </message>
     <message>
         <source>Author: %1</source>

@@ -1295,6 +1295,15 @@ collection pull down menu</extracomment>
         <translation>Координаты</translation>
     </message>
     <message>
+        <source>Prefer English names</source>
+        <translation type="unfinished">Английские названия</translation>
+    </message>
+    <message>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Navigation</source>
         <translation>Навигация</translation>
     </message>
@@ -1305,19 +1314,6 @@ collection pull down menu</extracomment>
     <message>
         <source>No voice</source>
         <translation>Без голоса</translation>
-    </message>
-    <message>
-        <source>Play sample</source>
-        <translation>Послушать пример</translation>
-    </message>
-    <message>
-        <source>Prefer English names</source>
-        <translation type="unfinished">Английские названия</translation>
-    </message>
-    <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Available voices</source>
@@ -1395,6 +1391,10 @@ collection pull down menu</extracomment>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play sample</source>
+        <translation>Послушать пример</translation>
     </message>
 </context>
 <context>
@@ -2093,10 +2093,6 @@ collection pull down menu</extracomment>
         <source>Refresh</source>
         <extracomment>button visible when fetching of available voices from server fails</extracomment>
         <translation>Обновить</translation>
-    </message>
-    <message>
-        <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation type="vanished">Образцы голосов созданы в рамках проекта &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Лицензия &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>
