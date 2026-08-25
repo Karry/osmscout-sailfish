@@ -2073,7 +2073,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation>Próbki głosu zostały utworzone jako część projektu &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Na licencji &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
+        <translation type="vanished">Próbki głosu zostały utworzone jako część projektu &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt;. Na licencji &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>
@@ -2086,6 +2086,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Piper text-to-speech</source>
         <extracomment>description of a Piper text-to-speech voice</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1341,12 +1341,12 @@ collection pull down menu</extracomment>
         <translation>Garder l&apos;écran allumé</translation>
     </message>
     <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
+        <source>Prefer English names</source>
+        <translation type="unfinished">Préférer les noms anglais</translation>
     </message>
     <message>
-        <source>Collection visibility</source>
-        <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
+        <source>On the map, search and place info</source>
+        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1360,17 +1360,17 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Night mode</source>
-        <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
+        <source>Collection visibility</source>
+        <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prefer English names</source>
-        <translation type="unfinished">Préférer les noms anglais</translation>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>On the map, search and place info</source>
-        <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <source>Night mode</source>
+        <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2064,7 +2064,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation>Les échantillons de voix ont été créés dans le cadre du projet &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; sous licence &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
+        <translation type="vanished">Les échantillons de voix ont été créés dans le cadre du projet &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; sous licence &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Author: %1</source>
@@ -2077,6 +2077,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Piper text-to-speech</source>
         <extracomment>description of a Piper text-to-speech voice</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

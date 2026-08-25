@@ -1288,11 +1288,6 @@ collection pull down menu</extracomment>
         <translation>Minta lejátszása</translation>
     </message>
     <message>
-        <source>Tracker distance</source>
-        <extracomment>switch for diplay information on main screen</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Info panel</source>
         <extracomment>setting section for information panel on main screen</extracomment>
         <translation>Inormációs panel</translation>
@@ -1341,10 +1336,6 @@ collection pull down menu</extracomment>
         <translation>Kijelző ébrentartása</translation>
     </message>
     <message>
-        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Collection visibility</source>
         <extracomment>Setting toggle for button on main screen for show/hide collection entries</extracomment>
         <translation>Gyűjtemény láthatósága</translation>
@@ -1371,6 +1362,15 @@ collection pull down menu</extracomment>
     <message>
         <source>On the map, search and place info</source>
         <extracomment>description of &quot;Prefer English names&quot; switch</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracker distance</source>
+        <extracomment>switch for diplay information on main screen</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fast toggle for hidde or show tracks and waypoints from collections</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2055,7 +2055,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project. Licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.</source>
-        <translation>A hangmintákat a &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projekt részeként hozták létre. Licencelve a &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; licenc hatálya alatt.</translation>
+        <translation type="vanished">A hangmintákat a &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projekt részeként hozták létre. Licencelve a &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; licenc hatálya alatt.</translation>
     </message>
     <message>
         <source>Author: %1</source>
@@ -2068,6 +2068,10 @@ collection pull down menu</extracomment>
     <message>
         <source>Piper text-to-speech</source>
         <extracomment>description of a Piper text-to-speech voice</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -183,8 +183,9 @@ Page {
                         model: voiceModel
                         delegate: MenuItem {
                             text: valid ?
-                                      ("%1 - %2".arg(qsTranslate("resource", lang))
-                                                .arg(qsTranslate("resource", name))):
+                                      ("%1 - %2 (%3)".arg(qsTranslate("resource", lang))
+                                                   .arg(qsTranslate("resource", name))
+                                                   .arg(qsTranslate("resource", type))):
                                       qsTr("No voice")
                         }
                     }
@@ -217,12 +218,20 @@ Page {
                 spacing: Theme.paddingLarge
 
                 Button {
-                    text: qsTr("Play sample")
+                    text: (
+                        voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.TypeRole) !== "VoiceOfMarble" &&
+                        voiceModel.ttsState != TTSEngine.Idle ?
+                        voiceModel.ttsStateText :
+                        qsTr("Play sample")
+                    )
+
                     anchors {
                         horizontalCenter: parent.horizontalCenter
                     }
 
-                    enabled: voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.ValidRole)
+                    enabled: voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.ValidRole) &&
+                        ((voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.TypeRole) !== "VoiceOfMarble" &&
+                              voiceModel.ttsState == TTSEngine.Idle) || voiceComboBox.getData(voiceComboBox.currentIndex, InstalledVoicesModel.TypeRole) === "VoiceOfMarble")
 
                     onClicked: {
                         var indexObj = voiceModel.index(voiceComboBox.currentIndex, 0);

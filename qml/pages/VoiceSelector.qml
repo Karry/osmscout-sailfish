@@ -60,8 +60,10 @@ Page {
                 textFormat: Text.RichText;
                 text: "<style>a:link { color: " + Theme.highlightColor + "; }</style>" +
                       qsTr(
-                          "Voice samples were created as part of <a href=\"https://community.kde.org/Marble/VoiceOfMarble\">VoiceOfMarble</a> project. " +
-                          "Licensed under terms of <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> license."
+                          "Voice of Marble samples were created as part of <a href=\"https://community.kde.org/Marble/VoiceOfMarble\">VoiceOfMarble</a> project " +
+                          "and licensed under terms of <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> license.<br /><br />" +
+                          "Piper voice models are created as part of <a href=\"https://huggingface.co/rhasspy/piper-voices/\">Piper</a> project " +
+                          "and licensed under terms of <a href=\"https://choosealicense.com/licenses/mit/\">MIT</a> license (with few exceptions)."
                           )
                 onLinkActivated: Qt.openUrlExternally(link)
                 wrapMode: Text.WordWrap
