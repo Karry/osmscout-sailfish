@@ -680,7 +680,7 @@
 - fix daylight switch, when some area patterns do not update its colors
 - fix: loading missing route data on stylesheet change
 
-* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.0
+* 2026-08-26 Lukáš Karas <lukas.karas@centrum.cz> 3.0
 - optional Piper text-to-speech voices for navigation instructions
   Instructions are simple, template-based for now. But it will allow to use street names
   or more complex instructions in the future releases.
