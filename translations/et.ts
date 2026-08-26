@@ -675,23 +675,23 @@ collection pull down menu</extracomment>
     <name>InstalledVoicesModel</name>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished"></translation>
+        <translation>Valmendan</translation>
     </message>
     <message>
         <source>Synthesizing voice sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõnesünteesi näide</translation>
     </message>
     <message>
         <source>Voice synthesis failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõnesüntees ei toiminud</translation>
     </message>
     <message>
         <source>Voice synthesis failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kõnesüntees ei toiminud: %1</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -2100,7 +2100,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
-        <translation type="unfinished"></translation>
+        <translation>„Voice of Marble“ näited loodi osana &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; projektist ja on litsentseeritud &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; alusel.&lt;br /&gt;&lt;br /&gt;Piperi häälemudelid on loodud osana &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piperi&lt;/a&gt; projektist ja on litsentseeritud &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; litsentsi alusel (mõnede eranditega).</translation>
     </message>
 </context>
 <context>

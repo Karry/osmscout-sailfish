@@ -675,23 +675,23 @@ collection pull down menu</extracomment>
     <name>InstalledVoicesModel</name>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished"></translation>
+        <translation>Startar</translation>
     </message>
     <message>
         <source>Synthesizing voice sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Syntetiserar röstexempel</translation>
     </message>
     <message>
         <source>Voice synthesis failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Röstsyntetisering misslyckades</translation>
     </message>
     <message>
         <source>Voice synthesis failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Röstsyntetisering misslyckades: %1</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Klar</translation>
     </message>
 </context>
 <context>
@@ -2100,7 +2100,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
-        <translation type="unfinished"></translation>
+        <translation>Röstprov från Marble skapades som en del av &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble-projektet&lt;/a&gt; och är licensierade under villkoren för &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0-licensen&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Piper-röstmodellerna skapades som en del av &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper-projektet&lt;/a&gt; och är licensierade under villkoren för &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT-licensen&lt;/a&gt; (med några få undantag).</translation>
     </message>
 </context>
 <context>
