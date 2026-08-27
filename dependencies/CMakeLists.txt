@@ -86,6 +86,16 @@ if (BUILD_PIPER_TTS)
       PREFIX           ${ESPEAKNG_PREFIX}
       BINARY_DIR       ${ESPEAKNG_BINARY_DIR}
       INSTALL_DIR      ${ESPEAKNG_INSTALL_DIR}
+      # espeak-ng's cmake/deps.cmake unconditionally git-clones libsonic from
+      # GitHub whenever it isn't found as a system library, regardless of the
+      # USE_LIBSONIC option below. Piper only ever calls espeak's phonemizer
+      # API (espeak_TextToPhonemesWithTerminator), never espeak_Synth, so
+      # sonic (audio playback rate change) is unused here. Gate the fetch on
+      # USE_LIBSONIC so a network-less build with USE_LIBSONIC=OFF stays
+      # network-less.
+      PATCH_COMMAND    sed -i
+          "s/^else()$/elseif(USE_LIBSONIC)/"
+          ${ESPEAKNG_SOURCE}/cmake/deps.cmake
       CMAKE_ARGS
           -DCMAKE_INSTALL_PREFIX=${ESPEAKNG_INSTALL_DIR}
           -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
@@ -194,6 +204,19 @@ if (BUILD_PIPER_TTS)
           # compiler cannot break this vendored build. It does not affect our
           # own code's warning handling.
           --compile-no-warning-as-error
+          # onnxruntime's cmake/deps.txt pulls ~40 third-party archives from
+          # GitHub/GitLab/Azure via FetchContent at configure time, which does
+          # not work in network-less build environments (e.g. OBS). onnxruntime
+          # already supports a local override for this
+          # (cmake/external/onnxruntime_external_deps.cmake): any deps.txt URL
+          # that has a matching file under this mirror dir (same path, minus
+          # the "https://" scheme) is used instead of being downloaded. The
+          # mirror lives outside the onnxruntime submodule (which tracks
+          # upstream microsoft/onnxruntime directly) so it can be committed to
+          # this repo; only the small subset of deps.txt actually needed by
+          # our build configuration (CPU-only shared lib, no unit tests) is
+          # vendored - see dependencies/onnxruntime-deps-mirror.
+          -Donnxruntime_CMAKE_DEPS_MIRROR_DIR=${CMAKE_HOME_DIRECTORY}/dependencies/onnxruntime-deps-mirror
           -DCMAKE_INSTALL_PREFIX=${ONNXRUNTIME_INSTALL_DIR}
           # Force the install lib dir to "lib". onnxruntime uses GNUInstallDirs,
           # which resolves to "lib64" on 64-bit targets (aarch64) but "lib" on
