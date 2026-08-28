@@ -98,7 +98,9 @@ for aarch64_target in \
      ln -sf libgomp.so.1.0.0 ${aarch64_target}/usr/lib64/libgomp.so || true"
 done
 
-sfdk --quiet  build --enable-debug
+# enable debug options with:
+# --with debug_options
+sfdk --quiet  build --enable-debug --define "onnx_build_parallel 1"
 if [ $? -ne 0 ] ; then
   echo
   echo "Failed to build"
