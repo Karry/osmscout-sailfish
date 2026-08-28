@@ -70,10 +70,20 @@ Screenshots:
 #rm -rf rpmbuilddir-%{_arch}
 mkdir -p rpmbuilddir-%{_arch}
 
+# default onnx_build_parallel to nproc if not overridden on the command line
+%{!?onnx_build_parallel: %define onnx_build_parallel %(nproc)}
+
+%bcond_with debug_options
+
 ## for production build:
-cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQT_QML_DEBUG=no -DSANITIZER=none -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
-## for debug build, use these cmake arguments instead:
-# cd rpmbuilddir-%{_arch} && cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" -DQT_QML_DEBUG=yes -DSANITIZER=none -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: ..
+cd rpmbuilddir-%{_arch} && cmake \
+%if %{with debug_options}
+    -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" -DQT_QML_DEBUG=yes \
+%else
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQT_QML_DEBUG=no \
+%endif
+    -DSANITIZER=none -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_RPATH=%{_datadir}/%{name}/lib/: -DONNXRUNTIME_BUILD_PARALLEL_LEVEL=%{onnx_build_parallel} \
+    ..
 
 cd ..
 make -C rpmbuilddir-%{_arch} VERBOSE=1 %{?_smp_mflags}

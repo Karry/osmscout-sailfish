@@ -33,7 +33,7 @@ jobs:
                make &&
                sudo make install"
       - name: Configure build project
-        run: cmake -B build -DCMAKE_UNITY_BUILD=ON -Wno-dev
+        run: cmake -B build -DCMAKE_UNITY_BUILD=ON -Wno-dev -DONNXRUNTIME_BUILD_PARALLEL_LEVEL=$(nproc)
       - name: Build project
         run: cmake --build build -- all
       - name: Run tests
