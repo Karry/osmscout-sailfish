@@ -86,18 +86,14 @@ if (BUILD_PIPER_TTS)
       PREFIX           ${ESPEAKNG_PREFIX}
       BINARY_DIR       ${ESPEAKNG_BINARY_DIR}
       INSTALL_DIR      ${ESPEAKNG_INSTALL_DIR}
-      # espeak-ng's cmake/deps.cmake unconditionally git-clones libsonic from
-      # GitHub whenever it isn't found as a system library, regardless of the
-      # USE_LIBSONIC option below. Piper only ever calls espeak's phonemizer
-      # API (espeak_TextToPhonemesWithTerminator), never espeak_Synth, so
-      # sonic (audio playback rate change) is unused here. Gate the fetch on
-      # USE_LIBSONIC so a network-less build with USE_LIBSONIC=OFF stays
-      # network-less.
-      PATCH_COMMAND    sed -i
-          "s/^else()$/elseif(USE_LIBSONIC)/"
-          ${ESPEAKNG_SOURCE}/cmake/deps.cmake
       CMAKE_ARGS
           -DCMAKE_INSTALL_PREFIX=${ESPEAKNG_INSTALL_DIR}
+          # espeak-ng uses GNUInstallDirs, which resolves CMAKE_INSTALL_LIBDIR to
+          # "lib64" on 64-bit targets (e.g. aarch64). That would install the static
+          # library to install/lib64/libespeak-ng.a while ESPEAKNG_STATIC_LIB /
+          # ESPEAKNG_LINK_DIRS below expect install/lib, breaking the link with
+          # "cannot find -lespeak-ng". Force a plain "lib" libdir on every arch.
+          -DCMAKE_INSTALL_LIBDIR=lib
           -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
           -DBUILD_SHARED_LIBS:BOOL=OFF
           -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
