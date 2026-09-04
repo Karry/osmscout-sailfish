@@ -43,6 +43,7 @@ BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
 BuildRequires:  git
 BuildRequires:  qt5-qttools-linguist
+# for build with the sanitizers, add BuildRequires: libasan / libubsan
 
 %description
 OSM Scout is offline map viewer and routing application.
