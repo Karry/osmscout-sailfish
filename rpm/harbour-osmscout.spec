@@ -76,10 +76,10 @@ mkdir -p rpmbuilddir-%{_arch}
 
 %bcond_with debug_options
 
-## for production build:
+# QT_QML_DEBUG is broken with c++20 and Qt 5.6
 cd rpmbuilddir-%{_arch} && cmake \
 %if %{with debug_options}
-    -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" -DQT_QML_DEBUG=yes \
+    -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" -DQT_QML_DEBUG=no \
 %else
     -DCMAKE_BUILD_TYPE=RelWithDebInfo -DQT_QML_DEBUG=no \
 %endif
