@@ -687,3 +687,10 @@
 - improve suggested lanes during navigation
   There is still place for improvements, but suggested lanes works better with tested junctions.
   Plan is to use spoken instructions to navigate you to the best lanes on highways.
+
+* 2026-09-10 Lukáš Karas <lukas.karas@centrum.cz> 3.1
+- make the build fully offline
+  It fixes build in OBS (CI/CD platform for Chum)
+- workaround for crash on Jolla Phone 2026
+  It was caused by thread-local storage (.tdata) used by gcc 13 (Sailfish SDK 5.1)
+  conflicting with proprietary Mali OpenGL driver used on Jolla Phone via libhybris
