@@ -675,23 +675,23 @@ collection pull down menu</extracomment>
     <name>InstalledVoicesModel</name>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished"></translation>
+        <translation>Initialisierung</translation>
     </message>
     <message>
         <source>Synthesizing voice sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Voicesample erstellen</translation>
     </message>
     <message>
         <source>Voice synthesis failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Sprachsynthese ist fehlgeschlagen</translation>
     </message>
     <message>
         <source>Voice synthesis failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Sprachsynthese ist fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Fertig</translation>
     </message>
 </context>
 <context>
@@ -1591,118 +1591,118 @@ collection pull down menu</extracomment>
     <name>TTSMessageGeneratorQt</name>
     <message>
         <source>GPS signal found</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS-Signal gefunden</translation>
     </message>
     <message>
         <source>GPS signal lost</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS-Signal verloren</translation>
     </message>
     <message>
         <source>You have reached your destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Du hast Dein Ziel erreicht</translation>
     </message>
     <message>
         <source>Turn sharply left</source>
-        <translation type="unfinished"></translation>
+        <translation>Biege scharf links ab</translation>
     </message>
     <message>
         <source>Turn left</source>
-        <translation type="unfinished">Biegen Sie links ab</translation>
+        <translation>Biege links ab</translation>
     </message>
     <message>
         <source>Continue straight ahead</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahre weiter geradeaus</translation>
     </message>
     <message>
         <source>Turn right</source>
-        <translation type="unfinished">Biegen Sie rechts ab</translation>
+        <translation>Biege rechts ab</translation>
     </message>
     <message>
         <source>Turn sharply right</source>
-        <translation type="unfinished"></translation>
+        <translation>Biege scharf rechts ab</translation>
     </message>
     <message>
         <source>Leave the motorway</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlasse die Autobahn</translation>
     </message>
     <message>
         <source>Leave the motorway on the left</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahre links von der Autobahn ab</translation>
     </message>
     <message>
         <source>Leave the motorway on the right</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahre rechts von der Autobahn ab</translation>
     </message>
     <message>
         <source>Take the first exit</source>
-        <translation type="unfinished">Nimm die erste Ausfahrt</translation>
+        <translation>Nimm die erste Ausfahrt</translation>
     </message>
     <message>
         <source>At the roundabout, take the first exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Kreisverkehr die erste Ausfahrt nehmen</translation>
     </message>
     <message>
         <source>Take the second exit</source>
-        <translation type="unfinished">Nimm die zweite Ausfahrt</translation>
+        <translation>Nimm die zweite Ausfahrt</translation>
     </message>
     <message>
         <source>At the roundabout, take the second exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Kreisverkehr die zweite Ausfahrt nehmen</translation>
     </message>
     <message>
         <source>Take the third exit</source>
-        <translation type="unfinished">Nimm die dritte Ausfahrt</translation>
+        <translation>Nimm die dritte Ausfahrt</translation>
     </message>
     <message>
         <source>At the roundabout, take the third exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Kreisverkehr die dritte Ausfahrt nehmen</translation>
     </message>
     <message>
         <source>Take the fourth exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die vierte Ausfahrt</translation>
     </message>
     <message>
         <source>At the roundabout, take the fourth exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Kreisverkehr die vierte Ausfahrt nehmen</translation>
     </message>
     <message>
         <source>Take the fifth exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die fünfte Ausfahrt</translation>
     </message>
     <message>
         <source>At the roundabout, take the fifth exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Kreisverkehr die fünfte Ausfahrt nehmen</translation>
     </message>
     <message>
         <source>Take the sixth exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimm die sechste Ausfahrt</translation>
     </message>
     <message>
         <source>At the roundabout, take the sixth exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Kreisverkehr die sechste Ausfahrt nehmen</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished">Meter</translation>
+        <translation>Meter</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"></translation>
+        <translation>Yards</translation>
     </message>
     <message>
         <source>After %1 %2</source>
         <extracomment>e.g. &quot;After 300 meters/yards&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nach %1 %2</translation>
     </message>
     <message>
         <source>%1, %2</source>
         <extracomment>combine distance and maneuver, e.g. &quot;After 300 meters, turn left&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, %2</translation>
     </message>
     <message>
         <source>%1, then %2</source>
         <extracomment>%1 is the following maneuver, e.g. &quot;Turn left, then turn right&quot;.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1, dann %2</translation>
     </message>
 </context>
 <context>
@@ -2096,11 +2096,11 @@ collection pull down menu</extracomment>
     <message>
         <source>Piper text-to-speech</source>
         <extracomment>description of a Piper text-to-speech voice</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Piper Text-zu-Sprache</translation>
     </message>
     <message>
         <source>Voice of Marble samples were created as part of &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; license.&lt;br /&gt;&lt;br /&gt;Piper voice models are created as part of &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; project and licensed under terms of &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; license (with few exceptions).</source>
-        <translation type="unfinished"></translation>
+        <translation>Die „Voice of Marble“-Samples wurden im Rahmen des &lt;a href=&quot;https://community.kde.org/Marble/VoiceOfMarble&quot;&gt;VoiceOfMarble&lt;/a&gt; -Projekts erstellt und stehen unter der&lt;a href=&quot;https://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt; Lizenz.&lt;br /&gt;&lt;br /&gt;Die „Piper“-Stimmmodelle wurden im Rahmen des &lt;a href=&quot;https://huggingface.co/rhasspy/piper-voices/&quot;&gt;Piper&lt;/a&gt; -Projekts erstellt und stehen (mit wenigen Ausnahmen) unter der &lt;a href=&quot;https://choosealicense.com/licenses/mit/&quot;&gt;MIT&lt;/a&gt; Lizenz.</translation>
     </message>
 </context>
 <context>
@@ -2492,11 +2492,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>place_capitalcity</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptstadt</translation>
     </message>
     <message>
         <source>place_millioncity</source>
-        <translation type="unfinished"></translation>
+        <translation>Millionenstadt</translation>
     </message>
 </context>
 <context>
@@ -2559,59 +2559,59 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie scharf ab&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege scharf ab&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie links ab&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege links ab&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie scharf links ab&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege scharf links ab&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Fahren Sie gerade aus&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;fahre gerade aus&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Halten Sie sich rechts&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;halte sich rechts&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie rechts ab&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege rechts ab&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt; into %2</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie scharf rechts ab&lt;/strong&gt; auf %2</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege scharf rechts ab&lt;/strong&gt; auf %2</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp left&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie scharf links ab&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege scharf links ab&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn left&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie links ab&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege links ab&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly left&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Halten Sie sich links&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;halte Dich links&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Straight on&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Fahren Sie gerade aus&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;fahre gerade aus&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn slightly right&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Halten Sie sich rechts&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;halte Dich rechts&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn right&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie rechts ab&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege rechts ab&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Turn sharp right&lt;/strong&gt;</source>
-        <translation>An der Kreuzung %1&lt;strong&gt;Biegen Sie scharf rechts ab&lt;/strong&gt;</translation>
+        <translation>An der Kreuzung %1&lt;strong&gt;biege scharf rechts ab&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>unnamed road</source>
@@ -2671,43 +2671,43 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>Bei Kreuzung %1&lt;strong&gt;Fahren Sie in den Kreisverkehr&lt;/strong&gt;</translation>
+        <translation>Bei Kreuzung %1&lt;strong&gt;Fahre in den Kreisverkehr&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter roundabout&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Fahren Sie in den Kreisverkehr&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Fahre in den Kreisverkehr&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Enter roundabout</source>
-        <translation>Fahren Sie in den Kreisverkehr</translation>
+        <translation>Fahre in den Kreisverkehr</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit into street %2</source>
-        <translation>&lt;strong&gt;Verlassen Sie dien Kreisverkehr&lt;/strong&gt; bei der %1. Ausfahrt auf die Straße %2</translation>
+        <translation>&lt;strong&gt;Verlasse den Kreisverkehr&lt;/strong&gt; bei der %1. Ausfahrt auf die Straße %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave roundabout&lt;/strong&gt; on %1. exit</source>
-        <translation>&lt;strong&gt;Verlassen Sie dien Kreisverkehr&lt;/strong&gt; bei der %1. Ausfahrt</translation>
+        <translation>&lt;strong&gt;Verlasse den Kreisverkehr&lt;/strong&gt; bei der %1. Ausfahrt</translation>
     </message>
     <message>
         <source>Enter motorway</source>
-        <translation>Fahren Sie auf die Autobahn</translation>
+        <translation>Fahre auf die Autobahn</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt; %2</source>
-        <translation>Bei Auffahrt %1&lt;strong&gt;Fahren Sie auf die Autobahn&lt;/strong&gt; %2</translation>
+        <translation>Bei Auffahrt %1&lt;strong&gt;fahre auf die Autobahn&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Fahren Sie auf die Autobahn&lt;/strong&gt; %1</translation>
+        <translation>&lt;strong&gt;Fahre auf die Autobahn&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>At crossing %1&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>Bei Auffahrt %1&lt;strong&gt;Fahren Sie auf die Autobahn&lt;/strong&gt;</translation>
+        <translation>Bei Auffahrt %1&lt;strong&gt;fahre auf die Autobahn&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Enter motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Fahren Sie auf die Autobahn&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Fahre auf die Autobahn&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Change motorway</source>
@@ -2715,11 +2715,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt; from %1 to %2</source>
-        <translation>&lt;strong&gt;Wechseln Sie die Autobahn&lt;/strong&gt;  von %1 auf %2</translation>
+        <translation>&lt;strong&gt;Wechsel die Autobahn&lt;/strong&gt;  von %1 auf %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Change motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Wechseln Sie die Autobahn&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Wechsel die Autobahn&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Leave motorway</source>
@@ -2727,15 +2727,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1 into %2</source>
-        <translation>&lt;strong&gt;Verlassen Sie die Autobahn&lt;/strong&gt; %1 auf %2</translation>
+        <translation>&lt;strong&gt;Verlasse die Autobahn&lt;/strong&gt; %1 auf %2</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt; %1</source>
-        <translation>&lt;strong&gt;Verlassen Sie die Autobahn&lt;/strong&gt; %1</translation>
+        <translation>&lt;strong&gt;Verlasse die Autobahn&lt;/strong&gt; %1</translation>
     </message>
     <message>
         <source>&lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
-        <translation>&lt;strong&gt;Verlassen Sie die Autobahn&lt;/strong&gt;</translation>
+        <translation>&lt;strong&gt;Verlasse die Autobahn&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>Way changes name</source>
@@ -2788,27 +2788,27 @@ collection pull down menu</extracomment>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt; from %2 to %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Wechseln Sie die Autobahn&lt;/strong&gt;  von %2 auf %3</translation>
+        <translation>%1 &lt;strong&gt;Wechsel die Autobahn&lt;/strong&gt;  von %2 auf %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Change motorway&lt;/strong&gt;</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Wechseln Sie die Autobahn&lt;/strong&gt;</translation>
+        <translation>%1&lt;strong&gt;Wechsel die Autobahn&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2 into %3</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Verlassen Sie die Autobahn&lt;/strong&gt; %2 auf %3</translation>
+        <translation>%1&lt;strong&gt;Verlasse die Autobahn&lt;/strong&gt; %2 auf %3</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt; %2</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1&lt;strong&gt;Verlassen Sie die Autobahn&lt;/strong&gt; %2</translation>
+        <translation>%1&lt;strong&gt;Verlasse die Autobahn&lt;/strong&gt; %2</translation>
     </message>
     <message>
         <source>%1 &lt;strong&gt;Leave motorway&lt;/strong&gt;</source>
         <extracomment>%1 is motorway exit description</extracomment>
-        <translation>%1 &lt;strong&gt;Verlassen Sie die Autobahn&lt;/strong&gt;</translation>
+        <translation>%1 &lt;strong&gt;Verlasse die Autobahn&lt;/strong&gt;</translation>
     </message>
 </context>
 <context>

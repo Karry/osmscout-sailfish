@@ -694,3 +694,6 @@
 - workaround for crash on Jolla Phone 2026
   It was caused by thread-local storage (.tdata) used by gcc 13 (Sailfish SDK 5.1)
   conflicting with proprietary Mali OpenGL driver used on Jolla Phone via libhybris
+
+* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.2
+- update German translations
