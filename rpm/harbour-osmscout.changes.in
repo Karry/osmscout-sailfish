@@ -697,3 +697,5 @@
 
 * 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.2
 - update German translations
+- Update core library with few improvements of rendering performance and improved suggested lanes during navigation (again).
+  Agentic (AI) coding in libosmscout really gets momentum, it is hard to keep track of all recent changes.
