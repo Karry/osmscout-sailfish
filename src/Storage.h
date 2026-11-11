@@ -481,7 +481,7 @@ public slots:
   void deleteWaypoint(qint64 collectionId, qint64 waypointId);
 
   /**
-   * delete waypoint
+   * delete track
    * emits collectionDetailsLoaded, trackDeleted
    */
   void deleteTrack(qint64 collectionId, qint64 trackId);

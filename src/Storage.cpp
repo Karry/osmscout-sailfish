@@ -1636,6 +1636,19 @@ void Storage::importCollection(QString filePath)
   }
   qDebug() << "Imported" << gpxFile.waypoints.size() << "waypoints to collection" << collectionId << "from" << filePath;
 
+  // routes are stored as tracks
+  for (const auto &route: gpxFile.routes) {
+    if (route.points.empty()) {
+      continue;
+    }
+    gpx::Track track;
+    track.name = route.name;
+    gpx::TrackSegment segment;
+    segment.points = route.points;
+    track.segments.push_back(std::move(segment));
+    gpxFile.tracks.push_back(std::move(track));
+  }
+
   // import tracks
   if (!gpxFile.tracks.empty()) {
     if (!importTracks(gpxFile, collectionId)){
