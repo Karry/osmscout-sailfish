@@ -2,6 +2,7 @@
 
 [![Last build on Ubuntu 22.04](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_22_04.yml/badge.svg)](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_22_04.yml)
 [![Last build on Ubuntu 24.04](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_24_04.yml/badge.svg)](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_24_04.yml)
+[![Last build on Ubuntu 26.04](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_26_04.yml/badge.svg)](https://github.com/Karry/osmscout-sailfish/actions/workflows/build_and_test_on_ubuntu_26_04.yml)
 [![Donate via PayPal.me](https://img.shields.io/badge/donate-paypal.me-blue.svg)](https://paypal.me/OSMScoutForSailfish)
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/OSMScoutForSailfishOS/donate)
 
