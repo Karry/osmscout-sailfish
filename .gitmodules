@@ -15,4 +15,7 @@
 	url = https://github.com/OHF-Voice/piper1-gpl.git
 [submodule "dependencies/onnxruntime"]
 	path = dependencies/onnxruntime
-	url = https://github.com/microsoft/onnxruntime.git
+	# upstream dissapear: https://github.com/onnx/onnx/issues/8842
+	# url = https://github.com/microsoft/onnxruntime.git
+	# Intel's fork
+	url = https://github.com/intel/onnxruntime.git
