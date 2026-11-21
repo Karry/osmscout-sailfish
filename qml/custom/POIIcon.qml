@@ -112,6 +112,10 @@ Image{
 
                 'shop': 'shop',
                 'shop_building': 'shop',
+                'shop_supermarket_building': 'grocery',
+                'shop_supermarket': 'grocery',
+                'shop_convenience_building': 'grocery',
+                'shop_convenience': 'grocery',
                 'christian_church_building':'religious-christian',
                 'christian_church': 'religious-christian',
                 'jewish_synagogue_building': 'religious-jewish',

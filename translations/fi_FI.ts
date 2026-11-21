@@ -1271,6 +1271,10 @@ collection pull down menu</extracomment>
         <source>Playground</source>
         <translation>Leikkikenttä/-puisto</translation>
     </message>
+    <message>
+        <source>Grocery, supermarket</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>
