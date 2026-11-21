@@ -672,15 +672,15 @@ Page {
         ListElement { label: QT_TR_NOOP("Fuel");          iconType: "amenity_fuel";       distance: 10000; types: "amenity_fuel amenity_fuel_building"; }
         ListElement { label: QT_TR_NOOP("Charging station"); iconType: "amenity_charging_station"; distance: 10000; types: "amenity_charging_station"; }
         ListElement { label: QT_TR_NOOP("Pharmacy");      iconType: "amenity_pharmacy";   distance: 10000; types: "amenity_pharmacy"; }
-        ListElement { label: QT_TR_NOOP("Accomodation");  iconType: "tourism_hotel";      distance: 10000;
+        ListElement { label: QT_TR_NOOP("Accommodation"); iconType: "tourism_hotel";      distance: 10000;
             types: "tourism_hotel tourism_hotel_building tourism_hostel tourism_hostel_building tourism_motel tourism_motel_building tourism_alpine_hut tourism_alpine_hut_building"; }
         ListElement { label: QT_TR_NOOP("Camp");          iconType: "tourism_camp_site";  distance: 10000; types: "tourism_camp_site tourism_caravan_site"; }
         ListElement { label: QT_TR_NOOP("Castle, Manor"); iconType: "historic_castle";    distance: 10000;
             types: "historic_castle historic_castle_building historic_manor historic_manor_building historic_ruins historic_ruins_building"; }
-        //: start of stream/river, drining water sometimes
+        //: start of stream/river, drinking water sometimes
         ListElement { label: QT_TR_NOOP("Spring");        iconType: "natural_spring";     distance: 2000; types: "natural_spring"; }
 
-        // and somethig for fun
+        // and something for fun
         ListElement { label: QT_TR_NOOP("Via ferrata route"); iconType: "natural_peak";   distance: 20000;
             types: "highway_via_ferrata_easy highway_via_ferrata_moderate highway_via_ferrata_difficult highway_via_ferrata_extreme"; }
 

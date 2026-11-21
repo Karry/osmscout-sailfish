@@ -1199,7 +1199,7 @@ collection pull down menu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Accomodation</source>
+        <source>Accommodation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1233,7 +1233,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Spring</source>
-        <extracomment>start of stream/river, drining water sometimes</extracomment>
+        <extracomment>start of stream/river, drinking water sometimes</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
