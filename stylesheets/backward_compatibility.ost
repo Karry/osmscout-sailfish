@@ -1,0 +1,122 @@
+OST
+
+TYPES
+  // this file contains extra types not part of the usual database import,
+  // just to make stylesheet checks pass
+
+  // basemap boundary
+
+  TYPE basemap_boundary_country
+    = WAY AREA ("boundary"=="administrative" AND "admin_level"=="2") OR
+      RELATION ("type"=="boundary" AND "boundary"=="administrative" AND "admin_level"=="2")
+      {Name, NameAlt, AdminLevel}
+      MULTIPOLYGON IGNORESEALAND OPTIMIZE_LOW_ZOOM
+      DESC
+        en: "national border"
+        de: "Staatsgrenze"
+
+  // deprecated types, kept in stylesheets for backward compatibility, but not used in new databases
+
+  // religion types now with religion_ prefix
+
+  // christian_church, christian_worship, landuse_farm, religion_christian_cathedral, religion_christian_chapel, religion_christian_church, worship_building)
+
+  TYPE christian_church_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="church")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE christian_church
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="church")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+  TYPE christian_worship
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian")
+      {Name, NameAlt}
+
+  TYPE christian_chapel_building
+     = AREA ("amenity"=="place_of_worship" AND
+             "religion"=="christian" AND
+             "building"=="chapel")
+       {Name, NameAlt}
+       ADDRESS POI
+
+  TYPE christian_cathedral_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="cathedral")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, building, routingPOI
+      DESC
+        en: "cathedral"
+        de: "Kathedrale"
+
+  TYPE christian_chapel_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="christian" AND
+            "building"=="chapel")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, building, routingPOI
+      DESC
+        en: "chapel"
+        de: "Kapelle"
+
+  TYPE jewish_synagogue_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="jewish" AND
+            "building"=="synagogue")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, building, routingPOI
+      DESC
+        en: "synagogue"
+        de: "Synagoge"
+
+  TYPE muslim_mosque_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "religion"=="muslim" AND
+            "building"=="mosque")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, building, routingPOI
+      DESC
+        en: "mosque"
+        de: "Moschee"
+
+  TYPE temple_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "building"=="temple")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, building, routingPOI
+      DESC
+        en: "temple"
+        de: "Tempel"
+
+  TYPE shrine_building
+    = AREA ("amenity"=="place_of_worship" AND
+            "building"=="shrine")
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, building, routingPOI
+      DESC
+        en: "shrine"
+        de: "Andachtsstätte"
+
+  TYPE worship_building
+    = AREA ("amenity"=="place_of_worship" AND EXISTS "building" AND !("building" IN ["no","false","0"]))
+      {Name, NameAlt}
+      ADDRESS POI
+      GROUP religious, routingPOI
+
+END
