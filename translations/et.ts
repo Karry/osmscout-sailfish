@@ -1704,6 +1704,37 @@ collection pull down menu</extracomment>
         <extracomment>%1 is the following maneuver, e.g. &quot;Turn left, then turn right&quot;.</extracomment>
         <translation>%1 ning seejärel %2</translation>
     </message>
+    <message>
+        <source>Leave the motorway at exit %1 towards %2</source>
+        <extracomment>e.g. &quot;Leave the motorway at exit 42 towards Springfield&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave the motorway at exit %1</source>
+        <extracomment>e.g. &quot;Leave the motorway at exit 42&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leave the motorway towards %1</source>
+        <extracomment>e.g. &quot;Leave the motorway towards Springfield&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motorway change from %1 to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motorway change to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the %n. exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At the roundabout, take the %n. exit</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrackColor</name>
