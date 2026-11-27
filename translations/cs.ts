@@ -1273,7 +1273,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Grocery, supermarket</source>
-        <translation type="unfinished"></translation>
+        <translation>Potraviny, supermerket</translation>
     </message>
 </context>
 <context>
@@ -1711,33 +1711,33 @@ collection pull down menu</extracomment>
     <message>
         <source>Leave the motorway at exit %1 towards %2</source>
         <extracomment>e.g. &quot;Leave the motorway at exit 42 towards Springfield&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sjeďte z dálnice na výjezdu %1 na %2</translation>
     </message>
     <message>
         <source>Leave the motorway at exit %1</source>
         <extracomment>e.g. &quot;Leave the motorway at exit 42&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sjeďte z dálnice na výjezdu %1</translation>
     </message>
     <message>
         <source>Leave the motorway towards %1</source>
         <extracomment>e.g. &quot;Leave the motorway towards Springfield&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sjeďte z dálnice na %1</translation>
     </message>
     <message>
         <source>Motorway change from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Změna dálnice z %1 na %2</translation>
     </message>
     <message>
         <source>Motorway change to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Změna dálnice na %1</translation>
     </message>
     <message>
         <source>Take the %n. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Použijte %n. výjezd</translation>
     </message>
     <message>
         <source>At the roundabout, take the %n. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Na kruhovém objezdu, použijte %n. výjezd</translation>
     </message>
 </context>
 <context>

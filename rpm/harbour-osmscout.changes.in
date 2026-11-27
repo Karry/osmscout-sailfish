@@ -696,7 +696,7 @@
   conflicting with proprietary Mali OpenGL driver used on Jolla Phone via libhybris
 
 * 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.2
-- update German translations
+- update Czech, French, German and Swedish translations
 - import GPX routes (stored as tracks in the collection)
 - few improvements of rendering performance
 - improved suggested lanes and instructions during navigation (again)

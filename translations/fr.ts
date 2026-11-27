@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Finnish: Ari J.</source>
-        <translation type="unfinished"></translation>
+        <translation>Finnois : Ari J.</translation>
     </message>
 </context>
 <context>
@@ -188,19 +188,19 @@ collection pull down menu</extracomment>
     <message>
         <source>Color</source>
         <extracomment>track edit menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Share</source>
         <extracomment>track context menu
 ----------
 collection pull down menu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Partager</translation>
     </message>
     <message>
         <source>Statistics</source>
         <extracomment>collection pull down menu</extracomment>
-        <translation type="unfinished">Statistiques</translation>
+        <translation>Statistiques</translation>
     </message>
 </context>
 <context>
@@ -359,64 +359,64 @@ collection pull down menu</extracomment>
     <name>CollectionStatistics</name>
     <message>
         <source>Loading collection</source>
-        <translation type="unfinished">Chargement de la collection</translation>
+        <translation>Chargement de la collection</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distance</translation>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Longest track</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus longue route</translation>
     </message>
     <message>
         <source>Time</source>
         <extracomment>Track duration</extracomment>
-        <translation type="unfinished">Heure</translation>
+        <translation>Durée</translation>
     </message>
     <message>
         <source>Moving Time</source>
-        <translation type="unfinished">Durée de déplacement</translation>
+        <translation>Heure de départ</translation>
     </message>
     <message>
         <source>Max speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse maximum</translation>
     </message>
     <message>
         <source>%1 mi/h</source>
-        <translation type="unfinished">%1 mi/h</translation>
+        <translation>%1 mi/h</translation>
     </message>
     <message>
         <source>%1 km/h</source>
-        <translation type="unfinished">%1 km/h</translation>
+        <translation>%1 km/h</translation>
     </message>
     <message>
         <source>Elevation min/max</source>
-        <translation type="unfinished"></translation>
+        <translation>Élévation min/max</translation>
     </message>
     <message>
         <source>%1 / %2 ft a.s.l.</source>
-        <translation type="unfinished">%1 / %2 pieds d&apos;altitude</translation>
+        <translation>%1 / %2 pieds d&apos;altitude</translation>
     </message>
     <message>
         <source>%1 / %2 m a.s.l.</source>
-        <translation type="unfinished">%1 / %2 m d&apos;altitude</translation>
+        <translation>%1 / %2 mètres d&apos;altitude</translation>
     </message>
     <message>
         <source>Ascent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascension</translation>
     </message>
     <message>
         <source>Descent</source>
-        <translation type="unfinished">Descente</translation>
+        <translation>Descente</translation>
     </message>
     <message>
         <source>Unknown type</source>
-        <translation type="unfinished"></translation>
+        <translation>Type inconnu</translation>
     </message>
     <message>
         <source>Track count</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de routes</translation>
     </message>
 </context>
 <context>
@@ -499,7 +499,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Type</translation>
     </message>
 </context>
 <context>
@@ -572,15 +572,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Show all on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout afficher sur la carte</translation>
     </message>
     <message>
         <source>Show none on map</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne rien afficher</translation>
     </message>
     <message>
         <source>Pull down to import collection or create empty one</source>
-        <translation type="unfinished"></translation>
+        <translation>Faites glisser vers le bas pour importer une collection ou pour en créer une nouvelle</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@ collection pull down menu</extracomment>
     <name>DatabaseWarning</name>
     <message>
         <source>No offline database!</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas de données hors ligne !</translation>
     </message>
 </context>
 <context>
@@ -668,14 +668,14 @@ collection pull down menu</extracomment>
     <name>GpsFixWarning</name>
     <message>
         <source>Waiting for GPS fix</source>
-        <translation type="unfinished"></translation>
+        <translation>En attente de localisation</translation>
     </message>
 </context>
 <context>
     <name>InstalledVoicesModel</name>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished"></translation>
+        <translation>Initialisation</translation>
     </message>
     <message>
         <source>Synthesizing voice sample</source>
@@ -683,15 +683,15 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Voice synthesis failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de la synthèse vocale</translation>
     </message>
     <message>
         <source>Voice synthesis failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de la synthèse vocale : %1</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Prêt</translation>
     </message>
 </context>
 <context>
@@ -840,11 +840,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Downloaded version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version téléchargée</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Data version</source>
@@ -852,7 +852,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Available version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version disponible</translation>
     </message>
 </context>
 <context>
@@ -868,7 +868,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Cannot parse url %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;analyser l&apos;adresse %1</translation>
     </message>
     <message>
         <source>Tracker error</source>
@@ -926,11 +926,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Offline map database is required for search functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Une base de données cartographique hors ligne est nécessaire pour la fonction &quot;recherche&quot;.</translation>
     </message>
     <message>
         <source>Offline map database is required for navigation functionality.</source>
-        <translation type="unfinished"></translation>
+        <translation>Une base de données cartographique hors ligne est nécessaire pour la fonction de navigation.</translation>
     </message>
     <message>
         <source>Share place link</source>
@@ -939,7 +939,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Edit waypoint</source>
-        <translation type="unfinished">Modifier le repère</translation>
+        <translation>Modifier les étapes</translation>
     </message>
     <message>
         <source>ETA %1</source>
@@ -947,7 +947,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Destinations: %1</translation>
     </message>
     <message>
         <source>Stop navigation</source>
@@ -961,7 +961,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Deleting</source>
         <extracomment>remorse dialog</extracomment>
-        <translation type="unfinished">Suppression</translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Scroll down for more entries</source>
@@ -1017,7 +1017,7 @@ collection pull down menu</extracomment>
     <name>OpeningHours</name>
     <message>
         <source>Opening hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Horaires</translation>
     </message>
 </context>
 <context>
@@ -1146,18 +1146,18 @@ collection pull down menu</extracomment>
     <message>
         <source>Allow main roads</source>
         <extracomment>witch to allow main roads (highway=primary|secondary) while routing for foot or bike</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Autoriser les routes principales</translation>
     </message>
 </context>
 <context>
     <name>RoutingStep</name>
     <message>
         <source>Distance</source>
-        <translation type="unfinished">Distance</translation>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Destinations: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Destinations: %1</translation>
     </message>
 </context>
 <context>
@@ -1265,11 +1265,11 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>ATM, Bank</source>
-        <translation type="unfinished"></translation>
+        <translation>Distributeur automatique</translation>
     </message>
     <message>
         <source>Playground</source>
-        <translation type="unfinished"></translation>
+        <translation>Aire de jeu</translation>
     </message>
     <message>
         <source>Grocery, supermarket</source>
@@ -1300,7 +1300,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Prefer English names</source>
-        <translation type="unfinished">Préférer les noms anglais</translation>
+        <translation>Préférer les noms en anglais</translation>
     </message>
     <message>
         <source>On the map, search and place info</source>
@@ -1336,7 +1336,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Automatic night mode</source>
         <extracomment>automatic night mode during navigation</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mode nuit automatique</translation>
     </message>
     <message>
         <source>Info panel</source>
@@ -1394,7 +1394,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Night mode</source>
         <extracomment>Setting toggle for button on main screen for night/daylight mode</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mode nuit</translation>
     </message>
     <message>
         <source>Play sample</source>
@@ -1815,7 +1815,7 @@ collection pull down menu</extracomment>
     <name>TrackTypeComboBox</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Type</translation>
     </message>
 </context>
 <context>
@@ -1859,7 +1859,7 @@ collection pull down menu</extracomment>
     <message>
         <source>Type</source>
         <extracomment>track type</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Type</translation>
     </message>
     <message>
         <source>Current data</source>

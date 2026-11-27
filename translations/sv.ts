@@ -1273,7 +1273,7 @@ collection pull down menu</extracomment>
     </message>
     <message>
         <source>Grocery, supermarket</source>
-        <translation type="unfinished"></translation>
+        <translation>Livsmedel, mataffär</translation>
     </message>
 </context>
 <context>
@@ -1711,33 +1711,33 @@ collection pull down menu</extracomment>
     <message>
         <source>Leave the motorway at exit %1 towards %2</source>
         <extracomment>e.g. &quot;Leave the motorway at exit 42 towards Springfield&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Lämna motorvägen på avfart %1 mot %2</translation>
     </message>
     <message>
         <source>Leave the motorway at exit %1</source>
         <extracomment>e.g. &quot;Leave the motorway at exit 42&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Lämna motorvägen på avfart %1</translation>
     </message>
     <message>
         <source>Leave the motorway towards %1</source>
         <extracomment>e.g. &quot;Leave the motorway towards Springfield&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Lämna motorvägen mot %1</translation>
     </message>
     <message>
         <source>Motorway change from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Motorvägen går över från %1 till %2</translation>
     </message>
     <message>
         <source>Motorway change to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Motorvägen går över till %1</translation>
     </message>
     <message>
         <source>Take the %n. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta avtag %n</translation>
     </message>
     <message>
         <source>At the roundabout, take the %n. exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta avtag %n, i rondellen</translation>
     </message>
 </context>
 <context>
