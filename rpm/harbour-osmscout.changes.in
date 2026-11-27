@@ -699,7 +699,8 @@
 - update German translations
 - import GPX routes (stored as tracks in the collection)
 - few improvements of rendering performance
-- improved suggested lanes during navigation (again)
+- improved suggested lanes and instructions during navigation (again)
 - fixed infinitely repeating turn instructions with "Voice of Marble" voice
+- fixed regression when application crash on zoom level 20 (yes, even AI makes mistakes)
 - navigation instructions now includes exit number and direction for highway exits
 - tons of other improvements in libosmscout - Agentic (AI) coding in really gets momentum, it is hard to keep track of all recent changes.
