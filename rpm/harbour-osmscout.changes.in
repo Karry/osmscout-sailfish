@@ -695,7 +695,7 @@
   It was caused by thread-local storage (.tdata) used by gcc 13 (Sailfish SDK 5.1)
   conflicting with proprietary Mali OpenGL driver used on Jolla Phone via libhybris
 
-* 2026-xx-xx Lukáš Karas <lukas.karas@centrum.cz> 3.2
+* 2026-11-28 Lukáš Karas <lukas.karas@centrum.cz> 3.2
 - update Czech, French, German and Swedish translations
 - import GPX routes (stored as tracks in the collection)
 - few improvements of rendering performance
